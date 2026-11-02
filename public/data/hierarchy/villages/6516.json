@@ -1,0 +1,106 @@
+[
+  {
+    "code": "930038",
+    "nameEn": "Gyaspur",
+    "subDistrictCode": 6516,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511665",
+    "nameEn": "Hathijan",
+    "subDistrictCode": 6516,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930040",
+    "nameEn": "Kamod",
+    "subDistrictCode": 6516,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930042",
+    "nameEn": "Lakshmipura",
+    "subDistrictCode": 6516,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930041",
+    "nameEn": "Lambha",
+    "subDistrictCode": 6516,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930035",
+    "nameEn": "Odhav",
+    "subDistrictCode": 6516,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930036",
+    "nameEn": "Piplaj",
+    "subDistrictCode": 6516,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930034",
+    "nameEn": "Ramol",
+    "subDistrictCode": 6516,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930039",
+    "nameEn": "Saijpur-Gopalpur",
+    "subDistrictCode": 6516,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930037",
+    "nameEn": "Shahvadi",
+    "subDistrictCode": 6516,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930033",
+    "nameEn": "Vastral",
+    "subDistrictCode": 6516,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930032",
+    "nameEn": "Vatva",
+    "subDistrictCode": 6516,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930044",
+    "nameEn": "Vinjhol",
+    "subDistrictCode": 6516,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

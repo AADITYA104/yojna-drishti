@@ -1,0 +1,882 @@
+[
+  {
+    "code": "508051",
+    "nameEn": "Amadpura (Ghodiyal)",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508010",
+    "nameEn": "Amadpura (Mumanvas)",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508102",
+    "nameEn": "Amirpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508009",
+    "nameEn": "Andhariya",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508081",
+    "nameEn": "Badarpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508038",
+    "nameEn": "Basu",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508062",
+    "nameEn": "Bavalchudi",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508096",
+    "nameEn": "Bhakhari",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508095",
+    "nameEn": "Bhalgam",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508032",
+    "nameEn": "Bhangrodiya",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508042",
+    "nameEn": "Bharkawada",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508002",
+    "nameEn": "Bharod",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508055",
+    "nameEn": "Bhatvas",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508109",
+    "nameEn": "Bhukhla",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508037",
+    "nameEn": "Changa",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508036",
+    "nameEn": "Changwada",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508019",
+    "nameEn": "Chhaniyana",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508111",
+    "nameEn": "Chhapi (Ct)",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508057",
+    "nameEn": "Chitroda",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508106",
+    "nameEn": "Dalvana",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508054",
+    "nameEn": "Dhanali",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508003",
+    "nameEn": "Dhanpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508088",
+    "nameEn": "Dharewada",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508005",
+    "nameEn": "Dhori",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508030",
+    "nameEn": "Dhota",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508067",
+    "nameEn": "Edrana",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508085",
+    "nameEn": "Fategadh",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508028",
+    "nameEn": "Ghodiyal",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508083",
+    "nameEn": "Gidasan Moti",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508069",
+    "nameEn": "Gidasan Nani",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508050",
+    "nameEn": "Hadmatiya",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508099",
+    "nameEn": "Harde Vasana",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508020",
+    "nameEn": "Hasanpur",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508024",
+    "nameEn": "Hatavad",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508108",
+    "nameEn": "Iqbalgadh",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508078",
+    "nameEn": "Iqbalpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508017",
+    "nameEn": "Islampura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508004",
+    "nameEn": "Jalotra",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508025",
+    "nameEn": "Joita",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508094",
+    "nameEn": "Juni Nagari",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508100",
+    "nameEn": "Juni Sendhani",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508073",
+    "nameEn": "Kabirpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508098",
+    "nameEn": "Kaleda",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508022",
+    "nameEn": "Kamalpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508049",
+    "nameEn": "Karasanpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508023",
+    "nameEn": "Karnala",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508066",
+    "nameEn": "Kodarali",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508110",
+    "nameEn": "Kodaram",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508065",
+    "nameEn": "Kotadi",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508046",
+    "nameEn": "Limboi",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508045",
+    "nameEn": "Magarwada",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508041",
+    "nameEn": "Mahi",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508034",
+    "nameEn": "Majadar",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508014",
+    "nameEn": "Majatpur",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508033",
+    "nameEn": "Malosana",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508087",
+    "nameEn": "Manpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508070",
+    "nameEn": "Megal",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508058",
+    "nameEn": "Mejarpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508047",
+    "nameEn": "Memadpur",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508082",
+    "nameEn": "Mepada",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508039",
+    "nameEn": "Meta",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508075",
+    "nameEn": "Mokeshvar",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508026",
+    "nameEn": "Moriya",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508013",
+    "nameEn": "Moteta",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508007",
+    "nameEn": "Motipura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508011",
+    "nameEn": "Mumanvas",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508092",
+    "nameEn": "Nagana",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508093",
+    "nameEn": "Nagarpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508043",
+    "nameEn": "Nalasar",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508084",
+    "nameEn": "Nandotra",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508089",
+    "nameEn": "Nanosana",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508104",
+    "nameEn": "Navi Nagari",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508101",
+    "nameEn": "Navi Sendhani",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508060",
+    "nameEn": "Navisana",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508077",
+    "nameEn": "Navo Vas",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508074",
+    "nameEn": "Nizampura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508091",
+    "nameEn": "Paldi",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508072",
+    "nameEn": "Panchada",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508076",
+    "nameEn": "Pandva",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508015",
+    "nameEn": "Parkhadi",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508086",
+    "nameEn": "Pasvadal",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508006",
+    "nameEn": "Pavthi",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508071",
+    "nameEn": "Pepol",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508105",
+    "nameEn": "Pilucha",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508040",
+    "nameEn": "Pirojpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508063",
+    "nameEn": "Rajosana",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508059",
+    "nameEn": "Rupal",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508027",
+    "nameEn": "Sabalpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508048",
+    "nameEn": "Sakalana",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508080",
+    "nameEn": "Salemkot",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508016",
+    "nameEn": "Samsherpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508053",
+    "nameEn": "Sardarpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508035",
+    "nameEn": "Sherpura (Majadar)",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508097",
+    "nameEn": "Sherpura (Sembhar)",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508056",
+    "nameEn": "Sisrana",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508052",
+    "nameEn": "Sukhpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508079",
+    "nameEn": "Tajpura",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508064",
+    "nameEn": "Teniwada",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508107",
+    "nameEn": "Thalwada",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508012",
+    "nameEn": "Thuvar",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508044",
+    "nameEn": "Timbachudi",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508090",
+    "nameEn": "Umrecha",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508031",
+    "nameEn": "Vadgam",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508008",
+    "nameEn": "Vagadadi",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508021",
+    "nameEn": "Vansol",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508061",
+    "nameEn": "Varasada",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508029",
+    "nameEn": "Varnawada",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508018",
+    "nameEn": "Varvadiya",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508103",
+    "nameEn": "Vasana (Sembhar)",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508068",
+    "nameEn": "Vesa",
+    "subDistrictCode": 3738,
+    "districtCode": 441,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

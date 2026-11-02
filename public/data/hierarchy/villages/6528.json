@@ -1,0 +1,74 @@
+[
+  {
+    "code": "930224",
+    "nameEn": "Akota",
+    "subDistrictCode": 6528,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930226",
+    "nameEn": "Atladara",
+    "subDistrictCode": 6528,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930231",
+    "nameEn": "Gotri",
+    "subDistrictCode": 6528,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930229",
+    "nameEn": "Jetalpur",
+    "subDistrictCode": 6528,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930227",
+    "nameEn": "Subhanpura",
+    "subDistrictCode": 6528,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930225",
+    "nameEn": "Tadanlja",
+    "subDistrictCode": 6528,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "934505",
+    "nameEn": "Tandalia",
+    "subDistrictCode": 6528,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930228",
+    "nameEn": "Vadiwadi",
+    "subDistrictCode": 6528,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930230",
+    "nameEn": "Vasnasaiyad",
+    "subDistrictCode": 6528,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

@@ -1,0 +1,410 @@
+[
+  {
+    "code": "515501",
+    "nameEn": "Adtala",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515515",
+    "nameEn": "Akala",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515518",
+    "nameEn": "Aliudepur",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515495",
+    "nameEn": "Ambardi",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515522",
+    "nameEn": "Ansodar",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515529",
+    "nameEn": "Bhalvav",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515528",
+    "nameEn": "Bhatvadar",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515514",
+    "nameEn": "Bhingrad",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515499",
+    "nameEn": "Bhurakhiya",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515486",
+    "nameEn": "Chavand",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515513",
+    "nameEn": "Chhabhadiya",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515508",
+    "nameEn": "Dahinthara",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "936615",
+    "nameEn": "Damnagar",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515485",
+    "nameEn": "Derdi-Janbai",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515530",
+    "nameEn": "Dhamel",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515509",
+    "nameEn": "Dhrufania",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515531",
+    "nameEn": "Dudhala Bai",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515504",
+    "nameEn": "Dudhala Lathi",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515526",
+    "nameEn": "Hajiradhar",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515489",
+    "nameEn": "Harsurpur",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515524",
+    "nameEn": "Havtad",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515484",
+    "nameEn": "Hirana",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515523",
+    "nameEn": "Ingorala",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515502",
+    "nameEn": "Jarakhiya",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515496",
+    "nameEn": "Kanchardi",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515492",
+    "nameEn": "Karkoliya",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515516",
+    "nameEn": "Kerala",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515490",
+    "nameEn": "Keriya",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515520",
+    "nameEn": "Krishna Gadh",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "936616",
+    "nameEn": "Lathi",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515521",
+    "nameEn": "Luvariya",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515517",
+    "nameEn": "Malaviya Pipariya",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515519",
+    "nameEn": "Matirala",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515498",
+    "nameEn": "Memda",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515507",
+    "nameEn": "Methli",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515511",
+    "nameEn": "Muliyapat",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515497",
+    "nameEn": "Narangadh",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515525",
+    "nameEn": "Padarshinga",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515494",
+    "nameEn": "Pipalva",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515505",
+    "nameEn": "Pratapgadh",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515488",
+    "nameEn": "Punjapar",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515527",
+    "nameEn": "Rabhda",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515493",
+    "nameEn": "Rajkot Nana",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515500",
+    "nameEn": "Rampar",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515532",
+    "nameEn": "Shakhpur",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515487",
+    "nameEn": "Shekhpipariya",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515510",
+    "nameEn": "Suvagadh",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515506",
+    "nameEn": "Tajpar",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515512",
+    "nameEn": "Thansa",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515503",
+    "nameEn": "Toda",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515491",
+    "nameEn": "Virpur",
+    "subDistrictCode": 3841,
+    "districtCode": 439,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

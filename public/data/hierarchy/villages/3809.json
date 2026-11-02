@@ -1,0 +1,458 @@
+[
+  {
+    "code": "513328",
+    "nameEn": "Arni",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513333",
+    "nameEn": "Bhankh",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930204",
+    "nameEn": "Bhayavadar",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962530",
+    "nameEn": "Bhayavadar-1",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962531",
+    "nameEn": "Bhayavadar-2",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962532",
+    "nameEn": "Bhayavadar-3",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513363",
+    "nameEn": "Bhimora",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513337",
+    "nameEn": "Charelia",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513357",
+    "nameEn": "Chikhalia",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513340",
+    "nameEn": "Dhank",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513356",
+    "nameEn": "Dumiyani",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513359",
+    "nameEn": "Gadha",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513334",
+    "nameEn": "Gadhala",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513341",
+    "nameEn": "Gadhethal",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513362",
+    "nameEn": "Ganod",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513358",
+    "nameEn": "Hadfodi",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513330",
+    "nameEn": "Hariyasan",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513360",
+    "nameEn": "Isra",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513331",
+    "nameEn": "Jal",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513332",
+    "nameEn": "Kalaria",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513369",
+    "nameEn": "Kathrota",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513346",
+    "nameEn": "Kerala",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513345",
+    "nameEn": "Khakhi Jalia",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513336",
+    "nameEn": "Kharachia",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513325",
+    "nameEn": "Khirsara",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513344",
+    "nameEn": "Kolki",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513366",
+    "nameEn": "Kundhech",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513364",
+    "nameEn": "Lath",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513322",
+    "nameEn": "Makhiyala",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513354",
+    "nameEn": "Mekhatimbi",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513365",
+    "nameEn": "Meli Majethi",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513351",
+    "nameEn": "Mervadar",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513335",
+    "nameEn": "Mojira",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513355",
+    "nameEn": "Murakhada",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513350",
+    "nameEn": "Nagvadar",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513347",
+    "nameEn": "Navapara",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513361",
+    "nameEn": "Nilakha",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513323",
+    "nameEn": "Padvala",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513329",
+    "nameEn": "Paneli Moti",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513339",
+    "nameEn": "Pransla",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513343",
+    "nameEn": "Rabarika",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513342",
+    "nameEn": "Rajpara",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513327",
+    "nameEn": "Sajdiyali",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513368",
+    "nameEn": "Samadhiyala",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513321",
+    "nameEn": "Satvadi",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513348",
+    "nameEn": "Sevantra",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513367",
+    "nameEn": "Talgana",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513352",
+    "nameEn": "Tanasva",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513326",
+    "nameEn": "Timbadi Jam",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930203",
+    "nameEn": "Upleta",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962593",
+    "nameEn": "Upleta-1",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962594",
+    "nameEn": "Upleta-2",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962595",
+    "nameEn": "Upleta-3",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513324",
+    "nameEn": "Vadali",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513338",
+    "nameEn": "Vadekhan",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513349",
+    "nameEn": "Vadla",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513353",
+    "nameEn": "Varjang Jalia",
+    "subDistrictCode": 3809,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

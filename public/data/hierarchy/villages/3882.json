@@ -1,0 +1,1562 @@
+[
+  {
+    "code": "518327",
+    "nameEn": "Agarwada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518302",
+    "nameEn": "Ambli Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518210",
+    "nameEn": "Ankalwa",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518255",
+    "nameEn": "Aritha",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518271",
+    "nameEn": "Arithi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518214",
+    "nameEn": "Barotana Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518341",
+    "nameEn": "Bhaiyasar",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518237",
+    "nameEn": "Bhalada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518183",
+    "nameEn": "Bhamra",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518319",
+    "nameEn": "Bhanpur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518190",
+    "nameEn": "Bharthajini Muvadi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518349",
+    "nameEn": "Bhatpur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518289",
+    "nameEn": "Bhimpur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518168",
+    "nameEn": "Bhulakhantna Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518283",
+    "nameEn": "Bhuval",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518207",
+    "nameEn": "Budhbhaina Chhapora",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518280",
+    "nameEn": "Champeli",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518241",
+    "nameEn": "Chandpur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518314",
+    "nameEn": "Chansar",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518287",
+    "nameEn": "Chapatiya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518328",
+    "nameEn": "Charangam (Namnar)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518220",
+    "nameEn": "Charangam (Salawada)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518191",
+    "nameEn": "Charanna Bhensavada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518265",
+    "nameEn": "Chataka Beli",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518251",
+    "nameEn": "Chauhan Na Muvada(Salera)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518274",
+    "nameEn": "Chavadiya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518253",
+    "nameEn": "Chavdana Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518257",
+    "nameEn": "Chavdibaina Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518185",
+    "nameEn": "Chhapri Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518288",
+    "nameEn": "Chhapri-2 (Vardhari)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518316",
+    "nameEn": "Chopda",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518224",
+    "nameEn": "Chori",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518178",
+    "nameEn": "Chuvanana Muvada (Madhvas)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518200",
+    "nameEn": "Daljina Chakalia",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518248",
+    "nameEn": "Dalukhadiya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518292",
+    "nameEn": "Dalwai Savali",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518239",
+    "nameEn": "Daniya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518228",
+    "nameEn": "Denta",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518372",
+    "nameEn": "Dezar",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518225",
+    "nameEn": "Dhamod",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518291",
+    "nameEn": "Dhesiya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518276",
+    "nameEn": "Dholi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518303",
+    "nameEn": "Dokaliyani Muvadi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518298",
+    "nameEn": "Dokelav",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518153",
+    "nameEn": "Dolatpura",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518263",
+    "nameEn": "Fatajina Gorada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518243",
+    "nameEn": "Gadhanpur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518204",
+    "nameEn": "Gadhvina Gorada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518170",
+    "nameEn": "Gangadiya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518186",
+    "nameEn": "Gariya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518315",
+    "nameEn": "Ghantav-1",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518149",
+    "nameEn": "Ghantiada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518242",
+    "nameEn": "Godariya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518311",
+    "nameEn": "Godna Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518189",
+    "nameEn": "Gohilna Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518172",
+    "nameEn": "Gokalpura (M)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518177",
+    "nameEn": "Golana Palla",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518157",
+    "nameEn": "Govindpura",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518148",
+    "nameEn": "Hadana Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518167",
+    "nameEn": "Hadmatiya (Lunawada)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518187",
+    "nameEn": "Hadod",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518236",
+    "nameEn": "Hanseliya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518216",
+    "nameEn": "Hardaspur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518151",
+    "nameEn": "Hindoliya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518296",
+    "nameEn": "Jagapagina Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518307",
+    "nameEn": "Jesingpur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518295",
+    "nameEn": "Jhara",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518281",
+    "nameEn": "Jitpur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518201",
+    "nameEn": "Jivanjina Chhapora",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518205",
+    "nameEn": "Juna Gorada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518247",
+    "nameEn": "Juna Kalava",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518346",
+    "nameEn": "Juna Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518252",
+    "nameEn": "Kachhotiyana Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518286",
+    "nameEn": "Kadachhala",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518279",
+    "nameEn": "Kakachiya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518192",
+    "nameEn": "Kakana Bhensavada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518320",
+    "nameEn": "Kakana Chamariya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518285",
+    "nameEn": "Kalyanpura",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518218",
+    "nameEn": "Kanela",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518222",
+    "nameEn": "Kanjav",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518308",
+    "nameEn": "Karna Bariana Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518238",
+    "nameEn": "Kaslal",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518188",
+    "nameEn": "Khantana Bhensadavada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518226",
+    "nameEn": "Khempur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518344",
+    "nameEn": "Khoda Amba",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930271",
+    "nameEn": "Khota-Amba (Jungle)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518169",
+    "nameEn": "Khundhi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518232",
+    "nameEn": "Kidia",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518244",
+    "nameEn": "Koliyani Muvadi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518184",
+    "nameEn": "Kolwan",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518254",
+    "nameEn": "Kotha",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518284",
+    "nameEn": "Lakdi Poyda",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518223",
+    "nameEn": "Lalsar",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518181",
+    "nameEn": "Limbodara",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930272",
+    "nameEn": "Lunawada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518180",
+    "nameEn": "Madhvas",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518152",
+    "nameEn": "Mahudiya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518156",
+    "nameEn": "Malekpur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518246",
+    "nameEn": "Maliya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518159",
+    "nameEn": "Manajina Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518342",
+    "nameEn": "Medajina Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518259",
+    "nameEn": "Mehtana Chakaliya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518229",
+    "nameEn": "Mochivadiya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518261",
+    "nameEn": "Mor Mahudi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518231",
+    "nameEn": "Morai",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518300",
+    "nameEn": "Mota Dokva",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518212",
+    "nameEn": "Mota Sonela",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518150",
+    "nameEn": "Mota Vadadala",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518267",
+    "nameEn": "Mota Vadodar",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518304",
+    "nameEn": "Moti Charel",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518272",
+    "nameEn": "Moti Denavad",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518301",
+    "nameEn": "Moti Ghoda",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518208",
+    "nameEn": "Moti Palli",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518312",
+    "nameEn": "Moti Zanzari",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518330",
+    "nameEn": "Motipura(Vardhari)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518297",
+    "nameEn": "Nalna Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518329",
+    "nameEn": "Namnar",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518317",
+    "nameEn": "Nana Dokva",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518213",
+    "nameEn": "Nana Sonela",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518161",
+    "nameEn": "Nana Vadadala",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518270",
+    "nameEn": "Nana Vadodar",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518268",
+    "nameEn": "Nanadavena Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518306",
+    "nameEn": "Nani Charel",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518273",
+    "nameEn": "Nani Denavad",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518199",
+    "nameEn": "Nani Palli",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518313",
+    "nameEn": "Nani Zanzari",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518195",
+    "nameEn": "Napaniya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518343",
+    "nameEn": "Nava Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518198",
+    "nameEn": "Navagam(M)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518155",
+    "nameEn": "Padedi (Malekpur)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518174",
+    "nameEn": "Padedi (Rampur)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518278",
+    "nameEn": "Pagiyawad",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518299",
+    "nameEn": "Panam Palla",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518294",
+    "nameEn": "Panch Mahudi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518305",
+    "nameEn": "Pankhi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518217",
+    "nameEn": "Parampur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518179",
+    "nameEn": "Patapur(Madhvas)Aliasmotizardi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518240",
+    "nameEn": "Pattan",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518215",
+    "nameEn": "Pavapur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518175",
+    "nameEn": "Rajgadh",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518347",
+    "nameEn": "Ramavata",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518310",
+    "nameEn": "Rampatelna Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518164",
+    "nameEn": "Rampur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518197",
+    "nameEn": "Ranpur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518318",
+    "nameEn": "Sabalpur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518163",
+    "nameEn": "Sada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518230",
+    "nameEn": "Sadhakpur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518269",
+    "nameEn": "Sagana Muvada Alias Saragwamahudi-2",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518193",
+    "nameEn": "Sajjanpur",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518219",
+    "nameEn": "Salawada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518250",
+    "nameEn": "Salera",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518264",
+    "nameEn": "Saragwa Mahudi-1",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518321",
+    "nameEn": "Sarkari Chamariya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518345",
+    "nameEn": "Sattalav",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518266",
+    "nameEn": "Saudasni Muvadi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518249",
+    "nameEn": "Savarana Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518171",
+    "nameEn": "Savdasna Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518160",
+    "nameEn": "Semarana Muvada (Vardhari)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518245",
+    "nameEn": "Semrana Muvada(Haveli)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518202",
+    "nameEn": "Senadaria Gorada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518256",
+    "nameEn": "Shamana",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518182",
+    "nameEn": "Shero",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518162",
+    "nameEn": "Simalia",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518258",
+    "nameEn": "Sonesariya Math",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518166",
+    "nameEn": "Soniyana Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518340",
+    "nameEn": "Sova",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518203",
+    "nameEn": "Sutari",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518176",
+    "nameEn": "Taktajina Palla",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518275",
+    "nameEn": "Tanachhia",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518260",
+    "nameEn": "Tankana Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518194",
+    "nameEn": "Taralana Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518293",
+    "nameEn": "Tarnocha",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518262",
+    "nameEn": "Tochna Gorada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518234",
+    "nameEn": "Ucharpi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518309",
+    "nameEn": "Ukaradi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "961530",
+    "nameEn": "Undara",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518221",
+    "nameEn": "Undra",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518235",
+    "nameEn": "Untadi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518196",
+    "nameEn": "Vadi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518211",
+    "nameEn": "Vadi Udafa",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518206",
+    "nameEn": "Vadina Gorada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518209",
+    "nameEn": "Vaghela",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518154",
+    "nameEn": "Vaghji Bariyana Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518373",
+    "nameEn": "Vaghoi",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518233",
+    "nameEn": "Vakhatpur (Kidiya)",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518173",
+    "nameEn": "Vaniyavala Gorada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518277",
+    "nameEn": "Vanta",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518290",
+    "nameEn": "Vardhari",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518348",
+    "nameEn": "Vaviya Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518165",
+    "nameEn": "Vechatana Muvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518282",
+    "nameEn": "Ved",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518324",
+    "nameEn": "Verama",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518339",
+    "nameEn": "Viraniya",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518158",
+    "nameEn": "Zarakhvada",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518227",
+    "nameEn": "Zufarali",
+    "subDistrictCode": 3882,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

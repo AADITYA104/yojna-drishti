@@ -1,0 +1,482 @@
+[
+  {
+    "code": "930169",
+    "nameEn": "Adityana",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Both",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514272",
+    "nameEn": "Ajmapat Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514303",
+    "nameEn": "Amardad (Ct)",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514253",
+    "nameEn": "Aniyari",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514294",
+    "nameEn": "Anti Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514242",
+    "nameEn": "Ashiyapat",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514262",
+    "nameEn": "Bapodar",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514296",
+    "nameEn": "Bedawada Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514254",
+    "nameEn": "Bhod",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514267",
+    "nameEn": "Bhoddar",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514244",
+    "nameEn": "Bileshwar",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514248",
+    "nameEn": "Bordi",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514281",
+    "nameEn": "Chhapravala Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514251",
+    "nameEn": "Daiyar",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514298",
+    "nameEn": "Dataniya Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514302",
+    "nameEn": "Dhoria Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514290",
+    "nameEn": "Dhorivav Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514295",
+    "nameEn": "Dhraphadiya Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514293",
+    "nameEn": "Dhuna Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514256",
+    "nameEn": "Digvijaygadh",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514249",
+    "nameEn": "Dolatgadh",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514277",
+    "nameEn": "Fataltem Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514283",
+    "nameEn": "Fulzar Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514243",
+    "nameEn": "Hanumangadh",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514266",
+    "nameEn": "Jambu",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514286",
+    "nameEn": "Jarera Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514259",
+    "nameEn": "Kandorna-Rana",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514285",
+    "nameEn": "Karval Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514280",
+    "nameEn": "Kathiyo Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514265",
+    "nameEn": "Kerala",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514270",
+    "nameEn": "Khakhravala Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514245",
+    "nameEn": "Khambhala",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514301",
+    "nameEn": "Kharavira Khunano Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514299",
+    "nameEn": "Kharavira Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514260",
+    "nameEn": "Khijdad",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514250",
+    "nameEn": "Khirsara",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514282",
+    "nameEn": "Khodiyar Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514297",
+    "nameEn": "Kothavaro Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514279",
+    "nameEn": "Krushnay Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514268",
+    "nameEn": "Mahira",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514273",
+    "nameEn": "Malek Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514263",
+    "nameEn": "Mokar",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514291",
+    "nameEn": "Morivirda Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514276",
+    "nameEn": "Munjvaro Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514269",
+    "nameEn": "Nerana",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514264",
+    "nameEn": "Padardi",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514255",
+    "nameEn": "Pipaliya",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514247",
+    "nameEn": "Ramgadh",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514288",
+    "nameEn": "Ranava Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "930168",
+    "nameEn": "Ranvav",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514278",
+    "nameEn": "Sajanwada Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514289",
+    "nameEn": "Satvira Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514287",
+    "nameEn": "Shermalki Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514300",
+    "nameEn": "Shermlanki Khunano Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514261",
+    "nameEn": "Thoyana",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514292",
+    "nameEn": "Umrivala Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514258",
+    "nameEn": "Vadwala-Rana",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514252",
+    "nameEn": "Valotra",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514274",
+    "nameEn": "Vijfadiya Nes",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514257",
+    "nameEn": "Virpur",
+    "subDistrictCode": 3823,
+    "districtCode": 456,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

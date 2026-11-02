@@ -1,0 +1,162 @@
+[
+  {
+    "code": "930058",
+    "nameEn": "Ambali",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930051",
+    "nameEn": "Bhadaj",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930057",
+    "nameEn": "Bodakdev",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511685",
+    "nameEn": "Bopal (Ct)",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930049",
+    "nameEn": "Chenpur",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930046",
+    "nameEn": "Chharodi",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930053",
+    "nameEn": "Ghatlodiya",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511689",
+    "nameEn": "Ghuma (Og)",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930050",
+    "nameEn": "Gota",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930054",
+    "nameEn": "Hebatpur",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930048",
+    "nameEn": "Jagatpur",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511631",
+    "nameEn": "Khodiyar",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511629",
+    "nameEn": "Lapkaman",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511630",
+    "nameEn": "Lilapur",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930059",
+    "nameEn": "Memnagar",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930047",
+    "nameEn": "Ognaj",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930055",
+    "nameEn": "Shilaj",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930052",
+    "nameEn": "Sola",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930056",
+    "nameEn": "Thaltej",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930045",
+    "nameEn": "Tragad",
+    "subDistrictCode": 6513,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

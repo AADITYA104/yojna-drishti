@@ -1,0 +1,90 @@
+[
+  {
+    "code": "930217",
+    "nameEn": "Nana Mauva",
+    "subDistrictCode": 6523,
+    "districtCode": 457,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962576",
+    "nameEn": "Nanamava-1",
+    "subDistrictCode": 6523,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962577",
+    "nameEn": "Nanamava-2",
+    "subDistrictCode": 6523,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930216",
+    "nameEn": "Raiya",
+    "subDistrictCode": 6523,
+    "districtCode": 457,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962584",
+    "nameEn": "Raiya-1",
+    "subDistrictCode": 6523,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962585",
+    "nameEn": "Raiya-2",
+    "subDistrictCode": 6523,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962586",
+    "nameEn": "Raiya-3",
+    "subDistrictCode": 6523,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962587",
+    "nameEn": "Raiya-4",
+    "subDistrictCode": 6523,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962589",
+    "nameEn": "Rajkot-10",
+    "subDistrictCode": 6523,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962618",
+    "nameEn": "Rajkot-11",
+    "subDistrictCode": 6523,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962622",
+    "nameEn": "Rajkot-9",
+    "subDistrictCode": 6523,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

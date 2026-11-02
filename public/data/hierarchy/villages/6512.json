@@ -1,0 +1,82 @@
+[
+  {
+    "code": "930019",
+    "nameEn": "Asarva",
+    "subDistrictCode": 6512,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930011",
+    "nameEn": "Dariyapur-Kazipur",
+    "subDistrictCode": 6512,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930012",
+    "nameEn": "Hansol",
+    "subDistrictCode": 6512,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930016",
+    "nameEn": "Hanspura",
+    "subDistrictCode": 6512,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930013",
+    "nameEn": "Kotarpur",
+    "subDistrictCode": 6512,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511632",
+    "nameEn": "Muthiya",
+    "subDistrictCode": 6512,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930017",
+    "nameEn": "Naroda",
+    "subDistrictCode": 6512,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930018",
+    "nameEn": "Nikol",
+    "subDistrictCode": 6512,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930020",
+    "nameEn": "Saijpur-Bogha",
+    "subDistrictCode": 6512,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930014",
+    "nameEn": "Sardarnagar",
+    "subDistrictCode": 6512,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

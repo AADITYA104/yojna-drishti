@@ -1,0 +1,50 @@
+[
+  {
+    "code": "961595",
+    "nameEn": "Aali",
+    "subDistrictCode": 7597,
+    "districtCode": 442,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "961596",
+    "nameEn": "Dungari",
+    "subDistrictCode": 7597,
+    "districtCode": 442,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "961597",
+    "nameEn": "Kanbivaga",
+    "subDistrictCode": 7597,
+    "districtCode": 442,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "961598",
+    "nameEn": "Kasak",
+    "subDistrictCode": 7597,
+    "districtCode": 442,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "961599",
+    "nameEn": "Mojampor",
+    "subDistrictCode": 7597,
+    "districtCode": 442,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "961600",
+    "nameEn": "Vejalpur",
+    "subDistrictCode": 7597,
+    "districtCode": 442,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

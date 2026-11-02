@@ -1,0 +1,138 @@
+[
+  {
+    "code": "930120",
+    "nameEn": "Adajan",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524171",
+    "nameEn": "Asarma",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524211",
+    "nameEn": "Bhatha (Og)",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524210",
+    "nameEn": "Bhatpor (Og)",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524166",
+    "nameEn": "Bhesan",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524168",
+    "nameEn": "Chichi",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524204",
+    "nameEn": "Ichchhapor (Ct)",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930113",
+    "nameEn": "Jahangirabad",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930111",
+    "nameEn": "Jahangirpura",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524165",
+    "nameEn": "Malgama",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524167",
+    "nameEn": "Okha",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930122",
+    "nameEn": "Paal",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930121",
+    "nameEn": "Palanpor",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930112",
+    "nameEn": "Pisaad",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930110",
+    "nameEn": "Rander",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524169",
+    "nameEn": "Vanakala",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524170",
+    "nameEn": "Vihel",
+    "subDistrictCode": 6518,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

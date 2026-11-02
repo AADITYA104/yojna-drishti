@@ -1,0 +1,666 @@
+[
+  {
+    "code": "521881",
+    "nameEn": "Amanpor Mota",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521882",
+    "nameEn": "Amanpor Nana",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521922",
+    "nameEn": "Anakhi",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521933",
+    "nameEn": "Asanvad",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521947",
+    "nameEn": "Asarsa",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521885",
+    "nameEn": "Aurangpor Timbi",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521934",
+    "nameEn": "Bakarpor Timbi",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521915",
+    "nameEn": "Bhadkodaro",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521921",
+    "nameEn": "Bhankhetar",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521900",
+    "nameEn": "Bhodar",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521924",
+    "nameEn": "Bojadra",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521927",
+    "nameEn": "Chandpor Bara",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521892",
+    "nameEn": "Chandpor Marva",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521913",
+    "nameEn": "Chhidra",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521902",
+    "nameEn": "Dabha",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521912",
+    "nameEn": "Dahri",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521868",
+    "nameEn": "Degam",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521931",
+    "nameEn": "Devla",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521942",
+    "nameEn": "Dolia",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521903",
+    "nameEn": "Gajera",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521869",
+    "nameEn": "Gulal",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521888",
+    "nameEn": "Hamadpor Kanthariya",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521944",
+    "nameEn": "Islampore",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521925",
+    "nameEn": "Jafarpara",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "934506",
+    "nameEn": "Jambusar",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521911",
+    "nameEn": "Jantran",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521876",
+    "nameEn": "Kahanava",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521938",
+    "nameEn": "Kalak",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521895",
+    "nameEn": "Kaliari",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521886",
+    "nameEn": "Kangam",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521929",
+    "nameEn": "Kansagar",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521945",
+    "nameEn": "Kapuria",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521875",
+    "nameEn": "Kareli",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521907",
+    "nameEn": "Karmad",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521918",
+    "nameEn": "Kava",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521871",
+    "nameEn": "Kavi",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521884",
+    "nameEn": "Kavli",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521948",
+    "nameEn": "Khanpor Deh",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521889",
+    "nameEn": "Kimoj",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521898",
+    "nameEn": "Kora",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521920",
+    "nameEn": "Koteshwar",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521941",
+    "nameEn": "Kundhal",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521919",
+    "nameEn": "Limaj",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521916",
+    "nameEn": "Madafar",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521939",
+    "nameEn": "Magnad",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521870",
+    "nameEn": "Mahamadpor Kamboi",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521940",
+    "nameEn": "Mahapara",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521914",
+    "nameEn": "Molpore",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521891",
+    "nameEn": "Muradpor Neja",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521946",
+    "nameEn": "Nada",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521926",
+    "nameEn": "Nadiad",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521872",
+    "nameEn": "Nahar",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521901",
+    "nameEn": "Nobar",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521880",
+    "nameEn": "Nondhana",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521909",
+    "nameEn": "Panchakada",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521928",
+    "nameEn": "Panchpipla",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521877",
+    "nameEn": "Piludara",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521908",
+    "nameEn": "Rampore",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521887",
+    "nameEn": "Runad",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521894",
+    "nameEn": "Salehpor Sangdi",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521883",
+    "nameEn": "Samoj",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521936",
+    "nameEn": "Sardarpura",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521873",
+    "nameEn": "Sarod",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "926559",
+    "nameEn": "Sarod Vanta",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521910",
+    "nameEn": "Shambha",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521890",
+    "nameEn": "Sigam",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521930",
+    "nameEn": "Sindhav",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521935",
+    "nameEn": "Singarna",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521943",
+    "nameEn": "Tankari",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521932",
+    "nameEn": "Thakore Talavdi",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521896",
+    "nameEn": "Thanava",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521899",
+    "nameEn": "Tundaj",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521879",
+    "nameEn": "Uber",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521904",
+    "nameEn": "Uchchhad",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521906",
+    "nameEn": "Umra",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521917",
+    "nameEn": "Vad",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521897",
+    "nameEn": "Vadadala",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521923",
+    "nameEn": "Vahelam",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521874",
+    "nameEn": "Valipore",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521937",
+    "nameEn": "Vanseta",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521905",
+    "nameEn": "Vavli",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521878",
+    "nameEn": "Vedach",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "521893",
+    "nameEn": "Zamdi",
+    "subDistrictCode": 3913,
+    "districtCode": 442,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

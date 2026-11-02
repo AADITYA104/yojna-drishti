@@ -1,0 +1,810 @@
+[
+  {
+    "code": "512854",
+    "nameEn": "Adepar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512812",
+    "nameEn": "Amarsar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512777",
+    "nameEn": "Anandpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512808",
+    "nameEn": "Arni Timba",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512861",
+    "nameEn": "Bhalgam",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512785",
+    "nameEn": "Bherda",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512767",
+    "nameEn": "Bhimguda",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512793",
+    "nameEn": "Bhojpara",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512831",
+    "nameEn": "Bhojpara Vidi",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512814",
+    "nameEn": "Bokad Thambha",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512836",
+    "nameEn": "Chanchadiya",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512863",
+    "nameEn": "Chandrapur (Ct)",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512787",
+    "nameEn": "Chitrakhada",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512817",
+    "nameEn": "Daldi",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512790",
+    "nameEn": "Derala",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512806",
+    "nameEn": "Dhamalpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512779",
+    "nameEn": "Dhuva",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512815",
+    "nameEn": "Dighaliya",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512803",
+    "nameEn": "Gangiyavadar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512848",
+    "nameEn": "Garida",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512833",
+    "nameEn": "Gariya",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512842",
+    "nameEn": "Ghiyavad",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512850",
+    "nameEn": "Gundakhada",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512799",
+    "nameEn": "Hasanpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512847",
+    "nameEn": "Holmadh",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512791",
+    "nameEn": "Jali",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512857",
+    "nameEn": "Jalida",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512841",
+    "nameEn": "Jalsika",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512782",
+    "nameEn": "Jambudiya Bhayati",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512765",
+    "nameEn": "Jambudiya Vidi",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512772",
+    "nameEn": "Jamsar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512860",
+    "nameEn": "Jepur",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512792",
+    "nameEn": "Jetparda",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512832",
+    "nameEn": "Jodhpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512804",
+    "nameEn": "Kachhiyagala",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512828",
+    "nameEn": "Kalavadi Juni",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512825",
+    "nameEn": "Kalavadi Navi",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512829",
+    "nameEn": "Kankot",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512834",
+    "nameEn": "Kanpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512816",
+    "nameEn": "Kashipar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512813",
+    "nameEn": "Kerala",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512845",
+    "nameEn": "Khakhana",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512789",
+    "nameEn": "Khanpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512844",
+    "nameEn": "Kherva",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512830",
+    "nameEn": "Khijadiya",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512826",
+    "nameEn": "Kotda Nayani",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512796",
+    "nameEn": "Kothariya",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512840",
+    "nameEn": "Kothi",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512778",
+    "nameEn": "Lakaddhar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512820",
+    "nameEn": "Lalpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512821",
+    "nameEn": "Limbala",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512788",
+    "nameEn": "Lunasar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512805",
+    "nameEn": "Lunsariya",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512839",
+    "nameEn": "Mahika",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512776",
+    "nameEn": "Maktanpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512771",
+    "nameEn": "Matel",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512855",
+    "nameEn": "Mesariya",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512773",
+    "nameEn": "Nagalpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512764",
+    "nameEn": "Ol",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512784",
+    "nameEn": "Paddhara",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512818",
+    "nameEn": "Paj",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512786",
+    "nameEn": "Palans",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512800",
+    "nameEn": "Palansdi",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512811",
+    "nameEn": "Panch Dwarka",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512798",
+    "nameEn": "Panchasar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512780",
+    "nameEn": "Panchasiya",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512827",
+    "nameEn": "Pipaliya Agabhi",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512810",
+    "nameEn": "Pipaliyaraj",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512846",
+    "nameEn": "Pipardi",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512824",
+    "nameEn": "Pratapgadh",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512822",
+    "nameEn": "Rajavadla",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512774",
+    "nameEn": "Rajgadh",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512802",
+    "nameEn": "Rajthali",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512781",
+    "nameEn": "Ranekpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512856",
+    "nameEn": "Rangpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512819",
+    "nameEn": "Rasikgadh",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512838",
+    "nameEn": "Ratadiya",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512769",
+    "nameEn": "Ratavirda",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512797",
+    "nameEn": "Rati Devli",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512859",
+    "nameEn": "Rupavati",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512849",
+    "nameEn": "Samadhiala",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512766",
+    "nameEn": "Samtherva",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512801",
+    "nameEn": "Sardharka",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512770",
+    "nameEn": "Sartanpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512851",
+    "nameEn": "Satapar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512835",
+    "nameEn": "Shekhardi",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512823",
+    "nameEn": "Sindhavadar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512853",
+    "nameEn": "Tarakiya",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512862",
+    "nameEn": "Thikariyala",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512807",
+    "nameEn": "Tithava",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512794",
+    "nameEn": "Vaghasia",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512809",
+    "nameEn": "Valasan",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512795",
+    "nameEn": "Vankiya",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512843",
+    "nameEn": "Vanzara",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512775",
+    "nameEn": "Vardusar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512858",
+    "nameEn": "Vasundra",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512837",
+    "nameEn": "Vinaygadh",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512768",
+    "nameEn": "Virpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512852",
+    "nameEn": "Vithalgadh",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512783",
+    "nameEn": "Vithalpar",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930265",
+    "nameEn": "Wankaner",
+    "subDistrictCode": 3801,
+    "districtCode": 673,
+    "category": "Both",
+    "status": "Inhabitant"
+  }
+]

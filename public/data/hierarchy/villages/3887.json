@@ -1,0 +1,802 @@
+[
+  {
+    "code": "518776",
+    "nameEn": "Adepur",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518724",
+    "nameEn": "Albeta",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "934452",
+    "nameEn": "Ambakhunt",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518808",
+    "nameEn": "Bakrol",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518771",
+    "nameEn": "Bhanpura",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518735",
+    "nameEn": "Bhilod",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518738",
+    "nameEn": "Bhojpura",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518743",
+    "nameEn": "Bor",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518762",
+    "nameEn": "Boriya",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "926530",
+    "nameEn": "Chandapuri",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518792",
+    "nameEn": "Chandra Nagar",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518744",
+    "nameEn": "Chatha",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518742",
+    "nameEn": "Chathi",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518802",
+    "nameEn": "Chelavada",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518733",
+    "nameEn": "Damanpura",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518721",
+    "nameEn": "Damavav",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518734",
+    "nameEn": "Dantol",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518753",
+    "nameEn": "Davadra",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "926491",
+    "nameEn": "Devani Muvadi",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518794",
+    "nameEn": "Dhaneshwar",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518793",
+    "nameEn": "Dudhapura",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518768",
+    "nameEn": "Farod",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518755",
+    "nameEn": "Gajapura (Kantu)",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518736",
+    "nameEn": "Gajipura (Kanpur)",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518778",
+    "nameEn": "Galibili",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518777",
+    "nameEn": "Gamani",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518763",
+    "nameEn": "Gamirpura",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518796",
+    "nameEn": "Garmotiya",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518782",
+    "nameEn": "Ghogha",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518772",
+    "nameEn": "Ghoghamba",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518779",
+    "nameEn": "Godli",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518758",
+    "nameEn": "Gorada",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518773",
+    "nameEn": "Goth",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518739",
+    "nameEn": "Goya Sundal",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518756",
+    "nameEn": "Gundi",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518730",
+    "nameEn": "Guneshiya",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518766",
+    "nameEn": "Jagana Muvada",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518729",
+    "nameEn": "Jambuvaniya",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518789",
+    "nameEn": "Jitpura",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518752",
+    "nameEn": "Jorapura (Davadra)",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518717",
+    "nameEn": "Jorapura (Vangarva)",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518812",
+    "nameEn": "Kahanpur",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518804",
+    "nameEn": "Kalsar",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518751",
+    "nameEn": "Kanbipalli",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518791",
+    "nameEn": "Kankodakui",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518747",
+    "nameEn": "Kanpur",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518759",
+    "nameEn": "Kanpur (A)",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518737",
+    "nameEn": "Kantaveda",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518745",
+    "nameEn": "Kantu",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518757",
+    "nameEn": "Khadpa",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518725",
+    "nameEn": "Khan Patla",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518770",
+    "nameEn": "Kharkhadi",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518761",
+    "nameEn": "Kharod",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518722",
+    "nameEn": "Khilodi",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518740",
+    "nameEn": "Kothara",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518731",
+    "nameEn": "Kothayadi",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518765",
+    "nameEn": "Kumbhar Palli",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518797",
+    "nameEn": "Labadadhara",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518767",
+    "nameEn": "Lalpuri",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518746",
+    "nameEn": "Malu",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518764",
+    "nameEn": "Math",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518784",
+    "nameEn": "Mol",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518754",
+    "nameEn": "Mulani Kapadi",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518790",
+    "nameEn": "Nathkuva",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518809",
+    "nameEn": "Nathpura",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518748",
+    "nameEn": "Navagam",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518781",
+    "nameEn": "Nurapura",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518727",
+    "nameEn": "Padedi",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518786",
+    "nameEn": "Padhora",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518775",
+    "nameEn": "Palla",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518749",
+    "nameEn": "Paroli",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518811",
+    "nameEn": "Poyali",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518774",
+    "nameEn": "Rajgadh",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518720",
+    "nameEn": "Ranipura (Damavav)",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518800",
+    "nameEn": "Ranjitnagar",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518788",
+    "nameEn": "Rayan Muvada",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518801",
+    "nameEn": "Rinchhiya",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518723",
+    "nameEn": "Rinchhwani",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518726",
+    "nameEn": "Sajora",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518810",
+    "nameEn": "Sarasava",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518787",
+    "nameEn": "Savapura",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518785",
+    "nameEn": "Shamalkuva",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518719",
+    "nameEn": "Shaniyada",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518732",
+    "nameEn": "Sherpura",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518728",
+    "nameEn": "Simaliya",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518803",
+    "nameEn": "Tadkundla",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "926458",
+    "nameEn": "Tariyavari",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518795",
+    "nameEn": "Udva",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518760",
+    "nameEn": "Uncha Beda",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518769",
+    "nameEn": "Valinath",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518718",
+    "nameEn": "Vangarva",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518807",
+    "nameEn": "Vankod",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518780",
+    "nameEn": "Vanskot",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518806",
+    "nameEn": "Vav",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518741",
+    "nameEn": "Vav Kulli",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518750",
+    "nameEn": "Vel Kotar",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518799",
+    "nameEn": "Virapura",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518805",
+    "nameEn": "Zab (Vav)",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518798",
+    "nameEn": "Zinzari",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518783",
+    "nameEn": "Zoz",
+    "subDistrictCode": 3887,
+    "districtCode": 454,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

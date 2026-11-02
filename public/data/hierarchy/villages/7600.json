@@ -1,0 +1,90 @@
+[
+  {
+    "code": "524116",
+    "nameEn": "Abrama",
+    "subDistrictCode": 7600,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524115",
+    "nameEn": "Bhada",
+    "subDistrictCode": 7600,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524203",
+    "nameEn": "Bharthana Kosad (Ct)",
+    "subDistrictCode": 7600,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523755",
+    "nameEn": "Gothan",
+    "subDistrictCode": 7600,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524104",
+    "nameEn": "Kathor",
+    "subDistrictCode": 7600,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930119",
+    "nameEn": "Mota Varachha",
+    "subDistrictCode": 7600,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523757",
+    "nameEn": "Segwasyadla",
+    "subDistrictCode": 7600,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523753",
+    "nameEn": "Umra",
+    "subDistrictCode": 7600,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524117",
+    "nameEn": "Valak",
+    "subDistrictCode": 7600,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523756",
+    "nameEn": "Vaswari",
+    "subDistrictCode": 7600,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524103",
+    "nameEn": "Velanja",
+    "subDistrictCode": 7600,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

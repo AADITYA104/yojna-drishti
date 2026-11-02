@@ -1,0 +1,466 @@
+[
+  {
+    "code": "512882",
+    "nameEn": "Adbalka",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512919",
+    "nameEn": "Amreli",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512899",
+    "nameEn": "Baghi",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512886",
+    "nameEn": "Bodi Ghodi",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512877",
+    "nameEn": "Chanol Moti",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512878",
+    "nameEn": "Chanol Nani",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512887",
+    "nameEn": "Chanol Navi",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512896",
+    "nameEn": "Chhelli Ghodi",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512870",
+    "nameEn": "Dahisarda (Aji)",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512906",
+    "nameEn": "Dahisarda Und",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512873",
+    "nameEn": "Depaliya",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512912",
+    "nameEn": "Dhokaliya",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512892",
+    "nameEn": "Dhunana Gam",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512915",
+    "nameEn": "Domda Bhayuna",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512884",
+    "nameEn": "Dungarka",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512888",
+    "nameEn": "Fatepar",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512883",
+    "nameEn": "Gadhda",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512872",
+    "nameEn": "Govindpar",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512876",
+    "nameEn": "Hadmatiya",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512869",
+    "nameEn": "Haripar",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512914",
+    "nameEn": "Hidad",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512917",
+    "nameEn": "Intala Nana",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512920",
+    "nameEn": "Ishvariya",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512893",
+    "nameEn": "Jhilariya",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512891",
+    "nameEn": "Jivapar",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512875",
+    "nameEn": "Jodhpar Chhala",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512909",
+    "nameEn": "Kerala",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512867",
+    "nameEn": "Khajurdi",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512866",
+    "nameEn": "Khakhada Bela",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512910",
+    "nameEn": "Khambhala",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512868",
+    "nameEn": "Khamta",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512901",
+    "nameEn": "Khandheri",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512904",
+    "nameEn": "Khijadiya Mota",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512879",
+    "nameEn": "Khijadiya Nana",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512865",
+    "nameEn": "Khodapipar",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512890",
+    "nameEn": "Khokhri",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512897",
+    "nameEn": "Metoda",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512881",
+    "nameEn": "Moviya",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512918",
+    "nameEn": "Nanavada",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512900",
+    "nameEn": "Naranka",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512911",
+    "nameEn": "Nyara",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512921",
+    "nameEn": "Paddhari (Ct)",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512908",
+    "nameEn": "Radad",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512885",
+    "nameEn": "Rampar Mota",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512894",
+    "nameEn": "Rampar Pati",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512902",
+    "nameEn": "Rangpar",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512905",
+    "nameEn": "Rojiya",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512874",
+    "nameEn": "Rupavati",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512916",
+    "nameEn": "Sagaliya Nana",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512907",
+    "nameEn": "Sal Pipaliya",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512903",
+    "nameEn": "Sarapdad",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512913",
+    "nameEn": "Suvag",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512898",
+    "nameEn": "Targhari",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512864",
+    "nameEn": "Thoriyali",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512871",
+    "nameEn": "Ukarda",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512895",
+    "nameEn": "Vachli Ghodi",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512880",
+    "nameEn": "Vanpari",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512889",
+    "nameEn": "Visaman",
+    "subDistrictCode": 3802,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

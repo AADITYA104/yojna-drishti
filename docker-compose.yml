@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: yojana_drishti
+      POSTGRES_USER: yojana
+      POSTGRES_PASSWORD: yojana_local_only
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - yojana_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yojana -d yojana_drishti"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+volumes:
+  yojana_pg:

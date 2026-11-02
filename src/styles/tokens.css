@@ -1,0 +1,19 @@
+:root {
+  color-scheme: light;
+  --navy-950: #071a31;
+  --navy-900: #0b2545;
+  --navy-800: #112f52;
+  --navy-700: #183e67;
+  --teal-600: #138681;
+  --teal-100: #e8f5f3;
+  --orange-500: #e98c32;
+  --bg: #f2f5f8;
+  --surface: #fff;
+  --surface-soft: #f8fafc;
+  --border: #e2e8ef;
+  --text: #172638;
+  --muted: #718096;
+  --success: #228557;
+  --warning: #a76a18;
+  --demo: #7545a5;
+}

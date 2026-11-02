@@ -1,0 +1,34 @@
+[
+  {
+    "code": "516257",
+    "nameEn": "Adhewada",
+    "subDistrictCode": 7604,
+    "districtCode": 443,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516259",
+    "nameEn": "Akwada",
+    "subDistrictCode": 7604,
+    "districtCode": 443,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516249",
+    "nameEn": "Ruva (Part)",
+    "subDistrictCode": 7604,
+    "districtCode": 443,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516258",
+    "nameEn": "Tarsimiya (Part)",
+    "subDistrictCode": 7604,
+    "districtCode": 443,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

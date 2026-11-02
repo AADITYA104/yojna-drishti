@@ -1,0 +1,2783 @@
+[
+  {
+    "code": 6512,
+    "nameEn": "Asarva",
+    "nameGu": "અસારવા",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 10
+  },
+  {
+    "code": 3784,
+    "nameEn": "Bavla",
+    "nameGu": "બાવળા",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 48
+  },
+  {
+    "code": 3782,
+    "nameEn": "Daskroi",
+    "nameGu": "દસક્રોઈ",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 59
+  },
+  {
+    "code": 3778,
+    "nameEn": "Detroj-Rampura",
+    "nameGu": "દેત્રોજ-રામપુરા",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 53
+  },
+  {
+    "code": 3787,
+    "nameEn": "Dhandhuka",
+    "nameGu": "ધંધુકા",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 44
+  },
+  {
+    "code": 6167,
+    "nameEn": "Dholera",
+    "nameGu": "ધોલેરા",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 33
+  },
+  {
+    "code": 3783,
+    "nameEn": "Dholka",
+    "nameGu": "ધોળકા",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 71
+  },
+  {
+    "code": 6513,
+    "nameEn": "Ghatlodiya",
+    "nameGu": "ઘાટલોડિયા",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 20
+  },
+  {
+    "code": 3777,
+    "nameEn": "Mandal",
+    "nameGu": "માંડલ",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 37
+  },
+  {
+    "code": 6515,
+    "nameEn": "Maninagar",
+    "nameGu": "મણિનગર",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 11
+  },
+  {
+    "code": 3781,
+    "nameEn": "Sabarmati",
+    "nameGu": "સાબરમતી",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 14
+  },
+  {
+    "code": 3780,
+    "nameEn": "Sanand",
+    "nameGu": "સાણંદ",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 67
+  },
+  {
+    "code": 6516,
+    "nameEn": "Vatva",
+    "nameGu": "વાટવા",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 13
+  },
+  {
+    "code": 6514,
+    "nameEn": "Vejalpur",
+    "nameGu": "વેજલપુર",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 11
+  },
+  {
+    "code": 3779,
+    "nameEn": "Viramgam",
+    "nameGu": "વિરમગામ",
+    "districtCode": 438,
+    "districtNameEn": "Ahmedabad",
+    "districtNameGu": "અમદાવાદ",
+    "villageCount": 68
+  },
+  {
+    "code": 3843,
+    "nameEn": "Amreli",
+    "nameGu": "Amreli",
+    "districtCode": 439,
+    "districtNameEn": "Amreli",
+    "districtNameGu": "અમરેલી",
+    "villageCount": 72
+  },
+  {
+    "code": 7432,
+    "nameEn": "Amreli-City",
+    "nameGu": "Amreli-City",
+    "districtCode": 439,
+    "districtNameEn": "Amreli",
+    "districtNameGu": "અમરેલી",
+    "villageCount": 0
+  },
+  {
+    "code": 3840,
+    "nameEn": "Babra",
+    "nameGu": "Babra",
+    "districtCode": 439,
+    "districtNameEn": "Amreli",
+    "districtNameGu": "અમરેલી",
+    "villageCount": 58
+  },
+  {
+    "code": 3844,
+    "nameEn": "Bagasara",
+    "nameGu": "Bagasara",
+    "districtCode": 439,
+    "districtNameEn": "Amreli",
+    "districtNameGu": "અમરેલી",
+    "villageCount": 36
+  },
+  {
+    "code": 3845,
+    "nameEn": "Dhari",
+    "nameGu": "Dhari",
+    "districtCode": 439,
+    "districtNameEn": "Amreli",
+    "districtNameGu": "અમરેલી",
+    "villageCount": 78
+  },
+  {
+    "code": 3848,
+    "nameEn": "Jafrabad",
+    "nameGu": "Jafrabad",
+    "districtCode": 439,
+    "districtNameEn": "Amreli",
+    "districtNameGu": "અમરેલી",
+    "villageCount": 43
+  },
+  {
+    "code": 3847,
+    "nameEn": "Khambha",
+    "nameGu": "Khambha",
+    "districtCode": 439,
+    "districtNameEn": "Amreli",
+    "districtNameGu": "અમરેલી",
+    "villageCount": 57
+  },
+  {
+    "code": 3839,
+    "nameEn": "Kunkavav Vadia",
+    "nameGu": "Kunkavav Vadia",
+    "districtCode": 439,
+    "districtNameEn": "Amreli",
+    "districtNameGu": "અમરેલી",
+    "villageCount": 45
+  },
+  {
+    "code": 3841,
+    "nameEn": "Lathi",
+    "nameGu": "Lathi",
+    "districtCode": 439,
+    "districtNameEn": "Amreli",
+    "districtNameGu": "અમરેલી",
+    "villageCount": 51
+  },
+  {
+    "code": 3842,
+    "nameEn": "Lilia",
+    "nameGu": "Lilia",
+    "districtCode": 439,
+    "districtNameEn": "Amreli",
+    "districtNameGu": "અમરેલી",
+    "villageCount": 37
+  },
+  {
+    "code": 3849,
+    "nameEn": "Rajula",
+    "nameGu": "Rajula",
+    "districtCode": 439,
+    "districtNameEn": "Amreli",
+    "districtNameGu": "અમરેલી",
+    "villageCount": 73
+  },
+  {
+    "code": 3846,
+    "nameEn": "Savar Kundla",
+    "nameGu": "Savar Kundla",
+    "districtCode": 439,
+    "districtNameEn": "Amreli",
+    "districtNameGu": "અમરેલી",
+    "villageCount": 80
+  },
+  {
+    "code": 6530,
+    "nameEn": "Anand City",
+    "nameGu": "Anand City",
+    "districtCode": 440,
+    "districtNameEn": "Anand",
+    "districtNameGu": "આણંદ",
+    "villageCount": 1
+  },
+  {
+    "code": 3864,
+    "nameEn": "Anand Rural",
+    "nameGu": "Anand Rural",
+    "districtCode": 440,
+    "districtNameEn": "Anand",
+    "districtNameGu": "આણંદ",
+    "villageCount": 44
+  },
+  {
+    "code": 3868,
+    "nameEn": "Anklav",
+    "nameGu": "આંકલાવ",
+    "districtCode": 440,
+    "districtNameEn": "Anand",
+    "districtNameGu": "આણંદ",
+    "villageCount": 32
+  },
+  {
+    "code": 3867,
+    "nameEn": "Borsad",
+    "nameGu": "બોરસદ",
+    "districtCode": 440,
+    "districtNameEn": "Anand",
+    "districtNameGu": "આણંદ",
+    "villageCount": 65
+  },
+  {
+    "code": 3866,
+    "nameEn": "Khambhat",
+    "nameGu": "ખંભાત",
+    "districtCode": 440,
+    "districtNameEn": "Anand",
+    "districtNameGu": "આણંદ",
+    "villageCount": 61
+  },
+  {
+    "code": 3865,
+    "nameEn": "Petlad",
+    "nameGu": "પેટલાદ",
+    "districtCode": 440,
+    "districtNameEn": "Anand",
+    "districtNameGu": "આણંદ",
+    "villageCount": 56
+  },
+  {
+    "code": 3862,
+    "nameEn": "Sojitra",
+    "nameGu": "સોજિત્રા",
+    "districtCode": 440,
+    "districtNameEn": "Anand",
+    "districtNameGu": "આણંદ",
+    "villageCount": 22
+  },
+  {
+    "code": 3861,
+    "nameEn": "Tarapur",
+    "nameGu": "તારાપુર",
+    "districtCode": 440,
+    "districtNameEn": "Anand",
+    "districtNameGu": "આણંદ",
+    "villageCount": 42
+  },
+  {
+    "code": 3863,
+    "nameEn": "Umreth",
+    "nameGu": "ઉમરેઠ",
+    "districtCode": 440,
+    "districtNameEn": "Anand",
+    "districtNameGu": "આણંદ",
+    "villageCount": 37
+  },
+  {
+    "code": 3736,
+    "nameEn": "Amirgadh",
+    "nameGu": "Amirgadh",
+    "districtCode": 441,
+    "districtNameEn": "Banas Kantha",
+    "districtNameGu": "બનાસકાંઠા",
+    "villageCount": 69
+  },
+  {
+    "code": 3737,
+    "nameEn": "Danta",
+    "nameGu": "Danta",
+    "districtCode": 441,
+    "districtNameEn": "Banas Kantha",
+    "districtNameGu": "બનાસકાંઠા",
+    "villageCount": 115
+  },
+  {
+    "code": 3735,
+    "nameEn": "Dantiwada",
+    "nameGu": "Dantiwada",
+    "districtCode": 441,
+    "districtNameEn": "Banas Kantha",
+    "districtNameGu": "બનાસકાંઠા",
+    "villageCount": 57
+  },
+  {
+    "code": 3740,
+    "nameEn": "Deesa",
+    "nameGu": "Deesa",
+    "districtCode": 441,
+    "districtNameEn": "Banas Kantha",
+    "districtNameGu": "બનાસકાંઠા",
+    "villageCount": 116
+  },
+  {
+    "code": 7437,
+    "nameEn": "Deesa City",
+    "nameGu": "Deesa City",
+    "districtCode": 441,
+    "districtNameEn": "Banas Kantha",
+    "districtNameGu": "બનાસકાંઠા",
+    "villageCount": 1
+  },
+  {
+    "code": 3734,
+    "nameEn": "Dhanera",
+    "nameGu": "Dhanera",
+    "districtCode": 441,
+    "districtNameEn": "Banas Kantha",
+    "districtNameGu": "બનાસકાંઠા",
+    "villageCount": 79
+  },
+  {
+    "code": 7555,
+    "nameEn": "Hadad",
+    "nameGu": "Hadad",
+    "districtCode": 441,
+    "districtNameEn": "Banas Kantha",
+    "districtNameGu": "બનાસકાંઠા",
+    "villageCount": 72
+  },
+  {
+    "code": 3743,
+    "nameEn": "Kankrej",
+    "nameGu": "Kankrej",
+    "districtCode": 441,
+    "districtNameEn": "Banas Kantha",
+    "districtNameGu": "બનાસકાંઠા",
+    "villageCount": 50
+  },
+  {
+    "code": 7557,
+    "nameEn": "Ogad",
+    "nameGu": "Ogad",
+    "districtCode": 441,
+    "districtNameEn": "Banas Kantha",
+    "districtNameGu": "બનાસકાંઠા",
+    "villageCount": 59
+  },
+  {
+    "code": 3739,
+    "nameEn": "Palanpur",
+    "nameGu": "Palanpur",
+    "districtCode": 441,
+    "districtNameEn": "Banas Kantha",
+    "districtNameGu": "બનાસકાંઠા",
+    "villageCount": 119
+  },
+  {
+    "code": 7436,
+    "nameEn": "Palanpur City",
+    "nameGu": "Palanpur City",
+    "districtCode": 441,
+    "districtNameEn": "Banas Kantha",
+    "districtNameGu": "બનાસકાંઠા",
+    "villageCount": 1
+  },
+  {
+    "code": 3738,
+    "nameEn": "Vadgam",
+    "nameGu": "Vadgam",
+    "districtCode": 441,
+    "districtNameEn": "Banas Kantha",
+    "districtNameGu": "બનાસકાંઠા",
+    "villageCount": 110
+  },
+  {
+    "code": 3914,
+    "nameEn": "Amod",
+    "nameGu": "Amod",
+    "districtCode": 442,
+    "districtNameEn": "Bharuch",
+    "districtNameGu": "ભરૂચ",
+    "villageCount": 55
+  },
+  {
+    "code": 3918,
+    "nameEn": "Anklesvar",
+    "nameGu": "Anklesvar",
+    "districtCode": 442,
+    "districtNameEn": "Bharuch",
+    "districtNameGu": "ભરૂચ",
+    "villageCount": 61
+  },
+  {
+    "code": 3916,
+    "nameEn": "Bharuch",
+    "nameGu": "Bharuch",
+    "districtCode": 442,
+    "districtNameEn": "Bharuch",
+    "districtNameGu": "ભરૂચ",
+    "villageCount": 96
+  },
+  {
+    "code": 7597,
+    "nameEn": "Bharuch City",
+    "nameGu": "Bharuch City",
+    "districtCode": 442,
+    "districtNameEn": "Bharuch",
+    "districtNameGu": "ભરૂચ",
+    "villageCount": 6
+  },
+  {
+    "code": 3919,
+    "nameEn": "Hansot",
+    "nameGu": "Hansot",
+    "districtCode": 442,
+    "districtNameEn": "Bharuch",
+    "districtNameGu": "ભરૂચ",
+    "villageCount": 46
+  },
+  {
+    "code": 3913,
+    "nameEn": "Jambusar",
+    "nameGu": "Jambusar",
+    "districtCode": 442,
+    "districtNameEn": "Bharuch",
+    "districtNameGu": "ભરૂચ",
+    "villageCount": 83
+  },
+  {
+    "code": 3917,
+    "nameEn": "Jhagadia",
+    "nameGu": "Jhagadia",
+    "districtCode": 442,
+    "districtNameEn": "Bharuch",
+    "districtNameGu": "ભરૂચ",
+    "villageCount": 126
+  },
+  {
+    "code": 6170,
+    "nameEn": "Netrang",
+    "nameGu": "Netrang",
+    "districtCode": 442,
+    "districtNameEn": "Bharuch",
+    "districtNameGu": "ભરૂચ",
+    "villageCount": 79
+  },
+  {
+    "code": 3915,
+    "nameEn": "Vagra",
+    "nameGu": "Vagra",
+    "districtCode": 442,
+    "districtNameEn": "Bharuch",
+    "districtNameGu": "ભરૂચ",
+    "villageCount": 68
+  },
+  {
+    "code": 3920,
+    "nameEn": "Valia",
+    "nameGu": "Valia",
+    "districtCode": 442,
+    "districtNameEn": "Bharuch",
+    "districtNameGu": "ભરૂચ",
+    "villageCount": 60
+  },
+  {
+    "code": 3854,
+    "nameEn": "Bhavnagar",
+    "nameGu": "ભાવનગર",
+    "districtCode": 443,
+    "districtNameEn": "Bhavnagar",
+    "districtNameGu": "ભાવનગર",
+    "villageCount": 54
+  },
+  {
+    "code": 7444,
+    "nameEn": "Bhavnagar City",
+    "nameGu": "ભાવનગર શહેર",
+    "districtCode": 443,
+    "districtNameEn": "Bhavnagar",
+    "districtNameGu": "ભાવનગર",
+    "villageCount": 0
+  },
+  {
+    "code": 7604,
+    "nameEn": "Bhavnagar City (East)",
+    "nameGu": "Bhavnagar City (East)",
+    "districtCode": 443,
+    "districtNameEn": "Bhavnagar",
+    "districtNameGu": "ભાવનગર",
+    "villageCount": 4
+  },
+  {
+    "code": 7605,
+    "nameEn": "Bhavnagar City (West)",
+    "nameGu": "Bhavnagar City (West)",
+    "districtCode": 443,
+    "districtNameEn": "Bhavnagar",
+    "districtNameGu": "ભાવનગર",
+    "villageCount": 5
+  },
+  {
+    "code": 3857,
+    "nameEn": "Gariadhar",
+    "nameGu": "ગારીયાધાર",
+    "districtCode": 443,
+    "districtNameEn": "Bhavnagar",
+    "districtNameGu": "ભાવનગર",
+    "villageCount": 51
+  },
+  {
+    "code": 3855,
+    "nameEn": "Ghogha",
+    "nameGu": "ઘોઘા",
+    "districtCode": 443,
+    "districtNameEn": "Bhavnagar",
+    "districtNameGu": "ભાવનગર",
+    "villageCount": 48
+  },
+  {
+    "code": 6203,
+    "nameEn": "Jesar",
+    "nameGu": "જેસર",
+    "districtCode": 443,
+    "districtNameEn": "Bhavnagar",
+    "districtNameGu": "ભાવનગર",
+    "villageCount": 35
+  },
+  {
+    "code": 3860,
+    "nameEn": "Mahuva",
+    "nameGu": "મહુવા",
+    "districtCode": 443,
+    "districtNameEn": "Bhavnagar",
+    "districtNameGu": "ભાવનગર",
+    "villageCount": 119
+  },
+  {
+    "code": 3858,
+    "nameEn": "Palitana",
+    "nameGu": "પાલીતાણા",
+    "districtCode": 443,
+    "districtNameEn": "Bhavnagar",
+    "districtNameGu": "ભાવનગર",
+    "villageCount": 83
+  },
+  {
+    "code": 3856,
+    "nameEn": "Sihor",
+    "nameGu": "સિહોર",
+    "districtCode": 443,
+    "districtNameEn": "Bhavnagar",
+    "districtNameGu": "ભાવનગર",
+    "villageCount": 82
+  },
+  {
+    "code": 3859,
+    "nameEn": "Talaja",
+    "nameGu": "તળાજા",
+    "districtCode": 443,
+    "districtNameEn": "Bhavnagar",
+    "districtNameGu": "ભાવનગર",
+    "villageCount": 118
+  },
+  {
+    "code": 3853,
+    "nameEn": "Umrala",
+    "nameGu": "ઉમરાળા",
+    "districtCode": 443,
+    "districtNameEn": "Bhavnagar",
+    "districtNameGu": "ભાવનગર",
+    "villageCount": 43
+  },
+  {
+    "code": 3851,
+    "nameEn": "Vallabhipur",
+    "nameGu": "વલ્લભીપુર",
+    "districtCode": 443,
+    "districtNameEn": "Bhavnagar",
+    "districtNameGu": "ભાવનગર",
+    "villageCount": 60
+  },
+  {
+    "code": 3921,
+    "nameEn": "Ahwa",
+    "nameGu": "Ahwa",
+    "districtCode": 444,
+    "districtNameEn": "Dangs",
+    "districtNameGu": "ડાંગ",
+    "villageCount": 123
+  },
+  {
+    "code": 6024,
+    "nameEn": "Subir",
+    "nameGu": "Subir",
+    "districtCode": 444,
+    "districtNameEn": "Dangs",
+    "districtNameGu": "ડાંગ",
+    "villageCount": 92
+  },
+  {
+    "code": 6023,
+    "nameEn": "Waghai",
+    "nameGu": "Waghai",
+    "districtCode": 444,
+    "districtNameEn": "Dangs",
+    "districtNameGu": "ડાંગ",
+    "villageCount": 96
+  },
+  {
+    "code": 3895,
+    "nameEn": "Devgadbaria",
+    "nameGu": "Devgadbaria",
+    "districtCode": 445,
+    "districtNameEn": "Dahod",
+    "districtNameGu": "દાહોદ",
+    "villageCount": 88
+  },
+  {
+    "code": 3896,
+    "nameEn": "Dhanpur",
+    "nameGu": "Dhanpur",
+    "districtCode": 445,
+    "districtNameEn": "Dahod",
+    "districtNameGu": "દાહોદ",
+    "villageCount": 92
+  },
+  {
+    "code": 3893,
+    "nameEn": "Dohad",
+    "nameGu": "Dohad",
+    "districtCode": 445,
+    "districtNameEn": "Dahod",
+    "districtNameGu": "દાહોદ",
+    "villageCount": 89
+  },
+  {
+    "code": 3890,
+    "nameEn": "Fatepura",
+    "nameGu": "Fatepura",
+    "districtCode": 445,
+    "districtNameEn": "Dahod",
+    "districtNameGu": "દાહોદ",
+    "villageCount": 49
+  },
+  {
+    "code": 3894,
+    "nameEn": "Garbada",
+    "nameGu": "Garbada",
+    "districtCode": 445,
+    "districtNameEn": "Dahod",
+    "districtNameGu": "દાહોદ",
+    "villageCount": 34
+  },
+  {
+    "code": 7554,
+    "nameEn": "Govindguru Limdi",
+    "nameGu": "Govindguru Limdi",
+    "districtCode": 445,
+    "districtNameEn": "Dahod",
+    "districtNameGu": "દાહોદ",
+    "villageCount": 46
+  },
+  {
+    "code": 3891,
+    "nameEn": "Jhalod",
+    "nameGu": "Jhalod",
+    "districtCode": 445,
+    "districtNameEn": "Dahod",
+    "districtNameGu": "દાહોદ",
+    "villageCount": 59
+  },
+  {
+    "code": 3892,
+    "nameEn": "Limkheda",
+    "nameGu": "Limkheda",
+    "districtCode": 445,
+    "districtNameEn": "Dahod",
+    "districtNameGu": "દાહોદ",
+    "villageCount": 82
+  },
+  {
+    "code": 6204,
+    "nameEn": "Sanjeli",
+    "nameGu": "Sanjeli",
+    "districtCode": 445,
+    "districtNameEn": "Dahod",
+    "districtNameGu": "દાહોદ",
+    "villageCount": 56
+  },
+  {
+    "code": 6480,
+    "nameEn": "Singvad",
+    "nameGu": "Singvad",
+    "districtCode": 445,
+    "districtNameEn": "Dahod",
+    "districtNameGu": "દાહોદ",
+    "villageCount": 71
+  },
+  {
+    "code": 7549,
+    "nameEn": "Sukhsar",
+    "nameGu": "Sukhsar",
+    "districtCode": 445,
+    "districtNameEn": "Dahod",
+    "districtNameGu": "દાહોદ",
+    "villageCount": 47
+  },
+  {
+    "code": 3776,
+    "nameEn": "Dehgam",
+    "nameGu": "Dehgam",
+    "districtCode": 446,
+    "districtNameEn": "Gandhinagar",
+    "districtNameGu": "ગાંધીનગર",
+    "villageCount": 96
+  },
+  {
+    "code": 3775,
+    "nameEn": "Gandhinagar",
+    "nameGu": "Gandhinagar",
+    "districtCode": 446,
+    "districtNameEn": "Gandhinagar",
+    "districtNameGu": "ગાંધીનગર",
+    "villageCount": 81
+  },
+  {
+    "code": 7438,
+    "nameEn": "Kalol City",
+    "nameGu": "Kalol City",
+    "districtCode": 446,
+    "districtNameEn": "Gandhinagar",
+    "districtNameGu": "ગાંધીનગર",
+    "villageCount": 1
+  },
+  {
+    "code": 3773,
+    "nameEn": "Kalol Gandhinagar",
+    "nameGu": "Kalol Gandhinagar",
+    "districtCode": 446,
+    "districtNameEn": "Gandhinagar",
+    "districtNameGu": "ગાંધીનગર",
+    "villageCount": 56
+  },
+  {
+    "code": 3774,
+    "nameEn": "Mansa",
+    "nameGu": "Mansa",
+    "districtCode": 446,
+    "districtNameEn": "Gandhinagar",
+    "districtNameGu": "ગાંધીનગર",
+    "villageCount": 62
+  },
+  {
+    "code": 3816,
+    "nameEn": "Dhrol",
+    "nameGu": "Dhrol",
+    "districtCode": 447,
+    "districtNameEn": "Jamnagar",
+    "districtNameGu": "જામનગર",
+    "villageCount": 42
+  },
+  {
+    "code": 3821,
+    "nameEn": "Jamjodhpur",
+    "nameGu": "Jamjodhpur",
+    "districtCode": 447,
+    "districtNameEn": "Jamnagar",
+    "districtNameGu": "જામનગર",
+    "villageCount": 70
+  },
+  {
+    "code": 6525,
+    "nameEn": "Jamnagar City",
+    "nameGu": "Jamnagar City",
+    "districtCode": 447,
+    "districtNameEn": "Jamnagar",
+    "districtNameGu": "જામનગર",
+    "villageCount": 9
+  },
+  {
+    "code": 3814,
+    "nameEn": "Jamnagar Rural",
+    "nameGu": "Jamnagar Rural",
+    "districtCode": 447,
+    "districtNameEn": "Jamnagar",
+    "districtNameGu": "જામનગર",
+    "villageCount": 105
+  },
+  {
+    "code": 3815,
+    "nameEn": "Jodiya",
+    "nameGu": "Jodiya",
+    "districtCode": 447,
+    "districtNameEn": "Jamnagar",
+    "districtNameGu": "જામનગર",
+    "villageCount": 37
+  },
+  {
+    "code": 3817,
+    "nameEn": "Kalavad",
+    "nameGu": "Kalavad",
+    "districtCode": 447,
+    "districtNameEn": "Jamnagar",
+    "districtNameGu": "જામનગર",
+    "villageCount": 99
+  },
+  {
+    "code": 3818,
+    "nameEn": "Lalpur",
+    "nameGu": "Lalpur",
+    "districtCode": 447,
+    "districtNameEn": "Jamnagar",
+    "districtNameGu": "જામનગર",
+    "villageCount": 74
+  },
+  {
+    "code": 3828,
+    "nameEn": "Bhesan",
+    "nameGu": "Bhesan",
+    "districtCode": 448,
+    "districtNameEn": "Junagadh",
+    "districtNameGu": "જુનાગઢ",
+    "villageCount": 46
+  },
+  {
+    "code": 3827,
+    "nameEn": "Junagadh",
+    "nameGu": "Junagadh",
+    "districtCode": 448,
+    "districtNameEn": "Junagadh",
+    "districtNameGu": "જુનાગઢ",
+    "villageCount": 71
+  },
+  {
+    "code": 6517,
+    "nameEn": "Junagadh City",
+    "nameGu": "Junagadh City",
+    "districtCode": 448,
+    "districtNameEn": "Junagadh",
+    "districtNameGu": "જુનાગઢ",
+    "villageCount": 10
+  },
+  {
+    "code": 3831,
+    "nameEn": "Keshod",
+    "nameGu": "Keshod",
+    "districtCode": 448,
+    "districtNameEn": "Junagadh",
+    "districtNameGu": "જુનાગઢ",
+    "villageCount": 54
+  },
+  {
+    "code": 3833,
+    "nameEn": "Malia Hatina",
+    "nameGu": "Malia Hatina",
+    "districtCode": 448,
+    "districtNameEn": "Junagadh",
+    "districtNameGu": "જુનાગઢ",
+    "villageCount": 69
+  },
+  {
+    "code": 3825,
+    "nameEn": "Manavadar",
+    "nameGu": "Manavadar",
+    "districtCode": 448,
+    "districtNameEn": "Junagadh",
+    "districtNameGu": "જુનાગઢ",
+    "villageCount": 58
+  },
+  {
+    "code": 3832,
+    "nameEn": "Mangrol",
+    "nameGu": "માંગરોળ",
+    "districtCode": 448,
+    "districtNameEn": "Junagadh",
+    "districtNameGu": "જુનાગઢ",
+    "villageCount": 60
+  },
+  {
+    "code": 3830,
+    "nameEn": "Mendarda",
+    "nameGu": "Mendarda",
+    "districtCode": 448,
+    "districtNameEn": "Junagadh",
+    "districtNameGu": "જુનાગઢ",
+    "villageCount": 51
+  },
+  {
+    "code": 3826,
+    "nameEn": "Vanthali",
+    "nameGu": "Vanthali",
+    "districtCode": 448,
+    "districtNameEn": "Junagadh",
+    "districtNameGu": "જુનાગઢ",
+    "villageCount": 47
+  },
+  {
+    "code": 3829,
+    "nameEn": "Visavadar",
+    "nameGu": "Visavadar",
+    "districtCode": 448,
+    "districtNameEn": "Junagadh",
+    "districtNameGu": "જુનાગઢ",
+    "villageCount": 101
+  },
+  {
+    "code": 3728,
+    "nameEn": "Abdasa",
+    "nameGu": "Abdasa",
+    "districtCode": 449,
+    "districtNameEn": "Kachchh",
+    "districtNameGu": "કચ્છ",
+    "villageCount": 157
+  },
+  {
+    "code": 3725,
+    "nameEn": "Anjar",
+    "nameGu": "Anjar",
+    "districtCode": 449,
+    "districtNameEn": "Kachchh",
+    "districtNameGu": "કચ્છ",
+    "villageCount": 70
+  },
+  {
+    "code": 3724,
+    "nameEn": "Bhachau",
+    "nameGu": "Bhachau",
+    "districtCode": 449,
+    "districtNameEn": "Kachchh",
+    "districtNameGu": "કચ્છ",
+    "villageCount": 73
+  },
+  {
+    "code": 3726,
+    "nameEn": "Bhuj",
+    "nameGu": "Bhuj",
+    "districtCode": 449,
+    "districtNameEn": "Kachchh",
+    "districtNameGu": "કચ્છ",
+    "villageCount": 182
+  },
+  {
+    "code": 7606,
+    "nameEn": "Bhuj City",
+    "nameGu": "Bhuj City",
+    "districtCode": 449,
+    "districtNameEn": "Kachchh",
+    "districtNameGu": "કચ્છ",
+    "villageCount": 6
+  },
+  {
+    "code": 3731,
+    "nameEn": "Gandhidham",
+    "nameGu": "Gandhidham",
+    "districtCode": 449,
+    "districtNameEn": "Kachchh",
+    "districtNameGu": "કચ્છ",
+    "villageCount": 10
+  },
+  {
+    "code": 3722,
+    "nameEn": "Lakhpat",
+    "nameGu": "Lakhpat",
+    "districtCode": 449,
+    "districtNameEn": "Kachchh",
+    "districtNameGu": "કચ્છ",
+    "villageCount": 101
+  },
+  {
+    "code": 3729,
+    "nameEn": "Mandvi",
+    "nameGu": "માંડવી",
+    "districtCode": 449,
+    "districtNameEn": "Kachchh",
+    "districtNameGu": "કચ્છ",
+    "villageCount": 100
+  },
+  {
+    "code": 3730,
+    "nameEn": "Mundra",
+    "nameGu": "Mundra",
+    "districtCode": 449,
+    "districtNameEn": "Kachchh",
+    "districtNameGu": "કચ્છ",
+    "villageCount": 64
+  },
+  {
+    "code": 3727,
+    "nameEn": "Nakhatrana",
+    "nameGu": "Nakhatrana",
+    "districtCode": 449,
+    "districtNameEn": "Kachchh",
+    "districtNameGu": "કચ્છ",
+    "villageCount": 139
+  },
+  {
+    "code": 3723,
+    "nameEn": "Rapar",
+    "nameGu": "Rapar",
+    "districtCode": 449,
+    "districtNameEn": "Kachchh",
+    "districtNameGu": "કચ્છ",
+    "villageCount": 101
+  },
+  {
+    "code": 7558,
+    "nameEn": "Fagvel",
+    "nameGu": "Fagvel",
+    "districtCode": 450,
+    "districtNameEn": "Kheda",
+    "districtNameGu": "ખેડા",
+    "villageCount": 17
+  },
+  {
+    "code": 6025,
+    "nameEn": "Galteshwar",
+    "nameGu": "Galteshwar",
+    "districtCode": 450,
+    "districtNameEn": "Kheda",
+    "districtNameGu": "ખેડા",
+    "villageCount": 28
+  },
+  {
+    "code": 3869,
+    "nameEn": "Kapadvanj",
+    "nameGu": "Kapadvanj",
+    "districtCode": 450,
+    "districtNameEn": "Kheda",
+    "districtNameGu": "ખેડા",
+    "villageCount": 101
+  },
+  {
+    "code": 3872,
+    "nameEn": "Kathlal",
+    "nameGu": "Kathlal",
+    "districtCode": 450,
+    "districtNameEn": "Kheda",
+    "districtNameGu": "ખેડા",
+    "villageCount": 50
+  },
+  {
+    "code": 3874,
+    "nameEn": "Kheda",
+    "nameGu": "Kheda",
+    "districtCode": 450,
+    "districtNameEn": "Kheda",
+    "districtNameGu": "ખેડા",
+    "villageCount": 40
+  },
+  {
+    "code": 3877,
+    "nameEn": "Mahudha",
+    "nameGu": "Mahudha",
+    "districtCode": 450,
+    "districtNameEn": "Kheda",
+    "districtNameGu": "ખેડા",
+    "villageCount": 42
+  },
+  {
+    "code": 3875,
+    "nameEn": "Matar",
+    "nameGu": "Matar",
+    "districtCode": 450,
+    "districtNameEn": "Kheda",
+    "districtNameGu": "ખેડા",
+    "villageCount": 49
+  },
+  {
+    "code": 3873,
+    "nameEn": "Mehmedabad",
+    "nameGu": "Mehmedabad",
+    "districtCode": 450,
+    "districtNameEn": "Kheda",
+    "districtNameGu": "ખેડા",
+    "villageCount": 67
+  },
+  {
+    "code": 3876,
+    "nameEn": "Nadiad",
+    "nameGu": "Nadiad",
+    "districtCode": 450,
+    "districtNameEn": "Kheda",
+    "districtNameGu": "ખેડા",
+    "villageCount": 49
+  },
+  {
+    "code": 6531,
+    "nameEn": "Nadiad City",
+    "nameGu": "Nadiad City",
+    "districtCode": 450,
+    "districtNameEn": "Kheda",
+    "districtNameGu": "ખેડા",
+    "villageCount": 8
+  },
+  {
+    "code": 3878,
+    "nameEn": "Thasra",
+    "nameGu": "Thasra",
+    "districtCode": 450,
+    "districtNameEn": "Kheda",
+    "districtNameGu": "ખેડા",
+    "villageCount": 68
+  },
+  {
+    "code": 6034,
+    "nameEn": "Vaso",
+    "nameGu": "Vaso",
+    "districtCode": 450,
+    "districtNameEn": "Kheda",
+    "districtNameGu": "ખેડા",
+    "villageCount": 22
+  },
+  {
+    "code": 3758,
+    "nameEn": "Becharaji",
+    "nameGu": "Becharaji",
+    "districtCode": 451,
+    "districtNameEn": "Mahesana",
+    "districtNameGu": "મહેસાણા",
+    "villageCount": 52
+  },
+  {
+    "code": 6021,
+    "nameEn": "Jotana",
+    "nameGu": "Jotana",
+    "districtCode": 451,
+    "districtNameEn": "Mahesana",
+    "districtNameGu": "મહેસાણા",
+    "villageCount": 35
+  },
+  {
+    "code": 3759,
+    "nameEn": "Kadi",
+    "nameGu": "Kadi",
+    "districtCode": 451,
+    "districtNameEn": "Mahesana",
+    "districtNameGu": "મહેસાણા",
+    "villageCount": 112
+  },
+  {
+    "code": 3752,
+    "nameEn": "Kheralu",
+    "nameGu": "Kheralu",
+    "districtCode": 451,
+    "districtNameEn": "Mahesana",
+    "districtNameGu": "મહેસાણા",
+    "villageCount": 50
+  },
+  {
+    "code": 3757,
+    "nameEn": "Mahesana",
+    "nameGu": "Mahesana",
+    "districtCode": 451,
+    "districtNameEn": "Mahesana",
+    "districtNameGu": "મહેસાણા",
+    "villageCount": 96
+  },
+  {
+    "code": 7441,
+    "nameEn": "Mahesana City",
+    "nameGu": "Mahesana City",
+    "districtCode": 451,
+    "districtNameEn": "Mahesana",
+    "districtNameGu": "મહેસાણા",
+    "villageCount": 1
+  },
+  {
+    "code": 3751,
+    "nameEn": "Satlasana",
+    "nameGu": "Satlasana",
+    "districtCode": 451,
+    "districtNameEn": "Mahesana",
+    "districtNameGu": "મહેસાણા",
+    "villageCount": 73
+  },
+  {
+    "code": 3753,
+    "nameEn": "Unjha",
+    "nameGu": "Unjha",
+    "districtCode": 451,
+    "districtNameEn": "Mahesana",
+    "districtNameGu": "મહેસાણા",
+    "villageCount": 32
+  },
+  {
+    "code": 3755,
+    "nameEn": "Vadnagar",
+    "nameGu": "Vadnagar",
+    "districtCode": 451,
+    "districtNameEn": "Mahesana",
+    "districtNameGu": "મહેસાણા",
+    "villageCount": 47
+  },
+  {
+    "code": 3756,
+    "nameEn": "Vijapur",
+    "nameGu": "Vijapur",
+    "districtCode": 451,
+    "districtNameEn": "Mahesana",
+    "districtNameGu": "મહેસાણા",
+    "villageCount": 65
+  },
+  {
+    "code": 3754,
+    "nameEn": "Visnagar",
+    "nameGu": "Visnagar",
+    "districtCode": 451,
+    "districtNameEn": "Mahesana",
+    "districtNameGu": "મહેસાણા",
+    "villageCount": 58
+  },
+  {
+    "code": 7545,
+    "nameEn": "Chikada",
+    "nameGu": "Chikada",
+    "districtCode": 452,
+    "districtNameEn": "Narmada",
+    "districtNameGu": "નર્મદા",
+    "villageCount": 61
+  },
+  {
+    "code": 3911,
+    "nameEn": "Dediapada",
+    "nameGu": "Dediapada",
+    "districtCode": 452,
+    "districtNameEn": "Narmada",
+    "districtNameGu": "નર્મદા",
+    "villageCount": 153
+  },
+  {
+    "code": 6029,
+    "nameEn": "Garudeshwar",
+    "nameGu": "Garudeshwar",
+    "districtCode": 452,
+    "districtNameEn": "Narmada",
+    "districtNameGu": "નર્મદા",
+    "villageCount": 94
+  },
+  {
+    "code": 3910,
+    "nameEn": "Nandod",
+    "nameGu": "Nandod",
+    "districtCode": 452,
+    "districtNameEn": "Narmada",
+    "districtNameGu": "નર્મદા",
+    "villageCount": 112
+  },
+  {
+    "code": 3912,
+    "nameEn": "Sagbara",
+    "nameGu": "Sagbara",
+    "districtCode": 452,
+    "districtNameEn": "Narmada",
+    "districtNameGu": "નર્મદા",
+    "villageCount": 98
+  },
+  {
+    "code": 3909,
+    "nameEn": "Tilakwada",
+    "nameGu": "Tilakwada",
+    "districtCode": 452,
+    "districtNameEn": "Narmada",
+    "districtNameGu": "નર્મદા",
+    "villageCount": 97
+  },
+  {
+    "code": 3926,
+    "nameEn": "Bansda",
+    "nameGu": "Bansda",
+    "districtCode": 453,
+    "districtNameEn": "Navsari",
+    "districtNameGu": "નવસારી",
+    "villageCount": 96
+  },
+  {
+    "code": 3925,
+    "nameEn": "Chikhli",
+    "nameGu": "Chikhli",
+    "districtCode": 453,
+    "districtNameEn": "Navsari",
+    "districtNameGu": "નવસારી",
+    "villageCount": 73
+  },
+  {
+    "code": 3924,
+    "nameEn": "Gandevi",
+    "nameGu": "Gandevi",
+    "districtCode": 453,
+    "districtNameEn": "Navsari",
+    "districtNameGu": "નવસારી",
+    "villageCount": 69
+  },
+  {
+    "code": 3923,
+    "nameEn": "Jalalpore",
+    "nameGu": "Jalalpore",
+    "districtCode": 453,
+    "districtNameEn": "Navsari",
+    "districtNameGu": "નવસારી",
+    "villageCount": 77
+  },
+  {
+    "code": 6195,
+    "nameEn": "Khergam",
+    "nameGu": "Khergam",
+    "districtCode": 453,
+    "districtNameEn": "Navsari",
+    "districtNameGu": "નવસારી",
+    "villageCount": 22
+  },
+  {
+    "code": 3922,
+    "nameEn": "Navsari",
+    "nameGu": "Navsari",
+    "districtCode": 453,
+    "districtNameEn": "Navsari",
+    "districtNameGu": "નવસારી",
+    "villageCount": 78
+  },
+  {
+    "code": 3887,
+    "nameEn": "Ghoghamba",
+    "nameGu": "Ghoghamba",
+    "districtCode": 454,
+    "districtNameEn": "Panch Mahals",
+    "districtNameGu": "પંચમહાલ",
+    "villageCount": 100
+  },
+  {
+    "code": 7598,
+    "nameEn": "Godharacity",
+    "nameGu": "Godharacity",
+    "districtCode": 454,
+    "districtNameEn": "Panch Mahals",
+    "districtNameGu": "પંચમહાલ",
+    "villageCount": 0
+  },
+  {
+    "code": 3885,
+    "nameEn": "Godhra",
+    "nameGu": "Godhra",
+    "districtCode": 454,
+    "districtNameEn": "Panch Mahals",
+    "districtNameGu": "પંચમહાલ",
+    "villageCount": 125
+  },
+  {
+    "code": 3888,
+    "nameEn": "Halol",
+    "nameGu": "Halol",
+    "districtCode": 454,
+    "districtNameEn": "Panch Mahals",
+    "districtNameGu": "પંચમહાલ",
+    "villageCount": 134
+  },
+  {
+    "code": 3889,
+    "nameEn": "Jambughoda",
+    "nameGu": "Jambughoda",
+    "districtCode": 454,
+    "districtNameEn": "Panch Mahals",
+    "districtNameGu": "પંચમહાલ",
+    "villageCount": 55
+  },
+  {
+    "code": 3886,
+    "nameEn": "Kalol",
+    "nameGu": "Kalol",
+    "districtCode": 454,
+    "districtNameEn": "Panch Mahals",
+    "districtNameGu": "પંચમહાલ",
+    "villageCount": 75
+  },
+  {
+    "code": 3884,
+    "nameEn": "Morwa (Hadaf)",
+    "nameGu": "Morwa (Hadaf)",
+    "districtCode": 454,
+    "districtNameEn": "Panch Mahals",
+    "districtNameGu": "પંચમહાલ",
+    "villageCount": 55
+  },
+  {
+    "code": 3883,
+    "nameEn": "Shehera",
+    "nameGu": "Shehera",
+    "districtCode": 454,
+    "districtNameEn": "Panch Mahals",
+    "districtNameGu": "પંચમહાલ",
+    "villageCount": 95
+  },
+  {
+    "code": 3750,
+    "nameEn": "Chanasma",
+    "nameGu": "Chanasma",
+    "districtCode": 455,
+    "districtNameEn": "Patan",
+    "districtNameGu": "પાટણ",
+    "villageCount": 61
+  },
+  {
+    "code": 3748,
+    "nameEn": "Harij",
+    "nameGu": "Harij",
+    "districtCode": 455,
+    "districtNameEn": "Patan",
+    "districtNameGu": "પાટણ",
+    "villageCount": 46
+  },
+  {
+    "code": 3747,
+    "nameEn": "Patan",
+    "nameGu": "Patan",
+    "districtCode": 455,
+    "districtNameEn": "Patan",
+    "districtNameGu": "પાટણ",
+    "villageCount": 65
+  },
+  {
+    "code": 7433,
+    "nameEn": "Patan City",
+    "nameGu": "Patan City",
+    "districtCode": 455,
+    "districtNameEn": "Patan",
+    "districtNameGu": "પાટણ",
+    "villageCount": 8
+  },
+  {
+    "code": 3745,
+    "nameEn": "Radhanpur",
+    "nameGu": "Radhanpur",
+    "districtCode": 455,
+    "districtNameEn": "Patan",
+    "districtNameGu": "પાટણ",
+    "villageCount": 56
+  },
+  {
+    "code": 3749,
+    "nameEn": "Sami",
+    "nameGu": "Sami",
+    "districtCode": 455,
+    "districtNameEn": "Patan",
+    "districtNameGu": "પાટણ",
+    "villageCount": 58
+  },
+  {
+    "code": 3744,
+    "nameEn": "Santalpur",
+    "nameGu": "Santalpur",
+    "districtCode": 455,
+    "districtNameEn": "Patan",
+    "districtNameGu": "પાટણ",
+    "villageCount": 72
+  },
+  {
+    "code": 6196,
+    "nameEn": "Saraswati",
+    "nameGu": "Saraswati",
+    "districtCode": 455,
+    "districtNameEn": "Patan",
+    "districtNameGu": "પાટણ",
+    "villageCount": 73
+  },
+  {
+    "code": 6197,
+    "nameEn": "Shankheshvar",
+    "nameGu": "Shankheshvar",
+    "districtCode": 455,
+    "districtNameEn": "Patan",
+    "districtNameGu": "પાટણ",
+    "villageCount": 36
+  },
+  {
+    "code": 3746,
+    "nameEn": "Sidhpur",
+    "nameGu": "Sidhpur",
+    "districtCode": 455,
+    "districtNameEn": "Patan",
+    "districtNameGu": "પાટણ",
+    "villageCount": 56
+  },
+  {
+    "code": 3824,
+    "nameEn": "Kutiyana",
+    "nameGu": "Kutiyana",
+    "districtCode": 456,
+    "districtNameEn": "Porbandar",
+    "districtNameGu": "પોરબંદર",
+    "villageCount": 51
+  },
+  {
+    "code": 7445,
+    "nameEn": "Porabandar City",
+    "nameGu": "Porabandar City",
+    "districtCode": 456,
+    "districtNameEn": "Porbandar",
+    "districtNameGu": "પોરબંદર",
+    "villageCount": 2
+  },
+  {
+    "code": 3822,
+    "nameEn": "Porbandar",
+    "nameGu": "Porbandar",
+    "districtCode": 456,
+    "districtNameEn": "Porbandar",
+    "districtNameGu": "પોરબંદર",
+    "villageCount": 77
+  },
+  {
+    "code": 3823,
+    "nameEn": "Ranavav",
+    "nameGu": "Ranavav",
+    "districtCode": 456,
+    "districtNameEn": "Porbandar",
+    "districtNameGu": "પોરબંદર",
+    "villageCount": 60
+  },
+  {
+    "code": 3810,
+    "nameEn": "Dhoraji",
+    "nameGu": "ધોરાજી",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 37
+  },
+  {
+    "code": 3807,
+    "nameEn": "Gondal",
+    "nameGu": "ગોંડલ",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 81
+  },
+  {
+    "code": 7439,
+    "nameEn": "Gondal City",
+    "nameGu": "Gondal City",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 7
+  },
+  {
+    "code": 3808,
+    "nameEn": "Jamkandorna",
+    "nameGu": "Jamkandorna",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 47
+  },
+  {
+    "code": 3806,
+    "nameEn": "Jasdan",
+    "nameGu": "Jasdan",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 60
+  },
+  {
+    "code": 3811,
+    "nameEn": "Jetpur",
+    "nameGu": "જેતપુર",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 48
+  },
+  {
+    "code": 7440,
+    "nameEn": "Jetpur City",
+    "nameGu": "Jetpur City",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 9
+  },
+  {
+    "code": 3805,
+    "nameEn": "Kotda Sangani",
+    "nameGu": "Kotda Sangani",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 41
+  },
+  {
+    "code": 3804,
+    "nameEn": "Lodhika",
+    "nameGu": "Lodhika",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 38
+  },
+  {
+    "code": 3802,
+    "nameEn": "Paddhari",
+    "nameGu": "Paddhari",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 58
+  },
+  {
+    "code": 3803,
+    "nameEn": "Rajkot",
+    "nameGu": "રાજકોટ",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 103
+  },
+  {
+    "code": 6520,
+    "nameEn": "Rajkot East",
+    "nameGu": "Rajkot East",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 7
+  },
+  {
+    "code": 6524,
+    "nameEn": "Rajkot South",
+    "nameGu": "Rajkot South",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 11
+  },
+  {
+    "code": 6523,
+    "nameEn": "Rajkot West",
+    "nameGu": "Rajkot West",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 11
+  },
+  {
+    "code": 3809,
+    "nameEn": "Upleta",
+    "nameGu": "ઉપલેટા",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 57
+  },
+  {
+    "code": 6198,
+    "nameEn": "Vinchchiya",
+    "nameGu": "Vinchchiya",
+    "districtCode": 457,
+    "districtNameEn": "Rajkot",
+    "districtNameGu": "રાજકોટ",
+    "villageCount": 46
+  },
+  {
+    "code": 3766,
+    "nameEn": "Himatnagar",
+    "nameGu": "Himatnagar",
+    "districtCode": 458,
+    "districtNameEn": "Sabar Kantha",
+    "districtNameGu": "સાબરકાંઠા",
+    "villageCount": 155
+  },
+  {
+    "code": 3763,
+    "nameEn": "Idar",
+    "nameGu": "Idar",
+    "districtCode": 458,
+    "districtNameEn": "Sabar Kantha",
+    "districtNameGu": "સાબરકાંઠા",
+    "villageCount": 144
+  },
+  {
+    "code": 3760,
+    "nameEn": "Khedbrahma",
+    "nameGu": "Khedbrahma",
+    "districtCode": 458,
+    "districtNameEn": "Sabar Kantha",
+    "districtNameGu": "સાબરકાંઠા",
+    "villageCount": 81
+  },
+  {
+    "code": 6088,
+    "nameEn": "Poshina",
+    "nameGu": "Poshina",
+    "districtCode": 458,
+    "districtNameEn": "Sabar Kantha",
+    "districtNameGu": "સાબરકાંઠા",
+    "villageCount": 59
+  },
+  {
+    "code": 3767,
+    "nameEn": "Prantij",
+    "nameGu": "Prantij",
+    "districtCode": 458,
+    "districtNameEn": "Sabar Kantha",
+    "districtNameGu": "સાબરકાંઠા",
+    "villageCount": 65
+  },
+  {
+    "code": 3768,
+    "nameEn": "Talod",
+    "nameGu": "Talod",
+    "districtCode": 458,
+    "districtNameEn": "Sabar Kantha",
+    "districtNameGu": "સાબરકાંઠા",
+    "villageCount": 75
+  },
+  {
+    "code": 3762,
+    "nameEn": "Vadali",
+    "nameGu": "Vadali",
+    "districtCode": 458,
+    "districtNameEn": "Sabar Kantha",
+    "districtNameGu": "સાબરકાંઠા",
+    "villageCount": 57
+  },
+  {
+    "code": 3761,
+    "nameEn": "Vijaynagar",
+    "nameGu": "Vijaynagar",
+    "districtCode": 458,
+    "districtNameEn": "Sabar Kantha",
+    "districtNameGu": "સાબરકાંઠા",
+    "villageCount": 87
+  },
+  {
+    "code": 7600,
+    "nameEn": "Abrama",
+    "nameGu": "Abrama",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 11
+  },
+  {
+    "code": 6518,
+    "nameEn": "Adajan",
+    "nameGu": "Adajan",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 17
+  },
+  {
+    "code": 7552,
+    "nameEn": "Ambika",
+    "nameGu": "Ambika",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 29
+  },
+  {
+    "code": 7553,
+    "nameEn": "Areth",
+    "nameGu": "Areth",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 38
+  },
+  {
+    "code": 3940,
+    "nameEn": "Bardoli",
+    "nameGu": "બારડોલી",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 87
+  },
+  {
+    "code": 3938,
+    "nameEn": "Chorasi",
+    "nameGu": "ચોર્યાસી",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 35
+  },
+  {
+    "code": 3936,
+    "nameEn": "Kamrej",
+    "nameGu": "કામરેજ",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 61
+  },
+  {
+    "code": 6519,
+    "nameEn": "Katargam",
+    "nameGu": "Katargam",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 19
+  },
+  {
+    "code": 3941,
+    "nameEn": "Mahuva",
+    "nameGu": "મહુવા",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 40
+  },
+  {
+    "code": 3937,
+    "nameEn": "Majura",
+    "nameGu": "Majura",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 25
+  },
+  {
+    "code": 3935,
+    "nameEn": "Mandvi",
+    "nameGu": "માંડવી",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 113
+  },
+  {
+    "code": 3933,
+    "nameEn": "Mangrol",
+    "nameGu": "માંગરોળ",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 92
+  },
+  {
+    "code": 3932,
+    "nameEn": "Olpad",
+    "nameGu": "ઓલપાડ",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 106
+  },
+  {
+    "code": 3939,
+    "nameEn": "Palsana",
+    "nameGu": "પલસાણા",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 49
+  },
+  {
+    "code": 6521,
+    "nameEn": "Puna",
+    "nameGu": "Puna",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 18
+  },
+  {
+    "code": 6522,
+    "nameEn": "Udhna",
+    "nameGu": "Udhna",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 19
+  },
+  {
+    "code": 3934,
+    "nameEn": "Umarpada",
+    "nameGu": "ઉમરપાડા",
+    "districtCode": 459,
+    "districtNameEn": "Surat",
+    "districtNameGu": "સુરત",
+    "villageCount": 64
+  },
+  {
+    "code": 3794,
+    "nameEn": "Chotila",
+    "nameGu": "Chotila",
+    "districtCode": 460,
+    "districtNameEn": "Surendranagar",
+    "districtNameGu": "સુરેન્દ્રનગર",
+    "villageCount": 84
+  },
+  {
+    "code": 3796,
+    "nameEn": "Chuda",
+    "nameGu": "Chuda",
+    "districtCode": 460,
+    "districtNameEn": "Surendranagar",
+    "districtNameGu": "સુરેન્દ્રનગર",
+    "villageCount": 36
+  },
+  {
+    "code": 3790,
+    "nameEn": "Dasada",
+    "nameGu": "Dasada",
+    "districtCode": 460,
+    "districtNameEn": "Surendranagar",
+    "districtNameGu": "સુરેન્દ્રનગર",
+    "villageCount": 89
+  },
+  {
+    "code": 3789,
+    "nameEn": "Dhrangadhra",
+    "nameGu": "Dhrangadhra",
+    "districtCode": 460,
+    "districtNameEn": "Surendranagar",
+    "districtNameGu": "સુરેન્દ્રનગર",
+    "villageCount": 65
+  },
+  {
+    "code": 3791,
+    "nameEn": "Lakhtar",
+    "nameGu": "Lakhtar",
+    "districtCode": 460,
+    "districtNameEn": "Surendranagar",
+    "districtNameGu": "સુરેન્દ્રનગર",
+    "villageCount": 43
+  },
+  {
+    "code": 3797,
+    "nameEn": "Limbdi",
+    "nameGu": "Limbdi",
+    "districtCode": 460,
+    "districtNameEn": "Surendranagar",
+    "districtNameGu": "સુરેન્દ્રનગર",
+    "villageCount": 60
+  },
+  {
+    "code": 3793,
+    "nameEn": "Muli",
+    "nameGu": "Muli",
+    "districtCode": 460,
+    "districtNameEn": "Surendranagar",
+    "districtNameGu": "સુરેન્દ્રનગર",
+    "villageCount": 54
+  },
+  {
+    "code": 3795,
+    "nameEn": "Sayla",
+    "nameGu": "Sayla",
+    "districtCode": 460,
+    "districtNameEn": "Surendranagar",
+    "districtNameGu": "સુરેન્દ્રનગર",
+    "villageCount": 71
+  },
+  {
+    "code": 7442,
+    "nameEn": "Surendranagar City",
+    "nameGu": "Surendranagar City",
+    "districtCode": 460,
+    "districtNameEn": "Surendranagar",
+    "districtNameGu": "સુરેન્દ્રનગર",
+    "villageCount": 2
+  },
+  {
+    "code": 6037,
+    "nameEn": "Thangadh",
+    "nameGu": "Thangadh",
+    "districtCode": 460,
+    "districtNameEn": "Surendranagar",
+    "districtNameGu": "સુરેન્દ્રનગર",
+    "villageCount": 29
+  },
+  {
+    "code": 3792,
+    "nameEn": "Wadhwan",
+    "nameGu": "Wadhwan",
+    "districtCode": 460,
+    "districtNameEn": "Surendranagar",
+    "districtNameGu": "સુરેન્દ્રનગર",
+    "villageCount": 46
+  },
+  {
+    "code": 3905,
+    "nameEn": "Dabhoi",
+    "nameGu": "ડભોઇ",
+    "districtCode": 461,
+    "districtNameEn": "Vadodara",
+    "districtNameGu": "વડોદરા",
+    "villageCount": 120
+  },
+  {
+    "code": 6035,
+    "nameEn": "Desar",
+    "nameGu": "ડેસર",
+    "districtCode": 461,
+    "districtNameEn": "Vadodara",
+    "districtNameGu": "વડોદરા",
+    "villageCount": 49
+  },
+  {
+    "code": 3907,
+    "nameEn": "Karjan",
+    "nameGu": "કરજણ",
+    "districtCode": 461,
+    "districtNameEn": "Vadodara",
+    "districtNameGu": "વડોદરા",
+    "villageCount": 94
+  },
+  {
+    "code": 3906,
+    "nameEn": "Padra",
+    "nameGu": "પાદરા",
+    "districtCode": 461,
+    "districtNameEn": "Vadodara",
+    "districtNameGu": "વડોદરા",
+    "villageCount": 83
+  },
+  {
+    "code": 3897,
+    "nameEn": "Savli",
+    "nameGu": "સાવલી",
+    "districtCode": 461,
+    "districtNameEn": "Vadodara",
+    "districtNameGu": "વડોદરા",
+    "villageCount": 89
+  },
+  {
+    "code": 3908,
+    "nameEn": "Sinor",
+    "nameGu": "શિનોર",
+    "districtCode": 461,
+    "districtNameEn": "Vadodara",
+    "districtNameGu": "વડોદરા",
+    "villageCount": 41
+  },
+  {
+    "code": 6529,
+    "nameEn": "Vadodara East",
+    "nameGu": "Vadodara East",
+    "districtCode": 461,
+    "districtNameEn": "Vadodara",
+    "districtNameGu": "વડોદરા",
+    "villageCount": 8
+  },
+  {
+    "code": 6527,
+    "nameEn": "Vadodara North",
+    "nameGu": "Vadodara North",
+    "districtCode": 461,
+    "districtNameEn": "Vadodara",
+    "districtNameGu": "વડોદરા",
+    "villageCount": 10
+  },
+  {
+    "code": 3898,
+    "nameEn": "Vadodara Rural",
+    "nameGu": "Vadodara Rural",
+    "districtCode": 461,
+    "districtNameEn": "Vadodara",
+    "districtNameGu": "વડોદરા",
+    "villageCount": 98
+  },
+  {
+    "code": 6526,
+    "nameEn": "Vadodara South",
+    "nameGu": "Vadodara South",
+    "districtCode": 461,
+    "districtNameEn": "Vadodara",
+    "districtNameGu": "વડોદરા",
+    "villageCount": 9
+  },
+  {
+    "code": 6528,
+    "nameEn": "Vadodara West",
+    "nameGu": "Vadodara West",
+    "districtCode": 461,
+    "districtNameEn": "Vadodara",
+    "districtNameGu": "વડોદરા",
+    "villageCount": 9
+  },
+  {
+    "code": 3899,
+    "nameEn": "Vaghodia",
+    "nameGu": "વાઘોડિયા",
+    "districtCode": 461,
+    "districtNameEn": "Vadodara",
+    "districtNameGu": "વડોદરા",
+    "villageCount": 96
+  },
+  {
+    "code": 3928,
+    "nameEn": "Dharampur",
+    "nameGu": "Dharampur",
+    "districtCode": 462,
+    "districtNameEn": "Valsad",
+    "districtNameGu": "વલસાડ",
+    "villageCount": 109
+  },
+  {
+    "code": 3930,
+    "nameEn": "Kaprada",
+    "nameGu": "Kaprada",
+    "districtCode": 462,
+    "districtNameEn": "Valsad",
+    "districtNameGu": "વલસાડ",
+    "villageCount": 100
+  },
+  {
+    "code": 7547,
+    "nameEn": "Nanapodha",
+    "nameGu": "Nanapodha",
+    "districtCode": 462,
+    "districtNameEn": "Valsad",
+    "districtNameGu": "વલસાડ",
+    "villageCount": 49
+  },
+  {
+    "code": 7601,
+    "nameEn": "Pardi",
+    "nameGu": "Pardi",
+    "districtCode": 462,
+    "districtNameEn": "Valsad",
+    "districtNameGu": "વલસાડ",
+    "villageCount": 46
+  },
+  {
+    "code": 3931,
+    "nameEn": "Umbergaon",
+    "nameGu": "Umbergaon",
+    "districtCode": 462,
+    "districtNameEn": "Valsad",
+    "districtNameGu": "વલસાડ",
+    "villageCount": 50
+  },
+  {
+    "code": 3927,
+    "nameEn": "Valsad",
+    "nameGu": "Valsad",
+    "districtCode": 462,
+    "districtNameEn": "Valsad",
+    "districtNameGu": "વલસાડ",
+    "villageCount": 105
+  },
+  {
+    "code": 7599,
+    "nameEn": "Valsad City",
+    "nameGu": "Valsad City",
+    "districtCode": 462,
+    "districtNameEn": "Valsad",
+    "districtNameGu": "વલસાડ",
+    "villageCount": 0
+  },
+  {
+    "code": 6031,
+    "nameEn": "Vapi",
+    "nameGu": "Vapi",
+    "districtCode": 462,
+    "districtNameEn": "Valsad",
+    "districtNameGu": "વલસાડ",
+    "villageCount": 15
+  },
+  {
+    "code": 7596,
+    "nameEn": "Vapi City",
+    "nameGu": "Vapi City",
+    "districtCode": 462,
+    "districtNameEn": "Valsad",
+    "districtNameGu": "વલસાડ",
+    "villageCount": 0
+  },
+  {
+    "code": 6200,
+    "nameEn": "Dolvan",
+    "nameGu": "Dolvan",
+    "districtCode": 641,
+    "districtNameEn": "Tapi",
+    "districtNameGu": "તાપી",
+    "villageCount": 58
+  },
+  {
+    "code": 6169,
+    "nameEn": "Kukarmunda",
+    "nameGu": "Kukarmunda",
+    "districtCode": 641,
+    "districtNameEn": "Tapi",
+    "districtNameGu": "તાપી",
+    "villageCount": 51
+  },
+  {
+    "code": 3942,
+    "nameEn": "Nizar",
+    "nameGu": "Nizar",
+    "districtCode": 641,
+    "districtNameEn": "Tapi",
+    "districtNameGu": "તાપી",
+    "villageCount": 35
+  },
+  {
+    "code": 3944,
+    "nameEn": "Songadh",
+    "nameGu": "Songadh",
+    "districtCode": 641,
+    "districtNameEn": "Tapi",
+    "districtNameGu": "તાપી",
+    "villageCount": 124
+  },
+  {
+    "code": 3943,
+    "nameEn": "Uchchhal",
+    "nameGu": "Uchchhal",
+    "districtCode": 641,
+    "districtNameEn": "Tapi",
+    "districtNameGu": "તાપી",
+    "villageCount": 55
+  },
+  {
+    "code": 7550,
+    "nameEn": "Ukai",
+    "nameGu": "Ukai",
+    "districtCode": 641,
+    "districtNameEn": "Tapi",
+    "districtNameGu": "તાપી",
+    "villageCount": 58
+  },
+  {
+    "code": 3946,
+    "nameEn": "Valod",
+    "nameGu": "Valod",
+    "districtCode": 641,
+    "districtNameEn": "Tapi",
+    "districtNameGu": "તાપી",
+    "villageCount": 40
+  },
+  {
+    "code": 3945,
+    "nameEn": "Vyara",
+    "nameGu": "Vyara",
+    "districtCode": 641,
+    "districtNameEn": "Tapi",
+    "districtNameGu": "તાપી",
+    "villageCount": 92
+  },
+  {
+    "code": 6020,
+    "nameEn": "Bodeli",
+    "nameGu": "Bodeli",
+    "districtCode": 668,
+    "districtNameEn": "Chhotaudepur",
+    "districtNameGu": "છોટાઉદેપુર",
+    "villageCount": 152
+  },
+  {
+    "code": 3901,
+    "nameEn": "Chhota Udaipur",
+    "nameGu": "Chhota Udaipur",
+    "districtCode": 668,
+    "districtNameEn": "Chhotaudepur",
+    "districtNameGu": "છોટાઉદેપુર",
+    "villageCount": 146
+  },
+  {
+    "code": 3900,
+    "nameEn": "Jetpur Pavi",
+    "nameGu": "Jetpur Pavi",
+    "districtCode": 668,
+    "districtNameEn": "Chhotaudepur",
+    "districtNameGu": "છોટાઉદેપુર",
+    "villageCount": 88
+  },
+  {
+    "code": 7551,
+    "nameEn": "Kadval",
+    "nameGu": "Kadval",
+    "districtCode": 668,
+    "districtNameEn": "Chhotaudepur",
+    "districtNameGu": "છોટાઉદેપુર",
+    "villageCount": 44
+  },
+  {
+    "code": 3902,
+    "nameEn": "Kavant",
+    "nameGu": "Kavant",
+    "districtCode": 668,
+    "districtNameEn": "Chhotaudepur",
+    "districtNameGu": "છોટાઉદેપુર",
+    "villageCount": 134
+  },
+  {
+    "code": 3903,
+    "nameEn": "Nasvadi",
+    "nameGu": "Nasvadi",
+    "districtCode": 668,
+    "districtNameEn": "Chhotaudepur",
+    "districtNameGu": "છોટાઉદેપુર",
+    "villageCount": 222
+  },
+  {
+    "code": 3904,
+    "nameEn": "Sankheda",
+    "nameGu": "Sankheda",
+    "districtCode": 668,
+    "districtNameEn": "Chhotaudepur",
+    "districtNameGu": "છોટાઉદેપુર",
+    "villageCount": 118
+  },
+  {
+    "code": 3871,
+    "nameEn": "Balasinor",
+    "nameGu": "Balasinor",
+    "districtCode": 669,
+    "districtNameEn": "Mahisagar",
+    "districtNameGu": "મહીસાગર",
+    "villageCount": 48
+  },
+  {
+    "code": 7546,
+    "nameEn": "Godhar",
+    "nameGu": "Godhar",
+    "districtCode": 669,
+    "districtNameEn": "Mahisagar",
+    "districtNameGu": "મહીસાગર",
+    "villageCount": 50
+  },
+  {
+    "code": 3880,
+    "nameEn": "Kadana",
+    "nameGu": "Kadana",
+    "districtCode": 669,
+    "districtNameEn": "Mahisagar",
+    "districtNameGu": "મહીસાગર",
+    "villageCount": 136
+  },
+  {
+    "code": 3879,
+    "nameEn": "Khanpur",
+    "nameGu": "Khanpur",
+    "districtCode": 669,
+    "districtNameEn": "Mahisagar",
+    "districtNameGu": "મહીસાગર",
+    "villageCount": 86
+  },
+  {
+    "code": 7556,
+    "nameEn": "Kothmba",
+    "nameGu": "Kothmba",
+    "districtCode": 669,
+    "districtNameEn": "Mahisagar",
+    "districtNameGu": "મહીસાગર",
+    "villageCount": 50
+  },
+  {
+    "code": 3882,
+    "nameEn": "Lunawada",
+    "nameGu": "Lunawada",
+    "districtCode": 669,
+    "districtNameEn": "Mahisagar",
+    "districtNameGu": "મહીસાગર",
+    "villageCount": 195
+  },
+  {
+    "code": 3881,
+    "nameEn": "Santrampur",
+    "nameGu": "Santrampur",
+    "districtCode": 669,
+    "districtNameEn": "Mahisagar",
+    "districtNameGu": "મહીસાગર",
+    "villageCount": 104
+  },
+  {
+    "code": 3870,
+    "nameEn": "Virpur",
+    "nameGu": "Virpur",
+    "districtCode": 669,
+    "districtNameEn": "Mahisagar",
+    "districtNameGu": "મહીસાગર",
+    "villageCount": 54
+  },
+  {
+    "code": 3772,
+    "nameEn": "Bayad",
+    "nameGu": "Bayad",
+    "districtCode": 672,
+    "districtNameEn": "Arvalli",
+    "districtNameGu": "અરવલ્લી",
+    "villageCount": 82
+  },
+  {
+    "code": 3764,
+    "nameEn": "Bhiloda",
+    "nameGu": "Bhiloda",
+    "districtCode": 672,
+    "districtNameEn": "Arvalli",
+    "districtNameGu": "અરવલ્લી",
+    "villageCount": 81
+  },
+  {
+    "code": 3770,
+    "nameEn": "Dhansura",
+    "nameGu": "Dhansura",
+    "districtCode": 672,
+    "districtNameEn": "Arvalli",
+    "districtNameGu": "અરવલ્લી",
+    "villageCount": 73
+  },
+  {
+    "code": 3771,
+    "nameEn": "Malpur",
+    "nameGu": "Malpur",
+    "districtCode": 672,
+    "districtNameEn": "Arvalli",
+    "districtNameGu": "અરવલ્લી",
+    "villageCount": 100
+  },
+  {
+    "code": 3765,
+    "nameEn": "Meghraj",
+    "nameGu": "Meghraj",
+    "districtCode": 672,
+    "districtNameEn": "Arvalli",
+    "districtNameGu": "અરવલ્લી",
+    "villageCount": 130
+  },
+  {
+    "code": 3769,
+    "nameEn": "Modasa",
+    "nameGu": "Modasa",
+    "districtCode": 672,
+    "districtNameEn": "Arvalli",
+    "districtNameGu": "અરવલ્લી",
+    "villageCount": 107
+  },
+  {
+    "code": 7559,
+    "nameEn": "Sathamba",
+    "nameGu": "Sathamba",
+    "districtCode": 672,
+    "districtNameEn": "Arvalli",
+    "districtNameGu": "અરવલ્લી",
+    "villageCount": 43
+  },
+  {
+    "code": 7548,
+    "nameEn": "Shamlaji",
+    "nameGu": "Shamlaji",
+    "districtCode": 672,
+    "districtNameEn": "Arvalli",
+    "districtNameGu": "અરવલ્લી",
+    "villageCount": 73
+  },
+  {
+    "code": 3788,
+    "nameEn": "Halvad",
+    "nameGu": "હળવદ",
+    "districtCode": 673,
+    "districtNameEn": "Morbi",
+    "districtNameGu": "મોરબી",
+    "villageCount": 67
+  },
+  {
+    "code": 3798,
+    "nameEn": "Maliya",
+    "nameGu": "માળિયા",
+    "districtCode": 673,
+    "districtNameEn": "Morbi",
+    "districtNameGu": "મોરબી",
+    "villageCount": 46
+  },
+  {
+    "code": 7443,
+    "nameEn": "Morbi City",
+    "nameGu": "Morbi City",
+    "districtCode": 673,
+    "districtNameEn": "Morbi",
+    "districtNameGu": "મોરબી",
+    "villageCount": 3
+  },
+  {
+    "code": 3799,
+    "nameEn": "Morvi",
+    "nameGu": "Morvi",
+    "districtCode": 673,
+    "districtNameEn": "Morbi",
+    "districtNameGu": "મોરબી",
+    "villageCount": 94
+  },
+  {
+    "code": 3800,
+    "nameEn": "Tankara",
+    "nameGu": "ટંકારા",
+    "districtCode": 673,
+    "districtNameEn": "Morbi",
+    "districtNameGu": "મોરબી",
+    "villageCount": 42
+  },
+  {
+    "code": 3801,
+    "nameEn": "Wankaner",
+    "nameGu": "વાંકાનેર",
+    "districtCode": 673,
+    "districtNameEn": "Morbi",
+    "districtNameGu": "મોરબી",
+    "villageCount": 101
+  },
+  {
+    "code": 3820,
+    "nameEn": "Bhanvad",
+    "nameGu": "Bhanvad",
+    "districtCode": 674,
+    "districtNameEn": "Devbhumi Dwarka",
+    "districtNameGu": "દેવભૂમિ દ્વારકા",
+    "villageCount": 97
+  },
+  {
+    "code": 3819,
+    "nameEn": "Kalyanpur",
+    "nameGu": "Kalyanpur",
+    "districtCode": 674,
+    "districtNameEn": "Devbhumi Dwarka",
+    "districtNameGu": "દેવભૂમિ દ્વારકા",
+    "villageCount": 68
+  },
+  {
+    "code": 3813,
+    "nameEn": "Khambhalia",
+    "nameGu": "Khambhalia",
+    "districtCode": 674,
+    "districtNameEn": "Devbhumi Dwarka",
+    "districtNameGu": "દેવભૂમિ દ્વારકા",
+    "villageCount": 93
+  },
+  {
+    "code": 3812,
+    "nameEn": "Okhamandal",
+    "nameGu": "Okhamandal",
+    "districtCode": 674,
+    "districtNameEn": "Devbhumi Dwarka",
+    "districtNameGu": "દેવભૂમિ દ્વારકા",
+    "villageCount": 45
+  },
+  {
+    "code": 6199,
+    "nameEn": "Gir Gadhda",
+    "nameGu": "Gir Gadhda",
+    "districtCode": 675,
+    "districtNameEn": "Gir Somnath",
+    "districtNameGu": "ગીર સોમનાથ",
+    "villageCount": 141
+  },
+  {
+    "code": 3837,
+    "nameEn": "Kodinar",
+    "nameGu": "Kodinar",
+    "districtCode": 675,
+    "districtNameEn": "Gir Somnath",
+    "districtNameGu": "ગીર સોમનાથ",
+    "villageCount": 61
+  },
+  {
+    "code": 3835,
+    "nameEn": "Patan-Veraval",
+    "nameGu": "Patan-Veraval",
+    "districtCode": 675,
+    "districtNameEn": "Gir Somnath",
+    "districtNameGu": "ગીર સોમનાથ",
+    "villageCount": 53
+  },
+  {
+    "code": 3836,
+    "nameEn": "Sutrapada",
+    "nameGu": "Sutrapada",
+    "districtCode": 675,
+    "districtNameEn": "Gir Somnath",
+    "districtNameGu": "ગીર સોમનાથ",
+    "villageCount": 47
+  },
+  {
+    "code": 3834,
+    "nameEn": "Talala",
+    "nameGu": "Talala",
+    "districtCode": 675,
+    "districtNameEn": "Gir Somnath",
+    "districtNameGu": "ગીર સોમનાથ",
+    "villageCount": 98
+  },
+  {
+    "code": 3838,
+    "nameEn": "Una",
+    "nameGu": "Una",
+    "districtCode": 675,
+    "districtNameEn": "Gir Somnath",
+    "districtNameGu": "ગીર સોમનાથ",
+    "villageCount": 83
+  },
+  {
+    "code": 7446,
+    "nameEn": "Veraval City",
+    "nameGu": "Veraval City",
+    "districtCode": 675,
+    "districtNameEn": "Gir Somnath",
+    "districtNameGu": "ગીર સોમનાથ",
+    "villageCount": 2
+  },
+  {
+    "code": 3786,
+    "nameEn": "Barwala",
+    "nameGu": "Barwala",
+    "districtCode": 676,
+    "districtNameEn": "Botad",
+    "districtNameGu": "બોટાદ",
+    "villageCount": 25
+  },
+  {
+    "code": 3850,
+    "nameEn": "Botad",
+    "nameGu": "Botad",
+    "districtCode": 676,
+    "districtNameEn": "Botad",
+    "districtNameGu": "બોટાદ",
+    "villageCount": 52
+  },
+  {
+    "code": 7435,
+    "nameEn": "Botad City",
+    "nameGu": "Botad City",
+    "districtCode": 676,
+    "districtNameEn": "Botad",
+    "districtNameGu": "બોટાદ",
+    "villageCount": 1
+  },
+  {
+    "code": 3852,
+    "nameEn": "Gadhada",
+    "nameGu": "Gadhada",
+    "districtCode": 676,
+    "districtNameEn": "Botad",
+    "districtNameGu": "બોટાદ",
+    "villageCount": 76
+  },
+  {
+    "code": 3785,
+    "nameEn": "Ranpur",
+    "nameGu": "Ranpur",
+    "districtCode": 676,
+    "districtNameEn": "Botad",
+    "districtNameGu": "બોટાદ",
+    "villageCount": 36
+  },
+  {
+    "code": 3742,
+    "nameEn": "Bhabhar",
+    "nameGu": "Bhabhar",
+    "districtCode": 789,
+    "districtNameEn": "Vav-Tharad",
+    "districtNameGu": "વાવ-થરાદ",
+    "villageCount": 53
+  },
+  {
+    "code": 3741,
+    "nameEn": "Deodar",
+    "nameGu": "Deodar",
+    "districtCode": 789,
+    "districtNameEn": "Vav-Tharad",
+    "districtNameGu": "વાવ-થરાદ",
+    "villageCount": 64
+  },
+  {
+    "code": 7544,
+    "nameEn": "Dharnidhar",
+    "nameGu": "Dharnidhar",
+    "districtCode": 789,
+    "districtNameEn": "Vav-Tharad",
+    "districtNameGu": "વાવ-થરાદ",
+    "villageCount": 44
+  },
+  {
+    "code": 6168,
+    "nameEn": "Lakhani",
+    "nameGu": "Lakhani",
+    "districtCode": 789,
+    "districtNameEn": "Vav-Tharad",
+    "districtNameGu": "વાવ-થરાદ",
+    "villageCount": 53
+  },
+  {
+    "code": 7543,
+    "nameEn": "Raah",
+    "nameGu": "Raah",
+    "districtCode": 789,
+    "districtNameEn": "Vav-Tharad",
+    "districtNameGu": "વાવ-થરાદ",
+    "villageCount": 32
+  },
+  {
+    "code": 6166,
+    "nameEn": "Suigam",
+    "nameGu": "Suigam",
+    "districtCode": 789,
+    "districtNameEn": "Vav-Tharad",
+    "districtNameGu": "વાવ-થરાદ",
+    "villageCount": 43
+  },
+  {
+    "code": 3733,
+    "nameEn": "Tharad",
+    "nameGu": "Tharad",
+    "districtCode": 789,
+    "districtNameEn": "Vav-Tharad",
+    "districtNameGu": "વાવ-થરાદ",
+    "villageCount": 93
+  },
+  {
+    "code": 3732,
+    "nameEn": "Vav",
+    "nameGu": "Vav",
+    "districtCode": 789,
+    "districtNameEn": "Vav-Tharad",
+    "districtNameGu": "વાવ-થરાદ",
+    "villageCount": 36
+  }
+]

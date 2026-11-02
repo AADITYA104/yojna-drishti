@@ -1,0 +1,522 @@
+[
+  {
+    "code": "517100",
+    "nameEn": "Alarsa",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517106",
+    "nameEn": "Amiyad",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517122",
+    "nameEn": "Badalpur",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517107",
+    "nameEn": "Banejda",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517099",
+    "nameEn": "Bhadran",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517103",
+    "nameEn": "Bhadraniya",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517082",
+    "nameEn": "Bochasan",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517079",
+    "nameEn": "Bodal",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930289",
+    "nameEn": "Borsad",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517088",
+    "nameEn": "Chuva",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517081",
+    "nameEn": "Dabhasi",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517068",
+    "nameEn": "Dahemi",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517124",
+    "nameEn": "Dahewan",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517120",
+    "nameEn": "Dali",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517080",
+    "nameEn": "Davol",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517072",
+    "nameEn": "Dedarda",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517114",
+    "nameEn": "Dhanavasi",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517071",
+    "nameEn": "Dhobikui",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517064",
+    "nameEn": "Dhundakuva",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517110",
+    "nameEn": "Divel",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517126",
+    "nameEn": "Gajana",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517083",
+    "nameEn": "Gorel",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517118",
+    "nameEn": "Gorva",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517078",
+    "nameEn": "Harkhapura",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517093",
+    "nameEn": "Jantral",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517121",
+    "nameEn": "Kalu",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517109",
+    "nameEn": "Kanbha",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517108",
+    "nameEn": "Kandhroti",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517123",
+    "nameEn": "Kankapura",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517087",
+    "nameEn": "Kasari",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517077",
+    "nameEn": "Kasumbad",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517119",
+    "nameEn": "Kathana",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517111",
+    "nameEn": "Kathol",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517073",
+    "nameEn": "Kavitha",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517091",
+    "nameEn": "Khanpur",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517102",
+    "nameEn": "Khedasa",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517115",
+    "nameEn": "Kinkhlod",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517127",
+    "nameEn": "Kothiya Khad",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517116",
+    "nameEn": "Moti Sherdi",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517069",
+    "nameEn": "Naman",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517117",
+    "nameEn": "Nani Sherdi",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517066",
+    "nameEn": "Napa Talpad",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517067",
+    "nameEn": "Napa Vanto",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517085",
+    "nameEn": "Nisaraya",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517076",
+    "nameEn": "Pamol",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517101",
+    "nameEn": "Pipli",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517090",
+    "nameEn": "Ranoli",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517105",
+    "nameEn": "Ras",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517084",
+    "nameEn": "Rudel",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517095",
+    "nameEn": "Saijpur",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517125",
+    "nameEn": "Salol",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517074",
+    "nameEn": "Santokpura",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517070",
+    "nameEn": "Singlav",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517104",
+    "nameEn": "Sisva",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517065",
+    "nameEn": "Sur Kuva",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517112",
+    "nameEn": "Umlav",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517089",
+    "nameEn": "Uneli",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517098",
+    "nameEn": "Vachhiyel",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517097",
+    "nameEn": "Vadeli",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517075",
+    "nameEn": "Vahera",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517113",
+    "nameEn": "Valvod",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517086",
+    "nameEn": "Vasna ( Borsad)",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517094",
+    "nameEn": "Vasna ( Ras)",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517092",
+    "nameEn": "Virsad",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517096",
+    "nameEn": "Zarola",
+    "subDistrictCode": 3867,
+    "districtCode": 440,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

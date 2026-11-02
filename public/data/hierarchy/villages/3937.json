@@ -1,0 +1,202 @@
+[
+  {
+    "code": "930152",
+    "nameEn": "Aabhva",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930158",
+    "nameEn": "Althan",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930123",
+    "nameEn": "Athva (Nanpura)",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930171",
+    "nameEn": "Bamroli",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930164",
+    "nameEn": "Bharthana-Vesu",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930159",
+    "nameEn": "Bhatar",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930153",
+    "nameEn": "Bhimpor",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930160",
+    "nameEn": "Bhimrad",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930176",
+    "nameEn": "Budiya",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930155",
+    "nameEn": "Dumas",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930150",
+    "nameEn": "Gaviyar",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930174",
+    "nameEn": "Jeeaav",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930163",
+    "nameEn": "Khajod",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962563",
+    "nameEn": "Khatodra",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930157",
+    "nameEn": "Magdalla",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962568",
+    "nameEn": "Majura",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930146",
+    "nameEn": "Majura-Khatodara",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930148",
+    "nameEn": "Piplod",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930147",
+    "nameEn": "Rundh",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930161",
+    "nameEn": "Sarsana",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930154",
+    "nameEn": "Sultanabad",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930156",
+    "nameEn": "Umra",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930177",
+    "nameEn": "Vadod",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930151",
+    "nameEn": "Vanta",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930149",
+    "nameEn": "Vesu",
+    "subDistrictCode": 3937,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

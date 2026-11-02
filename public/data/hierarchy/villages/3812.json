@@ -1,0 +1,362 @@
+[
+  {
+    "code": "513465",
+    "nameEn": "Aniari",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "955915",
+    "nameEn": "Arambhda",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513477",
+    "nameEn": "Baradia",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513455",
+    "nameEn": "Batisa",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "926471",
+    "nameEn": "Beyt",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513447",
+    "nameEn": "Bhimrana",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513474",
+    "nameEn": "Charakla",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513475",
+    "nameEn": "Dhinaki",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513467",
+    "nameEn": "Dhrasan Vel",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "955916",
+    "nameEn": "Dwarka",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513454",
+    "nameEn": "Gadhechi",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513480",
+    "nameEn": "Gorinja",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513453",
+    "nameEn": "Goriyali",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513449",
+    "nameEn": "Hamusar",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513481",
+    "nameEn": "Juni Dhrevad",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513460",
+    "nameEn": "Kalyanpur",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513464",
+    "nameEn": "Khatumba",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513476",
+    "nameEn": "Korada",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513485",
+    "nameEn": "Kuranga",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513479",
+    "nameEn": "Lovrali",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513457",
+    "nameEn": "Makanpur",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513483",
+    "nameEn": "Maripur",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513459",
+    "nameEn": "Mevasa",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513486",
+    "nameEn": "Mithapur (Ct)",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513456",
+    "nameEn": "Mojap",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513472",
+    "nameEn": "Mota Bhavda",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513466",
+    "nameEn": "Mulvasar",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513463",
+    "nameEn": "Mulvel",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513462",
+    "nameEn": "Nageshvar",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513471",
+    "nameEn": "Nana Bhavda",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513482",
+    "nameEn": "Navi Dhrevad",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "955977",
+    "nameEn": "Okha",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513484",
+    "nameEn": "Okhamadhi",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513448",
+    "nameEn": "Padli",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513451",
+    "nameEn": "Positra",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513452",
+    "nameEn": "Rajpara",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513461",
+    "nameEn": "Rangasar",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513450",
+    "nameEn": "Shamlasar",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513469",
+    "nameEn": "Shivrajpur",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "955982",
+    "nameEn": "Surajkaradi",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513468",
+    "nameEn": "Tobar",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513473",
+    "nameEn": "Tupani",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513478",
+    "nameEn": "Vachhu",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513470",
+    "nameEn": "Varavala",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513458",
+    "nameEn": "Vasai",
+    "subDistrictCode": 3812,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

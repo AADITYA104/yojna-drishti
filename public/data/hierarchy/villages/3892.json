@@ -1,0 +1,658 @@
+[
+  {
+    "code": "519377",
+    "nameEn": "Agara (U)",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519382",
+    "nameEn": "Amba",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519369",
+    "nameEn": "Andhari",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519326",
+    "nameEn": "Atarsumba",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519381",
+    "nameEn": "Bar",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519294",
+    "nameEn": "Bara",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519327",
+    "nameEn": "Bhimpura",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519373",
+    "nameEn": "Chaidiya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519349",
+    "nameEn": "Chatki",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519388",
+    "nameEn": "Chilakota",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519343",
+    "nameEn": "Chopat Palli",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519357",
+    "nameEn": "Dabhada",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519309",
+    "nameEn": "Dakara",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519356",
+    "nameEn": "Dantiya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519354",
+    "nameEn": "Degawada",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519371",
+    "nameEn": "Devdhi",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519351",
+    "nameEn": "Dhadhela",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519334",
+    "nameEn": "Dhanpur (Du)",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519325",
+    "nameEn": "Dudhiya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519336",
+    "nameEn": "Dudhiyadhara",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519313",
+    "nameEn": "Dungara",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519310",
+    "nameEn": "Fatepura",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519292",
+    "nameEn": "Fulpari",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519385",
+    "nameEn": "Ghuntiya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519346",
+    "nameEn": "Goriya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519314",
+    "nameEn": "Gumni (Du)",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519328",
+    "nameEn": "Hathiyavan",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519386",
+    "nameEn": "Jada Kheriya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519342",
+    "nameEn": "Jetpur (Du)",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519293",
+    "nameEn": "Juna Vadiya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519352",
+    "nameEn": "Kakri Dungari",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519361",
+    "nameEn": "Kamboi",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519387",
+    "nameEn": "Katholiya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519348",
+    "nameEn": "Khadada (Umariya)",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "926444",
+    "nameEn": "Kheriya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519363",
+    "nameEn": "Khirkhai",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519316",
+    "nameEn": "Kothara",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519370",
+    "nameEn": "Kundha",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519378",
+    "nameEn": "Kunlli",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519389",
+    "nameEn": "Limkheda (Ct)",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519322",
+    "nameEn": "Lukhawada",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519350",
+    "nameEn": "Mangal Mahudi",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519379",
+    "nameEn": "Manlli",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519355",
+    "nameEn": "Mota Hathidhara",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519344",
+    "nameEn": "Motamal",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519323",
+    "nameEn": "Moti Bandibar",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519329",
+    "nameEn": "Moti Vasvani",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519307",
+    "nameEn": "Moti Vav",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519353",
+    "nameEn": "Nana Hathidhara",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519345",
+    "nameEn": "Nana Mal",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519341",
+    "nameEn": "Nani Bandibar",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519330",
+    "nameEn": "Nani Vasvani",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519296",
+    "nameEn": "Nani Vav",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519311",
+    "nameEn": "Nava Vadiya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519376",
+    "nameEn": "Ninamana Khakhariya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519332",
+    "nameEn": "Ninamani Vav",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519335",
+    "nameEn": "Pada",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519295",
+    "nameEn": "Padaliya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519375",
+    "nameEn": "Padola",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519365",
+    "nameEn": "Palli",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519366",
+    "nameEn": "Pania",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519372",
+    "nameEn": "Parmarna Kharkhariya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519368",
+    "nameEn": "Parpata",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519347",
+    "nameEn": "Patdi",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519383",
+    "nameEn": "Patwan",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519331",
+    "nameEn": "Piplapani",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519324",
+    "nameEn": "Pipli",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519359",
+    "nameEn": "Polisimal",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519367",
+    "nameEn": "Pratappura",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519380",
+    "nameEn": "Rai",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519308",
+    "nameEn": "Sati Faliya",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519315",
+    "nameEn": "Shasta",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519384",
+    "nameEn": "Timba",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519362",
+    "nameEn": "Tunta Ghati",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519337",
+    "nameEn": "Umedpura",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519360",
+    "nameEn": "Usra",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519340",
+    "nameEn": "Vadela",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519358",
+    "nameEn": "Valundi",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519364",
+    "nameEn": "Vateda",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519374",
+    "nameEn": "Vislanga",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519333",
+    "nameEn": "Zarola (Du)",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519312",
+    "nameEn": "Zerjitgadh",
+    "subDistrictCode": 3892,
+    "districtCode": 445,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

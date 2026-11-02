@@ -1,0 +1,240 @@
+[
+  {
+    "code": 438,
+    "nameEn": "Ahmedabad",
+    "nameGu": "અમદાવાદ",
+    "subDistrictCount": 15,
+    "villageCount": 559
+  },
+  {
+    "code": 439,
+    "nameEn": "Amreli",
+    "nameGu": "અમરેલી",
+    "subDistrictCount": 12,
+    "villageCount": 630
+  },
+  {
+    "code": 440,
+    "nameEn": "Anand",
+    "nameGu": "આણંદ",
+    "subDistrictCount": 9,
+    "villageCount": 360
+  },
+  {
+    "code": 441,
+    "nameEn": "Banas Kantha",
+    "nameGu": "બનાસકાંઠા",
+    "subDistrictCount": 12,
+    "villageCount": 848
+  },
+  {
+    "code": 442,
+    "nameEn": "Bharuch",
+    "nameGu": "ભરૂચ",
+    "subDistrictCount": 10,
+    "villageCount": 680
+  },
+  {
+    "code": 443,
+    "nameEn": "Bhavnagar",
+    "nameGu": "ભાવનગર",
+    "subDistrictCount": 13,
+    "villageCount": 702
+  },
+  {
+    "code": 444,
+    "nameEn": "Dangs",
+    "nameGu": "ડાંગ",
+    "subDistrictCount": 3,
+    "villageCount": 311
+  },
+  {
+    "code": 445,
+    "nameEn": "Dahod",
+    "nameGu": "દાહોદ",
+    "subDistrictCount": 11,
+    "villageCount": 713
+  },
+  {
+    "code": 446,
+    "nameEn": "Gandhinagar",
+    "nameGu": "ગાંધીનગર",
+    "subDistrictCount": 5,
+    "villageCount": 296
+  },
+  {
+    "code": 447,
+    "nameEn": "Jamnagar",
+    "nameGu": "જામનગર",
+    "subDistrictCount": 7,
+    "villageCount": 436
+  },
+  {
+    "code": 448,
+    "nameEn": "Junagadh",
+    "nameGu": "જુનાગઢ",
+    "subDistrictCount": 10,
+    "villageCount": 567
+  },
+  {
+    "code": 449,
+    "nameEn": "Kachchh",
+    "nameGu": "કચ્છ",
+    "subDistrictCount": 11,
+    "villageCount": 1003
+  },
+  {
+    "code": 450,
+    "nameEn": "Kheda",
+    "nameGu": "ખેડા",
+    "subDistrictCount": 12,
+    "villageCount": 541
+  },
+  {
+    "code": 451,
+    "nameEn": "Mahesana",
+    "nameGu": "મહેસાણા",
+    "subDistrictCount": 11,
+    "villageCount": 621
+  },
+  {
+    "code": 452,
+    "nameEn": "Narmada",
+    "nameGu": "નર્મદા",
+    "subDistrictCount": 6,
+    "villageCount": 615
+  },
+  {
+    "code": 453,
+    "nameEn": "Navsari",
+    "nameGu": "નવસારી",
+    "subDistrictCount": 6,
+    "villageCount": 415
+  },
+  {
+    "code": 454,
+    "nameEn": "Panch Mahals",
+    "nameGu": "પંચમહાલ",
+    "subDistrictCount": 8,
+    "villageCount": 639
+  },
+  {
+    "code": 455,
+    "nameEn": "Patan",
+    "nameGu": "પાટણ",
+    "subDistrictCount": 10,
+    "villageCount": 531
+  },
+  {
+    "code": 456,
+    "nameEn": "Porbandar",
+    "nameGu": "પોરબંદર",
+    "subDistrictCount": 4,
+    "villageCount": 190
+  },
+  {
+    "code": 457,
+    "nameEn": "Rajkot",
+    "nameGu": "રાજકોટ",
+    "subDistrictCount": 16,
+    "villageCount": 661
+  },
+  {
+    "code": 458,
+    "nameEn": "Sabar Kantha",
+    "nameGu": "સાબરકાંઠા",
+    "subDistrictCount": 8,
+    "villageCount": 723
+  },
+  {
+    "code": 459,
+    "nameEn": "Surat",
+    "nameGu": "સુરત",
+    "subDistrictCount": 17,
+    "villageCount": 823
+  },
+  {
+    "code": 460,
+    "nameEn": "Surendranagar",
+    "nameGu": "સુરેન્દ્રનગર",
+    "subDistrictCount": 11,
+    "villageCount": 579
+  },
+  {
+    "code": 461,
+    "nameEn": "Vadodara",
+    "nameGu": "વડોદરા",
+    "subDistrictCount": 12,
+    "villageCount": 706
+  },
+  {
+    "code": 462,
+    "nameEn": "Valsad",
+    "nameGu": "વલસાડ",
+    "subDistrictCount": 9,
+    "villageCount": 474
+  },
+  {
+    "code": 641,
+    "nameEn": "Tapi",
+    "nameGu": "તાપી",
+    "subDistrictCount": 8,
+    "villageCount": 513
+  },
+  {
+    "code": 668,
+    "nameEn": "Chhotaudepur",
+    "nameGu": "છોટાઉદેપુર",
+    "subDistrictCount": 7,
+    "villageCount": 904
+  },
+  {
+    "code": 669,
+    "nameEn": "Mahisagar",
+    "nameGu": "મહીસાગર",
+    "subDistrictCount": 8,
+    "villageCount": 723
+  },
+  {
+    "code": 672,
+    "nameEn": "Arvalli",
+    "nameGu": "અરવલ્લી",
+    "subDistrictCount": 8,
+    "villageCount": 689
+  },
+  {
+    "code": 673,
+    "nameEn": "Morbi",
+    "nameGu": "મોરબી",
+    "subDistrictCount": 6,
+    "villageCount": 353
+  },
+  {
+    "code": 674,
+    "nameEn": "Devbhumi Dwarka",
+    "nameGu": "દેવભૂમિ દ્વારકા",
+    "subDistrictCount": 4,
+    "villageCount": 303
+  },
+  {
+    "code": 675,
+    "nameEn": "Gir Somnath",
+    "nameGu": "ગીર સોમનાથ",
+    "subDistrictCount": 7,
+    "villageCount": 485
+  },
+  {
+    "code": 676,
+    "nameEn": "Botad",
+    "nameGu": "બોટાદ",
+    "subDistrictCount": 5,
+    "villageCount": 190
+  },
+  {
+    "code": 789,
+    "nameEn": "Vav-Tharad",
+    "nameGu": "વાવ-થરાદ",
+    "subDistrictCount": 8,
+    "villageCount": 418
+  }
+]

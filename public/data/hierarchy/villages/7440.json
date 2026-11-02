@@ -1,0 +1,74 @@
+[
+  {
+    "code": "930195",
+    "nameEn": "Jetpur",
+    "subDistrictCode": 7440,
+    "districtCode": 457,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962552",
+    "nameEn": "Jetpur-1",
+    "subDistrictCode": 7440,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962553",
+    "nameEn": "Jetpur-2",
+    "subDistrictCode": 7440,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962554",
+    "nameEn": "Jetpur-3",
+    "subDistrictCode": 7440,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962555",
+    "nameEn": "Jetpur-4",
+    "subDistrictCode": 7440,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930199",
+    "nameEn": "Navagadh",
+    "subDistrictCode": 7440,
+    "districtCode": 457,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962579",
+    "nameEn": "Navagadh-1",
+    "subDistrictCode": 7440,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962580",
+    "nameEn": "Navagadh-2",
+    "subDistrictCode": 7440,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962581",
+    "nameEn": "Navagadh-3",
+    "subDistrictCode": 7440,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

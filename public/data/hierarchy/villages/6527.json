@@ -1,0 +1,82 @@
+[
+  {
+    "code": "934504",
+    "nameEn": "Chani",
+    "subDistrictCode": 6527,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930234",
+    "nameEn": "Chhani",
+    "subDistrictCode": 6527,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930236",
+    "nameEn": "Gorva",
+    "subDistrictCode": 6527,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930235",
+    "nameEn": "Harni",
+    "subDistrictCode": 6527,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519914",
+    "nameEn": "Harni (Og)",
+    "subDistrictCode": 6527,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "908872",
+    "nameEn": "Karodiya",
+    "subDistrictCode": 6527,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519913",
+    "nameEn": "Karodiya (Og)",
+    "subDistrictCode": 6527,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930233",
+    "nameEn": "Nizampura",
+    "subDistrictCode": 6527,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930232",
+    "nameEn": "Sama",
+    "subDistrictCode": 6527,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519915",
+    "nameEn": "Sama (Og)",
+    "subDistrictCode": 6527,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

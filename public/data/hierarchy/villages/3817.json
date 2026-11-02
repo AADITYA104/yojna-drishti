@@ -1,0 +1,794 @@
+[
+  {
+    "code": "513831",
+    "nameEn": "Anandpar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513821",
+    "nameEn": "Arala",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513837",
+    "nameEn": "Balambhadi",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513856",
+    "nameEn": "Bamangam",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513782",
+    "nameEn": "Banga",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513806",
+    "nameEn": "Bava Khakhariya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513834",
+    "nameEn": "Bediya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513778",
+    "nameEn": "Beraja",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513849",
+    "nameEn": "Bhagat Khijadiya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513858",
+    "nameEn": "Bhangda",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513862",
+    "nameEn": "Bhavabhi Khijadiya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513807",
+    "nameEn": "Bhayu Khakhariya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513792",
+    "nameEn": "Bhimanugam",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513817",
+    "nameEn": "Bodi",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513828",
+    "nameEn": "Chapra",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513800",
+    "nameEn": "Chela Bedi",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513820",
+    "nameEn": "Chhatar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513852",
+    "nameEn": "Dangarvada",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513802",
+    "nameEn": "Davli",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513854",
+    "nameEn": "Deri",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513811",
+    "nameEn": "Dhedh Khijadiya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513843",
+    "nameEn": "Dhundhoraji",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513783",
+    "nameEn": "Dudhala",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513780",
+    "nameEn": "Dungrani Devaliya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513846",
+    "nameEn": "Fagas",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513797",
+    "nameEn": "Galpadar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513785",
+    "nameEn": "Golaniya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513863",
+    "nameEn": "Gunda",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513798",
+    "nameEn": "Hansthal",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513786",
+    "nameEn": "Haripar (Khandhera)",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513860",
+    "nameEn": "Haripar (Mevasa)",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513823",
+    "nameEn": "Jalansar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513822",
+    "nameEn": "Jamvali",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513812",
+    "nameEn": "Jashapar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513805",
+    "nameEn": "Jivapar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513790",
+    "nameEn": "Juvanpar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "935069",
+    "nameEn": "Kalavad",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Urban",
+    "status": "Un-Inhabitant"
+  },
+  {
+    "code": "513865",
+    "nameEn": "Kalmeghada",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513833",
+    "nameEn": "Khad Dhoraji",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513776",
+    "nameEn": "Khan Kotda",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513775",
+    "nameEn": "Khandhera",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513855",
+    "nameEn": "Kharedi",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513826",
+    "nameEn": "Khimani Sanosara",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513835",
+    "nameEn": "Kotha Bhadukiya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513848",
+    "nameEn": "Labukiya Bhadukiya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513796",
+    "nameEn": "Laloi",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513814",
+    "nameEn": "Machhalivad",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513845",
+    "nameEn": "Machharda",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513771",
+    "nameEn": "Makaji Meghpar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513864",
+    "nameEn": "Makha Karod",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513840",
+    "nameEn": "Makrani Sanosara",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513853",
+    "nameEn": "Metiya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513861",
+    "nameEn": "Mevasa (Haripar)",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513866",
+    "nameEn": "Moridad",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513816",
+    "nameEn": "Morvadi",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513836",
+    "nameEn": "Mota Bhadukiya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513819",
+    "nameEn": "Mota Panchdevda",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513791",
+    "nameEn": "Mota Vadala",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513795",
+    "nameEn": "Moti Bhagedi",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513769",
+    "nameEn": "Moti Matli",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513774",
+    "nameEn": "Moti Nagajar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513841",
+    "nameEn": "Moti Vavdi",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513838",
+    "nameEn": "Mulila",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513784",
+    "nameEn": "Nagpur",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513794",
+    "nameEn": "Nana Badanpar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513818",
+    "nameEn": "Nana Panchdevda",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513851",
+    "nameEn": "Nana Vadala",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513803",
+    "nameEn": "Nani Bhagedi",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513779",
+    "nameEn": "Nani Bhalsan",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513773",
+    "nameEn": "Nani Nagajar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513804",
+    "nameEn": "Nani Vavdi",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513847",
+    "nameEn": "Napaniya Khijadiya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513844",
+    "nameEn": "Navagam",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513808",
+    "nameEn": "Navania Khakhariya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513830",
+    "nameEn": "Nikava",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513809",
+    "nameEn": "Pata Meghpar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513832",
+    "nameEn": "Pipaliya (Dhandhaliya)",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513850",
+    "nameEn": "Pipar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513770",
+    "nameEn": "Pithadiya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513824",
+    "nameEn": "Prabhuji Pipaliya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513829",
+    "nameEn": "Rajda",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513827",
+    "nameEn": "Rajsthali",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513799",
+    "nameEn": "Rampar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513781",
+    "nameEn": "Ravashiya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513839",
+    "nameEn": "Rinari",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513813",
+    "nameEn": "Sanala",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513777",
+    "nameEn": "Sarapadar",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513825",
+    "nameEn": "Sarvaniya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513842",
+    "nameEn": "Sarvaniya Hakumati",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513788",
+    "nameEn": "Satiya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513801",
+    "nameEn": "Savli",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513810",
+    "nameEn": "Shishang",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513789",
+    "nameEn": "Sortha",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513857",
+    "nameEn": "Toda",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513859",
+    "nameEn": "Umrala",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513815",
+    "nameEn": "Vazir Khakhariya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513772",
+    "nameEn": "Vibhaniya",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513793",
+    "nameEn": "Virvav",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "513787",
+    "nameEn": "Vodisang",
+    "subDistrictCode": 3817,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

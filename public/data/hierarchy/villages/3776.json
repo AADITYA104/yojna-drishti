@@ -1,0 +1,770 @@
+[
+  {
+    "code": "511346",
+    "nameEn": "Ahamadpur",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511382",
+    "nameEn": "Amrajina Muvada",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511335",
+    "nameEn": "Anguthala",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511354",
+    "nameEn": "Antoli",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511359",
+    "nameEn": "Antroli",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511370",
+    "nameEn": "Arajanjina Muvada",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511313",
+    "nameEn": "Babra",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511329",
+    "nameEn": "Badpur",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511387",
+    "nameEn": "Bahiyel",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511386",
+    "nameEn": "Bardoli (Bariya)",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511381",
+    "nameEn": "Bardoli (Kothi)",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511385",
+    "nameEn": "Bariya",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511322",
+    "nameEn": "Bhadroda",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511319",
+    "nameEn": "Bilamana",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511402",
+    "nameEn": "Chamla",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511312",
+    "nameEn": "Chekhlapagi",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511372",
+    "nameEn": "Chiskari",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930261",
+    "nameEn": "Dehgam",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511401",
+    "nameEn": "Demaliya",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511369",
+    "nameEn": "Devkaran Na Muvada",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511330",
+    "nameEn": "Dharisana",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511323",
+    "nameEn": "Dod",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511355",
+    "nameEn": "Dumecha",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511392",
+    "nameEn": "Ghamij",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511318",
+    "nameEn": "Halisa",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511361",
+    "nameEn": "Harakhjina Muvada",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511378",
+    "nameEn": "Harsoli",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511383",
+    "nameEn": "Hathijan",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511400",
+    "nameEn": "Hilol",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511394",
+    "nameEn": "Hilol Vasna",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511384",
+    "nameEn": "Isanpur Dodiya",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511336",
+    "nameEn": "Jaliyano Math",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511375",
+    "nameEn": "Jalundra Mota",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "911489",
+    "nameEn": "Jesa Chandna Muvada",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511342",
+    "nameEn": "Jindva",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511379",
+    "nameEn": "Jivajini Muvadi",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511377",
+    "nameEn": "Kadadara",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511363",
+    "nameEn": "Kadjodra",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511343",
+    "nameEn": "Kalyanji Na Muvada",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511393",
+    "nameEn": "Kamalbandh Vasna",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511395",
+    "nameEn": "Kanipur",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511316",
+    "nameEn": "Kantharpur",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511390",
+    "nameEn": "Karoli",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511357",
+    "nameEn": "Khadiya",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "913921",
+    "nameEn": "Khakhara",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511344",
+    "nameEn": "Khanpur",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511391",
+    "nameEn": "Kodrali",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511388",
+    "nameEn": "Krishnanagar",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511360",
+    "nameEn": "Lavad",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511353",
+    "nameEn": "Lihoda",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511326",
+    "nameEn": "Machhang Moti",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511325",
+    "nameEn": "Machhang Nani",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511368",
+    "nameEn": "Mahudiya",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511341",
+    "nameEn": "Meghraj Na Muvada",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511396",
+    "nameEn": "Mirapur",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511327",
+    "nameEn": "Mirjapur",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511358",
+    "nameEn": "Mithana Muvada",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "911490",
+    "nameEn": "Morali Moti",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511349",
+    "nameEn": "Mosampur",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511365",
+    "nameEn": "Moti Pavthi",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511367",
+    "nameEn": "Motipura",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511364",
+    "nameEn": "Najupura",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511320",
+    "nameEn": "Nana Jalundra",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511347",
+    "nameEn": "Nandol",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511321",
+    "nameEn": "Navanagar",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511311",
+    "nameEn": "Ottampur",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511352",
+    "nameEn": "Pahadiya",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511348",
+    "nameEn": "Palaiya",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511397",
+    "nameEn": "Pallano Math",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511373",
+    "nameEn": "Palundra",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511398",
+    "nameEn": "Pasuniya",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511315",
+    "nameEn": "Patna Kuva",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511340",
+    "nameEn": "Piplaj",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511328",
+    "nameEn": "Rakhiyal",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511389",
+    "nameEn": "Ramnagar",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511337",
+    "nameEn": "Sagdalpur",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511339",
+    "nameEn": "Sahebji Na Muvada",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511333",
+    "nameEn": "Salki",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511366",
+    "nameEn": "Sambela",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511338",
+    "nameEn": "Sametri",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511345",
+    "nameEn": "Sampa",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511332",
+    "nameEn": "Sanoda",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511399",
+    "nameEn": "Shiyapur",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511362",
+    "nameEn": "Shiyavada",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511350",
+    "nameEn": "Sujana Muvada",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511356",
+    "nameEn": "Thadakuva",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511314",
+    "nameEn": "Udan",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511324",
+    "nameEn": "Vadod",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511331",
+    "nameEn": "Vadvasa",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511334",
+    "nameEn": "Vardhana Muvada",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511317",
+    "nameEn": "Vasana Chaudhary",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511374",
+    "nameEn": "Vasna Rathod",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511371",
+    "nameEn": "Vasna Sogthi",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511380",
+    "nameEn": "Vatva",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511351",
+    "nameEn": "Velpura",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "511376",
+    "nameEn": "Zak",
+    "subDistrictCode": 3776,
+    "districtCode": 446,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

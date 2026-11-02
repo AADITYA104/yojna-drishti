@@ -1,0 +1,90 @@
+[
+  {
+    "code": "930082",
+    "nameEn": "Badrabad",
+    "subDistrictCode": 6514,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930084",
+    "nameEn": "Bakrol-Badrabad",
+    "subDistrictCode": 6514,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930081",
+    "nameEn": "Fatehvadi",
+    "subDistrictCode": 6514,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930075",
+    "nameEn": "Jodhpur",
+    "subDistrictCode": 6514,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930076",
+    "nameEn": "Makarba",
+    "subDistrictCode": 6514,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930078",
+    "nameEn": "Maktampur",
+    "subDistrictCode": 6514,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930080",
+    "nameEn": "Okhaf",
+    "subDistrictCode": 6514,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930079",
+    "nameEn": "Sarkhej",
+    "subDistrictCode": 6514,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930083",
+    "nameEn": "Vanzar",
+    "subDistrictCode": 6514,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930074",
+    "nameEn": "Vastrapur",
+    "subDistrictCode": 6514,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930077",
+    "nameEn": "Vejalpur",
+    "subDistrictCode": 6514,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

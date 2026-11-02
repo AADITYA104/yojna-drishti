@@ -1,0 +1,66 @@
+[
+  {
+    "code": "934521",
+    "nameEn": "Alaad Party",
+    "subDistrictCode": 6531,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "934515",
+    "nameEn": "Chaklasi Party",
+    "subDistrictCode": 6531,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "934519",
+    "nameEn": "Hiraji Party",
+    "subDistrictCode": 6531,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "934517",
+    "nameEn": "Kakarkhad Party",
+    "subDistrictCode": 6531,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "934518",
+    "nameEn": "Killedar Party",
+    "subDistrictCode": 6531,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "934516",
+    "nameEn": "Lakhvad Party",
+    "subDistrictCode": 6531,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930295",
+    "nameEn": "Nadiad City",
+    "subDistrictCode": 6531,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "934520",
+    "nameEn": "Ratanji Party",
+    "subDistrictCode": 6531,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "code": "930214",
+    "nameEn": "Rajkot",
+    "subDistrictCode": 6520,
+    "districtCode": 457,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962588",
+    "nameEn": "Rajkot-1",
+    "subDistrictCode": 6520,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962617",
+    "nameEn": "Rajkot-11",
+    "subDistrictCode": 6520,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962609",
+    "nameEn": "Rajkot-2",
+    "subDistrictCode": 6520,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962608",
+    "nameEn": "Rajkot-3",
+    "subDistrictCode": 6520,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962619",
+    "nameEn": "Rajkot-4",
+    "subDistrictCode": 6520,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930213",
+    "nameEn": "Thorala",
+    "subDistrictCode": 6520,
+    "districtCode": 457,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

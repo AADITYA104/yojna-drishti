@@ -1,0 +1,410 @@
+[
+  {
+    "code": "514309",
+    "nameEn": "Amar",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514350",
+    "nameEn": "Amipur",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514324",
+    "nameEn": "Baloch",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514310",
+    "nameEn": "Bavlavadar",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514336",
+    "nameEn": "Bhogsar",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514271",
+    "nameEn": "Bhukhbara Nes",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514318",
+    "nameEn": "Bildi",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514284",
+    "nameEn": "Boriavala Nes",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514326",
+    "nameEn": "Chauta",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514335",
+    "nameEn": "Chhatrava",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514323",
+    "nameEn": "Choliyana",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514317",
+    "nameEn": "Daduka",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514304",
+    "nameEn": "Devda",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514339",
+    "nameEn": "Dharsan",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514307",
+    "nameEn": "Dhruvala",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514347",
+    "nameEn": "Farer",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514338",
+    "nameEn": "Gadhvana",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514275",
+    "nameEn": "Gandiyavad Nes",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514320",
+    "nameEn": "Gokaran",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514312",
+    "nameEn": "Hamadpara",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514313",
+    "nameEn": "Helabeli",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514308",
+    "nameEn": "Ishvariya",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514341",
+    "nameEn": "Jamra",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514346",
+    "nameEn": "Junej",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514348",
+    "nameEn": "Kadegi",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514340",
+    "nameEn": "Kansabad",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514332",
+    "nameEn": "Kantol",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514329",
+    "nameEn": "Katwana",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514337",
+    "nameEn": "Kavalka",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514306",
+    "nameEn": "Khageshri",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514321",
+    "nameEn": "Khunpur",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514330",
+    "nameEn": "Kotda",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930170",
+    "nameEn": "Kutiyana",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514342",
+    "nameEn": "Mahiyari",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514311",
+    "nameEn": "Mahobatpara",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514325",
+    "nameEn": "Mal",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514315",
+    "nameEn": "Malanka",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514328",
+    "nameEn": "Mandva",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514333",
+    "nameEn": "Moddar",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514349",
+    "nameEn": "Mota Ghed",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514331",
+    "nameEn": "Pasvari",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514305",
+    "nameEn": "Ramnagar",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514344",
+    "nameEn": "Revadra",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514319",
+    "nameEn": "Roghada",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514334",
+    "nameEn": "Segras",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514314",
+    "nameEn": "Sindhpur",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514343",
+    "nameEn": "Tarkhai",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514322",
+    "nameEn": "Teri",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514327",
+    "nameEn": "Thepda",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962592",
+    "nameEn": "Ujad Thepda",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514316",
+    "nameEn": "Vadala",
+    "subDistrictCode": 3824,
+    "districtCode": 456,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

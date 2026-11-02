@@ -1,0 +1,410 @@
+[
+  {
+    "code": "524419",
+    "nameEn": "Akkalutar",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524444",
+    "nameEn": "Amode Tarfe Satone",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524427",
+    "nameEn": "Amode Tarfe Talode",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524442",
+    "nameEn": "Ashapur",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524451",
+    "nameEn": "Ashrava",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524428",
+    "nameEn": "Aste Tarfe Budhaval",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524453",
+    "nameEn": "Bahurupa",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524422",
+    "nameEn": "Balambe",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524461",
+    "nameEn": "Balde",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524466",
+    "nameEn": "Bej",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524458",
+    "nameEn": "Bhamsal",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524420",
+    "nameEn": "Borikuwa",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524425",
+    "nameEn": "Chirmati",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524418",
+    "nameEn": "Chokhiamli",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524440",
+    "nameEn": "Dabriamba",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524430",
+    "nameEn": "Fulwadi",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524465",
+    "nameEn": "Gadid",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524441",
+    "nameEn": "Gangtha",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524448",
+    "nameEn": "Gorasa",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524452",
+    "nameEn": "Hathode",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524459",
+    "nameEn": "Hol",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524437",
+    "nameEn": "Itwai",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524467",
+    "nameEn": "Jhapampi-Alis Jhampa Amli",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524436",
+    "nameEn": "Jhumkathi",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524429",
+    "nameEn": "Kelani",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524421",
+    "nameEn": "Kevdamoi",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524447",
+    "nameEn": "Kondraj",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524446",
+    "nameEn": "Kukarmunda",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524426",
+    "nameEn": "Mataval",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524432",
+    "nameEn": "Medhpur",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524431",
+    "nameEn": "Modale",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524434",
+    "nameEn": "Moramba",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524454",
+    "nameEn": "Nimbhore",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962583",
+    "nameEn": "Panibara",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524439",
+    "nameEn": "Parod",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524445",
+    "nameEn": "Pati",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524468",
+    "nameEn": "Patipada",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524449",
+    "nameEn": "Pimlas",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524456",
+    "nameEn": "Pishavar",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524423",
+    "nameEn": "Rajpur",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524443",
+    "nameEn": "Ranaichi",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524455",
+    "nameEn": "Sadagvan",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524460",
+    "nameEn": "Satola",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524433",
+    "nameEn": "Taranda",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524424",
+    "nameEn": "Tulse",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524457",
+    "nameEn": "Ubhad",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524417",
+    "nameEn": "Umja",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524450",
+    "nameEn": "Untavad",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524435",
+    "nameEn": "Varpada",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962601",
+    "nameEn": "Vesgam",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524438",
+    "nameEn": "Ziribeda",
+    "subDistrictCode": 6169,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

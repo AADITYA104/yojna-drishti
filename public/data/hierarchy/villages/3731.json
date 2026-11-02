@@ -1,0 +1,82 @@
+[
+  {
+    "code": "507357",
+    "nameEn": "Antarjal (Ct)",
+    "subDistrictCode": 3731,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507355",
+    "nameEn": "Bharapar",
+    "subDistrictCode": 3731,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507351",
+    "nameEn": "Chudva",
+    "subDistrictCode": 3731,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507356",
+    "nameEn": "Galpadar (Ct)",
+    "subDistrictCode": 3731,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507358",
+    "nameEn": "Kandla (Ct)",
+    "subDistrictCode": 3731,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "908594",
+    "nameEn": "Kharirohar",
+    "subDistrictCode": 3731,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507354",
+    "nameEn": "Kidana",
+    "subDistrictCode": 3731,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507352",
+    "nameEn": "Mithi Rohar",
+    "subDistrictCode": 3731,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507350",
+    "nameEn": "Padana",
+    "subDistrictCode": 3731,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507353",
+    "nameEn": "Shinay",
+    "subDistrictCode": 3731,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

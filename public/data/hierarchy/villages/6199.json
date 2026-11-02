@@ -1,0 +1,1130 @@
+[
+  {
+    "code": "515211",
+    "nameEn": "Abudi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515264",
+    "nameEn": "Ambada",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515315",
+    "nameEn": "Ambavad",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515289",
+    "nameEn": "Ankolali",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515190",
+    "nameEn": "Aral",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515201",
+    "nameEn": "Asundrali",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515252",
+    "nameEn": "Babariya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515261",
+    "nameEn": "Bandharda",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515214",
+    "nameEn": "Banej",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515224",
+    "nameEn": "Barwala",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515260",
+    "nameEn": "Bediya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515378",
+    "nameEn": "Bhakha",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515237",
+    "nameEn": "Bharawala",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515377",
+    "nameEn": "Bhayadhar",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515295",
+    "nameEn": "Bhiyal",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515177",
+    "nameEn": "Bilivali Tali",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515186",
+    "nameEn": "Biliyat",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515185",
+    "nameEn": "Biliyat Nes",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515230",
+    "nameEn": "Bobadiya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515296",
+    "nameEn": "Bodidar",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515191",
+    "nameEn": "Charchock",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515188",
+    "nameEn": "Chhatarla",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515233",
+    "nameEn": "Chhela",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515179",
+    "nameEn": "Chhodvadi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515305",
+    "nameEn": "Chorali Moli",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515164",
+    "nameEn": "Chuldi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515210",
+    "nameEn": "Dabhala",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515234",
+    "nameEn": "Dal",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515205",
+    "nameEn": "Damacha",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515212",
+    "nameEn": "Dedakiya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515259",
+    "nameEn": "Dhokadva",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515291",
+    "nameEn": "Dhrabavad",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515178",
+    "nameEn": "Dhramaniya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515221",
+    "nameEn": "Dodhi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515256",
+    "nameEn": "Dron",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515254",
+    "nameEn": "Fareda",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515267",
+    "nameEn": "Fatsar",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515298",
+    "nameEn": "Fulka",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515207",
+    "nameEn": "Gafagala",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515225",
+    "nameEn": "Gandhara",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515199",
+    "nameEn": "Ganeshgali",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515380",
+    "nameEn": "Ghodavadi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515200",
+    "nameEn": "Ghud Jinjva",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515181",
+    "nameEn": "Giglani Gor",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515255",
+    "nameEn": "Gir Gadhada",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515182",
+    "nameEn": "Gola",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515202",
+    "nameEn": "Gupti",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515167",
+    "nameEn": "Hadala",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515198",
+    "nameEn": "Hadkala",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515103",
+    "nameEn": "Harmadiya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515257",
+    "nameEn": "Itvaya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515172",
+    "nameEn": "Jambuda",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515248",
+    "nameEn": "Jambudi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515175",
+    "nameEn": "Jambupani",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515236",
+    "nameEn": "Jamvala",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515166",
+    "nameEn": "Jamvali",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515270",
+    "nameEn": "Jaragli",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515381",
+    "nameEn": "Jasadhar",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515197",
+    "nameEn": "Jenagar",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515293",
+    "nameEn": "Jhanjhariya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515272",
+    "nameEn": "Jhudvadli",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515282",
+    "nameEn": "Kakidi Moli",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515208",
+    "nameEn": "Kalipat",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515316",
+    "nameEn": "Kanakiya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515231",
+    "nameEn": "Kandhavala",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515284",
+    "nameEn": "Kandhi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515297",
+    "nameEn": "Kaneri",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515235",
+    "nameEn": "Kansariya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515219",
+    "nameEn": "Kansvala",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515206",
+    "nameEn": "Kardapan",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515229",
+    "nameEn": "Khajuri",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515232",
+    "nameEn": "Khakharavali",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515266",
+    "nameEn": "Khilavad",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515249",
+    "nameEn": "Kodiya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515375",
+    "nameEn": "Kothariya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515342",
+    "nameEn": "Lamdhar",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515189",
+    "nameEn": "Laptni",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515204",
+    "nameEn": "Leria",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515170",
+    "nameEn": "Lotha",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515279",
+    "nameEn": "Luvari Moli",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515263",
+    "nameEn": "Mahobatpara",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515195",
+    "nameEn": "Mahuda",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515241",
+    "nameEn": "Mandvi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515251",
+    "nameEn": "Mor Supada Nes",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515228",
+    "nameEn": "Mota Mindha",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515262",
+    "nameEn": "Mota Samadhiyala",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515306",
+    "nameEn": "Moti Moli",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515246",
+    "nameEn": "Motisar",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515174",
+    "nameEn": "Nada",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515247",
+    "nameEn": "Nagadiya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515280",
+    "nameEn": "Naliyeri Moli",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515227",
+    "nameEn": "Nana Mindha",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515278",
+    "nameEn": "Nana Samadhiyala",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515213",
+    "nameEn": "Nava Dedakiya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515265",
+    "nameEn": "Nava Ugla",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515244",
+    "nameEn": "Nitli",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515242",
+    "nameEn": "Oyna",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515276",
+    "nameEn": "Padapadar",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515290",
+    "nameEn": "Panderi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515277",
+    "nameEn": "Pankhan",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515193",
+    "nameEn": "Panvadi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515217",
+    "nameEn": "Pareva",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515215",
+    "nameEn": "Patla (Mahadev)",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515192",
+    "nameEn": "Pichhadibela",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515113",
+    "nameEn": "Pichhva",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515114",
+    "nameEn": "Pichhvi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515196",
+    "nameEn": "Piliyo Dhuno",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515222",
+    "nameEn": "Rajasthali",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515250",
+    "nameEn": "Rasulpara",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515223",
+    "nameEn": "Sakra",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515258",
+    "nameEn": "Sanosri",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515269",
+    "nameEn": "Sanvav",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515163",
+    "nameEn": "Sapnes",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515243",
+    "nameEn": "Sarkadiya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515245",
+    "nameEn": "Sonariya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515294",
+    "nameEn": "Sonpura",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515187",
+    "nameEn": "Sudavi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515238",
+    "nameEn": "Tadhodiya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515180",
+    "nameEn": "Tadi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515253",
+    "nameEn": "Tapakeshvar",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515379",
+    "nameEn": "Thordi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515374",
+    "nameEn": "Timbarva",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515220",
+    "nameEn": "Tulsishyam",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515274",
+    "nameEn": "Ugla",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515240",
+    "nameEn": "Ujjadiya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515209",
+    "nameEn": "Umarvidi",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515268",
+    "nameEn": "Umedpara",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515299",
+    "nameEn": "Undari",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515226",
+    "nameEn": "Vadli",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515271",
+    "nameEn": "Vadviyala",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515173",
+    "nameEn": "Vakumbha (Dhramaniya)",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515169",
+    "nameEn": "Vakumbha (Karjadi)",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515176",
+    "nameEn": "Vakumbha(Tadi)",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515165",
+    "nameEn": "Vaniagali",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515168",
+    "nameEn": "Vankajambu",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515183",
+    "nameEn": "Vankidas",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515281",
+    "nameEn": "Vankiya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515184",
+    "nameEn": "Vanzara",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515292",
+    "nameEn": "Velakot",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "515239",
+    "nameEn": "Viragali",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "515382",
+    "nameEn": "Zankhiya",
+    "subDistrictCode": 6199,
+    "districtCode": 675,
+    "category": "Rural",
+    "status": "Forest"
+  }
+]

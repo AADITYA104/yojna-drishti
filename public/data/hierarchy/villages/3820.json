@@ -1,0 +1,778 @@
+[
+  {
+    "code": "514069",
+    "nameEn": "Abhpara Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514033",
+    "nameEn": "Ambaliyara",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514037",
+    "nameEn": "Ambardi",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514096",
+    "nameEn": "Amrachhella",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514082",
+    "nameEn": "Bado Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514051",
+    "nameEn": "Baradi Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514094",
+    "nameEn": "Bari Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514089",
+    "nameEn": "Baritalav Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514091",
+    "nameEn": "Bataliyo Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "955980",
+    "nameEn": "Bhanvad",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514086",
+    "nameEn": "Bharadi Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514035",
+    "nameEn": "Bharatpur",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514030",
+    "nameEn": "Bhavaneshvar",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514032",
+    "nameEn": "Bhenakvad",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514010",
+    "nameEn": "Bhoriya",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514022",
+    "nameEn": "Bodki",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514006",
+    "nameEn": "Chandvad",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514065",
+    "nameEn": "Chhapiyo Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514008",
+    "nameEn": "Chokhanda",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514093",
+    "nameEn": "Danderi Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514052",
+    "nameEn": "Dandra Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514024",
+    "nameEn": "Dharagar",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514031",
+    "nameEn": "Dhebar",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514071",
+    "nameEn": "Dhedhakhuna Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514079",
+    "nameEn": "Dhedhio Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514072",
+    "nameEn": "Dhola Dhuna Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514075",
+    "nameEn": "Dhramni Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514045",
+    "nameEn": "Dudhala",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514027",
+    "nameEn": "Fatepur",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514023",
+    "nameEn": "Fotdi",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514060",
+    "nameEn": "Fuljhar Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514047",
+    "nameEn": "Gadu",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514077",
+    "nameEn": "Gali Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514042",
+    "nameEn": "Ghumli",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514068",
+    "nameEn": "Gulabsagar Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514015",
+    "nameEn": "Gunda",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514005",
+    "nameEn": "Gundla",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514046",
+    "nameEn": "Hathla",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514062",
+    "nameEn": "Jambusar",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514007",
+    "nameEn": "Jampar",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514063",
+    "nameEn": "Jasapar",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514029",
+    "nameEn": "Jharera",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "908764",
+    "nameEn": "Jogra",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514011",
+    "nameEn": "Kabarka",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514054",
+    "nameEn": "Kalyanpar",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514050",
+    "nameEn": "Kansaliyo Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514017",
+    "nameEn": "Kantoliya",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514083",
+    "nameEn": "Kapurdi Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514085",
+    "nameEn": "Karanjvaro",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514061",
+    "nameEn": "Kasvirdo Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514092",
+    "nameEn": "Kathano Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514073",
+    "nameEn": "Kathiyani Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514055",
+    "nameEn": "Katkola",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514081",
+    "nameEn": "Khatariyo Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514095",
+    "nameEn": "Kheral",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514058",
+    "nameEn": "Khodiyar Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514090",
+    "nameEn": "Khunano Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514078",
+    "nameEn": "Killeshwar Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514025",
+    "nameEn": "Krushnagadh",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "908765",
+    "nameEn": "Manpar",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514036",
+    "nameEn": "Mevasa",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514053",
+    "nameEn": "Modpar",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514043",
+    "nameEn": "Mokhana",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514067",
+    "nameEn": "Moradiyo Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514013",
+    "nameEn": "Morjhar",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514040",
+    "nameEn": "Mota Kalavad",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514020",
+    "nameEn": "Navagam",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514044",
+    "nameEn": "Pachhatar",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514049",
+    "nameEn": "Pachhatardi",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514084",
+    "nameEn": "Ranasar Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514066",
+    "nameEn": "Ranivav Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514048",
+    "nameEn": "Ranpar",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514034",
+    "nameEn": "Ranparda",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514064",
+    "nameEn": "Ravno Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514004",
+    "nameEn": "Renta Kalavad",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514057",
+    "nameEn": "Rojhda",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514019",
+    "nameEn": "Rojhivada",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514028",
+    "nameEn": "Rupamora",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514021",
+    "nameEn": "Sai Devaliya",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514016",
+    "nameEn": "Sajadiyali",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514097",
+    "nameEn": "Sakroja",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514018",
+    "nameEn": "Sanakhala",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514056",
+    "nameEn": "Satsagar Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514087",
+    "nameEn": "Savarkundla",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514014",
+    "nameEn": "Sevak Devaliya",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514012",
+    "nameEn": "Shedhakhai",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514039",
+    "nameEn": "Shiva",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514088",
+    "nameEn": "Son Kansari Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514059",
+    "nameEn": "Suvardo Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514080",
+    "nameEn": "Tadi Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514070",
+    "nameEn": "Thar Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514041",
+    "nameEn": "Timbdi",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514074",
+    "nameEn": "Vagadiyo Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514038",
+    "nameEn": "Vanavad",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514026",
+    "nameEn": "Verad",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514076",
+    "nameEn": "Vi Nes",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "908766",
+    "nameEn": "Vijaypur",
+    "subDistrictCode": 3820,
+    "districtCode": 674,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

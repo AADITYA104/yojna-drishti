@@ -1,0 +1,74 @@
+[
+  {
+    "code": "960733",
+    "nameEn": "Bedi",
+    "subDistrictCode": 6525,
+    "districtCode": 447,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "961519",
+    "nameEn": "Bedi",
+    "subDistrictCode": 6525,
+    "districtCode": 447,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962560",
+    "nameEn": "Jamnagar (1)",
+    "subDistrictCode": 6525,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962558",
+    "nameEn": "Jamnagar (2)",
+    "subDistrictCode": 6525,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962556",
+    "nameEn": "Jamnagar (3A)",
+    "subDistrictCode": 6525,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930245",
+    "nameEn": "Jamnagar City",
+    "subDistrictCode": 6525,
+    "districtCode": 447,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962557",
+    "nameEn": "Jamnagar(3B)",
+    "subDistrictCode": 6525,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962551",
+    "nameEn": "Jamnagar(4)",
+    "subDistrictCode": 6525,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962582",
+    "nameEn": "Navagam Ghed",
+    "subDistrictCode": 6525,
+    "districtCode": 447,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

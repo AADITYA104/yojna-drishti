@@ -1,0 +1,482 @@
+[
+  {
+    "code": "514793",
+    "nameEn": "Ajak",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514794",
+    "nameEn": "Antroli",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514834",
+    "nameEn": "Arena",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514779",
+    "nameEn": "Bagasra-Ghed",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514796",
+    "nameEn": "Bamanvada",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514815",
+    "nameEn": "Bhatgam",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514778",
+    "nameEn": "Bhathrot",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514806",
+    "nameEn": "Chandvana",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514791",
+    "nameEn": "Chankhva",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514799",
+    "nameEn": "Chingariya",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514827",
+    "nameEn": "Chotilividi",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514798",
+    "nameEn": "Darsali",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514821",
+    "nameEn": "Dhelana",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514795",
+    "nameEn": "Divasa",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514789",
+    "nameEn": "Divrana",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514800",
+    "nameEn": "Farangta",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514775",
+    "nameEn": "Fulrama",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514780",
+    "nameEn": "Ghodadar",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514808",
+    "nameEn": "Gorej",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514774",
+    "nameEn": "Hantarpur",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514831",
+    "nameEn": "Husenabad",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514790",
+    "nameEn": "Kalej",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514788",
+    "nameEn": "Kankana",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514810",
+    "nameEn": "Kankasa",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514807",
+    "nameEn": "Karamdi",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514835",
+    "nameEn": "Khodada",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514826",
+    "nameEn": "Kotda Juna",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514824",
+    "nameEn": "Kotda Nava",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514820",
+    "nameEn": "Lambora",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514776",
+    "nameEn": "Langad",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514811",
+    "nameEn": "Lohej",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514823",
+    "nameEn": "Maktupur",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514836",
+    "nameEn": "Mangrol",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514822",
+    "nameEn": "Mankhetra",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514786",
+    "nameEn": "Mekhadi",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514809",
+    "nameEn": "Menanj",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514773",
+    "nameEn": "Miti",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514797",
+    "nameEn": "Nagichana",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514805",
+    "nameEn": "Nandarkhi",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514777",
+    "nameEn": "Osa Ghed",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514812",
+    "nameEn": "Rahij",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514813",
+    "nameEn": "Roodalpur",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514818",
+    "nameEn": "Sakrana",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514782",
+    "nameEn": "Samarda",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514783",
+    "nameEn": "Sandha",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514802",
+    "nameEn": "Sangavada",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514784",
+    "nameEn": "Sarsali",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514825",
+    "nameEn": "Shaikhpur",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514832",
+    "nameEn": "Shapur",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514781",
+    "nameEn": "Sharma",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514830",
+    "nameEn": "Shepa",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514833",
+    "nameEn": "Sheriyaj",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514803",
+    "nameEn": "Shil",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514814",
+    "nameEn": "Sultanpur",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514804",
+    "nameEn": "Talodra",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514785",
+    "nameEn": "Thali",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514792",
+    "nameEn": "Vadla",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514787",
+    "nameEn": "Virol",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514819",
+    "nameEn": "Virpur",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514801",
+    "nameEn": "Zariyavada",
+    "subDistrictCode": 3832,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

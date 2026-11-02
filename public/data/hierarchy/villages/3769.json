@@ -1,0 +1,858 @@
+[
+  {
+    "code": "510822",
+    "nameEn": "Alampur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510824",
+    "nameEn": "Amlai",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510817",
+    "nameEn": "Andapur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510792",
+    "nameEn": "Badodara",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510787",
+    "nameEn": "Bajkot",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Both",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510724",
+    "nameEn": "Bamanvad",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510807",
+    "nameEn": "Bayal",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510776",
+    "nameEn": "Bhachadiya",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510741",
+    "nameEn": "Bhatkota",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510819",
+    "nameEn": "Bherunda",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510744",
+    "nameEn": "Bhilkuva",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510757",
+    "nameEn": "Bodi",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510734",
+    "nameEn": "Bolundra",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510818",
+    "nameEn": "Bordi",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510764",
+    "nameEn": "Charanvada",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510747",
+    "nameEn": "Dadhaliya",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510795",
+    "nameEn": "Dariyapur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510721",
+    "nameEn": "Davli",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510805",
+    "nameEn": "Dhankhrol",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510779",
+    "nameEn": "Dholiya (Nana - Mota)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510768",
+    "nameEn": "Dholvani",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510809",
+    "nameEn": "Dhunavada",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510794",
+    "nameEn": "Dolpur (Sinavad)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510812",
+    "nameEn": "Dungarvada",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510815",
+    "nameEn": "Fareri",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510732",
+    "nameEn": "Futa",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510781",
+    "nameEn": "Gadha",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510720",
+    "nameEn": "Gadhada",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510774",
+    "nameEn": "Gajan",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510800",
+    "nameEn": "Galsundra",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510786",
+    "nameEn": "Ganeshpur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Both",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510821",
+    "nameEn": "Garudi",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510752",
+    "nameEn": "Gokharva",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510788",
+    "nameEn": "Hafsabad",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510746",
+    "nameEn": "Hathipura",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510750",
+    "nameEn": "Isrol (Moti)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510751",
+    "nameEn": "Isrol (Nani)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510801",
+    "nameEn": "Itadi",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510802",
+    "nameEn": "Jamana Chhapra",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510745",
+    "nameEn": "Jambusar",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510729",
+    "nameEn": "Jitpur (Dadhaliya)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510763",
+    "nameEn": "Jitpur (Mahadevgram)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510731",
+    "nameEn": "Jivanpur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510804",
+    "nameEn": "Juna Vadvasa",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510823",
+    "nameEn": "Kau",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510808",
+    "nameEn": "Khadoda",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510797",
+    "nameEn": "Khalikpur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510755",
+    "nameEn": "Khambhisar",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510777",
+    "nameEn": "Khumapur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510806",
+    "nameEn": "Kishorpura",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510771",
+    "nameEn": "Kokapur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510820",
+    "nameEn": "Kolikhad",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510727",
+    "nameEn": "Kudol",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510780",
+    "nameEn": "Lachchhai",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510736",
+    "nameEn": "Lalpur (Sardoi)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510784",
+    "nameEn": "Limbhoi",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510758",
+    "nameEn": "Madasana",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510742",
+    "nameEn": "Madhupur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510760",
+    "nameEn": "Mahadevgram",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510761",
+    "nameEn": "Malvan (Keshapur)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510730",
+    "nameEn": "Math",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510816",
+    "nameEn": "Mathasuliya",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510759",
+    "nameEn": "Medhasan",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510767",
+    "nameEn": "Modarsumba",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962640",
+    "nameEn": "Modasa",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510772",
+    "nameEn": "Mora",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510782",
+    "nameEn": "Moti Chichano",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510748",
+    "nameEn": "Motipur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510769",
+    "nameEn": "Muloj",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510789",
+    "nameEn": "Munshivada",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510725",
+    "nameEn": "Nandisan",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510783",
+    "nameEn": "Nani Chichano",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510803",
+    "nameEn": "Nava Vadvasa",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510723",
+    "nameEn": "Padar",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510810",
+    "nameEn": "Pahadpur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510785",
+    "nameEn": "Palanpur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Both",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510756",
+    "nameEn": "Paliyapur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510743",
+    "nameEn": "Rajli",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510775",
+    "nameEn": "Rakhiyal",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510737",
+    "nameEn": "Rampur (Gadhada)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510770",
+    "nameEn": "Rampur (Sinavad)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510799",
+    "nameEn": "Rasulpur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510798",
+    "nameEn": "Sabalpur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510753",
+    "nameEn": "Sajapur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510813",
+    "nameEn": "Sakariya",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510754",
+    "nameEn": "Salampur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510735",
+    "nameEn": "Sardoi",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510793",
+    "nameEn": "Sarurpur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510773",
+    "nameEn": "Sayra",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510739",
+    "nameEn": "Shampur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510790",
+    "nameEn": "Sinavad",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510811",
+    "nameEn": "Sitpur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510749",
+    "nameEn": "Surpur",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510740",
+    "nameEn": "Tintisar",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510726",
+    "nameEn": "Tintoi",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510733",
+    "nameEn": "Umedpur (Bolundra)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510728",
+    "nameEn": "Umedpur (Dadhaliya)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510762",
+    "nameEn": "Vaghediya",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510791",
+    "nameEn": "Vallavanta",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510766",
+    "nameEn": "Vaniyad",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510738",
+    "nameEn": "Vanta",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510722",
+    "nameEn": "Vantada (Bolundra)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510778",
+    "nameEn": "Vantada (Medhasan)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510765",
+    "nameEn": "Varthu",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510796",
+    "nameEn": "Volva",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962600",
+    "nameEn": "Vota(Rampur)",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "510814",
+    "nameEn": "Zhalodar",
+    "subDistrictCode": 3769,
+    "districtCode": 672,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

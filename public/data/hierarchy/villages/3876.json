@@ -1,0 +1,394 @@
+[
+  {
+    "code": "517637",
+    "nameEn": "Akhdol",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517612",
+    "nameEn": "Alindra",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517598",
+    "nameEn": "Aljada",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517582",
+    "nameEn": "Andhaj",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517589",
+    "nameEn": "Arajanpur Kot",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517583",
+    "nameEn": "Arera",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517627",
+    "nameEn": "Bhumel",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517608",
+    "nameEn": "Bilodra",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517613",
+    "nameEn": "Chalali",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930297",
+    "nameEn": "Chklasi",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517604",
+    "nameEn": "Dabhan",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517618",
+    "nameEn": "Davda",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517584",
+    "nameEn": "Dawapura",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517601",
+    "nameEn": "Degam",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517624",
+    "nameEn": "Dumral",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517597",
+    "nameEn": "Erandiyapura",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517616",
+    "nameEn": "Fatepur",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517629",
+    "nameEn": "Gutal",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517586",
+    "nameEn": "Hathaj",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517600",
+    "nameEn": "Hathnoli",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517588",
+    "nameEn": "Javol",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517605",
+    "nameEn": "Kamla (Part)",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930298",
+    "nameEn": "Kanjari",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517615",
+    "nameEn": "Kanjoda",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517630",
+    "nameEn": "Keriavi",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517594",
+    "nameEn": "Maholel",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517607",
+    "nameEn": "Manjipura (Part)",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517609",
+    "nameEn": "Marida",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517593",
+    "nameEn": "Monghroli",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517590",
+    "nameEn": "Nana Vaga",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517628",
+    "nameEn": "Narsanda",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517634",
+    "nameEn": "Navagam",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517595",
+    "nameEn": "Palaiya",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517591",
+    "nameEn": "Paldi",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517625",
+    "nameEn": "Piplag",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517631",
+    "nameEn": "Piplata",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517640",
+    "nameEn": "Rajnagar",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517611",
+    "nameEn": "Salun Talpad",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517610",
+    "nameEn": "Salun Vanto",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517599",
+    "nameEn": "Silod",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517592",
+    "nameEn": "Sodpur",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517614",
+    "nameEn": "Surasamal",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517617",
+    "nameEn": "Tundel",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517626",
+    "nameEn": "Uttarsanda",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517639",
+    "nameEn": "Vadtal",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517638",
+    "nameEn": "Valetva",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517596",
+    "nameEn": "Valla",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517585",
+    "nameEn": "Vina",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "517606",
+    "nameEn": "Yoginagar",
+    "subDistrictCode": 3876,
+    "districtCode": 450,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

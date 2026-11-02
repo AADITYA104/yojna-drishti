@@ -1,0 +1,514 @@
+[
+  {
+    "code": "507289",
+    "nameEn": "Babiya",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507294",
+    "nameEn": "Bagda",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507321",
+    "nameEn": "Baraya",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507347",
+    "nameEn": "Baroi",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507299",
+    "nameEn": "Beraja",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507314",
+    "nameEn": "Bhadresar",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507310",
+    "nameEn": "Bharudiya",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507331",
+    "nameEn": "Bhorara",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507298",
+    "nameEn": "Bocha",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507340",
+    "nameEn": "Borana",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507308",
+    "nameEn": "Chhasra",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507301",
+    "nameEn": "Depa",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507322",
+    "nameEn": "Deshalpar",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507346",
+    "nameEn": "Dhrab",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507295",
+    "nameEn": "Fachariya",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507303",
+    "nameEn": "Gelda",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507348",
+    "nameEn": "Goersama",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507332",
+    "nameEn": "Gundala",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507311",
+    "nameEn": "Hatdi",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507345",
+    "nameEn": "Jarpara",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507291",
+    "nameEn": "Kanajra",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507324",
+    "nameEn": "Kandagara Mota",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507306",
+    "nameEn": "Kandagara Nana",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507304",
+    "nameEn": "Karagoga",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507323",
+    "nameEn": "Khakhar Moti",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507313",
+    "nameEn": "Kukadsar",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507307",
+    "nameEn": "Kundrodi",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507312",
+    "nameEn": "Kuvay",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507305",
+    "nameEn": "Lakhapar",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507292",
+    "nameEn": "Lifara",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507334",
+    "nameEn": "Luni",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507337",
+    "nameEn": "Mangra",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507317",
+    "nameEn": "Mokha",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507338",
+    "nameEn": "Mota Kapaya",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507327",
+    "nameEn": "Moti Bhujpar",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "908593",
+    "nameEn": "Mundra",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507349",
+    "nameEn": "Mundra (Ct)",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507339",
+    "nameEn": "Nana Kapaya",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507343",
+    "nameEn": "Nani Bhujpar",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507344",
+    "nameEn": "Navinal",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507296",
+    "nameEn": "Patri",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507315",
+    "nameEn": "Pavdiara",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507329",
+    "nameEn": "Pragpar (1)",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507330",
+    "nameEn": "Pragpar (2)",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507341",
+    "nameEn": "Pratappar (1)",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507342",
+    "nameEn": "Pratappar (2)",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507333",
+    "nameEn": "Raga",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507300",
+    "nameEn": "Ramaniya",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507318",
+    "nameEn": "Ratadiya",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507336",
+    "nameEn": "Sadau",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507328",
+    "nameEn": "Samagoga",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507335",
+    "nameEn": "Shekhadiya",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507326",
+    "nameEn": "Shiracha",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507302",
+    "nameEn": "Sukhpar",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507290",
+    "nameEn": "Tappar",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507320",
+    "nameEn": "Toda",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507288",
+    "nameEn": "Tumbadi Moti",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507287",
+    "nameEn": "Tumbadi Nani",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507325",
+    "nameEn": "Tunda",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507316",
+    "nameEn": "Vadala",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507293",
+    "nameEn": "Vagura",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507297",
+    "nameEn": "Vanki",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507319",
+    "nameEn": "Viraniya",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "507309",
+    "nameEn": "Vovar",
+    "subDistrictCode": 3730,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

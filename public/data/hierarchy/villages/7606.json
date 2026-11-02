@@ -1,0 +1,50 @@
+[
+  {
+    "code": "934937",
+    "nameEn": "Bhuj City",
+    "subDistrictCode": 7606,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Un-Inhabitant"
+  },
+  {
+    "code": "962650",
+    "nameEn": "Bhuj Sim",
+    "subDistrictCode": 7606,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "506920",
+    "nameEn": "Madhapar (Ct)",
+    "subDistrictCode": 7606,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "506921",
+    "nameEn": "Mirjhapar (Ct)",
+    "subDistrictCode": 7606,
+    "districtCode": 449,
+    "category": "Both",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "506795",
+    "nameEn": "Palara",
+    "subDistrictCode": 7606,
+    "districtCode": 449,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "506922",
+    "nameEn": "Sukhpar (Ct)",
+    "subDistrictCode": 7606,
+    "districtCode": 449,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

@@ -1,0 +1,514 @@
+[
+  {
+    "code": "508438",
+    "nameEn": "Bhadkasar",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508416",
+    "nameEn": "Bhagwanpura",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508421",
+    "nameEn": "Bhesana",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508443",
+    "nameEn": "Boda",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508424",
+    "nameEn": "Chagwada",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508423",
+    "nameEn": "Chamanpura",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508387",
+    "nameEn": "Chibhda",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508386",
+    "nameEn": "Daua",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508433",
+    "nameEn": "Delwada",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508450",
+    "nameEn": "Deodar (Ct)",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508432",
+    "nameEn": "Dhanakwada",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508437",
+    "nameEn": "Dhrandav",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508420",
+    "nameEn": "Dhrandvada",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508405",
+    "nameEn": "Dhunsol",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508415",
+    "nameEn": "Duchakwada",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508413",
+    "nameEn": "Forna",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508426",
+    "nameEn": "Gangol",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508441",
+    "nameEn": "Goda",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508402",
+    "nameEn": "Golvi",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508401",
+    "nameEn": "Golvo",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508422",
+    "nameEn": "Jada",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508393",
+    "nameEn": "Jalodha",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508428",
+    "nameEn": "Jasali",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508408",
+    "nameEn": "Khanodar",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508403",
+    "nameEn": "Kotarwada",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508434",
+    "nameEn": "Kotda Deodar",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508414",
+    "nameEn": "Kotda Forna",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508430",
+    "nameEn": "Kunvarva",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508400",
+    "nameEn": "Kunvata",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508425",
+    "nameEn": "Liladhar",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508435",
+    "nameEn": "Ludara",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508389",
+    "nameEn": "Makdala",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508388",
+    "nameEn": "Makhanu",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508404",
+    "nameEn": "Manpura Dhunsol",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508411",
+    "nameEn": "Manpura Jalodha",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508440",
+    "nameEn": "Mesra",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508398",
+    "nameEn": "Mojru Juna",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508409",
+    "nameEn": "Mojru Nava",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508449",
+    "nameEn": "Mulakpur",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508394",
+    "nameEn": "Narana",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508447",
+    "nameEn": "Nava",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508412",
+    "nameEn": "Navapura",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508418",
+    "nameEn": "Nokha",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508431",
+    "nameEn": "Odha",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508439",
+    "nameEn": "Ogadpura",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508399",
+    "nameEn": "Paldi",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508446",
+    "nameEn": "Raiya",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508406",
+    "nameEn": "Rampura",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508390",
+    "nameEn": "Rantila",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508417",
+    "nameEn": "Ravel",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508445",
+    "nameEn": "Salpura",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508436",
+    "nameEn": "Samla Vadana",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508444",
+    "nameEn": "Sanadar",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508385",
+    "nameEn": "Sanav",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508429",
+    "nameEn": "Sardarpura (Jasali)",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508407",
+    "nameEn": "Sardarpura (Ravel)",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508397",
+    "nameEn": "Sesan Juna",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508396",
+    "nameEn": "Sesan Nava",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508427",
+    "nameEn": "Soni",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508448",
+    "nameEn": "Surana",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508419",
+    "nameEn": "Vadiya",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508442",
+    "nameEn": "Vakha",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508410",
+    "nameEn": "Vatam Juna",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508395",
+    "nameEn": "Vatam Nava",
+    "subDistrictCode": 3741,
+    "districtCode": 789,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

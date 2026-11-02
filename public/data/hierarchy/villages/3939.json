@@ -1,0 +1,394 @@
+[
+  {
+    "code": "524253",
+    "nameEn": "Amalsadi",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524259",
+    "nameEn": "Ambheti",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524216",
+    "nameEn": "Antroli",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524221",
+    "nameEn": "Bagumara",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524237",
+    "nameEn": "Baleshvar",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524229",
+    "nameEn": "Barasadi",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524238",
+    "nameEn": "Bhutpor",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524262",
+    "nameEn": "Chalthan (Ct)",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524219",
+    "nameEn": "Dastan",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524240",
+    "nameEn": "Dhamdod",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524244",
+    "nameEn": "Ena",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524235",
+    "nameEn": "Erthan",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524230",
+    "nameEn": "Gangpor",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524239",
+    "nameEn": "Ghaluda",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524243",
+    "nameEn": "Gotiya",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524217",
+    "nameEn": "Haripura",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524248",
+    "nameEn": "Intalva",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524245",
+    "nameEn": "Isroli",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524228",
+    "nameEn": "Jetpor",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524218",
+    "nameEn": "Jolva",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524261",
+    "nameEn": "Kadodara (Ct)",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524251",
+    "nameEn": "Kanav",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524225",
+    "nameEn": "Karala",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524226",
+    "nameEn": "Karan",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524220",
+    "nameEn": "Kareli",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524224",
+    "nameEn": "Kharbhasi",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524258",
+    "nameEn": "Lakhanpor",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524247",
+    "nameEn": "Lingad",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524250",
+    "nameEn": "Makhinga",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524254",
+    "nameEn": "Malekpor",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524215",
+    "nameEn": "Niyol",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524249",
+    "nameEn": "Palsana",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524256",
+    "nameEn": "Pardipata",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524241",
+    "nameEn": "Pisad",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524257",
+    "nameEn": "Puni",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524227",
+    "nameEn": "Sanki",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524214",
+    "nameEn": "Sedhav",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524255",
+    "nameEn": "Siyod",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524231",
+    "nameEn": "Soyani",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524234",
+    "nameEn": "Talodara",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524222",
+    "nameEn": "Tantithaiya",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524233",
+    "nameEn": "Tantizaghda",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524246",
+    "nameEn": "Taraj",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524232",
+    "nameEn": "Tundi",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524236",
+    "nameEn": "Vadadala",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524242",
+    "nameEn": "Vanesa",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524223",
+    "nameEn": "Vankaneda",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524252",
+    "nameEn": "Vanzolia",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524260",
+    "nameEn": "Vareli (Ct)",
+    "subDistrictCode": 3939,
+    "districtCode": 459,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

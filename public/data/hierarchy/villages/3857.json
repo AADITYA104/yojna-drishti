@@ -1,0 +1,410 @@
+[
+  {
+    "code": "516426",
+    "nameEn": "Anandpur",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516455",
+    "nameEn": "Bela",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516415",
+    "nameEn": "Bhamariya",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516461",
+    "nameEn": "Bhandariya",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516438",
+    "nameEn": "Chomal",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516451",
+    "nameEn": "Damrala",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516434",
+    "nameEn": "Fachariya",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516446",
+    "nameEn": "Ganeshgadh",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "955989",
+    "nameEn": "Gariadhar",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516460",
+    "nameEn": "Gujarada",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516420",
+    "nameEn": "Jaliya",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516450",
+    "nameEn": "Jalvadar",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516418",
+    "nameEn": "Kharadi",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516444",
+    "nameEn": "Khodvadari",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516458",
+    "nameEn": "Luvara",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516416",
+    "nameEn": "Mandvi",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516448",
+    "nameEn": "Mangadh",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516425",
+    "nameEn": "Manguka",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516417",
+    "nameEn": "Manpur",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516429",
+    "nameEn": "Manvilas",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516454",
+    "nameEn": "Mesanka",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516443",
+    "nameEn": "Morba",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516441",
+    "nameEn": "Mota Charodiya",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516422",
+    "nameEn": "Moti Vavdi",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516424",
+    "nameEn": "Nana Charodiya",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516440",
+    "nameEn": "Nani Vavdi",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516445",
+    "nameEn": "Navagam",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516439",
+    "nameEn": "Pachchhegam",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516447",
+    "nameEn": "Paldi",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516419",
+    "nameEn": "Panasada",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516433",
+    "nameEn": "Panchtobara",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516432",
+    "nameEn": "Paravdi",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516427",
+    "nameEn": "Pipalva",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516464",
+    "nameEn": "Ranigam",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516435",
+    "nameEn": "Ratanvav",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516453",
+    "nameEn": "Rupavati",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516462",
+    "nameEn": "Samadhiyala",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516437",
+    "nameEn": "Sandh Khakhara",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516457",
+    "nameEn": "Sarambhada",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516452",
+    "nameEn": "Saringpur",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516463",
+    "nameEn": "Satapada",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516449",
+    "nameEn": "Shivendranagar",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516421",
+    "nameEn": "Sitapur",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516431",
+    "nameEn": "Sukhpar",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516430",
+    "nameEn": "Surnagar",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516428",
+    "nameEn": "Surnivas",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516423",
+    "nameEn": "Survilas",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516459",
+    "nameEn": "Thansa",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516436",
+    "nameEn": "Timba",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516456",
+    "nameEn": "Velavadar",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516442",
+    "nameEn": "Virdi",
+    "subDistrictCode": 3857,
+    "districtCode": 443,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

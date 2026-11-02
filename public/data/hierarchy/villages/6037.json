@@ -1,0 +1,234 @@
+[
+  {
+    "code": "512317",
+    "nameEn": "Abhepar",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512314",
+    "nameEn": "Amarapar",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512319",
+    "nameEn": "Anandpur (Than)",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512301",
+    "nameEn": "Chandreliya",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512323",
+    "nameEn": "Devaliya",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512318",
+    "nameEn": "Devpara(Than)",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512329",
+    "nameEn": "Gugaliyana",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512320",
+    "nameEn": "Hirana",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512328",
+    "nameEn": "Jamvali",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512315",
+    "nameEn": "Kanpar",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512285",
+    "nameEn": "Khakharathal",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512322",
+    "nameEn": "Khakharavali",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512324",
+    "nameEn": "Lakhamachi",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512310",
+    "nameEn": "Manadasar",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512311",
+    "nameEn": "Morthala",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512286",
+    "nameEn": "Nalkhambha",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512313",
+    "nameEn": "Navagam (Than)",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512325",
+    "nameEn": "Rampara (Than)",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512321",
+    "nameEn": "Ravrani",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512327",
+    "nameEn": "Rupavati(Than)",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512326",
+    "nameEn": "Sarodi",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512312",
+    "nameEn": "Sarsana",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512316",
+    "nameEn": "Songadh",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512309",
+    "nameEn": "Tarnetar",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930250",
+    "nameEn": "Thangadh",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512306",
+    "nameEn": "Undvi",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512308",
+    "nameEn": "Varmadhar",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512300",
+    "nameEn": "Velala (Sayla)",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "512307",
+    "nameEn": "Vijaliya",
+    "subDistrictCode": 6037,
+    "districtCode": 460,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

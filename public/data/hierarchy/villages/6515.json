@@ -1,0 +1,90 @@
+[
+  {
+    "code": "930029",
+    "nameEn": "Bagefirdosh",
+    "subDistrictCode": 6515,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930031",
+    "nameEn": "Baherampura",
+    "subDistrictCode": 6515,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930023",
+    "nameEn": "Danilimda",
+    "subDistrictCode": 6515,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930030",
+    "nameEn": "Ghodasar",
+    "subDistrictCode": 6515,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930022",
+    "nameEn": "Isanpur",
+    "subDistrictCode": 6515,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930028",
+    "nameEn": "Khokhara-Mahemdabad",
+    "subDistrictCode": 6515,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930027",
+    "nameEn": "Mithipur",
+    "subDistrictCode": 6515,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930021",
+    "nameEn": "Narol",
+    "subDistrictCode": 6515,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930025",
+    "nameEn": "Rajpur-Hirpur",
+    "subDistrictCode": 6515,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930026",
+    "nameEn": "Rakhiyal",
+    "subDistrictCode": 6515,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930024",
+    "nameEn": "Shaher-Kotda (Kot Area)",
+    "subDistrictCode": 6515,
+    "districtCode": 438,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

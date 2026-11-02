@@ -1,0 +1,26 @@
+[
+  {
+    "code": "512695",
+    "nameEn": "Madhapar (Part)",
+    "subDistrictCode": 7443,
+    "districtCode": 673,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930266",
+    "nameEn": "Morbi",
+    "subDistrictCode": 7443,
+    "districtCode": 673,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930277",
+    "nameEn": "Vajepar(Part)",
+    "subDistrictCode": 7443,
+    "districtCode": 673,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

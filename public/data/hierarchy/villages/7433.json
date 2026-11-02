@@ -1,0 +1,66 @@
+[
+  {
+    "code": "962529",
+    "nameEn": "Anavada",
+    "subDistrictCode": 7433,
+    "districtCode": 455,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508873",
+    "nameEn": "Bakratpur",
+    "subDistrictCode": 7433,
+    "districtCode": 455,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508874",
+    "nameEn": "Gungdipati (Part)",
+    "subDistrictCode": 7433,
+    "districtCode": 455,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508875",
+    "nameEn": "Hansapur (Part)",
+    "subDistrictCode": 7433,
+    "districtCode": 455,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508864",
+    "nameEn": "Matarvadi (Part)",
+    "subDistrictCode": 7433,
+    "districtCode": 455,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "955925",
+    "nameEn": "Patan Kasba",
+    "subDistrictCode": 7433,
+    "districtCode": 455,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "961503",
+    "nameEn": "Samalapati",
+    "subDistrictCode": 7433,
+    "districtCode": 455,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "508892",
+    "nameEn": "Sandesarpati",
+    "subDistrictCode": 7433,
+    "districtCode": 455,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

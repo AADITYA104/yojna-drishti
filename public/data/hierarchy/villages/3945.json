@@ -1,0 +1,738 @@
+[
+  {
+    "code": "524802",
+    "nameEn": "Ambiya",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524761",
+    "nameEn": "Andharvadi Najik",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524786",
+    "nameEn": "Arkund",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524800",
+    "nameEn": "Balpur",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524784",
+    "nameEn": "Bamnamal Najik",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524821",
+    "nameEn": "Barmada",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524720",
+    "nameEn": "Bedkuva Dur",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524741",
+    "nameEn": "Bedkuva Najik",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524734",
+    "nameEn": "Bhanavadi",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524749",
+    "nameEn": "Bhatpur",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524762",
+    "nameEn": "Bhojpur Najik",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524795",
+    "nameEn": "Bhurivel",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524794",
+    "nameEn": "Birbara",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524745",
+    "nameEn": "Borkhadi",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524729",
+    "nameEn": "Champavadi",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524793",
+    "nameEn": "Chhevdi",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524770",
+    "nameEn": "Chhindia",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524766",
+    "nameEn": "Chhirma",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524796",
+    "nameEn": "Chichbardi",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524756",
+    "nameEn": "Chikhalda",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524736",
+    "nameEn": "Chikhalvav",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524754",
+    "nameEn": "Chikhli",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524768",
+    "nameEn": "Dadakvan",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524777",
+    "nameEn": "Dhat",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524792",
+    "nameEn": "Dholia Umar",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524819",
+    "nameEn": "Dhongi Amba",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524774",
+    "nameEn": "Dolara",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524732",
+    "nameEn": "Dungargam",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524726",
+    "nameEn": "Ghata",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524781",
+    "nameEn": "Gheriyavav",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524742",
+    "nameEn": "Indu",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524803",
+    "nameEn": "Jesingpur",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524759",
+    "nameEn": "Jetvadi",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524790",
+    "nameEn": "Jhankhari",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524719",
+    "nameEn": "Kala Vyara",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524718",
+    "nameEn": "Kanja",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524778",
+    "nameEn": "Kanjan",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524751",
+    "nameEn": "Kanpura",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524787",
+    "nameEn": "Kapadvan",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524760",
+    "nameEn": "Kapura",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524798",
+    "nameEn": "Karanjvel",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524782",
+    "nameEn": "Kasvav",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524735",
+    "nameEn": "Katasvan",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524740",
+    "nameEn": "Katgadh",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524727",
+    "nameEn": "Katiskuva Dur",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524738",
+    "nameEn": "Katiskuva Najik",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524799",
+    "nameEn": "Katkui",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524780",
+    "nameEn": "Kelkui",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524765",
+    "nameEn": "Khanpur",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524721",
+    "nameEn": "Khod Talav",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524785",
+    "nameEn": "Khuntadiya",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524788",
+    "nameEn": "Khurdi",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524743",
+    "nameEn": "Khushalpura",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524744",
+    "nameEn": "Kohli",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524789",
+    "nameEn": "Lakhali",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524723",
+    "nameEn": "Limbarda",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524733",
+    "nameEn": "Lotarva",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524758",
+    "nameEn": "Madav",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524769",
+    "nameEn": "Magarkui",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524767",
+    "nameEn": "Malotha",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524746",
+    "nameEn": "Maypur",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524775",
+    "nameEn": "Meghpur",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524797",
+    "nameEn": "Mirpur",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524757",
+    "nameEn": "Musa",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524791",
+    "nameEn": "Nana Satsila",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524748",
+    "nameEn": "Paniyari",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524750",
+    "nameEn": "Panvadi",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524773",
+    "nameEn": "Pervad",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524783",
+    "nameEn": "Ramkuva",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524737",
+    "nameEn": "Rampura Najik",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524818",
+    "nameEn": "Rani Amba",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524764",
+    "nameEn": "Rupvada",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524731",
+    "nameEn": "Sadadvan",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524776",
+    "nameEn": "Sankli",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524772",
+    "nameEn": "Saraiya",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524739",
+    "nameEn": "Sarkuva",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524763",
+    "nameEn": "Shahpur",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524752",
+    "nameEn": "Tadkuva",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524747",
+    "nameEn": "Tichakpura",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524779",
+    "nameEn": "Umarkui",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524725",
+    "nameEn": "Umarkuva",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524722",
+    "nameEn": "Unchamala",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524724",
+    "nameEn": "Vadkui",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524817",
+    "nameEn": "Vadpada",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524755",
+    "nameEn": "Vaghjhari",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524730",
+    "nameEn": "Vaghpani",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524816",
+    "nameEn": "Valotha",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524801",
+    "nameEn": "Vandar Devi",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524728",
+    "nameEn": "Vanskui",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524771",
+    "nameEn": "Veldha",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "524753",
+    "nameEn": "Virpur",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930212",
+    "nameEn": "Vyara",
+    "subDistrictCode": 3945,
+    "districtCode": 641,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

@@ -1,0 +1,402 @@
+[
+  {
+    "code": "509237",
+    "nameEn": "Amarpura",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509240",
+    "nameEn": "Ambavada",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509213",
+    "nameEn": "Arathi",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509209",
+    "nameEn": "Balad",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509228",
+    "nameEn": "Chachariya",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509235",
+    "nameEn": "Chada",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509196",
+    "nameEn": "Chansol",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509218",
+    "nameEn": "Chotiya",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509197",
+    "nameEn": "Dabhad",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509215",
+    "nameEn": "Dabhoda",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509200",
+    "nameEn": "Dalisana",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509198",
+    "nameEn": "Davol",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509236",
+    "nameEn": "Dedasan",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509232",
+    "nameEn": "Delvada",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509203",
+    "nameEn": "Fattepura(Khe)",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509221",
+    "nameEn": "Gajipur",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509230",
+    "nameEn": "Gathaman",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509239",
+    "nameEn": "Gorisana",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "934500",
+    "nameEn": "Kheralu",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509216",
+    "nameEn": "Kuda",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509219",
+    "nameEn": "Lalawada",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509244",
+    "nameEn": "Limbdi",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509206",
+    "nameEn": "Lunva",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509226",
+    "nameEn": "Machhava",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509214",
+    "nameEn": "Mahekubpura",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509201",
+    "nameEn": "Mahiyal",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509231",
+    "nameEn": "Malarpura",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509223",
+    "nameEn": "Malekpur (Khe)",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509207",
+    "nameEn": "Mandali",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509211",
+    "nameEn": "Mandropur",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509225",
+    "nameEn": "Moti Hirvani",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509217",
+    "nameEn": "Nalu",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509212",
+    "nameEn": "Nandali (Miyasana)",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509224",
+    "nameEn": "Nani Hirvani",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509220",
+    "nameEn": "Nanivada",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509227",
+    "nameEn": "Nortol",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509208",
+    "nameEn": "Panchha",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509233",
+    "nameEn": "Rahemanpura",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509242",
+    "nameEn": "Rasulpur",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509243",
+    "nameEn": "Sadikpur",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509202",
+    "nameEn": "Sakari",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509241",
+    "nameEn": "Samoja",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509234",
+    "nameEn": "Sangathala",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509210",
+    "nameEn": "Shahpur (Santokpura)",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509222",
+    "nameEn": "Suvariya",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509229",
+    "nameEn": "Thangana",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509238",
+    "nameEn": "Vaghvadi",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509199",
+    "nameEn": "Varetha",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509205",
+    "nameEn": "Vavdi (Khe)",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "509204",
+    "nameEn": "Vithoda",
+    "subDistrictCode": 3752,
+    "districtCode": 451,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

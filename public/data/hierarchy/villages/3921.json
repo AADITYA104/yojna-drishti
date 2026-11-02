@@ -1,0 +1,986 @@
+[
+  {
+    "code": "522843",
+    "nameEn": "Ahwa (Ct)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522817",
+    "nameEn": "Ambalia",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522757",
+    "nameEn": "Anjankund",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522839",
+    "nameEn": "Baradpani",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522797",
+    "nameEn": "Baripada",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522836",
+    "nameEn": "Barmiawad",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522808",
+    "nameEn": "Bhapkhal",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522689",
+    "nameEn": "Bhavandagad",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522696",
+    "nameEn": "Bhisya",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522809",
+    "nameEn": "Bhurapani",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522785",
+    "nameEn": "Bilmal",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522780",
+    "nameEn": "Borigaotha (Samgahan Saja)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522760",
+    "nameEn": "Borkhal",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522695",
+    "nameEn": "Borkhet",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522672",
+    "nameEn": "Chankhal",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522717",
+    "nameEn": "Chaukiya",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522718",
+    "nameEn": "Chavadvel",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522676",
+    "nameEn": "Chikatiya",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522779",
+    "nameEn": "Chikhali (Samgahan Saja)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522749",
+    "nameEn": "Chinchdhara",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522755",
+    "nameEn": "Chinchli",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522812",
+    "nameEn": "Chinchpada (Galkundsaja)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522796",
+    "nameEn": "Chirapada",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522678",
+    "nameEn": "Davdahad",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522670",
+    "nameEn": "Dhavalidod",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522669",
+    "nameEn": "Dhuda",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522686",
+    "nameEn": "Dhulchond",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522810",
+    "nameEn": "Dhumkhal",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522635",
+    "nameEn": "Diwan Tembrun",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522756",
+    "nameEn": "Don",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522745",
+    "nameEn": "Gadad",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522633",
+    "nameEn": "Gadhvi",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522751",
+    "nameEn": "Gadvihir",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522813",
+    "nameEn": "Galkund",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522742",
+    "nameEn": "Garmal",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522675",
+    "nameEn": "Gaurya",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522739",
+    "nameEn": "Gaykhas",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522692",
+    "nameEn": "Ghoghli",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522671",
+    "nameEn": "Ghubita",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522721",
+    "nameEn": "Golasta",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522697",
+    "nameEn": "Gondalvihir",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522837",
+    "nameEn": "Gotiyamal",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522835",
+    "nameEn": "Gundia",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522649",
+    "nameEn": "Hanwatchond",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522752",
+    "nameEn": "Hanwatpada(Chinchlisaja)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522708",
+    "nameEn": "Harpada",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522833",
+    "nameEn": "Humbapada",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522674",
+    "nameEn": "Isdar (Gadhvi)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522741",
+    "nameEn": "Isdar(Borkhalsaja)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522811",
+    "nameEn": "Jakhana",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522673",
+    "nameEn": "Jamanvihir",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522821",
+    "nameEn": "Jamdar",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522634",
+    "nameEn": "Jamlapada(Gadhvisaja)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522743",
+    "nameEn": "Javtala",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522838",
+    "nameEn": "Jogbari",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522748",
+    "nameEn": "Kadmal(Gadadsaja)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522792",
+    "nameEn": "Kahandolghodi",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522701",
+    "nameEn": "Kalamvihir",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522786",
+    "nameEn": "Kamad",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522711",
+    "nameEn": "Kamdiawan",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522750",
+    "nameEn": "Karadiamba",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522713",
+    "nameEn": "Karanjdi(Gadadsaja)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522719",
+    "nameEn": "Kasavdahad",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522738",
+    "nameEn": "Khapri",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522758",
+    "nameEn": "Kosambia",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522841",
+    "nameEn": "Kotamdar",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522651",
+    "nameEn": "Kotba",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522723",
+    "nameEn": "Kutarnachiya",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522791",
+    "nameEn": "Lahancharya",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522795",
+    "nameEn": "Lahandabhas",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522759",
+    "nameEn": "Linga",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522746",
+    "nameEn": "Madalbari",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522699",
+    "nameEn": "Mahalpada",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522781",
+    "nameEn": "Maharaychond",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522754",
+    "nameEn": "Mahardar",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522840",
+    "nameEn": "Malegaon",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522714",
+    "nameEn": "Mogra",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522815",
+    "nameEn": "Mohpada(Galkundsaja)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522744",
+    "nameEn": "Morzira",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522790",
+    "nameEn": "Motacharya",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522794",
+    "nameEn": "Moti Dabhas",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522691",
+    "nameEn": "Mulchond",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522677",
+    "nameEn": "Nadagkhadi",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522716",
+    "nameEn": "Nandanpeda",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522693",
+    "nameEn": "Nilsakiya",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522753",
+    "nameEn": "Nimpada",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522793",
+    "nameEn": "Nirgudmal",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522715",
+    "nameEn": "Pandava",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522820",
+    "nameEn": "Payarpada",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522679",
+    "nameEn": "Pimpri",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522698",
+    "nameEn": "Pipalghodi",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522814",
+    "nameEn": "Pipalpada(Galkundsaja)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522694",
+    "nameEn": "Pipalyamal",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522823",
+    "nameEn": "Ranpada",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522740",
+    "nameEn": "Ravchond",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522705",
+    "nameEn": "Sadadvihir",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522822",
+    "nameEn": "Samgahan",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930162",
+    "nameEn": "Saputara",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522690",
+    "nameEn": "Sati",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522700",
+    "nameEn": "Sendriamba",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522788",
+    "nameEn": "Sinbandh",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522762",
+    "nameEn": "Songir",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522834",
+    "nameEn": "Sonuniya",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522650",
+    "nameEn": "Sukmal",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522720",
+    "nameEn": "Sunda",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522704",
+    "nameEn": "Taklipada (Pipalaidevi)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522783",
+    "nameEn": "Taklipada (Taklipada Saja)",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522761",
+    "nameEn": "Tembrungartha",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522710",
+    "nameEn": "Thorpada",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522787",
+    "nameEn": "Ukhatiya",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522818",
+    "nameEn": "Umarya",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522782",
+    "nameEn": "Umbarpada",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522816",
+    "nameEn": "Vanar",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522703",
+    "nameEn": "Vanzarghodi",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522712",
+    "nameEn": "Vanzitembrun",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522784",
+    "nameEn": "Vihiramba",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522707",
+    "nameEn": "Wadiawan",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522747",
+    "nameEn": "Waidun",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522789",
+    "nameEn": "Wakarya",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522688",
+    "nameEn": "Wangan",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522819",
+    "nameEn": "Wanki",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522722",
+    "nameEn": "Wanvada",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "522763",
+    "nameEn": "Wasurna",
+    "subDistrictCode": 3921,
+    "districtCode": 444,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

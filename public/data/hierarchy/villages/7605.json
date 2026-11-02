@@ -1,0 +1,42 @@
+[
+  {
+    "code": "934484",
+    "nameEn": "Chitra",
+    "subDistrictCode": 7605,
+    "districtCode": 443,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "934488",
+    "nameEn": "Fulsar",
+    "subDistrictCode": 7605,
+    "districtCode": 443,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516283",
+    "nameEn": "Nari (Ct)",
+    "subDistrictCode": 7605,
+    "districtCode": 443,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "516285",
+    "nameEn": "Sidsar (Ct)",
+    "subDistrictCode": 7605,
+    "districtCode": 443,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "934485",
+    "nameEn": "Vadava",
+    "subDistrictCode": 7605,
+    "districtCode": 443,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "code": "930221",
+    "nameEn": "Bapod",
+    "subDistrictCode": 6529,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519917",
+    "nameEn": "Bapod (Og)",
+    "subDistrictCode": 6529,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930222",
+    "nameEn": "Kapurai",
+    "subDistrictCode": 6529,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930219",
+    "nameEn": "Nagarvada",
+    "subDistrictCode": 6529,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930220",
+    "nameEn": "Savad",
+    "subDistrictCode": 6529,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "908877",
+    "nameEn": "Sayajipura",
+    "subDistrictCode": 6529,
+    "districtCode": 461,
+    "category": "Both",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519916",
+    "nameEn": "Sayajipura (Og)",
+    "subDistrictCode": 6529,
+    "districtCode": 461,
+    "category": "Both",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930218",
+    "nameEn": "Vadodara Kasba",
+    "subDistrictCode": 6529,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

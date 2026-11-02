@@ -1,0 +1,58 @@
+[
+  {
+    "code": "930188",
+    "nameEn": "Gondal",
+    "subDistrictCode": 7439,
+    "districtCode": 457,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962545",
+    "nameEn": "Gondal-1",
+    "subDistrictCode": 7439,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962546",
+    "nameEn": "Gondal-2",
+    "subDistrictCode": 7439,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962547",
+    "nameEn": "Gondal-3",
+    "subDistrictCode": 7439,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962548",
+    "nameEn": "Gondal-4",
+    "subDistrictCode": 7439,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962549",
+    "nameEn": "Gondal-5",
+    "subDistrictCode": 7439,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962550",
+    "nameEn": "Gondal-6",
+    "subDistrictCode": 7439,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

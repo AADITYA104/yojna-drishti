@@ -1,0 +1,82 @@
+[
+  {
+    "code": "930087",
+    "nameEn": "Bhavnath",
+    "subDistrictCode": 6517,
+    "districtCode": 448,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930088",
+    "nameEn": "Chobari",
+    "subDistrictCode": 6517,
+    "districtCode": 448,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930089",
+    "nameEn": "Dolatpara(Part)",
+    "subDistrictCode": 6517,
+    "districtCode": 448,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930090",
+    "nameEn": "Jhanjharda",
+    "subDistrictCode": 6517,
+    "districtCode": 448,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930091",
+    "nameEn": "Joshipura(M)",
+    "subDistrictCode": 6517,
+    "districtCode": 448,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "935061",
+    "nameEn": "Junagadh",
+    "subDistrictCode": 6517,
+    "districtCode": 448,
+    "category": "Urban",
+    "status": "Un-Inhabitant"
+  },
+  {
+    "code": "930092",
+    "nameEn": "Khamdhrol(Part)",
+    "subDistrictCode": 6517,
+    "districtCode": 448,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930096",
+    "nameEn": "Sabalpur",
+    "subDistrictCode": 6517,
+    "districtCode": 448,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930097",
+    "nameEn": "Saragvada",
+    "subDistrictCode": 6517,
+    "districtCode": 448,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930098",
+    "nameEn": "Timba Vadi",
+    "subDistrictCode": 6517,
+    "districtCode": 448,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

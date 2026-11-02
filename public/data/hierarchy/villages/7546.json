@@ -1,0 +1,402 @@
+[
+  {
+    "code": "518132",
+    "nameEn": "Ambaliyat",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518090",
+    "nameEn": "Andarsing Na Muvada",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518107",
+    "nameEn": "Anjanwa",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518084",
+    "nameEn": "Bahediya",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518086",
+    "nameEn": "Barela",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518047",
+    "nameEn": "Bavana Saliya",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518049",
+    "nameEn": "Bhotva (West)",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518069",
+    "nameEn": "Boidiya",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518108",
+    "nameEn": "Charada",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518041",
+    "nameEn": "Chela Pagina Muvada",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518067",
+    "nameEn": "Chhayan",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518081",
+    "nameEn": "Chunthana Muvada",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518048",
+    "nameEn": "Dahela",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518089",
+    "nameEn": "Dhamotna Moyla",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518042",
+    "nameEn": "Gala Talawadi",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518071",
+    "nameEn": "Galaliya",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518043",
+    "nameEn": "Gamdi",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518080",
+    "nameEn": "Godhar (West)",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518070",
+    "nameEn": "Guvaliya",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518064",
+    "nameEn": "Hadani Sarsan",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518131",
+    "nameEn": "Jotangiya",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518076",
+    "nameEn": "Kalibel",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518075",
+    "nameEn": "Kalibel Navaghara",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518079",
+    "nameEn": "Kanbina Moyla",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518045",
+    "nameEn": "Kothina Muvada",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518050",
+    "nameEn": "Limada Muvadi",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518082",
+    "nameEn": "Manchod",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518074",
+    "nameEn": "Mankodiya",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518065",
+    "nameEn": "Moti Sarsan",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518046",
+    "nameEn": "Movasa",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518087",
+    "nameEn": "Moyala Pad",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518110",
+    "nameEn": "Nan Salai",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518078",
+    "nameEn": "Nani Sarsan",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518085",
+    "nameEn": "Nasikpur",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518130",
+    "nameEn": "Ora",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518077",
+    "nameEn": "Padhariya",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518044",
+    "nameEn": "Pagina Muvada",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518112",
+    "nameEn": "Panchmuva",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518083",
+    "nameEn": "Rafai",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518111",
+    "nameEn": "Rambhemna Muvada",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518066",
+    "nameEn": "Ranani Sarsan",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518072",
+    "nameEn": "Sandh Paliya",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518134",
+    "nameEn": "Sarasva (West)",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518133",
+    "nameEn": "Satkunda",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518068",
+    "nameEn": "Savgadh",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518073",
+    "nameEn": "Thambha",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518088",
+    "nameEn": "Vaghan",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518109",
+    "nameEn": "Vaghfal",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518113",
+    "nameEn": "Vankdi",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "518129",
+    "nameEn": "Vena",
+    "subDistrictCode": 7546,
+    "districtCode": 669,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

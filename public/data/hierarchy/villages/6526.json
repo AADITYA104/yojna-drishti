@@ -1,0 +1,74 @@
+[
+  {
+    "code": "930242",
+    "nameEn": "Danteshvar",
+    "subDistrictCode": 6526,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930238",
+    "nameEn": "Jambuva",
+    "subDistrictCode": 6526,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930241",
+    "nameEn": "Kalali",
+    "subDistrictCode": 6526,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930243",
+    "nameEn": "Makarpura",
+    "subDistrictCode": 6526,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930239",
+    "nameEn": "Maneja",
+    "subDistrictCode": 6526,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930237",
+    "nameEn": "Manjalpur",
+    "subDistrictCode": 6526,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930244",
+    "nameEn": "Tarsali",
+    "subDistrictCode": 6526,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519912",
+    "nameEn": "Tarsali (Ct)",
+    "subDistrictCode": 6526,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930240",
+    "nameEn": "Vadsar",
+    "subDistrictCode": 6526,
+    "districtCode": 461,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

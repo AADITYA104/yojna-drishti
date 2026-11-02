@@ -1,0 +1,810 @@
+[
+  {
+    "code": "514656",
+    "nameEn": "Amaliyara",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514611",
+    "nameEn": "Ambala",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514642",
+    "nameEn": "Bagoya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514655",
+    "nameEn": "Bajariya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514621",
+    "nameEn": "Baradiya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514649",
+    "nameEn": "Barvaniya Nes",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514586",
+    "nameEn": "Bhalgam",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514608",
+    "nameEn": "Bhat Vavdi",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514612",
+    "nameEn": "Bhutdi",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514667",
+    "nameEn": "Bogadiya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514615",
+    "nameEn": "Chaparda",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514600",
+    "nameEn": "Chavand Juni",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514599",
+    "nameEn": "Chavand Navi",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514582",
+    "nameEn": "Chhalda",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514604",
+    "nameEn": "Chhelanka",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514622",
+    "nameEn": "Dadar",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514592",
+    "nameEn": "Desai Vadala",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514662",
+    "nameEn": "Devkaraniya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514591",
+    "nameEn": "Dhebar",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514647",
+    "nameEn": "Dudhala",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514617",
+    "nameEn": "Ghantiyan",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514609",
+    "nameEn": "Ghodasan",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514663",
+    "nameEn": "Goradwala",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514629",
+    "nameEn": "Govindpara",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514569",
+    "nameEn": "Hadmatiya Mota",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514584",
+    "nameEn": "Hadmatiya Nana",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514654",
+    "nameEn": "Haldarva Nes",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514636",
+    "nameEn": "Haripur",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514670",
+    "nameEn": "Hasnapur",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514631",
+    "nameEn": "Ishvariya (Gir)",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514594",
+    "nameEn": "Ishvariya Mandavad",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514620",
+    "nameEn": "Jambala",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514590",
+    "nameEn": "Jambuda",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514640",
+    "nameEn": "Jambudi",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514671",
+    "nameEn": "Jambuthala",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514648",
+    "nameEn": "Javaldi",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514626",
+    "nameEn": "Jetalvad",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514607",
+    "nameEn": "Jhanjhesar",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514644",
+    "nameEn": "Kagmal",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514625",
+    "nameEn": "Kalavad",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514624",
+    "nameEn": "Kalsari",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514575",
+    "nameEn": "Kanavadla",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514668",
+    "nameEn": "Kankai",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514610",
+    "nameEn": "Kankchiyala",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514669",
+    "nameEn": "Karkadi",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514637",
+    "nameEn": "Khambha Gir",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514596",
+    "nameEn": "Khambhaliya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514653",
+    "nameEn": "Khambhda",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514598",
+    "nameEn": "Khijadiya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514571",
+    "nameEn": "Kotda Mota",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514579",
+    "nameEn": "Kotda Nana",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514603",
+    "nameEn": "Kuba(Ravani)",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514665",
+    "nameEn": "Kutiya-Amliyara",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514628",
+    "nameEn": "Lalpur",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514657",
+    "nameEn": "Lasa",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514601",
+    "nameEn": "Leriya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514659",
+    "nameEn": "Lilapani",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514634",
+    "nameEn": "Liliya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514635",
+    "nameEn": "Limadhra",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514605",
+    "nameEn": "Mahuda",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514606",
+    "nameEn": "Mahudi",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514652",
+    "nameEn": "Makhaniya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514641",
+    "nameEn": "Manandiya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514613",
+    "nameEn": "Mandavad",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514580",
+    "nameEn": "Manganath Pipli",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514632",
+    "nameEn": "Miya Vadla",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514614",
+    "nameEn": "Moniya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514630",
+    "nameEn": "Monpari Moti",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514616",
+    "nameEn": "Monpari Nani",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514650",
+    "nameEn": "Mota Bhilgala",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514570",
+    "nameEn": "Navaniya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514661",
+    "nameEn": "Padapani",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514658",
+    "nameEn": "Panjrapole Ni Suvardi",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514651",
+    "nameEn": "Panvi",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514576",
+    "nameEn": "Pindakhai Moti",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514585",
+    "nameEn": "Pindakhai Nani",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514572",
+    "nameEn": "Pipaliya Hajani",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514573",
+    "nameEn": "Pirvad",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514638",
+    "nameEn": "Piyava Gir",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514639",
+    "nameEn": "Prempara",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514583",
+    "nameEn": "Rabarika",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514646",
+    "nameEn": "Rajpara",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514633",
+    "nameEn": "Ratang",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514602",
+    "nameEn": "Ravani (Kuba)",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514643",
+    "nameEn": "Ravani Mundiya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514666",
+    "nameEn": "Rosali",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514581",
+    "nameEn": "Rupavati",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514623",
+    "nameEn": "Sarsai",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514664",
+    "nameEn": "Shapur (Nes)",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514578",
+    "nameEn": "Shirvaniya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514619",
+    "nameEn": "Shobhavadla Gir",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514574",
+    "nameEn": "Shobhavadla Lashkar",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514593",
+    "nameEn": "Sukhpur",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514660",
+    "nameEn": "Suvardi",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514645",
+    "nameEn": "Tadhi",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Forest"
+  },
+  {
+    "code": "514618",
+    "nameEn": "Vadala Shetranj",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514595",
+    "nameEn": "Vajdi",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514627",
+    "nameEn": "Vekariya",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514577",
+    "nameEn": "Vichhavad",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "514597",
+    "nameEn": "Virpur",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930101",
+    "nameEn": "Visavadar",
+    "subDistrictCode": 3829,
+    "districtCode": 448,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

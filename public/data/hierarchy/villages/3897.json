@@ -1,0 +1,714 @@
+[
+  {
+    "code": "519804",
+    "nameEn": "Adalwada",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519740",
+    "nameEn": "Ajabpura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519816",
+    "nameEn": "Alindra",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519741",
+    "nameEn": "Amarapura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519810",
+    "nameEn": "Anjesar",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519747",
+    "nameEn": "Ankaliya",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519786",
+    "nameEn": "Bahidhara Alias Natvarnagar",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519796",
+    "nameEn": "Bautha",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519787",
+    "nameEn": "Bhadarva",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519806",
+    "nameEn": "Chandranagar",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519770",
+    "nameEn": "Charanpura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519822",
+    "nameEn": "Dhanora",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519748",
+    "nameEn": "Dhantej",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519746",
+    "nameEn": "Dipapura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519760",
+    "nameEn": "Dungrapura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519754",
+    "nameEn": "Dungripura (Shihora)",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519801",
+    "nameEn": "Gangadiya",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519753",
+    "nameEn": "Gangadiyapura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519821",
+    "nameEn": "Garadhiya",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519778",
+    "nameEn": "Ghantiyal",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519744",
+    "nameEn": "Gokalpura Ganeshpura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519784",
+    "nameEn": "Gothada",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519739",
+    "nameEn": "Gulabpura (Shihora)",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519737",
+    "nameEn": "Gutardi",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519823",
+    "nameEn": "Haripura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519818",
+    "nameEn": "Indrad",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519789",
+    "nameEn": "Jalampura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519769",
+    "nameEn": "Javla",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519742",
+    "nameEn": "Kalupura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519762",
+    "nameEn": "Kamalpura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519774",
+    "nameEn": "Kambola",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519758",
+    "nameEn": "Kanoda",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519783",
+    "nameEn": "Karachiya",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519775",
+    "nameEn": "Khakhariya",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519790",
+    "nameEn": "Khandi",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519819",
+    "nameEn": "Khokhar",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519812",
+    "nameEn": "Kunpad",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519756",
+    "nameEn": "Lachhanpura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519814",
+    "nameEn": "Lamdapura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519797",
+    "nameEn": "Lasundra",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519802",
+    "nameEn": "Lotna",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519793",
+    "nameEn": "Mahapura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519773",
+    "nameEn": "Mal Ankaliya",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519813",
+    "nameEn": "Manjusar",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519767",
+    "nameEn": "Mevaliapura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519750",
+    "nameEn": "Mevli",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519811",
+    "nameEn": "Moksi",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519799",
+    "nameEn": "Mota Motipura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519771",
+    "nameEn": "Moti Bhadol",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519777",
+    "nameEn": "Mudhela",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519764",
+    "nameEn": "Muval",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519795",
+    "nameEn": "Namisara",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519780",
+    "nameEn": "Nani Bhadol",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519749",
+    "nameEn": "Narpura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519738",
+    "nameEn": "Nhara",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519808",
+    "nameEn": "Paldi",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519788",
+    "nameEn": "Parthampura (Khandi)",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519743",
+    "nameEn": "Parthampura (Shihora)",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519798",
+    "nameEn": "Pasva",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519817",
+    "nameEn": "Pilol",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519766",
+    "nameEn": "Poicha (Kanoda)",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519791",
+    "nameEn": "Poicha (Raniya)",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519800",
+    "nameEn": "Pratapnagar",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519785",
+    "nameEn": "Ranchhodpura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519779",
+    "nameEn": "Ranipura (Samlaya)",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519794",
+    "nameEn": "Ranipura(B)",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519792",
+    "nameEn": "Raniya",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519755",
+    "nameEn": "Rasawadi",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519759",
+    "nameEn": "Rasulpur",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519757",
+    "nameEn": "Rupankui",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519803",
+    "nameEn": "Sadra",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519752",
+    "nameEn": "Samantpura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519781",
+    "nameEn": "Samlaya",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519765",
+    "nameEn": "Sardarpura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "908868",
+    "nameEn": "Savli",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Both",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519782",
+    "nameEn": "Sherpura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519776",
+    "nameEn": "Singaniya",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519807",
+    "nameEn": "Subhelav",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519761",
+    "nameEn": "Tulsipura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519809",
+    "nameEn": "Tundav",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519805",
+    "nameEn": "Vadadala",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519772",
+    "nameEn": "Vadiya(K)",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519763",
+    "nameEn": "Vasanpura",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519820",
+    "nameEn": "Vemar",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "908867",
+    "nameEn": "Visnagar(Vadiya)",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519751",
+    "nameEn": "Vitoj",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519768",
+    "nameEn": "Wankaner",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519815",
+    "nameEn": "Zumkal",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "519745",
+    "nameEn": "Zumkha",
+    "subDistrictCode": 3897,
+    "districtCode": 461,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]

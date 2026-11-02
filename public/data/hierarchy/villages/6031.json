@@ -1,0 +1,122 @@
+[
+  {
+    "code": "523502",
+    "nameEn": "Balitha (Ct)",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930311",
+    "nameEn": "Chala",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523490",
+    "nameEn": "Chandor",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523505",
+    "nameEn": "Chanod (Ct)",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523488",
+    "nameEn": "Chharwada",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523504",
+    "nameEn": "Chhiri (Ct)",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930312",
+    "nameEn": "Dungara",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523506",
+    "nameEn": "Karvad (Ct)",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523468",
+    "nameEn": "Kunta",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523469",
+    "nameEn": "Morai",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523489",
+    "nameEn": "Namdha",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523503",
+    "nameEn": "Salvav (Ct)",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523466",
+    "nameEn": "Tarakpardi",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "930310",
+    "nameEn": "Vapi",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "523467",
+    "nameEn": "Vatar",
+    "subDistrictCode": 6031,
+    "districtCode": 462,
+    "category": "Urban",
+    "status": "Inhabitant"
+  }
+]

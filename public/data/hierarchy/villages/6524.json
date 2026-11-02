@@ -1,0 +1,90 @@
+[
+  {
+    "code": "930215",
+    "nameEn": "Mavdi",
+    "subDistrictCode": 6524,
+    "districtCode": 457,
+    "category": "Urban",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962571",
+    "nameEn": "Mavdi-1",
+    "subDistrictCode": 6524,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962572",
+    "nameEn": "Mavdi-2",
+    "subDistrictCode": 6524,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962573",
+    "nameEn": "Mavdi-3",
+    "subDistrictCode": 6524,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962575",
+    "nameEn": "Nanamava",
+    "subDistrictCode": 6524,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962620",
+    "nameEn": "Rajkot-4",
+    "subDistrictCode": 6524,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962607",
+    "nameEn": "Rajkot-5",
+    "subDistrictCode": 6524,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962606",
+    "nameEn": "Rajkot-6",
+    "subDistrictCode": 6524,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962605",
+    "nameEn": "Rajkot-7",
+    "subDistrictCode": 6524,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962604",
+    "nameEn": "Rajkot-8",
+    "subDistrictCode": 6524,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  },
+  {
+    "code": "962621",
+    "nameEn": "Rajkot-9",
+    "subDistrictCode": 6524,
+    "districtCode": 457,
+    "category": "Rural",
+    "status": "Inhabitant"
+  }
+]
