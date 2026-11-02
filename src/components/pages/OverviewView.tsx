@@ -30,7 +30,6 @@ import {
 import { scaleDemoValue, approvalPercent } from "@/lib/metrics.mjs";
 import { KPICard } from "../shared/KPICard";
 import { DemoBanner } from "../shared/DemoBanner";
-import { GujaratInteractiveMap } from "../map/GujaratInteractiveMap";
 
 interface OverviewViewProps {
   gu: boolean;
@@ -271,32 +270,36 @@ export function OverviewView({
         </div>
       </div>
 
-      {/* Main Interactive Map Section */}
-      <section className="dashboard-map-section">
-        <div className="section-head-gov">
-          <div>
-            <span className="section-pill">{gu ? "ભૌગોલિક શોધક" : "GEOGRAPHIC EXPLORER"}</span>
-            <h2>{gu ? "ગુજરાત ઇન્ટરેક્ટિવ નકશો · રાજ્યથી ગામ સુધી યોજના પહોંચ" : "Gujarat Interactive Map · State to Village Scheme Delivery"}</h2>
-            <p>
-              {gu
-                ? "કોઈપણ જિલ્લા પર ક્લિક કરો → તાલુકાઓ ખુલશે → ગામડાંઓ પસંદ કરો → ગામ સુધી પહોંચેલી તમામ સરકારી યોજનાઓ, DBT રકમ અને સંતૃપ્તિ રિપોર્ટ જુઓ."
-                : "Click any District → View Talukas → Select Village → See all delivered welfare schemes and DBT financial reports."}
-            </p>
+      {/* Gujarat GIS Gateway Card - Direct Launchpad to the Single Main Map */}
+      <section className="gujarat-gis-gateway-card">
+        <div className="gis-gateway-left">
+          <div className="gis-gateway-tag">
+            <MapPin size={14} />
+            <span>{gu ? "સત્તાવાર ભૌગોલિક પ્રણાલી" : "Official GIS System"}</span>
           </div>
-          <button className="section-action-btn" onClick={() => onNavigate("map")}>
-            <span>{gu ? "સંપૂર્ણ સ્ક્રીન નકશો" : "Full Screen Map"}</span>
-            <ArrowRight size={14} />
-          </button>
+          <h2>{gu ? "ગુજરાત ઇન્ટરેક્ટિવ નકશો · રાજ્યથી છેવાડાના ગામ સુધી" : "Gujarat Interactive Map · State to Grassroots Village"}</h2>
+          <p>
+            {gu
+              ? "સમગ્ર ૩૪ જિલ્લાઓ, ૩૦૯ તાલુકાઓ અને ૧૮,૫૦૦+ ગામડાંઓ સુધી પહોંચેલી તમામ સરકારી કલ્યાણકારી યોજનાઓ, લાભાર્થી સંખ્યા અને DBT સહાયનું લાઇવ નકશાંકન જુઓ."
+              : "Explore live scheme delivery, saturation rates, and DBT disbursement mapped across all 34 districts, 309 talukas, and 18,500+ grassroots villages."}
+          </p>
+          <div className="gis-gateway-stats">
+            <span className="gis-stat-pill">🏛️ <b>34</b> {gu ? "જિલ્લા [GJ-01 થી GJ-39]" : "Districts"}</span>
+            <span className="gis-stat-pill">📍 <b>309</b> {gu ? "તાલુકા" : "Talukas"}</span>
+            <span className="gis-stat-pill">🏡 <b>18,500+</b> {gu ? "ગામો નકશા પર" : "Villages"}</span>
+            <span className="gis-stat-pill">🎯 <b>{demoSchemes.length}</b> {gu ? "યોજનાઓ" : "Schemes"}</span>
+          </div>
         </div>
 
-        <div className="overview-interactive-map-frame">
-          <GujaratInteractiveMap
-            gu={gu}
-            fy={fy}
-            selectedDistrictId="bhavnagar"
-            onDistrictSelect={onSelectDistrict}
-            variant="explorer"
-          />
+        <div className="gis-gateway-right">
+          <button className="btn-gis-launch" onClick={() => onNavigate("map")}>
+            <MapPin size={18} />
+            <span>{gu ? "મુખ્ય ભૌગોલિક નકશો ખોલો" : "Open Main GIS Map"}</span>
+            <ArrowRight size={18} />
+          </button>
+          <small className="gis-gateway-hint">
+            {gu ? "💡 જિલ્લાવાર ઝૂમ, હોવર નામ દર્શન અને ગામની યોજના સંતૃપ્તિ રિપોર્ટ" : "💡 District zoom, hover card info & village scheme saturation"}
+          </small>
         </div>
       </section>
 
