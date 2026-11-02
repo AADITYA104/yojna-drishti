@@ -12,6 +12,7 @@ import {
   Wallet,
   ShieldCheck,
   ExternalLink,
+  Check,
 } from "lucide-react";
 import { type Scheme } from "@/lib/demo-data";
 
@@ -81,9 +82,17 @@ export function SchemeDetailModal({ scheme, onClose, gu }: SchemeDetailModalProp
               <strong className="sbc-value">{gu ? scheme.benefitAmountGu : scheme.benefitAmount}</strong>
             </div>
             <div className="sbc-type-badge">
-              {scheme.category === "Girl Child" || scheme.category === "Widow Welfare" || scheme.category === "Social Security"
-                ? gu ? "💳 સીધા બેંક ખાતામાં (DBT)" : "Direct Bank Transfer"
-                : gu ? "📦 પોષણ / કીટ સહાય" : "Welfare Assistance"}
+              {scheme.category === "Girl Child" || scheme.category === "Widow Welfare" || scheme.category === "Social Security" ? (
+                <>
+                  <Wallet size={13} className="inline mr-1 text-teal" />
+                  {gu ? "સીધા બેંક ખાતામાં (DBT)" : "Direct Bank Transfer"}
+                </>
+              ) : (
+                <>
+                  <ShieldCheck size={13} className="inline mr-1 text-teal" />
+                  {gu ? "પોષણ / કીટ સહાય" : "Welfare Assistance"}
+                </>
+              )}
             </div>
           </div>
 
@@ -145,7 +154,7 @@ export function SchemeDetailModal({ scheme, onClose, gu }: SchemeDetailModalProp
                     onClick={() => toggleDoc(doc)}
                   >
                     <span className="smh-checkbox-square">
-                      {isChecked ? "✓" : ""}
+                      {isChecked ? <Check size={12} /> : null}
                     </span>
                     <span className="smh-doc-text">{doc}</span>
                   </button>

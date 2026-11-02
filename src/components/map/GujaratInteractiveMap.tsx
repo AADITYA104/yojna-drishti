@@ -1328,10 +1328,10 @@ export function GujaratInteractiveMap({
               <div className="gmhc-pill-row">
                 <span className="gmhc-pill">
                   {hoveredEntity.type === "district"
-                    ? (gu ? "🏛️ જિલ્લો" : "🏛️ District")
+                    ? (gu ? "જિલ્લો" : "District")
                     : hoveredEntity.type === "taluka"
-                    ? (gu ? "🏛️ તાલુકો" : "🏛️ Taluka")
-                    : (gu ? "🏡 ગામ" : "🏡 Village")}
+                    ? (gu ? "તાલુકો" : "Taluka")
+                    : (gu ? "ગામ" : "Village")}
                   {hoveredEntity.code ? ` [${hoveredEntity.code}]` : ""}
                 </span>
               </div>
@@ -1344,11 +1344,11 @@ export function GujaratInteractiveMap({
               {hoveredEntity.type === "village" && (
                 <div className="gmhc-meta-row">
                   <span className="gmhc-scheme-tag">
-                    🎯 {hoveredEntity.schemeCount || 4} {gu ? "યોજનાઓ પહોંચી" : "Schemes Delivered"}
+                    {hoveredEntity.schemeCount || 4} {gu ? "યોજનાઓ પહોંચી" : "Schemes Delivered"}
                   </span>
                   {hoveredEntity.beneficiaries ? (
                     <span className="gmhc-ben-tag">
-                      👥 {formatNumber(hoveredEntity.beneficiaries, gu)} {gu ? "લાભાર્થી" : "Ben."}
+                      {formatNumber(hoveredEntity.beneficiaries, gu)} {gu ? "લાભાર્થી" : "Ben."}
                     </span>
                   ) : null}
                 </div>
@@ -1430,8 +1430,8 @@ export function GujaratInteractiveMap({
           <div className="geo-map-hint">
             <span className="geo-map-hint-full">
               {gu
-                ? "💡 નકશા પર કર્સર રાખવાથી નામ દેખાશે · ક્લિક કરવાથી વિસ્તારમાં અંદર જઈ શકાશે"
-                : "💡 Hover over map to see names · Click to zoom in"}
+                ? "નકશા પર કર્સર રાખવાથી નામ દેખાશે · ક્લિક કરવાથી વિસ્તારમાં અંદર જઈ શકાશે"
+                : "Hover over map to see names · Click to zoom in"}
             </span>
           </div>
         </section>
@@ -1673,7 +1673,7 @@ export function GujaratInteractiveMap({
                     }}
                   >
                     <span style={{ fontSize: "12px", fontWeight: 700, color: "#166534" }}>
-                      🎯 {gu ? "યોજના સંતૃપ્તિ (Saturation):" : "Delivery Saturation:"}
+                      {gu ? "યોજના સંતૃપ્તિ (Saturation):" : "Delivery Saturation:"}
                     </span>
                     <strong style={{ fontSize: "14px", color: "#15803d" }}>
                       {currentVillageSchemeSummary.overallSaturation}% {gu ? "પૂર્ણ" : "Complete"}
@@ -1714,17 +1714,17 @@ export function GujaratInteractiveMap({
                             }}
                           >
                             {assignment.status === "completed"
-                              ? gu ? "✅ સંપૂર્ણ પહોંચ" : "Delivered"
-                              : gu ? "⏳ પ્રગતિ હેઠળ" : "Active"}
+                              ? gu ? "સંપૂર્ણ પહોંચ" : "Delivered"
+                              : gu ? "પ્રગતિ હેઠળ" : "Active"}
                           </span>
                         </div>
 
                         <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", color: "#475569" }}>
                           <span>
-                            👥 <b>{formatNumber(assignment.beneficiaries, gu)}</b> {gu ? "લાભાર્થી" : "Ben."}
+                            <b>{formatNumber(assignment.beneficiaries, gu)}</b> {gu ? "લાભાર્થી" : "Ben."}
                           </span>
                           <span>
-                            💳 <b>₹ {formatNumber(assignment.grantLakhs, gu)} {gu ? "લાખ DBT" : "Lakh"}</b>
+                            <b>₹ {formatNumber(assignment.grantLakhs, gu)} {gu ? "લાખ DBT" : "Lakh"}</b>
                           </span>
                         </div>
 

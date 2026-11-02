@@ -18,6 +18,7 @@ import {
   ExternalLink,
   Search,
   Globe2,
+  HelpCircle,
 } from "lucide-react";
 import {
   demoDistricts,
@@ -284,10 +285,10 @@ export function OverviewView({
               : "Explore live scheme delivery, saturation rates, and DBT disbursement mapped across all 34 districts, 309 talukas, and 18,500+ grassroots villages."}
           </p>
           <div className="gis-gateway-stats">
-            <span className="gis-stat-pill">🏛️ <b>34</b> {gu ? "જિલ્લા [GJ-01 થી GJ-39]" : "Districts"}</span>
-            <span className="gis-stat-pill">📍 <b>309</b> {gu ? "તાલુકા" : "Talukas"}</span>
-            <span className="gis-stat-pill">🏡 <b>18,500+</b> {gu ? "ગામો નકશા પર" : "Villages"}</span>
-            <span className="gis-stat-pill">🎯 <b>{demoSchemes.length}</b> {gu ? "યોજનાઓ" : "Schemes"}</span>
+            <span className="gis-stat-pill"><Building2 size={13} className="inline mr-1 text-teal" /><b>34</b> {gu ? "જિલ્લા [GJ-01 થી GJ-39]" : "Districts"}</span>
+            <span className="gis-stat-pill"><MapPin size={13} className="inline mr-1 text-sky" /><b>309</b> {gu ? "તાલુકા" : "Talukas"}</span>
+            <span className="gis-stat-pill"><Home size={13} className="inline mr-1 text-amber" /><b>18,500+</b> {gu ? "ગામો નકશા પર" : "Villages"}</span>
+            <span className="gis-stat-pill"><CheckCircle2 size={13} className="inline mr-1 text-emerald" /><b>{demoSchemes.length}</b> {gu ? "યોજનાઓ" : "Schemes"}</span>
           </div>
         </div>
 
@@ -298,7 +299,8 @@ export function OverviewView({
             <ArrowRight size={18} />
           </button>
           <small className="gis-gateway-hint">
-            {gu ? "💡 જિલ્લાવાર ઝૂમ, હોવર નામ દર્શન અને ગામની યોજના સંતૃપ્તિ રિપોર્ટ" : "💡 District zoom, hover card info & village scheme saturation"}
+            <HelpCircle size={13} className="inline mr-1 text-slate-500" />
+            {gu ? "જિલ્લાવાર ઝૂમ, નામ નિર્દેશ અને ગ્રામ્ય સ્તર યોજના સંતૃપ્તિ રિપોર્ટ" : "District zoom, location inspect & village scheme saturation"}
           </small>
         </div>
       </section>

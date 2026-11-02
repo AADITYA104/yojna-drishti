@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo } from "react";
 import {
-  Sparkles,
   Search,
   CheckCircle2,
   FileText,
@@ -12,8 +11,15 @@ import {
   HelpCircle,
   ArrowRight,
   ArrowLeft,
-  School,
-  Heart,
+  GraduationCap,
+  Baby,
+  Users,
+  Briefcase,
+  Wallet,
+  Landmark,
+  Layers,
+  RotateCcw,
+  Check,
   ChevronRight,
   ShieldCheck,
 } from "lucide-react";
@@ -61,13 +67,16 @@ export function PublicPortalView({ gu }: PublicPortalViewProps) {
       <div className="page-hero-gov citizen-hero">
         <div>
           <span className="hero-kicker-tag citizen-tag">
-            🌟 {gu ? "નાગરિક સહાય કેન્દ્ર · સ્માર્ટ પાત્રતા વિઝાર્ડ" : "CITIZEN SMART ELIGIBILITY WIZARD"}
+            <ShieldCheck size={14} className="inline mr-1" />
+            {gu ? "નાગરિક સહાયતા પોર્ટલ · યોજના પાત્રતા નિર્દેશિકા" : "CITIZEN WELFARE DESK · SCHEME ELIGIBILITY DIRECTORY"}
           </span>
-          <h1>{gu ? "તમારા માટે કઈ સરકારી યોજના યોગ્ય છે? તે શોધો" : "Find Eligible Government Schemes For You"}</h1>
+          <h1>
+            {gu ? "ગુજરાત સરકાર કલ્યાણકારી યોજના પાત્રતા ચકાસણી" : "Gujarat Government Welfare Schemes Eligibility Directory"}
+          </h1>
           <p>
             {gu
-              ? "ફક્ત ૩ સરળ પગલાંમાં તમારી શ્રેણી, આવક અને જિલ્લો પસંદ કરો અને જાણો કે તમને કઈ કઈ સરકારી સહાય મળશે તથા ફોર્મ ક્યાં જમા કરાવવું."
-              : "Interactive step-by-step wizard matching citizens to Gujarat welfare schemes and direct application requirements."}
+              ? "સરળ પગલાંમાં લાભાર્થી શ્રેણી, વાર્ષિક આવક જૂથ અને જિલ્લો પસંદ કરી તમારા હકના સરકારી લાભો, નિયમો અને જરૂરી દસ્તાવેજોની ચકાસણી કરો."
+              : "Verify government scheme eligibility, benefits criteria, and document requirements across Gujarat in structured steps."}
           </p>
         </div>
       </div>
@@ -86,7 +95,9 @@ export function PublicPortalView({ gu }: PublicPortalViewProps) {
             className={`wizard-step-pill ${step === s.num ? "is-current" : step > s.num ? "is-completed" : ""}`}
             onClick={() => setStep(s.num)}
           >
-            <span className="wsp-num">{step > s.num ? "✓" : s.num}</span>
+            <span className="wsp-num">
+              {step > s.num ? <Check size={14} /> : s.num}
+            </span>
             <span className="wsp-title">{gu ? s.titleGu : s.titleEn}</span>
           </button>
         ))}
@@ -101,23 +112,31 @@ export function PublicPortalView({ gu }: PublicPortalViewProps) {
             </label>
             <div className="wizard-options-grid">
               {[
-                { id: "all", labelGu: "તમામ યોજનાઓ", labelEn: "All Beneficiaries", icon: "🌐" },
-                { id: "girl", labelGu: "દીકરી / કન્યા (શાળા-શિક્ષણ)", labelEn: "Girl Child / Student", icon: "👧" },
-                { id: "maternal", labelGu: "સગર્ભા / ધાત્રી માતા (૧૦૦૦ દિવસ)", labelEn: "Pregnant / Mother", icon: "🤱" },
-                { id: "widow", labelGu: "ગંગા સ્વરૂપા બહેન (વિધવા સહાય)", labelEn: "Widowed Sister", icon: "🙏" },
-                { id: "entrepreneur", labelGu: "મહિલા સાહસિક / ગૃહિણી (સ્વરોજગાર)", labelEn: "Woman Entrepreneur", icon: "💼" },
-              ].map((opt) => (
-                <button
-                  key={opt.id}
-                  type="button"
-                  className={`wizard-opt-btn ${lifeStage === opt.id ? "active" : ""}`}
-                  onClick={() => setLifeStage(opt.id)}
-                >
-                  <span className="w-icon">{opt.icon}</span>
-                  <span className="w-text">{gu ? opt.labelGu : opt.labelEn}</span>
-                  <span className="w-check">{lifeStage === opt.id ? "✓" : "○"}</span>
-                </button>
-              ))}
+                { id: "all", labelGu: "તમામ યોજનાઓ", labelEn: "All Beneficiaries", IconComponent: Layers },
+                { id: "girl", labelGu: "દીકરી / કન્યા (શાળા-શિક્ષણ)", labelEn: "Girl Child / Student", IconComponent: GraduationCap },
+                { id: "maternal", labelGu: "સગર્ભા / ધાત્રી માતા (૧૦૦૦ દિવસ)", labelEn: "Pregnant / Mother", IconComponent: Baby },
+                { id: "widow", labelGu: "ગંગા સ્વરૂપા બહેન (વિધવા સહાય)", labelEn: "Widowed Sister", IconComponent: Users },
+                { id: "entrepreneur", labelGu: "મહિલા સાહસિક / ગૃહિણી (સ્વરોજગાર)", labelEn: "Woman Entrepreneur", IconComponent: Briefcase },
+              ].map((opt) => {
+                const Icon = opt.IconComponent;
+                const isSelected = lifeStage === opt.id;
+                return (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    className={`wizard-opt-btn ${isSelected ? "active" : ""}`}
+                    onClick={() => setLifeStage(opt.id)}
+                  >
+                    <span className="w-icon">
+                      <Icon size={18} />
+                    </span>
+                    <span className="w-text">{gu ? opt.labelGu : opt.labelEn}</span>
+                    <span className="w-check">
+                      {isSelected ? <Check size={15} /> : <span className="w-dot-empty" />}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -140,21 +159,29 @@ export function PublicPortalView({ gu }: PublicPortalViewProps) {
             </label>
             <div className="wizard-options-grid">
               {[
-                { id: "all", labelGu: "કોઈપણ આવક જૂથ (બધી યોજનાઓ)", labelEn: "Any Income Bracket", icon: "📊" },
-                { id: "below_2l", labelGu: "₹૨ લાખથી ઓછી (BPL / સામાન્ય)", labelEn: "Under ₹2 Lakhs / BPL", icon: "🌾" },
-                { id: "above_2l", labelGu: "₹૨ લાખથી વધુ (પોષણ/બચત યોજનાઓ)", labelEn: "Above ₹2 Lakhs (Nutrition/Savings)", icon: "🏦" },
-              ].map((opt) => (
-                <button
-                  key={opt.id}
-                  type="button"
-                  className={`wizard-opt-btn ${incomeGroup === opt.id ? "active" : ""}`}
-                  onClick={() => setIncomeGroup(opt.id)}
-                >
-                  <span className="w-icon">{opt.icon}</span>
-                  <span className="w-text">{gu ? opt.labelGu : opt.labelEn}</span>
-                  <span className="w-check">{incomeGroup === opt.id ? "✓" : "○"}</span>
-                </button>
-              ))}
+                { id: "all", labelGu: "કોઈપણ આવક જૂથ (બધી યોજનાઓ)", labelEn: "Any Income Bracket", IconComponent: Layers },
+                { id: "below_2l", labelGu: "₹૨ લાખથી ઓછી (BPL / EWS)", labelEn: "Under ₹2 Lakhs / BPL", IconComponent: Wallet },
+                { id: "above_2l", labelGu: "₹૨ લાખથી વધુ (પોષણ/બચત યોજનાઓ)", labelEn: "Above ₹2 Lakhs (Nutrition/Savings)", IconComponent: Landmark },
+              ].map((opt) => {
+                const Icon = opt.IconComponent;
+                const isSelected = incomeGroup === opt.id;
+                return (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    className={`wizard-opt-btn ${isSelected ? "active" : ""}`}
+                    onClick={() => setIncomeGroup(opt.id)}
+                  >
+                    <span className="w-icon">
+                      <Icon size={18} />
+                    </span>
+                    <span className="w-text">{gu ? opt.labelGu : opt.labelEn}</span>
+                    <span className="w-check">
+                      {isSelected ? <Check size={15} /> : <span className="w-dot-empty" />}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -199,7 +226,7 @@ export function PublicPortalView({ gu }: PublicPortalViewProps) {
               <span>{gu ? "પાછા જાઓ" : "Back"}</span>
             </button>
             <button className="btn-wizard-next btn-wizard-view-results" onClick={() => setStep(4)}>
-              <Sparkles size={16} />
+              <Search size={16} />
               <span>{gu ? `યોજનાઓ જુઓ (${matchedSchemes.length} મળેલ)` : `View Results (${matchedSchemes.length})`}</span>
               <ArrowRight size={16} />
             </button>
@@ -214,18 +241,19 @@ export function PublicPortalView({ gu }: PublicPortalViewProps) {
             <div>
               <h2>
                 {gu
-                  ? `તમારા માટે યોગ્ય સરકારી યોજનાઓ (${matchedSchemes.length})`
-                  : `Matched Schemes For You (${matchedSchemes.length})`}
+                  ? `મળવાપાત્ર સરકારી યોજનાઓ (${matchedSchemes.length})`
+                  : `Eligible Government Schemes (${matchedSchemes.length})`}
               </h2>
               <small>
                 {gu
-                  ? "વિગતવાર માહિતી અને દસ્તાવેજ ચેકલિસ્ટ જોવા માટે કોઈપણ યોજના પર ક્લિક કરો"
-                  : "Click any scheme card to review requirements and interactive document checklist"}
+                  ? "વિગતવાર માપદંડ, લાભની રકમ અને દસ્તાવેજ ચકાસણી માટે યોજના પર ક્લિક કરો"
+                  : "Click any scheme card to review guidelines, assistance amount, and checklist"}
               </small>
             </div>
 
             <button className="btn-wizard-restart" onClick={() => setStep(1)}>
-              {gu ? "🔄 ફરીથી શોધ કરો" : "🔄 Restart Wizard"}
+              <RotateCcw size={14} className="inline mr-1" />
+              <span>{gu ? "નવી શોધ શરૂ કરો" : "Reset Selection"}</span>
             </button>
           </div>
 
@@ -257,7 +285,8 @@ export function PublicPortalView({ gu }: PublicPortalViewProps) {
                   <div className="psc-docs-pills">
                     {(gu ? s.documentsGu : s.documents).map((doc, i) => (
                       <span key={i} className="doc-pill">
-                        ✓ {doc}
+                        <Check size={12} className="inline mr-1 text-emerald" />
+                        {doc}
                       </span>
                     ))}
                   </div>
@@ -274,10 +303,10 @@ export function PublicPortalView({ gu }: PublicPortalViewProps) {
                     }}
                   >
                     <FileText size={14} />
-                    <span>{gu ? "📋 દસ્તાવેજ ચેકલિસ્ટ & ફોર્મ" : "Document Checklist"}</span>
+                    <span>{gu ? "દસ્તાવેજ ચેકલિસ્ટ & ફોર્મ" : "Document Checklist"}</span>
                   </button>
                   <span className="psc-click-hint">
-                    {gu ? "વિગત જુઓ →" : "View Details →"}
+                    {gu ? "સંપૂર્ણ વિગત જુઓ →" : "View Guidelines →"}
                   </span>
                 </div>
               </div>

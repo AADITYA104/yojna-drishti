@@ -11,7 +11,7 @@ import {
   Search,
   Filter,
   CheckCircle2,
-  Sparkles,
+  Info,
   ArrowRight,
   MapPin,
   ExternalLink,
@@ -465,7 +465,8 @@ export function VillageIntelligenceView({
                     </div>
 
                     <p className="vsi-benefit">
-                      💡 <b>{gu ? "યોજનાનો હેતુ:" : "Scheme description:"}</b> {gu ? scheme.benefitGu : scheme.benefit}
+                      <Info size={14} className="inline mr-1 text-slate-500" />
+                      <b>{gu ? "યોજનાનો હેતુ:" : "Scheme description:"}</b> {gu ? scheme.benefitGu : scheme.benefit}
                     </p>
 
                     <div className="vsi-footer">

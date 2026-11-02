@@ -39,8 +39,7 @@ export type PageKey =
   | "data"
   | "admin"
   | "monitoring"
-  | "public"
-  | "blueprint";
+  | "public";
 
 export interface NavItemDef {
   key: PageKey;
@@ -54,8 +53,8 @@ export const navItems: NavItemDef[] = [
   { key: "overview", en: "Overview", gu: "રાજ્ય ઝાંખી", icon: Home },
   { key: "map", en: "Map Explorer", gu: "ભૂગોળ નકશો", icon: MapPinned, badge: "34 Dist" },
   { key: "districts", en: "District Intel", gu: "જિલ્લા વિશ્લેષણ", icon: Building2 },
-  { key: "talukas", en: "Taluka Intel", gu: "તાલુકા વિશ્લેષણ", icon: Landmark, badge: "Pilot" },
-  { key: "villages", en: "Village Intel", gu: "ગામ વિશ્લેષણ", icon: Home, badge: "48 Vil" },
+  { key: "talukas", en: "Taluka Intel", gu: "તાલુકા વિશ્લેષણ", icon: Landmark },
+  { key: "villages", en: "Village Intel", gu: "ગામ વિશ્લેષણ", icon: Home },
   { key: "schemes", en: "Schemes Catalogue", gu: "યોજનાઓ યાદી", icon: ClipboardList, badge: "10" },
   { key: "beneficiaries", en: "Beneficiary Analytics", gu: "લાભાર્થી વિશ્લેષણ", icon: Users },
   { key: "financials", en: "Financial Intelligence", gu: "નાણાકીય વિશ્લેષણ", icon: Wallet },
@@ -64,8 +63,7 @@ export const navItems: NavItemDef[] = [
   { key: "data", en: "Data Management", gu: "ડેટા વ્યવસ્થાપન", icon: Database },
   { key: "admin", en: "Administration", gu: "વહીવટી નિયંત્રણ", icon: Settings },
   { key: "monitoring", en: "System Monitoring", gu: "સિસ્ટમ દેખરેખ", icon: Activity },
-  { key: "public", en: "Public Portal (Finder)", gu: "યોજના શોધક (જાહેર)", icon: ExternalLink, badge: "NEW" },
-  { key: "blueprint", en: "Master Blueprint & Script", gu: "માસ્ટર બ્લુપ્રિન્ટ & સ્ક્રિપ્ટ", icon: Sparkles, badge: "AI PROMPT" },
+  { key: "public", en: "Public Portal (Finder)", gu: "યોજના શોધક (જાહેર)", icon: ExternalLink, badge: "Citizen" },
 ];
 
 interface SidebarProps {

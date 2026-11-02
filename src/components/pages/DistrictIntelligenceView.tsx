@@ -198,7 +198,8 @@ export function DistrictIntelligenceView({
                   <span>{gu ? selectedDistrict.gu : selectedDistrict.name} {gu ? "જિલ્લો" : "District"}</span>
                 </h3>
                 <span className="dhsc-hq-tag">
-                  🏛️ {gu ? `મુખ્ય મથક: ${selectedDistrict.headquartersGu}` : `HQ: ${selectedDistrict.headquarters}`}
+                  <Building2 size={13} className="inline mr-1 text-teal" />
+                  {gu ? `મુખ્ય મથક: ${selectedDistrict.headquartersGu}` : `HQ: ${selectedDistrict.headquarters}`}
                 </span>
               </div>
 

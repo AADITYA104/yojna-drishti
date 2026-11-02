@@ -17,7 +17,6 @@ import { DataManagementView } from "@/components/pages/DataManagementView";
 import { AdministrationView } from "@/components/pages/AdministrationView";
 import { SystemMonitoringView } from "@/components/pages/SystemMonitoringView";
 import { PublicPortalView } from "@/components/pages/PublicPortalView";
-import { MasterBlueprintView } from "@/components/pages/MasterBlueprintView";
 import { DrishtiAISahayak } from "@/components/shared/DrishtiAISahayak";
 import { demoDistricts, demoSchemes, type District } from "@/lib/demo-data";
 import { GHOGHA_48_VILLAGES, MASTER_SUBDISTRICTS } from "@/lib/master-hierarchy";
@@ -251,33 +250,42 @@ export default function HomePage() {
             />
           )}
 
-          {currentPage === "blueprint" && (
-            <MasterBlueprintView
-              gu={lang === "gu"}
-            />
-          )}
-
-          {/* Drishti AI Sahayak Citizen Assistant Floating Widget */}
+          {/* Official Citizen Guidance Helpline */}
           <DrishtiAISahayak
             gu={lang === "gu"}
             onNavigate={navigate}
           />
 
-          {/* Official Footer */}
+          {/* Official NIC & Government of Gujarat Footer */}
           <footer className="footer-gov">
             <div className="footer-content-wrap">
-              <span>
-                © 2026 યોજના દૃષ્ટિ (Yojana Drishti) ·{" "}
-                {lang === "gu"
-                  ? "ગુજરાત સરકાર મહિલા અને બાળ કલ્યાણ ભૂ-માહિતી પ્રણાલી"
-                  : "Gujarat Government Scheme Geo-Intelligence Platform"}
-              </span>
-              <span className="footer-privacy-line">
-                <ShieldCheck size={14} className="text-teal" />
-                {lang === "gu"
-                  ? "DPDP કાયદો ૨૦૨૩ હેઠળ સુરક્ષિત · કોઈ વ્યક્તિગત લાભાર્થી ડેટા જાહેર થતો નથી"
-                  : "Governed by DPDP Act 2023 · Aggregate statistics only, no PII stored"}
-              </span>
+              <div className="footer-main-info">
+                <span>
+                  © 2026 યોજના દૃષ્ટિ (Yojana Drishti) ·{" "}
+                  {lang === "gu"
+                    ? "મહિલા અને બાળ વિકાસ વિભાગ, ગુજરાત સરકાર"
+                    : "Department of Women & Child Development, Government of Gujarat"}
+                </span>
+                <span className="footer-nic-line">
+                  {lang === "gu"
+                    ? "Designed & Developed by National Informatics Centre (NIC) & BISAG-N"
+                    : "Designed & Developed by National Informatics Centre (NIC) & BISAG-N"}
+                </span>
+              </div>
+
+              <div className="footer-right-info">
+                <span className="footer-privacy-line">
+                  <ShieldCheck size={14} className="text-teal" />
+                  {lang === "gu"
+                    ? "DPDP કાયદો ૨૦૨૩ પાલન · એગ્રીગેટ ડેટા ફક્ત"
+                    : "DPDP Act 2023 Compliant · Aggregate Statistics Only"}
+                </span>
+                <span className="footer-audit-meta">
+                  {lang === "gu"
+                    ? "છેલ્લે અપડેટ: ૨ નવેમ્બર ૨૦૨૬"
+                    : "Last Updated: 02 Nov 2026"}
+                </span>
+              </div>
             </div>
           </footer>
         </main>
