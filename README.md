@@ -1,4 +1,6 @@
-# Yojana Drishti
+# Yojana Drishti (યોજના દૃષ્ટિ)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAADITYA104%2Fyojna-drishti)
 
 Gujarati-first geographic intelligence dashboard for viewing aggregate reach of government schemes across Gujarat. This repository contains an early working UI prototype and a PostGIS foundation. It is not an official government service.
 
