@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { demoSchemes, type Scheme } from "@/lib/demo-data";
 import { scaleDemoValue } from "@/lib/metrics.mjs";
+import { SchemeDetailModal } from "../shared/SchemeDetailModal";
 
 interface SchemesViewProps {
   gu: boolean;
@@ -28,6 +29,7 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [search, setSearch] = useState(initialSearchTerm);
   const [expandedSchemeId, setExpandedSchemeId] = useState<string | null>("YD-CAND-01");
+  const [selectedModalScheme, setSelectedModalScheme] = useState<Scheme | null>(null);
 
   const fmt = (num: number) => new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(num);
 
@@ -207,6 +209,18 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
                         ₹{fmt(disbursed)} Cr / ₹{fmt(allocated)} Cr ({utilization}%)
                       </small>
                     </div>
+
+                    <button
+                      type="button"
+                      className="btn-open-checklist-modal"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedModalScheme(s);
+                      }}
+                    >
+                      <FileText size={14} />
+                      <span>{gu ? "દસ્તાવેજ ચેકલિસ્ટ & વિગત" : "Document Checklist"}</span>
+                    </button>
                   </div>
                 </div>
               )}
@@ -214,6 +228,13 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
           );
         })}
       </div>
+
+      {/* Interactive Document Checklist Modal */}
+      <SchemeDetailModal
+        scheme={selectedModalScheme}
+        onClose={() => setSelectedModalScheme(null)}
+        gu={gu}
+      />
     </div>
   );
 }

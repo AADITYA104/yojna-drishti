@@ -17,6 +17,8 @@ import { DataManagementView } from "@/components/pages/DataManagementView";
 import { AdministrationView } from "@/components/pages/AdministrationView";
 import { SystemMonitoringView } from "@/components/pages/SystemMonitoringView";
 import { PublicPortalView } from "@/components/pages/PublicPortalView";
+import { MasterBlueprintView } from "@/components/pages/MasterBlueprintView";
+import { DrishtiAISahayak } from "@/components/shared/DrishtiAISahayak";
 import { demoDistricts, demoSchemes, type District } from "@/lib/demo-data";
 import { GHOGHA_48_VILLAGES, MASTER_SUBDISTRICTS } from "@/lib/master-hierarchy";
 import { ShieldCheck } from "lucide-react";
@@ -248,6 +250,18 @@ export default function HomePage() {
               gu={lang === "gu"}
             />
           )}
+
+          {currentPage === "blueprint" && (
+            <MasterBlueprintView
+              gu={lang === "gu"}
+            />
+          )}
+
+          {/* Drishti AI Sahayak Citizen Assistant Floating Widget */}
+          <DrishtiAISahayak
+            gu={lang === "gu"}
+            onNavigate={navigate}
+          />
 
           {/* Official Footer */}
           <footer className="footer-gov">

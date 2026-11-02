@@ -22,6 +22,7 @@ import {
   X,
   LucideIcon,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 
 export type PageKey =
@@ -38,7 +39,8 @@ export type PageKey =
   | "data"
   | "admin"
   | "monitoring"
-  | "public";
+  | "public"
+  | "blueprint";
 
 export interface NavItemDef {
   key: PageKey;
@@ -63,6 +65,7 @@ export const navItems: NavItemDef[] = [
   { key: "admin", en: "Administration", gu: "વહીવટી નિયંત્રણ", icon: Settings },
   { key: "monitoring", en: "System Monitoring", gu: "સિસ્ટમ દેખરેખ", icon: Activity },
   { key: "public", en: "Public Portal (Finder)", gu: "યોજના શોધક (જાહેર)", icon: ExternalLink, badge: "NEW" },
+  { key: "blueprint", en: "Master Blueprint & Script", gu: "માસ્ટર બ્લુપ્રિન્ટ & સ્ક્રિપ્ટ", icon: Sparkles, badge: "AI PROMPT" },
 ];
 
 interface SidebarProps {
