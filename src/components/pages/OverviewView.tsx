@@ -30,6 +30,8 @@ import {
 } from "@/lib/demo-data";
 import { scaleDemoValue, approvalPercent } from "@/lib/metrics.mjs";
 import { KPICard } from "../shared/KPICard";
+import { GlassHero } from "../glass/GlassHero";
+import { AnimatedNumber } from "../motion/AnimatedNumber";
 import { DemoBanner } from "../shared/DemoBanner";
 
 interface OverviewViewProps {
@@ -174,31 +176,49 @@ export function OverviewView({
       {/* Demo Banner */}
       <DemoBanner gu={gu} onExploreData={() => onNavigate("data")} />
 
-      {/* Hero Headline */}
-      <div className="page-hero-gov">
-        <div>
-          <span className="hero-kicker-tag">
-            {gu ? "ગુજરાત સરકાર · મહિલા અને બાળ કલ્યાણ" : "GOVERNMENT OF GUJARAT · WCD SCHEMES"}
-          </span>
-          <h1>{gu ? "યોજના દૃષ્ટિ · ભૌગોલિક પ્રગતિ મંચ" : "Yojana Drishti · Geo-Intelligence Platform"}</h1>
-          <p>
-            {gu
-              ? "રાજ્ય, ૩૪ જિલ્લા, તાલુકા અને ગામડાં સ્તરે સરકારી યોજનાઓનું વાસ્તવિક નકશાંકન અને જમીની અસરનું વિશ્લેષણ."
-              : "Hierarchical mapping and grassroots tracking of government welfare schemes from State to Village level."}
-          </p>
-        </div>
-
-        <div className="hero-actions-wrap">
-          <button className="btn-primary-gov" onClick={() => onNavigate("map")}>
-            <MapPin size={16} />
-            <span>{gu ? "સંપૂર્ણ નકશો ખોલો" : "Open Full Map"}</span>
-          </button>
-          <button className="btn-secondary-gov" onClick={() => onNavigate("districts")}>
-            <Globe2 size={15} />
-            <span>{gu ? "૩૪ જિલ્લાઓની ડિરેક્ટરી" : "34 Districts Directory"}</span>
-          </button>
-        </div>
-      </div>
+      {/* Executive Black Glass Hero with Gujarat Map Collage & Live Stats */}
+      <GlassHero
+        title={gu ? "યોજના દૃષ્ટિ · ગુજરાત રાજ્ય ભૌગોલિક પ્રગતિ મંચ" : "Yojana Drishti · Gujarat State Geo-Intelligence"}
+        lead={
+          gu
+            ? "રાજ્ય, ૩૪ જિલ્લા, ૨૫૨ તાલુકા અને ગામડાં સ્તરે સરકારી યોજનાઓનું વાસ્તવિક નકશાંકન, પારદર્શક નાણાકીય ફાળવણી અને જમીની લાભાર્થી વિશ્લેષણ."
+            : "Hierarchical GIS mapping and grassroots tracking of government schemes from State to Village level with granular transparency."
+        }
+        stats={[
+          {
+            value: <AnimatedNumber value={totalBen} locale={gu ? "gu-IN" : "en-IN"} />,
+            label: gu ? "કુલ સક્રિય લાભાર્થી" : "Total Active Beneficiaries",
+          },
+          {
+            value: <AnimatedNumber value={totalApproved} locale={gu ? "gu-IN" : "en-IN"} />,
+            label: gu ? "મંજૂર થયેલ અરજીઓ" : "Approved Applications",
+          },
+          {
+            value: `₹${(totalDisbursed / 100).toFixed(1)} Cr`,
+            label: gu ? "ચુકવાયેલ સહાય રકમ" : "Disbursed Grants",
+          },
+          {
+            value: `${approvalRate}%`,
+            label: gu ? "રાજ્ય મંજૂરી દર" : "State Approval Rate",
+          },
+        ]}
+        actions={
+          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+            <button className="btn-primary-gov" onClick={() => onNavigate("map")}>
+              <MapPin size={16} />
+              <span>{gu ? "સંપૂર્ણ નકશો ખોલો" : "Open Full Map"}</span>
+            </button>
+            <button className="btn-secondary-gov" onClick={() => onNavigate("districts")}>
+              <Globe2 size={15} />
+              <span>{gu ? "૩૪ જિલ્લાઓની ડિરેક્ટરી" : "34 Districts Directory"}</span>
+            </button>
+            <button className="btn-secondary-gov" onClick={() => onNavigate("villages")}>
+              <Home size={15} />
+              <span>{gu ? "ગામવાર રજિસ્ટર" : "Village Register"}</span>
+            </button>
+          </div>
+        }
+      />
 
       {/* Main KPI Row */}
       <div className="kpi-cards-grid">

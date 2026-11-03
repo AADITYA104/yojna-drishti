@@ -1,0 +1,604 @@
+/* ==========================================================================
+ * YOJANA DRISHTI — "Kaanch" (કાચ) Executive Black Glass Theme
+ * Layers translucent dark obsidian glass panels over the blurred Gujarat photo.
+ * Ensures strict contrast ratio (>= 4.5:1) for text, zero light bleed.
+ * ========================================================================== */
+:root {
+  color-scheme: dark;
+  --glass-bg: rgba(6, 10, 24, 0.78);
+  --glass-bg-strong: rgba(3, 6, 16, 0.92);
+  --glass-bg-soft: rgba(255, 255, 255, 0.06);
+  --glass-line: rgba(255, 255, 255, 0.14);
+  --glass-line-top: rgba(255, 255, 255, 0.3);
+  --glass-blur: 24px;
+  --glass-text: #f4f6ff;
+  --glass-text-soft: #cbd5e1;
+  --glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 24px 60px -18px rgba(0, 0, 0, 0.85);
+
+  --surface: rgba(6, 10, 24, 0.8);
+  --surface-soft: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: #f4f6ff;
+  --text-soft: #cbd5e1;
+  --muted: #94a3b8;
+  --bg: #030510;
+}
+
+/* ---------- Backdrop: pre-blurred Gujarat photo, fixed, with dark black scrim ---------- */
+.dr-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: #030510 url("/images/gujarat-bg.webp") center / cover no-repeat;
+  pointer-events: none;
+}
+
+.dr-backdrop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(65% 55% at 85% 10%, rgba(242, 164, 19, 0.15), transparent 70%),
+    radial-gradient(60% 50% at 10% 90%, rgba(15, 124, 134, 0.18), transparent 70%),
+    linear-gradient(180deg, rgba(2, 4, 12, 0.65) 0%, rgba(2, 4, 12, 0.88) 60%, rgba(2, 4, 12, 0.98) 100%);
+}
+
+body.dr-glass {
+  background: #030510;
+  color: var(--glass-text);
+  min-height: 100vh;
+}
+
+/* App Shell Translucency */
+body.dr-glass .app-shell-gov,
+body.dr-glass .main-content-area,
+body.dr-glass .content-viewport {
+  background: transparent !important;
+}
+
+/* ---------- Universal Glass Surface ---------- */
+.dr-glass,
+.dr-glass-panel,
+body.dr-glass .dr-panel,
+body.dr-glass .panel-gov,
+body.dr-glass .dr-stat,
+body.dr-glass .card-gov,
+body.dr-glass .kpi-card,
+body.dr-glass .kpi-card-gov,
+body.dr-glass .chart-card-gov,
+body.dr-glass .filter-strip-gov,
+body.dr-glass .table-card-gov,
+body.dr-glass .table-filter-strip,
+body.dr-glass .village-selector-card,
+body.dr-glass .village-details-card,
+body.dr-glass .village-scheme-register-card,
+body.dr-glass .village-deep-intelligence-container,
+body.dr-glass .geo-explorer-header,
+body.dr-glass .district-selector-card,
+body.dr-glass .district-details-card,
+body.dr-glass .taluka-selector-card,
+body.dr-glass .taluka-details-card,
+body.dr-glass .scheme-detail-modal-card,
+body.dr-glass .page-hero-gov,
+body.dr-glass .full-map-wrapper {
+  background: var(--glass-bg) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.4);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.4);
+  border: 1px solid var(--glass-line) !important;
+  border-top-color: var(--glass-line-top) !important;
+  border-radius: var(--r-lg, 16px);
+  box-shadow: var(--glass-shadow);
+  color: var(--glass-text) !important;
+}
+
+.dr-glass--soft,
+body.dr-glass .dr-panel--flat {
+  background: var(--glass-bg-soft) !important;
+  box-shadow: none;
+}
+
+.dr-glass--strong {
+  background: var(--glass-bg-strong) !important;
+}
+
+/* Text on glass */
+body.dr-glass h1,
+body.dr-glass h2,
+body.dr-glass h3,
+body.dr-glass h4,
+body.dr-glass strong,
+body.dr-glass b {
+  color: #ffffff;
+}
+
+body.dr-glass p,
+body.dr-glass span,
+body.dr-glass small,
+body.dr-glass label,
+body.dr-glass .dr-stat__label,
+body.dr-glass .dr-stat__foot,
+body.dr-glass .dr-legend {
+  color: var(--glass-text-soft);
+}
+
+body.dr-glass .dr-stat__value {
+  color: #ffffff;
+}
+
+body.dr-glass .dr-delta--up {
+  background: rgba(46, 139, 87, 0.3);
+  color: #8be0b0;
+}
+
+body.dr-glass .dr-delta--down {
+  background: rgba(179, 56, 44, 0.3);
+  color: #ffb3a9;
+}
+
+body.dr-glass .dr-chip {
+  background: var(--glass-bg-soft);
+  border-color: var(--glass-line);
+  color: var(--glass-text);
+}
+
+body.dr-glass .dr-chip[aria-pressed="true"] {
+  background: var(--haldi-500);
+  border-color: var(--haldi-500);
+  color: var(--ink-950);
+}
+
+body.dr-glass .dr-btn--quiet {
+  background: var(--glass-bg-soft);
+  border-color: var(--glass-line);
+  color: #ffffff;
+}
+
+body.dr-glass .dr-page-head {
+  background: var(--glass-bg-strong);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-line);
+  border-top-color: var(--glass-line-top);
+}
+
+/* ---------- Topbar & Header Utility Bar in Black Glass ---------- */
+body.dr-glass .gov-official-utility-bar {
+  background: rgba(2, 4, 12, 0.95) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+}
+
+body.dr-glass .topbar-gov {
+  background: rgba(4, 7, 18, 0.85) !important;
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.dr-glass .topbar-left h2 {
+  color: #ffffff;
+}
+
+body.dr-glass .top-search-bar {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+}
+
+body.dr-glass .top-search-bar input {
+  color: #ffffff !important;
+}
+
+body.dr-glass .top-search-bar input::placeholder {
+  color: #94a3b8;
+}
+
+body.dr-glass .fy-picker-gov {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+}
+
+body.dr-glass .fy-select-tag {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+body.dr-glass .fy-select-tag option {
+  background: #080c1e;
+  color: #ffffff;
+}
+
+body.dr-glass .lang-toggle-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+/* ---------- Sidebar in Dark Obsidian Glass ---------- */
+body.dr-glass .sidebar-gov {
+  background: rgba(4, 6, 16, 0.88) !important;
+  -webkit-backdrop-filter: blur(26px);
+  backdrop-filter: blur(26px);
+  border-right: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+body.dr-glass .brand-gov {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dr-glass .brand-titles strong {
+  color: #ffffff;
+}
+
+body.dr-glass .brand-titles small {
+  color: #f2a413;
+}
+
+body.dr-glass .brand-subtag {
+  color: #94a3b8;
+}
+
+body.dr-glass .nav-btn-gov {
+  color: #cbd5e1;
+}
+
+body.dr-glass .nav-btn-gov:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+body.dr-glass .nav-btn-gov.active {
+  background: rgba(242, 164, 19, 0.16) !important;
+  color: #ffffff !important;
+  border-left: 3px solid #f2a413;
+}
+
+body.dr-glass .side-status-box {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.dr-glass .user-profile-tile {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- Tables & Registers on Glass ---------- */
+body.dr-glass table {
+  color: var(--glass-text);
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+body.dr-glass th {
+  position: sticky;
+  top: 0;
+  background: rgba(3, 5, 14, 0.95) !important;
+  color: #94a3b8 !important;
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16) !important;
+}
+
+body.dr-glass td {
+  padding: 12px 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+}
+
+body.dr-glass tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- Form Controls, Dropdowns & Inputs ---------- */
+body.dr-glass select,
+body.dr-glass input[type="text"],
+body.dr-glass input[type="search"] {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+  border-radius: 8px;
+}
+
+body.dr-glass select option {
+  background: #080c1e;
+  color: #ffffff;
+}
+
+body.dr-glass select:focus,
+body.dr-glass input:focus {
+  border-color: #f2a413 !important;
+  box-shadow: 0 0 0 3px rgba(242, 164, 19, 0.2);
+  outline: none;
+}
+
+/* ---------- Village Scheme Register (VSR) Deep Black Glass Styling ---------- */
+body.dr-glass .vsr-header-strip {
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 18px;
+}
+
+body.dr-glass .vsr-demographics-strip {
+  color: #cbd5e1;
+}
+
+body.dr-glass .vsr-kpi-card {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px;
+}
+
+body.dr-glass .vsr-tabs-bar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  gap: 8px;
+}
+
+body.dr-glass .vsr-tab-btn {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: #cbd5e1 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+body.dr-glass .vsr-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+
+body.dr-glass .vsr-tab-btn.active {
+  background: rgba(242, 164, 19, 0.2) !important;
+  color: #f2a413 !important;
+  border-color: #f2a413 !important;
+}
+
+body.dr-glass .vsr-scheme-card {
+  background: rgba(4, 7, 20, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 14px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+body.dr-glass .vsr-scheme-card:hover {
+  border-color: rgba(242, 164, 19, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+body.dr-glass .vsr-table-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(3, 6, 16, 0.85);
+}
+
+body.dr-glass .vsr-table-controls {
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dr-glass .vsr-filter-pill {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #cbd5e1 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px;
+}
+
+body.dr-glass .vsr-filter-pill.active {
+  background: #f2a413 !important;
+  color: #0d1530 !important;
+  font-weight: 700 !important;
+  border-color: #f2a413 !important;
+}
+
+body.dr-glass .vsr-gap-card {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px;
+}
+
+/* ---------- Hero: Gujarat collage-map with floating glass stats ---------- */
+.dr-hero {
+  position: relative;
+  isolation: isolate;
+  border-radius: var(--r-lg, 20px);
+  overflow: hidden;
+  min-height: clamp(340px, 45vw, 540px);
+  display: grid;
+  align-items: end;
+  border: 1px solid var(--glass-line);
+  border-top-color: var(--glass-line-top);
+  box-shadow: var(--glass-shadow);
+  margin-bottom: 24px;
+}
+
+.dr-hero__img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dr-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(3, 5, 14, 0.15) 15%, rgba(3, 5, 14, 0.85) 85%, rgba(3, 5, 14, 0.98) 100%);
+}
+
+.dr-hero__body {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: var(--sp-5, 24px);
+  padding: 28px;
+  align-items: end;
+}
+
+.dr-hero__title {
+  max-width: 22ch;
+  font-size: clamp(1.8rem, 1.2rem + 2.2vw, 2.8rem);
+  line-height: 1.15;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+}
+
+.dr-hero__lead {
+  margin: 10px 0 18px;
+  max-width: 52ch;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7);
+}
+
+.dr-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--r-md, 14px);
+  background: rgba(4, 7, 18, 0.82) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.dr-hero__stat {
+  padding: 12px 14px;
+  border-radius: var(--r-sm, 10px);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dr-hero__stat b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.dr-hero__stat span {
+  font-size: 0.75rem;
+  color: var(--glass-text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 860px) {
+  .dr-hero {
+    min-height: 0;
+    display: block;
+  }
+  .dr-hero__img {
+    position: relative;
+    z-index: 0;
+    height: 220px;
+  }
+  .dr-hero::after {
+    display: none;
+  }
+  .dr-hero__body {
+    grid-template-columns: 1fr;
+    background: var(--glass-bg-strong);
+    padding: 18px;
+  }
+}
+
+/* Floating pill rail */
+.dr-rail {
+  position: fixed;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  border-radius: var(--r-pill);
+  background: var(--glass-bg-strong);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--glass-shadow);
+}
+
+.dr-rail button {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 0;
+  background: transparent;
+  color: var(--glass-text-soft);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dr-rail button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.dr-rail [aria-current="page"] {
+  background: rgba(242, 164, 19, 0.25);
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1.5px #f2a413;
+}
+
+/* Footer on Black Glass */
+body.dr-glass .footer-gov {
+  background: rgba(2, 4, 12, 0.95) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: #94a3b8;
+}
+
+/* Modal on Black Glass */
+body.dr-glass .sdm-backdrop {
+  background: rgba(2, 4, 10, 0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+body.dr-glass .sdm-modal-card {
+  background: rgba(6, 10, 24, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8) !important;
+  color: #ffffff !important;
+}
+
+/* Demo Banner */
+body.dr-glass .demo-banner-gov {
+  background: rgba(242, 164, 19, 0.12) !important;
+  border: 1px solid rgba(242, 164, 19, 0.28) !important;
+  color: #fef08a !important;
+}
+
+/* Fallback & Motion */
+@media (prefers-reduced-motion: no-preference) {
+  .dr-hero__img {
+    animation: dr-kenburns 12s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes dr-kenburns {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
