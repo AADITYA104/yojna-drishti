@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { Building2, Filter, MapPinned } from "lucide-react";
-import { demoDistricts, demoSchemes, type District } from "@/lib/demo-data";
+import Image from "next/image";
+import { ArrowDown, Building2, Info, MapPinned } from "lucide-react";
+import { demoDistricts, type District } from "@/lib/demo-data";
 import { GujaratInteractiveMap } from "../map/GujaratInteractiveMap";
 
 interface MapExplorerViewProps {
@@ -29,10 +30,6 @@ const regions: { id: District["region"]; labelGu: string; labelEn: string }[] = 
 ];
 
 export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) {
-  const [selectedScheme, setSelectedScheme] = useState(
-    focusRequest?.target.kind === "scheme" ? focusRequest.target.id : "all",
-  );
-
   const [selectedRegion, setSelectedRegion] = useState<"all" | District["region"]>("all");
   const regionDistrictId = selectedRegion === "all"
     ? "bhavnagar"
@@ -49,28 +46,17 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
           <h1>{gu ? "ગુજરાત નકશા અને વિસ્તારની માહિતી" : "Gujarat map & area intelligence"}</h1>
           <p>
             {gu
-              ? "નકશા પર સ્ક્રોલથી ઝૂમ કરો અથવા જિલ્લા, તાલુકા અને ગામનું નામ પસંદ કરો."
-              : "Scroll to zoom, or choose a district, taluka, and village by name."}
+              ? "જિલ્લા, તાલુકા અને ગામનું નામ શોધો. સ્થાનવાર યોજનાની સત્તાવાર માહિતી જોડાયેલી નથી."
+              : "Search districts, talukas, and villages. Official scheme-location data is not connected."}
           </p>
         </div>
         <div className="geo-explorer-filters">
           <label className="geo-filter-control">
-            <span>{gu ? "યોજના" : "Scheme"}</span>
+            <span>{gu ? "સ્થળવાર યોજના-પહોંચ" : "Local scheme coverage"}</span>
             <span className="geo-filter-select">
-              <Filter size={15} />
-              <select
-                value={selectedScheme}
-                onChange={(event) => setSelectedScheme(event.target.value)}
-                aria-label={gu ? "યોજના પ્રમાણે ફિલ્ટર કરો" : "Filter by scheme"}
-              >
-                <option value="all">{gu ? "બધી યોજનાઓ" : "All schemes"}</option>
-                <optgroup label={gu ? "યોજનાઓ · નમૂનાનું મેપિંગ" : "Schemes · sample mapping"}>
-                  {demoSchemes.map((scheme) => (
-                    <option key={scheme.id} value={scheme.id}>
-                      {gu ? scheme.shortNameGu : scheme.shortName}
-                    </option>
-                  ))}
-                </optgroup>
+              <Info size={15} aria-hidden="true" />
+              <select disabled value="unavailable" aria-label={gu ? "સ્થળવાર યોજના માહિતી ઉપલબ્ધ નથી" : "Location-based scheme information unavailable"}>
+                <option value="unavailable">{gu ? "સત્તાવાર વિસ્તારવાર ડેટા ઉપલબ્ધ નથી" : "Official area-level data unavailable"}</option>
               </select>
             </span>
           </label>
@@ -95,14 +81,43 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
         </div>
       </header>
 
-      <div className="full-map-wrapper">
+      <section className="geo-gujarat-showcase" aria-label={gu ? "ગુજરાતની ઓળખ" : "Discover Gujarat"}>
+        <div className="geo-gujarat-showcase-copy">
+          <span className="geo-gujarat-showcase-kicker">{gu ? "ગુજરાત · ૩૪ જિલ્લા" : "GUJARAT · 34 DISTRICTS"}</span>
+          <h2>{gu ? "ગુજરાતને વિસ્તારથી શોધો" : "Explore Gujarat, area by area"}</h2>
+          <p>
+            {gu
+              ? "જિલ્લાથી તાલુકા અને ગામ સુધી નકશામાં આગળ વધો. સ્થાનવાર યોજનાઓ માટે સત્તાવાર માહિતી હજી જોડવાની બાકી છે."
+              : "Move from districts to talukas and villages on the map. Official scheme coverage by locality is still to be connected."}
+          </p>
+          <button
+            type="button"
+            onClick={() => document.getElementById("gujarat-map-canvas")?.scrollIntoView({ behavior: "smooth", block: "center" })}
+          >
+            {gu ? "નકશો જુઓ" : "Explore the map"}
+            <ArrowDown size={15} aria-hidden="true" />
+          </button>
+        </div>
+        <div className="geo-gujarat-showcase-image">
+          <Image
+            src="/images/gujarat-hero.webp"
+            alt={gu ? "ગુજરાતના પ્રાકૃતિક અને સાંસ્કૃતિક દૃશ્યોનું ચિત્રમય કોલાજ" : "Illustrative collage of Gujarat landscapes and cultural landmarks"}
+            width={1920}
+            height={1081}
+            sizes="(max-width: 768px) 100vw, 42vw"
+            priority
+          />
+          <span>{gu ? "ગુજરાતનું ચિત્રમય પૂર્વદર્શન" : "Illustrative Gujarat collage"}</span>
+        </div>
+      </section>
+
+      <div className="full-map-wrapper" id="gujarat-map-canvas">
         <GujaratInteractiveMap
           key={selectedRegion}
           gu={gu}
           fy={fy}
           selectedDistrictId={regionDistrictId}
           regionFilter={selectedRegion}
-          schemeFilter={selectedScheme}
           focusRequest={focusRequest}
           variant="explorer"
         />

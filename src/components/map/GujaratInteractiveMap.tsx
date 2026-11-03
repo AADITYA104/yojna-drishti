@@ -11,7 +11,6 @@ maplibregl.setWorkerUrl(
 import {
   ArrowLeft,
   Building2,
-  CheckCircle2,
   ChevronRight,
   FileText,
   Home,
@@ -22,17 +21,11 @@ import {
   Plus,
   RotateCcw,
   Search,
-  Users,
-  Wallet,
   Award,
-  Sparkles,
-  Activity,
-  Layers,
 } from "lucide-react";
 
 import {
   demoDistricts,
-  demoSchemes,
   demoTalukas,
   demoVillages,
   type District,
@@ -44,7 +37,6 @@ import {
   GHOGHA_48_VILLAGES,
   MASTER_DISTRICTS,
   MASTER_SUBDISTRICTS,
-  NOTEBOOK_WOMEN_SCHEMES,
   getSubdistrictsForDistrict,
   type MasterSubdistrict,
   type MasterVillage,
@@ -53,13 +45,6 @@ import {
 import { DISTRICT_LAT_LNG, GUJARAT_STATE_CENTER, TALUKA_GPS_COORDS } from "@/lib/geo-coordinates";
 import { scaleDemoValue } from "@/lib/metrics.mjs";
 
-import {
-  getVillageSchemes,
-  isSchemeActiveInVillage,
-  getVillageSchemeSummary,
-  ALL_AVAILABLE_SCHEMES,
-  type VillageSchemeAssignment,
-} from "@/lib/village-scheme-demo";
 
 export type GeoLevel = "state" | "district" | "taluka" | "village";
 
@@ -104,9 +89,6 @@ interface HoveredEntity {
   nameEn: string;
   type: "district" | "taluka" | "village";
   code?: string | number;
-  schemeCount?: number;
-  beneficiaries?: number;
-  grantLakhs?: number;
   x: number;
   y: number;
 }
@@ -119,7 +101,6 @@ interface GujaratInteractiveMapProps {
   onTalukaSelect?: (taluka: Taluka) => void;
   onVillageSelect?: (village: Village) => void;
   regionFilter?: "all" | Region;
-  schemeFilter?: string;
   variant?: "explorer" | "overview" | "embedded";
   initialLevel?: GeoLevel;
   mapHeight?: string;
@@ -218,40 +199,6 @@ function formatNumber(value: number, gu: boolean) {
   return new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(value);
 }
 
-type MapSchemeOption = {
-  id: string;
-  shortName: string;
-  shortNameGu: string;
-  benefitAmount: string;
-  benefitAmountGu: string;
-  department: string;
-  departmentGu: string;
-  hasVillageMapping: boolean;
-};
-
-const MAP_SCHEME_OPTIONS: MapSchemeOption[] = [
-  ...NOTEBOOK_WOMEN_SCHEMES.map((scheme) => ({
-    id: scheme.id,
-    shortName: scheme.nameEn,
-    shortNameGu: scheme.nameGu,
-    benefitAmount: scheme.benefit,
-    benefitAmountGu: scheme.benefitGu,
-    department: scheme.notebookCategory,
-    departmentGu: scheme.categoryGu,
-    hasVillageMapping: true,
-  })),
-  ...demoSchemes.map((scheme) => ({
-    id: scheme.id,
-    shortName: scheme.shortName,
-    shortNameGu: scheme.shortNameGu,
-    benefitAmount: scheme.benefitAmount,
-    benefitAmountGu: scheme.benefitAmountGu,
-    department: scheme.department,
-    departmentGu: scheme.departmentGu,
-    hasVillageMapping: true,
-  })),
-];
-
 export function GujaratInteractiveMap({
   gu,
   fy,
@@ -260,7 +207,6 @@ export function GujaratInteractiveMap({
   onTalukaSelect,
   onVillageSelect,
   regionFilter = "all",
-  schemeFilter = "all",
   variant = "explorer",
   initialLevel = "state",
   mapHeight,
@@ -314,40 +260,6 @@ export function GujaratInteractiveMap({
     () => villageItems.find((village) => village.code === currentVillageCode) || null,
     [villageItems, currentVillageCode],
   );
-
-  const selectedScheme = useMemo(
-    () => MAP_SCHEME_OPTIONS.find((scheme) => scheme.id === schemeFilter) || null,
-    [schemeFilter],
-  );
-
-  // Universal scheme coverage calculation across all loaded villages
-  const schemeCoverageVillageCodes = useMemo(() => {
-    if (schemeFilter === "all") return [];
-    const activeCodes: string[] = [];
-    if (officialBoundaryData?.features) {
-      officialBoundaryData.features.forEach((feature) => {
-        const code = String(feature.properties.villageCode || "");
-        if (code && isSchemeActiveInVillage(code, schemeFilter)) {
-          activeCodes.push(code);
-        }
-      });
-    }
-    return activeCodes;
-  }, [officialBoundaryData, schemeFilter]);
-
-  // Universal village schemes summary for the selected village
-  const currentVillageSchemeSummary = useMemo(() => {
-    if (!currentVillage) return null;
-    return getVillageSchemeSummary(currentVillage.code);
-  }, [currentVillage]);
-
-  const currentVillageSchemeAssignments = useMemo(() => {
-    if (!currentVillage) return [];
-    const allAssignments = getVillageSchemes(currentVillage.code);
-    return schemeFilter === "all"
-      ? allAssignments
-      : allAssignments.filter((assignment) => assignment.schemeId === schemeFilter);
-  }, [currentVillage, schemeFilter]);
 
   const handleDistrictClick = useCallback(
     (districtId: string) => {
@@ -826,16 +738,12 @@ export function GujaratInteractiveMap({
               "case",
               ["==", ["get", "villageCode"], currentVillageCode || ""],
               "#087f73",
-              ["in", ["get", "villageCode"], ["literal", schemeCoverageVillageCodes]],
-              "#10b981",
               "#9fb8c3",
             ],
             "fill-opacity": [
               "case",
               ["==", ["get", "villageCode"], currentVillageCode || ""],
               0.42,
-              ["in", ["get", "villageCode"], ["literal", schemeCoverageVillageCodes]],
-              0.32,
               0.08,
             ],
           },
@@ -853,8 +761,6 @@ export function GujaratInteractiveMap({
               "case",
               ["==", ["get", "villageCode"], currentVillageCode || ""],
               "#075e56",
-              ["in", ["get", "villageCode"], ["literal", schemeCoverageVillageCodes]],
-              "#047857",
               "#648b99",
             ],
             "line-width": [
@@ -933,7 +839,7 @@ export function GujaratInteractiveMap({
         }
       });
 
-      // Hover on village displays its Name & Scheme Reach count! ("તેના પર રાખતા ભી તેનું નામ દેખાય")
+      // Hover on a village displays its verified geographic name and local code.
       map.on("mousemove", "soi-villages-hit", (event) => {
         map.getCanvas().style.cursor = "pointer";
         const properties = event.features?.[0]?.properties;
@@ -956,16 +862,11 @@ export function GujaratInteractiveMap({
             y: event.point.y,
           });
         } else {
-          const schemes = getVillageSchemes(vCode);
-          const totalBen = schemes.reduce((sum, s) => sum + s.beneficiaries, 0);
-
           setHoveredEntity({
             nameGu,
             nameEn,
             type: "village",
             code: vCode,
-            schemeCount: schemes.length,
-            beneficiaries: totalBen,
             x: event.point.x,
             y: event.point.y,
           });
@@ -979,9 +880,9 @@ export function GujaratInteractiveMap({
 
       officialBoundaryInteractionsAdded.current = true;
     }
-  }, [currentVillageCode, gu, mapReady, officialBoundaryData, schemeCoverageVillageCodes]);
+  }, [currentVillageCode, gu, mapReady, officialBoundaryData]);
 
-  // Dynamic layer filters and Scheme Reach highlighting
+  // Dynamic filters and selected-village highlighting
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !mapReady || !map.getLayer("soi-villages-fill")) return;
@@ -1010,7 +911,7 @@ export function GujaratInteractiveMap({
       level === "taluka" || level === "village" ? "visible" : "none"
     );
 
-    // Scheme Reach Highlight coloring
+    // Highlight only the selected village; no unverified scheme reach is drawn.
     map.setPaintProperty(
       "soi-villages-fill",
       "fill-color",
@@ -1020,8 +921,6 @@ export function GujaratInteractiveMap({
             "case",
             ["==", ["get", "villageCode"], currentVillageCode || ""],
             "#087f73",
-            ["in", ["get", "villageCode"], ["literal", schemeCoverageVillageCodes]],
-            "#10b981",
             "#9fb8c3",
           ]
     );
@@ -1035,8 +934,6 @@ export function GujaratInteractiveMap({
             "case",
             ["==", ["get", "villageCode"], currentVillageCode || ""],
             0.44,
-            ["in", ["get", "villageCode"], ["literal", schemeCoverageVillageCodes]],
-            0.34,
             0.08,
           ]
     );
@@ -1050,8 +947,6 @@ export function GujaratInteractiveMap({
             "case",
             ["==", ["get", "villageCode"], currentVillageCode || ""],
             "#075e56",
-            ["in", ["get", "villageCode"], ["literal", schemeCoverageVillageCodes]],
-            "#047857",
             "#648b99",
           ]
     );
@@ -1063,7 +958,6 @@ export function GujaratInteractiveMap({
     level,
     mapReady,
     officialBoundaryData,
-    schemeCoverageVillageCodes,
   ]);
 
   // Fetch villages for active subdistrict
@@ -1344,7 +1238,7 @@ export function GujaratInteractiveMap({
               {hoveredEntity.type === "village" && (
                 <div className="gmhc-meta-row">
                   <span className="gmhc-scheme-tag">
-                    {gu ? "નમૂનાનું યોજના મેપિંગ" : "Sample scheme mapping"}
+                    {gu ? "યોજનાની સ્થાનવાર માહિતી ઉપલબ્ધ નથી" : "Scheme coverage data unavailable"}
                   </span>
                 </div>
               )}
@@ -1399,13 +1293,9 @@ export function GujaratInteractiveMap({
             <div className="geo-map-coverage-legend" aria-live="polite">
               <span className="geo-coverage-swatch" style={{ background: "#267d89" }} />
               <span>
-                {selectedScheme
-                  ? gu
-                  ? `નમૂનાનો યોજના નકશો: ${selectedScheme.shortNameGu}`
-                    : `Sample scheme map: ${selectedScheme.shortName}`
-                  : gu
-                  ? "વહીવટી સીમાઓ · યોજના-પહોંચનો ડેટા નમૂનાનો છે"
-                  : "Administrative boundaries · scheme coverage is sample data"}
+                {gu
+                  ? "ગુજરાતની વહીવટી સીમાઓ · સ્થળવાર યોજના માહિતી જોડાયેલી નથી"
+                  : "Gujarat administrative boundaries · locality scheme data is not connected"}
               </span>
             </div>
           )}
@@ -1468,14 +1358,14 @@ export function GujaratInteractiveMap({
                     : level === "taluka"
                     ? gu
                       ? villageLoadState === "ready"
-                        ? `${villageItems.length} ગામો · ગામ પર ક્લિક કરી કઈ કઈ યોજના પહોંચી તે જુઓ.`
+                        ? `${villageItems.length} ગામો · ગામની સીમા જુઓ; યોજનાની સ્થાનવાર માહિતી ઉપલબ્ધ નથી.`
                         : "ગામોની યાદી લોડ થાય છે..."
                       : villageLoadState === "ready"
-                      ? `${villageItems.length} villages · click to view delivered schemes.`
+                      ? `${villageItems.length} villages · view boundaries; locality scheme data is unavailable.`
                       : "Loading villages list…"
                     : gu
-                    ? "આ ગામમાં પહોંચેલી તમામ યોજનાઓની વિગત નીચે મુજબ છે:"
-                    : "Government schemes delivered to this village:"}
+                    ? "આ ગામની વહીવટી વિગતો અને યોજના-પહોંચની સ્થિતિ નીચે જુઓ."
+                    : "View this village's administrative details and scheme coverage status below."}
                 </p>
               </div>
               <span className="geo-count-pill">{formatNumber(currentEntities, gu)}</span>
@@ -1573,7 +1463,6 @@ export function GujaratInteractiveMap({
 
               {(level === "taluka" || level === "village") &&
                 filteredVillages.map((village) => {
-                  const schemes = getVillageSchemes(village.code);
                   return (
                     <button
                       key={village.code}
@@ -1591,7 +1480,7 @@ export function GujaratInteractiveMap({
                         <small>LGD {village.code}</small>
                       </span>
                       <span className="geo-entity-meta" style={{ color: "#31576b", fontWeight: 700 }}>
-                        {schemes.length} {gu ? "નમૂનાની યોજનાઓ" : "sample schemes"}
+                        {gu ? "યોજનાનો ડેટા નથી" : "No coverage data"}
                       </span>
                       <ChevronRight size={15} />
                     </button>
@@ -1605,125 +1494,60 @@ export function GujaratInteractiveMap({
               )}
             </div>
 
-            {/* Profile Card: Dedicated Scheme Reach & Saturation Representation */}
+            {/* Area profile and scheme-coverage data status */}
             <section className="geo-profile-card" aria-live="polite">
               <div className="geo-profile-heading">
                 <div>
                   <span className="geo-panel-kicker">
-                    {gu ? "નમૂનાનું યોજના મેપિંગ" : "SAMPLE SCHEME MAPPING"}
+                    {gu ? "સ્થળવાર યોજના-પહોંચ" : "LOCAL SCHEME COVERAGE"}
                   </span>
                   <h3>{panelTitle}</h3>
                 </div>
-                <span className="geo-source-pill" style={{ background: "#ecfdf5", color: "#065f46" }}>
-                  <Award size={12} /> {gu ? "નમૂનો · ચકાસાયેલ નથી" : "Sample · unverified"}
+                <span className="geo-source-pill" style={{ background: "#fff7e8", color: "#865d19" }}>
+                  <Info size={12} /> {gu ? "સ્થાનવાર ડેટા બાકી" : "Location data pending"}
                 </span>
               </div>
 
-              {/* VILLAGE LEVEL: FULL SCHEME DELIVERY PRESENTATION */}
-              {level === "village" && currentVillage && currentVillageSchemeSummary ? (
-                <>
-                  <div className="geo-village-summary">
-                    <span>
-                      <Home size={15} /> {gu ? currentTaluka?.nameGu : currentTaluka?.nameEn}
-                    </span>
-                    <span>
-                      <Landmark size={15} /> [{currentDistrict.officialNo}] {gu ? currentDistrict.gu : currentDistrict.name}
-                    </span>
-                  </div>
+              <div className="geo-summary-grid">
+                <div>
+                  <Building2 size={16} />
+                  <b>{level === "state" ? demoDistricts.length : 1}</b>
+                  <small>{gu ? "જિલ્લા" : "Districts"}</small>
+                </div>
+                <div>
+                  <Landmark size={16} />
+                  <b>{level === "state" ? MASTER_SUBDISTRICTS.length : currentSubdistricts.length}</b>
+                  <small>{gu ? "તાલુકા" : "Talukas"}</small>
+                </div>
+              </div>
 
-                  {/* Coverage estimates are synthetic; show the sample status without fake totals. */}
-                  <div
-                    style={{
-                      background: "#eff6f8",
-                      border: "1px solid #cbdde3",
-                      borderRadius: "8px",
-                      padding: "8px 12px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      margin: "8px 0",
-                    }}
-                  >
-                    <span style={{ fontSize: "12px", fontWeight: 700, color: "#31576b" }}>
-                      {gu ? "પૂર્વદર્શનનું નમૂનાનું મેપિંગ" : "Preview sample mapping"}
-                    </span>
-                    <strong style={{ fontSize: "12px", color: "#526d7b" }}>
-                      {gu ? "પહોંચ/લાભાર્થીના આંકડા સત્તાવાર નથી" : "Coverage and beneficiary figures are not official"}
-                    </strong>
-                  </div>
-
-                  {/* Detailed Schemes Delivered List */}
-                  <div className="geo-village-scheme-list">
-                    <span className="geo-panel-kicker">
-                      {gu ? "આ ગામ માટેની નમૂનાની યોજના સૂચિ:" : "SAMPLE SCHEME LIST FOR THIS VILLAGE:"}
-                    </span>
-
-                    {currentVillageSchemeAssignments.map((assignment) => (
-                      <div
-                        className="geo-village-scheme-row"
-                        key={assignment.schemeId}
-                        style={{
-                          background: "#ffffff",
-                          border: "1px solid #e2e8f0",
-                          borderRadius: "8px",
-                          padding: "10px",
-                          marginBottom: "8px",
-                          boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
-                        }}
-                      >
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px" }}>
-                          <strong style={{ color: "#0f172a", fontSize: "13px" }}>
-                            {gu ? assignment.schemeNameGu : assignment.schemeNameEn}
-                          </strong>
-                          <span className="geo-sample-status">
-                            {gu ? "નમૂનો" : "Sample"}
-                          </span>
-                        </div>
-
-                      </div>
-                    ))}
-                  </div>
-
-                </>
-              ) : (
-                /* STATE OR DISTRICT LEVEL SUMMARY */
-                <>
-                  <div className="geo-summary-grid">
-                    <div>
-                      <Building2 size={16} />
-                      <b>{level === "state" ? demoDistricts.length : 1}</b>
-                      <small>{gu ? "જિલ્લા" : "Districts"}</small>
-                    </div>
-                    <div>
-                      <Landmark size={16} />
-                      <b>{level === "state" ? MASTER_SUBDISTRICTS.length : currentSubdistricts.length}</b>
-                      <small>{gu ? "તાલુકા" : "Talukas"}</small>
-                    </div>
-                  </div>
-
-                  <div className="geo-compact-schemes">
-                    <span className="geo-panel-kicker">
-                      {gu ? "નમૂનાની યોજના મેપિંગ:" : "SAMPLE SCHEME MAPPING:"}
-                    </span>
-                    {MAP_SCHEME_OPTIONS.slice(0, 6).map((scheme) => (
-                      <div className="geo-scheme-row" key={scheme.id}>
-                        <span>
-                          <CheckCircle2 size={14} style={{ color: "#059669" }} />
-                          {gu ? scheme.shortNameGu : scheme.shortName}
-                        </span>
-                        <small className="geo-sample-status">
-                          {gu ? "નમૂનો · ચકાસાયેલ નથી" : "Demo · not verified"}
-                        </small>
-                      </div>
-                    ))}
-                  </div>
-                </>
+              {currentVillage && (
+                <div className="geo-village-summary">
+                  <span><Home size={15} /> {gu ? currentTaluka?.nameGu : currentTaluka?.nameEn}</span>
+                  <span><Landmark size={15} /> [{currentDistrict.officialNo}] {gu ? currentDistrict.gu : currentDistrict.name}</span>
+                </div>
               )}
+
+              <div className="geo-coverage-pending" role="status">
+                <Info size={18} aria-hidden="true" />
+                <div>
+                  <strong>{gu ? "સ્થળવાર યોજના-પહોંચનો ચકાસેલ ડેટા ઉપલબ્ધ નથી" : "Verified scheme coverage is not available for this location"}</strong>
+                  <p>
+                    {currentVillage
+                      ? gu
+                        ? `આ ${currentVillage.nameGu || currentVillage.nameEn} ગામ માટે કઈ યોજના ચાલે છે તેની સત્તાવાર માહિતી જોડાયેલી નથી.`
+                        : `Official records showing which schemes operate in ${currentVillage.nameEn} are not connected.`
+                      : gu
+                        ? "જિલ્લા, તાલુકા અને ગામની વહીવટી વિગતો ઉપલબ્ધ છે; યોજના ક્યાં અમલમાં છે તે બતાવવા સત્તાવાર વિસ્તારવાર રેકોર્ડ જરૂરી છે."
+                        : "District, taluka, and village boundaries are available. Official area-level records are needed to show where each scheme operates."}
+                  </p>
+                </div>
+              </div>
 
               <div className="geo-data-disclaimer">
                 {gu
-                  ? "આ સરકારી સેવા નથી. નકશાની યોજના-પહોંચ અને આંકડા નમૂનાના છે; સત્તાવાર માહિતી માટે સંબંધિત વિભાગનો સંપર્ક કરો."
-                  : "This is not a government service. Scheme reach and figures on this map are samples; contact the relevant department for official information."}
+                  ? "આ જાહેર પૂર્વદર્શન છે, સરકારી સેવા નથી. યોજના-પહોંચ માટે સત્તાવાર ડેટા જોડાયેલો નથી."
+                  : "This is a public preview, not a government service. Official scheme-location data is not connected."}
               </div>
             </section>
           </aside>
