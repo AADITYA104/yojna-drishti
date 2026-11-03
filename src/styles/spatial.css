@@ -1,0 +1,1005 @@
+/* ==========================================================================
+ * YOJANA DRISHTI — SPATIAL GLASSMORPHISM & VISION-OS ARCHITECTURE
+ * Deep Slate-Teal (#0F202B to #1B3544) backdrop, Apple VisionOS frosted glass,
+ * 12-Column Bento Grid, and high-precision spatial micro-interactions.
+ * ========================================================================== */
+
+:root {
+  --spatial-teal-900: #08121a;
+  --spatial-teal-800: #0f202b;
+  --spatial-teal-700: #1b3544;
+  --spatial-teal-600: #254b5f;
+  --spatial-glass-bg: rgba(45, 60, 68, 0.45);
+  --spatial-glass-bg-subtle: rgba(255, 255, 255, 0.05);
+  --spatial-glass-bg-card: rgba(255, 255, 255, 0.06);
+  --spatial-glass-border: rgba(255, 255, 255, 0.16);
+  --spatial-glass-border-subtle: rgba(255, 255, 255, 0.09);
+  --spatial-glass-highlight: rgba(255, 255, 255, 0.28);
+  --spatial-lime: #c5d846;
+  --spatial-emerald: #42c88a;
+  --spatial-amber: #facc15;
+  --spatial-cyan: #38bdf8;
+  --spatial-font-display: var(--font-display, "Plus Jakarta Sans", system-ui, sans-serif);
+  --spatial-font-ui: var(--font-ui, "Inter", system-ui, sans-serif);
+}
+
+/* Base Body when in Spatial View */
+body.spatial-mode,
+body.dr-glass {
+  background-color: var(--spatial-teal-900);
+  color: #f4f6ff;
+  font-family: var(--spatial-font-ui);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Outer Shell Wrapper */
+.spatial-app-shell {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px 48px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .spatial-app-shell {
+    padding-left: 96px; /* Space for Left Floating Dock */
+    padding-right: 28px;
+  }
+}
+
+/* 1. Deep Atmospheric Slate-Teal Canvas (Layer behind everything) */
+.spatial-bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  user-select: none;
+}
+
+.spatial-slate-teal-mesh {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 25%, #1b3544 0%, #0f202b 60%, #08121a 100%),
+    radial-gradient(circle 500px at 85% 15%, rgba(56, 189, 248, 0.08), transparent 70%),
+    radial-gradient(circle 600px at 15% 85%, rgba(250, 204, 21, 0.06), transparent 70%);
+}
+
+.spatial-art-backdrop {
+  position: absolute;
+  inset: 0;
+  background: url("/images/gujarat-hero.webp") center / contain no-repeat;
+  opacity: 0.16;
+  mix-blend-mode: screen;
+  filter: saturate(1.2) contrast(1.1);
+  transform: scale(0.95);
+  pointer-events: none;
+}
+
+.spatial-svg-parallax-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.spatial-gujarat-svg {
+  width: 90vw;
+  max-width: 1200px;
+  height: 85vh;
+  max-height: 800px;
+  opacity: 0.82;
+  filter: drop-shadow(0 0 30px rgba(15, 32, 43, 0.8));
+}
+
+.spatial-district-vector {
+  transition: stroke 0.3s ease, fill 0.3s ease;
+}
+
+.spatial-district-vector:hover {
+  stroke: rgba(255, 255, 255, 0.35);
+  fill: rgba(255, 255, 255, 0.06);
+}
+
+.spatial-node-pulse-ring {
+  transform-origin: center;
+  animation: spatial-breathe 4s infinite ease-in-out;
+}
+
+@keyframes spatial-breathe {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.35);
+  }
+}
+
+.spatial-vignette-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(8, 18, 26, 0.6) 100%);
+  pointer-events: none;
+}
+
+/* 2. Left Floating Vertical Pill Navigation Dock */
+.spatial-dock-anchor {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+}
+
+.spatial-dock-capsule {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(28px) saturate(140%);
+  -webkit-backdrop-filter: blur(28px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.spatial-dock-item {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  outline: none;
+  transition: color 0.2s ease, transform 0.15s ease;
+  padding: 0;
+}
+
+.spatial-dock-item:hover {
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+.spatial-dock-item:active {
+  transform: scale(0.95);
+}
+
+.spatial-dock-active-pill {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.40);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.35),
+    0 4px 14px rgba(0, 0, 0, 0.35);
+  z-index: 0;
+}
+
+.spatial-dock-icon-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1023px) {
+  .spatial-dock-anchor {
+    left: 50%;
+    top: auto;
+    bottom: 16px;
+    transform: translateX(-50%);
+  }
+
+  .spatial-dock-capsule {
+    flex-direction: row;
+    gap: 12px;
+    padding: 8px 14px;
+  }
+}
+
+/* 3. Main Spatial Frosted Glass Container */
+.spatial-main-container,
+.spatial-main-viewport {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+  border-radius: 32px;
+  background: rgba(62, 74, 80, 0.55);
+  backdrop-filter: blur(30px) saturate(140%);
+  -webkit-backdrop-filter: blur(30px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-top-color: rgba(255, 255, 255, 0.36);
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .spatial-main-container,
+  .spatial-main-viewport {
+    padding: 28px 36px 36px;
+  }
+}
+
+/* Header Inside Main Glass */
+.spatial-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.spatial-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.spatial-brand-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.spatial-brand-heading {
+  margin: 0;
+  font-family: var(--spatial-font-display);
+  font-size: clamp(1.4rem, 1rem + 1.2vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.spatial-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  margin-top: 4px;
+  width: fit-content;
+}
+
+.spatial-tricolor-pip {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #facc15;
+  box-shadow: 0 0 8px #facc15;
+}
+
+.spatial-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.spatial-search-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  padding: 8px 16px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.spatial-search-trigger:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.spatial-search-placeholder {
+  font-size: 0.82rem;
+}
+
+.spatial-kbd-chip {
+  font-size: 0.68rem;
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 2px 6px;
+  color: #cbd5e1;
+}
+
+.spatial-lang-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.spatial-lang-pill:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.spatial-lang-pill .active-lang {
+  color: #ffffff;
+}
+
+.spatial-lang-pill .muted-lang {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.spatial-lang-divider {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.spatial-icon-btn {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.spatial-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.spatial-notif-dot {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #38bdf8;
+  box-shadow: 0 0 6px #38bdf8;
+}
+
+.spatial-avatar-circle {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #0f766e, #0284c7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.spatial-avatar-text {
+  font-weight: 700;
+  font-size: 0.76rem;
+  color: #ffffff;
+}
+
+.spatial-online-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #42c88a;
+  border: 1.5px solid #0f202b;
+}
+
+/* 4. 12-Column Bento Grid */
+.spatial-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.spatial-bento-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top-color: rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Column Spans */
+.spatial-col-5 {
+  grid-column: span 5;
+}
+
+.spatial-col-3 {
+  grid-column: span 3;
+}
+
+.spatial-col-4 {
+  grid-column: span 4;
+}
+
+.spatial-col-7 {
+  grid-column: span 7;
+}
+
+/* Card Header Common */
+.spatial-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.spatial-card-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spatial-card-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* 1) Top-Left Card (5 Cols): Vertical Capsule Bar Tracks */
+.spatial-capsules-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 220px;
+  padding-top: 10px;
+}
+
+.spatial-capsule-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.spatial-capsule-track {
+  width: 36px;
+  height: 170px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.spatial-capsule-fill {
+  width: 100%;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.35);
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6px;
+  transition: background 0.2s ease;
+}
+
+.spatial-capsule-fill.highlight {
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.25);
+}
+
+.spatial-capsule-track:hover .spatial-capsule-fill {
+  background: rgba(255, 255, 255, 0.60);
+}
+
+.spatial-capsule-pct {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+}
+
+.spatial-capsule-label {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 2) Top-Center Stack (3 Cols): 3 Stacked Mini-Stat Cards */
+.spatial-mini-stats-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.spatial-mini-stat-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.spatial-mini-stat-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.spatial-mini-stat-iconbox {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.spatial-mini-stat-val {
+  font-size: 1.45rem;
+  font-weight: 700;
+  font-family: var(--spatial-font-display);
+  color: #ffffff;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.spatial-mini-stat-lbl {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 3px;
+}
+
+/* 3) Top-Right Card (4 Cols): Donut Ring Chart */
+.spatial-donut-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 200px;
+}
+
+.spatial-donut-ring-wrap {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spatial-donut-center-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.spatial-donut-center-pct {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.spatial-donut-center-lbl {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 2px;
+}
+
+.spatial-donut-metrics-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.spatial-donut-metric-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.spatial-metric-dot-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.spatial-metric-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+}
+
+.spatial-metric-val-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.spatial-metric-number {
+  font-weight: 700;
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+}
+
+.spatial-metric-delta {
+  font-size: 0.7rem;
+  color: #42c88a;
+  font-weight: 600;
+}
+
+/* 4) Bottom-Left Section (7 Cols): Featured Yojnas */
+.spatial-featured-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.spatial-yojna-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 16px;
+  transition: background 0.2s ease;
+}
+
+.spatial-yojna-row:last-child {
+  border-bottom: none;
+}
+
+.spatial-yojna-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.spatial-yojna-ring-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.spatial-yojna-title-wrap {
+  min-width: 0;
+}
+
+.spatial-yojna-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spatial-yojna-criteria {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 2px;
+}
+
+.spatial-badge-apply {
+  background: var(--spatial-lime);
+  color: #1a2408;
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.spatial-badge-apply:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.spatial-badge-verified {
+  background: var(--spatial-emerald);
+  color: #082618;
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.spatial-badge-verified:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+/* 5) Bottom-Right Stack (5 Cols): Timeline & Smart Eligibility */
+.spatial-bottom-right-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.spatial-timeline-strip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  padding: 16px 20px;
+}
+
+.spatial-timeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.spatial-timeline-month {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.spatial-timeline-arrows {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.spatial-mini-arrow-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.spatial-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.spatial-day-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 4px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.spatial-day-pill.active {
+  background: rgba(255, 255, 255, 0.24);
+  border-color: rgba(255, 255, 255, 0.38);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.spatial-day-name {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.spatial-day-date {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 2px;
+}
+
+.spatial-action-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  padding: 16px 20px;
+}
+
+.spatial-action-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.spatial-action-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.spatial-action-iconbox {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #facc15;
+}
+
+.spatial-action-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.spatial-action-sub {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.spatial-btn-start {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 9999px;
+  padding: 8px 18px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.spatial-btn-start:hover {
+  background: rgba(255, 255, 255, 0.26);
+  transform: translateX(2px);
+}
+
+/* Modal Search Overlay */
+.spatial-search-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(4, 8, 14, 0.8);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.spatial-search-modal-box {
+  width: 100%;
+  max-width: 640px;
+  background: rgba(20, 32, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+/* Responsive Grid Breakpoints */
+@media (max-width: 1180px) {
+  .spatial-bento-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .spatial-col-5, .spatial-col-4, .spatial-col-3, .spatial-col-7 {
+    grid-column: span 6 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .spatial-bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .spatial-col-5, .spatial-col-4, .spatial-col-3, .spatial-col-7 {
+    grid-column: span 1 !important;
+  }
+  .spatial-capsules-container {
+    height: 190px;
+  }
+  .spatial-capsule-track {
+    width: 28px;
+  }
+}
