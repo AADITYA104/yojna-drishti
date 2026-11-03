@@ -23,6 +23,7 @@ export function SpatialShell() {
   const [fy] = useState<string>("2025–26");
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedSchemeTerm, setSelectedSchemeTerm] = useState("");
   const [focusRequest, setFocusRequest] = useState<{ id: number; target: GlobalSearchItem } | null>(null);
 
   const gu = lang === "gu";
@@ -86,6 +87,7 @@ export function SpatialShell() {
     setSearchOpen(false);
     setSearchQuery("");
     if (item.kind === "scheme") {
+      setSelectedSchemeTerm(item.label);
       setActiveKey("schemes");
     } else {
       setFocusRequest({ id: Date.now(), target: item });
@@ -131,12 +133,17 @@ export function SpatialShell() {
             >
               <SpatialBentoDashboard
                 gu={gu}
+                fy={fy}
                 onNavigate={(view) => {
                   if (view === "map" || view === "schemes" || view === "wizard" || view === "saved" || view === "settings") {
                     setActiveKey(view);
                   } else {
                     setActiveKey("schemes");
                   }
+                }}
+                onSelectYojna={(name) => {
+                  setSelectedSchemeTerm(name);
+                  setActiveKey("schemes");
                 }}
               />
             </motion.div>
@@ -150,7 +157,7 @@ export function SpatialShell() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              <SchemesView gu={gu} fy={fy} />
+              <SchemesView gu={gu} fy={fy} initialSearchTerm={selectedSchemeTerm} />
             </motion.div>
           )}
 

@@ -22,8 +22,8 @@ export function DemoBanner({ gu, onExploreData }: DemoBannerProps) {
         </strong>
         <span>
           {gu
-            ? "તમામ વહીવટી સ્તરો (રાજ્ય, ૩૪ જિલ્લા, તાલુકા, અને ઘોઘાના ૪૮ ગામો) વાસ્તવિક LGD માળખા પર આધારિત છે. સત્તાવાર સરકારી API જોડાય ત્યાં સુધી આંકડા પૂર્વદર્શન માટે છે."
-            : "All administrative levels (State, 34 Districts, Talukas, and 48 Ghogha Villages) follow real LGD hierarchy. Aggregate statistics are synthetic until official departmental APIs are connected."}
+            ? "તમામ વહીવટી સ્તરો (રાજ્ય, ૩૩ જિલ્લા, તાલુકા, અને ઘોઘાના ૪૮ ગામો) વાસ્તવિક LGD માળખા પર આધારિત છે. સત્તાવાર સરકારી API જોડાય ત્યાં સુધી આંકડા પૂર્વદર્શન માટે છે."
+            : "All administrative levels (State, 33 Districts, Talukas, and 48 Ghogha Villages) follow real LGD hierarchy. Aggregate statistics are synthetic until official departmental APIs are connected."}
         </span>
       </div>
       {onExploreData && (
