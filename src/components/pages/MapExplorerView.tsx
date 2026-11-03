@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Building2, Filter, MapPinned } from "lucide-react";
 import { demoDistricts, demoSchemes, type District } from "@/lib/demo-data";
 import { NOTEBOOK_WOMEN_SCHEMES } from "@/lib/master-hierarchy";
@@ -33,6 +33,12 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
   const [selectedScheme, setSelectedScheme] = useState(
     focusRequest?.target.kind === "scheme" ? focusRequest.target.id : "all",
   );
+
+  useEffect(() => {
+    if (focusRequest?.target.kind === "scheme") {
+      setSelectedScheme(focusRequest.target.id);
+    }
+  }, [focusRequest]);
   const [selectedRegion, setSelectedRegion] = useState<"all" | District["region"]>("all");
   const regionDistrictId = selectedRegion === "all"
     ? "bhavnagar"

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import {
   ClipboardList,
   Search,
@@ -30,6 +30,12 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
   const [search, setSearch] = useState(initialSearchTerm);
   const [expandedSchemeId, setExpandedSchemeId] = useState<string | null>("YD-CAND-01");
   const [selectedModalScheme, setSelectedModalScheme] = useState<Scheme | null>(null);
+
+  useEffect(() => {
+    if (initialSearchTerm) {
+      setSearch(initialSearchTerm);
+    }
+  }, [initialSearchTerm]);
 
   const fmt = (num: number) => new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(num);
 

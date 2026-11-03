@@ -22,20 +22,33 @@ type SearchItem = {
 };
 
 let villageIndex: SearchVillage[] | null = null;
+let villageCoverageMeta = {
+  totalSubdistricts: MASTER_SUBDISTRICTS.length,
+  indexedSubdistricts: 0,
+  missingSubdistricts: 0,
+  isPartial: false,
+};
 
 function normalize(value: string) {
   return value.toLocaleLowerCase().normalize("NFKC").replace(/[^\p{L}\p{N}]/gu, "");
 }
 
 function loadVillageIndex() {
-  if (villageIndex) return villageIndex;
+  if (villageIndex) return { villages: villageIndex, coverage: villageCoverageMeta };
   const root = path.join(process.cwd(), "public", "data", "hierarchy", "villages");
   const notebookNames = new Map<string, MasterVillage>(GHOGHA_48_VILLAGES.map((village) => [village.code, village]));
+  let indexed = 0;
+  let missing = 0;
+
   villageIndex = MASTER_SUBDISTRICTS.flatMap((subdistrict) => {
     const filePath = path.join(root, `${subdistrict.code}.json`);
-    if (!fs.existsSync(filePath)) return [];
+    if (!fs.existsSync(filePath)) {
+      missing++;
+      return [];
+    }
     try {
       const entries = JSON.parse(fs.readFileSync(filePath, "utf8")) as Array<{ code: string | number; nameEn: string }>;
+      indexed++;
       return entries.map((entry) => {
         const code = String(entry.code);
         const notebook = notebookNames.get(code);
@@ -48,10 +61,19 @@ function loadVillageIndex() {
         };
       });
     } catch {
+      missing++;
       return [];
     }
   });
-  return villageIndex;
+
+  villageCoverageMeta = {
+    totalSubdistricts: MASTER_SUBDISTRICTS.length,
+    indexedSubdistricts: indexed,
+    missingSubdistricts: missing,
+    isPartial: missing > 0,
+  };
+
+  return { villages: villageIndex, coverage: villageCoverageMeta };
 }
 
 export async function GET(request: NextRequest) {
@@ -76,7 +98,7 @@ export async function GET(request: NextRequest) {
     }
   }
 
-  const villages = loadVillageIndex();
+  const { villages, coverage } = loadVillageIndex();
   const matchingVillages = villages.filter((village) => [village.nameEn, village.nameGu || "", village.code].some((value) => normalize(value).includes(query)));
   for (const village of matchingVillages.slice(0, 12)) {
     const subdistrict = MASTER_SUBDISTRICTS.find((item) => item.code === village.subDistrictCode);
@@ -108,5 +130,12 @@ export async function GET(request: NextRequest) {
       return Number(bStarts) - Number(aStarts) || a.label.localeCompare(b.label);
     })
     .slice(0, 10);
-  return NextResponse.json({ data: ranked, meta: { count: ranked.length, data_mode: "LOCAL_HIERARCHY_AND_DEMO_CATALOGUE" } }, { headers: { "Cache-Control": "no-store" } });
+  return NextResponse.json({
+    data: ranked,
+    meta: {
+      count: ranked.length,
+      data_mode: "LOCAL_HIERARCHY_AND_DEMO_CATALOGUE",
+      coverage,
+    },
+  }, { headers: { "Cache-Control": "no-store" } });
 }

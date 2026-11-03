@@ -217,6 +217,10 @@ body.dr-glass {
 }
 
 @media (max-width: 1023px) {
+  .spatial-app-shell {
+    padding-bottom: 96px; /* Space for Bottom Floating Dock */
+  }
+
   .spatial-dock-anchor {
     left: 50%;
     top: auto;
@@ -229,6 +233,24 @@ body.dr-glass {
     gap: 12px;
     padding: 8px 14px;
   }
+}
+
+/* Ensure Map Explorer and Sub-Views inside Spatial Glass Container have full responsive height */
+.spatial-main-container .map-explorer-page,
+.spatial-main-container .full-map-wrapper {
+  min-height: 680px;
+  height: 75vh;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.spatial-main-container .map-container,
+.spatial-main-container .geo-map-viewport,
+.spatial-main-container .maplibregl-map {
+  min-height: 580px;
+  height: 100%;
+  border-radius: 18px;
 }
 
 /* 3. Main Spatial Frosted Glass Container */
@@ -1190,6 +1212,53 @@ body.dr-glass {
   border-radius: 24px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
   overflow: hidden;
+}
+
+/* Nested View Glass Harmony inside Spatial Frame */
+.spatial-main-container .page-hero-gov,
+.spatial-main-container .geo-explorer-header,
+.spatial-main-container .schemes-toolbar-gov {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  backdrop-filter: blur(16px);
+  color: #f4f6ff;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+}
+
+.spatial-main-container .page-hero-gov h1,
+.spatial-main-container .geo-explorer-header h1 {
+  color: #ffffff;
+}
+
+.spatial-main-container .page-hero-gov p,
+.spatial-main-container .geo-explorer-header p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.spatial-main-container .scheme-card-gov,
+.spatial-main-container .analytics-card-gov,
+.spatial-main-container .panel-gov,
+.spatial-main-container .admin-section-gov,
+.spatial-main-container .portal-step-card {
+  background: rgba(255, 255, 255, 0.055) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 18px !important;
+  color: #f4f6ff !important;
+}
+
+.spatial-main-container table {
+  color: #f4f6ff;
+}
+
+.spatial-main-container th {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.spatial-main-container td {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Responsive Grid Breakpoints */

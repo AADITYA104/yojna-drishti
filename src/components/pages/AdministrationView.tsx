@@ -20,7 +20,7 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
   const roles = [
     {
       role: gu ? "રાજ્ય સુપર એડમિન (State Admin)" : "State SuperAdmin",
-      jurisdiction: gu ? "સમગ્ર ગુજરાત (૩૪ જિલ્લા)" : "All Gujarat (34 Districts)",
+      jurisdiction: gu ? "સમગ્ર ગુજરાત (૩૩ જિલ્લા)" : "All Gujarat (33 Districts)",
       users: 4,
       canViewAll: true,
       canUpload: true,
@@ -30,7 +30,7 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
     {
       role: gu ? "જિલ્લા કલેક્ટર / DDO" : "District Collector / DDO",
       jurisdiction: gu ? "પોતાનો જિલ્લો (દા.ત. ભાવનગર)" : "Own District (e.g. Bhavnagar)",
-      users: 34,
+      users: 33,
       canViewAll: true,
       canUpload: true,
       canApprove: true,
