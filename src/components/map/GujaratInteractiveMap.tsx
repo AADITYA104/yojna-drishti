@@ -463,7 +463,26 @@ export function GujaratInteractiveMap({
           duration: 1000,
         });
       }
-      const demoVillage = demoVillages.find((item) => item.code === code);
+      const vItem = (villageItems.find((item) => item.code === code) || GHOGHA_48_VILLAGES.find((item) => item.code === code)) as any;
+      const demoVillage: Village | undefined = demoVillages.find((item) => item.code === code) || (vItem ? ({
+        id: vItem.code || code,
+        code: vItem.code || code,
+        name: vItem.nameEn || "Village",
+        gu: vItem.nameGu || vItem.nameEn || "ગામ",
+        talukaId: String(currentTalukaCode || 3855),
+        households: vItem.households || 280,
+        population: vItem.population || 1800,
+        femalePopulation: vItem.femalePopulation || 900,
+        venue: vItem.venueEn || vItem.venue || "Primary School",
+        venueGu: vItem.venueGu || "પ્રાથમિક શાળા",
+        totalBeneficiaries: vItem.beneficiaries || 45,
+        applications: (vItem.applications || vItem.beneficiaries || 45) + 10,
+        approved: vItem.approved || vItem.beneficiaries || 45,
+        disbursedLakhs: vItem.disbursedLakhs || 6.5,
+        anganwadiCount: vItem.anganwadis || vItem.anganwadiCount || 2,
+        coordinates: { x: 0, y: 0 },
+        schemeBreakdown: [],
+      } as Village) : undefined);
       if (demoVillage) onVillageSelect?.(demoVillage);
     },
     [currentDistrictId, officialBoundaryData, onVillageSelect, villageItems],

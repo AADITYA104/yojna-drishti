@@ -1,0 +1,69 @@
+/* ==========================================================================
+ * Motion system. Rules:
+ *  1. ONE orchestrated moment per page (hero intro). Not a fade-up on every card.
+ *  2. Motion answers an action (click, open, select) or reveals data. No decorative loops
+ *     except: the live-dot, the pilot-district pulse, skeleton shimmer.
+ *  3. Everything honours prefers-reduced-motion.
+ * ========================================================================== */
+:root {
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 340ms;
+  --dur-chart: 900ms;
+  --dur-hero: 1200ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: linear(0, 0.34 8%, 0.82 18%, 1.06 28%, 1.08 34%, 1 48%, 0.99 60%, 1);
+}
+
+/* Page change (used with withViewTransition) */
+::view-transition-old(root) { animation: dr-fade-out var(--dur-fast) var(--ease-in-out) both; }
+::view-transition-new(root) { animation: dr-fade-in var(--dur-slow) var(--ease-out) both; }
+@keyframes dr-fade-out { to { opacity: 0; } }
+@keyframes dr-fade-in { from { opacity: 0; transform: translateY(8px); } }
+
+/* Hero intro: apply .dr-intro to the hero container ONLY */
+.dr-intro > * { animation: dr-rise var(--dur-hero) var(--ease-out) both; }
+.dr-intro > *:nth-child(2) { animation-delay: 90ms; }
+.dr-intro > *:nth-child(3) { animation-delay: 180ms; }
+.dr-intro > *:nth-child(4) { animation-delay: 270ms; }
+@keyframes dr-rise { from { opacity: 0; transform: translateY(18px); } }
+
+/* Choropleth district reveal: ripples outward from the pilot district via --d */
+.dr-dist {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dr-district-in 700ms var(--ease-out) both;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes dr-district-in { from { opacity: 0; transform: scale(0.92); } }
+
+/* Live dot + pilot pulse */
+.dr-live { width: 8px; height: 8px; border-radius: 50%; background: var(--neem-600); position: relative; }
+.dr-live::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: inherit; animation: dr-ping 2.2s var(--ease-out) infinite; }
+@keyframes dr-ping { to { transform: scale(3.2); opacity: 0; } }
+.dr-pilot-ring { animation: dr-pilot 2.4s var(--ease-in-out) infinite; }
+@keyframes dr-pilot { 50% { stroke-width: 4; stroke-opacity: 0.55; } }
+
+/* Skeleton */
+.dr-skeleton {
+  background: linear-gradient(100deg, var(--salt-100) 30%, var(--salt-50) 50%, var(--salt-100) 70%);
+  background-size: 200% 100%;
+  animation: dr-sheen 1.4s linear infinite;
+  border-radius: var(--r-sm);
+}
+@keyframes dr-sheen { to { background-position: -200% 0; } }
+
+/* Press feedback for real buttons */
+.dr-press { transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+.dr-press:active { transform: scale(0.97); }
+
+/* Sliding tab underline: set --x and --w from JS */
+.dr-tabs-ink { position: absolute; bottom: 0; height: 3px; border-radius: 3px 3px 0 0; background: var(--haldi-500);
+  left: 0; width: var(--w, 0); transform: translateX(var(--x, 0));
+  transition: transform var(--dur-slow) var(--ease-spring), width var(--dur-slow) var(--ease-out); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}

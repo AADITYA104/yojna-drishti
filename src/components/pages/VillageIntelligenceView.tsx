@@ -29,6 +29,7 @@ import {
 } from "@/lib/master-hierarchy";
 import { scaleDemoValue } from "@/lib/metrics.mjs";
 import { GHOGHA_VILLAGE_SCHEME_DEMO } from "@/lib/village-scheme-demo";
+import { VillageSchemeRegister } from "../shared/VillageSchemeRegister";
 
 type VillageRecord = MasterVillage & { hasDemoMetrics: boolean };
 
@@ -423,74 +424,19 @@ export function VillageIntelligenceView({
               </div>
             </div>
 
-            {/* Notebook Scheme Category Filter Buttons */}
-            <div className="vdc-scheme-tabs-row">
-              <button
-                className={`scheme-tab-btn ${activeTab === "all" ? "active" : ""}`}
-                onClick={() => setActiveTab("all")}
-              >
-                {gu ? "આ ગામની યોજનાઓ" : `Village schemes (${villageSchemes.length})`}
-              </button>
-              <button
-                className={`scheme-tab-btn ${activeTab === "women" ? "active" : ""}`}
-                onClick={() => setActiveTab("women")}
-              >
-                {gu ? "મહિલા કલ્યાણ (Women)" : "Women Welfare"}
-              </button>
-              <button
-                className={`scheme-tab-btn ${activeTab === "housewife" ? "active" : ""}`}
-                onClick={() => setActiveTab("housewife")}
-              >
-                {gu ? "ગૃહિણી સહાય (Housewife)" : "Housewife Schemes"}
-              </button>
-              <button
-                className={`scheme-tab-btn ${activeTab === "entrepreneur" ? "active" : ""}`}
-                onClick={() => setActiveTab("entrepreneur")}
-              >
-                {gu ? "મહિલા સાહસિક (Entrepreneurs)" : "Women Entrepreneurs"}
-              </button>
-            </div>
-
-            {/* Scheme Cards Grid */}
-            <div className="vdc-schemes-deck">
-              {currentVillage.hasDemoMetrics && displayedSchemes.length > 0 ? displayedSchemes.map(({ scheme, beneficiaries, grantLakhs }) => {
-                return (
-                  <div key={scheme.id} className="vdc-scheme-item">
-                    <div className="vsi-top">
-                      <div>
-                        <span className="vsi-cat-tag">{gu ? scheme.categoryGu : scheme.notebookCategory}</span>
-                        <h4>{gu ? scheme.nameGu : scheme.nameEn}</h4>
-                      </div>
-                      <span className="vsi-ben-badge">{fmt(scaleDemoValue(beneficiaries, fy))} {gu ? "લાભાર્થી · ડેમો" : "beneficiaries · demo"}</span>
-                    </div>
-
-                    <p className="vsi-benefit">
-                      <Info size={14} className="inline mr-1 text-slate-500" />
-                      <b>{gu ? "યોજનાનો હેતુ:" : "Scheme description:"}</b> {gu ? scheme.benefitGu : scheme.benefit}
-                    </p>
-
-                    <div className="vsi-footer">
-                      <div className="vsi-target">
-                        <small>{gu ? "લક્ષિત જૂથ (યોજના નોંધ):" : "Target group (catalogue):"}</small>
-                        <span>{gu ? scheme.targetGu : scheme.target}</span>
-                      </div>
-                      <div className="vsi-amt">
-                        <small>{gu ? "ચુકવણી · ડેમો:" : "Disbursement · demo:"}</small>
-                        <strong>₹{(grantLakhs * yearFactor).toFixed(1)} {gu ? "લાખ" : "L"}</strong>
-                      </div>
-                    </div>
-                  </div>
-                );
-              }) : (
-                <div className="village-scheme-empty" role="status">
-                  <strong>{currentVillage.hasDemoMetrics
-                    ? (gu ? "આ ફિલ્ટર માટે ઉદાહરણ યોજના નથી" : "No illustrative scheme matches this filter")
-                    : (gu ? "આ ગામ માટે યોજના કવરેજનો ડેટા મળ્યો નથી" : "No village-level scheme coverage data found")}</strong>
-                  <span>{gu
-                    ? "આથી અહીં યોજના ચાલુ છે કે નહીં તે નક્કી થતું નથી. સત્તાવાર વિભાગીય ડેટા જોડાયા પછી માહિતી દેખાશે."
-                    : "This does not mean a scheme is inactive. Coverage will appear when verified department data is connected."}</span>
-                </div>
-              )}
+            {/* Comprehensive Village Transparency Register */}
+            <div className="mt-4">
+              <VillageSchemeRegister
+                villageCode={currentVillage.code}
+                villageNameGu={currentVillage.nameGu}
+                villageNameEn={currentVillage.nameEn}
+                talukaNameGu={selectedSubdistrict.nameGu}
+                talukaNameEn={selectedSubdistrict.nameEn}
+                districtNameGu={selectedDistrict.nameGu}
+                districtNameEn={selectedDistrict.nameEn}
+                gu={gu}
+                fy={fy}
+              />
             </div>
           </div>
         ) : (

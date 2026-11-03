@@ -1,19 +1,102 @@
+/* ==========================================================================
+ * YOJANA DRISHTI — "Rann & Rang" design tokens (drop-in replacement)
+ * Legacy variable names (--navy-*, --teal-600, --bg ...) are kept and re-mapped,
+ * so the existing 7,500-line app.css keeps working while you migrate page by page.
+ * ========================================================================== */
 :root {
   color-scheme: light;
-  --navy-950: #071a31;
-  --navy-900: #0b2545;
-  --navy-800: #112f52;
-  --navy-700: #183e67;
-  --teal-600: #138681;
-  --teal-100: #e8f5f3;
-  --orange-500: #e98c32;
-  --bg: #f2f5f8;
-  --surface: #fff;
-  --surface-soft: #f8fafc;
-  --border: #e2e8ef;
-  --text: #172638;
-  --muted: #718096;
-  --success: #228557;
-  --warning: #a76a18;
+
+  /* Ink — Ajrakh indigo: structure, text, sidebar */
+  --ink-950: #0d1530;
+  --ink-900: #131e45;
+  --ink-800: #1b2a5e;
+  --ink-700: #27397b;
+  --ink-500: #4a5fa8;
+  --ink-200: #c3cbe6;
+  --ink-100: #e4e8f5;
+
+  /* Haldi — turmeric: highlight, pilot district, primary call-to-action */
+  --haldi-600: #c27a00;
+  --haldi-500: #f2a413;
+  --haldi-300: #f8cd6b;
+  --haldi-100: #fdf1d2;
+
+  /* Mor — peacock teal: interactive, selection, "live" */
+  --mor-700: #0a5f68;
+  --mor-600: #0f7c86;
+  --mor-400: #3aa7ae;
+  --mor-100: #ddf1f2;
+
+  /* Status */
+  --madder-600: #b3382c;
+  --madder-100: #f8e3e0;
+  --neem-600: #2e8b57;
+  --neem-100: #e0f2e8;
   --demo: #7545a5;
+  --demo-100: #efe6f7;
+
+  /* Rann salt — cool white canvas (NOT cream) */
+  --salt-0: #ffffff;
+  --salt-50: #f6f7f4;
+  --salt-100: #edefea;
+  --salt-200: #dfe2db;
+  --salt-300: #c9cdc4;
+
+  --text: #161d33;
+  --text-soft: #3b4466;
+  --muted: #5e6785;
+
+  /* Choropleth ramp (5 steps, single hue) */
+  --map-1: #e4e8f5;
+  --map-2: #b4bfe3;
+  --map-3: #7f92cf;
+  --map-4: #4a5fa8;
+  --map-5: #1b2a5e;
+
+  /* Legacy aliases (so existing app.css keeps working visually) */
+  --navy-950: var(--ink-950);
+  --navy-900: var(--ink-900);
+  --navy-800: var(--ink-800);
+  --navy-700: var(--ink-700);
+  --teal-600: var(--mor-600);
+  --teal-100: var(--mor-100);
+  --orange-500: var(--haldi-500);
+  --bg: var(--salt-50);
+  --surface: var(--salt-0);
+  --surface-soft: var(--salt-50);
+  --border: var(--salt-200);
+  --success: var(--neem-600);
+  --warning: var(--haldi-600);
+
+  /* Type */
+  --font-display: var(--font-display-next, "Rasa"), "Noto Serif Gujarati", Georgia, serif;
+  --font-ui: var(--font-ui-next, "Hind Vadodara"), "Noto Sans Gujarati", system-ui, sans-serif;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-base: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);
+  --fs-hero: clamp(2.25rem, 1.4rem + 3.4vw, 4rem);
+  --lh-gu: 1.65;
+
+  /* Radius — different per hierarchy on purpose */
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-pill: 999px;
+
+  /* Elevation — ink-tinted, layered */
+  --shadow-1: 0 1px 2px rgb(13 21 48 / 0.06), 0 6px 14px -8px rgb(13 21 48 / 0.12);
+  --shadow-2: 0 2px 4px rgb(13 21 48 / 0.06), 0 14px 32px -12px rgb(13 21 48 / 0.22);
+  --shadow-pop: 0 4px 8px rgb(13 21 48 / 0.08), 0 28px 60px -16px rgb(13 21 48 / 0.35);
+
+  /* Space (4px base) */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 72px;
+
+  /* Layout */
+  --rail-w: 76px;
+  --rail-w-open: 268px;
 }
