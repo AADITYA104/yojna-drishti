@@ -1,18 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   X,
   FileText,
   CheckCircle2,
-  Download,
   MapPin,
-  Building2,
   Calendar,
   Wallet,
   ShieldCheck,
-  ExternalLink,
   Check,
+  Info,
 } from "lucide-react";
 import { type Scheme } from "@/lib/demo-data";
 
@@ -24,6 +22,15 @@ interface SchemeDetailModalProps {
 
 export function SchemeDetailModal({ scheme, onClose, gu }: SchemeDetailModalProps) {
   const [checkedDocs, setCheckedDocs] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    if (!scheme) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [scheme, onClose]);
 
   if (!scheme) return null;
 
@@ -37,7 +44,7 @@ export function SchemeDetailModal({ scheme, onClose, gu }: SchemeDetailModalProp
   };
 
   return (
-    <div className="scheme-modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
+    <div className="scheme-modal-backdrop" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="scheme-modal-title">
       <div className="scheme-modal-card" onClick={(e) => e.stopPropagation()}>
         {/* Header */}
         <div className="scheme-modal-header">
@@ -45,8 +52,8 @@ export function SchemeDetailModal({ scheme, onClose, gu }: SchemeDetailModalProp
             <span className="psc-badge">{gu ? scheme.categoryGu : scheme.category}</span>
             <span className="psc-code">{scheme.id}</span>
             <span className="smh-verified-pill">
-              <ShieldCheck size={13} />
-              {gu ? "ગુજરાત સરકાર અધિકૃત" : "Govt of Gujarat Verified"}
+              <Info size={13} />
+              {gu ? "નમૂનાની વિગતો · ચકાસાયેલ નથી" : "Sample details · unverified"}
             </span>
           </div>
 
@@ -56,18 +63,14 @@ export function SchemeDetailModal({ scheme, onClose, gu }: SchemeDetailModalProp
         </div>
 
         <div className="scheme-modal-body">
-          <h2 className="smh-title">{gu ? scheme.gu : scheme.name}</h2>
+          <h2 id="scheme-modal-title" className="smh-title">{gu ? scheme.gu : scheme.name}</h2>
           <span className="smh-subtitle">{gu ? scheme.name : scheme.gu}</span>
 
-          {/* Department & Budget Bar */}
+          {/* Scheme metadata. Sample budget figures are intentionally omitted. */}
           <div className="smh-meta-strip">
             <span>
-              <Building2 size={15} />
+              <MapPin size={15} />
               <b>{gu ? scheme.departmentGu : scheme.department}</b>
-            </span>
-            <span>
-              <Wallet size={15} />
-              <b>₹ {scheme.budgetAllocatedCr} Cr {gu ? "વાર્ષિક બજેટ" : "Budget"}</b>
             </span>
             <span>
               <Calendar size={15} />
@@ -78,7 +81,7 @@ export function SchemeDetailModal({ scheme, onClose, gu }: SchemeDetailModalProp
           {/* Benefit Highlight Box */}
           <div className="smh-benefit-card">
             <div className="sbc-left">
-              <span className="sbc-label">{gu ? "સરકારી સહાય અને લાભ:" : "Financial Benefit:"}</span>
+              <span className="sbc-label">{gu ? "લાભ · નમૂનાની માહિતી:" : "Benefit · sample information:"}</span>
               <strong className="sbc-value">{gu ? scheme.benefitAmountGu : scheme.benefitAmount}</strong>
             </div>
             <div className="sbc-type-badge">
@@ -170,27 +173,21 @@ export function SchemeDetailModal({ scheme, onClose, gu }: SchemeDetailModalProp
               <strong>{gu ? "અરજી કરવાની પ્રક્રિયા અને સ્થળ:" : "Application Procedure & Offices:"}</strong>
               <p>
                 {gu
-                  ? "૧. તમારા ગામની સ્થાનિક આંગણવાડી કાર્યકર અથવા ગ્રામ પંચાયતના તલાટી-કમ-મંત્રીનો સંપર્ક કરો."
-                  : "1. Contact your local Anganwadi Worker or Gram Panchayat Talati."}
+                  ? "અરજીની જગ્યા અને પ્રક્રિયા યોજના પ્રમાણે અલગ હોઈ શકે છે."
+                  : "Application office and process vary by scheme."}
                 <br />
                 {gu
-                  ? "૨. ડિજિટલ સેવા સેતુ (Digital Seva Setu) અથવા ઇ-સમાજ કલ્યાણ (e-Samaj Kalyan) પોર્ટલ પર ઓનલાઈન અરજી થઈ શકે છે."
-                  : "2. Apply online via Digital Seva Setu or e-Samaj Kalyan portal."}
+                  ? "અરજી કરતાં પહેલાં સંબંધિત સરકારી વિભાગની સત્તાવાર વેબસાઇટ પર પાત્રતા અને દસ્તાવેજોની પુષ્ટિ કરો."
+                  : "Before applying, confirm eligibility and documents on the responsible department’s official website."}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Modal Footer Actions */}
-        <div className="scheme-modal-footer">
-          <button className="btn-modal-download" onClick={() => alert(gu ? "અધિકૃત અરજી ફોર્મ PDF ડાઉનલોડ થાય છે..." : "Downloading official application form PDF...")}>
-            <Download size={16} />
-            <span>{gu ? "અરજી ફોર્મ ડાઉનલોડ (PDF)" : "Download Form (PDF)"}</span>
-          </button>
-          <button className="btn-modal-portal" onClick={() => window.open("https://digitalgujarat.gov.in", "_blank")}>
-            <ExternalLink size={16} />
-            <span>{gu ? "ઓનલાઇન પોર્ટલ પર જાઓ" : "Open Digital Gujarat"}</span>
-          </button>
+        <div className="scheme-modal-footer scheme-modal-preview-note" role="note">
+          {gu
+            ? "આ પૂર્વદર્શન અરજી સ્વીકારતું નથી. સત્તાવાર યોજના પાનું અને અરજી લિંક અહીં જોડાયેલી નથી."
+            : "This preview does not accept applications. An official scheme page or application link is not connected here."}
         </div>
       </div>
     </div>

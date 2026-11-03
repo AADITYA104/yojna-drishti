@@ -126,14 +126,14 @@ export function Topbar({
 
   return (
     <div className="topbar-container-wrap">
-      {/* 1. Official Government of Gujarat Utility Header Strip */}
+      {/* Gujarat scheme preview utility strip */}
       <div className="gov-official-utility-bar">
         <div className="gov-utility-left">
           <span className="gov-tricolor-badge" />
           <span className="gov-utility-dept-name">
             {gu
-              ? "ગુજરાત સરકાર | GOVERNMENT OF GUJARAT · મહિલા અને બાળ વિકાસ વિભાગ"
-              : "GOVERNMENT OF GUJARAT · Department of Women & Child Development"}
+              ? "ગુજરાત યોજના માહિતી · જાહેર પૂર્વદર્શન"
+              : "GUJARAT SCHEME INFORMATION · PUBLIC PREVIEW"}
           </span>
         </div>
 

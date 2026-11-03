@@ -5,19 +5,14 @@ import {
   Headphones,
   X,
   Send,
-  User,
   ChevronRight,
-  PhoneCall,
-  ShieldCheck,
-  CheckCircle2,
   Building2,
-  FileText,
-  HelpCircle,
+  Info,
 } from "lucide-react";
 
 interface DrishtiAISahayakProps {
   gu: boolean;
-  onNavigate: (page: any) => void;
+  onNavigate: (page: string, searchTerm?: string) => void;
 }
 
 interface ChatMessage {
@@ -25,7 +20,7 @@ interface ChatMessage {
   sender: "user" | "bot";
   text: string;
   timestamp: string;
-  suggestedAction?: { label: string; page: string };
+  suggestedAction?: { label: string; page: string; searchTerm?: string };
 }
 
 export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
@@ -36,9 +31,9 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
       id: "welcome",
       sender: "bot",
       text: gu
-        ? "નમસ્તે! મહિલા અને બાળ વિકાસ વિભાગ નાગરિક સહાયતા કેન્દ્રમાં આપનું સ્વાગત છે. ગુજરાત સરકારની કલ્યાણકારી યોજનાઓ, પાત્રતા, આવક મર્યાદા અને જરૂરી દસ્તાવેજો અંગે કોઈ પણ પ્રશ્ન પૂછી શકો છો."
-        : "Welcome to the Department of Women & Child Development Citizen Assistance Desk. Inquire about Gujarat welfare schemes, eligibility rules, and required documentation.",
-      timestamp: "સત્તાવાર માર્ગદર્શન",
+        ? "નમસ્તે! હું આ યોજનાઓના પૂર્વદર્શન માટેનો સહાયક છું. અહીંની માહિતી નમૂનાની છે; પાત્રતા, લાભ અને અરજી પ્રક્રિયા સત્તાવાર વિભાગ પાસે ચકાસો."
+        : "Hello! I can help you explore this scheme preview. Its entries are samples; confirm eligibility, benefits, and application steps with the responsible department.",
+      timestamp: gu ? "નમૂનાનો જવાબ" : "Preview response",
     },
   ]);
 
@@ -69,7 +64,7 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
     if (!text) return;
 
     const userMsg: ChatMessage = {
-      id: String(Date.now()),
+      id: crypto.randomUUID(),
       sender: "user",
       text,
       timestamp: "તમારો પ્રશ્ન",
@@ -81,32 +76,32 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
     setTimeout(() => {
       const lower = text.toLowerCase();
       let botResponse = "";
-      let action: { label: string; page: string } | undefined;
+      let action: ChatMessage["suggestedAction"];
 
       if (lower.includes("દીકરી") || lower.includes("girl") || lower.includes("કન્યા") || lower.includes("વાહલી")) {
         botResponse = gu
-          ? "વહાલી દીકરી યોજના (VDY): દીકરીના જન્મ સમયે નોંધણી બાદ ધોરણ ૧ માં ₹૪,૦૦૦, ધોરણ ૯ માં ₹૬,૦૦૦ અને ૧૮ વર્ષ પૂર્ણ થતાં ઉચ્ચ શિક્ષણ કે લગ્ન માટે ₹૧,૦૦,૦૦૦ મળી કુલ ₹૧,૧૦,૦૦૦ ની સહાય સીધા બેંક ખાતામાં DBT દ્વારા મળે છે. ગ્રામ્ય વિસ્તારમાં સ્થાનિક આંગણવાડી અથવા તાલુકા પંચાયત (WCD શાખા) માં અરજી કરી શકાય છે."
-          : "Vahali Dikri Yojana: Provides total assistance of ₹1,10,000 across 3 milestones (Class 1: ₹4,000, Class 9: ₹6,000, and age 18: ₹1,00,000). Applications accepted at Anganwadis or Taluka WCD offices.";
-        action = { label: gu ? "યોજનાઓની યાદી જુઓ" : "View Schemes", page: "schemes" };
+          ? "યોજના સૂચિમાં દીકરીઓ માટેની કેટલીક નમૂનાની નોંધો છે. તેમની પાત્રતા, લાભની રકમ અને છેલ્લી તારીખ ચકાસેલી નથી. વિગતો જોવા યોજના સૂચિ ખોલો અને અરજી પહેલાં સત્તાવાર વિભાગ પાસે પુષ્ટિ કરો."
+          : "The catalogue contains sample entries for girls. Their eligibility, benefit amounts, and deadlines are not verified. Open the scheme directory for the entries and confirm details with the official department before applying.";
+        action = { label: gu ? "દીકરીની નોંધો શોધો" : "Find girl child entries", page: "schemes", searchTerm: gu ? "દીકરી" : "girl" };
       } else if (lower.includes("વિધવા") || lower.includes("ગંગા") || lower.includes("widow")) {
         botResponse = gu
-          ? "ગંગા સ્વરૂપા આર્થિક સહાય યોજના: ૧૮ કે તેથી વધુ વયની નિરાધાર/વિધવા બહેનોને દર મહિને ₹૧,૨૫૦ (વાર્ષિક ₹૧૫,૦૦૦) પોસ્ટ કે બેંક ખાતામાં સીધા જમા કરવામાં આવે છે. આ સહાય પુનઃલગ્ન ન થાય ત્યાં સુધી આજીવન મળે છે."
-          : "Ganga Swarupa Scheme: Monthly pension of ₹1,250 (₹15,000/year) disbursed directly to bank/post office accounts for widowed beneficiaries.";
-        action = { label: gu ? "પાત્રતા ચકાસો" : "Check Eligibility", page: "public" };
+          ? "સૂચિમાં વિધવા સહાય માટેની નમૂનાની નોંધ છે. તેમાંની રકમ અને શરતો સત્તાવાર રીતે ચકાસેલી નથી. પહેલા મૂળ વિભાગની વેબસાઇટ પર હાલના નિયમો તપાસો."
+          : "The catalogue includes a sample widow-support entry. Its amount and conditions are not officially verified. Check the department’s current rules first.";
+        action = { label: gu ? "વિધવા સહાયની નોંધ શોધો" : "Find widow support entry", page: "schemes", searchTerm: gu ? "વિધવા" : "widow" };
       } else if (lower.includes("દસ્તાવેજ") || lower.includes("document") || lower.includes("પુરાવા")) {
         botResponse = gu
-          ? "સામાન્ય રીતે જરૂરી મુખ્ય પુરાવા: ૧. આધાર કાર્ડ, ૨. રેશન કાર્ડ, ૩. આવકનો દાખલો (મામલતદાર/તલાટીનો), ૪. બેંક પાસબુક પ્રથમ પાનાની નકલ, ૫. ઉંમરનો પુરાવો (શાળા છોડ્યાનું પ્રમાણપત્ર અથવા જન્મ પ્રમાણપત્ર)."
-          : "Mandatory documents: 1. Aadhaar Card, 2. Ration Card, 3. Income Certificate from Talati/Mamlatdar, 4. Bank Passbook copy, 5. Proof of age.";
+          ? "દરેક યોજનાના દસ્તાવેજો અલગ હોઈ શકે છે. પૂર્વદર્શનની ચેકલિસ્ટ નમૂનાની છે—અરજી પહેલાં સત્તાવાર યોજના સૂચના સાથે એક-એક દસ્તાવેજ સરખાવો."
+          : "Required documents vary by scheme. The preview checklist is illustrative; compare each document with the official scheme notice before applying.";
         action = { label: gu ? "પાત્રતા વિઝાર્ડ ખોલો" : "Open Eligibility Wizard", page: "public" };
       } else if (lower.includes("ક્યાં") || lower.includes("જમા") || lower.includes("અરજી") || lower.includes("form")) {
         botResponse = gu
-          ? "અરજી જમા કરાવવાના સ્થળો: ૧. તમારા ગામની સ્થાનિક આંગણવાડી કાર્યકર, ૨. ગ્રામ પંચાયતના ઈ-ગ્રામ કેન્દ્ર / તલાટી-કમ-મંત્રી, ૩. તાલુકા પંચાયતની બાળ વિકાસ યોજના અધિકારી (CDPO) કચેરી, અથવા ડિજિટલ સેવા સેતુ પોર્ટલ."
-          : "Application venues: 1. Village Anganwadi Worker, 2. e-Gram Kendra / Talati, 3. Taluka CDPO office, or Digital Seva Setu portal.";
+          ? "અરજીનું સ્થળ યોજના અને વિભાગ પ્રમાણે બદલાય છે. આ પૂર્વદર્શનમાં સત્તાવાર અરજી લિંક જોડાયેલી નથી; સંબંધિત વિભાગનું અધિકૃત યોજના પાનું તપાસો."
+          : "Application channels vary by scheme and department. This preview does not include official application links; check the responsible department’s scheme page.";
         action = { label: gu ? "નાગરિક પોર્ટલ" : "Citizen Portal", page: "public" };
       } else {
         botResponse = gu
-          ? "મહિલા અને બાળ વિકાસ વિભાગની તમામ યોજનાઓનું વિશ્લેષણ અને પાત્રતા માપદંડ 'યોજના શોધક' ટેબમાં ઉપલબ્ધ છે. વધુ માહિતી માટે હેલ્પલાઇન ૧૮૧ (અભયમ) પર સંપર્ક કરી શકો છો."
-          : "All departmental schemes and eligibility criteria are indexed in the Citizen Finder tab. For urgent support, dial 181 (Abhayam).";
+          ? "આ પૂર્વદર્શનમાં મર્યાદિત નમૂનાની યોજના નોંધો છે; તે તમામ સરકારી યોજનાઓની સંપૂર્ણ યાદી નથી. સૂચિ ખોલીને ઉપલબ્ધ નોંધો શોધો."
+          : "This preview contains a limited set of sample entries, not a complete government scheme register. Open the directory to search the available entries.";
         action = { label: gu ? "યોજના શોધક" : "Citizen Finder", page: "public" };
       }
 
@@ -114,7 +109,7 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
         id: String(Date.now() + 1),
         sender: "bot",
         text: botResponse,
-        timestamp: "અધિકૃત ઉત્તર",
+        timestamp: gu ? "નમૂનાનો જવાબ · ચકાસાયેલ નથી" : "Sample response · unverified",
         suggestedAction: action,
       };
 
@@ -124,35 +119,35 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
 
   return (
     <>
-      {/* Official Floating Trigger Button */}
+      {/* Sample assistance preview */}
       <button
         type="button"
         className={`gov-helpdesk-floating-trigger ${isOpen ? "is-open" : ""}`}
         onClick={() => setIsOpen((open) => !open)}
-        aria-label={gu ? "સરકારી સહાયતા ડેસ્ક" : "Citizen Assistance Desk"}
-        title={gu ? "નાગરિક સહાયતા કેન્દ્ર" : "Citizen Helpdesk"}
+        aria-label={gu ? "યોજના માહિતી સહાયક · પૂર્વદર્શન" : "Scheme information helper · preview"}
+        title={gu ? "પૂર્વદર્શન સહાયક" : "Preview helper"}
       >
         <span className="ghd-trigger-icon-wrap">
           {isOpen ? <X size={20} /> : <Headphones size={20} />}
         </span>
         <span className="ghd-trigger-text">
-          {gu ? "નાગરિક સહાયતા (181 / 1098)" : "Citizen Helpdesk (181)"}
+          {gu ? "પૂર્વદર્શન સહાયક" : "Preview helper"}
         </span>
       </button>
 
-      {/* Official Helpdesk Drawer Card */}
+      {/* Preview assistant drawer */}
       {isOpen && (
         <div className="gov-helpdesk-popup-card" role="dialog" aria-modal="false">
-          {/* Official Header */}
+          {/* Preview header */}
           <div className="ghd-card-header">
             <div className="ghd-header-title">
               <span className="ghd-emblem-badge">
                 <Building2 size={18} />
               </span>
               <div>
-                <strong>{gu ? "મહિલા & બાળ કલ્યાણ સહાયતા કેન્દ્ર" : "WCD Citizen Helpdesk"}</strong>
+                <strong>{gu ? "યોજના માહિતી સહાયક" : "Scheme information helper"}</strong>
                 <small className="ghd-dept-line">
-                  {gu ? "ગુજરાત સરકાર · ગાંધીનગર" : "Government of Gujarat · Gandhinagar"}
+                  {gu ? "સત્તાવાર સરકારી સેવા નથી" : "Not an official government service"}
                 </small>
               </div>
             </div>
@@ -165,16 +160,9 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
             </button>
           </div>
 
-          {/* Official Toll-Free Helpline Strip */}
           <div className="ghd-emergency-strip">
-            <div className="ghd-helpline-chip">
-              <PhoneCall size={13} className="text-emerald" />
-              <span>{gu ? "૧૮૧ અભયમ મહિલા હેલ્પલાઇન" : "181 Abhayam Women Helpline"}</span>
-            </div>
-            <div className="ghd-helpline-chip">
-              <PhoneCall size={13} className="text-amber" />
-              <span>{gu ? "૧૦૯૮ ચાઇલ્ડલાઇન" : "1098 Childline"}</span>
-            </div>
+            <Info size={14} aria-hidden="true" />
+            <span>{gu ? "જવાબો નમૂનાના છે · સત્તાવાર માહિતી નથી" : "Sample answers · not official information"}</span>
           </div>
 
           {/* Messages Body */}
@@ -187,7 +175,7 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
                     <button
                       className="ghd-action-btn"
                       onClick={() => {
-                        onNavigate(m.suggestedAction?.page);
+                        onNavigate(m.suggestedAction?.page || "schemes", m.suggestedAction?.searchTerm);
                         setIsOpen(false);
                       }}
                     >

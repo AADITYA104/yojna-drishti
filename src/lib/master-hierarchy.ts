@@ -5206,13 +5206,21 @@ export const NOTEBOOK_WOMEN_SCHEMES: NotebookScheme[] = [
 // ========================================================
 // 5. LOOKUP HELPERS
 // ========================================================
+function normalizeHierarchyKey(value: string): string {
+  return value.toLocaleLowerCase().normalize("NFKC").replace(/[^\p{L}\p{N}]/gu, "");
+}
+
 export function getSubdistrictsForDistrict(districtCodeOrId: number | string): MasterSubdistrict[] {
   if (typeof districtCodeOrId === "number") {
     return MASTER_SUBDISTRICTS.filter((s) => s.districtCode === districtCodeOrId);
   }
-  const lower = districtCodeOrId.toLowerCase();
+  const normalized = normalizeHierarchyKey(districtCodeOrId);
   const d = MASTER_DISTRICTS.find(
-    (dist) => dist.id === lower || dist.nameEn.toLowerCase() === lower || dist.nameGu === districtCodeOrId || dist.officialNo === districtCodeOrId
+    (dist) =>
+      normalizeHierarchyKey(dist.id) === normalized ||
+      normalizeHierarchyKey(dist.nameEn) === normalized ||
+      normalizeHierarchyKey(dist.nameGu) === normalized ||
+      normalizeHierarchyKey(dist.officialNo) === normalized
   );
   if (!d) return [];
   return MASTER_SUBDISTRICTS.filter((s) => s.districtCode === d.code);
@@ -5222,8 +5230,12 @@ export function getDistrictByCodeOrId(identifier: number | string): MasterDistri
   if (typeof identifier === "number") {
     return MASTER_DISTRICTS.find((d) => d.code === identifier);
   }
-  const lower = identifier.toLowerCase();
+  const normalized = normalizeHierarchyKey(identifier);
   return MASTER_DISTRICTS.find(
-    (d) => d.id === lower || d.nameEn.toLowerCase() === lower || d.nameGu === identifier || d.officialNo === identifier
+    (d) =>
+      normalizeHierarchyKey(d.id) === normalized ||
+      normalizeHierarchyKey(d.nameEn) === normalized ||
+      normalizeHierarchyKey(d.nameGu) === normalized ||
+      normalizeHierarchyKey(d.officialNo) === normalized
   );
 }

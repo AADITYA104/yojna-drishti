@@ -26,7 +26,6 @@ import {
   Wallet,
   Award,
   Sparkles,
-  School,
   Activity,
   Layers,
 } from "lucide-react";
@@ -44,6 +43,7 @@ import {
 import {
   GHOGHA_48_VILLAGES,
   MASTER_DISTRICTS,
+  MASTER_SUBDISTRICTS,
   NOTEBOOK_WOMEN_SCHEMES,
   getSubdistrictsForDistrict,
   type MasterSubdistrict,
@@ -126,7 +126,7 @@ interface GujaratInteractiveMapProps {
   focusRequest?: MapFocusRequest | null;
 }
 
-const TALUKA_PALETTE = ["#2f9e8f", "#e0a63a", "#5b8bd6", "#d9704f", "#8e6bbf", "#4caf6a", "#c7557f", "#7a9a3c"];
+const TALUKA_PALETTE = ["#dcebed", "#c4dfe2", "#a8d0d5", "#83bbc2", "#5c9ca7"];
 
 function talukaColorExpression(codes: number[]) {
   if (!codes.length) return "#9fb8c3";
@@ -1242,7 +1242,7 @@ export function GujaratInteractiveMap({
           <nav className="geo-breadcrumbs" aria-label={gu ? "ભૌગોલિક માર્ગ" : "Geographic breadcrumb"}>
             <button className={level === "state" ? "is-active" : ""} onClick={resetMap}>
               <MapPinned size={15} />
-              <span>{gu ? "ગુજરાત (૩૪ જિલ્લા)" : "Gujarat (34 Districts)"}</span>
+              <span>{gu ? `ગુજરાત (${formatNumber(demoDistricts.length, gu)} જિલ્લા)` : `Gujarat (${demoDistricts.length} districts)`}</span>
             </button>
             {level !== "state" && (
               <>
@@ -1297,9 +1297,9 @@ export function GujaratInteractiveMap({
               </button>
             )}
             <span className="geo-fy-pill">FY {fy}</span>
-            <span className="geo-demo-pill" style={{ background: "#ecfdf5", color: "#065f46", borderColor: "#a7f3d0" }}>
+            <span className="geo-demo-pill">
               <Award size={13} />
-              {gu ? "ગુજરાત સરકાર સત્તાવાર" : "Govt of Gujarat"}
+              {gu ? "નમૂના ડેટા" : "Sample data"}
             </span>
           </div>
         </div>
@@ -1344,13 +1344,8 @@ export function GujaratInteractiveMap({
               {hoveredEntity.type === "village" && (
                 <div className="gmhc-meta-row">
                   <span className="gmhc-scheme-tag">
-                    {hoveredEntity.schemeCount || 4} {gu ? "યોજનાઓ પહોંચી" : "Schemes Delivered"}
+                    {gu ? "નમૂનાનું યોજના મેપિંગ" : "Sample scheme mapping"}
                   </span>
-                  {hoveredEntity.beneficiaries ? (
-                    <span className="gmhc-ben-tag">
-                      {formatNumber(hoveredEntity.beneficiaries, gu)} {gu ? "લાભાર્થી" : "Ben."}
-                    </span>
-                  ) : null}
                 </div>
               )}
             </div>
@@ -1402,15 +1397,15 @@ export function GujaratInteractiveMap({
 
           {variant !== "embedded" && (
             <div className="geo-map-coverage-legend" aria-live="polite">
-              <span className="geo-coverage-swatch" style={{ background: "#10b981" }} />
+              <span className="geo-coverage-swatch" style={{ background: "#267d89" }} />
               <span>
                 {selectedScheme
                   ? gu
-                    ? `પહોંચેલી યોજના: ${selectedScheme.shortNameGu}`
-                    : `Active scheme: ${selectedScheme.shortName}`
+                  ? `નમૂનાનો યોજના નકશો: ${selectedScheme.shortNameGu}`
+                    : `Sample scheme map: ${selectedScheme.shortName}`
                   : gu
-                  ? "ગ્રામીણ યોજના કવરેજ અને સંતૃપ્તિ (Village Scheme Reach)"
-                  : "Village Scheme Reach & Saturation"}
+                  ? "વહીવટી સીમાઓ · યોજના-પહોંચનો ડેટા નમૂનાનો છે"
+                  : "Administrative boundaries · scheme coverage is sample data"}
               </span>
             </div>
           )}
@@ -1453,12 +1448,12 @@ export function GujaratInteractiveMap({
               <div>
                 <span className="geo-panel-kicker">
                   {level === "village"
-                    ? gu ? "પસંદ કરેલું ગામ અને યોજના પહોંચ" : "VILLAGE SCHEME DELIVERY"
+                    ? gu ? "પસંદ કરેલું ગામ · નમૂનાનું મેપિંગ" : "SELECTED VILLAGE · SAMPLE MAPPING"
                     : level === "taluka"
                     ? gu ? "તાલુકો અને ગામડાંઓની યાદી" : "TALUKA & VILLAGES"
                     : level === "district"
                     ? gu ? "જિલ્લો અને તાલુકાઓ" : "DISTRICT & TALUKAS"
-                    : gu ? "સમગ્ર ગુજરાત કમાન્ડ સેન્ટર" : "GUJARAT COMMAND"}
+                    : gu ? "સમગ્ર ગુજરાત" : "GUJARAT OVERVIEW"}
                 </span>
                 <h2>{panelTitle}</h2>
                 <p>
@@ -1525,7 +1520,6 @@ export function GujaratInteractiveMap({
                 (level === "village" || level === "taluka" ? " geo-entity-list--villages" : "") +
                 (level === "village" && !showVillageList ? " is-hidden" : "")
               }
-              role="list"
             >
               {level === "state" &&
                 filteredDistricts.map((district) => {
@@ -1533,7 +1527,6 @@ export function GujaratInteractiveMap({
                   return (
                     <button
                       key={district.id}
-                      role="listitem"
                       className={
                         "geo-entity-row" + (district.id === currentDistrictId ? " is-selected" : "")
                       }
@@ -1558,7 +1551,6 @@ export function GujaratInteractiveMap({
                 filteredTalukas.map((subdistrict) => (
                   <button
                     key={subdistrict.code}
-                    role="listitem"
                     className={
                       "geo-entity-row" +
                       (subdistrict.code === currentTalukaCode ? " is-selected" : "")
@@ -1585,7 +1577,6 @@ export function GujaratInteractiveMap({
                   return (
                     <button
                       key={village.code}
-                      role="listitem"
                       className={
                         "geo-entity-row" +
                         (village.code === currentVillageCode ? " is-selected" : "")
@@ -1599,8 +1590,8 @@ export function GujaratInteractiveMap({
                         <b>{gu ? village.nameGu || village.nameEn : village.nameEn}</b>
                         <small>LGD {village.code}</small>
                       </span>
-                      <span className="geo-entity-meta" style={{ color: "#059669", fontWeight: 700 }}>
-                        {schemes.length} {gu ? "યોજના પહોંચી" : "schemes"}
+                      <span className="geo-entity-meta" style={{ color: "#31576b", fontWeight: 700 }}>
+                        {schemes.length} {gu ? "નમૂનાની યોજનાઓ" : "sample schemes"}
                       </span>
                       <ChevronRight size={15} />
                     </button>
@@ -1619,12 +1610,12 @@ export function GujaratInteractiveMap({
               <div className="geo-profile-heading">
                 <div>
                   <span className="geo-panel-kicker">
-                    {gu ? "સરકારી યોજના પહોંચ રિપોર્ટ" : "SCHEME DELIVERY REPORT"}
+                    {gu ? "નમૂનાનું યોજના મેપિંગ" : "SAMPLE SCHEME MAPPING"}
                   </span>
                   <h3>{panelTitle}</h3>
                 </div>
                 <span className="geo-source-pill" style={{ background: "#ecfdf5", color: "#065f46" }}>
-                  <Award size={12} /> {gu ? "ગુજરાત પોર્ટલ" : "Gujarat Portal"}
+                  <Award size={12} /> {gu ? "નમૂનો · ચકાસાયેલ નથી" : "Sample · unverified"}
                 </span>
               </div>
 
@@ -1640,30 +1631,11 @@ export function GujaratInteractiveMap({
                     </span>
                   </div>
 
-                  {/* 4 Summary KPIs */}
-                  <div className="geo-village-stats" style={{ gridTemplateColumns: "repeat(3, 1fr)", margin: "10px 0" }}>
-                    <div>
-                      <Award size={15} style={{ color: "#059669" }} />
-                      <b>{currentVillageSchemeSummary.totalSchemesReached}</b>
-                      <small>{gu ? "પહોંચેલી યોજનાઓ" : "Schemes Reached"}</small>
-                    </div>
-                    <div>
-                      <Users size={15} style={{ color: "#0284c7" }} />
-                      <b>{formatNumber(currentVillageSchemeSummary.totalBeneficiaries, gu)}</b>
-                      <small>{gu ? "કુલ લાભાર્થી" : "Beneficiaries"}</small>
-                    </div>
-                    <div>
-                      <Wallet size={15} style={{ color: "#d97706" }} />
-                      <b>₹ {formatNumber(currentVillageSchemeSummary.totalGrantLakhs, gu)} L</b>
-                      <small>{gu ? "ચુકવેલ DBT સહાય" : "Disbursed"}</small>
-                    </div>
-                  </div>
-
-                  {/* Delivery Saturation Banner */}
+                  {/* Coverage estimates are synthetic; show the sample status without fake totals. */}
                   <div
                     style={{
-                      background: "#f0fdf4",
-                      border: "1px solid #86efac",
+                      background: "#eff6f8",
+                      border: "1px solid #cbdde3",
                       borderRadius: "8px",
                       padding: "8px 12px",
                       display: "flex",
@@ -1672,18 +1644,18 @@ export function GujaratInteractiveMap({
                       margin: "8px 0",
                     }}
                   >
-                    <span style={{ fontSize: "12px", fontWeight: 700, color: "#166534" }}>
-                      {gu ? "યોજના સંતૃપ્તિ (Saturation):" : "Delivery Saturation:"}
+                    <span style={{ fontSize: "12px", fontWeight: 700, color: "#31576b" }}>
+                      {gu ? "પૂર્વદર્શનનું નમૂનાનું મેપિંગ" : "Preview sample mapping"}
                     </span>
-                    <strong style={{ fontSize: "14px", color: "#15803d" }}>
-                      {currentVillageSchemeSummary.overallSaturation}% {gu ? "પૂર્ણ" : "Complete"}
+                    <strong style={{ fontSize: "12px", color: "#526d7b" }}>
+                      {gu ? "પહોંચ/લાભાર્થીના આંકડા સત્તાવાર નથી" : "Coverage and beneficiary figures are not official"}
                     </strong>
                   </div>
 
                   {/* Detailed Schemes Delivered List */}
                   <div className="geo-village-scheme-list">
                     <span className="geo-panel-kicker">
-                      {gu ? "આ ગામ સુધી પહોંચેલી સરકારી યોજનાઓ:" : "SCHEMES DELIVERED TO THIS VILLAGE:"}
+                      {gu ? "આ ગામ માટેની નમૂનાની યોજના સૂચિ:" : "SAMPLE SCHEME LIST FOR THIS VILLAGE:"}
                     </span>
 
                     {currentVillageSchemeAssignments.map((assignment) => (
@@ -1703,68 +1675,15 @@ export function GujaratInteractiveMap({
                           <strong style={{ color: "#0f172a", fontSize: "13px" }}>
                             {gu ? assignment.schemeNameGu : assignment.schemeNameEn}
                           </strong>
-                          <span
-                            style={{
-                              fontSize: "10px",
-                              fontWeight: 800,
-                              padding: "2px 6px",
-                              borderRadius: "4px",
-                              background: assignment.status === "completed" ? "#dcfce7" : "#fef3c7",
-                              color: assignment.status === "completed" ? "#15803d" : "#b45309",
-                            }}
-                          >
-                            {assignment.status === "completed"
-                              ? gu ? "સંપૂર્ણ પહોંચ" : "Delivered"
-                              : gu ? "પ્રગતિ હેઠળ" : "Active"}
+                          <span className="geo-sample-status">
+                            {gu ? "નમૂનો" : "Sample"}
                           </span>
                         </div>
 
-                        <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", color: "#475569" }}>
-                          <span>
-                            <b>{formatNumber(assignment.beneficiaries, gu)}</b> {gu ? "લાભાર્થી" : "Ben."}
-                          </span>
-                          <span>
-                            <b>₹ {formatNumber(assignment.grantLakhs, gu)} {gu ? "લાખ DBT" : "Lakh"}</b>
-                          </span>
-                        </div>
-
-                        <div style={{ width: "100%", height: "4px", background: "#f1f5f9", borderRadius: "2px", marginTop: "6px", overflow: "hidden" }}>
-                          <div
-                            style={{
-                              width: `${assignment.saturationPct}%`,
-                              height: "100%",
-                              background: assignment.saturationPct >= 90 ? "#10b981" : "#3b82f6",
-                            }}
-                          />
-                        </div>
                       </div>
                     ))}
                   </div>
 
-                  {/* School / Venue details */}
-                  <div
-                    style={{
-                      background: "#f8fafc",
-                      border: "1px solid #cbd5e1",
-                      borderRadius: "8px",
-                      padding: "8px 10px",
-                      display: "flex",
-                      gap: "8px",
-                      alignItems: "center",
-                      margin: "8px 0",
-                      fontSize: "11px",
-                    }}
-                  >
-                    <School size={16} color="#0284c7" />
-                    <div>
-                      <small style={{ color: "#64748b", display: "block" }}>
-                        {gu ? "ગામમાં યોજના કાર્યક્રમ સ્થળ (નોંધપોથી મુજબ):" : "Programme Venue:"}
-                      </small>
-                      <strong style={{ color: "#0f172a" }}>
-                        {currentVillage.sample?.venueGu || `${currentVillage.nameGu || currentVillage.nameEn} પ્રાથમિક શાળા`}
-                      </strong>
-                    </div>
-                  </div>
                 </>
               ) : (
                 /* STATE OR DISTRICT LEVEL SUMMARY */
@@ -1772,19 +1691,19 @@ export function GujaratInteractiveMap({
                   <div className="geo-summary-grid">
                     <div>
                       <Building2 size={16} />
-                      <b>{level === "state" ? 34 : 1}</b>
+                      <b>{level === "state" ? demoDistricts.length : 1}</b>
                       <small>{gu ? "જિલ્લા" : "Districts"}</small>
                     </div>
                     <div>
                       <Landmark size={16} />
-                      <b>{level === "state" ? 309 : currentSubdistricts.length}</b>
+                      <b>{level === "state" ? MASTER_SUBDISTRICTS.length : currentSubdistricts.length}</b>
                       <small>{gu ? "તાલુકા" : "Talukas"}</small>
                     </div>
                   </div>
 
                   <div className="geo-compact-schemes">
                     <span className="geo-panel-kicker">
-                      {gu ? "મુખ્ય સરકારી યોજનાઓ અને પહોંચ:" : "FLAGSHIP SCHEMES REACH:"}
+                      {gu ? "નમૂનાની યોજના મેપિંગ:" : "SAMPLE SCHEME MAPPING:"}
                     </span>
                     {MAP_SCHEME_OPTIONS.slice(0, 6).map((scheme) => (
                       <div className="geo-scheme-row" key={scheme.id}>
@@ -1792,8 +1711,8 @@ export function GujaratInteractiveMap({
                           <CheckCircle2 size={14} style={{ color: "#059669" }} />
                           {gu ? scheme.shortNameGu : scheme.shortName}
                         </span>
-                        <small style={{ color: "#0284c7", fontWeight: 700 }}>
-                          {gu ? "રાજ્યવ્યાપી સક્રિય" : "Statewide Active"}
+                        <small className="geo-sample-status">
+                          {gu ? "નમૂનો · ચકાસાયેલ નથી" : "Demo · not verified"}
                         </small>
                       </div>
                     ))}
@@ -1803,8 +1722,8 @@ export function GujaratInteractiveMap({
 
               <div className="geo-data-disclaimer">
                 {gu
-                  ? "ગુજરાત સરકાર · યોજના દૃષ્ટિ જીઓ-ઇન્ટેલિજન્સ પ્લેટફોર્મ (LGD Census Boundaries & DBT Schemes Network)."
-                  : "Government of Gujarat · Yojana Drishti Geo-Intelligence Platform."}
+                  ? "આ સરકારી સેવા નથી. નકશાની યોજના-પહોંચ અને આંકડા નમૂનાના છે; સત્તાવાર માહિતી માટે સંબંધિત વિભાગનો સંપર્ક કરો."
+                  : "This is not a government service. Scheme reach and figures on this map are samples; contact the relevant department for official information."}
               </div>
             </section>
           </aside>

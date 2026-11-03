@@ -1,20 +1,21 @@
 /* ==========================================================================
- * YOJANA DRISHTI — SPATIAL GLASSMORPHISM & VISION-OS DESIGN SYSTEM
- * Deep Slate-Teal (#0F202B to #1B3544) base, matte frosted glass,
- * 12-Column Bento Grid, and strict WCAG compliant contrast.
+ * YOJANA DRISHTI — PUBLIC SERVICE PORTAL DESIGN SYSTEM
+ * Clear paper surfaces, navy structure, restrained teal actions,
+ * and an adaptive scheme directory and map workspace.
  * ========================================================================== */
 
 :root {
+  color-scheme: light !important;
   --spatial-teal-950: #050b10;
   --spatial-teal-900: #08121a;
   --spatial-teal-800: #0f202b;
   --spatial-teal-700: #1b3544;
   --spatial-teal-600: #254b5f;
 
-  /* Frosted Glass Layers (VisionOS Spec) */
-  --spatial-glass-main: rgba(45, 60, 68, 0.48);
-  --spatial-glass-card: rgba(255, 255, 255, 0.055);
-  --spatial-glass-card-hover: rgba(255, 255, 255, 0.085);
+  /* Surface tokens used by the spatial workspace */
+  --spatial-glass-main: rgba(54, 68, 74, 0.62);
+  --spatial-glass-card: rgba(255, 255, 255, 0.065);
+  --spatial-glass-card-hover: rgba(255, 255, 255, 0.09);
   --spatial-glass-border: rgba(255, 255, 255, 0.16);
   --spatial-glass-border-subtle: rgba(255, 255, 255, 0.09);
   --spatial-glass-highlight: rgba(255, 255, 255, 0.28);
@@ -34,7 +35,8 @@
 
 /* Base Body when in Spatial View */
 body.spatial-mode,
-body.dr-glass {
+body.dr-glass,
+body.portal-theme {
   background-color: var(--spatial-teal-900);
   color: #f4f6ff;
   font-family: var(--spatial-font-ui);
@@ -77,19 +79,17 @@ body.dr-glass {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 85% 65% at 50% 25%, #1b3544 0%, #0f202b 60%, #08121a 100%),
-    radial-gradient(circle 500px at 85% 15%, rgba(56, 189, 248, 0.08), transparent 70%),
-    radial-gradient(circle 600px at 15% 85%, rgba(250, 204, 21, 0.05), transparent 70%);
+    radial-gradient(ellipse 85% 65% at 50% 25%, #203b48 0%, #142a35 60%, #0b171f 100%);
 }
 
 .spatial-art-backdrop {
   position: absolute;
   inset: 0;
   background: url("/images/gujarat-hero.webp") center / contain no-repeat;
-  opacity: 0.15;
-  mix-blend-mode: screen;
-  filter: saturate(1.2) contrast(1.1);
-  transform: scale(0.95);
+  opacity: 0.11;
+  mix-blend-mode: soft-light;
+  filter: grayscale(100%) contrast(1.06) brightness(0.92);
+  transform: none;
   pointer-events: none;
 }
 
@@ -107,8 +107,8 @@ body.dr-glass {
   max-width: 1200px;
   height: 85vh;
   max-height: 800px;
-  opacity: 0.82;
-  filter: drop-shadow(0 0 30px rgba(15, 32, 43, 0.8));
+  opacity: 0.3;
+  filter: grayscale(100%);
 }
 
 .spatial-district-vector {
@@ -122,7 +122,7 @@ body.dr-glass {
 
 .spatial-node-pulse-ring {
   transform-origin: center;
-  animation: spatial-breathe 4s infinite ease-in-out;
+  opacity: 0.28;
 }
 
 @keyframes spatial-breathe {
@@ -166,6 +166,7 @@ body.dr-glass {
   box-shadow: 
     0 24px 60px rgba(0, 0, 0, 0.55),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  max-height: calc(100vh - 32px);
 }
 
 .spatial-dock-item {
@@ -334,8 +335,7 @@ body.dr-glass {
   width: 6px;
   height: 6px;
   border-radius: 9999px;
-  background: #facc15;
-  box-shadow: 0 0 8px #facc15;
+  background: rgba(255, 255, 255, 0.78);
 }
 
 .spatial-header-actions {
@@ -367,6 +367,9 @@ body.dr-glass {
 
 .spatial-search-placeholder {
   font-size: 0.82rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .spatial-kbd-chip {
@@ -437,8 +440,7 @@ body.dr-glass {
   width: 6px;
   height: 6px;
   border-radius: 9999px;
-  background: #38bdf8;
-  box-shadow: 0 0 6px #38bdf8;
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .spatial-avatar-circle {
@@ -446,7 +448,7 @@ body.dr-glass {
   width: 36px;
   height: 36px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, #0f766e, #0284c7);
+  background: rgba(255, 255, 255, 0.10);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -864,6 +866,38 @@ body.dr-glass {
   background: var(--spatial-emerald);
 }
 
+.spatial-source-status-list {
+  display: grid;
+  gap: 10px;
+  align-content: center;
+  min-height: 180px;
+}
+
+.spatial-source-status-row {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.76rem;
+}
+
+.spatial-source-status-row > svg {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.spatial-source-status-row strong {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: right;
+}
+
 .spatial-metric-values {
   display: flex;
   align-items: center;
@@ -980,6 +1014,13 @@ body.dr-glass {
 .btn-verified {
   background: var(--spatial-emerald);
   color: var(--spatial-emerald-ink);
+}
+
+.btn-demo {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.86);
+  cursor: default;
 }
 
 .btn-verified:hover {
@@ -1100,6 +1141,7 @@ body.dr-glass {
   align-items: center;
   gap: 10px;
   font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.66);
 }
 
 .spatial-event-pill {
@@ -1114,9 +1156,7 @@ body.dr-glass {
 
 .spatial-event-text {
   color: rgba(255, 255, 255, 0.85);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.45;
 }
 
 /* Smart Eligibility Subcard */
@@ -1214,6 +1254,41 @@ body.dr-glass {
   overflow: hidden;
 }
 
+.spatial-search-results {
+  max-height: min(380px, calc(100vh - 160px));
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.spatial-search-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.spatial-search-result:hover,
+.spatial-search-result:focus-visible {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.12);
+  outline: none;
+}
+
+.spatial-search-empty {
+  margin: 0;
+  padding: 20px 14px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
 /* Nested View Glass Harmony inside Spatial Frame */
 .spatial-main-container .page-hero-gov,
 .spatial-main-container .geo-explorer-header,
@@ -1287,5 +1362,908 @@ body.dr-glass {
   .spatial-demo-disclaimer {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .spatial-app-shell {
+    padding: 12px 12px 84px;
+  }
+
+  .spatial-main-container,
+  .spatial-main-viewport {
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .spatial-header-bar {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+  }
+
+  .spatial-header-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .spatial-search-trigger {
+    min-width: 0;
+    padding: 8px 10px;
+    gap: 7px;
+  }
+
+  .spatial-search-placeholder {
+    min-width: 0;
+  }
+
+  .spatial-kbd-chip {
+    display: none;
+  }
+
+  .spatial-lang-pill {
+    padding: 7px 9px;
+    gap: 4px;
+  }
+
+  .spatial-icon-btn,
+  .spatial-avatar-circle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .spatial-glass-card,
+  .spatial-bento-card {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .spatial-donut-overview-wrap {
+    min-height: 0;
+    height: auto;
+  }
+
+  .spatial-source-status-list {
+    min-height: 0;
+  }
+
+  .spatial-demo-disclaimer {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .spatial-demo-action {
+    align-self: stretch;
+    justify-content: center;
+  }
+
+  .spatial-yojna-row {
+    gap: 10px;
+    padding: 12px 6px;
+  }
+
+  .spatial-yojna-name {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .spatial-pill-btn {
+    padding: 6px 10px;
+  }
+
+  .spatial-action-body {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .spatial-glowing-frosted-btn {
+    justify-content: center;
+  }
+
+  .spatial-days-strip {
+    gap: 3px;
+  }
+
+  .spatial-day-pill {
+    padding: 7px 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .spatial-main-container,
+  .spatial-main-viewport {
+    padding: 13px;
+    border-radius: 20px;
+  }
+
+  .spatial-brand-badge {
+    max-width: 100%;
+    font-size: 0.65rem;
+  }
+
+  .spatial-dock-capsule {
+    gap: 4px;
+    padding: 6px 9px;
+  }
+
+  .spatial-dock-item {
+    width: 38px;
+    height: 38px;
+  }
+
+  .spatial-ring-container {
+    width: 112px;
+    height: 112px;
+  }
+
+  .spatial-source-status-row {
+    grid-template-columns: 18px minmax(0, 1fr);
+  }
+
+  .spatial-source-status-row strong {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .spatial-card-head {
+    align-items: flex-start;
+  }
+
+  .spatial-search-modal-backdrop {
+    padding: 16px;
+    align-items: flex-start;
+  }
+
+  .spatial-search-modal-box {
+    max-width: none;
+    border-radius: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spatial-app-shell *,
+  .spatial-app-shell *::before,
+  .spatial-app-shell *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Public-service theme: clear paper surfaces, deep navy structure, teal actions
+   -------------------------------------------------------------------------- */
+:root {
+  --spatial-teal-950: #102b3d;
+  --spatial-teal-900: #f1f5f7;
+  --spatial-teal-800: #173c53;
+  --spatial-teal-700: #20516a;
+  --spatial-teal-600: #267385;
+  --spatial-glass-main: #ffffff;
+  --spatial-glass-card: #ffffff;
+  --spatial-glass-card-hover: #f8fbfc;
+  --spatial-glass-border: #d5e0e6;
+  --spatial-glass-border-subtle: #dce5ea;
+  --spatial-glass-highlight: #eef4f7;
+  --spatial-glass-shadow: 0 10px 28px rgba(20, 50, 68, 0.08);
+  --spatial-lime: #e8f1e8;
+  --spatial-lime-ink: #27563d;
+  --spatial-emerald: #e8f1e8;
+  --spatial-emerald-ink: #27563d;
+  --spatial-amber: #d5a253;
+  --spatial-cyan: #267d89;
+  --spatial-font-display: var(--spatial-font-ui);
+}
+
+body.spatial-mode,
+body.dr-glass {
+  background: #edf3f6 !important;
+  color: #19394d !important;
+}
+
+.spatial-app-shell {
+  isolation: isolate;
+  padding-top: 20px;
+}
+
+.spatial-slate-teal-mesh {
+  background:
+    radial-gradient(ellipse 80% 70% at 15% 0%, rgba(42, 110, 129, 0.07), transparent 72%),
+    linear-gradient(180deg, #f1f6f8 0%, #eaf1f4 100%);
+}
+
+.spatial-art-backdrop {
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  filter: grayscale(100%) contrast(1.04);
+}
+
+.spatial-gujarat-svg {
+  opacity: 0.12;
+  filter: grayscale(100%);
+}
+
+.spatial-district-vector {
+  stroke: rgba(31, 77, 96, 0.28) !important;
+}
+
+.spatial-network-lines {
+  opacity: 0.18;
+}
+
+.spatial-vignette-overlay {
+  background: radial-gradient(circle at 50% 44%, transparent 36%, rgba(238, 244, 247, 0.58) 100%);
+}
+
+.spatial-dock-capsule {
+  background: #153d53;
+  border: 1px solid #28576d;
+  border-top-color: #477489;
+  box-shadow: 0 12px 32px rgba(17, 50, 69, 0.20);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.spatial-dock-item {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.spatial-dock-item:hover,
+.spatial-dock-item:focus-visible {
+  color: #ffffff;
+  outline-color: #b8d9df;
+}
+
+.spatial-dock-active-pill {
+  background: #267d89;
+  border-color: #75b0b8;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.22);
+}
+
+.spatial-main-container,
+.spatial-main-viewport {
+  background: #ffffff;
+  color: #19394d;
+  border: 1px solid #d7e2e8;
+  border-top-color: #c4d4dd;
+  border-radius: 22px;
+  box-shadow: 0 18px 50px rgba(26, 59, 78, 0.10);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.spatial-header-bar {
+  margin: -28px -36px 22px;
+  padding: 20px 30px;
+  background: #153d53;
+  border: 0;
+  border-bottom: 1px solid #27566d;
+  border-radius: 21px 21px 0 0;
+}
+
+.spatial-brand-heading {
+  color: #ffffff;
+  font-family: var(--spatial-font-ui);
+  letter-spacing: -0.01em;
+}
+
+.spatial-brand-badge {
+  color: #deebf0;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.spatial-tricolor-pip {
+  background: #e5bd78;
+}
+
+.spatial-search-trigger,
+.spatial-lang-pill {
+  color: #f4f8fa;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.spatial-search-trigger:hover,
+.spatial-search-trigger:focus-visible,
+.spatial-lang-pill:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.38);
+}
+
+.spatial-search-placeholder,
+.spatial-lang-pill .muted-lang,
+.spatial-lang-divider {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.spatial-kbd-chip {
+  color: #e6eff3;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.spatial-avatar-circle {
+  color: #ffffff;
+  background: #285b70;
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: none;
+}
+
+.spatial-online-dot {
+  display: none;
+}
+
+.spatial-demo-disclaimer {
+  background: #edf5f7;
+  border: 1px solid #c9dfe4;
+  border-left: 4px solid #267d89;
+  border-radius: 10px;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.spatial-demo-icon {
+  color: #1f6474;
+  background: #e0eef1;
+  border-color: #c9dfe4;
+}
+
+.spatial-demo-text strong {
+  color: #173c53;
+  letter-spacing: 0;
+}
+
+.spatial-demo-text span {
+  color: #526b7a;
+}
+
+.spatial-demo-action {
+  color: #ffffff;
+  background: #1f7180;
+  border-color: #1f7180;
+}
+
+.spatial-demo-action:hover {
+  background: #175b6a;
+}
+
+.spatial-glass-card,
+.spatial-bento-card,
+.spatial-mini-stat-card,
+.spatial-timeline-glass-subcard,
+.spatial-action-glass-subcard {
+  background: #ffffff;
+  border: 1px solid #dbe5ea;
+  border-top-color: #d0dfe5;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(24, 56, 75, 0.055);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.spatial-glass-card:hover,
+.spatial-bento-card:hover,
+.spatial-mini-stat-card:hover {
+  background: #fbfdfe;
+  border-color: #c7d8e0;
+  transform: translateY(-1px);
+}
+
+.spatial-card-title,
+.spatial-subcard-title,
+.spatial-yojna-name,
+.spatial-stat-value,
+.spatial-ring-bold,
+.spatial-day-date {
+  color: #183a4e;
+  font-family: var(--spatial-font-ui);
+}
+
+.spatial-card-sub,
+.spatial-stat-label,
+.spatial-yojna-criteria,
+.spatial-day-name,
+.spatial-instant-tag,
+.spatial-action-p {
+  color: #5c7180;
+}
+
+.spatial-glass-select,
+.spatial-select-pill-wrap select {
+  color: #234a60;
+  background: #f7fafb;
+  border-color: #cbd9e0;
+}
+
+.spatial-glass-select option {
+  color: #183a4e;
+  background: #ffffff;
+}
+
+.spatial-capsule-track {
+  background: #edf3f5;
+  border-color: #d8e3e8;
+}
+
+.spatial-capsule-fill,
+.spatial-capsule-fill.highlight-fill {
+  background: #729da6;
+  box-shadow: none;
+}
+
+.spatial-capsule-track:hover .spatial-capsule-fill {
+  background: #397d89;
+}
+
+.spatial-capsule-pct {
+  color: #ffffff;
+}
+
+.spatial-capsule-label {
+  color: #526a78;
+}
+
+.spatial-stat-icon-box,
+.spatial-action-icon,
+.spatial-check-bubble {
+  color: #276b79;
+  background: #edf5f6;
+  border-color: #d5e6e9;
+}
+
+.spatial-source-status-row {
+  color: #3b5a6a;
+  background: #f7fafb;
+  border-color: #e0e8ec;
+}
+
+.spatial-source-status-row > svg {
+  color: #3b7580;
+}
+
+.spatial-source-status-row strong {
+  color: #315e6e;
+}
+
+.spatial-yojna-row {
+  border-bottom-color: #e5ecef;
+}
+
+.spatial-yojna-row:hover,
+.spatial-yojna-row:focus-visible {
+  background: #f5f9fa;
+  outline: 2px solid #8cb8c0;
+  outline-offset: -2px;
+}
+
+.btn-demo {
+  color: #536b79;
+  background: #eef3f5;
+  border: 1px solid #d6e1e6;
+}
+
+.spatial-link-btn,
+.spatial-glowing-frosted-btn {
+  color: #ffffff;
+  background: #1f7180;
+  border: 1px solid #1f7180;
+  box-shadow: none;
+}
+
+.spatial-link-btn:hover,
+.spatial-glowing-frosted-btn:hover {
+  color: #ffffff;
+  background: #175b6a;
+}
+
+.spatial-day-pill:hover {
+  background: #edf5f6;
+}
+
+.spatial-day-pill.selected-day {
+  background: #e3f0f2;
+  border-color: #83b5bd;
+  box-shadow: none;
+}
+
+.spatial-day-event-box {
+  color: #59717e;
+  background: #f7fafb;
+  border-color: #e0e8ec;
+}
+
+.spatial-event-text {
+  color: #526b7a;
+}
+
+.spatial-circle-arrow {
+  color: #31596b;
+  background: #f6f9fa;
+  border-color: #d6e1e6;
+}
+
+.spatial-main-container .page-hero-gov,
+.spatial-main-container .geo-explorer-header,
+.spatial-main-container .schemes-toolbar-gov {
+  color: #19394d;
+  background: #f8fbfc;
+  border: 1px solid #d8e3e8;
+  border-radius: 12px;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.spatial-main-container .page-hero-gov h1,
+.spatial-main-container .geo-explorer-header h1 {
+  color: #163b52;
+}
+
+.spatial-main-container .page-hero-gov p,
+.spatial-main-container .geo-explorer-header p {
+  color: #587181;
+}
+
+.spatial-main-container .scheme-master-card {
+  color: #243f50;
+  background: #ffffff;
+  border: 1px solid #d9e3e8;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(24, 56, 75, 0.05);
+}
+
+.spatial-main-container .search-box-gov {
+  color: #526d7b;
+  background: #ffffff;
+  border: 1px solid #cbd9e0;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(20, 50, 68, 0.03);
+}
+
+.spatial-main-container .search-box-gov:focus-within {
+  border-color: #438b98;
+  box-shadow: 0 0 0 3px rgba(38, 125, 137, 0.13);
+}
+
+.spatial-main-container .search-box-gov input {
+  color: #19394d;
+}
+
+.spatial-main-container .search-box-gov input::placeholder {
+  color: #718591;
+}
+
+.spatial-main-container .filter-pills-row {
+  flex-wrap: wrap;
+  overflow: visible;
+}
+
+.spatial-main-container .cat-pill-btn {
+  color: #31576b;
+  background: #f4f8f9;
+  border: 1px solid #d4e0e5;
+  border-radius: 999px;
+}
+
+.spatial-main-container .cat-pill-btn:hover {
+  color: #173c53;
+  background: #eaf3f4;
+}
+
+.spatial-main-container .cat-pill-btn.active {
+  color: #ffffff;
+  background: #1f7180;
+  border-color: #1f7180;
+}
+
+.spatial-main-container .hero-kicker-tag {
+  color: #315b6b;
+  background: #edf5f6;
+  border: 1px solid #d2e3e7;
+  background-image: none;
+}
+
+.spatial-main-container .scheme-preview-label {
+  color: #486675;
+  background: #edf5f6;
+  border: 1px solid #d2e3e7;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.spatial-main-container .scheme-master-card.expanded {
+  border-color: #78aeb8;
+  box-shadow: 0 5px 18px rgba(27, 92, 107, 0.09);
+}
+
+.spatial-main-container .smc-header:hover {
+  background: #f7fafb;
+}
+
+.spatial-main-container .smc-header:focus-visible {
+  outline: 3px solid rgba(38, 125, 137, 0.35);
+}
+
+.spatial-main-container .smc-titles h3,
+.spatial-main-container .smc-col h4 {
+  color: #183a4e;
+}
+
+.spatial-main-container .smc-dept,
+.spatial-main-container .smc-year-tag {
+  color: #607887;
+}
+
+.spatial-main-container .smc-code,
+.spatial-main-container .smc-category-tag,
+.spatial-main-container .stat-pill-sm,
+.spatial-main-container .stat-pill-sm.teal {
+  color: #31576b;
+  background: #f1f6f8;
+  border-color: #dce7eb;
+}
+
+.spatial-main-container .smc-expanded-body {
+  color: #314f60;
+  background: #f8fbfc;
+  border-top-color: #e0e8ec;
+}
+
+.spatial-main-container .smc-benefit-highlight {
+  background: #f0f6f7;
+  border-color: #d5e5e8;
+}
+
+.spatial-main-container .benefit-label,
+.spatial-main-container .benefit-val,
+.spatial-main-container .gov-bullet-list {
+  color: #365666;
+}
+
+.spatial-main-container .smc-footer-bar {
+  border-top-color: #dce6ea;
+}
+
+.spatial-main-container .scheme-empty-state {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 36px 20px;
+  color: #526d7b;
+  text-align: center;
+  background: #f8fbfc;
+  border: 1px dashed #cbdce3;
+  border-radius: 12px;
+}
+
+.spatial-main-container .scheme-empty-state h2 {
+  margin: 0;
+  color: #183a4e;
+  font-size: 1.1rem;
+}
+
+.spatial-main-container .scheme-empty-state p {
+  margin: 0 0 8px;
+}
+
+.spatial-main-container .geo-demo-pill,
+.spatial-main-container .geo-source-pill {
+  color: #31576b !important;
+  background: #edf5f6 !important;
+  border-color: #d2e3e7 !important;
+}
+
+.spatial-main-container .geo-data-disclaimer {
+  color: #5c7180;
+  background: #f1f6f8;
+  border-color: #dbe5ea;
+}
+
+.spatial-main-container .citizen-hero {
+  color: #19394d !important;
+  background: #f8fbfc !important;
+  border: 1px solid #d8e3e8;
+  box-shadow: none;
+}
+
+.spatial-main-container .citizen-hero h1 {
+  color: #163b52 !important;
+}
+
+.spatial-main-container .citizen-hero p {
+  color: #587181 !important;
+}
+
+.spatial-main-container .citizen-tag {
+  color: #315b6b !important;
+  background: #edf5f6 !important;
+  border-color: #d2e3e7 !important;
+}
+
+.spatial-main-container .wizard-step-pill.is-current {
+  color: #ffffff;
+  background: #1f7180;
+  border-color: #1f7180;
+  box-shadow: none;
+}
+
+.spatial-main-container .wizard-step-pill.is-completed,
+.spatial-main-container .wizard-opt-btn.active,
+.spatial-main-container .wizard-dist-pill.active {
+  color: #215461;
+  background: #e8f3f4;
+  border-color: #83b5bd;
+}
+
+.spatial-main-container .wizard-step-pill.is-current .wsp-num {
+  color: #1f7180;
+}
+
+.spatial-main-container .btn-wizard-next,
+.spatial-main-container .btn-wizard-view-results {
+  color: #ffffff;
+  background: #1f7180;
+  border: 1px solid #1f7180;
+  box-shadow: none;
+}
+
+.spatial-main-container .btn-wizard-next:hover,
+.spatial-main-container .btn-wizard-view-results:hover {
+  color: #ffffff;
+  background: #175b6a;
+}
+
+.spatial-main-container .wizard-preview-note {
+  display: block;
+  margin: 0 0 10px;
+  color: #5c7180;
+}
+
+.spatial-main-container .public-scheme-card {
+  border-color: #d9e3e8;
+  box-shadow: 0 3px 12px rgba(24, 56, 75, 0.05);
+}
+
+.spatial-main-container .public-scheme-card h3 {
+  color: #183a4e;
+}
+
+.spatial-search-modal-backdrop {
+  background: rgba(17, 42, 58, 0.42);
+  backdrop-filter: blur(5px);
+}
+
+.spatial-search-modal-box {
+  background: #ffffff;
+  border: 1px solid #d5e0e6;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(18, 50, 68, 0.2);
+}
+
+.spatial-search-result:hover,
+.spatial-search-result:focus-visible {
+  background: #f2f7f8;
+  border-color: #d9e7ea;
+}
+
+.spatial-search-empty {
+  color: #587181;
+}
+
+@media (max-width: 768px) {
+  .spatial-app-shell {
+    padding: 12px 12px 90px;
+  }
+
+  .spatial-header-bar {
+    margin: -16px -16px 16px;
+    padding: 16px;
+    border-radius: 21px 21px 0 0;
+  }
+
+  .spatial-main-container .smc-header {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    align-items: start;
+    padding: 14px;
+  }
+
+  .spatial-main-container .smc-header-stats {
+    grid-column: 1 / -1;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .spatial-main-container .smc-two-columns {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .spatial-main-container .smc-footer-bar {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .spatial-header-bar {
+    margin: -13px -13px 16px;
+    padding: 14px;
+  }
+}
+
+/* Gujarat identity: district silhouette and a restrained handloom-inspired edge. */
+.spatial-header-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.spatial-header-bar::after {
+  position: absolute;
+  right: 28px;
+  bottom: 0;
+  left: 28px;
+  height: 4px;
+  content: "";
+  background-color: #1f7180;
+  background-image:
+    linear-gradient(135deg, transparent 38%, #dfbd7b 40% 60%, transparent 62%),
+    linear-gradient(45deg, transparent 38%, #dfbd7b 40% 60%, transparent 62%);
+  background-position: 0 0, 6px 0;
+  background-size: 12px 4px;
+  opacity: 0.9;
+}
+
+.spatial-gujarat-mark {
+  display: grid;
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid rgba(226, 188, 119, 0.52);
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(226, 188, 119, 0.18), rgba(31, 113, 128, 0.22));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.spatial-gujarat-mark svg {
+  display: block;
+  width: 34px;
+  height: 34px;
+  overflow: visible;
+}
+
+.spatial-gujarat-mark path {
+  fill: #e8c98e;
+  stroke: #153d53;
+  stroke-width: 7px;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 480px) {
+  .spatial-gujarat-mark {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .spatial-gujarat-mark svg {
+    width: 30px;
+    height: 30px;
   }
 }

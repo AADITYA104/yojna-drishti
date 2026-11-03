@@ -1,8 +1,8 @@
 // Gujarat Government Scheme Geo-Intelligence Platform (Yojana Drishti - યોજના દૃષ્ટિ)
 // Comprehensive Synthetic Demo Data Engine
 // IMPORTANT: All statistics, numbers, and boundary shapes are synthetic demo fixtures for UI/UX evaluation.
-// They reflect real geographic administrative names (LGD hierarchy) and verified government schemes,
-// but the counts and budget figures are synthetic placeholders until official APIs/data are connected.
+// Geographic names follow the Gujarat hierarchy. Scheme records, descriptions, figures, and coverage
+// are illustrative and have not been verified against official department data or connected APIs.
 
 export type District = {
   officialNo: string;
@@ -505,15 +505,15 @@ export const demoDistricts: District[] = [
     id: "chhota_udepur",
     name: "Chhota Udaipur",
     gu: "છોટા ઉદેપુર",
-    officialNo: "09",
-    code: "09",
+    officialNo: "GJ-34",
+    code: "GJ-34",
     areaKm2: 3868,
     region: "Central Gujarat",
     regionGu: "મધ્ય ગુજરાત",
     headquarters: "Chhota Udaipur",
     headquartersGu: "છોટા ઉદેપુર",
-    talukaCount: 6,
-    villageCount: 875,
+    talukaCount: 7,
+    villageCount: 904,
     population: 1071799,
     beneficiaries: 20100,
     applications: 27800,

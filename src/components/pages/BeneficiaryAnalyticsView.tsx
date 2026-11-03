@@ -26,13 +26,23 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
 
     chart.setOption({
       tooltip: { trigger: "item", formatter: "{b}: {c} ({d}%)" },
-      legend: { bottom: "2%", left: "center" },
+      legend: {
+        type: "scroll",
+        bottom: "0%",
+        left: "center",
+        itemWidth: 10,
+        itemHeight: 10,
+        itemGap: 10,
+        textStyle: { color: "#526d7b", fontSize: 10 },
+      },
       series: [
         {
           name: gu ? "સામાજિક શ્રેણી" : "Social Category",
           type: "pie",
-          radius: ["40%", "70%"],
-          center: ["50%", "45%"],
+          radius: ["38%", "62%"],
+          center: ["50%", "44%"],
+          label: { show: false },
+          labelLine: { show: false },
           itemStyle: { borderRadius: 4, borderColor: "#fff", borderWidth: 2 },
           data: [
             { value: Math.floor(totalBen * 0.42), name: gu ? "OBC / સામાજિક પછાત" : "OBC / SEBC", itemStyle: { color: "#0f766e" } },
@@ -63,9 +73,16 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
       xAxis: {
         type: "category",
         data: gu
-          ? ["૦-૬ વર્ષ (બાળકી)", "૭-૧૮ વર્ષ (કન્યા)", "૧૯-૩૫ વર્ષ (માતૃત્વ)", "૩૬-૫૫ વર્ષ (સ્વાવલંબન)", "૫૬+ વર્ષ (ગંગા સ્વરૂપા)"]
-          : ["0-6 Yrs (Infant)", "7-18 Yrs (Girl)", "19-35 Yrs (Maternal)", "36-55 Yrs (Enterprise)", "56+ Yrs (Widow)"],
-        axisLabel: { color: "#475569", fontSize: 10 },
+          ? ["૦–૬", "૭–૧૮", "૧૯–૩૫", "૩૬–૫૫", "૫૬+"]
+          : ["0–6", "7–18", "19–35", "36–55", "56+"],
+        axisLabel: {
+          color: "#475569",
+          fontSize: 10,
+          rotate: 0,
+          interval: 0,
+          overflow: "truncate",
+          width: 54,
+        },
       },
       yAxis: { type: "value", splitLine: { lineStyle: { color: "#f1f5f9" } } },
       series: [
@@ -104,8 +121,8 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
           <h1>{gu ? "લાભાર્થી વસ્તી અને સામાજિક આવરણ" : "Beneficiary Demographic Intelligence"}</h1>
           <p>
             {gu
-              ? "સામાજિક જૂથો, વયજૂથો અને ગ્રામીણ-શહેરી વિભાજન મુજબ કલ્યાણકારી યોજનાઓનું સંતુલિત વિતરણ."
-              : "Equity, coverage and inclusion metrics tracking scheme reach across age, social categories, and rural/urban areas."}
+              ? "વય અને સામાજિક જૂથના વિતરણના નમૂના ચાર્ટ. સત્તાવાર લાભાર્થી આંકડા જોડાયેલા નથી."
+              : "Illustrative age and social group charts. No official beneficiary data is connected."}
           </p>
         </div>
       </div>
@@ -131,7 +148,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
         </div>
 
         <div className="stat-card-compact">
-          <span className="stat-label">{gu ? "DPDP પ્રાઈવસી સુરક્ષા" : "DPDP Privacy Guard"}</span>
+          <span className="stat-label">{gu ? "ડેટા પ્રકાર" : "Data type"}</span>
           <strong className="text-emerald">{gu ? "એકત્રિત" : "Aggregate"}</strong>
           <small>{gu ? "વ્યક્તિગત લાભાર્થી વિગતો નથી" : "No person-level beneficiary details"}</small>
         </div>

@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   XCircle,
 } from "lucide-react";
+import { demoDistricts } from "@/lib/demo-data";
 
 interface AdministrationViewProps {
   gu: boolean;
@@ -20,7 +21,7 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
   const roles = [
     {
       role: gu ? "રાજ્ય સુપર એડમિન (State Admin)" : "State SuperAdmin",
-      jurisdiction: gu ? "સમગ્ર ગુજરાત (૩૩ જિલ્લા)" : "All Gujarat (33 Districts)",
+      jurisdiction: gu ? `સમગ્ર ગુજરાત (${demoDistricts.length} જિલ્લા)` : `All Gujarat (${demoDistricts.length} districts)`,
       users: 4,
       canViewAll: true,
       canUpload: true,
@@ -57,10 +58,10 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
   ];
 
   const auditLogs = [
-    { time: "Today 12:45 PM", user: "tdo_ghogha", action: gu ? "ઘોઘા તાલુકાના ૪૮ ગામોની યાદી ચકાસી" : "Verified Ghogha 48 villages register", status: "Success" },
-    { time: "Today 11:20 AM", user: "ddo_bhavnagar", action: gu ? "વ્હાલી દીકરી યોજના માસિક ક્વોટા મંજૂર કર્યો" : "Approved Vahali Dikri monthly batch", status: "Success" },
-    { time: "Yesterday 05:10 PM", user: "state_admin_01", action: gu ? "વાવ-થરાદ નવા જિલ્લાનો LGD કોડ ઉમેર્યો" : "Updated Vav-Tharad LGD code (GJ-34)", status: "Success" },
-    { time: "Yesterday 02:30 PM", user: "system_cron", action: gu ? "સ્વચાલિત નાણાકીય DBT સમાધાન ચલાવ્યું" : "Automated DBT reconciliation run", status: "Success" },
+    { time: "Demo · 12:45 PM", user: "tdo_ghogha", action: gu ? "ઘોઘા તાલુકાના ૪૮ ગામોની યાદી ચકાસી" : "Verified Ghogha 48 villages register", status: "Sample" },
+    { time: "Demo · 11:20 AM", user: "ddo_bhavnagar", action: gu ? "વ્હાલી દીકરી યોજના માસિક ક્વોટા મંજૂર કર્યો" : "Approved Vahali Dikri monthly batch", status: "Sample" },
+    { time: "Demo · 05:10 PM", user: "state_admin_01", action: gu ? "વાવ-થરાદ નવા જિલ્લાનો કોડ ઉમેર્યો" : "Updated Vav-Tharad district code", status: "Sample" },
+    { time: "Demo · 02:30 PM", user: "system_cron", action: gu ? "નાણાકીય સમાધાનનું ઉદાહરણ" : "Illustrative financial reconciliation", status: "Sample" },
   ];
 
   return (
@@ -71,11 +72,11 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
           <span className="hero-kicker-tag">
             {gu ? "વહીવટી નિયંત્રણ અને ભૂમિકાઓ" : "GOVERNANCE & ROLES"}
           </span>
-          <h1>{gu ? "વહીવટી ભૂમિકા નિયંત્રણ અને ઓડિટ લોગ" : "Role-Based Access Control & Security Governance"}</h1>
+          <h1>{gu ? "વહીવટી ભૂમિકાઓ · નમૂનાનું પૂર્વદર્શન" : "Administration roles · preview"}</h1>
           <p>
             {gu
-              ? "DPDP કાયદો ૨૦૨૩ અને ગુજરાત સરકારના ડેટા સુરક્ષા માર્ગદર્શિકા મુજબ સ્તરવાર અધિકાર અને સુરક્ષા."
-              : "Strict multi-tier administrative governance complying with Digital Personal Data Protection (DPDP) Act 2023."}
+              ? "ભૂમિકા અને અધિકાર મેટ્રિક્સનો નમૂનો. આ પાનું વાસ્તવિક વપરાશકર્તા અથવા પરવાનગી સંચાલિત કરતું નથી."
+              : "Illustrative role and permission matrix. This page does not manage real users or access controls."}
           </p>
         </div>
       </div>
@@ -152,7 +153,7 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
                   <td><small>{log.time}</small></td>
                   <td><code>{log.user}</code></td>
                   <td>{log.action}</td>
-                  <td><span className="badge-pill-success">{log.status}</span></td>
+                  <td><span className="badge-pill-success">{gu ? "નમૂનો" : log.status}</span></td>
                 </tr>
               ))}
             </tbody>

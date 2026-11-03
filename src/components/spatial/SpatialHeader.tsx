@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import { Search, Bell, ShieldCheck } from "lucide-react";
+import React from "react";
+import { Search } from "lucide-react";
+import { GUJARAT_DISTRICT_POLYGONS } from "@/lib/gujarat-svg-paths";
 
 interface SpatialHeaderProps {
   gu: boolean;
@@ -14,19 +15,24 @@ export function SpatialHeader({
   onToggleLanguage,
   onOpenSearch,
 }: SpatialHeaderProps) {
-  const [hasNotification] = useState(true);
-
   return (
     <header className="spatial-header-bar">
       {/* Left Title and Subtitle Badge */}
       <div className="spatial-brand-group">
+        <span className="spatial-gujarat-mark" aria-hidden="true">
+          <svg viewBox="20 20 910 680" role="presentation">
+            {GUJARAT_DISTRICT_POLYGONS.map((district) => (
+              <path key={district.name} d={district.path} />
+            ))}
+          </svg>
+        </span>
         <div className="spatial-brand-titles">
           <h1 className="spatial-brand-heading">
             {gu ? "યોજના દૃષ્ટિ" : "Yojna Drishti"}
           </h1>
           <span className="spatial-brand-badge">
             <span className="spatial-tricolor-pip" />
-            {gu ? "ગુજરાત સરકારી યોજના પોર્ટલ" : "Gujarat Sarkari Yojna Portal"}
+            {gu ? "ગુજરાત રાજ્ય · યોજના પૂર્વદર્શન" : "GUJARAT STATE · SCHEME PREVIEW"}
           </span>
         </div>
       </div>
@@ -44,7 +50,7 @@ export function SpatialHeader({
           <span className="spatial-search-placeholder">
             {gu ? "યોજના અથવા જિલ્લો શોધો..." : "Search yojna or district..."}
           </span>
-          <kbd className="spatial-kbd-chip">⌘K</kbd>
+          <kbd className="spatial-kbd-chip">Ctrl K</kbd>
         </button>
 
         {/* Language Switcher Pill (ગુજરાતી | EN) */}
@@ -52,31 +58,16 @@ export function SpatialHeader({
           type="button"
           onClick={onToggleLanguage}
           className="spatial-lang-pill"
-          aria-label="Toggle Language"
+          aria-label={gu ? "Switch to English" : "ગુજરાતીમાં બદલો"}
         >
           <span className={gu ? "active-lang" : "muted-lang"}>ગુજરાતી</span>
           <span className="spatial-lang-divider">|</span>
           <span className={!gu ? "active-lang" : "muted-lang"}>EN</span>
         </button>
 
-        {/* Notification Bell */}
-        <button
-          type="button"
-          className="spatial-icon-btn"
-          aria-label={gu ? "સૂચનાઓ" : "Notifications"}
-        >
-          <Bell size={18} strokeWidth={1.75} />
-          {hasNotification && <span className="spatial-notif-dot" />}
-        </button>
-
-        {/* Citizen Avatar Circle */}
-        <div
-          className="spatial-avatar-circle"
-          title={gu ? "નાગરિક પ્રોફાઇલ" : "Citizen Profile"}
-        >
+        <span className="spatial-avatar-circle" aria-label={gu ? "ગુજરાત" : "Gujarat"}>
           <span className="spatial-avatar-text">GJ</span>
-          <span className="spatial-online-dot" />
-        </div>
+        </span>
       </div>
     </header>
   );

@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Building2, Filter, MapPinned } from "lucide-react";
 import { demoDistricts, demoSchemes, type District } from "@/lib/demo-data";
-import { NOTEBOOK_WOMEN_SCHEMES } from "@/lib/master-hierarchy";
 import { GujaratInteractiveMap } from "../map/GujaratInteractiveMap";
 
 interface MapExplorerViewProps {
@@ -34,11 +33,6 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
     focusRequest?.target.kind === "scheme" ? focusRequest.target.id : "all",
   );
 
-  useEffect(() => {
-    if (focusRequest?.target.kind === "scheme") {
-      setSelectedScheme(focusRequest.target.id);
-    }
-  }, [focusRequest]);
   const [selectedRegion, setSelectedRegion] = useState<"all" | District["region"]>("all");
   const regionDistrictId = selectedRegion === "all"
     ? "bhavnagar"
@@ -70,14 +64,7 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
                 aria-label={gu ? "યોજના પ્રમાણે ફિલ્ટર કરો" : "Filter by scheme"}
               >
                 <option value="all">{gu ? "બધી યોજનાઓ" : "All schemes"}</option>
-                <optgroup label={gu ? "ગામ ડેમો mapping · ઘોઘા" : "Village demo mapping · Ghogha"}>
-                  {NOTEBOOK_WOMEN_SCHEMES.map((scheme) => (
-                    <option key={scheme.id} value={scheme.id}>
-                      {gu ? scheme.nameGu : scheme.nameEn}
-                    </option>
-                  ))}
-                </optgroup>
-                <optgroup label={gu ? "યોજના સૂચિ · ગામ mapping નથી" : "Scheme directory · no village mapping"}>
+                <optgroup label={gu ? "યોજનાઓ · નમૂનાનું મેપિંગ" : "Schemes · sample mapping"}>
                   {demoSchemes.map((scheme) => (
                     <option key={scheme.id} value={scheme.id}>
                       {gu ? scheme.shortNameGu : scheme.shortName}

@@ -88,7 +88,7 @@ export function Sidebar({ currentPage, onNavigate, gu, isOpen, onClose }: Sideba
           <strong>યોજના દૃષ્ટિ</strong>
           <small>YOJANA DRISHTI</small>
           <span className="brand-subtag">
-            {gu ? "ગુજરાત સરકાર ભૂ-ડેટા મંચ" : "Gujarat Geo-Intelligence"}
+            {gu ? "ગુજરાત યોજના માહિતી · પૂર્વદર્શન" : "Gujarat Scheme Information · Preview"}
           </span>
         </div>
         <button className="mobile-close-btn" onClick={onClose} aria-label="Close menu">
@@ -140,8 +140,8 @@ export function Sidebar({ currentPage, onNavigate, gu, isOpen, onClose }: Sideba
         <div className="user-profile-tile">
           <div className="user-avatar-circle">GJ</div>
           <div className="user-info">
-            <b>{gu ? "ગુજરાત સરકાર દર્શક" : "Gujarat Official"}</b>
-            <small>{gu ? "સત્તાવાર લૉગિન" : "Authorized Mode"}</small>
+            <b>{gu ? "પૂર્વદર્શન વપરાશકર્તા" : "Preview User"}</b>
+            <small>{gu ? "ડેમો ઍક્સેસ · સત્તાવાર લૉગિન નથી" : "Demo access · not an official login"}</small>
           </div>
           <ChevronDown size={14} />
         </div>

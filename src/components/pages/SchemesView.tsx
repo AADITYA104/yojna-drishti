@@ -1,22 +1,15 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import {
-  ClipboardList,
   Search,
-  Filter,
   CheckCircle2,
-  Users,
-  Wallet,
   Building2,
   FileText,
-  Calendar,
-  ExternalLink,
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
 import { demoSchemes, type Scheme } from "@/lib/demo-data";
-import { scaleDemoValue } from "@/lib/metrics.mjs";
 import { SchemeDetailModal } from "../shared/SchemeDetailModal";
 
 interface SchemesViewProps {
@@ -30,12 +23,6 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
   const [search, setSearch] = useState(initialSearchTerm);
   const [expandedSchemeId, setExpandedSchemeId] = useState<string | null>("YD-CAND-01");
   const [selectedModalScheme, setSelectedModalScheme] = useState<Scheme | null>(null);
-
-  useEffect(() => {
-    if (initialSearchTerm) {
-      setSearch(initialSearchTerm);
-    }
-  }, [initialSearchTerm]);
 
   const fmt = (num: number) => new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(num);
 
@@ -54,6 +41,17 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
     });
   }, [selectedCategory, search]);
 
+  const categories = useMemo(
+    () => Array.from(new Set(demoSchemes.map((scheme) => scheme.category))),
+    [],
+  );
+
+  const categoryLabels = useMemo(() => {
+    const labels = new Map<string, string>();
+    demoSchemes.forEach((scheme) => labels.set(scheme.category, scheme.categoryGu));
+    return labels;
+  }, []);
+
   const toggleExpand = (id: string) => {
     setExpandedSchemeId(expandedSchemeId === id ? null : id);
   };
@@ -65,13 +63,13 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
       <div className="page-hero-gov">
         <div>
           <span className="hero-kicker-tag">
-            {gu ? "સત્તાવાર યોજના નિર્દેશિકા" : "SCHEMES CATALOGUE"}
+            {gu ? "યોજના નિર્દેશિકા · પૂર્વદર્શન" : "SCHEME DIRECTORY · PREVIEW"}
           </span>
-          <h1>{gu ? "મહિલા અને બાળ કલ્યાણ સરકારી યોજનાઓ" : "Government Schemes for Women & Children"}</h1>
+          <h1>{gu ? "સરકારી યોજનાઓ શોધો" : "Find government schemes"}</h1>
           <p>
             {gu
-              ? "તમારા નોંધપોથીમાં નોંધાયેલી તમામ યોજનાઓ: દીકરી કલ્યાણ, વિધવા સહાય, મહિલા ઉદ્યોગસાહસિકતા અને પોષણ યોજનાઓની સંપૂર્ણ માહિતી."
-              : "Comprehensive inventory covering 10 major state & central welfare schemes for women, children, housewives, and entrepreneurs."}
+              ? `હાલની નમૂના નિર્દેશિકામાં ${fmt(demoSchemes.length)} યોજનાઓ છે. નામ, લાભ અથવા પાત્રતા પ્રમાણે શોધો; આ સૂચિ સંપૂર્ણ સરકારી નોંધણી નથી.`
+              : `${fmt(demoSchemes.length)} entries are in the current preview catalogue. Search by name, benefit, or eligibility; this is not a complete government register.`}
           </p>
         </div>
       </div>
@@ -82,6 +80,7 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
           <Search size={15} />
           <input
             type="search"
+            aria-label={gu ? "યોજનાઓ શોધો" : "Search schemes"}
             placeholder={gu ? "યોજનાનું નામ અથવા કીવર્ડ શોધો..." : "Search scheme by name or benefit..."}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -90,14 +89,13 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
 
         <div className="filter-pills-row">
           {[
-            { key: "all", en: "All Schemes (10)", gu: "બધી યોજનાઓ (૧૦)" },
-            { key: "Girl Child", en: "Girl Child", gu: "દીકરી કલ્યાણ" },
-            { key: "Widow Welfare", en: "Widow Support", gu: "ગંગા સ્વરૂપા" },
-            { key: "Entrepreneurship", en: "Women Entrepreneurs", gu: "મહિલા સાહસિક" },
-            { key: "Maternal & Child Health", en: "Mother & Child", gu: "માતૃ-બાળ સ્વાસ્થ્ય" },
+            { key: "all", en: `All schemes (${demoSchemes.length})`, gu: `બધી યોજનાઓ (${fmt(demoSchemes.length)})` },
+            ...categories.map((key) => ({ key, en: key, gu: categoryLabels.get(key) || key })),
           ].map((cat) => (
             <button
               key={cat.key}
+              type="button"
+              aria-pressed={selectedCategory === cat.key}
               className={`cat-pill-btn ${selectedCategory === cat.key ? "active" : ""}`}
               onClick={() => setSelectedCategory(cat.key)}
             >
@@ -109,13 +107,22 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
 
       {/* Scheme Cards Grid */}
       <div className="schemes-list-column">
+        {filteredSchemes.length === 0 && (
+          <div className="scheme-empty-state" role="status">
+            <Search size={22} aria-hidden="true" />
+            <h2>{gu ? "કોઈ યોજના મળી નથી" : "No schemes found"}</h2>
+            <p>{gu ? "શોધ શબ્દ અથવા શ્રેણી બદલીને ફરી પ્રયાસ કરો." : "Try another search term or category."}</p>
+            <button
+              type="button"
+              className="spatial-link-btn"
+              onClick={() => { setSearch(""); setSelectedCategory("all"); }}
+            >
+              {gu ? "બધી યોજનાઓ બતાવો" : "Show all schemes"}
+            </button>
+          </div>
+        )}
         {filteredSchemes.map((s, index) => {
           const isExpanded = expandedSchemeId === s.id || (!expandedSchemeIsVisible && s.id === filteredSchemes[0]?.id);
-          const beneficiaries = scaleDemoValue(s.beneficiariesStatewide, fy);
-          const allocated = scaleDemoValue(s.budgetAllocatedCr, fy);
-          const disbursed = scaleDemoValue(s.budgetDisbursedCr, fy);
-          const utilization = allocated > 0 ? Math.round((disbursed / allocated) * 100) : 0;
-
           return (
             <div key={s.id} className={`scheme-master-card ${isExpanded ? "expanded" : ""}`}>
               <div
@@ -146,14 +153,7 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
                 </div>
 
                 <div className="smc-header-stats">
-                  <div className="stat-pill-sm">
-                    <Users size={14} />
-                    <span><b>{fmt(beneficiaries)}</b> {gu ? "લાભાર્થી" : "Beneficiaries"}</span>
-                  </div>
-                  <div className="stat-pill-sm teal">
-                    <Wallet size={14} />
-                    <span><b>₹ {fmt(disbursed)} Cr</b> {gu ? "ચૂકવણી" : "Disbursed"}</span>
-                  </div>
+                  <span className="scheme-preview-label">{gu ? "નમૂનાની વિગતો" : "Sample details"}</span>
                   <span className="expand-chevron-btn" aria-hidden="true">
                     {isExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </span>
@@ -202,20 +202,6 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
                       <span className="ts-val">{gu ? s.targetGroupGu : s.targetGroup}</span>
                     </div>
 
-                    <div className="budget-progress-box">
-                      <span>{gu ? "બજેટ ઉપયોગ:" : "Budget Utilization:"}</span>
-                      <div className="bar-track">
-                        <span
-                          style={{
-                            width: `${utilization}%`,
-                          }}
-                        />
-                      </div>
-                      <small>
-                        ₹{fmt(disbursed)} Cr / ₹{fmt(allocated)} Cr ({utilization}%)
-                      </small>
-                    </div>
-
                     <button
                       type="button"
                       className="btn-open-checklist-modal"
@@ -237,6 +223,7 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
 
       {/* Interactive Document Checklist Modal */}
       <SchemeDetailModal
+        key={selectedModalScheme?.id ?? "closed"}
         scheme={selectedModalScheme}
         onClose={() => setSelectedModalScheme(null)}
         gu={gu}
