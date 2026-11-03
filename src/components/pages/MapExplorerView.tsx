@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Building2, Filter, MapPinned, Home, Layers, CheckCircle2 } from "lucide-react";
-import { demoDistricts, demoSchemes, type District, type Village } from "@/lib/demo-data";
-import { NOTEBOOK_WOMEN_SCHEMES, GHOGHA_48_VILLAGES } from "@/lib/master-hierarchy";
+import React, { useState } from "react";
+import { Building2, Filter, MapPinned } from "lucide-react";
+import { demoDistricts, demoSchemes, type District } from "@/lib/demo-data";
+import { NOTEBOOK_WOMEN_SCHEMES } from "@/lib/master-hierarchy";
 import { GujaratInteractiveMap } from "../map/GujaratInteractiveMap";
-import { VillageSchemeRegister } from "../shared/VillageSchemeRegister";
 
 interface MapExplorerViewProps {
   gu: boolean;
@@ -39,58 +38,6 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
     ? "bhavnagar"
     : demoDistricts.find((district) => district.region === selectedRegion)?.id || "bhavnagar";
 
-  // Village tracking state for the prominent transparency register
-  const [selectedVillage, setSelectedVillage] = useState<{
-    code: string;
-    nameEn: string;
-    nameGu: string;
-    talukaNameEn?: string;
-    talukaNameGu?: string;
-    districtNameEn?: string;
-    districtNameGu?: string;
-  }>(() => {
-    const defaultVillage = GHOGHA_48_VILLAGES.find((v) => v.code === "516307") || GHOGHA_48_VILLAGES[0];
-    return {
-      code: defaultVillage.code,
-      nameEn: defaultVillage.nameEn,
-      nameGu: defaultVillage.nameGu,
-      talukaNameEn: "Ghogha",
-      talukaNameGu: "ઘોઘા",
-      districtNameEn: "Bhavnagar",
-      districtNameGu: "ભાવનગર",
-    };
-  });
-
-  // When focusRequest has a village target, sync to it
-  useEffect(() => {
-    if (focusRequest?.target.kind === "village" && focusRequest.target.villageCode) {
-      const match = GHOGHA_48_VILLAGES.find((v) => v.code === focusRequest.target.villageCode);
-      if (match) {
-        setSelectedVillage({
-          code: match.code,
-          nameEn: match.nameEn,
-          nameGu: match.nameGu,
-          talukaNameEn: "Ghogha",
-          talukaNameGu: "ઘોઘા",
-          districtNameEn: "Bhavnagar",
-          districtNameGu: "ભાવનગર",
-        });
-      }
-    }
-  }, [focusRequest]);
-
-  const handleVillageSelectFromMap = (v: Village) => {
-    setSelectedVillage({
-      code: v.code,
-      nameEn: v.name,
-      nameGu: v.gu,
-      talukaNameEn: "Ghogha",
-      talukaNameGu: "ઘોઘા",
-      districtNameEn: "Bhavnagar",
-      districtNameGu: "ભાવનગર",
-    });
-  };
-
   return (
     <div className="map-explorer-page">
       <header className="geo-explorer-header">
@@ -102,8 +49,8 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
           <h1>{gu ? "ગુજરાત નકશા અને વિસ્તારની માહિતી" : "Gujarat map & area intelligence"}</h1>
           <p>
             {gu
-              ? "નકશા પર સ્ક્રોલથી ઝૂમ કરો અથવા જિલ્લા, તાલુકા અને ગામનું નામ પસંદ કરો. નીચે ગામ સ્તરીય સંપૂર્ણ યોજના રજિસ્ટર લાઇવ જુઓ."
-              : "Scroll to zoom or select district, taluka, and village. View the full village-level transparency register below."}
+              ? "નકશા પર સ્ક્રોલથી ઝૂમ કરો અથવા જિલ્લા, તાલુકા અને ગામનું નામ પસંદ કરો."
+              : "Scroll to zoom, or choose a district, taluka, and village by name."}
           </p>
         </div>
         <div className="geo-explorer-filters">
@@ -155,7 +102,6 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
         </div>
       </header>
 
-      {/* 1. Main Interactive Map */}
       <div className="full-map-wrapper">
         <GujaratInteractiveMap
           key={selectedRegion}
@@ -165,83 +111,9 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
           regionFilter={selectedRegion}
           schemeFilter={selectedScheme}
           focusRequest={focusRequest}
-          onVillageSelect={handleVillageSelectFromMap}
           variant="explorer"
         />
       </div>
-
-      {/* 2. Granular Village Transparency Register (Prominent & Full Featured) */}
-      <section className="village-deep-intelligence-container" id="village-detail-register">
-        <div className="vdi-header-bar">
-          <div className="vdi-title-col">
-            <div className="vdi-eyebrow">
-              <Home size={16} />
-              <span>
-                {gu
-                  ? "ગામ સ્તરીય યોજના અમલીકરણ અને લાભાર્થી પારદર્શિતા રજિસ્ટર"
-                  : "VILLAGE SCHEME IMPLEMENTATION & BENEFICIARY REGISTRY"}
-              </span>
-              <span className="vdi-live-chip">
-                {gu ? "સત્તાવાર LGD માળખું" : "Official LGD Hierarchy"}
-              </span>
-            </div>
-            <h2>
-              {gu
-                ? `${selectedVillage.nameGu} ગામ — તમામ યોજનાઓ અને લાભાર્થીઓની વિગતવાર યાદી`
-                : `${selectedVillage.nameEn} Village — All Schemes & Granular Beneficiaries Register`}
-            </h2>
-            <p>
-              {gu
-                ? "નકશામાં પસંદ કરેલ ગામમાં કઈ કઈ યોજનાઓ કાર્યરત છે, કેટલા નાણાં ચૂકવાયા અને કોણ કોણ લાભાર્થી છે તેની નામવાર પારદર્શક યાદી નીચે દર્શાવેલ છે."
-                : "Real-time granular delivery tracking: active schemes in this village, disbursed funds, saturation rate, and citizen-level beneficiary records."}
-            </p>
-          </div>
-
-          {/* Quick Village Dropdown Switcher */}
-          <div className="vdi-quick-switcher">
-            <label className="vdi-switcher-label">
-              <span>{gu ? "ગામ ઝડપી પસંદ કરો:" : "Quick Village Switcher:"}</span>
-              <select
-                value={selectedVillage.code}
-                onChange={(e) => {
-                  const v = GHOGHA_48_VILLAGES.find((item) => item.code === e.target.value);
-                  if (v) {
-                    setSelectedVillage({
-                      code: v.code,
-                      nameEn: v.nameEn,
-                      nameGu: v.nameGu,
-                      talukaNameEn: "Ghogha",
-                      talukaNameGu: "ઘોઘા",
-                      districtNameEn: "Bhavnagar",
-                      districtNameGu: "ભાવનગર",
-                    });
-                  }
-                }}
-                className="vdi-select-input"
-              >
-                {GHOGHA_48_VILLAGES.map((v) => (
-                  <option key={v.code} value={v.code}>
-                    {gu ? v.nameGu : v.nameEn} · {v.beneficiaries} {gu ? "લાભાર્થી" : "beneficiaries"}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
-        </div>
-
-        {/* Master Register Component */}
-        <VillageSchemeRegister
-          villageCode={selectedVillage.code}
-          villageNameGu={selectedVillage.nameGu}
-          villageNameEn={selectedVillage.nameEn}
-          talukaNameGu={selectedVillage.talukaNameGu || "ઘોઘા"}
-          talukaNameEn={selectedVillage.talukaNameEn || "Ghogha"}
-          districtNameGu={selectedVillage.districtNameGu || "ભાવનગર"}
-          districtNameEn={selectedVillage.districtNameEn || "Bhavnagar"}
-          gu={gu}
-          fy={fy}
-        />
-      </section>
     </div>
   );
 }
