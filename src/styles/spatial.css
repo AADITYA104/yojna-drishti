@@ -2417,3 +2417,63 @@ body.dr-glass {
     min-height: 190px;
   }
 }
+
+/* On phones, let the map and its selected-area details flow as one page. */
+@media (max-width: 820px) {
+  .spatial-main-container .map-explorer-page,
+  .spatial-main-container .full-map-wrapper {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .spatial-main-container .full-map-wrapper {
+    flex: none;
+    margin-top: 12px;
+  }
+
+  .spatial-main-container .geo-explorer {
+    height: auto;
+    min-height: 0;
+    flex: none;
+    overflow: visible;
+  }
+
+  .spatial-main-container .geo-explorer-layout {
+    grid-template-rows: minmax(260px, 42vh) auto;
+    min-height: 0;
+    flex: none;
+    align-content: start;
+    overflow: visible;
+  }
+
+  .spatial-main-container .geo-map-card {
+    height: 42vh;
+    min-height: 260px;
+  }
+
+  .spatial-main-container .geo-detail-panel,
+  .spatial-main-container .geo-detail-panel--taluka-list,
+  .spatial-main-container .geo-detail-panel--village-selected,
+  .spatial-main-container .geo-detail-panel--village-list {
+    grid-template-rows: auto auto auto;
+    overflow: visible;
+  }
+
+  .spatial-main-container .geo-detail-panel--village-selected {
+    grid-template-rows: auto auto;
+  }
+
+  .spatial-main-container .geo-entity-list,
+  .spatial-main-container .geo-detail-panel--village-selected .geo-profile-card {
+    overflow: visible;
+  }
+
+  .spatial-main-container .geo-entity-list {
+    min-height: auto;
+  }
+
+  .spatial-main-container .maplibregl-map {
+    min-height: 0;
+  }
+}

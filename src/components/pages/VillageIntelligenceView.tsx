@@ -22,13 +22,11 @@ import {
   MASTER_DISTRICTS,
   MASTER_SUBDISTRICTS,
   GHOGHA_48_VILLAGES,
-  NOTEBOOK_WOMEN_SCHEMES,
   getSubdistrictsForDistrict,
   type MasterVillage,
   type MasterSubdistrict,
 } from "@/lib/master-hierarchy";
 import { scaleDemoValue } from "@/lib/metrics.mjs";
-import { GHOGHA_VILLAGE_SCHEME_DEMO } from "@/lib/village-scheme-demo";
 import { VillageSchemeRegister } from "../shared/VillageSchemeRegister";
 
 type VillageRecord = MasterVillage & { hasDemoMetrics: boolean };
@@ -53,7 +51,6 @@ export function VillageIntelligenceView({
   const [selectedVillageCode, setSelectedVillageCode] = useState<string>(initialVillageCode);
   const [search, setSearch] = useState("");
   const [sortOrder, setSortOrder] = useState<"ben" | "name">("ben");
-  const [activeTab, setActiveTab] = useState<"all" | "women" | "housewife" | "entrepreneur">("all");
 
   const [villagesList, setVillagesList] = useState<VillageRecord[]>(GHOGHA_48_VILLAGES.map((village) => ({ ...village, hasDemoMetrics: true })));
   const [isLoading, setIsLoading] = useState(false);
@@ -180,32 +177,6 @@ export function VillageIntelligenceView({
         return a.nameEn.localeCompare(b.nameEn);
       });
   }, [villagesList, search, sortOrder]);
-
-  const villageAssignments = currentVillage?.hasDemoMetrics
-    ? GHOGHA_VILLAGE_SCHEME_DEMO[currentVillage.code] || []
-    : [];
-  const villageSchemes = villageAssignments
-    .map((assignment) => ({
-      ...assignment,
-      scheme: NOTEBOOK_WOMEN_SCHEMES.find((scheme) => scheme.id === assignment.schemeId),
-    }))
-    .filter((assignment): assignment is typeof assignment & { scheme: (typeof NOTEBOOK_WOMEN_SCHEMES)[number] } => Boolean(assignment.scheme));
-
-  const displayedSchemes = useMemo(() => {
-    if (activeTab === "all") return villageSchemes;
-    if (activeTab === "women") {
-      return villageSchemes.filter(
-        ({ scheme }) => scheme.notebookCategory.includes("Women") && !scheme.notebookCategory.includes("Entrepreneurs")
-      );
-    }
-    if (activeTab === "housewife") {
-      return villageSchemes.filter(({ scheme }) => scheme.notebookCategory.includes("Housewife"));
-    }
-    if (activeTab === "entrepreneur") {
-      return villageSchemes.filter(({ scheme }) => scheme.notebookCategory.includes("Entrepreneurs"));
-    }
-    return villageSchemes;
-  }, [activeTab, villageSchemes]);
 
   return (
     <div className="village-intel-page">
@@ -435,7 +406,6 @@ export function VillageIntelligenceView({
                 districtNameGu={selectedDistrict.nameGu}
                 districtNameEn={selectedDistrict.nameEn}
                 gu={gu}
-                fy={fy}
               />
             </div>
           </div>
