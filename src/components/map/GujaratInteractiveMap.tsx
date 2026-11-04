@@ -509,6 +509,10 @@ export function GujaratInteractiveMap({
       zoom: GUJARAT_STATE_CENTER.zoom || 7.3,
       minZoom: 5.5,
       maxZoom: 18,
+      maxBounds: [
+        [66.8, 19.5],
+        [75.6, 25.2],
+      ],
       maxPitch: 0,
       pitch: 0,
       attributionControl: false,
