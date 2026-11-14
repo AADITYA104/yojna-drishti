@@ -1,126 +1,197 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
-  ShieldCheck,
-  Users,
-  KeyRound,
-  FileCheck2,
-  Lock,
-  UserCheck,
-  CheckCircle2,
-  XCircle,
+  ShieldCheck, Users, KeyRound, FileCheck2, Lock,
+  UserCheck, CheckCircle2, XCircle, Building2, Landmark,
+  Home, AlertTriangle, Clock, Search, ChevronDown, Activity,
 } from "lucide-react";
-import { demoDistricts } from "@/lib/demo-data";
+import { demoDistricts, demoTalukas } from "@/lib/demo-data";
 
 interface AdministrationViewProps {
   gu: boolean;
 }
 
+const AUDIT_LOGS = [
+  { ts: "2026-11-15 · 12:45", user: "tdo_ghogha",      en: "Verified Ghogha 48 villages register",          gu: "ઘોઘા ૪૮ ગામ નોંધ ચકાસ", level: "info"    },
+  { ts: "2026-11-15 · 11:20", user: "ddo_bhavnagar",   en: "Approved Vahali Dikri monthly batch (4,210)",    gu: "વ્હાલી દીકરી ૪,૨૧૦ મંજૂર", level: "success" },
+  { ts: "2026-11-14 · 17:10", user: "state_admin_01",  en: "Updated Vav-Tharad district code (GJ-39)",       gu: "વાવ-થરાદ GJ-39 કોડ ઉ.",    level: "success" },
+  { ts: "2026-11-14 · 15:30", user: "system_cron",     en: "Financial reconciliation batch completed",       gu: "નાણ. સ. સ. પૂ.",            level: "info"    },
+  { ts: "2026-11-14 · 09:05", user: "tdo_dhandhuka",   en: "Uploaded Q3 beneficiary list (2,870 entries)",   gu: "Q3 ૨,૮૭૦ ઉ.",              level: "success" },
+  { ts: "2026-11-13 · 14:22", user: "ddo_rajkot",      en: "Flagged 12 duplicate Aadhaar entries for review",gu: "૧૨ ડ. આ. ફ.",              level: "warning" },
+  { ts: "2026-11-13 · 11:00", user: "state_admin_02",  en: "New TDO account created: tdo_palitana_02",       gu: "નવ TDO ઉ. tdo_palitana_02", level: "info"    },
+  { ts: "2026-11-12 · 16:45", user: "system_cron",     en: "DBT reconciliation: 99.2% success rate",         gu: "DBT ૯૯.૨% સ.",              level: "success" },
+];
+
 export function AdministrationView({ gu }: AdministrationViewProps) {
+  const [logFilter, setLogFilter] = useState<"all" | "success" | "warning" | "info">("all");
+  const [logSearch, setLogSearch] = useState("");
+
   const roles = [
     {
-      role: gu ? "રાજ્ય સુપર એડમિન (State Admin)" : "State SuperAdmin",
-      jurisdiction: gu ? `સમગ્ર ગુજરાત (${demoDistricts.length} જિલ્લા)` : `All Gujarat (${demoDistricts.length} districts)`,
-      users: 4,
-      canViewAll: true,
-      canUpload: true,
-      canApprove: true,
-      canAudit: true,
+      tier: 1,
+      role:         gu ? "રાજ્ય સુપર એડ. (State Admin)" : "State SuperAdmin",
+      jurisdiction: gu ? `સમગ્ર ગુજરાત (${demoDistricts.length} જિ.)` : `All Gujarat (${demoDistricts.length} dists)`,
+      users:       4,
+      canViewAll:  true,  canUpload: true,  canApprove: true,  canAudit: true,  canConfig: true,
+      color:       "#0f766e",
     },
     {
-      role: gu ? "જિલ્લા કલેક્ટર / DDO" : "District Collector / DDO",
-      jurisdiction: gu ? "પોતાનો જિલ્લો (દા.ત. ભાવનગર)" : "Own District (e.g. Bhavnagar)",
-      users: 33,
-      canViewAll: true,
-      canUpload: true,
-      canApprove: true,
-      canAudit: false,
+      tier: 2,
+      role:         gu ? "જિ. કલેક્ટર / DDO" : "District Collector / DDO",
+      jurisdiction: gu ? "પોતાનો જિ. (૩૪ ઓ.)" : "Own District (34 slots)",
+      users:       34,
+      canViewAll:  true,  canUpload: true,  canApprove: true,  canAudit: false, canConfig: false,
+      color:       "#0284c7",
     },
     {
-      role: gu ? "તાલુકા વિકાસ અધિકારી (TDO)" : "Taluka Development Officer (TDO)",
-      jurisdiction: gu ? "પોતાનો તાલુકો (દા.ત. ઘોઘા)" : "Own Taluka (e.g. Ghogha)",
-      users: 252,
-      canViewAll: false,
-      canUpload: true,
-      canApprove: false,
-      canAudit: false,
+      tier: 3,
+      role:         gu ? "TDO (તા. વ. અ.)" : "Taluka Dev. Officer (TDO)",
+      jurisdiction: gu ? `પોત. તાલ. (${demoTalukas.length} સ્લ.)` : `Own Taluka (${demoTalukas.length} slots)`,
+      users:       309,
+      canViewAll:  false, canUpload: true,  canApprove: false, canAudit: false, canConfig: false,
+      color:       "#d97706",
     },
     {
-      role: gu ? "તલાટી-કમ-મંત્રી / VCE (ગામ સ્તર)" : "Talati-cum-Mantri / VCE",
-      jurisdiction: gu ? "પોતાનું ગામ (દા.ત. સર્વોદય)" : "Assigned Village (e.g. Sarvodaya)",
-      users: 14200,
-      canViewAll: false,
-      canUpload: false,
-      canApprove: false,
-      canAudit: false,
+      tier: 4,
+      role:         gu ? "તલ.-ક.-મ. / VCE (ગામ)" : "Talati-cum-Mantri / VCE",
+      jurisdiction: gu ? "પોત. ગામ (૧૯,૨૦૧ સ્લ.)" : "Assigned Village (19,201 slots)",
+      users:       14200,
+      canViewAll:  false, canUpload: false, canApprove: false, canAudit: false, canConfig: false,
+      color:       "#8b5cf6",
     },
   ];
 
-  const auditLogs = [
-    { time: "Demo · 12:45 PM", user: "tdo_ghogha", action: gu ? "ઘોઘા તાલુકાના ૪૮ ગામોની યાદી ચકાસી" : "Verified Ghogha 48 villages register", status: "Sample" },
-    { time: "Demo · 11:20 AM", user: "ddo_bhavnagar", action: gu ? "વ્હાલી દીકરી યોજના માસિક ક્વોટા મંજૂર કર્યો" : "Approved Vahali Dikri monthly batch", status: "Sample" },
-    { time: "Demo · 05:10 PM", user: "state_admin_01", action: gu ? "વાવ-થરાદ નવા જિલ્લાનો કોડ ઉમેર્યો" : "Updated Vav-Tharad district code", status: "Sample" },
-    { time: "Demo · 02:30 PM", user: "system_cron", action: gu ? "નાણાકીય સમાધાનનું ઉદાહરણ" : "Illustrative financial reconciliation", status: "Sample" },
-  ];
+  const filteredLogs = AUDIT_LOGS.filter(l => {
+    const matchLevel  = logFilter === "all" || l.level === logFilter;
+    const matchSearch = !logSearch || (gu ? l.gu : l.en).toLowerCase().includes(logSearch.toLowerCase()) || l.user.toLowerCase().includes(logSearch.toLowerCase());
+    return matchLevel && matchSearch;
+  });
+
+  const Tick  = ({ ok }: { ok: boolean }) =>
+    ok ? <CheckCircle2 size={16} className="text-emerald" /> : <XCircle size={16} className="text-muted" />;
+
+  const levelBadge = (level: string) => {
+    if (level === "success") return <span className="badge-pill-success"><CheckCircle2 size={12}/> {gu ? "સફળ" : "OK"}</span>;
+    if (level === "warning") return <span className="badge-pill-warning"><AlertTriangle size={12}/> {gu ? "ચ." : "Warn"}</span>;
+    return <span className="badge-pill"><Activity size={12}/> {gu ? "માહ." : "Info"}</span>;
+  };
 
   return (
     <div className="administration-page">
-      {/* Page Hero */}
+
+      {/* Hero */}
       <div className="page-hero-gov">
         <div>
           <span className="hero-kicker-tag">
-            {gu ? "વહીવટી નિયંત્રણ અને ભૂમિકાઓ" : "GOVERNANCE & ROLES"}
+            {gu ? "RBAC · ૪-સ્તરીય સ્ત્રોત નિયંત્રણ" : "GOVERNANCE · 4-TIER RBAC"}
           </span>
-          <h1>{gu ? "વહીવટી ભૂમિકાઓ · નમૂનાનું પૂર્વદર્શન" : "Administration roles · preview"}</h1>
+          <h1>{gu ? "વહીવટી ભૂમિકાઓ · Permission Matrix" : "Administration Roles · Permission Matrix"}</h1>
           <p>
             {gu
-              ? "ભૂમિકા અને અધિકાર મેટ્રિક્સનો નમૂનો. આ પાનું વાસ્તવિક વપરાશકર્તા અથવા પરવાનગી સંચાલિત કરતું નથી."
-              : "Illustrative role and permission matrix. This page does not manage real users or access controls."}
+              ? "રાજ્ય → જિ. → તા. → ગામ: ૪-સ્તરીય RBAC ઢાંચો. ઉ. — ઓળ., ખ. ફ. સ. અ. નથી."
+              : "State → District → Taluka → Village: 4-tier RBAC framework. Illustrative — no real auth or account changes."}
           </p>
         </div>
       </div>
 
+      {/* Alert bar */}
       <div className="data-security-alert-bar">
         <ShieldCheck size={18} className="text-teal" />
         <div>
-          <strong>{gu ? "ડેમો RBAC પૂર્વદર્શન:" : "Demo RBAC preview:"}</strong>{" "}
-          <span>{gu ? "નીચેના role, user counts અને audit entries ઉદાહરણ છે. Authentication, account changes અને persistent audit storage અહીં જોડાયેલા નથી." : "Role rows, user counts, and audit entries below are illustrative. Authentication, account changes, and persistent audit storage are not connected."}</span>
+          <strong>{gu ? "ડેમો RBAC:" : "Demo RBAC:"}</strong>{" "}
+          <span>{gu ? "Role, user count, audit ઉ. છે. Auth, ખ.ફ., oc. storage જ. નથી." : "Role rows, user counts, and audit entries are illustrative. Authentication and persistent audit storage not connected."}</span>
         </div>
       </div>
 
-      {/* Role Matrix Panel */}
+      {/* Stats strip */}
+      <div className="stats-strip-4">
+        <div className="stat-card-compact">
+          <span className="stat-label">{gu ? "ભૂમિકા-સ્તર" : "Role Tiers"}</span>
+          <strong className="text-teal">4</strong>
+          <small>{gu ? "રા. → જિ. → તા. → ગા." : "State → District → Taluka → Village"}</small>
+        </div>
+        <div className="stat-card-compact">
+          <span className="stat-label">{gu ? "કુલ ઉ. ખ." : "Total User Slots"}</span>
+          <strong className="text-navy">14,547</strong>
+          <small>{gu ? "ઉ. ૧૪,૫૪૭ ઓ." : "Approx. 14,547 slots"}</small>
+        </div>
+        <div className="stat-card-compact">
+          <span className="stat-label">{gu ? "ઓ. લ." : "Audit Log Entries"}</span>
+          <strong className="text-amber">{AUDIT_LOGS.length}</strong>
+          <small>{gu ? "ઉ. ડેમો — ૮ ન." : "Illustrative — 8 recent"}</small>
+        </div>
+        <div className="stat-card-compact">
+          <span className="stat-label">{gu ? "DBT ઓ. ટ." : "DBT Auth. Rate"}</span>
+          <strong className="text-emerald">99.2%</strong>
+          <small>{gu ? "ઉ. ગ. · ચ. નથી" : "Demo · unverified"}</small>
+        </div>
+      </div>
+
+      {/* Role tiers — visual cards */}
+      <section className="panel-gov">
+        <div className="panel-gov-head">
+          <div>
+            <h3>{gu ? "૪-સ્તરીય RBAC ઢાંચો — વિઝ્યુઅલ ટ્રી" : "4-Tier RBAC Framework — Visual Hierarchy"}</h3>
+            <small>{gu ? "ઉ. — ઓ. ફ. ન." : "Illustrative — no actual permissions enforced"}</small>
+          </div>
+        </div>
+        <div className="admin-roles-visual">
+          {roles.map(r => (
+            <div key={r.tier} className="admin-role-card" style={{ borderLeftColor: r.color }}>
+              <div className="arc-tier-badge" style={{ background: r.color }}>T{r.tier}</div>
+              <div className="arc-body">
+                <div className="arc-role">{r.role}</div>
+                <div className="arc-jurisdiction">{r.jurisdiction}</div>
+                <div className="arc-users">
+                  <Users size={13}/> <strong>{r.users.toLocaleString()}</strong> {gu ? "ઓ." : "slots"}
+                </div>
+                <div className="arc-perms">
+                  <span className={r.canViewAll  ? "perm-yes" : "perm-no"}><FileCheck2 size={12}/>{gu ? "જ.જ." : "ViewAll"}</span>
+                  <span className={r.canUpload   ? "perm-yes" : "perm-no"}><KeyRound   size={12}/>{gu ? "ઉ." : "Upload"}</span>
+                  <span className={r.canApprove  ? "perm-yes" : "perm-no"}><UserCheck  size={12}/>{gu ? "મ." : "Approve"}</span>
+                  <span className={r.canAudit    ? "perm-yes" : "perm-no"}><Lock       size={12}/>{gu ? "ઓ.લ." : "Audit"}</span>
+                  <span className={r.canConfig   ? "perm-yes" : "perm-no"}><ShieldCheck size={12}/>{gu ? "ક." : "Config"}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Permission Matrix Table */}
       <div className="panel-gov">
         <div className="panel-gov-head">
           <div>
-            <h3>{gu ? "વહીવટી ભૂમિકાઓ અને પરવાનગી મેટ્રિક્સ" : "Administrative Role Permission Matrix"}</h3>
-            <small>{gu ? "રાજ્યથી ગામ સ્તર સુધી અધિકારોનું વિભાજન" : "Granular privilege segregation across all 4 tiers"}</small>
+            <h3>{gu ? "Permission Matrix — ૪ ભૂ. × ૫ ઓ." : "Permission Matrix — 4 Roles × 5 Operations"}</h3>
+            <small>{gu ? "RBAC ઢ. — ઉ. ગ." : "RBAC framework — illustrative"}</small>
           </div>
         </div>
-
         <div className="gov-table-wrap">
           <table className="gov-data-table">
             <thead>
               <tr>
-                <th>{gu ? "ભૂમિકા (Role)" : "Role"}</th>
-                <th>{gu ? "કાર્યક્ષેત્ર (Jurisdiction)" : "Jurisdiction"}</th>
-                <th>{gu ? "સક્રિય ખાતા" : "Active Users"}</th>
-                <th>{gu ? "તમામ ડેટા જુઓ" : "View All"}</th>
-                <th>{gu ? "ડેટા અપલોડ" : "Upload Data"}</th>
-                <th>{gu ? "મંજૂરી આપો" : "Approve Batch"}</th>
-                <th>{gu ? "ઓડિટ અધિકાર" : "Audit Logs"}</th>
+                <th>{gu ? "ભૂ. (Tier)" : "Role (Tier)"}</th>
+                <th>{gu ? "ક્ષ." : "Jurisdiction"}</th>
+                <th>{gu ? "ઓ." : "Users"}</th>
+                <th>{gu ? "જ.જ." : "View All"}</th>
+                <th>{gu ? "ઉ." : "Upload"}</th>
+                <th>{gu ? "મ." : "Approve"}</th>
+                <th>{gu ? "ઓ.લ." : "Audit Log"}</th>
+                <th>{gu ? "ક." : "Config"}</th>
               </tr>
             </thead>
             <tbody>
-              {roles.map((r, i) => (
-                <tr key={i}>
-                  <td><b>{r.role}</b></td>
+              {roles.map(r => (
+                <tr key={r.tier}>
+                  <td><b style={{ color: r.color }}>T{r.tier} · {r.role}</b></td>
                   <td>{r.jurisdiction}</td>
-                  <td><code>{r.users}</code></td>
-                  <td>{r.canViewAll ? <CheckCircle2 size={16} className="text-emerald" /> : <XCircle size={16} className="text-muted" />}</td>
-                  <td>{r.canUpload ? <CheckCircle2 size={16} className="text-emerald" /> : <XCircle size={16} className="text-muted" />}</td>
-                  <td>{r.canApprove ? <CheckCircle2 size={16} className="text-emerald" /> : <XCircle size={16} className="text-muted" />}</td>
-                  <td>{r.canAudit ? <CheckCircle2 size={16} className="text-emerald" /> : <XCircle size={16} className="text-muted" />}</td>
+                  <td><code>{r.users.toLocaleString()}</code></td>
+                  <td><Tick ok={r.canViewAll}  /></td>
+                  <td><Tick ok={r.canUpload}   /></td>
+                  <td><Tick ok={r.canApprove}  /></td>
+                  <td><Tick ok={r.canAudit}    /></td>
+                  <td><Tick ok={r.canConfig}   /></td>
                 </tr>
               ))}
             </tbody>
@@ -128,38 +199,61 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
         </div>
       </div>
 
-      {/* Audit Log Table */}
+      {/* Audit Log Table with filter */}
       <div className="panel-gov">
         <div className="panel-gov-head">
           <div>
-            <h3>{gu ? "નમૂના ઓડિટ પ્રવૃત્તિઓ" : "Sample Audit Activity"}</h3>
-            <small>{gu ? "આ demo entries છે; વાસ્તવિક વહીવટી activity નથી" : "These are demo entries, not actual administrative activity"}</small>
+            <h3>{gu ? "ઓ.લ. — ન. ક્ર." : "Audit Activity — Recent Actions"}</h3>
+            <small>{gu ? "ઉ. ૮ ન. — ઓ. log feed ન." : "Illustrative 8 entries — no live audit feed"}</small>
+          </div>
+          {/* Filter controls */}
+          <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+            <label className="search-box-gov" style={{ minWidth: 160 }}>
+              <Search size={13} />
+              <input
+                type="search"
+                placeholder={gu ? "શ. ઓ...." : "Search log..."}
+                value={logSearch}
+                onChange={e => setLogSearch(e.target.value)}
+              />
+            </label>
+            {(["all", "success", "warning", "info"] as const).map(f => (
+              <button
+                key={f}
+                className={`cat-pill-btn ${logFilter === f ? "active" : ""}`}
+                onClick={() => setLogFilter(f)}
+              >
+                {f === "all" ? (gu ? "બ." : "All") : f === "success" ? (gu ? "સ." : "OK") : f === "warning" ? (gu ? "ચ." : "Warn") : (gu ? "મ." : "Info")}
+              </button>
+            ))}
           </div>
         </div>
-
         <div className="gov-table-wrap">
           <table className="gov-data-table">
             <thead>
               <tr>
-                <th>{gu ? "સમય" : "Timestamp"}</th>
-                <th>{gu ? "વપરાશકર્તા" : "User ID"}</th>
-                <th>{gu ? "ક્રિયા (Activity)" : "Activity"}</th>
-                <th>{gu ? "સ્થિતિ" : "Status"}</th>
+                <th><Clock size={12}/> {gu ? "સ." : "Time"}</th>
+                <th>{gu ? "વ. ID" : "User ID"}</th>
+                <th>{gu ? "ક્ર." : "Activity"}</th>
+                <th>{gu ? "સ્." : "Status"}</th>
               </tr>
             </thead>
             <tbody>
-              {auditLogs.map((log, i) => (
+              {filteredLogs.length === 0 ? (
+                <tr><td colSpan={4} style={{ textAlign: "center", color: "#94a3b8", padding: "24px" }}>{gu ? "ક. મળ. ન." : "No matching entries"}</td></tr>
+              ) : filteredLogs.map((log, i) => (
                 <tr key={i}>
-                  <td><small>{log.time}</small></td>
+                  <td><small style={{ fontFamily: "monospace", color: "#64748b" }}>{log.ts}</small></td>
                   <td><code>{log.user}</code></td>
-                  <td>{log.action}</td>
-                  <td><span className="badge-pill-success">{gu ? "નમૂનો" : log.status}</span></td>
+                  <td>{gu ? log.gu : log.en}</td>
+                  <td>{levelBadge(log.level)}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
+
     </div>
   );
 }

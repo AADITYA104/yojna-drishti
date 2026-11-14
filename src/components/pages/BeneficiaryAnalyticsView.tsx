@@ -1,9 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import * as echarts from "echarts";
-import { Users, PieChart, TrendingUp, Layers, ShieldCheck, HeartHandshake } from "lucide-react";
-import { STATE_TOTALS } from "@/lib/demo-data";
+import {
+  Users, PieChart, TrendingUp, HeartHandshake, Award, Percent,
+  Home, Building2, Landmark, ArrowUpRight, Filter, BarChart3,
+  Baby, PersonStanding, GraduationCap, ShieldCheck,
+} from "lucide-react";
+import { demoDistricts, demoSchemes, STATE_TOTALS } from "@/lib/demo-data";
 import { scaleDemoValue } from "@/lib/metrics.mjs";
 
 interface BeneficiaryAnalyticsViewProps {
@@ -11,173 +15,329 @@ interface BeneficiaryAnalyticsViewProps {
   fy: string;
 }
 
+const GENDER_COLORS = ["#0284c7", "#ec4899", "#0f766e"];
+const SOCIAL_COLORS = ["#0f766e", "#0284c7", "#d97706", "#8b5cf6"];
+const AGE_COLORS   = ["#06b6d4", "#0f766e", "#0284c7", "#d97706", "#8b5cf6"];
+
 export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewProps) {
   const socialChartRef = useRef<HTMLDivElement>(null);
-  const ageChartRef = useRef<HTMLDivElement>(null);
+  const ageChartRef    = useRef<HTMLDivElement>(null);
+  const genderRef      = useRef<HTMLDivElement>(null);
+  const trendRef       = useRef<HTMLDivElement>(null);
+  const schemeBarRef   = useRef<HTMLDivElement>(null);
 
-  const fmt = (num: number) => new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(num);
+  const [filterCategory, setFilterCategory] = useState<"all" | "rural" | "urban">("all");
 
-  const totalBen = scaleDemoValue(STATE_TOTALS.beneficiaries, fy);
+  const fmt = (num: number) => new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(Math.round(num));
 
-  // ECharts Social Category Pie Chart
+  const totalBen   = scaleDemoValue(STATE_TOTALS.beneficiaries, fy);
+  const ruralBen   = Math.floor(totalBen * 0.742);
+  const urbanBen   = Math.floor(totalBen * 0.258);
+  const displayBen = filterCategory === "rural" ? ruralBen : filterCategory === "urban" ? urbanBen : totalBen;
+
+  const femaleCount = Math.floor(displayBen * 0.584);
+  const maleCount   = Math.floor(displayBen * 0.389);
+  const otherCount  = displayBen - femaleCount - maleCount;
+
+  const socialData = useMemo(() => [
+    { pct: 0.42, en: "OBC / SEBC",             gu: "OBC / સામાજિક પછાત",  color: SOCIAL_COLORS[0] },
+    { pct: 0.28, en: "General / EWS",           gu: "સામાન્ય (General/EWS)", color: SOCIAL_COLORS[1] },
+    { pct: 0.18, en: "Scheduled Caste (SC)",    gu: "અનુ. જાતિ (SC)",      color: SOCIAL_COLORS[2] },
+    { pct: 0.12, en: "Scheduled Tribe (ST)",    gu: "અનુ. જનજાતિ (ST)",    color: SOCIAL_COLORS[3] },
+  ], []);
+
+  const ageData = useMemo(() => [
+    { pct: 0.22, en: "0–6",   gu: "૦–૬",   label: gu ? "૦–૬ \u0ab5\u0ab0\u0acd\u0ab7" : "0–6 yrs" },
+    { pct: 0.18, en: "7–18",  gu: "૭–૧૮",  label: gu ? "૭–૧૮ \u0ab5\u0ab0\u0acd\u0ab7" : "7–18 yrs" },
+    { pct: 0.32, en: "19–35", gu: "૧૯–૩૫", label: gu ? "૧૯–૩૫ \u0ab5\u0ab0\u0acd\u0ab7" : "19–35 yrs" },
+    { pct: 0.16, en: "36–55", gu: "૩૬–૫૫", label: gu ? "૩૬–૫૫ \u0ab5\u0ab0\u0acd\u0ab7" : "36–55 yrs" },
+    { pct: 0.12, en: "56+",   gu: "૫૬+",   label: gu ? "૫૬+ \u0ab5\u0ab0\u0acd\u0ab7" : "56+ yrs" },
+  ], [gu]);
+
+  // ── SOCIAL CATEGORY DONUT ──────────────────────────────────────────────
   useEffect(() => {
     if (!socialChartRef.current) return;
     const chart = echarts.init(socialChartRef.current);
-
     chart.setOption({
       tooltip: { trigger: "item", formatter: "{b}: {c} ({d}%)" },
-      legend: {
-        type: "scroll",
-        bottom: "0%",
-        left: "center",
-        itemWidth: 10,
-        itemHeight: 10,
-        itemGap: 10,
-        textStyle: { color: "#526d7b", fontSize: 10 },
-      },
-      series: [
-        {
-          name: gu ? "સામાજિક શ્રેણી" : "Social Category",
-          type: "pie",
-          radius: ["38%", "62%"],
-          center: ["50%", "44%"],
-          label: { show: false },
-          labelLine: { show: false },
-          itemStyle: { borderRadius: 4, borderColor: "#fff", borderWidth: 2 },
-          data: [
-            { value: Math.floor(totalBen * 0.42), name: gu ? "OBC / સામાજિક પછાત" : "OBC / SEBC", itemStyle: { color: "#0f766e" } },
-            { value: Math.floor(totalBen * 0.28), name: gu ? "સામાન્ય (General / EWS)" : "General / EWS", itemStyle: { color: "#0284c7" } },
-            { value: Math.floor(totalBen * 0.18), name: gu ? "અનુસૂચિત જાતિ (SC)" : "Scheduled Caste (SC)", itemStyle: { color: "#d97706" } },
-            { value: Math.floor(totalBen * 0.12), name: gu ? "અનુસૂચિત જનજાતિ (ST)" : "Scheduled Tribe (ST)", itemStyle: { color: "#8b5cf6" } },
-          ],
-        },
-      ],
+      legend: { type: "scroll", bottom: "0%", left: "center", itemWidth: 10, itemHeight: 10, textStyle: { color: "#526d7b", fontSize: 10 } },
+      series: [{
+        name: gu ? "સામાજિક શ્રેણી" : "Social Category",
+        type: "pie", radius: ["40%", "66%"], center: ["50%", "44%"],
+        label: { show: false },
+        labelLine: { show: false },
+        itemStyle: { borderRadius: 5, borderColor: "#fff", borderWidth: 2 },
+        data: socialData.map(d => ({
+          value: Math.floor(displayBen * d.pct),
+          name: gu ? d.gu : d.en,
+          itemStyle: { color: d.color },
+        })),
+        emphasis: { itemStyle: { shadowBlur: 12, shadowOffsetX: 0, shadowColor: "rgba(0,0,0,0.3)" } },
+      }],
     });
+    const r = () => chart.resize();
+    window.addEventListener("resize", r);
+    return () => { window.removeEventListener("resize", r); chart.dispose(); };
+  }, [gu, displayBen, socialData]);
 
-    const handleResize = () => chart.resize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      chart.dispose();
-    };
-  }, [gu, totalBen]);
-
-  // ECharts Age Distribution Bar Chart
+  // ── AGE BAR ───────────────────────────────────────────────────────────
   useEffect(() => {
     if (!ageChartRef.current) return;
     const chart = echarts.init(ageChartRef.current);
-
     chart.setOption({
       grid: { left: "4%", right: "4%", bottom: "5%", top: "12%", containLabel: true },
-      tooltip: { trigger: "axis" },
-      xAxis: {
-        type: "category",
-        data: gu
-          ? ["૦–૬", "૭–૧૮", "૧૯–૩૫", "૩૬–૫૫", "૫૬+"]
-          : ["0–6", "7–18", "19–35", "36–55", "56+"],
-        axisLabel: {
-          color: "#475569",
-          fontSize: 10,
-          rotate: 0,
-          interval: 0,
-          overflow: "truncate",
-          width: 54,
-        },
-      },
-      yAxis: { type: "value", splitLine: { lineStyle: { color: "#f1f5f9" } } },
-      series: [
-        {
-          name: gu ? "લાભાર્થીઓ" : "Beneficiaries",
-          type: "bar",
-          barWidth: "35%",
-          itemStyle: { color: "#0d9488", borderRadius: [4, 4, 0, 0] },
-          data: [
-            Math.floor(totalBen * 0.22),
-            Math.floor(totalBen * 0.18),
-            Math.floor(totalBen * 0.32),
-            Math.floor(totalBen * 0.16),
-            Math.floor(totalBen * 0.12),
-          ],
-        },
-      ],
+      tooltip: { trigger: "axis", formatter: (p: any) => `${p[0].name}: <b>${fmt(p[0].value)}</b>` },
+      xAxis: { type: "category", data: ageData.map(d => d.label), axisLabel: { color: "#475569", fontSize: 10, interval: 0 } },
+      yAxis: { type: "value", splitLine: { lineStyle: { color: "#f1f5f9" } }, axisLabel: { color: "#64748b", fontSize: 10 } },
+      series: [{
+        name: gu ? "લાભાર્થીઓ" : "Beneficiaries",
+        type: "bar", barWidth: "38%",
+        data: ageData.map((d, i) => ({
+          value: Math.floor(displayBen * d.pct),
+          itemStyle: { color: AGE_COLORS[i], borderRadius: [4, 4, 0, 0] },
+        })),
+      }],
     });
+    const r = () => chart.resize();
+    window.addEventListener("resize", r);
+    return () => { window.removeEventListener("resize", r); chart.dispose(); };
+  }, [gu, displayBen, ageData]);
 
-    const handleResize = () => chart.resize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      chart.dispose();
-    };
-  }, [gu, totalBen]);
+  // ── GENDER PIE ────────────────────────────────────────────────────────
+  useEffect(() => {
+    if (!genderRef.current) return;
+    const chart = echarts.init(genderRef.current);
+    chart.setOption({
+      tooltip: { trigger: "item", formatter: "{b}: {c} ({d}%)" },
+      legend: { bottom: "0%", left: "center", itemWidth: 10, itemHeight: 10, textStyle: { color: "#526d7b", fontSize: 10 } },
+      series: [{
+        name: gu ? "લિંગ" : "Gender",
+        type: "pie", radius: ["40%", "65%"], center: ["50%", "44%"],
+        label: { show: false },
+        labelLine: { show: false },
+        itemStyle: { borderRadius: 5, borderColor: "#fff", borderWidth: 2 },
+        data: [
+          { value: femaleCount, name: gu ? "મહિલા" : "Female", itemStyle: { color: GENDER_COLORS[0] } },
+          { value: maleCount,   name: gu ? "પુરૂષ" : "Male",   itemStyle: { color: GENDER_COLORS[1] } },
+          { value: otherCount,  name: gu ? "અન્ય"  : "Other",  itemStyle: { color: GENDER_COLORS[2] } },
+        ],
+        emphasis: { itemStyle: { shadowBlur: 12, shadowColor: "rgba(0,0,0,0.3)" } },
+      }],
+    });
+    const r = () => chart.resize();
+    window.addEventListener("resize", r);
+    return () => { window.removeEventListener("resize", r); chart.dispose(); };
+  }, [gu, femaleCount, maleCount, otherCount]);
+
+  // ── ANNUAL TREND (last 5 FYs) ──────────────────────────────────────
+  useEffect(() => {
+    if (!trendRef.current) return;
+    const chart = echarts.init(trendRef.current);
+    const years = ["2020-21", "2021-22", "2022-23", "2023-24", "2024-25"];
+    const base  = STATE_TOTALS.beneficiaries;
+    const vals  = [0.72, 0.80, 0.88, 0.94, 1.0].map(f => Math.floor(base * f));
+    chart.setOption({
+      grid: { left: "4%", right: "4%", bottom: "6%", top: "12%", containLabel: true },
+      tooltip: { trigger: "axis", formatter: (p: any) => `${p[0].name}: <b>${fmt(p[0].value)}</b>` },
+      xAxis: { type: "category", data: years, axisLabel: { color: "#475569", fontSize: 10 } },
+      yAxis: { type: "value", splitLine: { lineStyle: { color: "#f1f5f9" } }, axisLabel: { color: "#64748b", fontSize: 10 } },
+      series: [{
+        name: gu ? "લાભાર્થીઓ" : "Beneficiaries",
+        type: "line", smooth: true,
+        data: vals,
+        itemStyle: { color: "#0f766e" },
+        lineStyle: { width: 3, color: "#0f766e" },
+        areaStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: "rgba(15,118,110,0.3)" },
+            { offset: 1, color: "rgba(15,118,110,0.02)" },
+          ]),
+        },
+        symbol: "circle", symbolSize: 8,
+      }],
+    });
+    const r = () => chart.resize();
+    window.addEventListener("resize", r);
+    return () => { window.removeEventListener("resize", r); chart.dispose(); };
+  }, [gu]);
+
+  // ── SCHEME-WISE BENEFICIARY BAR ────────────────────────────────────
+  useEffect(() => {
+    if (!schemeBarRef.current) return;
+    const chart = echarts.init(schemeBarRef.current);
+    const data = demoSchemes.map(s => ({
+      name: gu ? (s.shortNameGu || s.shortName) : s.shortName,
+      value: scaleDemoValue(s.beneficiariesStatewide ?? 50000, fy),
+    })).sort((a, b) => b.value - a.value);
+    chart.setOption({
+      grid: { left: "4%", right: "12%", bottom: "4%", top: "12%", containLabel: true },
+      tooltip: { trigger: "axis", formatter: (p: any) => `${p[0].name}: <b>${fmt(p[0].value)}</b>` },
+      xAxis: { type: "value", axisLabel: { color: "#64748b", fontSize: 10 }, splitLine: { lineStyle: { color: "#f1f5f9" } } },
+      yAxis: { type: "category", data: data.map(d => d.name), axisLabel: { color: "#475569", fontSize: 10, width: 100, overflow: "truncate" } },
+      series: [{
+        name: gu ? "લાભાર્થીઓ" : "Beneficiaries",
+        type: "bar", barWidth: "55%",
+        data: data.map((d, i) => ({
+          value: d.value,
+          itemStyle: { color: SOCIAL_COLORS[i % SOCIAL_COLORS.length], borderRadius: [0, 4, 4, 0] },
+        })),
+        label: { show: true, position: "right", color: "#526d7b", fontSize: 10, formatter: (p: any) => fmt(p.value) },
+      }],
+    });
+    const r = () => chart.resize();
+    window.addEventListener("resize", r);
+    return () => { window.removeEventListener("resize", r); chart.dispose(); };
+  }, [gu, fy]);
+
+  const topDistrict = useMemo(() => demoDistricts.reduce((a, b) => a.beneficiaries > b.beneficiaries ? a : b), []);
 
   return (
     <div className="beneficiaries-analytics-page">
+
       {/* Hero */}
       <div className="page-hero-gov">
         <div>
           <span className="hero-kicker-tag">
-            {gu ? "લાભાર્થી વિશ્લેષણ મંચ" : "BENEFICIARY DEMOGRAPHICS"}
+            {gu ? "લાભાર્થી વિશ્લેષણ · ૩૪ જિલ્લા" : "BENEFICIARY DEMOGRAPHICS · 34 DISTRICTS"}
           </span>
           <h1>{gu ? "લાભાર્થી વસ્તી અને સામાજિક આવરણ" : "Beneficiary Demographic Intelligence"}</h1>
           <p>
             {gu
-              ? "વય અને સામાજિક જૂથના વિતરણના નમૂના ચાર્ટ. સત્તાવાર લાભાર્થી આંકડા જોડાયેલા નથી."
-              : "Illustrative age and social group charts. No official beneficiary data is connected."}
+              ? "વય, સામાજિક, લિંગ અને યોજના-વાર વિભાજન. ઉદાહરણ ચાર્ટ — સ્ત્રોત: LGD + iDraft ડેમો ઈન્જિન."
+              : "Age, social category, gender, and scheme-wise demographic split. Illustrative charts — demo engine data."}
           </p>
         </div>
+        <div className="hero-filter-row">
+          {(["all", "rural", "urban"] as const).map(f => (
+            <button
+              key={f}
+              className={`cat-pill-btn ${filterCategory === f ? "active" : ""}`}
+              onClick={() => setFilterCategory(f)}
+            >
+              {f === "all" ? (gu ? "સમગ્ર" : "All") : f === "rural" ? (gu ? "ગ્રામ્ય" : "Rural") : (gu ? "શહેરી" : "Urban")}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* 4 Cards Strip */}
+      {/* KPI Strip */}
       <div className="stats-strip-4">
         <div className="stat-card-compact">
-          <span className="stat-label">{gu ? "કુલ નોંધાયેલ લાભાર્થીઓ" : "Total Beneficiaries"}</span>
-          <strong>{fmt(totalBen)}</strong>
-          <small>{gu ? "ઉદાહરણ આંકડો · સત્તાવાર નથી" : "Illustrative figure · not official"}</small>
+          <span className="stat-label">{gu ? "કુલ નોંધાયેલ" : "Total Beneficiaries"}</span>
+          <strong className="text-teal">{fmt(displayBen)}</strong>
+          <small>{filterCategory === "rural" ? (gu ? "ગ્રામ્ય" : "Rural") : filterCategory === "urban" ? (gu ? "શહેરી" : "Urban") : (gu ? "સમગ્ર" : "All")}</small>
         </div>
-
         <div className="stat-card-compact">
-          <span className="stat-label">{gu ? "ગ્રામીણ આવરણ ટકાવારી" : "Rural Penetration"}</span>
-          <strong className="text-teal">74.2%</strong>
-          <small>{gu ? "ડેમો વિતરણ · ચકાસાયેલ નથી" : "Demo distribution · unverified"}</small>
+          <span className="stat-label">{gu ? "ગ્રામ્ય આવરણ" : "Rural Penetration"}</span>
+          <strong className="text-navy">74.2%</strong>
+          <small>{gu ? "ઉદાહરણ વિતરણ" : "Demo distribution"}</small>
         </div>
-
         <div className="stat-card-compact">
-          <span className="stat-label">{gu ? "શહેરી આવરણ ટકાવારી" : "Urban Penetration"}</span>
-          <strong className="text-navy">25.8%</strong>
-          <small>{gu ? "ડેમો વિતરણ · ચકાસાયેલ નથી" : "Demo distribution · unverified"}</small>
+          <span className="stat-label">{gu ? "મહિલા લાભ" : "Female Beneficiaries"}</span>
+          <strong className="text-emerald">{fmt(femaleCount)}</strong>
+          <small>58.4% {gu ? "મહિલા" : "female"}</small>
         </div>
-
         <div className="stat-card-compact">
-          <span className="stat-label">{gu ? "ડેટા પ્રકાર" : "Data type"}</span>
-          <strong className="text-emerald">{gu ? "એકત્રિત" : "Aggregate"}</strong>
-          <small>{gu ? "વ્યક્તિગત લાભાર્થી વિગતો નથી" : "No person-level beneficiary details"}</small>
+          <span className="stat-label">{gu ? "ટોચ જિલ્લો" : "Top District"}</span>
+          <strong className="text-amber">{gu ? topDistrict.gu : topDistrict.name}</strong>
+          <small>{fmt(topDistrict.beneficiaries)} {gu ? "લાભાર્થી" : "beneficiaries"}</small>
         </div>
       </div>
 
-      {/* Two Demographic Charts */}
+      {/* Row 1: Social + Age */}
       <div className="overview-analytics-grid">
         <div className="analytics-card-gov">
           <div className="card-head-gov">
             <div>
               <h3>{gu ? "સામાજિક શ્રેણી મુજબ વિતરણ" : "Distribution by Social Category"}</h3>
-              <small>{gu ? "ઉદાહરણ વિભાજન · સત્તાવાર ડેટા નથી" : "Illustrative split · not official data"}</small>
+              <small>{gu ? "SC / ST / OBC / GEN — ઉદાહરણ વિભાજન" : "SC / ST / OBC / GEN — Illustrative split"}</small>
             </div>
-            <span className="badge-pill">SC / ST / OBC / GEN</span>
+            <span className="badge-pill">SC / ST / OBC</span>
           </div>
           <div ref={socialChartRef} className="chart-box-echarts" />
+          <div className="social-legend-row">
+            {socialData.map(d => (
+              <div key={d.en} className="social-legend-item">
+                <span className="legend-dot" style={{ background: d.color }} />
+                <span className="legend-label">{gu ? d.gu : d.en}</span>
+                <strong>{Math.round(d.pct * 100)}%</strong>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="analytics-card-gov">
           <div className="card-head-gov">
             <div>
-              <h3>{gu ? "લાભાર્થીઓનું વયજૂથ વિશ્લેષણ" : "Age Cohort Distribution"}</h3>
-              <small>{gu ? "ઉદાહરણ વિભાજન · સત્તાવાર ડેટા નથી" : "Illustrative split · not official data"}</small>
+              <h3>{gu ? "વયજૂથ વિશ્લેષણ" : "Age Cohort Distribution"}</h3>
+              <small>{gu ? "૦ થી ૫૬+ — ઉદાહરણ ડેટા" : "0 to 56+ — Illustrative data"}</small>
             </div>
-            <span className="badge-pill">0 to 60+ Years</span>
+            <span className="badge-pill">0–60+ Yrs</span>
           </div>
           <div ref={ageChartRef} className="chart-box-echarts" />
         </div>
       </div>
+
+      {/* Row 2: Gender + 5-year trend */}
+      <div className="overview-analytics-grid">
+        <div className="analytics-card-gov">
+          <div className="card-head-gov">
+            <div>
+              <h3>{gu ? "લિંગ-આધારિત વિભાજન" : "Gender-wise Distribution"}</h3>
+              <small>{gu ? "ઉદાહરણ — 58% મહિલા, 39% પુરૂષ, 3% અન્ય" : "Illustrative — 58% female, 39% male, 3% other"}</small>
+            </div>
+            <span className="badge-pill">M / F / Other</span>
+          </div>
+          <div ref={genderRef} className="chart-box-echarts" />
+        </div>
+
+        <div className="analytics-card-gov">
+          <div className="card-head-gov">
+            <div>
+              <h3>{gu ? "છેલ્લા ૫ વર્ષ — વૃદ્ધિ વલણ" : "5-Year Growth Trend"}</h3>
+              <small>{gu ? "2020–21 થી 2024–25 લાભાર્થી સંખ્યા" : "Beneficiary count 2020–21 to 2024–25"}</small>
+            </div>
+            <span className="badge-pill">FY 2020–25</span>
+          </div>
+          <div ref={trendRef} className="chart-box-echarts" />
+        </div>
+      </div>
+
+      {/* Row 3: Scheme-wise bar (full width) */}
+      <div className="panel-gov">
+        <div className="panel-gov-head">
+          <div>
+            <h3>{gu ? "યોજનાવાર લાભાર્થી સંખ્યા (ઉચ્ચ→નિમ્ન)" : "Scheme-wise Beneficiary Count (High → Low)"}</h3>
+            <small>{gu ? "ઉદાહરણ ડેટા · ૧૦ યોજનાઓ" : `${demoSchemes.length} schemes — Illustrative data`}</small>
+          </div>
+          <span className="badge-pill">FY {fy}</span>
+        </div>
+        <div ref={schemeBarRef} style={{ height: 320, width: "100%" }} />
+      </div>
+
+      {/* District Top-5 Cards */}
+      <section className="panel-gov">
+        <div className="panel-gov-head">
+          <div>
+            <h3>{gu ? "ટોચ ૫ જિલ્લા — સૌથી વધુ લાભ" : "Top 5 Districts by Beneficiary Reach"}</h3>
+            <small>{gu ? "ઉદ. ડેટા · FY " + fy : "Demo data · FY " + fy}</small>
+          </div>
+        </div>
+        <div className="stats-strip-4" style={{ gridTemplateColumns: "repeat(5,1fr)" }}>
+          {[...demoDistricts]
+            .sort((a, b) => b.beneficiaries - a.beneficiaries)
+            .slice(0, 5)
+            .map((d, i) => (
+              <div key={d.id} className="stat-card-compact">
+                <span className="rank-badge" style={{ marginBottom: 6 }}>{String(i + 1).padStart(2, "0")}</span>
+                <span className="stat-label">{gu ? d.gu : d.name}</span>
+                <strong className="text-teal">{fmt(scaleDemoValue(d.beneficiaries, fy))}</strong>
+                <small>{d.talukaCount} {gu ? "તાલુકા" : "talukas"}</small>
+              </div>
+            ))}
+        </div>
+      </section>
+
     </div>
   );
 }

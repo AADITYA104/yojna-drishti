@@ -10247,3 +10247,135 @@ body.dr-glass .vsa-privacy-note { background: rgba(20,125,160,.16); color: #d4eb
     width: 100%;
   }
 }
+
+/* ============================================================
+   ADMIN ROLES VISUAL CARDS
+   ============================================================ */
+.admin-roles-visual {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 4px 0;
+}
+
+.admin-role-card {
+  display: flex;
+  gap: 12px;
+  padding: 18px 16px;
+  background: var(--gov-card-bg, #f8fafc);
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #0f766e;
+  border-radius: 10px;
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+.admin-role-card:hover {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+.arc-tier-badge {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 12px; font-weight: 800;
+  flex-shrink: 0;
+}
+
+.arc-body { flex: 1; min-width: 0 }
+.arc-role { font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 2px }
+.arc-jurisdiction { font-size: 11px; color: #64748b; margin-bottom: 6px }
+.arc-users { font-size: 12px; color: #334155; margin-bottom: 8px; display: flex; align-items: center; gap: 4px }
+
+.arc-perms { display: flex; flex-wrap: wrap; gap: 4px }
+.perm-yes, .perm-no {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 2px 7px; border-radius: 999px;
+  font-size: 10px; font-weight: 600;
+}
+.perm-yes { background: #dcfce7; color: #15803d }
+.perm-no  { background: #f1f5f9; color: #94a3b8 }
+
+/* ============================================================
+   ENDPOINT CARDS GRID (System Monitoring)
+   ============================================================ */
+.endpoint-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  padding: 4px 0;
+}
+
+.endpoint-card {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0; border-radius: 10px;
+  transition: box-shadow 0.18s, border-color 0.18s;
+  background: #fff;
+}
+.endpoint-ok   { border-color: rgba(16,185,129,0.4); background: rgba(240,253,249,0.6) }
+.endpoint-fail { border-color: rgba(239,68,68,0.3);  background: rgba(255,241,242,0.5) }
+.endpoint-pending { border-color: #e2e8f0 }
+.endpoint-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.08) }
+
+.ep-status-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 4px;
+  box-shadow: 0 0 6px currentColor;
+}
+
+.ep-body { flex: 1; min-width: 0 }
+.ep-path { font-size: 11px; font-weight: 700; color: #1e3a5f; display: block; margin-bottom: 2px }
+.ep-desc { font-size: 11px; color: #64748b }
+
+.ep-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0 }
+.ep-latency {
+  font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; gap: 3px;
+}
+
+/* ============================================================
+   HERO FILTER ROW (Beneficiary)
+   ============================================================ */
+.hero-filter-row {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;
+}
+
+/* ============================================================
+   SOCIAL LEGEND ROW (Beneficiary)
+   ============================================================ */
+.social-legend-row {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  padding: 12px 0 0;
+  border-top: 1px solid #f1f5f9;
+  margin-top: 8px;
+}
+.social-legend-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: #526d7b;
+}
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0 }
+.legend-label { flex: 1 }
+.social-legend-item strong { color: #1e3a5f; font-size: 13px }
+
+/* ============================================================
+   BADGE PILL WARNING (amber)
+   ============================================================ */
+.badge-pill-warning {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px; border-radius: 999px;
+  background: #fef3c7; color: #b45309;
+  font-size: 11px; font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   TEXT-ROSE
+   ============================================================ */
+.text-rose { color: #e11d48 }
+
+/* ============================================================
+   RESPONSIVE ADDITIONS
+   ============================================================ */
+@media (max-width: 640px) {
+  .admin-roles-visual    { grid-template-columns: 1fr }
+  .endpoint-cards-grid   { grid-template-columns: 1fr }
+  .stats-strip-4[style]  { grid-template-columns: repeat(2,1fr) !important }
+}
