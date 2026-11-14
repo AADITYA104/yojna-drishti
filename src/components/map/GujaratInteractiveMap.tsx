@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import * as maplibregl from "maplibre-gl";
@@ -695,6 +695,36 @@ export function GujaratInteractiveMap({
     } else {
       const source = map.getSource("geo-districts") as maplibregl.GeoJSONSource;
       source.setData(districtData as never);
+    }
+
+    // Always sync district highlight color when currentDistrictId changes
+    if (map.getLayer("district-fill")) {
+      map.setPaintProperty("district-fill", "fill-color", [
+        "case",
+        ["==", ["get", "districtId"], currentDistrictId],
+        "#087f73",
+        "#c9e7df",
+      ]);
+      map.setPaintProperty("district-fill", "fill-opacity", [
+        "case",
+        ["==", ["get", "districtId"], currentDistrictId],
+        0.72,
+        0.28,
+      ]);
+    }
+    if (map.getLayer("district-lines")) {
+      map.setPaintProperty("district-lines", "line-color", [
+        "case",
+        ["==", ["get", "districtId"], currentDistrictId],
+        "#075e56",
+        "#ffffff",
+      ]);
+      map.setPaintProperty("district-lines", "line-width", [
+        "case",
+        ["==", ["get", "districtId"], currentDistrictId],
+        3.2,
+        1.15,
+      ]);
     }
 
     if (!districtInteractionsAdded.current && map.getLayer("district-fill")) {

@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Search } from "lucide-react";
-import { GUJARAT_DISTRICT_POLYGONS } from "@/lib/gujarat-svg-paths";
 
 interface SpatialHeaderProps {
   gu: boolean;
@@ -20,10 +19,15 @@ export function SpatialHeader({
       {/* Left Title and Subtitle Badge */}
       <div className="spatial-brand-group">
         <span className="spatial-gujarat-mark" aria-hidden="true">
-          <svg viewBox="20 20 910 680" role="presentation">
-            {GUJARAT_DISTRICT_POLYGONS.map((district) => (
-              <path key={district.name} d={district.path} />
-            ))}
+          <svg viewBox="0 0 44 44" fill="none" role="presentation" aria-hidden="true">
+            {/* Optimized Gujarat State Geographic Emblem */}
+            <path
+              d="M17 6C11 8 5 12 4 17C3 20 7 22 13 22C16 22 17 19 20 20C22 21 16 26 12 28C7 31 8 36 13 38C18 39 24 37 27 33C29 30 28 26 26 24C25 22 27 20 29 22C32 24 33 30 35 34C36 36 38 35 38 32C38 25 35 18 33 14C30 9 26 6 22 5C19 4 18 5 17 6Z"
+              fill="#e8c98e"
+              stroke="#153d53"
+              strokeWidth="1.2"
+              strokeLinejoin="round"
+            />
           </svg>
         </span>
         <div className="spatial-brand-titles">

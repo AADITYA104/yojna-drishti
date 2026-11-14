@@ -4,5 +4,5 @@ export async function GET() {
   return NextResponse.json({
     data: { status: "ok", mode: "DEMO", database: "not-connected" },
     meta: { data_mode: "DEMO", generated_at: new Date().toISOString(), requestId: crypto.randomUUID() },
-  }, { headers: { "Cache-Control": "no-store" } });
+  }, { headers: { "Cache-Control": "public, s-maxage=60, stale-while-revalidate=30" } });
 }

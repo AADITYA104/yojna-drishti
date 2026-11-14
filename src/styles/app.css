@@ -7,7 +7,9 @@ html, body { margin: 0; min-height: 100%; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans Gujarati', sans-serif;
+  /* FIX M-07: Use token-based font — tokens.css defines Rasa + Hind Vadodara (Gujarati fonts).
+   * Fallback to system-ui only if CSS variable not set. */
+  font-family: var(--font-ui, system-ui, 'Noto Sans Gujarati', sans-serif);
   font-size: 14px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;

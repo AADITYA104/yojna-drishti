@@ -39,6 +39,23 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Sync welcome message language when language toggles
+  useEffect(() => {
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg.id === "welcome"
+          ? {
+              ...msg,
+              text: gu
+                ? "નમસ્તે! હું આ યોજનાઓના પૂર્વદર્શન માટેનો સહાયક છું. અહીંની માહિતી નમૂનાની છે; પાત્રતા, લાભ અને અરજી પ્રક્રિયા સત્તાવાર વિભાગ પાસે ચકાસો."
+                : "Hello! I can help you explore this scheme preview. Its entries are samples; confirm eligibility, benefits, and application steps with the responsible department.",
+              timestamp: gu ? "નમૂનાનો જવાબ" : "Preview response",
+            }
+          : msg
+      )
+    );
+  }, [gu]);
+
   useEffect(() => {
     if (isOpen) {
       messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -67,7 +84,7 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
       id: crypto.randomUUID(),
       sender: "user",
       text,
-      timestamp: "તમારો પ્રશ્ન",
+      timestamp: gu ? "તમારો પ્રશ્ન" : "Your query",
     };
 
     setMessages((prev) => [...prev, userMsg]);
@@ -137,7 +154,12 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
 
       {/* Preview assistant drawer */}
       {isOpen && (
-        <div className="gov-helpdesk-popup-card" role="dialog" aria-modal="false">
+        <div
+          className="gov-helpdesk-popup-card"
+          role="dialog"
+          aria-modal="false"
+          aria-label={gu ? "યોજના સહાયક સંવાદ" : "Scheme Assistant Chat"}
+        >
           {/* Preview header */}
           <div className="ghd-card-header">
             <div className="ghd-header-title">

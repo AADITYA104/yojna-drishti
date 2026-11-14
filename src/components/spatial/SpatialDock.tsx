@@ -93,6 +93,9 @@ export function SpatialDock({ activeKey, onSelect, gu = true }: SpatialDockProps
               <span className="spatial-dock-icon-wrap">
                 <Icon size={20} strokeWidth={1.75} />
               </span>
+              <span className="spatial-dock-label-text" aria-hidden="true">
+                {title}
+              </span>
             </button>
           );
         })}

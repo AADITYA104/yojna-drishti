@@ -33,6 +33,8 @@ export function SpatialGujaratCanvas({ gu = true }: { gu?: boolean }) {
           viewBox="20 20 910 680"
           className="spatial-gujarat-svg"
           preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
+          focusable="false"
         >
           <defs>
             <radialGradient id="district-base-fill" cx="50%" cy="45%" r="65%">

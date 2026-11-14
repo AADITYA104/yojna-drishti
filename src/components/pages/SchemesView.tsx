@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import {
   Search,
   CheckCircle2,
@@ -21,7 +21,16 @@ interface SchemesViewProps {
 export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [search, setSearch] = useState(initialSearchTerm);
-  const [expandedSchemeId, setExpandedSchemeId] = useState<string | null>("YD-CAND-01");
+  // FIX C-04: Default to null — don't hardcode the first scheme as expanded.
+  // Sync with initialSearchTerm via useEffect instead of useState initializer.
+  const [expandedSchemeId, setExpandedSchemeId] = useState<string | null>(null);
+
+  // Sync search term when prop changes (e.g. from global search navigation).
+  useEffect(() => {
+    if (initialSearchTerm) {
+      setSearch(initialSearchTerm);
+    }
+  }, [initialSearchTerm]);
   const [selectedModalScheme, setSelectedModalScheme] = useState<Scheme | null>(null);
 
   const fmt = (num: number) => new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(num);
@@ -53,9 +62,8 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
   }, []);
 
   const toggleExpand = (id: string) => {
-    setExpandedSchemeId(expandedSchemeId === id ? null : id);
+    setExpandedSchemeId((prev) => (prev === id ? null : id));
   };
-  const expandedSchemeIsVisible = filteredSchemes.some((scheme) => scheme.id === expandedSchemeId);
 
   return (
     <div className="schemes-page-container">
@@ -122,7 +130,7 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
           </div>
         )}
         {filteredSchemes.map((s, index) => {
-          const isExpanded = expandedSchemeId === s.id || (!expandedSchemeIsVisible && s.id === filteredSchemes[0]?.id);
+          const isExpanded = expandedSchemeId === s.id;
           return (
             <div key={s.id} className={`scheme-master-card ${isExpanded ? "expanded" : ""}`}>
               <div

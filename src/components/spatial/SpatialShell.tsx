@@ -1,16 +1,18 @@
 "use client";
 
-import React, { useState, useMemo, useEffect, useRef } from "react";
+import React, { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { SpatialGujaratCanvas } from "./SpatialGujaratCanvas";
 import { SpatialDock, type SpatialNavKey } from "./SpatialDock";
 import { SpatialHeader } from "./SpatialHeader";
 import { SpatialBentoDashboard } from "./SpatialBentoDashboard";
+import { IDraftBentoDashboard } from "./IDraftBentoDashboard";
 import { SchemesView } from "../pages/SchemesView";
 import { MapExplorerView } from "../pages/MapExplorerView";
 import { PublicPortalView } from "../pages/PublicPortalView";
 import { BeneficiaryAnalyticsView } from "../pages/BeneficiaryAnalyticsView";
 import { AdministrationView } from "../pages/AdministrationView";
 import { DrishtiAISahayak } from "../shared/DrishtiAISahayak";
+import { ErrorBoundary } from "../shared/ErrorBoundary";
 import { demoDistricts, demoSchemes } from "@/lib/demo-data";
 import { MASTER_SUBDISTRICTS, GHOGHA_48_VILLAGES } from "@/lib/master-hierarchy";
 import type { GlobalSearchItem } from "../layout/Topbar";
@@ -19,19 +21,58 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export function SpatialShell() {
   const [lang, setLang] = useState<"gu" | "en">("gu");
-  const [activeKey, setActiveKey] = useState<SpatialNavKey>("schemes");
-  const [fy] = useState<string>(() => {
+  const [activeKey, setActiveKey] = useState<SpatialNavKey>("dashboard");
+  // FIX C-01: Derive fiscal year with useMemo — no stale state.
+  // Recomputes correctly on re-render; use a stable reference.
+  const fy = useMemo<string>(() => {
     const current = new Date();
     const startYear = current.getMonth() >= 3 ? current.getFullYear() : current.getFullYear() - 1;
     return `${startYear}–${String(startYear + 1).slice(-2)}`;
-  });
+  }, []);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSchemeTerm, setSelectedSchemeTerm] = useState("");
   const [focusRequest, setFocusRequest] = useState<{ id: number; target: GlobalSearchItem } | null>(null);
   const focusRequestSequence = useRef(0);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchModalRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
 
   const gu = lang === "gu";
+
+  // Focus management & keyboard trap for search dialog (A-01)
+  useEffect(() => {
+    if (searchOpen) {
+      previousFocusRef.current = document.activeElement as HTMLElement | null;
+      requestAnimationFrame(() => {
+        searchInputRef.current?.focus();
+      });
+
+      const handleTabKey = (e: KeyboardEvent) => {
+        if (e.key !== "Tab" || !searchModalRef.current) return;
+        const focusables = searchModalRef.current.querySelectorAll<HTMLElement>(
+          'input, button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      };
+
+      window.addEventListener("keydown", handleTabKey);
+      return () => {
+        window.removeEventListener("keydown", handleTabKey);
+        previousFocusRef.current?.focus();
+      };
+    }
+  }, [searchOpen]);
 
   // Keyboard shortcut Cmd+K / Ctrl+K
   useEffect(() => {
@@ -165,21 +206,17 @@ export function SpatialShell() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              <SpatialBentoDashboard
-                gu={gu}
-                fy={fy}
-                onNavigate={(view) => {
-                  if (view === "map" || view === "schemes" || view === "wizard" || view === "saved" || view === "settings") {
-                    setActiveKey(view);
-                  } else {
+              <ErrorBoundary moduleName="Dashboard">
+                <IDraftBentoDashboard
+                  gu={gu}
+                  fy={fy}
+                  onNavigate={(view) => setActiveKey(view)}
+                  onSelectYojna={(name) => {
+                    setSelectedSchemeTerm(name);
                     setActiveKey("schemes");
-                  }
-                }}
-                onSelectYojna={(name) => {
-                  setSelectedSchemeTerm(name);
-                  setActiveKey("schemes");
-                }}
-              />
+                  }}
+                />
+              </ErrorBoundary>
             </motion.div>
           )}
 
@@ -191,7 +228,9 @@ export function SpatialShell() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              <SchemesView gu={gu} fy={fy} initialSearchTerm={selectedSchemeTerm} />
+              <ErrorBoundary moduleName="Schemes Directory">
+                <SchemesView gu={gu} fy={fy} initialSearchTerm={selectedSchemeTerm} />
+              </ErrorBoundary>
             </motion.div>
           )}
 
@@ -203,7 +242,9 @@ export function SpatialShell() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              <MapExplorerView gu={gu} fy={fy} focusRequest={focusRequest} />
+              <ErrorBoundary moduleName="Map Explorer">
+                <MapExplorerView gu={gu} fy={fy} focusRequest={focusRequest} />
+              </ErrorBoundary>
             </motion.div>
           )}
 
@@ -215,7 +256,9 @@ export function SpatialShell() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              <PublicPortalView gu={gu} />
+              <ErrorBoundary moduleName="Eligibility Portal">
+                <PublicPortalView gu={gu} />
+              </ErrorBoundary>
             </motion.div>
           )}
 
@@ -227,7 +270,9 @@ export function SpatialShell() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              <BeneficiaryAnalyticsView gu={gu} fy={fy} />
+              <ErrorBoundary moduleName="Beneficiary Analytics">
+                <BeneficiaryAnalyticsView gu={gu} fy={fy} />
+              </ErrorBoundary>
             </motion.div>
           )}
 
@@ -239,13 +284,15 @@ export function SpatialShell() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              <AdministrationView gu={gu} />
+              <ErrorBoundary moduleName="Administration">
+                <AdministrationView gu={gu} />
+              </ErrorBoundary>
             </motion.div>
           )}
         </AnimatePresence>
       </motion.main>
 
-      {/* Global search dialog (Ctrl/Cmd+K) */}
+      {/* Global search dialog (Ctrl/Cmd+K) with focus trap & keyboard navigation */}
       <AnimatePresence>
         {searchOpen && (
           <motion.div
@@ -257,6 +304,7 @@ export function SpatialShell() {
             onClick={() => setSearchOpen(false)}
           >
             <motion.div
+              ref={searchModalRef}
               className="spatial-search-modal-box"
               initial={{ scale: 0.95, y: -20 }}
               animate={{ scale: 1, y: 0 }}
@@ -266,31 +314,24 @@ export function SpatialShell() {
               aria-label={gu ? "શોધખોળ" : "Search"}
               onClick={(e) => e.stopPropagation()}
             >
-              <div style={{ display: "flex", alignItems: "center", padding: "16px 20px", borderBottom: "1px solid rgba(255,255,255,0.12)", gap: "12px" }}>
-                <Search size={20} className="text-white/60" />
+              <div className="spatial-search-header">
+                <Search size={20} className="spatial-search-icon" aria-hidden="true" />
                 <input
+                  ref={searchInputRef}
                   type="text"
-                  autoFocus
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   aria-label={gu ? "યોજના, જિલ્લો અથવા તાલુકો શોધો" : "Search schemes, districts, or talukas"}
                   placeholder={gu ? "યોજના, જિલ્લો અથવા તાલુકો શોધો..." : "Search schemes, districts, talukas..."}
-                  style={{
-                    flex: 1,
-                    background: "transparent",
-                    border: "none",
-                    outline: "none",
-                    color: "#ffffff",
-                    fontSize: "1.05rem",
-                  }}
+                  className="spatial-search-input"
                 />
                 <button
                   type="button"
                   onClick={() => setSearchOpen(false)}
                   aria-label={gu ? "શોધ બંધ કરો" : "Close search"}
-                  style={{ background: "transparent", border: "none", color: "rgba(255,255,255,0.6)", cursor: "pointer" }}
+                  className="spatial-search-close-btn"
                 >
-                  <X size={20} />
+                  <X size={20} aria-hidden="true" />
                 </button>
               </div>
 
@@ -302,22 +343,22 @@ export function SpatialShell() {
                     className="spatial-search-result"
                     onClick={() => handleSelectSearchResult(item)}
                   >
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                    <div className="spatial-search-result-content">
                       {item.kind === "district" || item.kind === "taluka" ? (
-                        <MapPin size={18} style={{ color: "rgba(255,255,255,0.78)" }} aria-hidden="true" />
+                        <MapPin size={18} className="spatial-search-result-icon" aria-hidden="true" />
                       ) : (
-                        <Sparkles size={18} style={{ color: "rgba(255,255,255,0.78)" }} aria-hidden="true" />
+                        <Sparkles size={18} className="spatial-search-result-icon" aria-hidden="true" />
                       )}
                       <div>
-                        <div style={{ color: "#ffffff", fontWeight: 600, fontSize: "0.95rem" }}>
+                        <div className="spatial-search-result-title">
                           {item.label}
                         </div>
-                        <div style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.76rem" }}>
+                        <div className="spatial-search-result-detail">
                           {item.detail}
                         </div>
                       </div>
                     </div>
-                    <span style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase" }}>
+                    <span className="spatial-search-result-kind">
                       {item.kind}
                     </span>
                   </button>

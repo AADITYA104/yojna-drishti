@@ -29,8 +29,8 @@
   --spatial-amber: #facc15;
   --spatial-cyan: #38bdf8;
 
-  --spatial-font-display: var(--font-display, "Plus Jakarta Sans", system-ui, sans-serif);
-  --spatial-font-ui: var(--font-ui, "Inter", system-ui, sans-serif);
+  --spatial-font-display: var(--font-display, "Rasa", "Noto Serif Gujarati", Georgia, serif);
+  --spatial-font-ui: var(--font-ui, "Hind Vadodara", "Noto Sans Gujarati", system-ui, sans-serif);
 }
 
 /* Base Body when in Spatial View */
@@ -626,7 +626,7 @@ body.portal-theme {
 .spatial-card-sub {
   margin: 3px 0 0;
   font-size: 0.74rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .spatial-select-pill-wrap select,
@@ -769,7 +769,7 @@ body.portal-theme {
 
 .spatial-stat-label {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.82);
   margin-top: 3px;
   display: block;
 }
@@ -3497,4 +3497,543 @@ body.dr-glass {
   background: rgba(16, 185, 129, 0.18);
   color: #34d399;
   border: 1px solid rgba(52, 211, 153, 0.35);
+}
+
+
+/* ==========================================================================
+ * Map Explorer View — Custom semantic styling
+ * ========================================================================== */
+.map-explorer-page {
+  width: 100%;
+}
+
+.geo-explorer-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 860px) {
+  .geo-explorer-header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.geo-explorer-title {
+  flex: 1;
+}
+
+.geo-explorer-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #38bdf8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.geo-explorer-h1 {
+  font-size: clamp(1.4rem, 1rem + 1.5vw, 1.95rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin: 6px 0 0;
+  line-height: 1.25;
+}
+
+.geo-explorer-lead {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 8px 0 0;
+  max-width: 68ch;
+  line-height: 1.55;
+}
+
+.geo-explorer-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.geo-filter-control {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.geo-filter-label {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-right: 6px;
+  font-weight: 500;
+}
+
+.geo-filter-select-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 32, 43, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 6px 12px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.geo-filter-select-wrap:hover,
+.geo-filter-select-wrap:focus-within {
+  border-color: rgba(56, 189, 248, 0.6);
+  background: rgba(21, 44, 60, 0.9);
+}
+
+.geo-filter-select {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 0.82rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.geo-filter-select option {
+  background: #0f202b;
+  color: #ffffff;
+}
+
+.map-showcase-section {
+  margin-bottom: 28px;
+}
+
+.full-map-wrapper {
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(8, 18, 26, 0.6);
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* Map dynamic loading skeleton */
+.map-loading-skeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 440px;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.map-loading-pulse {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.2);
+  border: 2px solid rgba(56, 189, 248, 0.5);
+  animation: spatial-breathe 2s ease-in-out infinite;
+}
+
+@keyframes spatial-breathe {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+.map-loading-text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.02em;
+}
+
+/* Modal Search Input & Content Classes (replaces inline styles) */
+.spatial-search-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  gap: 12px;
+}
+
+.spatial-search-icon {
+  color: rgba(255, 255, 255, 0.65);
+  flex-shrink: 0;
+}
+
+.spatial-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-family: inherit;
+}
+
+.spatial-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.spatial-search-close-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.spatial-search-close-btn:hover,
+.spatial-search-close-btn:focus-visible {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.spatial-search-result-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.spatial-search-result-icon {
+  color: rgba(255, 255, 255, 0.8);
+  flex-shrink: 0;
+}
+
+.spatial-search-result-title {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.spatial-search-result-detail {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+
+.spatial-search-result-kind {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Floating dock tooltip labels */
+.spatial-dock-label-text {
+  position: absolute;
+  left: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10, 20, 30, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  color: #ffffff;
+  z-index: 100;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55);
+}
+
+.spatial-dock-item:hover .spatial-dock-label-text,
+.spatial-dock-item:focus-visible .spatial-dock-label-text {
+  opacity: 1;
+  transform: translateY(-50%) translateX(2px);
+}
+
+@media (max-width: 1023px) {
+  .spatial-dock-label-text {
+    left: 50%;
+    top: auto;
+    bottom: calc(100% + 10px);
+    transform: translateX(-50%);
+  }
+  .spatial-dock-item:hover .spatial-dock-label-text,
+  .spatial-dock-item:focus-visible .spatial-dock-label-text {
+    transform: translateX(-50%) translateY(-2px);
+  }
+}
+
+
+/* ============================================================
+   GEO DISTRICT INFO PANEL
+   Shows district stats when a district is clicked/selected on map
+   ============================================================ */
+
+.geo-district-info-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px 24px 16px;
+  background: rgba(10, 36, 48, 0.72);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 16px;
+  margin: 0 20px 16px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: geo-panel-in 0.35s ease;
+}
+
+@keyframes geo-panel-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.geo-district-info-left {
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.geo-district-info-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(99, 215, 199, 0.85);
+  font-weight: 600;
+}
+
+.geo-district-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.geo-district-name-en {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.geo-district-name-gu {
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  font-family: var(--spatial-font-ui, 'Hind Vadodara', sans-serif);
+}
+
+.geo-district-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.geo-district-meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 500;
+}
+
+.geo-district-region-chip {
+  background: rgba(8, 127, 115, 0.22);
+  border-color: rgba(8, 127, 115, 0.45);
+  color: #63d7c7;
+}
+
+/* Stats row */
+.geo-district-info-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.geo-district-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 90px;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 12px;
+  text-align: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.geo-district-stat-card:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(99,215,199,0.3);
+}
+
+.geo-district-stat-card--accent {
+  background: rgba(8, 127, 115, 0.18);
+  border-color: rgba(8, 127, 115, 0.4);
+}
+
+.geo-district-stat-card--accent:hover {
+  background: rgba(8, 127, 115, 0.26);
+}
+
+.geo-district-stat-icon {
+  color: rgba(99, 215, 199, 0.8);
+  margin-bottom: 2px;
+}
+
+.geo-district-stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.geo-district-stat-label {
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+/* Taluka mini list */
+.geo-taluka-mini-list {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.geo-taluka-mini-list-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.geo-taluka-mini-count {
+  background: rgba(8, 127, 115, 0.3);
+  border-radius: 10px;
+  padding: 1px 7px;
+  font-size: 11px;
+  color: #63d7c7;
+  font-weight: 700;
+}
+
+.geo-taluka-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 130px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.geo-taluka-chips-row::-webkit-scrollbar {
+  width: 4px;
+}
+.geo-taluka-chips-row::-webkit-scrollbar-track {
+  background: transparent;
+}
+.geo-taluka-chips-row::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.15);
+  border-radius: 4px;
+}
+
+.geo-taluka-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 20px;
+  cursor: default;
+  transition: background 0.18s, border-color 0.18s, transform 0.15s;
+}
+
+.geo-taluka-chip:hover {
+  background: rgba(8, 127, 115, 0.22);
+  border-color: rgba(8, 127, 115, 0.5);
+  transform: translateY(-1px);
+}
+
+.geo-taluka-chip-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.88);
+  font-family: var(--spatial-font-ui, 'Hind Vadodara', sans-serif);
+}
+
+.geo-taluka-chip-count {
+  font-size: 10.5px;
+  color: rgba(99, 215, 199, 0.75);
+  background: rgba(8, 127, 115, 0.2);
+  border-radius: 10px;
+  padding: 1px 6px;
+  font-weight: 700;
+}
+
+.geo-taluka-chip-benef {
+  font-size: 10px;
+  color: rgba(255,255,255,0.45);
+  border-left: 1px solid rgba(255,255,255,0.15);
+  padding-left: 6px;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .geo-district-info-panel {
+    margin: 0 8px 12px;
+    padding: 14px 14px 12px;
+    gap: 14px;
+  }
+  .geo-district-name-en {
+    font-size: 18px;
+  }
+  .geo-district-info-stats {
+    gap: 8px;
+  }
+  .geo-district-stat-card {
+    min-width: 72px;
+    padding: 10px 10px;
+  }
+  .geo-district-stat-value {
+    font-size: 15px;
+  }
 }

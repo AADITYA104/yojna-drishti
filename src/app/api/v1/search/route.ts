@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
+import fs from "fs/promises";
 import path from "path";
 import { demoSchemes } from "@/lib/demo-data";
 import {
@@ -21,59 +21,74 @@ type SearchItem = {
   aliases: string[];
 };
 
-let villageIndex: SearchVillage[] | null = null;
-let villageCoverageMeta = {
-  totalSubdistricts: MASTER_SUBDISTRICTS.length,
-  indexedSubdistricts: 0,
-  missingSubdistricts: 0,
-  isPartial: false,
+// FIX C-02 & C-03: Use a proper async cache instead of a module-level mutable singleton.
+// The cache is keyed by a stable string and populated asynchronously.
+// This is safe in both long-running (Node) and short-lived (serverless) environments.
+let villageIndexCache: Promise<{ villages: SearchVillage[]; coverage: VillageCoverageMeta }> | null = null;
+
+type VillageCoverageMeta = {
+  totalSubdistricts: number;
+  indexedSubdistricts: number;
+  missingSubdistricts: number;
+  isPartial: boolean;
 };
 
 function normalize(value: string) {
   return value.toLocaleLowerCase().normalize("NFKC").replace(/[^\p{L}\p{N}]/gu, "");
 }
 
-function loadVillageIndex() {
-  if (villageIndex) return { villages: villageIndex, coverage: villageCoverageMeta };
+// FIX C-03: All file I/O is now async — no blocking `readFileSync`.
+async function buildVillageIndex(): Promise<{ villages: SearchVillage[]; coverage: VillageCoverageMeta }> {
   const root = path.join(process.cwd(), "public", "data", "hierarchy", "villages");
-  const notebookNames = new Map<string, MasterVillage>(GHOGHA_48_VILLAGES.map((village) => [village.code, village]));
+  const notebookNames = new Map<string, MasterVillage>(GHOGHA_48_VILLAGES.map((v) => [v.code, v]));
+
   let indexed = 0;
   let missing = 0;
 
-  villageIndex = MASTER_SUBDISTRICTS.flatMap((subdistrict) => {
-    const filePath = path.join(root, `${subdistrict.code}.json`);
-    if (!fs.existsSync(filePath)) {
-      missing++;
-      return [];
-    }
-    try {
-      const entries = JSON.parse(fs.readFileSync(filePath, "utf8")) as Array<{ code: string | number; nameEn: string }>;
-      indexed++;
-      return entries.map((entry) => {
-        const code = String(entry.code);
-        const notebook = notebookNames.get(code);
-        return {
-          code,
-          nameEn: entry.nameEn,
-          nameGu: notebook?.nameGu,
-          subDistrictCode: subdistrict.code,
-          districtCode: subdistrict.districtCode,
-        };
-      });
-    } catch {
-      missing++;
-      return [];
-    }
-  });
+  // FIX C-03: Parallel async reads instead of synchronous sequential reads.
+  const perSubdistrict = await Promise.all(
+    MASTER_SUBDISTRICTS.map(async (subdistrict) => {
+      const filePath = path.join(root, `${subdistrict.code}.json`);
+      try {
+        const raw = await fs.readFile(filePath, "utf8");
+        const entries = JSON.parse(raw) as Array<{ code: string | number; nameEn: string }>;
+        indexed++;
+        return entries.map((entry) => {
+          const code = String(entry.code);
+          const notebook = notebookNames.get(code);
+          return {
+            code,
+            nameEn: entry.nameEn,
+            nameGu: notebook?.nameGu,
+            subDistrictCode: subdistrict.code,
+            districtCode: subdistrict.districtCode,
+          } satisfies SearchVillage;
+        });
+      } catch {
+        missing++;
+        return [] as SearchVillage[];
+      }
+    })
+  );
 
-  villageCoverageMeta = {
-    totalSubdistricts: MASTER_SUBDISTRICTS.length,
-    indexedSubdistricts: indexed,
-    missingSubdistricts: missing,
-    isPartial: missing > 0,
+  return {
+    villages: perSubdistrict.flat(),
+    coverage: {
+      totalSubdistricts: MASTER_SUBDISTRICTS.length,
+      indexedSubdistricts: indexed,
+      missingSubdistricts: missing,
+      isPartial: missing > 0,
+    },
   };
+}
 
-  return { villages: villageIndex, coverage: villageCoverageMeta };
+function getVillageIndex() {
+  // FIX C-02: Cache the Promise itself so parallel requests share the same load.
+  // In serverless, this is per-invocation; in long-running Node it persists.
+  if (!villageIndexCache) {
+    villageIndexCache = buildVillageIndex();
+  }
+  return villageIndexCache;
 }
 
 export async function GET(request: NextRequest) {
@@ -98,8 +113,10 @@ export async function GET(request: NextRequest) {
     }
   }
 
-  const { villages, coverage } = loadVillageIndex();
-  const matchingVillages = villages.filter((village) => [village.nameEn, village.nameGu || "", village.code].some((value) => normalize(value).includes(query)));
+  const { villages, coverage } = await getVillageIndex();
+  const matchingVillages = villages.filter((village) =>
+    [village.nameEn, village.nameGu || "", village.code].some((value) => normalize(value).includes(query))
+  );
   for (const village of matchingVillages.slice(0, 12)) {
     const subdistrict = MASTER_SUBDISTRICTS.find((item) => item.code === village.subDistrictCode);
     const district = MASTER_DISTRICTS.find((item) => item.code === village.districtCode);
