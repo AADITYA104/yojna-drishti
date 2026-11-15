@@ -8,6 +8,10 @@ import {
   RefreshCw,
   ShieldCheck,
   UploadCloud,
+  Sparkles,
+  Activity,
+  HardDrive,
+  Layers,
 } from "lucide-react";
 
 type HierarchyCheck = {
@@ -177,6 +181,44 @@ export function DataManagementView({ gu }: { gu: boolean }) {
             <RefreshCw size={15} className={checking ? "animate-spin" : ""} />
             <span>{checking ? (gu ? "સ્થાનિક ફાઇલો તપાસાઈ રહી છે..." : "Checking local files…") : (gu ? "સ્થાનિક માળખું તપાસો" : "Check Local Hierarchy")}</span>
           </button>
+        </div>
+      </div>
+
+      {/* AI Insight Banner */}
+      <div className="ai-insight-banner">
+        <Sparkles size={17} className="ai-insight-icon" />
+        <p>
+          {gu
+            ? `🤖 AI સૂઝ (ઉ.): ${checkedValues.districts} જિલ્લા · ${checkedValues.talukas} ઉ.જ. · ${checkedValues.ghoghaVillages} ઘોઘા ગ.ટ. ફ.ત. Load. CSV validate કરવા ઉપર ડ્રોપ ઝોન વાપરો — format error AI detect કરે છે.`
+            : `🤖 AI Insight (demo): ${checkedValues.districts} districts · ${checkedValues.talukas} sub-districts · ${checkedValues.ghoghaVillages} Ghogha villages loaded. Drop a CSV above — AI detects format errors, duplicate headers, and row mismatches instantly.`}
+        </p>
+      </div>
+
+      {/* Data Health Cards */}
+      <div className="stats-strip-4" style={{ marginBottom: "0.5rem" }}>
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #087f73" }}>
+          <Layers size={16} className="text-teal" />
+          <span className="stat-label">{gu ? "জিল્લા" : "Districts"}</span>
+          <strong className="text-navy">{checkedValues.districts}</strong>
+          <small>{gu ? "LGD master" : "LGD master"}</small>
+        </div>
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #3b82f6" }}>
+          <HardDrive size={16} style={{ color: "#3b82f6" }} />
+          <span className="stat-label">{gu ? "ઉ.જ." : "Subdistricts"}</span>
+          <strong className="text-navy">{checkedValues.talukas}</strong>
+          <small>{gu ? "LGD 309" : "LGD 309"}</small>
+        </div>
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #8b5cf6" }}>
+          <Activity size={16} style={{ color: "#8b5cf6" }} />
+          <span className="stat-label">{gu ? "ઘોઘા ગ.ટ." : "Ghogha Vil."}</span>
+          <strong className="text-navy">{checkedValues.ghoghaVillages}</strong>
+          <small>{gu ? "Pilot" : "Pilot"}</small>
+        </div>
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #f59e0b" }}>
+          <Database size={16} className="text-amber" />
+          <span className="stat-label">{gu ? "સ્ત્રોત" : "Data Source"}</span>
+          <strong className="text-amber">{gu ? "ઉ. / Local" : "DEMO / LOCAL"}</strong>
+          <small>{gu ? "No Gov. API" : "No Gov. API"}</small>
         </div>
       </div>
 

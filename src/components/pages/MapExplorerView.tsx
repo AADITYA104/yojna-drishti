@@ -1,10 +1,13 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import { Building2, Info, MapPinned, Users, Wallet, TrendingUp, Map, ChevronRight, Home, BarChart2 } from "lucide-react";
+import { Building2, Info, MapPinned, Users, Wallet, TrendingUp, Map, ChevronRight, Home, BarChart2, Layers } from "lucide-react";
 import { demoDistricts, demoTalukas, type District } from "@/lib/demo-data";
 import { MASTER_DISTRICTS, NOTEBOOK_WOMEN_SCHEMES, getSubdistrictsForDistrict } from "@/lib/master-hierarchy";
 import dynamic from "next/dynamic";
+import { DistrictIntelligenceView } from "./DistrictIntelligenceView";
+import { TalukaIntelligenceView } from "./TalukaIntelligenceView";
+import { VillageIntelligenceView } from "./VillageIntelligenceView";
 
 // FIX H-03 & P-01: Dynamic imports — these are 64KB and 34KB components.
 // Loaded only when the Map tab is active, not on initial page load.
@@ -65,6 +68,8 @@ function fmt(n: number, gu: boolean) {
 }
 
 export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) {
+  const [mapTab, setMapTab] = useState<"map" | "talukas" | "villages" | "districts">("map");
+  const [selectedSubdistrictCode, setSelectedSubdistrictCode] = useState<number>(3855);
   const [selectedRegion, setSelectedRegion] = useState<"all" | District["region"]>("all");
   const [selectedSchemeId, setSelectedSchemeId] = useState("all");
   const [activeDistrictId, setActiveDistrictId] = useState<string>(DEFAULT_DISTRICT_ID);
@@ -114,11 +119,68 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
   }, [activeDistrict]);
 
   return (
-    // FIX H-03: Replaced ALL Tailwind utility classes with proper custom CSS classes.
-    // Tailwind is NOT installed in this project — those classes had zero effect.
     <div className="map-explorer-page">
-      {/* Header Bar */}
-      <header className="geo-explorer-header">
+      {/* Subnav Tabs */}
+      <div className="report-type-bar" style={{ marginBottom: "1rem" }}>
+        {[
+          { key: "map" as const, labelGu: "ઇન્ટરેક્ટિવ નકશો", labelEn: "Interactive Map", icon: Map },
+          { key: "districts" as const, labelGu: "જિલ્લો ઇન્ટેલિજન્સ (૩૪)", labelEn: "District Intelligence (34)", icon: Building2 },
+          { key: "talukas" as const, labelGu: "તાલુકા ડિરેક્ટરી (૩૦૯)", labelEn: "Taluka Directory (309)", icon: Home },
+          { key: "villages" as const, labelGu: "ગામડું ઇન્ટેલિજન્સ & રજિસ્ટર", labelEn: "Village Intelligence & Register", icon: Layers },
+        ].map((tab) => {
+          const Icon = tab.icon;
+          const isActive = mapTab === tab.key;
+          return (
+            <button
+              key={tab.key}
+              type="button"
+              className={`cat-pill-btn ${isActive ? "active" : ""}`}
+              onClick={() => setMapTab(tab.key)}
+              style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
+            >
+              <Icon size={14} />
+              <span>{gu ? tab.labelGu : tab.labelEn}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {mapTab === "districts" && (
+        <DistrictIntelligenceView
+          gu={gu}
+          fy={fy}
+          selectedDistrict={activeDistrict}
+          onSelectDistrict={(d) => setActiveDistrictId(d.id)}
+          onNavigateToTalukas={() => setMapTab("talukas")}
+        />
+      )}
+
+      {mapTab === "talukas" && (
+        <TalukaIntelligenceView
+          gu={gu}
+          fy={fy}
+          initialDistrictId={activeDistrictId}
+          onNavigateToVillages={(dId, code) => {
+            setActiveDistrictId(dId);
+            setSelectedSubdistrictCode(code);
+            setMapTab("villages");
+          }}
+        />
+      )}
+
+      {mapTab === "villages" && (
+        <VillageIntelligenceView
+          gu={gu}
+          fy={fy}
+          initialDistrictId={activeDistrictId}
+          initialSubdistrictCode={selectedSubdistrictCode}
+        />
+      )}
+
+      {mapTab === "map" && (
+        <>
+          {/* Header Bar */}
+          <header className="geo-explorer-header">
         <div className="geo-explorer-title">
           {/* FIX A-05: Proper eyebrow label — no inline colour classes */}
           <span className="geo-explorer-eyebrow">
@@ -287,6 +349,8 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
         selectedDistrictId={activeDistrictId}
         onDistrictChange={(dId) => setActiveDistrictId(dId)}
       />
+      </>
+      )}
     </div>
   );
 }

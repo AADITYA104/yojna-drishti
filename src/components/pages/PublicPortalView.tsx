@@ -7,8 +7,6 @@ import {
   FileText,
   Building2,
   MapPin,
-  ExternalLink,
-  HelpCircle,
   ArrowRight,
   ArrowLeft,
   GraduationCap,
@@ -16,11 +14,12 @@ import {
   Users,
   Briefcase,
   Wallet,
-  Landmark,
   Layers,
   RotateCcw,
   Check,
-  ChevronRight,
+  Sparkles,
+  Info,
+  Landmark,
 } from "lucide-react";
 import { demoSchemes, demoDistricts, type Scheme } from "@/lib/demo-data";
 import { SchemeDetailModal } from "../shared/SchemeDetailModal";
@@ -78,6 +77,16 @@ export function PublicPortalView({ gu }: PublicPortalViewProps) {
               : "Browse this sample catalogue by category and income. It does not determine eligibility; confirm benefits, rules, and documents with the responsible department."}
           </p>
         </div>
+      </div>
+
+      {/* AI Insight Banner */}
+      <div className="ai-insight-banner">
+        <Sparkles size={17} className="ai-insight-icon" />
+        <p>
+          {gu
+            ? `🤖 AI સૂઝ (ઉ.): ${matchedSchemes.length} નમૂના યોજના ઉપલબ્ધ. સ્ટેપ ૧-૩ ભર્યા પછી "Results" ક્લિક કરો — AI filter કરેલ scheme cards, eligibility checklist અને documents PDF જોઈ શકશો.`
+            : `🤖 AI Insight (demo): ${matchedSchemes.length} sample schemes available. Complete steps 1–3 and click Results to see AI-filtered scheme cards with eligibility checklist and document requirements.`}
+        </p>
       </div>
 
       {/* Progressive Step Indicator */}

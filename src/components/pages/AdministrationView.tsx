@@ -5,8 +5,11 @@ import {
   ShieldCheck, Users, KeyRound, FileCheck2, Lock,
   UserCheck, CheckCircle2, XCircle, Building2, Landmark,
   Home, AlertTriangle, Clock, Search, ChevronDown, Activity,
+  Server, Database, Sparkles,
 } from "lucide-react";
 import { demoDistricts, demoTalukas } from "@/lib/demo-data";
+import { SystemMonitoringView } from "./SystemMonitoringView";
+import { DataManagementView } from "./DataManagementView";
 
 interface AdministrationViewProps {
   gu: boolean;
@@ -24,6 +27,7 @@ const AUDIT_LOGS = [
 ];
 
 export function AdministrationView({ gu }: AdministrationViewProps) {
+  const [adminTab, setAdminTab] = useState<"rbac" | "monitoring" | "data">("rbac");
   const [logFilter, setLogFilter] = useState<"all" | "success" | "warning" | "info">("all");
   const [logSearch, setLogSearch] = useState("");
 
@@ -79,21 +83,49 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
 
   return (
     <div className="administration-page">
-
-      {/* Hero */}
-      <div className="page-hero-gov">
-        <div>
-          <span className="hero-kicker-tag">
-            {gu ? "RBAC · ૪-સ્તરીય સ્ત્રોત નિયંત્રણ" : "GOVERNANCE · 4-TIER RBAC"}
-          </span>
-          <h1>{gu ? "વહીવટી ભૂમિકાઓ · Permission Matrix" : "Administration Roles · Permission Matrix"}</h1>
-          <p>
-            {gu
-              ? "રાજ્ય → જિ. → તા. → ગામ: ૪-સ્તરીય RBAC ઢાંચો. ઉ. — ઓળ., ખ. ફ. સ. અ. નથી."
-              : "State → District → Taluka → Village: 4-tier RBAC framework. Illustrative — no real auth or account changes."}
-          </p>
-        </div>
+      {/* Subnav Tabs */}
+      <div className="report-type-bar" style={{ marginBottom: "1rem" }}>
+        {[
+          { key: "rbac" as const, labelGu: "RBAC અને શાસન", labelEn: "RBAC & Governance", icon: ShieldCheck },
+          { key: "monitoring" as const, labelGu: "સિસ્ટમ મોનિટરિંગ", labelEn: "System Health & APIs", icon: Server },
+          { key: "data" as const, labelGu: "ડેટા પાઇપલાઇન અને માન્યતા", labelEn: "Data Pipeline & Files", icon: Database },
+        ].map((tab) => {
+          const Icon = tab.icon;
+          const isActive = adminTab === tab.key;
+          return (
+            <button
+              key={tab.key}
+              type="button"
+              className={`cat-pill-btn ${isActive ? "active" : ""}`}
+              onClick={() => setAdminTab(tab.key)}
+              style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
+            >
+              <Icon size={14} />
+              <span>{gu ? tab.labelGu : tab.labelEn}</span>
+            </button>
+          );
+        })}
       </div>
+
+      {adminTab === "monitoring" && <SystemMonitoringView gu={gu} />}
+      {adminTab === "data" && <DataManagementView gu={gu} />}
+
+      {adminTab === "rbac" && (
+        <>
+          {/* Hero */}
+          <div className="page-hero-gov">
+            <div>
+              <span className="hero-kicker-tag">
+                {gu ? "RBAC · ૪-સ્તરીય સ્ત્રોત નિયંત્રણ" : "GOVERNANCE · 4-TIER RBAC"}
+              </span>
+              <h1>{gu ? "વહીવટી ભૂમિકાઓ · Permission Matrix" : "Administration Roles · Permission Matrix"}</h1>
+              <p>
+                {gu
+                  ? "રાજ્ય → જિ. → તા. → ગામ: ૪-સ્તરીય RBAC ઢાંચો. ઉ. — ઓળ., ખ. ફ. સ. અ. નથી."
+                  : "State → District → Taluka → Village: 4-tier RBAC framework. Illustrative — no real auth or account changes."}
+              </p>
+            </div>
+          </div>
 
       {/* Alert bar */}
       <div className="data-security-alert-bar">
@@ -253,7 +285,8 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
           </table>
         </div>
       </div>
-
+      </>
+      )}
     </div>
   );
 }

@@ -66,14 +66,18 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
     ? [
         "દીકરીઓ માટેની યોજનાઓ",
         "ગંગા સ્વરૂપા વિધવા સહાય",
+        "જિલ્લાવાર નકશો જુઓ",
+        "નાણાકીય ચૂકવણી & DBT",
+        "રિપોર્ટ CSV ડાઉનલોડ",
         "જરૂરી દસ્તાવેજોની યાદી",
-        "અરજી ક્યાં જમા કરાવવી?",
       ]
     : [
         "Girl Child Schemes",
         "Ganga Swarupa Pension",
+        "Explore Gujarat Map",
+        "Financial & DBT Stats",
+        "Download CSV Reports",
         "Required Documents",
-        "Where to submit form?",
       ];
 
   const handleSend = (textToSend?: string) => {
@@ -105,6 +109,31 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
           ? "સૂચિમાં વિધવા સહાય માટેની નમૂનાની નોંધ છે. તેમાંની રકમ અને શરતો સત્તાવાર રીતે ચકાસેલી નથી. પહેલા મૂળ વિભાગની વેબસાઇટ પર હાલના નિયમો તપાસો."
           : "The catalogue includes a sample widow-support entry. Its amount and conditions are not officially verified. Check the department’s current rules first.";
         action = { label: gu ? "વિધવા સહાયની નોંધ શોધો" : "Find widow support entry", page: "schemes", searchTerm: gu ? "વિધવા" : "widow" };
+      } else if (lower.includes("નકશો") || lower.includes("map") || lower.includes("જિલ્લા") || lower.includes("તાલુકા") || lower.includes("ગામ") || lower.includes("district") || lower.includes("taluka") || lower.includes("village") || lower.includes("ઘોઘા") || lower.includes("ભાવનગર") || lower.includes("રાજકોટ") || lower.includes("અમદાવાદ")) {
+        botResponse = gu
+          ? "ગુજરાતના તમામ ૩૪ જિલ્લા, ૩૦૯ તાલુકા અને ૧૯,૨૦૦+ ગામોનું ભૌગોલિક મેપિંગ ઉપલબ્ધ છે. નકશામાં ક્લિક કરતાં જ હાઈલાઈટ થશે અને ગામવાર યોજના સ્તર જોઈ શકશો."
+          : "Geographic mapping covers all 34 districts, 309 talukas, and 19,200+ villages of Gujarat. Click any district or village on the map to see localized coverage.";
+        action = { label: gu ? "નકશો ખોલો" : "Open Gujarat Map", page: "map" };
+      } else if (lower.includes("નાણા") || lower.includes("dbt") || lower.includes("બજેટ") || lower.includes("ચૂકવણી") || lower.includes("finance") || lower.includes("budget") || lower.includes("disbursed")) {
+        botResponse = gu
+          ? "નાણાકીય ઇન્ટેલિજન્સ સેક્શનમાં FY ૨૦૨૫–૨૬ હેઠળ ₹૪,૨૬૦ કરોડનું ફાળવણી અને DBT ચૂકવણી દર (૯૯.૨% સફળતા)નું વિશ્લેષણ જોઈ શકો છો."
+          : "Under Financial Intelligence, track ₹4,260 Cr allocation for FY 2025–26 along with DBT distribution trends and 99.2% success rates.";
+        action = { label: gu ? "નાણાકીય વિશ્લેષણ" : "Financial Analytics", page: "analytics" };
+      } else if (lower.includes("સરખામણી") || lower.includes("તુલના") || lower.includes("compare") || lower.includes("vs")) {
+        botResponse = gu
+          ? "કોઈ પણ બે જિલ્લા વચ્ચે Side-by-Side સરખામણી કરી શકો છો: લાભાર્થી, મંજૂરી દર, ચૂકવણી અને ૫-વર્ષના ટ્રેન્ડ ચાર્ટ સાથે."
+          : "Perform side-by-side comparison between any two Gujarat districts covering beneficiaries, approval rates, disbursements, and 5-year trends.";
+        action = { label: gu ? "જિલ્લા સરખામણી" : "District Comparison", page: "analytics" };
+      } else if (lower.includes("રિપોર્ટ") || lower.includes("ડાઉનલોડ") || lower.includes("csv") || lower.includes("pdf") || lower.includes("export") || lower.includes("report") || lower.includes("download")) {
+        botResponse = gu
+          ? "Reports Centerમાં જિલ્લા, તાલુકા, ગામો અને યોજનાઓની CSV ફાઇલ ડાઉનલોડ કરી શકો છો અથવા PDF પ્રિન્ટ કરી શકો છો."
+          : "In the Reports Center, download comprehensive CSV datasets or print PDF summaries for districts, talukas, villages, and schemes.";
+        action = { label: gu ? "રિપોર્ટ સેન્ટર ખોલો" : "Open Reports Center", page: "analytics" };
+      } else if (lower.includes("સિસ્ટમ") || lower.includes("મોનિટરિંગ") || lower.includes("status") || lower.includes("health") || lower.includes("api") || lower.includes("admin") || lower.includes("rbac")) {
+        botResponse = gu
+          ? "એડમિન સેક્શનમાં ૪-સ્તરીય RBAC ગવર્નન્સ, સિસ્ટમ મોનિટરિંગ (API probes, લેટન્સી) અને CSV વેલિડેશન ટૂલ્સ ઉપલબ્ધ છે."
+          : "The Administration module offers 4-tier RBAC governance, live system health monitoring (API probes, latency), and CSV validation tools.";
+        action = { label: gu ? "વહીવટી ડેશબોર્ડ" : "Administration Hub", page: "settings" };
       } else if (lower.includes("દસ્તાવેજ") || lower.includes("document") || lower.includes("પુરાવા")) {
         botResponse = gu
           ? "દરેક યોજનાના દસ્તાવેજો અલગ હોઈ શકે છે. પૂર્વદર્શનની ચેકલિસ્ટ નમૂનાની છે—અરજી પહેલાં સત્તાવાર યોજના સૂચના સાથે એક-એક દસ્તાવેજ સરખાવો."

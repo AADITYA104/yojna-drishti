@@ -6,9 +6,13 @@ import {
   Users, PieChart, TrendingUp, HeartHandshake, Award, Percent,
   Home, Building2, Landmark, ArrowUpRight, Filter, BarChart3,
   Baby, PersonStanding, GraduationCap, ShieldCheck,
+  ArrowLeftRight, Wallet, FileText,
 } from "lucide-react";
 import { demoDistricts, demoSchemes, STATE_TOTALS } from "@/lib/demo-data";
 import { scaleDemoValue } from "@/lib/metrics.mjs";
+import { AnalyticsComparisonView } from "./AnalyticsComparisonView";
+import { FinancialIntelligenceView } from "./FinancialIntelligenceView";
+import { ReportsCenterView } from "./ReportsCenterView";
 
 interface BeneficiaryAnalyticsViewProps {
   gu: boolean;
@@ -26,6 +30,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
   const trendRef       = useRef<HTMLDivElement>(null);
   const schemeBarRef   = useRef<HTMLDivElement>(null);
 
+  const [analyticsTab, setAnalyticsTab] = useState<"demographics" | "compare" | "financial" | "reports">("demographics");
   const [filterCategory, setFilterCategory] = useState<"all" | "rural" | "urban">("all");
 
   const fmt = (num: number) => new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(Math.round(num));
@@ -193,20 +198,50 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
 
   return (
     <div className="beneficiaries-analytics-page">
+      {/* Subnav Tabs */}
+      <div className="report-type-bar" style={{ marginBottom: "1rem" }}>
+        {[
+          { key: "demographics" as const, labelGu: "લાભાર્થી વિશ્લેષણ", labelEn: "Demographics", icon: Users },
+          { key: "compare" as const, labelGu: "જિલ્લા તુલના (Side-by-Side)", labelEn: "District Comparison", icon: ArrowLeftRight },
+          { key: "financial" as const, labelGu: "નાણાકીય ઇન્ટેલિજન્સ & DBT", labelEn: "Financial & DBT", icon: Wallet },
+          { key: "reports" as const, labelGu: "અહેવાલો અને નિકાસ", labelEn: "Reports & Exports", icon: FileText },
+        ].map((tab) => {
+          const Icon = tab.icon;
+          const isActive = analyticsTab === tab.key;
+          return (
+            <button
+              key={tab.key}
+              type="button"
+              className={`cat-pill-btn ${isActive ? "active" : ""}`}
+              onClick={() => setAnalyticsTab(tab.key)}
+              style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
+            >
+              <Icon size={14} />
+              <span>{gu ? tab.labelGu : tab.labelEn}</span>
+            </button>
+          );
+        })}
+      </div>
 
-      {/* Hero */}
-      <div className="page-hero-gov">
-        <div>
-          <span className="hero-kicker-tag">
-            {gu ? "લાભાર્થી વિશ્લેષણ · ૩૪ જિલ્લા" : "BENEFICIARY DEMOGRAPHICS · 34 DISTRICTS"}
-          </span>
-          <h1>{gu ? "લાભાર્થી વસ્તી અને સામાજિક આવરણ" : "Beneficiary Demographic Intelligence"}</h1>
-          <p>
-            {gu
-              ? "વય, સામાજિક, લિંગ અને યોજના-વાર વિભાજન. ઉદાહરણ ચાર્ટ — સ્ત્રોત: LGD + iDraft ડેમો ઈન્જિન."
-              : "Age, social category, gender, and scheme-wise demographic split. Illustrative charts — demo engine data."}
-          </p>
-        </div>
+      {analyticsTab === "compare" && <AnalyticsComparisonView gu={gu} fy={fy} />}
+      {analyticsTab === "financial" && <FinancialIntelligenceView gu={gu} fy={fy} />}
+      {analyticsTab === "reports" && <ReportsCenterView gu={gu} fy={fy} />}
+
+      {analyticsTab === "demographics" && (
+        <>
+          {/* Hero */}
+          <div className="page-hero-gov">
+            <div>
+              <span className="hero-kicker-tag">
+                {gu ? "લાભાર્થી વિશ્લેષણ · ૩૪ જિલ્લા" : "BENEFICIARY DEMOGRAPHICS · 34 DISTRICTS"}
+              </span>
+              <h1>{gu ? "લાભાર્થી વસ્તી અને સામાજિક આવરણ" : "Beneficiary Demographic Intelligence"}</h1>
+              <p>
+                {gu
+                  ? "વય, સામાજિક, લિંગ અને યોજના-વાર વિભાજન. ઉદાહરણ ચાર્ટ — સ્ત્રોત: LGD + iDraft ડેમો ઈન્જિન."
+                  : "Age, social category, gender, and scheme-wise demographic split. Illustrative charts — demo engine data."}
+              </p>
+            </div>
         <div className="hero-filter-row">
           {(["all", "rural", "urban"] as const).map(f => (
             <button
@@ -337,7 +372,8 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
             ))}
         </div>
       </section>
-
+      </>
+      )}
     </div>
   );
 }
