@@ -4535,3 +4535,581 @@ body.dr-glass {
   filter: brightness(1.1);
   transform: translateY(-1px);
 }
+
+
+/* ==========================================================================
+ * 13. DARK-GLASS THEME RESTORATION — OVERRIDES ROGUE LIGHT-THEME BLOCK
+ * Lines 1731-2350 introduced a paper-white light theme that collides with
+ * the dark-glass spatial system (white text on white bg). This section
+ * restores the correct dark slate-teal glass aesthetic with maximum
+ * specificity to win over the light block.
+ * ========================================================================== */
+
+/* ── A. Body & Root Container ─────────────────────────────────────────────── */
+body.spatial-mode,
+body.dr-glass,
+body.portal-theme {
+  background-color: #08121a !important;
+  color: #f1f5f9 !important;
+}
+
+.spatial-main-container,
+.spatial-main-viewport {
+  background: rgba(10, 22, 31, 0.92) !important;
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(56, 189, 248, 0.22) !important;
+  border-top-color: rgba(56, 189, 248, 0.32) !important;
+  backdrop-filter: blur(28px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(140%) !important;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ── B. Background Canvas ─────────────────────────────────────────────────── */
+.spatial-slate-teal-mesh {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 5%, rgba(8, 127, 115, 0.18), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 80% 85%, rgba(56, 189, 248, 0.08), transparent 50%),
+    linear-gradient(180deg, #08121a 0%, #0a1c25 40%, #0d2233 100%) !important;
+}
+
+.spatial-art-backdrop {
+  opacity: 0.08 !important;
+  mix-blend-mode: screen !important;
+  filter: none !important;
+}
+
+.spatial-gujarat-svg {
+  opacity: 0.06 !important;
+  filter: none !important;
+}
+
+.spatial-vignette-overlay {
+  background: radial-gradient(circle at 50% 44%, transparent 36%, rgba(8, 18, 26, 0.58) 100%) !important;
+}
+
+/* ── C. Header Bar ────────────────────────────────────────────────────────── */
+.spatial-header-bar {
+  background: rgba(15, 32, 43, 0.85) !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.18) !important;
+}
+
+/* ── D. Demo Disclaimer ───────────────────────────────────────────────────── */
+.spatial-demo-disclaimer {
+  background: rgba(15, 33, 46, 0.7) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  border-left: 4px solid #0284c7 !important;
+  color: #cbd5e1 !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+.spatial-demo-icon {
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+.spatial-demo-text strong {
+  color: #38bdf8 !important;
+}
+
+.spatial-demo-text span {
+  color: #94a3b8 !important;
+}
+
+.spatial-demo-action {
+  color: #ffffff !important;
+  background: #0284c7 !important;
+  border-color: #38bdf8 !important;
+}
+
+.spatial-demo-action:hover {
+  background: #0369a1 !important;
+}
+
+/* ── E. Glass Cards ───────────────────────────────────────────────────────── */
+.spatial-glass-card,
+.spatial-bento-card,
+.spatial-mini-stat-card,
+.spatial-timeline-glass-subcard,
+.spatial-action-glass-subcard {
+  background: rgba(255, 255, 255, 0.055) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+}
+
+.spatial-glass-card:hover,
+.spatial-bento-card:hover,
+.spatial-mini-stat-card:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  transform: translateY(-1px);
+}
+
+/* ── F. Card Text Tokens ──────────────────────────────────────────────────── */
+.spatial-card-title,
+.spatial-subcard-title,
+.spatial-yojna-name,
+.spatial-stat-value,
+.spatial-ring-bold,
+.spatial-day-date {
+  color: #ffffff !important;
+}
+
+.spatial-card-sub,
+.spatial-stat-label,
+.spatial-yojna-criteria,
+.spatial-day-name,
+.spatial-instant-tag,
+.spatial-action-p {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ── G. Selects & Form Controls ───────────────────────────────────────────── */
+.spatial-glass-select,
+.spatial-select-pill-wrap select {
+  color: #f1f5f9 !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+.spatial-glass-select option {
+  color: #f1f5f9 !important;
+  background: #0f1e2b !important;
+}
+
+/* ── H. Capsule Bars ──────────────────────────────────────────────────────── */
+.spatial-capsule-track {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.spatial-capsule-fill,
+.spatial-capsule-fill.highlight-fill {
+  background: #0f766e !important;
+  box-shadow: 0 0 8px rgba(15, 118, 110, 0.4) !important;
+}
+
+.spatial-capsule-label {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ── I. Icon Boxes ────────────────────────────────────────────────────────── */
+.spatial-stat-icon-box,
+.spatial-action-icon,
+.spatial-check-bubble {
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.1) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+}
+
+/* ── J. Source Status ─────────────────────────────────────────────────────── */
+.spatial-source-status-row {
+  color: rgba(255, 255, 255, 0.8) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.spatial-source-status-row > svg {
+  color: #38bdf8 !important;
+}
+
+.spatial-source-status-row strong {
+  color: #ffffff !important;
+}
+
+/* ── K. Yojna Rows ────────────────────────────────────────────────────────── */
+.spatial-yojna-row {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.spatial-yojna-row:hover,
+.spatial-yojna-row:focus-visible {
+  background: rgba(255, 255, 255, 0.06) !important;
+  outline: 2px solid rgba(56, 189, 248, 0.3) !important;
+  outline-offset: -2px;
+}
+
+/* ── L. Dock (keep dark) ──────────────────────────────────────────────────── */
+.spatial-dock-capsule {
+  background: rgba(10, 22, 31, 0.9) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ── L2. Map Explorer Page Shell ─────────────────────────────────────────── */
+.spatial-main-container .map-explorer-page,
+.map-explorer-page {
+  background: transparent !important;
+  color: #f1f5f9 !important;
+}
+
+/* ── M. Page Hero & Geo Header inside spatial container ────────────────── */
+.spatial-main-container .page-hero-gov,
+.spatial-main-container .geo-explorer-header,
+.geo-explorer-header,
+.spatial-main-container .schemes-toolbar-gov {
+  color: #f1f5f9 !important;
+  background: rgba(255, 255, 255, 0.055) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 20px !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35) !important;
+  padding: 24px 28px !important;
+  margin-bottom: 24px !important;
+}
+
+.spatial-main-container .page-hero-gov h1,
+.spatial-main-container .geo-explorer-header h1,
+.spatial-main-container .geo-explorer-h1,
+.geo-explorer-h1,
+.geo-explorer-header h1 {
+  color: #ffffff !important;
+}
+
+.spatial-main-container .page-hero-gov p,
+.spatial-main-container .geo-explorer-header p,
+.spatial-main-container .geo-explorer-lead,
+.geo-explorer-lead,
+.geo-explorer-header p {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.spatial-main-container .geo-explorer-eyebrow,
+.geo-explorer-eyebrow {
+  color: #38bdf8 !important;
+}
+
+/* ── N. Hero Kicker Tag ───────────────────────────────────────────────────── */
+.spatial-main-container .hero-kicker-tag {
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  background-image: none !important;
+}
+
+/* ── O. Pill Buttons ──────────────────────────────────────────────────────── */
+.spatial-main-container .cat-pill-btn {
+  color: rgba(255, 255, 255, 0.8) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.spatial-main-container .cat-pill-btn:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.spatial-main-container .cat-pill-btn.active {
+  color: #ffffff !important;
+  background: #0284c7 !important;
+  border-color: #38bdf8 !important;
+}
+
+/* ── P. Search Box ────────────────────────────────────────────────────────── */
+.spatial-main-container .search-box-gov {
+  color: #f1f5f9 !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+.spatial-main-container .search-box-gov:focus-within {
+  border-color: rgba(56, 189, 248, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15) !important;
+}
+
+.spatial-main-container .search-box-gov input {
+  color: #ffffff !important;
+}
+
+.spatial-main-container .search-box-gov input::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ── Q. Scheme Master Cards ───────────────────────────────────────────────── */
+.spatial-main-container .scheme-master-card {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.spatial-main-container .scheme-master-card:hover {
+  background: rgba(255, 255, 255, 0.065) !important;
+}
+
+.spatial-main-container .scheme-master-card.expanded {
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 5px 18px rgba(56, 189, 248, 0.1) !important;
+}
+
+.spatial-main-container .smc-header:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.spatial-main-container .smc-header:focus-visible {
+  outline: 3px solid rgba(56, 189, 248, 0.35) !important;
+}
+
+.spatial-main-container .smc-titles h3,
+.spatial-main-container .smc-col h4 {
+  color: #ffffff !important;
+}
+
+.spatial-main-container .smc-dept,
+.spatial-main-container .smc-year-tag {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.spatial-main-container .smc-code,
+.spatial-main-container .smc-category-tag,
+.spatial-main-container .stat-pill-sm {
+  color: #e2e8f0 !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.spatial-main-container .stat-pill-sm.teal {
+  background: rgba(8, 127, 115, 0.2) !important;
+  color: #38bdf8 !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+}
+
+.spatial-main-container .smc-expanded-body {
+  color: rgba(255, 255, 255, 0.85) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.spatial-main-container .smc-benefit-highlight {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.spatial-main-container .benefit-label,
+.spatial-main-container .benefit-val,
+.spatial-main-container .gov-bullet-list {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.spatial-main-container .smc-footer-bar {
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ── R. Stat Cards (Beneficiary KPI strip) ────────────────────────────────── */
+.spatial-main-container .stat-card-compact {
+  background: rgba(255, 255, 255, 0.055) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #f1f5f9 !important;
+}
+
+.spatial-main-container .stat-card-compact .stat-label {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.spatial-main-container .stat-card-compact strong {
+  color: #ffffff !important;
+}
+
+.spatial-main-container .stat-card-compact small {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+/* ── S. Social Legend Items ────────────────────────────────────────────────── */
+.spatial-main-container .social-legend-item strong {
+  color: #ffffff !important;
+}
+
+.spatial-main-container .social-legend-item .legend-label {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* ── T. Pilot Row (Overview Table) ────────────────────────────────────────── */
+.spatial-main-container .pilot-row-highlight {
+  background: rgba(245, 158, 11, 0.16) !important;
+  border-left: 3px solid #f59e0b !important;
+}
+
+.spatial-main-container .pilot-row-highlight td {
+  color: #ffffff !important;
+}
+
+/* ── U. Scheme Empty State ────────────────────────────────────────────────── */
+.spatial-main-container .scheme-empty-state {
+  color: rgba(255, 255, 255, 0.7) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px dashed rgba(255, 255, 255, 0.18) !important;
+}
+
+.spatial-main-container .scheme-empty-state h2 {
+  color: #ffffff !important;
+}
+
+/* ── V. Geo Showcase Banner ───────────────────────────────────────────────── */
+.geo-gujarat-showcase {
+  border-color: rgba(56, 189, 248, 0.2) !important;
+  background: linear-gradient(110deg, rgba(15, 32, 43, 0.7) 0%, rgba(10, 28, 38, 0.85) 100%) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+.geo-gujarat-showcase-kicker {
+  color: #e8c98e !important;
+}
+
+.geo-gujarat-showcase-copy h2 {
+  color: #ffffff !important;
+}
+
+.geo-gujarat-showcase-copy p {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+/* ── W. Geo Pills ─────────────────────────────────────────────────────────── */
+.spatial-main-container .geo-demo-pill,
+.spatial-main-container .geo-source-pill {
+  color: #cbd5e1 !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.spatial-main-container .geo-data-disclaimer {
+  color: rgba(255, 255, 255, 0.7) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* ── X. Citizen Hero / Wizard ─────────────────────────────────────────────── */
+.spatial-main-container .citizen-hero {
+  color: #f1f5f9 !important;
+  background: rgba(255, 255, 255, 0.055) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.spatial-main-container .citizen-hero h1 {
+  color: #ffffff !important;
+}
+
+.spatial-main-container .citizen-hero p {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.spatial-main-container .citizen-tag {
+  color: #cbd5e1 !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ── Y. Coverage Pending Banner ───────────────────────────────────────────── */
+.geo-coverage-pending {
+  border-color: rgba(245, 158, 11, 0.3) !important;
+  background: rgba(245, 158, 11, 0.08) !important;
+  color: #fbbf24 !important;
+}
+
+.geo-coverage-pending strong {
+  color: #fde68a !important;
+}
+
+.geo-coverage-pending p {
+  color: rgba(251, 191, 36, 0.75) !important;
+}
+
+/* ── Z. Search Modal ──────────────────────────────────────────────────────── */
+.spatial-search-modal-backdrop {
+  background: rgba(8, 18, 26, 0.6) !important;
+}
+
+.spatial-search-modal-box {
+  background: rgba(15, 30, 43, 0.96) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55) !important;
+}
+
+.spatial-search-result:hover,
+.spatial-search-result:focus-visible {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+.spatial-search-empty {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* ── AA. Scheme Preview Label ─────────────────────────────────────────────── */
+.spatial-main-container .scheme-preview-label {
+  color: #cbd5e1 !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ── AB. Link & Glowing Buttons (keep teal) ───────────────────────────────── */
+.spatial-link-btn,
+.spatial-glowing-frosted-btn {
+  color: #ffffff !important;
+  background: #087f73 !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  box-shadow: 0 4px 14px rgba(8, 127, 115, 0.35) !important;
+}
+
+.spatial-link-btn:hover,
+.spatial-glowing-frosted-btn:hover {
+  background: #0f766e !important;
+  filter: brightness(1.1);
+}
+
+/* ── AC. Wizard Pills ─────────────────────────────────────────────────────── */
+.spatial-main-container .wizard-step-pill.is-current {
+  color: #ffffff !important;
+  background: #0284c7 !important;
+  border-color: #38bdf8 !important;
+}
+
+.spatial-main-container .wizard-step-pill.is-completed,
+.spatial-main-container .wizard-opt-btn.active,
+.spatial-main-container .wizard-dist-pill.active {
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+}
+
+.spatial-main-container .btn-wizard-next,
+.spatial-main-container .btn-wizard-view-results {
+  color: #ffffff !important;
+  background: #087f73 !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+}
+
+.spatial-main-container .btn-wizard-next:hover,
+.spatial-main-container .btn-wizard-view-results:hover {
+  background: #0f766e !important;
+}
+
+.spatial-main-container .wizard-preview-note {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* ── AD. Public Scheme Card ───────────────────────────────────────────────── */
+.spatial-main-container .public-scheme-card {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.spatial-main-container .public-scheme-card h3 {
+  color: #ffffff !important;
+}
+
+/* ── AE. Filter Select Geo ────────────────────────────────────────────────── */
+.geo-explorer-filters .geo-filter-select select:disabled {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* ── AF. smc-index-badge ──────────────────────────────────────────────────── */
+.spatial-main-container .smc-index-badge {
+  color: rgba(255, 255, 255, 0.25) !important;
+}

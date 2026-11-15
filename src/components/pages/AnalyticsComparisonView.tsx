@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useEffect, useRef } from "react";
+import * as echarts from "echarts";
 import {
   ArrowLeftRight, Building2, TrendingUp, Trophy,
   Zap, BarChart2, Users, Wallet, CheckCircle2, Sparkles,
@@ -49,97 +50,97 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
   const aiInsight = useMemo(() => getAIInsight(distA, distB, statsA, statsB, gu), [distA, distB, statsA, statsB, gu]);
 
   useEffect(() => {
-    const charts: Array<{ dispose(): void }> = [];
+    const charts: echarts.ECharts[] = [];
     const maxBen = Math.max(statsA.ben, statsB.ben, 1);
     const maxDisb = Math.max(statsA.disb, statsB.disb, 1);
     const maxApps = Math.max(statsA.apps, statsB.apps, 1);
     const nameA = gu ? distA.gu : distA.name;
     const nameB = gu ? distB.gu : distB.name;
 
-    import("echarts").then((ec) => {
-      if (radarRef.current) {
-        const c = ec.init(radarRef.current, null, { renderer: "svg" });
-        charts.push(c);
-        c.setOption({
-          backgroundColor: "transparent",
-          tooltip: {
-            trigger: "item",
-            backgroundColor: "rgba(15, 23, 42, 0.95)",
-            borderColor: "rgba(56, 189, 248, 0.3)",
-            textStyle: { color: "#ffffff" },
-          },
-          legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#cbd5e1", fontSize: 11 } },
-          radar: {
-            indicator: [
-              { name: gu ? "લાભ." : "Ben.", max: maxBen },
-              { name: gu ? "અ.%" : "Rate%", max: 100 },
-              { name: gu ? "ચૂ." : "Disb.", max: maxDisb },
-              { name: gu ? "અ.ક." : "Apps", max: maxApps },
-              { name: gu ? "ગ.ટ." : "Vill.", max: Math.max(distA.villageCount, distB.villageCount, 1) },
-            ],
-            splitNumber: 4,
-            axisName: { color: "#cbd5e1", fontSize: 11, fontWeight: "bold" },
-            splitLine: { lineStyle: { color: "rgba(148,163,184,0.2)" } },
-            splitArea: { areaStyle: { color: ["rgba(8,127,115,0.06)", "rgba(8,127,115,0.12)"] } },
-          },
-          series: [{ type: "radar", data: [
-            { value: [statsA.ben, statsA.rate, statsA.disb, statsA.apps, distA.villageCount], name: nameA, lineStyle: { color: "#087f73", width: 2 }, areaStyle: { color: "rgba(8,127,115,0.18)" }, symbol: "circle", symbolSize: 6 },
-            { value: [statsB.ben, statsB.rate, statsB.disb, statsB.apps, distB.villageCount], name: nameB, lineStyle: { color: "#f59e0b", width: 2 }, areaStyle: { color: "rgba(245,158,11,0.15)" }, symbol: "circle", symbolSize: 6 },
-          ] }],
-        });
-      }
-
-      if (barRef.current) {
-        const c = ec.init(barRef.current, null, { renderer: "svg" });
-        charts.push(c);
-        c.setOption({
-          backgroundColor: "transparent",
-          tooltip: {
-            trigger: "axis",
-            axisPointer: { type: "shadow" },
-            backgroundColor: "rgba(15, 23, 42, 0.95)",
-            borderColor: "rgba(56, 189, 248, 0.3)",
-            textStyle: { color: "#ffffff" },
-          },
-          legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#cbd5e1", fontSize: 11 } },
-          grid: { top: 20, bottom: 36, left: 10, right: 10, containLabel: true },
-          xAxis: { type: "category", data: [gu ? "લ.(K)" : "Ben.(K)", gu ? "અ.%" : "Rate%", gu ? "ચૂ." : "Disb."], axisLabel: { color: "#cbd5e1", fontSize: 11 } },
-          yAxis: { type: "value", show: false },
-          series: [
-            { name: nameA, type: "bar", data: [Math.round(statsA.ben / 1000), statsA.rate, statsA.disb], itemStyle: { color: "#087f73", borderRadius: [4, 4, 0, 0] }, barMaxWidth: 32 },
-            { name: nameB, type: "bar", data: [Math.round(statsB.ben / 1000), statsB.rate, statsB.disb], itemStyle: { color: "#f59e0b", borderRadius: [4, 4, 0, 0] }, barMaxWidth: 32 },
+    if (radarRef.current) {
+      const c = echarts.getInstanceByDom(radarRef.current) || echarts.init(radarRef.current, null, { renderer: "svg" });
+      charts.push(c);
+      c.setOption({
+        backgroundColor: "transparent",
+        tooltip: {
+          trigger: "item",
+          backgroundColor: "rgba(15, 23, 42, 0.95)",
+          borderColor: "rgba(56, 189, 248, 0.3)",
+          textStyle: { color: "#ffffff" },
+        },
+        legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#cbd5e1", fontSize: 11 } },
+        radar: {
+          indicator: [
+            { name: gu ? "લાભ." : "Ben.", max: maxBen },
+            { name: gu ? "અ.%" : "Rate%", max: 100 },
+            { name: gu ? "ચૂ." : "Disb.", max: maxDisb },
+            { name: gu ? "અ.ક." : "Apps", max: maxApps },
+            { name: gu ? "ગ.ટ." : "Vill.", max: Math.max(distA.villageCount, distB.villageCount, 1) },
           ],
-        });
-      }
+          splitNumber: 4,
+          axisName: { color: "#cbd5e1", fontSize: 11, fontWeight: "bold" },
+          splitLine: { lineStyle: { color: "rgba(148,163,184,0.2)" } },
+          splitArea: { areaStyle: { color: ["rgba(8,127,115,0.06)", "rgba(8,127,115,0.12)"] } },
+        },
+        series: [{ type: "radar", data: [
+          { value: [statsA.ben, statsA.rate, statsA.disb, statsA.apps, distA.villageCount], name: nameA, lineStyle: { color: "#087f73", width: 2 }, areaStyle: { color: "rgba(8,127,115,0.18)" }, symbol: "circle", symbolSize: 6 },
+          { value: [statsB.ben, statsB.rate, statsB.disb, statsB.apps, distB.villageCount], name: nameB, lineStyle: { color: "#f59e0b", width: 2 }, areaStyle: { color: "rgba(245,158,11,0.15)" }, symbol: "circle", symbolSize: 6 },
+        ] }],
+      });
+    }
 
-      if (lineRef.current) {
-        const c = ec.init(lineRef.current, null, { renderer: "svg" });
-        charts.push(c);
-        const years = ["21-22", "22-23", "23-24", "24-25", "25-26"];
-        c.setOption({
-          backgroundColor: "transparent",
-          tooltip: {
-            trigger: "axis",
-            backgroundColor: "rgba(15, 23, 42, 0.95)",
-            borderColor: "rgba(56, 189, 248, 0.3)",
-            textStyle: { color: "#ffffff" },
-          },
-          legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#cbd5e1", fontSize: 11 } },
-          grid: { top: 20, bottom: 40, left: 10, right: 10, containLabel: true },
-          xAxis: { type: "category", data: years, axisLabel: { color: "#cbd5e1", fontSize: 10 } },
-          yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#94a3b8", fontSize: 10, formatter: (v: number) => `${Math.round(v / 1000)}K` } },
-          series: [
-            { name: nameA, type: "line", smooth: true, data: [0.72, 0.80, 0.88, 0.95, 1.0].map((f) => Math.round(distA.beneficiaries * f)), lineStyle: { color: "#087f73", width: 2.5 }, areaStyle: { color: "rgba(8,127,115,0.12)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#087f73" } },
-            { name: nameB, type: "line", smooth: true, data: [0.70, 0.78, 0.85, 0.93, 1.0].map((f) => Math.round(distB.beneficiaries * f)), lineStyle: { color: "#f59e0b", width: 2.5 }, areaStyle: { color: "rgba(245,158,11,0.10)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#f59e0b" } },
-          ],
-        });
-      }
+    if (barRef.current) {
+      const c = echarts.getInstanceByDom(barRef.current) || echarts.init(barRef.current, null, { renderer: "svg" });
+      charts.push(c);
+      c.setOption({
+        backgroundColor: "transparent",
+        tooltip: {
+          trigger: "axis",
+          axisPointer: { type: "shadow" },
+          backgroundColor: "rgba(15, 23, 42, 0.95)",
+          borderColor: "rgba(56, 189, 248, 0.3)",
+          textStyle: { color: "#ffffff" },
+        },
+        legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#cbd5e1", fontSize: 11 } },
+        grid: { top: 20, bottom: 36, left: 10, right: 10, containLabel: true },
+        xAxis: { type: "category", data: [gu ? "લ.(K)" : "Ben.(K)", gu ? "અ.%" : "Rate%", gu ? "ચૂ." : "Disb."], axisLabel: { color: "#cbd5e1", fontSize: 11 } },
+        yAxis: { type: "value", show: false },
+        series: [
+          { name: nameA, type: "bar", data: [Math.round(statsA.ben / 1000), statsA.rate, statsA.disb], itemStyle: { color: "#087f73", borderRadius: [4, 4, 0, 0] }, barMaxWidth: 32 },
+          { name: nameB, type: "bar", data: [Math.round(statsB.ben / 1000), statsB.rate, statsB.disb], itemStyle: { color: "#f59e0b", borderRadius: [4, 4, 0, 0] }, barMaxWidth: 32 },
+        ],
+      });
+    }
 
-      const handleResize = () => charts.forEach((c) => c.dispose());
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    });
-    return () => charts.forEach((c) => c.dispose());
+    if (lineRef.current) {
+      const c = echarts.getInstanceByDom(lineRef.current) || echarts.init(lineRef.current, null, { renderer: "svg" });
+      charts.push(c);
+      const years = ["21-22", "22-23", "23-24", "24-25", "25-26"];
+      c.setOption({
+        backgroundColor: "transparent",
+        tooltip: {
+          trigger: "axis",
+          backgroundColor: "rgba(15, 23, 42, 0.95)",
+          borderColor: "rgba(56, 189, 248, 0.3)",
+          textStyle: { color: "#ffffff" },
+        },
+        legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#cbd5e1", fontSize: 11 } },
+        grid: { top: 20, bottom: 40, left: 10, right: 10, containLabel: true },
+        xAxis: { type: "category", data: years, axisLabel: { color: "#cbd5e1", fontSize: 10 } },
+        yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#94a3b8", fontSize: 10, formatter: (v: number) => `${Math.round(v / 1000)}K` } },
+        series: [
+          { name: nameA, type: "line", smooth: true, data: [0.72, 0.80, 0.88, 0.95, 1.0].map((f) => Math.round(distA.beneficiaries * f)), lineStyle: { color: "#087f73", width: 2.5 }, areaStyle: { color: "rgba(8,127,115,0.12)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#087f73" } },
+          { name: nameB, type: "line", smooth: true, data: [0.70, 0.78, 0.85, 0.93, 1.0].map((f) => Math.round(distB.beneficiaries * f)), lineStyle: { color: "#f59e0b", width: 2.5 }, areaStyle: { color: "rgba(245,158,11,0.10)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#f59e0b" } },
+        ],
+      });
+    }
+
+    const handleResize = () => charts.forEach((c) => { if (!c.isDisposed()) c.resize(); });
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      charts.forEach((c) => { if (!c.isDisposed()) c.dispose(); });
+    };
   }, [distA, distB, statsA, statsB, gu]);
 
   const indicators = [

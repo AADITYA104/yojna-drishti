@@ -65,7 +65,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
   // ── SOCIAL CATEGORY DONUT ──────────────────────────────────────────────
   useEffect(() => {
     if (!socialChartRef.current) return;
-    const chart = echarts.init(socialChartRef.current);
+    const chart = echarts.getInstanceByDom(socialChartRef.current) || echarts.init(socialChartRef.current);
     chart.setOption({
       backgroundColor: "transparent",
       tooltip: {
@@ -105,7 +105,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
   // ── AGE BAR ───────────────────────────────────────────────────────────
   useEffect(() => {
     if (!ageChartRef.current) return;
-    const chart = echarts.init(ageChartRef.current);
+    const chart = echarts.getInstanceByDom(ageChartRef.current) || echarts.init(ageChartRef.current);
     chart.setOption({
       backgroundColor: "transparent",
       grid: { left: "4%", right: "4%", bottom: "5%", top: "12%", containLabel: true },
@@ -135,7 +135,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
   // ── GENDER PIE ────────────────────────────────────────────────────────
   useEffect(() => {
     if (!genderRef.current) return;
-    const chart = echarts.init(genderRef.current);
+    const chart = echarts.getInstanceByDom(genderRef.current) || echarts.init(genderRef.current);
     chart.setOption({
       backgroundColor: "transparent",
       tooltip: {
@@ -168,7 +168,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
   // ── ANNUAL TREND (last 5 FYs) ──────────────────────────────────────
   useEffect(() => {
     if (!trendRef.current) return;
-    const chart = echarts.init(trendRef.current);
+    const chart = echarts.getInstanceByDom(trendRef.current) || echarts.init(trendRef.current);
     const years = ["2020-21", "2021-22", "2022-23", "2023-24", "2024-25"];
     const base  = STATE_TOTALS.beneficiaries;
     const vals  = [0.72, 0.80, 0.88, 0.94, 1.0].map(f => Math.floor(base * f));
@@ -207,7 +207,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
   // ── SCHEME-WISE BENEFICIARY BAR ────────────────────────────────────
   useEffect(() => {
     if (!schemeBarRef.current) return;
-    const chart = echarts.init(schemeBarRef.current);
+    const chart = echarts.getInstanceByDom(schemeBarRef.current) || echarts.init(schemeBarRef.current);
     const data = demoSchemes.map(s => ({
       name: gu ? (s.shortNameGu || s.shortName) : s.shortName,
       value: scaleDemoValue(s.beneficiariesStatewide ?? 50000, fy),
