@@ -14,6 +14,8 @@ import {
   Landmark,
   Eye,
   CheckCircle2,
+  Sparkles,
+  BarChart2,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -26,12 +28,24 @@ import {
   searchVillagesAcrossGujarat,
   type EnhancedVillageRecord,
 } from "@/lib/village-scheme-intelligence";
+import { VillageAnalyticsCharts } from "./VillageAnalyticsCharts";
+
+function getVillageAIInsight(v: EnhancedVillageRecord, gu: boolean): string {
+  const topScheme = [...v.activeSchemes].sort((a, b) => b.beneficiaries - a.beneficiaries)[0];
+  const lowestSaturation = [...v.activeSchemes].sort((a, b) => a.saturationPct - b.saturationPct)[0];
+  if (gu) {
+    return `🤖 દૃષ્ટિ AI વિશ્લેષણ: ${v.nameGu} ગામમાં સરેરાશ યોજના સંતૃપ્તિ સ્તર ${v.saturationPct}% છે. ${topScheme ? topScheme.schemeNameGu : "મુખ્ય યોજના"} હેઠળ સૌથી વધુ ${topScheme?.beneficiaries || 0} નાગરિકોને ₹${topScheme?.grantLakhs || 0} લાખની સહાય મળેલી છે. ${lowestSaturation ? lowestSaturation.schemeNameGu : "બાકી યોજના"}માં સંતૃપ્તિ ${lowestSaturation?.saturationPct || 85}% છે, જેમાં પંચાયત વીસીઈ (VCE) મારફતે વિશેષ ડ્રાઇવ યોજવાથી ગામ ૧૦૦% સંતૃપ્ત (100% Saturation) બની શકે છે.`;
+  }
+  return `🤖 Drishti AI Village Assessment: ${v.nameEn} currently exhibits a high saturation rate of ${v.saturationPct}%. The highest reach is recorded in ${topScheme ? topScheme.schemeNameEn : "the flagship scheme"} with ${topScheme?.beneficiaries || 0} citizen beneficiaries (₹${topScheme?.grantLakhs || 0} Lakhs). For ${lowestSaturation ? lowestSaturation.schemeNameEn : "remaining schemes"} (${lowestSaturation?.saturationPct || 85}% saturation), targeted Gram Panchayat camps can propel the village to complete 100% saturation.`;
+}
 
 interface VillageSchemeAnalyticsHubProps {
   gu: boolean;
   fy?: string;
   selectedDistrictId: string;
   onDistrictChange?: (districtId: string) => void;
+  targetVillageCode?: string | null;
+  onClearTargetVillage?: () => void;
 }
 
 export function VillageSchemeAnalyticsHub({
@@ -39,6 +53,8 @@ export function VillageSchemeAnalyticsHub({
   fy = "2025–26",
   selectedDistrictId,
   onDistrictChange,
+  targetVillageCode,
+  onClearTargetVillage,
 }: VillageSchemeAnalyticsHubProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTalukaCode, setActiveTalukaCode] = useState<number | "all">("all");
@@ -46,7 +62,19 @@ export function VillageSchemeAnalyticsHub({
   const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
   const [selectedVillageForModal, setSelectedVillageForModal] = useState<EnhancedVillageRecord | null>(null);
   const [rosterSearch, setRosterSearch] = useState("");
-  const [activeModalTab, setActiveModalTab] = useState<"roster" | "schemes">("roster");
+  const [activeModalTab, setActiveModalTab] = useState<"analytics" | "schemes" | "roster">("analytics");
+  const [lastTargetCode, setLastTargetCode] = useState<string | null>(null);
+
+  if (targetVillageCode && targetVillageCode !== lastTargetCode) {
+    setLastTargetCode(targetVillageCode);
+    const found =
+      ALL_GHOGHA_ENHANCED_VILLAGES.find((v) => v.code === targetVillageCode) ||
+      searchVillagesAcrossGujarat(targetVillageCode).find((v) => v.code === targetVillageCode);
+    if (found) {
+      setSelectedVillageForModal(found);
+      setActiveModalTab("analytics");
+    }
+  }
 
   const fmt = (num: number) => new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(num);
 
@@ -516,7 +544,10 @@ export function VillageSchemeAnalyticsHub({
               {/* Close Button */}
               <button
                 type="button"
-                onClick={() => setSelectedVillageForModal(null)}
+                onClick={() => {
+                  setSelectedVillageForModal(null);
+                  onClearTargetVillage?.();
+                }}
                 className="vah-modal-close"
                 aria-label="Close"
               >
@@ -527,7 +558,7 @@ export function VillageSchemeAnalyticsHub({
               <div className="vah-modal-head">
                 <div>
                   <span className="vah-tag">
-                    {gu ? "ગામડે-ગામડે સંતૃપ્તિ અને લાભાર્થી રજિસ્ટર" : "VILLAGE SCHEME & BENEFICIARY LEDGER"}
+                    {gu ? "ગામડે-ગામડે યોજના સંતૃપ્તિ અને લાભાર્થી રજિસ્ટર" : "VILLAGE SCHEME SATURATION & BENEFICIARY LEDGER"}
                   </span>
                 </div>
                 <h3 className="vah-modal-title">
@@ -535,8 +566,8 @@ export function VillageSchemeAnalyticsHub({
                 </h3>
                 <p className="vah-modal-sub">
                   {gu
-                    ? `${selectedVillageForModal.districtNameGu} જિલ્લો • ${selectedVillageForModal.talukaNameGu} તાલુકો • LGD ${selectedVillageForModal.code} • વસ્તી: ${fmt(selectedVillageForModal.population)} • પરિવારો: ${fmt(selectedVillageForModal.households)}`
-                    : `${selectedVillageForModal.districtNameEn} District • ${selectedVillageForModal.talukaNameEn} Taluka • LGD ${selectedVillageForModal.code} • Population: ${fmt(selectedVillageForModal.population)} • Households: ${fmt(selectedVillageForModal.households)}`}
+                    ? `${selectedVillageForModal.districtNameGu} જિલ્લો • ${selectedVillageForModal.talukaNameGu} તાલુકો • LGD ${selectedVillageForModal.code} • વસ્તી: ${fmt(selectedVillageForModal.population)} • પરિવારો: ${fmt(selectedVillageForModal.households)} • સંતૃપ્તિ દર: ${selectedVillageForModal.saturationPct}%`
+                    : `${selectedVillageForModal.districtNameEn} District • ${selectedVillageForModal.talukaNameEn} Taluka • LGD ${selectedVillageForModal.code} • Population: ${fmt(selectedVillageForModal.population)} • Households: ${fmt(selectedVillageForModal.households)} • Saturation: ${selectedVillageForModal.saturationPct}%`}
                 </p>
               </div>
 
@@ -545,17 +576,27 @@ export function VillageSchemeAnalyticsHub({
                 <div className="vah-modal-tabs">
                   <button
                     type="button"
-                    onClick={() => setActiveModalTab("roster")}
-                    className={`vah-modal-tab-btn ${activeModalTab === "roster" ? "vah-modal-tab-btn--active" : ""}`}
+                    onClick={() => setActiveModalTab("analytics")}
+                    className={`vah-modal-tab-btn ${activeModalTab === "analytics" ? "vah-modal-tab-btn--active" : ""}`}
                   >
-                    {gu ? "લાભાર્થી નામાવલી (Citizen Roster)" : "Citizen Beneficiary Roster"}
+                    <BarChart2 size={13} style={{ display: "inline", marginRight: "5px", verticalAlign: "middle" }} />
+                    {gu ? "વિશ્લેષણ & ગ્રાફ (Analytics)" : "Deep Analytics & Graphs"}
                   </button>
                   <button
                     type="button"
                     onClick={() => setActiveModalTab("schemes")}
                     className={`vah-modal-tab-btn ${activeModalTab === "schemes" ? "vah-modal-tab-btn--active" : ""}`}
                   >
-                    {gu ? "યોજનાવાર વિગત (Scheme Breakdown)" : "Scheme Breakdown"}
+                    <Building2 size={13} style={{ display: "inline", marginRight: "5px", verticalAlign: "middle" }} />
+                    {gu ? "યોજનાવાર વિગત (Schemes)" : "Active Schemes Breakdown"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveModalTab("roster")}
+                    className={`vah-modal-tab-btn ${activeModalTab === "roster" ? "vah-modal-tab-btn--active" : ""}`}
+                  >
+                    <Users size={13} style={{ display: "inline", marginRight: "5px", verticalAlign: "middle" }} />
+                    {gu ? "લાભાર્થી નામાવલી (Citizen Roster)" : "Citizen Beneficiary Roster"}
                   </button>
                 </div>
 
@@ -604,10 +645,156 @@ export function VillageSchemeAnalyticsHub({
                 </div>
               </div>
 
-              {/* Tab Content */}
-              <div className="vah-modal-table-wrap">
-                {activeModalTab === "roster" ? (
-                  /* CITIZEN ROSTER TABLE */
+              {/* Tab Content 1: Deep Analytics with Modern ECharts */}
+              {activeModalTab === "analytics" && (
+                <div className="vah-analytics-tab-content">
+                  {/* Micro-Metrics Row */}
+                  <div className="vah-micro-kpi-grid">
+                    <div className="vah-micro-kpi-card">
+                      <span className="vah-mkpi-label">{gu ? "કુલ વસ્તી" : "Total Population"}</span>
+                      <strong className="vah-mkpi-value text-teal">{fmt(selectedVillageForModal.population)}</strong>
+                      <small className="vah-mkpi-sub">
+                        {gu
+                          ? `પુ: ${fmt(selectedVillageForModal.population - selectedVillageForModal.femalePopulation)} | સ્ત્રી: ${fmt(selectedVillageForModal.femalePopulation)}`
+                          : `M: ${fmt(selectedVillageForModal.population - selectedVillageForModal.femalePopulation)} | F: ${fmt(selectedVillageForModal.femalePopulation)}`}
+                      </small>
+                    </div>
+                    <div className="vah-micro-kpi-card">
+                      <span className="vah-mkpi-label">{gu ? "જાતિ પ્રમાણ (Sex Ratio)" : "Sex Ratio"}</span>
+                      <strong className="vah-mkpi-value text-emerald">
+                        {Math.round((selectedVillageForModal.femalePopulation / Math.max(1, selectedVillageForModal.population - selectedVillageForModal.femalePopulation)) * 1000)}
+                      </strong>
+                      <small className="vah-mkpi-sub">{gu ? "પ્રતિ ૧૦૦૦ પુરુષ" : "per 1000 Males"}</small>
+                    </div>
+                    <div className="vah-micro-kpi-card">
+                      <span className="vah-mkpi-label">{gu ? "કુલ પરિવારો" : "Households"}</span>
+                      <strong className="vah-mkpi-value">{fmt(selectedVillageForModal.households)}</strong>
+                      <small className="vah-mkpi-sub">{gu ? "કુટુંબો નોંધાયેલ" : "Registered Families"}</small>
+                    </div>
+                    <div className="vah-micro-kpi-card">
+                      <span className="vah-mkpi-label">{gu ? "આંગણવાડી & સેવા" : "Anganwadi & Service"}</span>
+                      <strong className="vah-mkpi-value text-amber">
+                        {Math.max(1, Math.round(selectedVillageForModal.population / 900))} {gu ? "કેન્દ્રો" : "Centers"}
+                      </strong>
+                      <small className="vah-mkpi-sub">{gu ? "ઈ-ગ્રામ VCE સક્રિય" : "e-Gram VCE Active"}</small>
+                    </div>
+                    <div className="vah-micro-kpi-card">
+                      <span className="vah-mkpi-label">{gu ? "કુલ DBT સહાય" : "Total DBT Disbursed"}</span>
+                      <strong className="vah-mkpi-value text-amber">₹{selectedVillageForModal.disbursedLakhs} {gu ? "લાખ" : "L"}</strong>
+                      <small className="vah-mkpi-sub">{gu ? "૧૦૦% બેંક ટ્રાન્સફર" : "Direct to A/c"}</small>
+                    </div>
+                    <div className="vah-micro-kpi-card">
+                      <span className="vah-mkpi-label">{gu ? "ગામ સંતૃપ્તિ સ્તર" : "Village Saturation"}</span>
+                      <strong className="vah-mkpi-value text-teal">{selectedVillageForModal.saturationPct}%</strong>
+                      <small className="vah-mkpi-sub">{gu ? "સરેરાશ સિદ્ધિ" : "Overall Achievement"}</small>
+                    </div>
+                  </div>
+
+                  {/* Modern ECharts Visuals */}
+                  <VillageAnalyticsCharts village={selectedVillageForModal} gu={gu} />
+
+                  {/* Scheme Saturation Progress Breakdown */}
+                  <div className="vah-scheme-progress-section">
+                    <div className="vah-section-head">
+                      <h4>{gu ? "ગામમાં ચાલતી યોજનાઓની સેચ્યુરેશન પ્રગતિ (પ્રત્યક્ષ સ્થિતિ)" : "Active Schemes Saturation Progress in this Village"}</h4>
+                      <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.6)" }}>
+                        {selectedVillageForModal.activeSchemes.length} {gu ? "યોજનાઓ સક્રિય" : "Schemes Running"}
+                      </span>
+                    </div>
+                    <div className="vah-scheme-progress-grid">
+                      {selectedVillageForModal.activeSchemes.map((scheme) => (
+                        <div key={scheme.schemeId} className="vah-scheme-progress-card">
+                          <div className="vah-spc-head">
+                            <div>
+                              <span className="vah-spc-category">{gu ? scheme.categoryGu : scheme.categoryEn}</span>
+                              <h5 className="vah-spc-title">{gu ? scheme.schemeNameGu : scheme.schemeNameEn}</h5>
+                            </div>
+                            <span className={`vah-spc-badge ${scheme.saturationPct >= 95 ? "vah-badge-emerald" : scheme.saturationPct >= 85 ? "vah-badge-amber" : "vah-badge-teal"}`}>
+                              {scheme.saturationPct}%
+                            </span>
+                          </div>
+                          <div className="vah-spc-meter-wrap">
+                            <div
+                              className="vah-spc-meter-fill"
+                              style={{
+                                width: `${scheme.saturationPct}%`,
+                                background: scheme.saturationPct >= 95
+                                  ? "linear-gradient(90deg, #10b981 0%, #34d399 100%)"
+                                  : scheme.saturationPct >= 85
+                                  ? "linear-gradient(90deg, #f59e0b 0%, #facc15 100%)"
+                                  : "linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%)",
+                              }}
+                            />
+                          </div>
+                          <div className="vah-spc-stats-row">
+                            <span>{gu ? "લાભાર્થીઓ:" : "Beneficiaries:"} <b>{fmt(scheme.beneficiaries)} {gu ? "નાગરિકો" : "Citizens"}</b></span>
+                            <span>{gu ? "સહાય રકમ:" : "Grant:"} <b style={{ color: "#fde047" }}>₹{scheme.grantLakhs} {gu ? "લાખ" : "L"}</b></span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Drishti AI Village Saturation Intelligence Banner */}
+                  <div className="ai-insight-banner" style={{ marginTop: "16px" }}>
+                    <Sparkles size={20} className="ai-insight-icon" />
+                    <p style={{ margin: 0, fontSize: "12.5px", lineHeight: "1.6" }}>
+                      {getVillageAIInsight(selectedVillageForModal, gu)}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Tab Content 2: Scheme Breakdown Table */}
+              {activeModalTab === "schemes" && (
+                <div className="vah-modal-table-wrap">
+                  <table className="vah-modal-table">
+                    <thead>
+                      <tr>
+                        <th>{gu ? "યોજનાનું નામ" : "Scheme Name"}</th>
+                        <th>{gu ? "ક્ષેત્ર" : "Sector"}</th>
+                        <th>{gu ? "લાભાર્થી સંખ્યા" : "Beneficiaries"}</th>
+                        <th>{gu ? "ગ્રાન્ટ વપરાશ (DBT)" : "Grant Used"}</th>
+                        <th>{gu ? "સેચ્યુરેશન" : "Saturation"}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedVillageForModal.activeSchemes.map((scheme) => (
+                        <tr key={scheme.schemeId}>
+                          <td style={{ fontWeight: "800", color: "#ffffff" }}>
+                            {gu ? scheme.schemeNameGu : scheme.schemeNameEn}
+                          </td>
+                          <td>
+                            <span style={{ padding: "3px 8px", borderRadius: "6px", fontSize: "10px", fontWeight: "700", background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)" }}>
+                              {gu ? scheme.categoryGu : scheme.categoryEn}
+                            </span>
+                          </td>
+                          <td style={{ fontWeight: "700", color: "#34d399" }}>{fmt(scheme.beneficiaries)} {gu ? "નાગરિકો" : "Citizens"}</td>
+                          <td style={{ fontWeight: "800", color: "#fde047" }}>₹{scheme.grantLakhs} {gu ? "લાખ" : "Lakhs"}</td>
+                          <td>
+                            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                              <div style={{ width: "80px", height: "6px", borderRadius: "9999px", background: "rgba(255,255,255,0.1)", overflow: "hidden" }}>
+                                <div
+                                  style={{
+                                    height: "100%",
+                                    width: `${scheme.saturationPct}%`,
+                                    background: "linear-gradient(90deg, #34d399 0%, #facc15 100%)",
+                                  }}
+                                />
+                              </div>
+                              <span style={{ fontSize: "11px", fontWeight: "700" }}>{scheme.saturationPct}%</span>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+
+              {/* Tab Content 3: Citizen Beneficiary Roster Table */}
+              {activeModalTab === "roster" && (
+                <div className="vah-modal-table-wrap">
                   <table className="vah-modal-table">
                     <thead>
                       <tr>
@@ -653,51 +840,8 @@ export function VillageSchemeAnalyticsHub({
                       )}
                     </tbody>
                   </table>
-                ) : (
-                  /* SCHEMES BREAKDOWN TABLE */
-                  <table className="vah-modal-table">
-                    <thead>
-                      <tr>
-                        <th>{gu ? "યોજનાનું નામ" : "Scheme Name"}</th>
-                        <th>{gu ? "ક્ષેત્ર" : "Sector"}</th>
-                        <th>{gu ? "લાભાર્થી સંખ્યા" : "Beneficiaries"}</th>
-                        <th>{gu ? "ગ્રાન્ટ વપરાશ (DBT)" : "Grant Used"}</th>
-                        <th>{gu ? "સેચ્યુરેશન" : "Saturation"}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {selectedVillageForModal.activeSchemes.map((scheme) => (
-                        <tr key={scheme.schemeId}>
-                          <td style={{ fontWeight: "800", color: "#ffffff" }}>
-                            {gu ? scheme.schemeNameGu : scheme.schemeNameEn}
-                          </td>
-                          <td>
-                            <span style={{ padding: "3px 8px", borderRadius: "6px", fontSize: "10px", fontWeight: "700", background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)" }}>
-                              {gu ? scheme.categoryGu : scheme.categoryEn}
-                            </span>
-                          </td>
-                          <td style={{ fontWeight: "700", color: "#34d399" }}>{fmt(scheme.beneficiaries)} {gu ? "નાગરિકો" : "Citizens"}</td>
-                          <td style={{ fontWeight: "800", color: "#fde047" }}>₹{scheme.grantLakhs} {gu ? "લાખ" : "Lakhs"}</td>
-                          <td>
-                            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                              <div style={{ width: "80px", height: "6px", borderRadius: "9999px", background: "rgba(255,255,255,0.1)", overflow: "hidden" }}>
-                                <div
-                                  style={{
-                                    height: "100%",
-                                    width: `${scheme.saturationPct}%`,
-                                    background: "linear-gradient(90deg, #34d399 0%, #facc15 100%)",
-                                  }}
-                                />
-                              </div>
-                              <span style={{ fontSize: "11px", fontWeight: "700" }}>{scheme.saturationPct}%</span>
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                )}
-              </div>
+                </div>
+              )}
 
               {/* Modal Footer */}
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "1px solid rgba(255,255,255,0.12)", paddingTop: "14px", marginTop: "14px" }}>
@@ -706,7 +850,10 @@ export function VillageSchemeAnalyticsHub({
                 </span>
                 <button
                   type="button"
-                  onClick={() => setSelectedVillageForModal(null)}
+                  onClick={() => {
+                    setSelectedVillageForModal(null);
+                    onClearTargetVillage?.();
+                  }}
                   style={{
                     padding: "6px 16px",
                     borderRadius: "10px",

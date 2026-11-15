@@ -25,6 +25,7 @@ import {
   BookOpen,
   Users,
   Wallet,
+  BarChart2,
 } from "lucide-react";
 
 import {
@@ -105,6 +106,7 @@ interface GujaratInteractiveMapProps {
   onDistrictSelect?: (district: District) => void;
   onTalukaSelect?: (taluka: Taluka) => void;
   onVillageSelect?: (village: Village) => void;
+  onVillageSelectForAnalysis?: (villageCode: string) => void;
   regionFilter?: "all" | Region;
   schemeFilter?: string;
   variant?: "explorer" | "overview" | "embedded";
@@ -252,6 +254,7 @@ export function GujaratInteractiveMap({
   onDistrictSelect,
   onTalukaSelect,
   onVillageSelect,
+  onVillageSelectForAnalysis,
   regionFilter = "all",
   schemeFilter = "all",
   variant = "explorer",
@@ -1720,6 +1723,25 @@ export function GujaratInteractiveMap({
                     </p>
                   </div>
                 </div>
+              )}
+
+              {currentVillage && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    onVillageSelectForAnalysis?.(currentVillage.code);
+                    const elem = document.getElementById("village-analytics-hub");
+                    if (elem) elem.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="geo-view-analysis-btn"
+                >
+                  <BarChart2 size={15} />
+                  <span>
+                    {gu
+                      ? `${currentVillage.nameGu || currentVillage.nameEn} ગામનું ઊંડાણપૂર્વક વિશ્લેષણ & ECharts ગ્રાફ જુઓ`
+                      : `View Deep Analytics & ECharts for ${currentVillage.nameEn}`}
+                  </span>
+                </button>
               )}
 
               <div className="geo-data-disclaimer">

@@ -15,8 +15,9 @@ import { DrishtiAISahayak } from "../shared/DrishtiAISahayak";
 import { ErrorBoundary } from "../shared/ErrorBoundary";
 import { demoDistricts, demoSchemes } from "@/lib/demo-data";
 import { MASTER_SUBDISTRICTS, GHOGHA_48_VILLAGES } from "@/lib/master-hierarchy";
+import { getAllSearchableVillages } from "@/lib/village-scheme-intelligence";
 import type { GlobalSearchItem } from "../layout/Topbar";
-import { Search, X, MapPin, Sparkles, FileText, CheckCircle2, Info, ArrowRight } from "lucide-react";
+import { Search, X, MapPin, Sparkles, FileText, CheckCircle2, Info, ArrowRight, Home } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function SpatialShell() {
@@ -111,6 +112,26 @@ export function SpatialShell() {
       districtId: taluka.districtId,
       subdistrictCode: taluka.code,
       aliases: [taluka.nameEn, taluka.nameGu, String(taluka.code)],
+    })),
+    ...getAllSearchableVillages().map((village) => ({
+      id: `v-${village.code}`,
+      label: gu ? village.nameGu : village.nameEn,
+      detail: `${gu ? village.districtNameGu : village.districtNameEn} • ${gu ? village.talukaNameGu : village.talukaNameEn} · LGD ${village.code} (${village.activeSchemes.length} ${gu ? "યોજનાઓ" : "schemes"})`,
+      kind: "village" as const,
+      districtId: village.districtId,
+      subdistrictCode: village.talukaCode,
+      villageCode: village.code,
+      aliases: [
+        village.nameEn,
+        village.nameGu,
+        village.code,
+        village.talukaNameEn,
+        village.talukaNameGu,
+        village.districtNameEn,
+        village.districtNameGu,
+        ...village.activeSchemes.map((s) => s.schemeNameEn),
+        ...village.activeSchemes.map((s) => s.schemeNameGu),
+      ],
     })),
     ...demoSchemes.map((scheme) => ({
       id: scheme.id,
@@ -342,8 +363,8 @@ export function SpatialShell() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  aria-label={gu ? "યોજના, જિલ્લો અથવા તાલુકો શોધો" : "Search schemes, districts, or talukas"}
-                  placeholder={gu ? "યોજના, જિલ્લો અથવા તાલુકો શોધો..." : "Search schemes, districts, talukas..."}
+                  aria-label={gu ? "યોજના, જિલ્લો, તાલુકો અથવા ગામ શોધો" : "Search schemes, districts, talukas, or villages"}
+                  placeholder={gu ? "યોજના, જિલ્લો, તાલુકો કે ગામ શોધો..." : "Search schemes, districts, talukas, villages..."}
                   className="spatial-search-input"
                 />
                 <button
@@ -365,7 +386,9 @@ export function SpatialShell() {
                     onClick={() => handleSelectSearchResult(item)}
                   >
                     <div className="spatial-search-result-content">
-                      {item.kind === "district" || item.kind === "taluka" ? (
+                      {item.kind === "village" ? (
+                        <Home size={18} className="spatial-search-result-icon" aria-hidden="true" style={{ color: "#34d399" }} />
+                      ) : item.kind === "district" || item.kind === "taluka" ? (
                         <MapPin size={18} className="spatial-search-result-icon" aria-hidden="true" />
                       ) : (
                         <Sparkles size={18} className="spatial-search-result-icon" aria-hidden="true" />

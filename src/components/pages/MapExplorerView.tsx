@@ -67,6 +67,20 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
   const [activeDistrictId, setActiveDistrictId] = useState<string>(
     () => focusRequest?.target?.districtId || DEFAULT_DISTRICT_ID
   );
+  const [targetVillageCode, setTargetVillageCode] = useState<string | null>(
+    () => (focusRequest?.target?.kind === "village" ? focusRequest.target.villageCode || null : null)
+  );
+  const [lastFocusId, setLastFocusId] = useState<number | null>(() => focusRequest?.id || null);
+
+  if (focusRequest && focusRequest.id !== lastFocusId) {
+    setLastFocusId(focusRequest.id);
+    if (focusRequest.target.districtId && focusRequest.target.districtId !== activeDistrictId) {
+      setActiveDistrictId(focusRequest.target.districtId);
+    }
+    if (focusRequest.target.kind === "village" && focusRequest.target.villageCode) {
+      setTargetVillageCode(focusRequest.target.villageCode);
+    }
+  }
 
   // Handle region filter change
   const handleRegionChange = (newRegion: "all" | District["region"]) => {
@@ -181,6 +195,7 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
             schemeFilter={selectedSchemeId}
             focusRequest={focusRequest}
             onDistrictSelect={(district) => setActiveDistrictId(district.id)}
+            onVillageSelectForAnalysis={(vCode) => setTargetVillageCode(vCode)}
             variant="explorer"
           />
         </div>
@@ -273,6 +288,8 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
         fy={fy}
         selectedDistrictId={activeDistrictId}
         onDistrictChange={(dId) => setActiveDistrictId(dId)}
+        targetVillageCode={targetVillageCode}
+        onClearTargetVillage={() => setTargetVillageCode(null)}
       />
     </div>
   );
