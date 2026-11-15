@@ -213,10 +213,12 @@ export function SpatialShell() {
                   onNavigate={(view) => {
                     if (view === "map" || view === "schemes" || view === "wizard" || view === "saved" || view === "settings") {
                       setActiveKey(view);
-                    } else if (view === "analytics") {
+                    } else if (view === "analytics" || view === "beneficiaries" || view === "financial" || view === "reports") {
                       setActiveKey("saved");
-                    } else if (view === "portal") {
+                    } else if (view === "portal" || view === "eligibility") {
                       setActiveKey("wizard");
+                    } else if (view === "districts") {
+                      setActiveKey("map");
                     }
                   }}
                   onSelectDistrict={(district) => {

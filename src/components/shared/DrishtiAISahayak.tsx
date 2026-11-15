@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import {
   Headphones,
   X,
@@ -26,35 +26,20 @@ interface ChatMessage {
 export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [inputText, setInputText] = useState("");
-  const [messages, setMessages] = useState<ChatMessage[]>(() => [
-    {
-      id: "welcome",
-      sender: "bot",
-      text: gu
-        ? "નમસ્તે! હું આ યોજનાઓના પૂર્વદર્શન માટેનો સહાયક છું. અહીંની માહિતી નમૂનાની છે; પાત્રતા, લાભ અને અરજી પ્રક્રિયા સત્તાવાર વિભાગ પાસે ચકાસો."
-        : "Hello! I can help you explore this scheme preview. Its entries are samples; confirm eligibility, benefits, and application steps with the responsible department.",
-      timestamp: gu ? "નમૂનાનો જવાબ" : "Preview response",
-    },
-  ]);
+  const [chatHistory, setChatHistory] = useState<ChatMessage[]>([]);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Sync welcome message language when language toggles
-  useEffect(() => {
-    setMessages((prev) =>
-      prev.map((msg) =>
-        msg.id === "welcome"
-          ? {
-              ...msg,
-              text: gu
-                ? "નમસ્તે! હું આ યોજનાઓના પૂર્વદર્શન માટેનો સહાયક છું. અહીંની માહિતી નમૂનાની છે; પાત્રતા, લાભ અને અરજી પ્રક્રિયા સત્તાવાર વિભાગ પાસે ચકાસો."
-                : "Hello! I can help you explore this scheme preview. Its entries are samples; confirm eligibility, benefits, and application steps with the responsible department.",
-              timestamp: gu ? "નમૂનાનો જવાબ" : "Preview response",
-            }
-          : msg
-      )
-    );
-  }, [gu]);
+  const welcomeMessage = useMemo<ChatMessage>(() => ({
+    id: "welcome",
+    sender: "bot",
+    text: gu
+      ? "નમસ્તે! હું આ યોજનાઓના પૂર્વદર્શન માટેનો સહાયક છું. અહીંની માહિતી નમૂનાની છે; પાત્રતા, લાભ અને અરજી પ્રક્રિયા સત્તાવાર વિભાગ પાસે ચકાસો."
+      : "Hello! I can help you explore this scheme preview. Its entries are samples; confirm eligibility, benefits, and application steps with the responsible department.",
+    timestamp: gu ? "નમૂનાનો જવાબ" : "Preview response",
+  }), [gu]);
+
+  const messages = useMemo(() => [welcomeMessage, ...chatHistory], [welcomeMessage, chatHistory]);
 
   useEffect(() => {
     if (isOpen) {
@@ -91,7 +76,7 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
       timestamp: gu ? "તમારો પ્રશ્ન" : "Your query",
     };
 
-    setMessages((prev) => [...prev, userMsg]);
+    setChatHistory((prev) => [...prev, userMsg]);
     if (!textToSend) setInputText("");
 
     setTimeout(() => {
@@ -159,7 +144,7 @@ export function DrishtiAISahayak({ gu, onNavigate }: DrishtiAISahayakProps) {
         suggestedAction: action,
       };
 
-      setMessages((prev) => [...prev, botMsg]);
+      setChatHistory((prev) => [...prev, botMsg]);
     }, 450);
   };
 

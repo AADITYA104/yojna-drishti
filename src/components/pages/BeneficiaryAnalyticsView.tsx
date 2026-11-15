@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useMemo } from "react";
+import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import * as echarts from "echarts";
 import {
-  Users, PieChart, TrendingUp, HeartHandshake, Award, Percent,
-  Home, Building2, Landmark, ArrowUpRight, Filter, BarChart3,
-  Baby, PersonStanding, GraduationCap, ShieldCheck,
-  ArrowLeftRight, Wallet, FileText,
+  Users,
+  ArrowLeftRight,
+  Wallet,
+  FileText,
 } from "lucide-react";
 import { demoDistricts, demoSchemes, STATE_TOTALS } from "@/lib/demo-data";
 import { scaleDemoValue } from "@/lib/metrics.mjs";
@@ -33,7 +33,10 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
   const [analyticsTab, setAnalyticsTab] = useState<"demographics" | "compare" | "financial" | "reports">("demographics");
   const [filterCategory, setFilterCategory] = useState<"all" | "rural" | "urban">("all");
 
-  const fmt = (num: number) => new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(Math.round(num));
+  const fmt = useCallback(
+    (num: number) => new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(Math.round(num)),
+    [gu]
+  );
 
   const totalBen   = scaleDemoValue(STATE_TOTALS.beneficiaries, fy);
   const ruralBen   = Math.floor(totalBen * 0.742);
@@ -52,11 +55,11 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
   ], []);
 
   const ageData = useMemo(() => [
-    { pct: 0.22, en: "0–6",   gu: "૦–૬",   label: gu ? "૦–૬ \u0ab5\u0ab0\u0acd\u0ab7" : "0–6 yrs" },
-    { pct: 0.18, en: "7–18",  gu: "૭–૧૮",  label: gu ? "૭–૧૮ \u0ab5\u0ab0\u0acd\u0ab7" : "7–18 yrs" },
-    { pct: 0.32, en: "19–35", gu: "૧૯–૩૫", label: gu ? "૧૯–૩૫ \u0ab5\u0ab0\u0acd\u0ab7" : "19–35 yrs" },
-    { pct: 0.16, en: "36–55", gu: "૩૬–૫૫", label: gu ? "૩૬–૫૫ \u0ab5\u0ab0\u0acd\u0ab7" : "36–55 yrs" },
-    { pct: 0.12, en: "56+",   gu: "૫૬+",   label: gu ? "૫૬+ \u0ab5\u0ab0\u0acd\u0ab7" : "56+ yrs" },
+    { pct: 0.22, en: "0–6",   gu: "૦–૬",   label: gu ? "૦–૬ વર્ષ" : "0–6 yrs" },
+    { pct: 0.18, en: "7–18",  gu: "૭–૧૮",  label: gu ? "૭–૧૮ વર્ષ" : "7–18 yrs" },
+    { pct: 0.32, en: "19–35", gu: "૧૯–૩૫", label: gu ? "૧૯–૩૫ વર્ષ" : "19–35 yrs" },
+    { pct: 0.16, en: "36–55", gu: "૩૬–૫૫", label: gu ? "૩૬–૫૫ વર્ષ" : "36–55 yrs" },
+    { pct: 0.12, en: "56+",   gu: "૫૬+",   label: gu ? "૫૬+ વર્ષ" : "56+ yrs" },
   ], [gu]);
 
   // ── SOCIAL CATEGORY DONUT ──────────────────────────────────────────────
@@ -106,7 +109,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
     const r = () => chart.resize();
     window.addEventListener("resize", r);
     return () => { window.removeEventListener("resize", r); chart.dispose(); };
-  }, [gu, displayBen, ageData]);
+  }, [gu, displayBen, ageData, fmt]);
 
   // ── GENDER PIE ────────────────────────────────────────────────────────
   useEffect(() => {
@@ -164,7 +167,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
     const r = () => chart.resize();
     window.addEventListener("resize", r);
     return () => { window.removeEventListener("resize", r); chart.dispose(); };
-  }, [gu]);
+  }, [gu, fmt]);
 
   // ── SCHEME-WISE BENEFICIARY BAR ────────────────────────────────────
   useEffect(() => {
@@ -192,7 +195,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
     const r = () => chart.resize();
     window.addEventListener("resize", r);
     return () => { window.removeEventListener("resize", r); chart.dispose(); };
-  }, [gu, fy]);
+  }, [gu, fy, fmt]);
 
   const topDistrict = useMemo(() => demoDistricts.reduce((a, b) => a.beneficiaries > b.beneficiaries ? a : b), []);
 
@@ -242,137 +245,137 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
                   : "Age, social category, gender, and scheme-wise demographic split. Illustrative charts — demo engine data."}
               </p>
             </div>
-        <div className="hero-filter-row">
-          {(["all", "rural", "urban"] as const).map(f => (
-            <button
-              key={f}
-              className={`cat-pill-btn ${filterCategory === f ? "active" : ""}`}
-              onClick={() => setFilterCategory(f)}
-            >
-              {f === "all" ? (gu ? "સમગ્ર" : "All") : f === "rural" ? (gu ? "ગ્રામ્ય" : "Rural") : (gu ? "શહેરી" : "Urban")}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* KPI Strip */}
-      <div className="stats-strip-4">
-        <div className="stat-card-compact">
-          <span className="stat-label">{gu ? "કુલ નોંધાયેલ" : "Total Beneficiaries"}</span>
-          <strong className="text-teal">{fmt(displayBen)}</strong>
-          <small>{filterCategory === "rural" ? (gu ? "ગ્રામ્ય" : "Rural") : filterCategory === "urban" ? (gu ? "શહેરી" : "Urban") : (gu ? "સમગ્ર" : "All")}</small>
-        </div>
-        <div className="stat-card-compact">
-          <span className="stat-label">{gu ? "ગ્રામ્ય આવરણ" : "Rural Penetration"}</span>
-          <strong className="text-navy">74.2%</strong>
-          <small>{gu ? "ઉદાહરણ વિતરણ" : "Demo distribution"}</small>
-        </div>
-        <div className="stat-card-compact">
-          <span className="stat-label">{gu ? "મહિલા લાભ" : "Female Beneficiaries"}</span>
-          <strong className="text-emerald">{fmt(femaleCount)}</strong>
-          <small>58.4% {gu ? "મહિલા" : "female"}</small>
-        </div>
-        <div className="stat-card-compact">
-          <span className="stat-label">{gu ? "ટોચ જિલ્લો" : "Top District"}</span>
-          <strong className="text-amber">{gu ? topDistrict.gu : topDistrict.name}</strong>
-          <small>{fmt(topDistrict.beneficiaries)} {gu ? "લાભાર્થી" : "beneficiaries"}</small>
-        </div>
-      </div>
-
-      {/* Row 1: Social + Age */}
-      <div className="overview-analytics-grid">
-        <div className="analytics-card-gov">
-          <div className="card-head-gov">
-            <div>
-              <h3>{gu ? "સામાજિક શ્રેણી મુજબ વિતરણ" : "Distribution by Social Category"}</h3>
-              <small>{gu ? "SC / ST / OBC / GEN — ઉદાહરણ વિભાજન" : "SC / ST / OBC / GEN — Illustrative split"}</small>
+            <div className="hero-filter-row">
+              {(["all", "rural", "urban"] as const).map(f => (
+                <button
+                  key={f}
+                  className={`cat-pill-btn ${filterCategory === f ? "active" : ""}`}
+                  onClick={() => setFilterCategory(f)}
+                >
+                  {f === "all" ? (gu ? "સમગ્ર" : "All") : f === "rural" ? (gu ? "ગ્રામ્ય" : "Rural") : (gu ? "શહેરી" : "Urban")}
+                </button>
+              ))}
             </div>
-            <span className="badge-pill">SC / ST / OBC</span>
           </div>
-          <div ref={socialChartRef} className="chart-box-echarts" />
-          <div className="social-legend-row">
-            {socialData.map(d => (
-              <div key={d.en} className="social-legend-item">
-                <span className="legend-dot" style={{ background: d.color }} />
-                <span className="legend-label">{gu ? d.gu : d.en}</span>
-                <strong>{Math.round(d.pct * 100)}%</strong>
+
+          {/* KPI Strip */}
+          <div className="stats-strip-4">
+            <div className="stat-card-compact">
+              <span className="stat-label">{gu ? "કુલ નોંધાયેલ" : "Total Beneficiaries"}</span>
+              <strong className="text-teal">{fmt(displayBen)}</strong>
+              <small>{filterCategory === "rural" ? (gu ? "ગ્રામ્ય" : "Rural") : filterCategory === "urban" ? (gu ? "શહેરી" : "Urban") : (gu ? "સમગ્ર" : "All")}</small>
+            </div>
+            <div className="stat-card-compact">
+              <span className="stat-label">{gu ? "ગ્રામ્ય આવરણ" : "Rural Penetration"}</span>
+              <strong className="text-navy">74.2%</strong>
+              <small>{gu ? "ઉદાહરણ વિતરણ" : "Demo distribution"}</small>
+            </div>
+            <div className="stat-card-compact">
+              <span className="stat-label">{gu ? "મહિલા લાભ" : "Female Beneficiaries"}</span>
+              <strong className="text-emerald">{fmt(femaleCount)}</strong>
+              <small>58.4% {gu ? "મહિલા" : "female"}</small>
+            </div>
+            <div className="stat-card-compact">
+              <span className="stat-label">{gu ? "ટોચ જિલ્લો" : "Top District"}</span>
+              <strong className="text-amber">{gu ? topDistrict.gu : topDistrict.name}</strong>
+              <small>{fmt(topDistrict.beneficiaries)} {gu ? "લાભાર્થી" : "beneficiaries"}</small>
+            </div>
+          </div>
+
+          {/* Row 1: Social + Age */}
+          <div className="overview-analytics-grid">
+            <div className="analytics-card-gov">
+              <div className="card-head-gov">
+                <div>
+                  <h3>{gu ? "સામાજિક શ્રેણી મુજબ વિતરણ" : "Distribution by Social Category"}</h3>
+                  <small>{gu ? "SC / ST / OBC / GEN — ઉદાહરણ વિભાજન" : "SC / ST / OBC / GEN — Illustrative split"}</small>
+                </div>
+                <span className="badge-pill">SC / ST / OBC</span>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="analytics-card-gov">
-          <div className="card-head-gov">
-            <div>
-              <h3>{gu ? "વયજૂથ વિશ્લેષણ" : "Age Cohort Distribution"}</h3>
-              <small>{gu ? "૦ થી ૫૬+ — ઉદાહરણ ડેટા" : "0 to 56+ — Illustrative data"}</small>
-            </div>
-            <span className="badge-pill">0–60+ Yrs</span>
-          </div>
-          <div ref={ageChartRef} className="chart-box-echarts" />
-        </div>
-      </div>
-
-      {/* Row 2: Gender + 5-year trend */}
-      <div className="overview-analytics-grid">
-        <div className="analytics-card-gov">
-          <div className="card-head-gov">
-            <div>
-              <h3>{gu ? "લિંગ-આધારિત વિભાજન" : "Gender-wise Distribution"}</h3>
-              <small>{gu ? "ઉદાહરણ — 58% મહિલા, 39% પુરૂષ, 3% અન્ય" : "Illustrative — 58% female, 39% male, 3% other"}</small>
-            </div>
-            <span className="badge-pill">M / F / Other</span>
-          </div>
-          <div ref={genderRef} className="chart-box-echarts" />
-        </div>
-
-        <div className="analytics-card-gov">
-          <div className="card-head-gov">
-            <div>
-              <h3>{gu ? "છેલ્લા ૫ વર્ષ — વૃદ્ધિ વલણ" : "5-Year Growth Trend"}</h3>
-              <small>{gu ? "2020–21 થી 2024–25 લાભાર્થી સંખ્યા" : "Beneficiary count 2020–21 to 2024–25"}</small>
-            </div>
-            <span className="badge-pill">FY 2020–25</span>
-          </div>
-          <div ref={trendRef} className="chart-box-echarts" />
-        </div>
-      </div>
-
-      {/* Row 3: Scheme-wise bar (full width) */}
-      <div className="panel-gov">
-        <div className="panel-gov-head">
-          <div>
-            <h3>{gu ? "યોજનાવાર લાભાર્થી સંખ્યા (ઉચ્ચ→નિમ્ન)" : "Scheme-wise Beneficiary Count (High → Low)"}</h3>
-            <small>{gu ? "ઉદાહરણ ડેટા · ૧૦ યોજનાઓ" : `${demoSchemes.length} schemes — Illustrative data`}</small>
-          </div>
-          <span className="badge-pill">FY {fy}</span>
-        </div>
-        <div ref={schemeBarRef} style={{ height: 320, width: "100%" }} />
-      </div>
-
-      {/* District Top-5 Cards */}
-      <section className="panel-gov">
-        <div className="panel-gov-head">
-          <div>
-            <h3>{gu ? "ટોચ ૫ જિલ્લા — સૌથી વધુ લાભ" : "Top 5 Districts by Beneficiary Reach"}</h3>
-            <small>{gu ? "ઉદ. ડેટા · FY " + fy : "Demo data · FY " + fy}</small>
-          </div>
-        </div>
-        <div className="stats-strip-4" style={{ gridTemplateColumns: "repeat(5,1fr)" }}>
-          {[...demoDistricts]
-            .sort((a, b) => b.beneficiaries - a.beneficiaries)
-            .slice(0, 5)
-            .map((d, i) => (
-              <div key={d.id} className="stat-card-compact">
-                <span className="rank-badge" style={{ marginBottom: 6 }}>{String(i + 1).padStart(2, "0")}</span>
-                <span className="stat-label">{gu ? d.gu : d.name}</span>
-                <strong className="text-teal">{fmt(scaleDemoValue(d.beneficiaries, fy))}</strong>
-                <small>{d.talukaCount} {gu ? "તાલુકા" : "talukas"}</small>
+              <div ref={socialChartRef} className="chart-box-echarts" />
+              <div className="social-legend-row">
+                {socialData.map(d => (
+                  <div key={d.en} className="social-legend-item">
+                    <span className="legend-dot" style={{ background: d.color }} />
+                    <span className="legend-label">{gu ? d.gu : d.en}</span>
+                    <strong>{Math.round(d.pct * 100)}%</strong>
+                  </div>
+                ))}
               </div>
-            ))}
-        </div>
-      </section>
-      </>
+            </div>
+
+            <div className="analytics-card-gov">
+              <div className="card-head-gov">
+                <div>
+                  <h3>{gu ? "વયજૂથ વિશ્લેષણ" : "Age Cohort Distribution"}</h3>
+                  <small>{gu ? "૦ થી ૫૬+ — ઉદાહરણ ડેટા" : "0 to 56+ — Illustrative data"}</small>
+                </div>
+                <span className="badge-pill">0–60+ Yrs</span>
+              </div>
+              <div ref={ageChartRef} className="chart-box-echarts" />
+            </div>
+          </div>
+
+          {/* Row 2: Gender + 5-year trend */}
+          <div className="overview-analytics-grid">
+            <div className="analytics-card-gov">
+              <div className="card-head-gov">
+                <div>
+                  <h3>{gu ? "લિંગ-આધારિત વિભાજન" : "Gender-wise Distribution"}</h3>
+                  <small>{gu ? "ઉદાહરણ — 58% મહિલા, 39% પુરૂષ, 3% અન્ય" : "Illustrative — 58% female, 39% male, 3% other"}</small>
+                </div>
+                <span className="badge-pill">M / F / Other</span>
+              </div>
+              <div ref={genderRef} className="chart-box-echarts" />
+            </div>
+
+            <div className="analytics-card-gov">
+              <div className="card-head-gov">
+                <div>
+                  <h3>{gu ? "છેલ્લા ૫ વર્ષ — વૃદ્ધિ વલણ" : "5-Year Growth Trend"}</h3>
+                  <small>{gu ? "2020–21 થી 2024–25 લાભાર્થી સંખ્યા" : "Beneficiary count 2020–21 to 2024–25"}</small>
+                </div>
+                <span className="badge-pill">FY 2020–25</span>
+              </div>
+              <div ref={trendRef} className="chart-box-echarts" />
+            </div>
+          </div>
+
+          {/* Row 3: Scheme-wise bar (full width) */}
+          <div className="panel-gov">
+            <div className="panel-gov-head">
+              <div>
+                <h3>{gu ? "યોજનાવાર લાભાર્થી સંખ્યા (ઉચ્ચ→નિમ્ન)" : "Scheme-wise Beneficiary Count (High → Low)"}</h3>
+                <small>{gu ? "ઉદાહરણ ડેટા · ૧૦ યોજનાઓ" : `${demoSchemes.length} schemes — Illustrative data`}</small>
+              </div>
+              <span className="badge-pill">FY {fy}</span>
+            </div>
+            <div ref={schemeBarRef} style={{ height: 320, width: "100%" }} />
+          </div>
+
+          {/* District Top-5 Cards */}
+          <section className="panel-gov">
+            <div className="panel-gov-head">
+              <div>
+                <h3>{gu ? "ટોચ ૫ જિલ્લા — સૌથી વધુ લાભ" : "Top 5 Districts by Beneficiary Reach"}</h3>
+                <small>{gu ? "ઉદ. ડેટા · FY " + fy : "Demo data · FY " + fy}</small>
+              </div>
+            </div>
+            <div className="stats-strip-4" style={{ gridTemplateColumns: "repeat(5,1fr)" }}>
+              {[...demoDistricts]
+                .sort((a, b) => b.beneficiaries - a.beneficiaries)
+                .slice(0, 5)
+                .map((d, i) => (
+                  <div key={d.id} className="stat-card-compact">
+                    <span className="rank-badge" style={{ marginBottom: 6 }}>{String(i + 1).padStart(2, "0")}</span>
+                    <span className="stat-label">{gu ? d.gu : d.name}</span>
+                    <strong className="text-teal">{fmt(scaleDemoValue(d.beneficiaries, fy))}</strong>
+                    <small>{d.talukaCount} {gu ? "તાલુકા" : "talukas"}</small>
+                  </div>
+                ))}
+            </div>
+          </section>
+        </>
       )}
     </div>
   );

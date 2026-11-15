@@ -21,8 +21,12 @@ const HIGHLIGHT_NODES: CityNode[] = [
 export function SpatialGujaratCanvas({ gu = true }: { gu?: boolean }) {
   return (
     <div className="spatial-bg-canvas" aria-hidden="true">
-      {/* 1. Deep atmospheric Slate-Teal canvas */}
-      <div className="spatial-slate-teal-mesh" />
+      {/* 1. Deep atmospheric Slate-Teal canvas with Ponytail-inspired drifting ambient mesh orbs */}
+      <div className="spatial-slate-teal-mesh">
+        <div className="spatial-mesh-orb spatial-mesh-orb-1" />
+        <div className="spatial-mesh-orb spatial-mesh-orb-2" />
+        <div className="spatial-mesh-orb spatial-mesh-orb-3" />
+      </div>
 
       {/* Subdued Gujarat watermark artwork */}
       <div className="spatial-art-backdrop" />

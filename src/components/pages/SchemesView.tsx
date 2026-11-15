@@ -25,12 +25,6 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
   // Sync with initialSearchTerm via useEffect instead of useState initializer.
   const [expandedSchemeId, setExpandedSchemeId] = useState<string | null>(null);
 
-  // Sync search term when prop changes (e.g. from global search navigation).
-  useEffect(() => {
-    if (initialSearchTerm) {
-      setSearch(initialSearchTerm);
-    }
-  }, [initialSearchTerm]);
   const [selectedModalScheme, setSelectedModalScheme] = useState<Scheme | null>(null);
 
   const fmt = (num: number) => new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(num);

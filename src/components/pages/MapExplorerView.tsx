@@ -64,14 +64,9 @@ function fmt(n: number, gu: boolean) {
 export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) {
   const [selectedRegion, setSelectedRegion] = useState<"all" | District["region"]>("all");
   const [selectedSchemeId, setSelectedSchemeId] = useState("all");
-  const [activeDistrictId, setActiveDistrictId] = useState<string>(DEFAULT_DISTRICT_ID);
-
-  // Sync focusRequest from global search
-  useEffect(() => {
-    if (focusRequest?.target?.districtId) {
-      setActiveDistrictId(focusRequest.target.districtId);
-    }
-  }, [focusRequest]);
+  const [activeDistrictId, setActiveDistrictId] = useState<string>(
+    () => focusRequest?.target?.districtId || DEFAULT_DISTRICT_ID
+  );
 
   // Handle region filter change
   const handleRegionChange = (newRegion: "all" | District["region"]) => {
