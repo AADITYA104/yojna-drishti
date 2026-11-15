@@ -31,14 +31,14 @@ const nextConfig: NextConfig = {
               "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
               // Styles: self + Google Fonts + inline styles (Framer Motion / ECharts)
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              // Fonts: self + Google Fonts CDN
-              "font-src 'self' https://fonts.gstatic.com data:",
+              // Fonts: self + Google Fonts CDN + openfreemap glyphs
+              "font-src 'self' https://fonts.gstatic.com data: https://tiles.openfreemap.org",
               // Images: self + data URIs + blob (MapLibre sprites) + https tiles
               "img-src 'self' data: blob: https:",
               // Worker: blob (MapLibre web worker)
               "worker-src 'self' blob:",
               // Connect: self + MapLibre tile servers
-              "connect-src 'self' https://api.maptiler.com https://*.maptiler.com https://tile.openstreetmap.org",
+              "connect-src 'self' https://tiles.openfreemap.org https://*.openfreemap.org https://api.maptiler.com https://*.maptiler.com https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com",
               // Frame: none
               "frame-ancestors 'none'",
             ].join("; "),

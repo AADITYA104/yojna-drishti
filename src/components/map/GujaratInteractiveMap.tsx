@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import * as maplibregl from "maplibre-gl";
@@ -124,6 +124,46 @@ function talukaColorExpression(codes: number[]) {
     "#9fb8c3",
   ];
 }
+
+const FALLBACK_STYLE: maplibregl.StyleSpecification = {
+  version: 8,
+  glyphs: "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf",
+  sources: {
+    carto: {
+      type: "raster",
+      tiles: [
+        "https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png",
+        "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+      ],
+      tileSize: 256,
+      attribution: "© OpenStreetMap contributors, © CARTO",
+    },
+  },
+  layers: [
+    {
+      id: "carto-base",
+      type: "raster",
+      source: "carto",
+      minzoom: 0,
+      maxzoom: 20,
+    },
+  ],
+};
+
+const OFFLINE_VECTOR_STYLE: maplibregl.StyleSpecification = {
+  version: 8,
+  glyphs: "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf",
+  sources: {},
+  layers: [
+    {
+      id: "background",
+      type: "background",
+      paint: {
+        "background-color": "#0d233a",
+      },
+    },
+  ],
+};
 
 function normalizeName(value: string) {
   return value.toLocaleLowerCase().normalize("NFKC").replace(/[^\p{L}\p{N}]/gu, "");
@@ -497,6 +537,34 @@ export function GujaratInteractiveMap({
     return () => controller.abort();
   }, [boundaryDistrictId, currentDistrictId, level, mapReady]);
 
+  // Preload Gujarat district boundaries immediately on mount
+  useEffect(() => {
+    fetch("/data/gujarat.geojson")
+      .then((response) => {
+        if (!response.ok) throw new Error("District boundary file could not be loaded.");
+        return response.json();
+      })
+      .then((sourceData: DistrictCollection) => {
+        const features = (sourceData.features || []).map((feature) => {
+          const sourceName = String(feature.properties.district || "");
+          const district = matchDistrict(sourceName);
+          return {
+            ...feature,
+            properties: {
+              ...feature.properties,
+              districtId: district?.id || normalizeName(sourceName),
+              region: district?.region || "",
+              nameGu: district?.gu || sourceName,
+            },
+          } as DistrictFeature;
+        });
+        setDistrictData({ type: "FeatureCollection", features });
+      })
+      .catch((error: Error) => {
+        console.warn("Could not preload district GeoJSON:", error);
+      });
+  }, []);
+
   // Initialize MapLibre
   useEffect(() => {
     const host = mapHostRef.current;
@@ -525,14 +593,53 @@ export function GujaratInteractiveMap({
     map.addControl(new maplibregl.AttributionControl({ compact: false }), "bottom-right");
 
     let styleLoaded = false;
+
+    const handleStyleSuccess = () => {
+      if (styleLoaded) return;
+      styleLoaded = true;
+      window.clearTimeout(fallbackTimer);
+      window.clearTimeout(styleLoadTimeout);
+      setMapError("");
+      addAdminBoundaryLayers();
+      setMapReady(true);
+    };
+
+    map.on("load", handleStyleSuccess);
+    map.on("style.load", handleStyleSuccess);
+
     map.on("error", (event) => {
-      if (event.error?.message) setMapError(event.error.message);
-    });
-    const styleLoadTimeout = window.setTimeout(() => {
-      if (!styleLoaded) {
-        setMapError("Road map style did not finish loading. Check your connection and retry.");
+      if (!styleLoaded && mapRef.current) {
+        console.warn("Primary road map style issue, switching to high-reliability base tiles...", event.error);
+        try {
+          mapRef.current.setStyle(FALLBACK_STYLE);
+        } catch {
+          try {
+            mapRef.current.setStyle(OFFLINE_VECTOR_STYLE);
+          } catch {}
+        }
       }
-    }, 15000);
+    });
+
+    const fallbackTimer = window.setTimeout(() => {
+      if (!styleLoaded && mapRef.current) {
+        console.warn("Primary map style delayed, applying fallback base style...");
+        try {
+          mapRef.current.setStyle(FALLBACK_STYLE);
+        } catch {}
+      }
+    }, 3500);
+
+    const styleLoadTimeout = window.setTimeout(() => {
+      if (!styleLoaded && mapRef.current) {
+        try {
+          mapRef.current.setStyle(OFFLINE_VECTOR_STYLE);
+          handleStyleSuccess();
+        } catch {
+          setMapError("");
+          setMapReady(true);
+        }
+      }
+    }, 7000);
 
     const addAdminBoundaryLayers = () => {
       if (boundaryLayersAdded.current || !map.getSource("openmaptiles")) return;
@@ -567,43 +674,13 @@ export function GujaratInteractiveMap({
       });
     };
 
-    map.once("style.load", () => {
-      styleLoaded = true;
-      window.clearTimeout(styleLoadTimeout);
-      setMapError("");
-      addAdminBoundaryLayers();
-      setMapReady(true);
-
-      fetch("/data/gujarat.geojson")
-        .then((response) => {
-          if (!response.ok) throw new Error("District boundary file could not be loaded.");
-          return response.json();
-        })
-        .then((sourceData: DistrictCollection) => {
-          const features = (sourceData.features || []).map((feature) => {
-            const sourceName = String(feature.properties.district || "");
-            const district = matchDistrict(sourceName);
-            return {
-              ...feature,
-              properties: {
-                ...feature.properties,
-                districtId: district?.id || normalizeName(sourceName),
-                region: district?.region || "",
-                nameGu: district?.gu || sourceName,
-              },
-            } as DistrictFeature;
-          });
-          setDistrictData({ type: "FeatureCollection", features });
-        })
-        .catch((error: Error) => setMapError(error.message));
-    });
-
     map.on("zoom", () => setMapZoom(Number(map.getZoom().toFixed(1))));
 
     const resizeObserver = new ResizeObserver(() => map.resize());
     resizeObserver.observe(host);
 
     return () => {
+      window.clearTimeout(fallbackTimer);
       window.clearTimeout(styleLoadTimeout);
       resizeObserver.disconnect();
       markersRef.current.forEach((marker) => marker.remove());
@@ -673,25 +750,29 @@ export function GujaratInteractiveMap({
         beforeLayer,
       );
 
-      map.addLayer({
-        id: "district-names",
-        type: "symbol",
-        source: "geo-districts",
-        minzoom: 5.5,
-        maxzoom: 10.5,
-        layout: {
-          "text-field": gu ? ["get", "nameGu"] : ["get", "district"],
-          "text-size": ["interpolate", ["linear"], ["zoom"], 5.5, 9, 9, 13],
-          "text-font": ["Noto Sans Regular"],
-          "text-allow-overlap": false,
-          "text-ignore-placement": false,
-        },
-        paint: {
-          "text-color": "#143d38",
-          "text-halo-color": "#ffffff",
-          "text-halo-width": 1.3,
-        },
-      });
+      try {
+        map.addLayer({
+          id: "district-names",
+          type: "symbol",
+          source: "geo-districts",
+          minzoom: 5.5,
+          maxzoom: 10.5,
+          layout: {
+            "text-field": gu ? ["get", "nameGu"] : ["get", "district"],
+            "text-size": ["interpolate", ["linear"], ["zoom"], 5.5, 9, 9, 13],
+            "text-font": ["Noto Sans Regular"],
+            "text-allow-overlap": false,
+            "text-ignore-placement": false,
+          },
+          paint: {
+            "text-color": "#143d38",
+            "text-halo-color": "#ffffff",
+            "text-halo-width": 1.3,
+          },
+        });
+      } catch (fontErr) {
+        console.warn("District names layer skipped font issue:", fontErr);
+      }
     } else {
       const source = map.getSource("geo-districts") as maplibregl.GeoJSONSource;
       source.setData(districtData as never);
