@@ -5,7 +5,7 @@ import { SpatialGujaratCanvas } from "./SpatialGujaratCanvas";
 import { SpatialDock, type SpatialNavKey } from "./SpatialDock";
 import { SpatialHeader } from "./SpatialHeader";
 import { SpatialBentoDashboard } from "./SpatialBentoDashboard";
-import { IDraftBentoDashboard } from "./IDraftBentoDashboard";
+import { OverviewView } from "../pages/OverviewView";
 import { SchemesView } from "../pages/SchemesView";
 import { MapExplorerView } from "../pages/MapExplorerView";
 import { PublicPortalView } from "../pages/PublicPortalView";
@@ -206,15 +206,34 @@ export function SpatialShell() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              <ErrorBoundary moduleName="Dashboard">
-                <IDraftBentoDashboard
+              <ErrorBoundary moduleName="State Overview">
+                <OverviewView
                   gu={gu}
                   fy={fy}
-                  onNavigate={(view) => setActiveKey(view)}
-                  onSelectYojna={(name) => {
-                    setSelectedSchemeTerm(name);
-                    setActiveKey("schemes");
+                  onNavigate={(view) => {
+                    if (view === "map" || view === "schemes" || view === "wizard" || view === "saved" || view === "settings") {
+                      setActiveKey(view);
+                    } else if (view === "analytics") {
+                      setActiveKey("saved");
+                    } else if (view === "portal") {
+                      setActiveKey("wizard");
+                    }
                   }}
+                  onSelectDistrict={(district) => {
+                    setFocusRequest({
+                      id: ++focusRequestSequence.current,
+                      target: {
+                        id: district.id,
+                        label: gu ? district.gu : district.name,
+                        detail: `${gu ? district.regionGu : district.region} · ${gu ? "જિલ્લો" : "District"}`,
+                        kind: "district",
+                        districtId: district.id,
+                        aliases: [district.name, district.gu, district.code],
+                      },
+                    });
+                    setActiveKey("map");
+                  }}
+                  searchQuery=""
                 />
               </ErrorBoundary>
             </motion.div>

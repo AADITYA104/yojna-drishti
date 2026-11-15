@@ -1,16 +1,11 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import { Building2, Info, MapPinned, Users, Wallet, TrendingUp, Map, ChevronRight, Home, BarChart2, Layers } from "lucide-react";
+import { Building2, Info, MapPinned, Users, Wallet, TrendingUp, Map, Home, BarChart2 } from "lucide-react";
 import { demoDistricts, demoTalukas, type District } from "@/lib/demo-data";
 import { MASTER_DISTRICTS, NOTEBOOK_WOMEN_SCHEMES, getSubdistrictsForDistrict } from "@/lib/master-hierarchy";
 import dynamic from "next/dynamic";
-import { DistrictIntelligenceView } from "./DistrictIntelligenceView";
-import { TalukaIntelligenceView } from "./TalukaIntelligenceView";
-import { VillageIntelligenceView } from "./VillageIntelligenceView";
 
-// FIX H-03 & P-01: Dynamic imports — these are 64KB and 34KB components.
-// Loaded only when the Map tab is active, not on initial page load.
 const GujaratInteractiveMap = dynamic(
   () => import("../map/GujaratInteractiveMap").then((m) => ({ default: m.GujaratInteractiveMap })),
   {
@@ -18,7 +13,7 @@ const GujaratInteractiveMap = dynamic(
     loading: () => (
       <div className="map-loading-skeleton" role="status" aria-label="Loading map...">
         <div className="map-loading-pulse" />
-        <span className="map-loading-text"> નકશો લોડ થઈ રહ્યો છે... / Loading map...</span>
+        <span className="map-loading-text">નકશો લોડ થઈ રહ્યો છે... / Loading Gujarat Map...</span>
       </div>
     ),
   }
@@ -31,13 +26,12 @@ const VillageSchemeAnalyticsHub = dynamic(
     loading: () => (
       <div className="map-loading-skeleton" role="status" aria-label="Loading analytics...">
         <div className="map-loading-pulse" />
-        <span className="map-loading-text">ડેટા લોડ થઈ રહ્યો છે... / Loading analytics...</span>
+        <span className="map-loading-text">ગામવાર ડેટા લોડ થઈ રહ્યો છે... / Loading village analytics...</span>
       </div>
     ),
   }
 );
 
-// FIX M-04: Named constant instead of magic string "bhavnagar" everywhere.
 const DEFAULT_DISTRICT_ID = "bhavnagar" as const;
 
 interface MapExplorerViewProps {
@@ -68,8 +62,6 @@ function fmt(n: number, gu: boolean) {
 }
 
 export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) {
-  const [mapTab, setMapTab] = useState<"map" | "talukas" | "villages" | "districts">("map");
-  const [selectedSubdistrictCode, setSelectedSubdistrictCode] = useState<number>(3855);
   const [selectedRegion, setSelectedRegion] = useState<"all" | District["region"]>("all");
   const [selectedSchemeId, setSelectedSchemeId] = useState("all");
   const [activeDistrictId, setActiveDistrictId] = useState<string>(DEFAULT_DISTRICT_ID);
@@ -99,7 +91,7 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
     return MASTER_DISTRICTS.find((d) => d.id === activeDistrictId) || MASTER_DISTRICTS[0];
   }, [activeDistrictId]);
 
-  // All talukas for the active district (from demoTalukas + master subdistricts)
+  // All talukas for the active district
   const activeTalukas = useMemo(() => {
     return demoTalukas.filter((t) => t.districtId === activeDistrictId);
   }, [activeDistrictId]);
@@ -120,69 +112,9 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
 
   return (
     <div className="map-explorer-page">
-      {/* Subnav Tabs */}
-      <div className="report-type-bar" style={{ marginBottom: "1rem" }}>
-        {[
-          { key: "map" as const, labelGu: "ઇન્ટરેક્ટિવ નકશો", labelEn: "Interactive Map", icon: Map },
-          { key: "districts" as const, labelGu: "જિલ્લો ઇન્ટેલિજન્સ (૩૪)", labelEn: "District Intelligence (34)", icon: Building2 },
-          { key: "talukas" as const, labelGu: "તાલુકા ડિરેક્ટરી (૩૦૯)", labelEn: "Taluka Directory (309)", icon: Home },
-          { key: "villages" as const, labelGu: "ગામડું ઇન્ટેલિજન્સ & રજિસ્ટર", labelEn: "Village Intelligence & Register", icon: Layers },
-        ].map((tab) => {
-          const Icon = tab.icon;
-          const isActive = mapTab === tab.key;
-          return (
-            <button
-              key={tab.key}
-              type="button"
-              className={`cat-pill-btn ${isActive ? "active" : ""}`}
-              onClick={() => setMapTab(tab.key)}
-              style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
-            >
-              <Icon size={14} />
-              <span>{gu ? tab.labelGu : tab.labelEn}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      {mapTab === "districts" && (
-        <DistrictIntelligenceView
-          gu={gu}
-          fy={fy}
-          selectedDistrict={activeDistrict}
-          onSelectDistrict={(d) => setActiveDistrictId(d.id)}
-          onNavigateToTalukas={() => setMapTab("talukas")}
-        />
-      )}
-
-      {mapTab === "talukas" && (
-        <TalukaIntelligenceView
-          gu={gu}
-          fy={fy}
-          initialDistrictId={activeDistrictId}
-          onNavigateToVillages={(dId, code) => {
-            setActiveDistrictId(dId);
-            setSelectedSubdistrictCode(code);
-            setMapTab("villages");
-          }}
-        />
-      )}
-
-      {mapTab === "villages" && (
-        <VillageIntelligenceView
-          gu={gu}
-          fy={fy}
-          initialDistrictId={activeDistrictId}
-          initialSubdistrictCode={selectedSubdistrictCode}
-        />
-      )}
-
-      {mapTab === "map" && (
-        <>
-          {/* Header Bar */}
-          <header className="geo-explorer-header">
+      {/* Header Bar */}
+      <header className="geo-explorer-header">
         <div className="geo-explorer-title">
-          {/* FIX A-05: Proper eyebrow label — no inline colour classes */}
           <span className="geo-explorer-eyebrow">
             <MapPinned size={14} aria-hidden="true" />
             {gu ? "ગુજરાત ભૌગોલિક એક્સપ્લોરર" : "GUJARAT GEOGRAPHIC EXPLORER"}
@@ -192,13 +124,12 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
           </h1>
           <p className="geo-explorer-lead">
             {gu
-              ? "નકશામાં જિલ્લા, તાલુકા અને ગામડાઓ પર ક્લિક કરો — ક્લિક કરતાં રંગ બદલાય અને ડેટા ખુલે."
-              : "Click any district, taluka or village on the map — the selected area highlights and its data loads below."}
+              ? "નકશામાં કોઈપણ જિલ્લો, તાલુકો અથવા ગામ પર ક્લિક કરો — ક્લિક કરતાં જ કલર બદલાશે અને નીચે વિગતો ખુલશે."
+              : "Click any district, taluka, or village on the map — selection highlights in teal and displays full details below."}
           </p>
         </div>
 
         <div className="geo-explorer-filters">
-          {/* FIX A-05: Properly associated <label> + <select> for scheme filter */}
           <label className="geo-filter-control" htmlFor="scheme-filter-select">
             <span className="geo-filter-label">{gu ? "યોજના:" : "Scheme:"}</span>
             <span className="geo-filter-select-wrap">
@@ -220,7 +151,6 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
             </span>
           </label>
 
-          {/* FIX A-05: Properly associated <label> + <select> for region filter */}
           <label className="geo-filter-control" htmlFor="region-filter-select">
             <span className="geo-filter-label">{gu ? "વિસ્તાર:" : "Region:"}</span>
             <span className="geo-filter-select-wrap">
@@ -244,12 +174,29 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
         </div>
       </header>
 
-      {/* DISTRICT INFO PANEL — shown when a district is selected */}
+      {/* 1. MAIN INTERACTIVE MAP CONTAINER — FULL SPREAD */}
+      <section className="map-showcase-section" id="gujarat-map-canvas">
+        <div className="full-map-wrapper">
+          <GujaratInteractiveMap
+            key={selectedRegion}
+            gu={gu}
+            fy={fy}
+            selectedDistrictId={activeDistrictId}
+            regionFilter={selectedRegion}
+            schemeFilter={selectedSchemeId}
+            focusRequest={focusRequest}
+            onDistrictSelect={(district) => setActiveDistrictId(district.id)}
+            variant="explorer"
+          />
+        </div>
+      </section>
+
+      {/* 2. DISTRICT INFO PANEL — Dynamic Glass Box for the Selected District */}
       <div className="geo-district-info-panel" aria-live="polite" aria-atomic="true">
         <div className="geo-district-info-left">
           <div className="geo-district-info-badge">
             <Map size={16} aria-hidden="true" />
-            <span>{gu ? "પસંદ કરેલ જિલ્લો" : "Selected District"}</span>
+            <span>{gu ? "પસંદ કરેલ જિલ્લો (ક્લિક કરેલ)" : "Selected District (Active Highlight)"}</span>
           </div>
           <div className="geo-district-name-row">
             <h2 className="geo-district-name-en">{activeDistrict.name}</h2>
@@ -297,12 +244,12 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
           </div>
         </div>
 
-        {/* Taluka mini-list for active district */}
+        {/* Taluka chips list for active district */}
         {masterTalukas.length > 0 && (
           <div className="geo-taluka-mini-list">
             <div className="geo-taluka-mini-list-header">
               <Building2 size={14} aria-hidden="true" />
-              <span>{gu ? "આ જિલ્લાના તાલુકા" : "Talukas in this District"}</span>
+              <span>{gu ? "આ જિલ્લાના તમામ તાલુકાઓ" : "Talukas in this District"}</span>
               <span className="geo-taluka-mini-count">{masterTalukas.length}</span>
             </div>
             <div className="geo-taluka-chips-row">
@@ -311,7 +258,7 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
                 return (
                   <div key={taluka.code} className="geo-taluka-chip" title={`${taluka.nameEn} — ${taluka.villageCount} villages`}>
                     <span className="geo-taluka-chip-name">{gu ? taluka.nameGu : taluka.nameEn}</span>
-                    <span className="geo-taluka-chip-count">{taluka.villageCount}</span>
+                    <span className="geo-taluka-chip-count">{taluka.villageCount} {gu ? "ગામ" : "vil."}</span>
                     {demoT && (
                       <span className="geo-taluka-chip-benef">
                         {gu ? `${fmt(demoT.beneficiaries, gu)} લા.` : `${fmt(demoT.beneficiaries, gu)} benef.`}
@@ -325,32 +272,13 @@ export function MapExplorerView({ gu, fy, focusRequest }: MapExplorerViewProps) 
         )}
       </div>
 
-      {/* 1. MAIN INTERACTIVE MAP CONTAINER */}
-      <section className="map-showcase-section" id="gujarat-map-canvas">
-        <div className="full-map-wrapper">
-          <GujaratInteractiveMap
-            key={selectedRegion}
-            gu={gu}
-            fy={fy}
-            selectedDistrictId={activeDistrictId}
-            regionFilter={selectedRegion}
-            schemeFilter={selectedSchemeId}
-            focusRequest={focusRequest}
-            onDistrictSelect={(district) => setActiveDistrictId(district.id)}
-            variant="explorer"
-          />
-        </div>
-      </section>
-
-      {/* 2. DIRECTLY UNDER MAP: COMPREHENSIVE VILLAGE-BY-VILLAGE SCHEME REACH & DBT FUNDS INTELLIGENCE */}
+      {/* 3. DIRECTLY UNDER MAP & DISTRICT PANEL: FULL VILLAGE-BY-VILLAGE SCHEME REACH & DBT FUNDS INTELLIGENCE */}
       <VillageSchemeAnalyticsHub
         gu={gu}
         fy={fy}
         selectedDistrictId={activeDistrictId}
         onDistrictChange={(dId) => setActiveDistrictId(dId)}
       />
-      </>
-      )}
     </div>
   );
 }
