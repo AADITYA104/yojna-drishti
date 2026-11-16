@@ -1,72 +1,67 @@
-/* ==========================================================================
- * YOJANA DRISHTI — "Rann & Rang" design tokens (drop-in replacement)
- * Legacy variable names (--navy-*, --teal-600, --bg ...) are kept and re-mapped,
- * so the existing 7,500-line app.css keeps working while you migrate page by page.
- * ========================================================================== */
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
-  /* Ink — Ajrakh indigo: structure, text, sidebar */
-  --ink-950: #0d1530;
-  --ink-900: #131e45;
-  --ink-800: #1b2a5e;
-  --ink-700: #27397b;
-  --ink-500: #4a5fa8;
-  --ink-200: #c3cbe6;
-  --ink-100: #e4e8f5;
+  /* Ink â€” structure, text, background (6-shade monochrome) */
+  --ink-950: #0B0B0B;
+  --ink-900: #0B0B0B;
+  --ink-800: #1A1A1A;
+  --ink-700: #1A1A1A;
+  --ink-500: #333333;
+  --ink-200: #6B6B6B;
+  --ink-100: #D9D9D9;
 
-  /* Haldi — turmeric: highlight, pilot district, primary call-to-action */
-  --haldi-600: #c27a00;
-  --haldi-500: #f2a413;
-  --haldi-300: #f8cd6b;
-  --haldi-100: #fdf1d2;
+  /* Highlight & primary actions */
+  --haldi-600: #D9D9D9;
+  --haldi-500: #FFFFFF;
+  --haldi-300: #D9D9D9;
+  --haldi-100: #333333;
 
-  /* Mor — peacock teal: interactive, selection, "live" */
-  --mor-700: #0a5f68;
-  --mor-600: #0f7c86;
-  --mor-400: #3aa7ae;
-  --mor-100: #ddf1f2;
+  /* Interactive, selection */
+  --mor-700: #FFFFFF;
+  --mor-600: #FFFFFF;
+  --mor-400: #D9D9D9;
+  --mor-100: #1A1A1A;
 
   /* Status */
-  --madder-600: #b3382c;
-  --madder-100: #f8e3e0;
-  --neem-600: #2e8b57;
-  --neem-100: #e0f2e8;
-  --demo: #7545a5;
-  --demo-100: #efe6f7;
+  --madder-600: #6B6B6B;
+  --madder-100: #1A1A1A;
+  --neem-600: #FFFFFF;
+  --neem-100: #1A1A1A;
+  --demo: #D9D9D9;
+  --demo-100: #1A1A1A;
 
-  /* Rann salt — cool white canvas (NOT cream) */
-  --salt-0: #ffffff;
-  --salt-50: #f6f7f4;
-  --salt-100: #edefea;
-  --salt-200: #dfe2db;
-  --salt-300: #c9cdc4;
+  /* Surfaces */
+  --salt-0: #1A1A1A;
+  --salt-50: #0B0B0B;
+  --salt-100: #1A1A1A;
+  --salt-200: #333333;
+  --salt-300: #6B6B6B;
 
-  --text: #161d33;
-  --text-soft: #3b4466;
-  --muted: #5e6785;
+  --text: #FFFFFF;
+  --text-soft: #D9D9D9;
+  --muted: #6B6B6B;
 
-  /* Choropleth ramp (5 steps, single hue) */
-  --map-1: #e4e8f5;
-  --map-2: #b4bfe3;
-  --map-3: #7f92cf;
-  --map-4: #4a5fa8;
-  --map-5: #1b2a5e;
+  /* Choropleth ramp */
+  --map-1: #1A1A1A;
+  --map-2: #333333;
+  --map-3: #6B6B6B;
+  --map-4: #D9D9D9;
+  --map-5: #FFFFFF;
 
-  /* Legacy aliases (so existing app.css keeps working visually) */
-  --navy-950: var(--ink-950);
-  --navy-900: var(--ink-900);
-  --navy-800: var(--ink-800);
-  --navy-700: var(--ink-700);
-  --teal-600: var(--mor-600);
-  --teal-100: var(--mor-100);
-  --orange-500: var(--haldi-500);
-  --bg: var(--salt-50);
-  --surface: var(--salt-0);
-  --surface-soft: var(--salt-50);
-  --border: var(--salt-200);
-  --success: var(--neem-600);
-  --warning: var(--haldi-600);
+  /* Legacy aliases */
+  --navy-950: #0B0B0B;
+  --navy-900: #0B0B0B;
+  --navy-800: #1A1A1A;
+  --navy-700: #1A1A1A;
+  --teal-600: #FFFFFF;
+  --teal-100: #1A1A1A;
+  --orange-500: #D9D9D9;
+  --bg: #0B0B0B;
+  --surface: #1A1A1A;
+  --surface-soft: #1A1A1A;
+  --border: #333333;
+  --success: #FFFFFF;
+  --warning: #D9D9D9;
 
   /* Type */
   --font-display: var(--font-display-next, "Rasa"), "Noto Serif Gujarati", Georgia, serif;
@@ -80,19 +75,19 @@
   --fs-hero: clamp(2.25rem, 1.4rem + 3.4vw, 4rem);
   --lh-gu: 1.65;
 
-  /* Radius — different per hierarchy on purpose */
+  /* Radius */
   --r-xs: 4px;
   --r-sm: 8px;
   --r-md: 14px;
   --r-lg: 22px;
   --r-pill: 999px;
 
-  /* Elevation — ink-tinted, layered */
-  --shadow-1: 0 1px 2px rgb(13 21 48 / 0.06), 0 6px 14px -8px rgb(13 21 48 / 0.12);
-  --shadow-2: 0 2px 4px rgb(13 21 48 / 0.06), 0 14px 32px -12px rgb(13 21 48 / 0.22);
-  --shadow-pop: 0 4px 8px rgb(13 21 48 / 0.08), 0 28px 60px -16px rgb(13 21 48 / 0.35);
+  /* Elevation */
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4), 0 6px 14px -8px rgb(0 0 0 / 0.5);
+  --shadow-2: 0 2px 4px rgb(0 0 0 / 0.4), 0 14px 32px -12px rgb(0 0 0 / 0.6);
+  --shadow-pop: 0 4px 8px rgb(0 0 0 / 0.5), 0 28px 60px -16px rgb(0 0 0 / 0.7);
 
-  /* Space (4px base) */
+  /* Space */
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
   --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 72px;
 
