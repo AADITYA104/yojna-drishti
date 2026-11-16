@@ -87,12 +87,12 @@ export function SchemeDetailModal({ scheme, onClose, gu }: SchemeDetailModalProp
             <div className="sbc-type-badge">
               {scheme.category === "Girl Child" || scheme.category === "Widow Welfare" || scheme.category === "Social Security" ? (
                 <>
-                  <Wallet size={13} className="inline mr-1 text-teal" />
+                  <Wallet size={13} className="inline mr-1 text-mono-white" />
                   {gu ? "સીધા બેંક ખાતામાં (DBT)" : "Direct Bank Transfer"}
                 </>
               ) : (
                 <>
-                  <ShieldCheck size={13} className="inline mr-1 text-teal" />
+                  <ShieldCheck size={13} className="inline mr-1 text-mono-white" />
                   {gu ? "પોષણ / કીટ સહાય" : "Welfare Assistance"}
                 </>
               )}
@@ -107,7 +107,7 @@ export function SchemeDetailModal({ scheme, onClose, gu }: SchemeDetailModalProp
             <ul className="smh-criteria-list">
               {(gu ? scheme.eligibilityGu : scheme.eligibility).map((item, idx) => (
                 <li key={idx}>
-                  <CheckCircle2 size={16} className="text-emerald" />
+                  <CheckCircle2 size={16} className="text-mono-white" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -168,7 +168,7 @@ export function SchemeDetailModal({ scheme, onClose, gu }: SchemeDetailModalProp
 
           {/* Where to apply & Help */}
           <div className="smh-apply-box">
-            <MapPin size={20} className="text-emerald" style={{ flexShrink: 0, marginTop: 2 }} />
+            <MapPin size={20} className="text-mono-white" style={{ flexShrink: 0, marginTop: 2 }} />
             <div>
               <strong>{gu ? "અરજી કરવાની પ્રક્રિયા અને સ્થળ:" : "Application Procedure & Offices:"}</strong>
               <p>

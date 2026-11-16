@@ -363,7 +363,7 @@ export function VillageIntelligenceView({
             {/* Village Demographics Grid */}
             <div className="vdc-metrics-quad">
               <div className="quad-item">
-                <Users size={16} className="text-teal" />
+                <Users size={16} className="text-mono-white" />
                 <div>
                   <small>{gu ? "કુલ વસ્તી" : "Population"}</small>
                   <strong>{currentVillage.hasDemoMetrics ? fmt(currentVillage.population) : "—"}</strong>
@@ -371,7 +371,7 @@ export function VillageIntelligenceView({
               </div>
 
               <div className="quad-item">
-                <Users size={16} className="text-amber" />
+                <Users size={16} className="text-mono-silver" />
                 <div>
                   <small>{gu ? "મહિલા વસ્તી" : "Female Pop"}</small>
                   <strong>{currentVillage.hasDemoMetrics ? fmt(currentVillage.femalePopulation) : "—"}</strong>
@@ -379,7 +379,7 @@ export function VillageIntelligenceView({
               </div>
 
               <div className="quad-item">
-                <Home size={16} className="text-blue" />
+                <Home size={16} className="text-mono-white" />
                 <div>
                   <small>{gu ? "કુટુંબો (ઘર)" : "Households"}</small>
                   <strong>{currentVillage.hasDemoMetrics ? fmt(currentVillage.households) : "—"}</strong>

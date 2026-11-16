@@ -115,15 +115,15 @@ interface GujaratInteractiveMapProps {
   focusRequest?: MapFocusRequest | null;
 }
 
-const TALUKA_PALETTE = ["#dcebed", "#c4dfe2", "#a8d0d5", "#83bbc2", "#5c9ca7"];
+const TALUKA_PALETTE = ["#383838", "#2C2C2C", "#484848", "#545454", "#202020"];
 
 function talukaColorExpression(codes: number[]) {
-  if (!codes.length) return "#9fb8c3";
+  if (!codes.length) return "#333333";
   return [
     "match",
     ["get", "subdistrictCode"],
     ...codes.flatMap((code, index) => [code, TALUKA_PALETTE[index % TALUKA_PALETTE.length]]),
-    "#9fb8c3",
+    "#333333",
   ];
 }
 
@@ -161,7 +161,7 @@ const OFFLINE_VECTOR_STYLE: maplibregl.StyleSpecification = {
       id: "background",
       type: "background",
       paint: {
-        "background-color": "#0d233a",
+        "background-color": "#0B0B0B",
       },
     },
   ],
@@ -575,7 +575,7 @@ export function GujaratInteractiveMap({
 
     const map = new maplibregl.Map({
       container: host,
-      style: "https://tiles.openfreemap.org/styles/liberty",
+      style: "https://tiles.openfreemap.org/styles/dark",
       center: [GUJARAT_STATE_CENTER.lng, GUJARAT_STATE_CENTER.lat],
       zoom: GUJARAT_STATE_CENTER.zoom || 7.3,
       minZoom: 5.5,
@@ -656,7 +656,7 @@ export function GujaratInteractiveMap({
         minzoom: 9.5,
         filter: ["all", ["==", ["get", "admin_level"], 7], ["!=", ["get", "maritime"], 1]],
         paint: {
-          "line-color": "#0f766e",
+          "line-color": "#4A4A4A",
           "line-width": ["interpolate", ["linear"], ["zoom"], 9.5, 1, 13, 2],
           "line-opacity": 0.86,
         },
@@ -670,7 +670,7 @@ export function GujaratInteractiveMap({
         minzoom: 11.5,
         filter: ["all", ["==", ["get", "admin_level"], 8], ["!=", ["get", "maritime"], 1]],
         paint: {
-          "line-color": "#d97706",
+          "line-color": "#6B6B6B",
           "line-width": ["interpolate", ["linear"], ["zoom"], 11.5, 1, 15, 2.4],
           "line-opacity": 0.9,
         },
@@ -720,10 +720,15 @@ export function GujaratInteractiveMap({
             "fill-color": [
               "case",
               ["==", ["get", "districtId"], currentDistrictId],
-              "#087f73",
-              "#c9e7df",
+              "#333333",
+              "#1A1A1A",
             ],
-            "fill-opacity": 0.32,
+            "fill-opacity": [
+              "case",
+              ["==", ["get", "districtId"], currentDistrictId],
+              0.65,
+              0.30,
+            ],
           },
         },
         beforeLayer,
@@ -738,16 +743,16 @@ export function GujaratInteractiveMap({
             "line-color": [
               "case",
               ["==", ["get", "districtId"], currentDistrictId],
-              "#075e56",
-              "#ffffff",
+              "#FFFFFF",
+              "#333333",
             ],
             "line-width": [
               "case",
               ["==", ["get", "districtId"], currentDistrictId],
-              2.6,
-              1.15,
+              2.5,
+              1.0,
             ],
-            "line-opacity": 0.95,
+            "line-opacity": 0.85,
           },
         },
         beforeLayer,
@@ -768,9 +773,9 @@ export function GujaratInteractiveMap({
             "text-ignore-placement": false,
           },
           paint: {
-            "text-color": "#143d38",
-            "text-halo-color": "#ffffff",
-            "text-halo-width": 1.3,
+            "text-color": "#FFFFFF",
+            "text-halo-color": "#0B0B0B",
+            "text-halo-width": 1.5,
           },
         });
       } catch (fontErr) {
@@ -786,28 +791,28 @@ export function GujaratInteractiveMap({
       map.setPaintProperty("district-fill", "fill-color", [
         "case",
         ["==", ["get", "districtId"], currentDistrictId],
-        "#087f73",
-        "#c9e7df",
+        "#333333",
+        "#1A1A1A",
       ]);
       map.setPaintProperty("district-fill", "fill-opacity", [
         "case",
         ["==", ["get", "districtId"], currentDistrictId],
-        0.72,
-        0.28,
+        0.65,
+        0.30,
       ]);
     }
     if (map.getLayer("district-lines")) {
       map.setPaintProperty("district-lines", "line-color", [
         "case",
         ["==", ["get", "districtId"], currentDistrictId],
-        "#075e56",
-        "#ffffff",
+        "#FFFFFF",
+        "#333333",
       ]);
       map.setPaintProperty("district-lines", "line-width", [
         "case",
         ["==", ["get", "districtId"], currentDistrictId],
-        3.2,
-        1.15,
+        2.5,
+        1.0,
       ]);
     }
 
@@ -874,14 +879,14 @@ export function GujaratInteractiveMap({
             "fill-color": [
               "case",
               ["==", ["get", "villageCode"], currentVillageCode || ""],
-              "#087f73",
-              "#9fb8c3",
+              "#333333",
+              "#1A1A1A",
             ],
             "fill-opacity": [
               "case",
               ["==", ["get", "villageCode"], currentVillageCode || ""],
-              0.42,
-              0.08,
+              0.55,
+              0.15,
             ],
           },
         },
@@ -897,8 +902,8 @@ export function GujaratInteractiveMap({
             "line-color": [
               "case",
               ["==", ["get", "villageCode"], currentVillageCode || ""],
-              "#075e56",
-              "#648b99",
+              "#FFFFFF",
+              "#4A4A4A",
             ],
             "line-width": [
               "interpolate",
@@ -952,8 +957,8 @@ export function GujaratInteractiveMap({
           "text-ignore-placement": false,
         },
         paint: {
-          "text-color": "#153d37",
-          "text-halo-color": "#ffffff",
+          "text-color": "#D9D9D9",
+          "text-halo-color": "#0B0B0B",
           "text-halo-width": 1.2,
         },
       });
@@ -1057,8 +1062,8 @@ export function GujaratInteractiveMap({
         : [
             "case",
             ["==", ["get", "villageCode"], currentVillageCode || ""],
-            "#087f73",
-            "#9fb8c3",
+            "#333333",
+            "#1A1A1A",
           ]
     );
 
@@ -1083,8 +1088,8 @@ export function GujaratInteractiveMap({
         : [
             "case",
             ["==", ["get", "villageCode"], currentVillageCode || ""],
-            "#075e56",
-            "#648b99",
+            "#FFFFFF",
+            "#4A4A4A",
           ]
     );
   }, [
@@ -1428,7 +1433,7 @@ export function GujaratInteractiveMap({
 
           {variant !== "embedded" && (
             <div className="geo-map-coverage-legend" aria-live="polite">
-              <span className="geo-coverage-swatch" style={{ background: "#267d89" }} />
+              <span className="geo-coverage-swatch" style={{ background: "#FFFFFF" }} />
               <span>
                 {gu
                   ? "ગુજરાતની વહીવટી સીમાઓ · પસંદ કરેલા ઘોઘા ગામો માટે ડેમો યોજના માહિતી"
@@ -1647,8 +1652,8 @@ export function GujaratInteractiveMap({
               <span
                 className="geo-source-pill"
                 style={currentVillageSchemeSummary?.schemes.length
-                  ? { background: "#e8f7ef", color: "#176847" }
-                  : { background: "#fff7e8", color: "#865d19" }}
+                  ? { background: "#FFFFFF", color: "#0B0B0B" }
+                  : { background: "#1A1A1A", color: "#D9D9D9", border: "1px solid #333333" }}
               >
                   <Info size={12} /> {currentVillageSchemeSummary?.schemes.length
                     ? gu ? "ઘોઘા · ડેમો" : "GHOGHA · DEMO"

@@ -19,9 +19,9 @@ interface BeneficiaryAnalyticsViewProps {
   fy: string;
 }
 
-const GENDER_COLORS = ["#0284c7", "#ec4899", "#0f766e"];
-const SOCIAL_COLORS = ["#0f766e", "#0284c7", "#d97706", "#8b5cf6"];
-const AGE_COLORS   = ["#06b6d4", "#0f766e", "#0284c7", "#d97706", "#8b5cf6"];
+const GENDER_COLORS = ["#FFFFFF", "#8C8C8C", "#333333"];
+const SOCIAL_COLORS = ["#FFFFFF", "#D9D9D9", "#8C8C8C", "#333333"];
+const AGE_COLORS   = ["#FFFFFF", "#D9D9D9", "#A8A8A8", "#6B6B6B", "#333333"];
 
 export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewProps) {
   const socialChartRef = useRef<HTMLDivElement>(null);
@@ -70,8 +70,8 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
       backgroundColor: "transparent",
       tooltip: {
         trigger: "item",
-        backgroundColor: "rgba(15, 23, 42, 0.95)",
-        borderColor: "rgba(56, 189, 248, 0.3)",
+        backgroundColor: "#1A1A1A",
+        borderColor: "#333333",
         textStyle: { color: "#ffffff" },
         formatter: "{b}: {c} ({d}%)",
       },
@@ -111,8 +111,8 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
       grid: { left: "4%", right: "4%", bottom: "5%", top: "12%", containLabel: true },
       tooltip: {
         trigger: "axis",
-        backgroundColor: "rgba(15, 23, 42, 0.95)",
-        borderColor: "rgba(56, 189, 248, 0.3)",
+        backgroundColor: "#1A1A1A",
+        borderColor: "#333333",
         textStyle: { color: "#ffffff" },
         formatter: (p: any) => `${p[0].name}: <b>${fmt(p[0].value)}</b>`,
       },
@@ -140,8 +140,8 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
       backgroundColor: "transparent",
       tooltip: {
         trigger: "item",
-        backgroundColor: "rgba(15, 23, 42, 0.95)",
-        borderColor: "rgba(56, 189, 248, 0.3)",
+        backgroundColor: "#1A1A1A",
+        borderColor: "#333333",
         textStyle: { color: "#ffffff" },
         formatter: "{b}: {c} ({d}%)",
       },
@@ -177,8 +177,8 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
       grid: { left: "4%", right: "4%", bottom: "6%", top: "12%", containLabel: true },
       tooltip: {
         trigger: "axis",
-        backgroundColor: "rgba(15, 23, 42, 0.95)",
-        borderColor: "rgba(56, 189, 248, 0.3)",
+        backgroundColor: "#1A1A1A",
+        borderColor: "#333333",
         textStyle: { color: "#ffffff" },
         formatter: (p: any) => `${p[0].name}: <b>${fmt(p[0].value)}</b>`,
       },
@@ -188,12 +188,12 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
         name: gu ? "લાભાર્થીઓ" : "Beneficiaries",
         type: "line", smooth: true,
         data: vals,
-        itemStyle: { color: "#0f766e" },
-        lineStyle: { width: 3, color: "#0f766e" },
+        itemStyle: { color: "#FFFFFF" },
+        lineStyle: { width: 3, color: "#FFFFFF" },
         areaStyle: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: "rgba(15,118,110,0.3)" },
-            { offset: 1, color: "rgba(15,118,110,0.02)" },
+            { offset: 0, color: "rgba(255,255,255,0.25)" },
+            { offset: 1, color: "rgba(255,255,255,0.01)" },
           ]),
         },
         symbol: "circle", symbolSize: 8,
@@ -217,8 +217,8 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
       grid: { left: "4%", right: "12%", bottom: "4%", top: "12%", containLabel: true },
       tooltip: {
         trigger: "axis",
-        backgroundColor: "rgba(15, 23, 42, 0.95)",
-        borderColor: "rgba(56, 189, 248, 0.3)",
+        backgroundColor: "#1A1A1A",
+        borderColor: "#333333",
         textStyle: { color: "#ffffff" },
         formatter: (p: any) => `${p[0].name}: <b>${fmt(p[0].value)}</b>`,
       },
@@ -304,22 +304,22 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
           <div className="stats-strip-4">
             <div className="stat-card-compact">
               <span className="stat-label">{gu ? "કુલ નોંધાયેલ" : "Total Beneficiaries"}</span>
-              <strong className="text-teal">{fmt(displayBen)}</strong>
+              <strong className="text-mono-white">{fmt(displayBen)}</strong>
               <small>{filterCategory === "rural" ? (gu ? "ગ્રામ્ય" : "Rural") : filterCategory === "urban" ? (gu ? "શહેરી" : "Urban") : (gu ? "સમગ્ર" : "All")}</small>
             </div>
             <div className="stat-card-compact">
               <span className="stat-label">{gu ? "ગ્રામ્ય આવરણ" : "Rural Penetration"}</span>
-              <strong className="text-navy">74.2%</strong>
+              <strong className="text-mono-white">74.2%</strong>
               <small>{gu ? "ઉદાહરણ વિતરણ" : "Demo distribution"}</small>
             </div>
             <div className="stat-card-compact">
               <span className="stat-label">{gu ? "મહિલા લાભ" : "Female Beneficiaries"}</span>
-              <strong className="text-emerald">{fmt(femaleCount)}</strong>
+              <strong className="text-mono-white">{fmt(femaleCount)}</strong>
               <small>58.4% {gu ? "મહિલા" : "female"}</small>
             </div>
             <div className="stat-card-compact">
               <span className="stat-label">{gu ? "ટોચ જિલ્લો" : "Top District"}</span>
-              <strong className="text-amber">{gu ? topDistrict.gu : topDistrict.name}</strong>
+              <strong className="text-mono-silver">{gu ? topDistrict.gu : topDistrict.name}</strong>
               <small>{fmt(topDistrict.beneficiaries)} {gu ? "લાભાર્થી" : "beneficiaries"}</small>
             </div>
           </div>
@@ -411,7 +411,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
                   <div key={d.id} className="stat-card-compact">
                     <span className="rank-badge" style={{ marginBottom: 6 }}>{String(i + 1).padStart(2, "0")}</span>
                     <span className="stat-label">{gu ? d.gu : d.name}</span>
-                    <strong className="text-teal">{fmt(scaleDemoValue(d.beneficiaries, fy))}</strong>
+                    <strong className="text-mono-white">{fmt(scaleDemoValue(d.beneficiaries, fy))}</strong>
                     <small>{d.talukaCount} {gu ? "તાલુકા" : "talukas"}</small>
                   </div>
                 ))}

@@ -107,7 +107,7 @@ export function SystemMonitoringView({ gu }: SystemMonitoringViewProps) {
 
       {/* Scope alert */}
       <div className="data-security-alert-bar">
-        <Activity size={18} className="text-teal" />
+        <Activity size={18} className="text-mono-white" />
         <div>
           <strong>{gu ? "ત. ય.:" : "Scope:"}</strong>{" "}
           <span>{gu ? "HTTP ત. — prod uptime monitor ન." : "HTTP responses from this browser session. Not a production uptime monitor."}</span>
@@ -118,7 +118,7 @@ export function SystemMonitoringView({ gu }: SystemMonitoringViewProps) {
       <div className="stats-strip-4">
         <div className="stat-card-compact">
           <span className="stat-label"><Wifi size={13}/> {gu ? "API ત." : "API Reachability"}</span>
-          <strong className={allOk && !checking ? "text-emerald" : "text-amber"}>{overallLabel}</strong>
+          <strong className={allOk && !checking ? "text-mono-white" : "text-mono-silver"}>{overallLabel}</strong>
           <small>{gu ? "આ ત." : "Current check"}</small>
         </div>
         <div className="stat-card-compact">
@@ -130,12 +130,12 @@ export function SystemMonitoringView({ gu }: SystemMonitoringViewProps) {
         </div>
         <div className="stat-card-compact">
           <span className="stat-label"><Clock size={13}/> {gu ? "છ. ત." : "Last Checked"}</span>
-          <strong className="text-navy">{lastChecked || "—"}</strong>
+          <strong className="text-mono-white">{lastChecked || "—"}</strong>
           <small>{gu ? "દ. ત. ÷ ત." : "Updated after each probe"}</small>
         </div>
         <div className="stat-card-compact">
           <span className="stat-label"><Database size={13}/> {gu ? "ડ. સ." : "Data Mode"}</span>
-          <strong className="text-teal">{dataMode}</strong>
+          <strong className="text-mono-white">{dataMode}</strong>
           <small>{gu ? `DB: ${dbStatus}` : `DB: ${dbStatus}`}</small>
         </div>
       </div>
@@ -196,7 +196,7 @@ export function SystemMonitoringView({ gu }: SystemMonitoringViewProps) {
             <h3>{gu ? "API ત. ત." : "API Response Details"}</h3>
             <small>{gu ? "HTTP ત. · RTT ત." : "Observed status and round-trip latency"}</small>
           </div>
-          <Server size={19} className="text-teal" />
+          <Server size={19} className="text-mono-white" />
         </div>
         <div className="gov-table-wrap">
           <table className="gov-data-table">
@@ -267,8 +267,8 @@ export function SystemMonitoringView({ gu }: SystemMonitoringViewProps) {
                   <tr key={i}>
                     <td><code>{history.length - i}</code></td>
                     <td><small>{h.ts}</small></td>
-                    <td><strong className="text-emerald">{h.pass}</strong></td>
-                    <td><strong className={h.total - h.pass > 0 ? "text-rose" : "text-muted"}>{h.total - h.pass}</strong></td>
+                    <td><strong className="text-mono-white">{h.pass}</strong></td>
+                    <td><strong className={h.total - h.pass > 0 ? "text-mono-mid" : "text-muted"}>{h.total - h.pass}</strong></td>
                     <td>
                       {h.pass === h.total
                         ? <span className="badge-pill-success"><CheckCircle2 size={12}/> {gu ? "સ." : "All OK"}</span>
@@ -286,17 +286,17 @@ export function SystemMonitoringView({ gu }: SystemMonitoringViewProps) {
       <div className="stats-strip-4">
         <div className="stat-card-compact">
           <span className="stat-label"><Globe2 size={13}/> {gu ? "App Version" : "App Version"}</span>
-          <strong className="text-teal">{appVersion}</strong>
+          <strong className="text-mono-white">{appVersion}</strong>
           <small>yojana-drishti</small>
         </div>
         <div className="stat-card-compact">
           <span className="stat-label"><Database size={13}/> {gu ? "Database" : "Database"}</span>
-          <strong className="text-navy">{dbStatus}</strong>
+          <strong className="text-mono-white">{dbStatus}</strong>
           <small>{gu ? "ડ. ત." : "Data engine"}</small>
         </div>
         <div className="stat-card-compact">
           <span className="stat-label"><Gauge size={13}/> {gu ? "Data Mode" : "Data Mode"}</span>
-          <strong className="text-amber">{dataMode}</strong>
+          <strong className="text-mono-silver">{dataMode}</strong>
           <small>{gu ? "LGD ઢ." : "LGD hierarchy"}</small>
         </div>
         <div className="stat-card-compact">

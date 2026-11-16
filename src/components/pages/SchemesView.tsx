@@ -174,7 +174,7 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
                     {/* Eligibility List */}
                     <div className="smc-col">
                       <h4>
-                        <CheckCircle2 size={16} className="text-teal" />
+                        <CheckCircle2 size={16} className="text-mono-white" />
                         <span>{gu ? "પાત્રતાના માપદંડ (Eligibility):" : "Eligibility Criteria:"}</span>
                       </h4>
                       <ul className="gov-bullet-list">
@@ -187,7 +187,7 @@ export function SchemesView({ gu, fy, initialSearchTerm = "" }: SchemesViewProps
                     {/* Required Documents */}
                     <div className="smc-col">
                       <h4>
-                        <FileText size={16} className="text-amber" />
+                        <FileText size={16} className="text-mono-silver" />
                         <span>{gu ? "જરૂરી આધાર-પુરાવા (Documents):" : "Required Documents:"}</span>
                       </h4>
                       <ul className="gov-bullet-list">

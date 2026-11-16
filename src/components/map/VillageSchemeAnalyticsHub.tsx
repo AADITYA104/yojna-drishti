@@ -652,7 +652,7 @@ export function VillageSchemeAnalyticsHub({
                   <div className="vah-micro-kpi-grid">
                     <div className="vah-micro-kpi-card">
                       <span className="vah-mkpi-label">{gu ? "કુલ વસ્તી" : "Total Population"}</span>
-                      <strong className="vah-mkpi-value text-teal">{fmt(selectedVillageForModal.population)}</strong>
+                      <strong className="vah-mkpi-value text-mono-white">{fmt(selectedVillageForModal.population)}</strong>
                       <small className="vah-mkpi-sub">
                         {gu
                           ? `પુ: ${fmt(selectedVillageForModal.population - selectedVillageForModal.femalePopulation)} | સ્ત્રી: ${fmt(selectedVillageForModal.femalePopulation)}`
@@ -661,7 +661,7 @@ export function VillageSchemeAnalyticsHub({
                     </div>
                     <div className="vah-micro-kpi-card">
                       <span className="vah-mkpi-label">{gu ? "જાતિ પ્રમાણ (Sex Ratio)" : "Sex Ratio"}</span>
-                      <strong className="vah-mkpi-value text-emerald">
+                      <strong className="vah-mkpi-value text-mono-white">
                         {Math.round((selectedVillageForModal.femalePopulation / Math.max(1, selectedVillageForModal.population - selectedVillageForModal.femalePopulation)) * 1000)}
                       </strong>
                       <small className="vah-mkpi-sub">{gu ? "પ્રતિ ૧૦૦૦ પુરુષ" : "per 1000 Males"}</small>
@@ -673,19 +673,19 @@ export function VillageSchemeAnalyticsHub({
                     </div>
                     <div className="vah-micro-kpi-card">
                       <span className="vah-mkpi-label">{gu ? "આંગણવાડી & સેવા" : "Anganwadi & Service"}</span>
-                      <strong className="vah-mkpi-value text-amber">
+                      <strong className="vah-mkpi-value text-mono-silver">
                         {Math.max(1, Math.round(selectedVillageForModal.population / 900))} {gu ? "કેન્દ્રો" : "Centers"}
                       </strong>
                       <small className="vah-mkpi-sub">{gu ? "ઈ-ગ્રામ VCE સક્રિય" : "e-Gram VCE Active"}</small>
                     </div>
                     <div className="vah-micro-kpi-card">
                       <span className="vah-mkpi-label">{gu ? "કુલ DBT સહાય" : "Total DBT Disbursed"}</span>
-                      <strong className="vah-mkpi-value text-amber">₹{selectedVillageForModal.disbursedLakhs} {gu ? "લાખ" : "L"}</strong>
+                      <strong className="vah-mkpi-value text-mono-silver">₹{selectedVillageForModal.disbursedLakhs} {gu ? "લાખ" : "L"}</strong>
                       <small className="vah-mkpi-sub">{gu ? "૧૦૦% બેંક ટ્રાન્સફર" : "Direct to A/c"}</small>
                     </div>
                     <div className="vah-micro-kpi-card">
                       <span className="vah-mkpi-label">{gu ? "ગામ સંતૃપ્તિ સ્તર" : "Village Saturation"}</span>
-                      <strong className="vah-mkpi-value text-teal">{selectedVillageForModal.saturationPct}%</strong>
+                      <strong className="vah-mkpi-value text-mono-white">{selectedVillageForModal.saturationPct}%</strong>
                       <small className="vah-mkpi-sub">{gu ? "સરેરાશ સિદ્ધિ" : "Overall Achievement"}</small>
                     </div>
                   </div>

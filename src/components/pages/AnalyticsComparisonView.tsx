@@ -61,11 +61,12 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
       const c = echarts.getInstanceByDom(radarRef.current) || echarts.init(radarRef.current, null, { renderer: "svg" });
       charts.push(c);
       c.setOption({
+        color: ["#FFFFFF", "#6B6B6B"],
         backgroundColor: "transparent",
         tooltip: {
           trigger: "item",
-          backgroundColor: "rgba(15, 23, 42, 0.95)",
-          borderColor: "rgba(56, 189, 248, 0.3)",
+          backgroundColor: "#1A1A1A",
+          borderColor: "#333333",
           textStyle: { color: "#ffffff" },
         },
         legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#cbd5e1", fontSize: 11 } },
@@ -79,12 +80,12 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
           ],
           splitNumber: 4,
           axisName: { color: "#cbd5e1", fontSize: 11, fontWeight: "bold" },
-          splitLine: { lineStyle: { color: "rgba(148,163,184,0.2)" } },
-          splitArea: { areaStyle: { color: ["rgba(8,127,115,0.06)", "rgba(8,127,115,0.12)"] } },
+          splitLine: { lineStyle: { color: "rgba(255, 255, 255, 0.1)" } },
+          splitArea: { areaStyle: { color: ["rgba(255, 255, 255, 0.02)", "rgba(255, 255, 255, 0.05)"] } },
         },
         series: [{ type: "radar", data: [
-          { value: [statsA.ben, statsA.rate, statsA.disb, statsA.apps, distA.villageCount], name: nameA, lineStyle: { color: "#087f73", width: 2 }, areaStyle: { color: "rgba(8,127,115,0.18)" }, symbol: "circle", symbolSize: 6 },
-          { value: [statsB.ben, statsB.rate, statsB.disb, statsB.apps, distB.villageCount], name: nameB, lineStyle: { color: "#f59e0b", width: 2 }, areaStyle: { color: "rgba(245,158,11,0.15)" }, symbol: "circle", symbolSize: 6 },
+          { value: [statsA.ben, statsA.rate, statsA.disb, statsA.apps, distA.villageCount], name: nameA, itemStyle: { color: "#FFFFFF" }, lineStyle: { color: "#FFFFFF", width: 2 }, areaStyle: { color: "rgba(255, 255, 255, 0.22)" }, symbol: "circle", symbolSize: 6 },
+          { value: [statsB.ben, statsB.rate, statsB.disb, statsB.apps, distB.villageCount], name: nameB, itemStyle: { color: "#6B6B6B" }, lineStyle: { color: "#6B6B6B", width: 2 }, areaStyle: { color: "rgba(107, 107, 107, 0.18)" }, symbol: "circle", symbolSize: 6 },
         ] }],
       });
     }
@@ -93,12 +94,13 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
       const c = echarts.getInstanceByDom(barRef.current) || echarts.init(barRef.current, null, { renderer: "svg" });
       charts.push(c);
       c.setOption({
+        color: ["#FFFFFF", "#6B6B6B"],
         backgroundColor: "transparent",
         tooltip: {
           trigger: "axis",
           axisPointer: { type: "shadow" },
-          backgroundColor: "rgba(15, 23, 42, 0.95)",
-          borderColor: "rgba(56, 189, 248, 0.3)",
+          backgroundColor: "#1A1A1A",
+          borderColor: "#333333",
           textStyle: { color: "#ffffff" },
         },
         legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#cbd5e1", fontSize: 11 } },
@@ -106,8 +108,8 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
         xAxis: { type: "category", data: [gu ? "લ.(K)" : "Ben.(K)", gu ? "અ.%" : "Rate%", gu ? "ચૂ." : "Disb."], axisLabel: { color: "#cbd5e1", fontSize: 11 } },
         yAxis: { type: "value", show: false },
         series: [
-          { name: nameA, type: "bar", data: [Math.round(statsA.ben / 1000), statsA.rate, statsA.disb], itemStyle: { color: "#087f73", borderRadius: [4, 4, 0, 0] }, barMaxWidth: 32 },
-          { name: nameB, type: "bar", data: [Math.round(statsB.ben / 1000), statsB.rate, statsB.disb], itemStyle: { color: "#f59e0b", borderRadius: [4, 4, 0, 0] }, barMaxWidth: 32 },
+          { name: nameA, type: "bar", data: [Math.round(statsA.ben / 1000), statsA.rate, statsA.disb], itemStyle: { color: "#FFFFFF", borderRadius: [4, 4, 0, 0] }, barMaxWidth: 32 },
+          { name: nameB, type: "bar", data: [Math.round(statsB.ben / 1000), statsB.rate, statsB.disb], itemStyle: { color: "#6B6B6B", borderRadius: [4, 4, 0, 0] }, barMaxWidth: 32 },
         ],
       });
     }
@@ -117,11 +119,12 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
       charts.push(c);
       const years = ["21-22", "22-23", "23-24", "24-25", "25-26"];
       c.setOption({
+        color: ["#FFFFFF", "#6B6B6B"],
         backgroundColor: "transparent",
         tooltip: {
           trigger: "axis",
-          backgroundColor: "rgba(15, 23, 42, 0.95)",
-          borderColor: "rgba(56, 189, 248, 0.3)",
+          backgroundColor: "#1A1A1A",
+          borderColor: "#333333",
           textStyle: { color: "#ffffff" },
         },
         legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#cbd5e1", fontSize: 11 } },
@@ -129,8 +132,8 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
         xAxis: { type: "category", data: years, axisLabel: { color: "#cbd5e1", fontSize: 10 } },
         yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#94a3b8", fontSize: 10, formatter: (v: number) => `${Math.round(v / 1000)}K` } },
         series: [
-          { name: nameA, type: "line", smooth: true, data: [0.72, 0.80, 0.88, 0.95, 1.0].map((f) => Math.round(distA.beneficiaries * f)), lineStyle: { color: "#087f73", width: 2.5 }, areaStyle: { color: "rgba(8,127,115,0.12)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#087f73" } },
-          { name: nameB, type: "line", smooth: true, data: [0.70, 0.78, 0.85, 0.93, 1.0].map((f) => Math.round(distB.beneficiaries * f)), lineStyle: { color: "#f59e0b", width: 2.5 }, areaStyle: { color: "rgba(245,158,11,0.10)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#f59e0b" } },
+          { name: nameA, type: "line", smooth: true, data: [0.72, 0.80, 0.88, 0.95, 1.0].map((f) => Math.round(distA.beneficiaries * f)), lineStyle: { color: "#FFFFFF", width: 2.5 }, areaStyle: { color: "rgba(255, 255, 255, 0.15)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#FFFFFF" } },
+          { name: nameB, type: "line", smooth: true, data: [0.70, 0.78, 0.85, 0.93, 1.0].map((f) => Math.round(distB.beneficiaries * f)), lineStyle: { color: "#6B6B6B", width: 2.5 }, areaStyle: { color: "rgba(107, 107, 107, 0.10)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#6B6B6B" } },
         ],
       });
     }
@@ -185,17 +188,17 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
 
       {/* District Head Cards */}
       <div className="compare-cards-grid">
-        {[{ dist: distA, stats: statsA, tag: "A", color: "#087f73" }, { dist: distB, stats: statsB, tag: "B", color: "#f59e0b" }].map(({ dist, stats, tag, color }) => (
+        {[{ dist: distA, stats: statsA, tag: "A", color: "#FFFFFF", textColor: "#0B0B0B" }, { dist: distB, stats: statsB, tag: "B", color: "#6B6B6B", textColor: "#FFFFFF" }].map(({ dist, stats, tag, color }) => (
           <div key={tag} className="compare-district-card" style={{ borderTopColor: color }}>
             <div className="cdc-head">
-              <span className="cdc-tag" style={{ background: color }}>DISTRICT {tag}</span>
+              <span className="cdc-tag" style={{ background: color, color: (tag === "A" ? "#0B0B0B" : "#FFFFFF") }}>DISTRICT {tag}</span>
               <h2>{gu ? dist.gu : dist.name}</h2>
               <small>{dist.code} · {gu ? dist.regionGu : dist.region}</small>
             </div>
             <div className="cdc-metrics">
               <div className="cdc-metric-row"><span>{gu ? "લ.:" : "Ben.:"}</span><b>{fmt(stats.ben)}</b></div>
-              <div className="cdc-metric-row"><span>{gu ? "અ.%:" : "Rate:"}</span><b className="text-teal">{stats.rate}%</b></div>
-              <div className="cdc-metric-row"><span>{gu ? "ચૂ.:" : "Disb.:"}</span><b className="text-amber">₹{fmt(stats.disb)} Cr</b></div>
+              <div className="cdc-metric-row"><span>{gu ? "અ.%:" : "Rate:"}</span><b className="text-mono-white">{stats.rate}%</b></div>
+              <div className="cdc-metric-row"><span>{gu ? "ચૂ.:" : "Disb.:"}</span><b className="text-mono-silver">₹{fmt(stats.disb)} Cr</b></div>
               <div className="cdc-metric-row"><span>{gu ? "ત./ગ.:" : "Tal./Vil.:"}</span><b>{dist.talukaCount} / {dist.villageCount}</b></div>
             </div>
           </div>
@@ -225,7 +228,7 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
             <h3>{gu ? "વિગતવાર KPI મેટ્રિક્સ" : "Detailed KPI Matrix"}</h3>
             <small>{gu ? "🏆 = વિજેતા (ઉ. ડેટા)" : "🏆 = Leading district (demo data)"}</small>
           </div>
-          <Trophy size={18} className="text-amber" />
+          <Trophy size={18} className="text-mono-silver" />
         </div>
         <div className="gov-table-wrap">
           <table className="gov-data-table">
@@ -241,8 +244,8 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
               {indicators.map(({ label, a, b, winA, icon }) => (
                 <tr key={label}>
                   <td><span style={{ display: "flex", alignItems: "center", gap: 6 }}>{icon}{label}</span></td>
-                  <td><b className={winA ? "text-teal" : ""}>{a} {winA && "🏆"}</b></td>
-                  <td><b className={!winA ? "text-teal" : ""}>{b} {!winA && "🏆"}</b></td>
+                  <td><b className={winA ? "text-mono-white" : ""}>{a} {winA && "🏆"}</b></td>
+                  <td><b className={!winA ? "text-mono-white" : ""}>{b} {!winA && "🏆"}</b></td>
                   <td><span className="leading-pill">{winA ? (gu ? distA.gu : distA.name) : (gu ? distB.gu : distB.name)}</span></td>
                 </tr>
               ))}

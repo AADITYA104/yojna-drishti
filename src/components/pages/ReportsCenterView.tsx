@@ -146,7 +146,7 @@ export function ReportsCenterView({ gu, fy }: ReportsCenterViewProps) {
             <h3>{gu ? "રિપોર્ટ ટેમ્પ્લેટ" : "Report Templates"}</h3>
             <small>{gu ? "ઝડપી export ટૂલ્સ (ઉ. ડેટા)" : "Quick export tools (demo data)"}</small>
           </div>
-          <BarChart2 size={18} className="text-teal" />
+          <BarChart2 size={18} className="text-mono-white" />
         </div>
         <div className="report-templates-grid">
           {[
@@ -171,7 +171,7 @@ export function ReportsCenterView({ gu, fy }: ReportsCenterViewProps) {
 
       {/* Security Governance Notice */}
       <div className="data-security-alert-bar">
-        <ShieldCheck size={18} className="text-teal" />
+        <ShieldCheck size={18} className="text-mono-white" />
         <div>
           <strong>{gu ? "ડેટા ગવર્નન્સ અને ગોપનીયતા સુરક્ષા:" : "Data Governance & Privacy Security:"}</strong>{" "}
           <span>
@@ -250,7 +250,7 @@ export function ReportsCenterView({ gu, fy }: ReportsCenterViewProps) {
                   <td>{fmt(d.villageCount)}</td>
                   <td><b>{fmt(scaleDemoValue(d.beneficiaries, fy))}</b></td>
                   <td>{fmt(scaleDemoValue(d.applications, fy))}</td>
-                  <td className="text-teal"><b>₹{fmt(scaleDemoAmount(d.disbursed, fy))} Cr</b></td>
+                  <td className="text-mono-white"><b>₹{fmt(scaleDemoAmount(d.disbursed, fy))} Cr</b></td>
                 </tr>
               ))}
             </tbody>
@@ -281,7 +281,7 @@ export function ReportsCenterView({ gu, fy }: ReportsCenterViewProps) {
                   <td><b>{fmt(scaleDemoValue(t.beneficiaries, fy))}</b></td>
                   <td>{fmt(scaleDemoValue(t.applications, fy))}</td>
                   <td>{fmt(scaleDemoValue(t.approved, fy))}</td>
-                  <td className="text-teal"><b>₹{fmt(scaleDemoAmount(t.disbursed, fy))} Cr</b></td>
+                  <td className="text-mono-white"><b>₹{fmt(scaleDemoAmount(t.disbursed, fy))} Cr</b></td>
                 </tr>
               ))}
             </tbody>
@@ -312,7 +312,7 @@ export function ReportsCenterView({ gu, fy }: ReportsCenterViewProps) {
                   <td>{fmt(v.population)}</td>
                   <td>{v.anganwadiCount}</td>
                   <td><b>{fmt(scaleDemoValue(v.totalBeneficiaries, fy))}</b></td>
-                  <td className="text-teal"><b>₹{fmt(scaleDemoAmount(v.disbursedLakhs, fy))} Lakh</b></td>
+                  <td className="text-mono-white"><b>₹{fmt(scaleDemoAmount(v.disbursedLakhs, fy))} Lakh</b></td>
                 </tr>
               ))}
             </tbody>
@@ -346,7 +346,7 @@ export function ReportsCenterView({ gu, fy }: ReportsCenterViewProps) {
                   <td>{s.launchYear}</td>
                   <td><b>{fmt(scaleDemoValue(s.beneficiariesStatewide, fy))}</b></td>
                   <td>₹{fmt(scaleDemoValue(s.budgetAllocatedCr, fy))} Cr</td>
-                  <td className="text-teal"><b>₹{fmt(scaleDemoValue(s.budgetDisbursedCr, fy))} Cr</b></td>
+                  <td className="text-mono-white"><b>₹{fmt(scaleDemoValue(s.budgetDisbursedCr, fy))} Cr</b></td>
                 </tr>
               ))}
             </tbody>

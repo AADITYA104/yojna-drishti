@@ -38,7 +38,7 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
       jurisdiction: gu ? `સમગ્ર ગુજરાત (${demoDistricts.length} જિ.)` : `All Gujarat (${demoDistricts.length} dists)`,
       users:       4,
       canViewAll:  true,  canUpload: true,  canApprove: true,  canAudit: true,  canConfig: true,
-      color:       "#0f766e",
+      color:       "#FFFFFF",
     },
     {
       tier: 2,
@@ -46,7 +46,7 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
       jurisdiction: gu ? "પોતાનો જિ. (૩૪ ઓ.)" : "Own District (34 slots)",
       users:       34,
       canViewAll:  true,  canUpload: true,  canApprove: true,  canAudit: false, canConfig: false,
-      color:       "#0284c7",
+      color:       "#D9D9D9",
     },
     {
       tier: 3,
@@ -54,7 +54,7 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
       jurisdiction: gu ? `પોત. તાલ. (${demoTalukas.length} સ્લ.)` : `Own Taluka (${demoTalukas.length} slots)`,
       users:       309,
       canViewAll:  false, canUpload: true,  canApprove: false, canAudit: false, canConfig: false,
-      color:       "#d97706",
+      color:       "#8C8C8C",
     },
     {
       tier: 4,
@@ -62,7 +62,7 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
       jurisdiction: gu ? "પોત. ગામ (૧૯,૨૦૧ સ્લ.)" : "Assigned Village (19,201 slots)",
       users:       14200,
       canViewAll:  false, canUpload: false, canApprove: false, canAudit: false, canConfig: false,
-      color:       "#8b5cf6",
+      color:       "#4A4A4A",
     },
   ];
 
@@ -73,7 +73,7 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
   });
 
   const Tick  = ({ ok }: { ok: boolean }) =>
-    ok ? <CheckCircle2 size={16} className="text-emerald" /> : <XCircle size={16} className="text-muted" />;
+    ok ? <CheckCircle2 size={16} className="text-mono-white" /> : <XCircle size={16} className="text-muted" />;
 
   const levelBadge = (level: string) => {
     if (level === "success") return <span className="badge-pill-success"><CheckCircle2 size={12}/> {gu ? "સફળ" : "OK"}</span>;
@@ -129,7 +129,7 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
 
       {/* Alert bar */}
       <div className="data-security-alert-bar">
-        <ShieldCheck size={18} className="text-teal" />
+        <ShieldCheck size={18} className="text-mono-white" />
         <div>
           <strong>{gu ? "ડેમો RBAC:" : "Demo RBAC:"}</strong>{" "}
           <span>{gu ? "Role, user count, audit ઉ. છે. Auth, ખ.ફ., oc. storage જ. નથી." : "Role rows, user counts, and audit entries are illustrative. Authentication and persistent audit storage not connected."}</span>
@@ -140,22 +140,22 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
       <div className="stats-strip-4">
         <div className="stat-card-compact">
           <span className="stat-label">{gu ? "ભૂમિકા-સ્તર" : "Role Tiers"}</span>
-          <strong className="text-teal">4</strong>
+          <strong className="text-mono-white">4</strong>
           <small>{gu ? "રા. → જિ. → તા. → ગા." : "State → District → Taluka → Village"}</small>
         </div>
         <div className="stat-card-compact">
           <span className="stat-label">{gu ? "કુલ ઉ. ખ." : "Total User Slots"}</span>
-          <strong className="text-navy">14,547</strong>
+          <strong className="text-mono-white">14,547</strong>
           <small>{gu ? "ઉ. ૧૪,૫૪૭ ઓ." : "Approx. 14,547 slots"}</small>
         </div>
         <div className="stat-card-compact">
           <span className="stat-label">{gu ? "ઓ. લ." : "Audit Log Entries"}</span>
-          <strong className="text-amber">{AUDIT_LOGS.length}</strong>
+          <strong className="text-mono-silver">{AUDIT_LOGS.length}</strong>
           <small>{gu ? "ઉ. ડેમો — ૮ ન." : "Illustrative — 8 recent"}</small>
         </div>
         <div className="stat-card-compact">
           <span className="stat-label">{gu ? "DBT ઓ. ટ." : "DBT Auth. Rate"}</span>
-          <strong className="text-emerald">99.2%</strong>
+          <strong className="text-mono-white">99.2%</strong>
           <small>{gu ? "ઉ. ગ. · ચ. નથી" : "Demo · unverified"}</small>
         </div>
       </div>

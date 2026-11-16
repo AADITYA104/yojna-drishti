@@ -47,22 +47,22 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
         trigger: "axis",
         formatter: (p: any) => `${p[0].name}: <b>₹ ${p[0].value} Cr</b>`,
       },
-      xAxis: { type: "category", data: months, axisLabel: { color: "#475569", fontSize: 10 } },
+      xAxis: { type: "category", data: months, axisLabel: { color: "#D9D9D9", fontSize: 10 } },
       yAxis: {
         type: "value",
-        axisLabel: { formatter: "₹{value}Cr", color: "#64748b", fontSize: 10 },
-        splitLine: { lineStyle: { color: "#f1f5f9" } },
+        axisLabel: { formatter: "₹{value}Cr", color: "#6B6B6B", fontSize: 10 },
+        splitLine: { lineStyle: { color: "rgba(255,255,255,0.06)" } },
       },
       series: [{
         name: gu ? "DBT ચુકવણી" : "DBT Outflow",
         type: "line", smooth: true,
         data: vals,
-        itemStyle: { color: "#0f766e" },
-        lineStyle: { width: 3, color: "#0f766e" },
+        itemStyle: { color: "#FFFFFF" },
+        lineStyle: { width: 3, color: "#FFFFFF" },
         areaStyle: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: "rgba(15,118,110,0.35)" },
-            { offset: 1, color: "rgba(15,118,110,0.02)" },
+            { offset: 0, color: "rgba(255,255,255,0.25)" },
+            { offset: 1, color: "rgba(255,255,255,0.01)" },
           ]),
         },
         symbol: "circle", symbolSize: 7,
@@ -77,15 +77,15 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
   useEffect(() => {
     if (!schemeDonutRef.current) return;
     const chart = echarts.init(schemeDonutRef.current);
-    const COLORS = ["#0f766e", "#0284c7", "#d97706", "#8b5cf6", "#ec4899", "#06b6d4", "#84cc16", "#f97316", "#14b8a6", "#a78bfa"];
+    const COLORS = ["#FFFFFF", "#E0E0E0", "#C4C4C4", "#A8A8A8", "#8C8C8C", "#707070", "#545454", "#383838", "#6B6B6B", "#D9D9D9"];
     chart.setOption({
       tooltip: { trigger: "item", formatter: "{b}: ₹{c} Cr ({d}%)" },
-      legend: { type: "scroll", bottom: 0, left: "center", itemWidth: 10, itemHeight: 10, textStyle: { color: "#526d7b", fontSize: 10 } },
+      legend: { type: "scroll", bottom: 0, left: "center", itemWidth: 10, itemHeight: 10, textStyle: { color: "#D9D9D9", fontSize: 10 } },
       series: [{
         name: gu ? "યોજના-ભાર" : "Scheme Share",
         type: "pie", radius: ["40%", "65%"], center: ["50%", "43%"],
         label: { show: false }, labelLine: { show: false },
-        itemStyle: { borderRadius: 4, borderColor: "#fff", borderWidth: 2 },
+        itemStyle: { borderRadius: 4, borderColor: "#1A1A1A", borderWidth: 2 },
         data: demoSchemes.map((s, i) => ({
           value: scaleDemoValue(s.budgetDisbursedCr, fy),
           name: gu ? (s.shortNameGu || s.shortName) : s.shortName,
@@ -111,17 +111,17 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
       xAxis: {
         type: "category",
         data: gu ? regGu : regions,
-        axisLabel: { color: "#475569", fontSize: 10, interval: 0 },
+        axisLabel: { color: "#D9D9D9", fontSize: 10, interval: 0 },
       },
-      yAxis: { type: "value", axisLabel: { formatter: "₹{value}Cr", color: "#64748b", fontSize: 10 }, splitLine: { lineStyle: { color: "#f1f5f9" } } },
+      yAxis: { type: "value", axisLabel: { formatter: "₹{value}Cr", color: "#6B6B6B", fontSize: 10 }, splitLine: { lineStyle: { color: "rgba(255,255,255,0.06)" } } },
       series: [{
         name: gu ? "DBT" : "DBT (Cr)",
         type: "bar", barWidth: "40%",
         data: regVals.map((v, i) => ({
           value: v,
-          itemStyle: { color: ["#0f766e","#0284c7","#d97706","#8b5cf6","#ec4899","#06b6d4"][i], borderRadius: [4,4,0,0] },
+          itemStyle: { color: ["#FFFFFF","#E0E0E0","#C4C4C4","#8C8C8C","#6B6B6B","#333333"][i], borderRadius: [4,4,0,0] },
         })),
-        label: { show: true, position: "top", color: "#526d7b", fontSize: 10, formatter: (p: any) => `₹${p.value}` },
+        label: { show: true, position: "top", color: "#FFFFFF", fontSize: 10, formatter: (p: any) => `₹${p.value}` },
       }],
     });
     const r = () => chart.resize();
@@ -140,22 +140,22 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
         radius: "80%",
         startAngle: 200, endAngle: -20,
         min: 0, max: 100,
-        progress: { show: true, roundCap: true, width: 16, itemStyle: { color: "#0f766e" } },
-        pointer: { show: true, length: "60%", width: 4, itemStyle: { color: "#0f766e" } },
-        axisLine: { lineStyle: { width: 16, color: [[1, "#e2e8f0"]] } },
+        progress: { show: true, roundCap: true, width: 16, itemStyle: { color: "#FFFFFF" } },
+        pointer: { show: true, length: "60%", width: 4, itemStyle: { color: "#FFFFFF" } },
+        axisLine: { lineStyle: { width: 16, color: [[1, "#333333"]] } },
         axisTick: { show: false },
         splitLine: { show: false },
         axisLabel: { show: false },
         detail: {
           valueAnimation: true,
           formatter: "{value}%",
-          color: "#0f766e",
+          color: "#FFFFFF",
           fontSize: 24,
           fontWeight: "bold",
           offsetCenter: [0, "30%"],
         },
         data: [{ value: utilRate, name: gu ? "ઉપયોગ" : "Utilized" }],
-        title: { offsetCenter: [0, "55%"], color: "#64748b", fontSize: 12 },
+        title: { offsetCenter: [0, "55%"], color: "#D9D9D9", fontSize: 12 },
       }],
     });
     const r = () => chart.resize();
@@ -185,22 +185,22 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
       <div className="stats-strip-4">
         <div className="stat-card-compact">
           <span className="stat-label">{gu ? "ફાળવેલ બજેટ" : "Allocated Budget"}</span>
-          <strong className="text-navy">₹ {fmt(allocated)} Cr</strong>
+          <strong className="text-mono-white">₹ {fmt(allocated)} Cr</strong>
           <small>{gu ? `ઉદ. ફાળવણી · FY ${fy}` : `Demo · FY ${fy}`}</small>
         </div>
         <div className="stat-card-compact">
           <span className="stat-label">{gu ? "વિતરિત (DBT)" : "Total Disbursed"}</span>
-          <strong className="text-teal">₹ {fmt(totalDisbursed)} Cr</strong>
+          <strong className="text-mono-white">₹ {fmt(totalDisbursed)} Cr</strong>
           <small>{gu ? `ઉ. ગ. · FY ${fy}` : `Demo calc · FY ${fy}`}</small>
         </div>
         <div className="stat-card-compact">
           <span className="stat-label">{gu ? "DBT સફળ ટ્રાન્ઝેક્શન" : "DBT Success Rate"}</span>
-          <strong className="text-emerald">{dbtSuccessRate}%</strong>
+          <strong className="text-mono-white">{dbtSuccessRate}%</strong>
           <small>{gu ? "ઉ. ગ. · ચ. નથી" : "Demo · unverified"}</small>
         </div>
         <div className="stat-card-compact">
           <span className="stat-label">{gu ? "સ.ઘ. / લાભ." : "Avg Assist / Beneficiary"}</span>
-          <strong className="text-amber">₹ {fmt(avgPerBen)}</strong>
+          <strong className="text-mono-silver">₹ {fmt(avgPerBen)}</strong>
           <small>{gu ? "ઉ. ગ. · ચ. નથી" : "Demo · unverified"}</small>
         </div>
       </div>
@@ -291,7 +291,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
                     </td>
                     <td>{gu ? s.categoryGu : s.category}</td>
                     <td>₹ {fmt(alloc)} Cr</td>
-                    <td><strong className="text-teal">₹ {fmt(disb)} Cr</strong></td>
+                    <td><strong className="text-mono-white">₹ {fmt(disb)} Cr</strong></td>
                     <td>
                       <div className="table-rate-bar">
                         <span style={{ width: `${util}%` }} />
