@@ -130,7 +130,7 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
         legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#cbd5e1", fontSize: 11 } },
         grid: { top: 20, bottom: 40, left: 10, right: 10, containLabel: true },
         xAxis: { type: "category", data: years, axisLabel: { color: "#cbd5e1", fontSize: 10 } },
-        yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#94a3b8", fontSize: 10, formatter: (v: number) => `${Math.round(v / 1000)}K` } },
+        yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#6B6B6B", fontSize: 10, formatter: (v: number) => `${Math.round(v / 1000)}K` } },
         series: [
           { name: nameA, type: "line", smooth: true, data: [0.72, 0.80, 0.88, 0.95, 1.0].map((f) => Math.round(distA.beneficiaries * f)), lineStyle: { color: "#FFFFFF", width: 2.5 }, areaStyle: { color: "rgba(255, 255, 255, 0.15)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#FFFFFF" } },
           { name: nameB, type: "line", smooth: true, data: [0.70, 0.78, 0.85, 0.93, 1.0].map((f) => Math.round(distB.beneficiaries * f)), lineStyle: { color: "#6B6B6B", width: 2.5 }, areaStyle: { color: "rgba(107, 107, 107, 0.10)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#6B6B6B" } },

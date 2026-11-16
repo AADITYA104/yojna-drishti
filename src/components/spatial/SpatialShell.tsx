@@ -387,7 +387,7 @@ export function SpatialShell() {
                   >
                     <div className="spatial-search-result-content">
                       {item.kind === "village" ? (
-                        <Home size={18} className="spatial-search-result-icon" aria-hidden="true" style={{ color: "#34d399" }} />
+                        <Home size={18} className="spatial-search-result-icon" aria-hidden="true" style={{ color: "#FFFFFF" }} />
                       ) : item.kind === "district" || item.kind === "taluka" ? (
                         <MapPin size={18} className="spatial-search-result-icon" aria-hidden="true" />
                       ) : (

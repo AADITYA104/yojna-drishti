@@ -28,7 +28,7 @@ export default function NotFound() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "#38bdf8",
+          color: "#FFFFFF",
           marginBottom: "24px",
         }}
       >
@@ -41,7 +41,7 @@ export default function NotFound() {
           fontWeight: 800,
           margin: 0,
           letterSpacing: "-0.04em",
-          background: "linear-gradient(135deg, #ffffff 40%, #94a3b8 100%)",
+          background: "linear-gradient(135deg, #1A1A1A 0%, #333333 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
         }}
@@ -83,7 +83,7 @@ export default function NotFound() {
           borderRadius: "9999px",
           background: "rgba(56, 189, 248, 0.18)",
           border: "1px solid rgba(56, 189, 248, 0.4)",
-          color: "#38bdf8",
+          color: "#FFFFFF",
           fontWeight: 600,
           fontSize: "0.88rem",
           textDecoration: "none",

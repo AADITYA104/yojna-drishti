@@ -196,25 +196,25 @@ export function DataManagementView({ gu }: { gu: boolean }) {
 
       {/* Data Health Cards */}
       <div className="stats-strip-4" style={{ marginBottom: "0.5rem" }}>
-        <div className="stat-card-compact" style={{ borderLeft: "3px solid #087f73" }}>
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #FFFFFF" }}>
           <Layers size={16} className="text-mono-white" />
           <span className="stat-label">{gu ? "জিল્લા" : "Districts"}</span>
           <strong className="text-mono-white">{checkedValues.districts}</strong>
           <small>{gu ? "LGD master" : "LGD master"}</small>
         </div>
-        <div className="stat-card-compact" style={{ borderLeft: "3px solid #3b82f6" }}>
-          <HardDrive size={16} style={{ color: "#3b82f6" }} />
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #D9D9D9" }}>
+          <HardDrive size={16} style={{ color: "#D9D9D9" }} />
           <span className="stat-label">{gu ? "ઉ.જ." : "Subdistricts"}</span>
           <strong className="text-mono-white">{checkedValues.talukas}</strong>
           <small>{gu ? "LGD 309" : "LGD 309"}</small>
         </div>
-        <div className="stat-card-compact" style={{ borderLeft: "3px solid #8b5cf6" }}>
-          <Activity size={16} style={{ color: "#8b5cf6" }} />
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #6B6B6B" }}>
+          <Activity size={16} style={{ color: "#6B6B6B" }} />
           <span className="stat-label">{gu ? "ઘોઘા ગ.ટ." : "Ghogha Vil."}</span>
           <strong className="text-mono-white">{checkedValues.ghoghaVillages}</strong>
           <small>{gu ? "Pilot" : "Pilot"}</small>
         </div>
-        <div className="stat-card-compact" style={{ borderLeft: "3px solid #f59e0b" }}>
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #333333" }}>
           <Database size={16} className="text-mono-silver" />
           <span className="stat-label">{gu ? "સ્ત્રોત" : "Data Source"}</span>
           <strong className="text-mono-silver">{gu ? "ઉ. / Local" : "DEMO / LOCAL"}</strong>

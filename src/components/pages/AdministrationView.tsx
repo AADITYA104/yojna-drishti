@@ -272,7 +272,7 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
             </thead>
             <tbody>
               {filteredLogs.length === 0 ? (
-                <tr><td colSpan={4} style={{ textAlign: "center", color: "#94a3b8", padding: "24px" }}>{gu ? "ક. મળ. ન." : "No matching entries"}</td></tr>
+                <tr><td colSpan={4} style={{ textAlign: "center", color: "#6B6B6B", padding: "24px" }}>{gu ? "ક. મળ. ન." : "No matching entries"}</td></tr>
               ) : filteredLogs.map((log, i) => (
                 <tr key={i}>
                   <td><small style={{ fontFamily: "monospace", color: "#64748b" }}>{log.ts}</small></td>

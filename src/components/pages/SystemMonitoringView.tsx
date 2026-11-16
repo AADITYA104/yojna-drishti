@@ -19,7 +19,7 @@ const ENDPOINTS = [
 ];
 
 const LATENCY_COLOR = (ms: number | null) =>
-  ms === null ? "#ef4444" : ms < 80 ? "#10b981" : ms < 200 ? "#f59e0b" : "#ef4444";
+  ms === null ? "#6B6B6B" : ms < 80 ? "#FFFFFF" : ms < 200 ? "#D9D9D9" : "#6B6B6B";
 
 interface SystemMonitoringViewProps { gu: boolean }
 
@@ -158,7 +158,7 @@ export function SystemMonitoringView({ gu }: SystemMonitoringViewProps) {
             const c   = checks[ep.path];
             const ms  = c?.latencyMs ?? null;
             const ok  = c?.reachable ?? null;
-            const col = ok === null ? "#94a3b8" : ok ? "#10b981" : "#ef4444";
+            const col = ok === null ? "#6B6B6B" : ok ? "#FFFFFF" : "#333333";
             return (
               <div key={ep.path} className={`endpoint-card ${ok === true ? "endpoint-ok" : ok === false ? "endpoint-fail" : "endpoint-pending"}`}>
                 <div className="ep-status-dot" style={{ background: col }} />
@@ -180,7 +180,7 @@ export function SystemMonitoringView({ gu }: SystemMonitoringViewProps) {
                       )}
                     </>
                   ) : (
-                    <span style={{ color: "#94a3b8", fontSize: 11 }}>{gu ? "ત. ન." : "Waiting…"}</span>
+                    <span style={{ color: "#6B6B6B", fontSize: 11 }}>{gu ? "ત. ન." : "Waiting…"}</span>
                   )}
                 </div>
               </div>
@@ -224,7 +224,7 @@ export function SystemMonitoringView({ gu }: SystemMonitoringViewProps) {
                           {c.reachable ? <CheckCircle2 size={12}/> : <AlertTriangle size={12}/>}
                           &nbsp;{c.status}
                         </span>
-                      ) : <span style={{ color: "#94a3b8" }}>{gu ? "ત. ન." : "Waiting"}</span>}
+                      ) : <span style={{ color: "#6B6B6B" }}>{gu ? "ત. ન." : "Waiting"}</span>}
                     </td>
                     <td>
                       <b style={{ color: LATENCY_COLOR(ms) }}>

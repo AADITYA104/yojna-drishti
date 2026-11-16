@@ -141,7 +141,7 @@ export function SchemeDetailModal({ scheme, onClose, gu }: SchemeDetailModalProp
                 className="smh-progress-bar-fill"
                 style={{
                   width: `${readinessPct}%`,
-                  background: readinessPct === 100 ? "#059669" : readinessPct > 50 ? "#0284c7" : "#d97706",
+                  background: readinessPct === 100 ? "#FFFFFF" : readinessPct > 50 ? "#D9D9D9" : "#6B6B6B",
                 }}
               />
             </div>

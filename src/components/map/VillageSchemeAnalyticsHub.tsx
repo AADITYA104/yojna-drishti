@@ -226,7 +226,7 @@ export function VillageSchemeAnalyticsHub({
         <div className="vah-kpi-card">
           <div className="vah-kpi-top">
             <span>{gu ? "વિશ્લેષિત ગામો" : "Villages Monitored"}</span>
-            <Building2 size={18} style={{ color: "#38bdf8" }} />
+            <Building2 size={18} style={{ color: "#FFFFFF" }} />
           </div>
           <div className="vah-kpi-value">
             {fmt(displayedVillages.length)}
@@ -237,7 +237,7 @@ export function VillageSchemeAnalyticsHub({
         <div className="vah-kpi-card">
           <div className="vah-kpi-top">
             <span>{gu ? "કુલ યોજના વપરાશ" : "Total Funds Disbursed"}</span>
-            <Wallet size={18} style={{ color: "#facc15" }} />
+            <Wallet size={18} style={{ color: "#D9D9D9" }} />
           </div>
           <div className="vah-kpi-value" style={{ color: "#fde047" }}>
             ₹{fmt(totalFundsDisbursed)} <span style={{ fontSize: "14px", fontWeight: "600" }}>{gu ? "લાખ" : "L"}</span>
@@ -248,9 +248,9 @@ export function VillageSchemeAnalyticsHub({
         <div className="vah-kpi-card">
           <div className="vah-kpi-top">
             <span>{gu ? "કુલ લાભાર્થી નાગરિકો" : "Enrolled Beneficiaries"}</span>
-            <Users size={18} style={{ color: "#34d399" }} />
+            <Users size={18} style={{ color: "#FFFFFF" }} />
           </div>
-          <div className="vah-kpi-value" style={{ color: "#34d399" }}>
+          <div className="vah-kpi-value" style={{ color: "#FFFFFF" }}>
             {fmt(totalBeneficiaries)}
           </div>
           <span className="vah-kpi-sub">{gu ? "પ્રમાણિત લાભાર્થીઓ" : "Verified citizen recipients"}</span>
@@ -261,7 +261,7 @@ export function VillageSchemeAnalyticsHub({
             <span>{gu ? "સરેરાશ સેચ્યુરેશન" : "Avg Scheme Saturation"}</span>
             <TrendingUp size={18} style={{ color: "#fbbf24" }} />
           </div>
-          <div className="vah-kpi-value" style={{ color: "#facc15" }}>
+          <div className="vah-kpi-value" style={{ color: "#D9D9D9" }}>
             {avgSaturation}%
           </div>
           <span className="vah-kpi-sub">{gu ? "લક્ષિત પરિવારો સુધી પહોંચ" : "Targeted households reached"}</span>
@@ -393,7 +393,7 @@ export function VillageSchemeAnalyticsHub({
                 <div className="vah-card-head">
                   <div>
                     <div className="vah-card-meta">
-                      <MapPin size={12} style={{ color: "#38bdf8" }} />
+                      <MapPin size={12} style={{ color: "#FFFFFF" }} />
                       <span>{gu ? village.talukaNameGu : village.talukaNameEn} {gu ? "તાલુકો" : "Taluka"}</span>
                       <span>•</span>
                       <span>LGD {village.code}</span>
@@ -415,7 +415,7 @@ export function VillageSchemeAnalyticsHub({
                   </div>
                   <div className="vah-card-stat-box">
                     <span className="vah-card-stat-label">{gu ? "લાભાર્થી નાગરિકો" : "Beneficiaries"}</span>
-                    <strong className="vah-card-stat-val" style={{ color: "#34d399" }}>{fmt(village.beneficiaries)}</strong>
+                    <strong className="vah-card-stat-val" style={{ color: "#FFFFFF" }}>{fmt(village.beneficiaries)}</strong>
                   </div>
                 </div>
 
@@ -444,7 +444,7 @@ export function VillageSchemeAnalyticsHub({
                 }}
                 className="vah-card-action-btn"
               >
-                <Eye size={14} style={{ color: "#38bdf8" }} />
+                <Eye size={14} style={{ color: "#FFFFFF" }} />
                 <span>{gu ? "યોજના અને લાભાર્થી નામાવલી જુઓ" : "View Beneficiaries & Schemes"}</span>
               </button>
             </motion.article>
@@ -476,12 +476,12 @@ export function VillageSchemeAnalyticsHub({
                   <td style={{ color: "rgba(255,255,255,0.85)" }}>{gu ? village.talukaNameGu : village.talukaNameEn}</td>
                   <td style={{ color: "rgba(255,255,255,0.85)" }}>{fmt(village.households)} / {fmt(village.population)}</td>
                   <td>
-                    <span style={{ padding: "3px 8px", borderRadius: "9999px", fontSize: "10px", fontWeight: "700", background: "rgba(56,189,248,0.2)", color: "#38bdf8", border: "1px solid rgba(56,189,248,0.35)" }}>
+                    <span style={{ padding: "3px 8px", borderRadius: "9999px", fontSize: "10px", fontWeight: "700", background: "rgba(56,189,248,0.2)", color: "#FFFFFF", border: "1px solid rgba(56,189,248,0.35)" }}>
                       {village.activeSchemes.length} {gu ? "યોજનાઓ" : "Schemes"}
                     </span>
                   </td>
                   <td style={{ fontWeight: "800", color: "#fde047" }}>₹{village.disbursedLakhs} L</td>
-                  <td style={{ fontWeight: "700", color: "#34d399" }}>{fmt(village.beneficiaries)}</td>
+                  <td style={{ fontWeight: "700", color: "#FFFFFF" }}>{fmt(village.beneficiaries)}</td>
                   <td>
                     <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                       <div style={{ width: "64px", height: "6px", borderRadius: "9999px", background: "rgba(255,255,255,0.1)", overflow: "hidden" }}>
@@ -489,7 +489,7 @@ export function VillageSchemeAnalyticsHub({
                           style={{
                             height: "100%",
                             width: `${village.saturationPct}%`,
-                            background: "linear-gradient(90deg, #34d399 0%, #facc15 100%)",
+                            background: "linear-gradient(90deg, #FFFFFF 0%, #6B6B6B 100%)",
                           }}
                         />
                       </div>
@@ -518,7 +518,7 @@ export function VillageSchemeAnalyticsHub({
                         gap: "6px",
                       }}
                     >
-                      <Eye size={12} style={{ color: "#38bdf8" }} />
+                      <Eye size={12} style={{ color: "#FFFFFF" }} />
                       <span>{gu ? "નામાવલી" : "Roster"}</span>
                     </button>
                   </td>
@@ -639,7 +639,7 @@ export function VillageSchemeAnalyticsHub({
                       cursor: "pointer",
                     }}
                   >
-                    <Download size={13} style={{ color: "#38bdf8" }} />
+                    <Download size={13} style={{ color: "#FFFFFF" }} />
                     <span>{gu ? "CSV ડાઉનલોડ" : "Export CSV"}</span>
                   </button>
                 </div>
@@ -719,10 +719,10 @@ export function VillageSchemeAnalyticsHub({
                               style={{
                                 width: `${scheme.saturationPct}%`,
                                 background: scheme.saturationPct >= 95
-                                  ? "linear-gradient(90deg, #10b981 0%, #34d399 100%)"
+                                  ? "linear-gradient(90deg, #FFFFFF 0%, #D9D9D9 100%)"
                                   : scheme.saturationPct >= 85
-                                  ? "linear-gradient(90deg, #f59e0b 0%, #facc15 100%)"
-                                  : "linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%)",
+                                  ? "linear-gradient(90deg, #D9D9D9 0%, #6B6B6B 100%)"
+                                  : "linear-gradient(90deg, #333333 0%, #6B6B6B 100%)",
                               }}
                             />
                           </div>
@@ -769,7 +769,7 @@ export function VillageSchemeAnalyticsHub({
                               {gu ? scheme.categoryGu : scheme.categoryEn}
                             </span>
                           </td>
-                          <td style={{ fontWeight: "700", color: "#34d399" }}>{fmt(scheme.beneficiaries)} {gu ? "નાગરિકો" : "Citizens"}</td>
+                          <td style={{ fontWeight: "700", color: "#FFFFFF" }}>{fmt(scheme.beneficiaries)} {gu ? "નાગરિકો" : "Citizens"}</td>
                           <td style={{ fontWeight: "800", color: "#fde047" }}>₹{scheme.grantLakhs} {gu ? "લાખ" : "Lakhs"}</td>
                           <td>
                             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -778,7 +778,7 @@ export function VillageSchemeAnalyticsHub({
                                   style={{
                                     height: "100%",
                                     width: `${scheme.saturationPct}%`,
-                                    background: "linear-gradient(90deg, #34d399 0%, #facc15 100%)",
+                                    background: "linear-gradient(90deg, #FFFFFF 0%, #6B6B6B 100%)",
                                   }}
                                 />
                               </div>
@@ -823,7 +823,7 @@ export function VillageSchemeAnalyticsHub({
                               {gu ? ben.nameGu : ben.nameEn}
                             </td>
                             <td style={{ color: "rgba(255,255,255,0.8)" }}>{gu ? ben.guardianGu : ben.guardianEn}</td>
-                            <td style={{ color: "#38bdf8", fontWeight: "600" }}>
+                            <td style={{ color: "#FFFFFF", fontWeight: "600" }}>
                               {gu ? ben.schemeNameGu : ben.schemeNameEn}
                             </td>
                             <td style={{ fontWeight: "800", color: "#fde047" }}>₹{ben.amount.toLocaleString("en-IN")}</td>

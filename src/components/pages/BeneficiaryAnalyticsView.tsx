@@ -117,7 +117,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
         formatter: (p: any) => `${p[0].name}: <b>${fmt(p[0].value)}</b>`,
       },
       xAxis: { type: "category", data: ageData.map(d => d.label), axisLabel: { color: "#cbd5e1", fontSize: 11, interval: 0 } },
-      yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#94a3b8", fontSize: 10 } },
+      yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#6B6B6B", fontSize: 10 } },
       series: [{
         name: gu ? "લાભાર્થીઓ" : "Beneficiaries",
         type: "bar", barWidth: "38%",
@@ -183,7 +183,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
         formatter: (p: any) => `${p[0].name}: <b>${fmt(p[0].value)}</b>`,
       },
       xAxis: { type: "category", data: years, axisLabel: { color: "#cbd5e1", fontSize: 10 } },
-      yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#94a3b8", fontSize: 10 } },
+      yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#6B6B6B", fontSize: 10 } },
       series: [{
         name: gu ? "લાભાર્થીઓ" : "Beneficiaries",
         type: "line", smooth: true,
@@ -222,7 +222,7 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
         textStyle: { color: "#ffffff" },
         formatter: (p: any) => `${p[0].name}: <b>${fmt(p[0].value)}</b>`,
       },
-      xAxis: { type: "value", axisLabel: { color: "#94a3b8", fontSize: 10 }, splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } } },
+      xAxis: { type: "value", axisLabel: { color: "#6B6B6B", fontSize: 10 }, splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } } },
       yAxis: { type: "category", data: data.map(d => d.name), axisLabel: { color: "#cbd5e1", fontSize: 11, width: 100, overflow: "truncate" } },
       series: [{
         name: gu ? "લાભાર્થીઓ" : "Beneficiaries",
