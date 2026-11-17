@@ -9,8 +9,8 @@ import "@/styles/spatial.css";
 import "@/styles/brand.css";
 
 export const metadata: Metadata = {
-  title: "યોજના દૃષ્ટિ | Yojana Drishti — Scheme Directory & Gujarat Map",
-  description: "ગુજરાત માટેની સરકારી યોજનાઓ શોધવા અને સમજવા માટેનું નમૂના જાહેર પોર્ટલ.",
+  title: "યોજના દૃષ્ટિ | Yojana Drishti — Gujarat Welfare Portal & GIS",
+  description: "ગુજરાત રાજ્યની તમામ કલ્યાણકારી સરકારી યોજનાઓ, પાત્રતા અને ગામ-સ્તર ભૌગોલિક વિશ્લેષણ પોર્ટલ.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
