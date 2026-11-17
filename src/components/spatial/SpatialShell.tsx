@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useMemo, useEffect, useRef } from "react";
+import React, { useState, useMemo, useEffect, useRef, startTransition } from "react";
+import { localizeText } from "@/lib/i18n";
 import { SpatialGujaratCanvas } from "./SpatialGujaratCanvas";
 import { SpatialDock, type SpatialNavKey } from "./SpatialDock";
 import { SpatialHeader } from "./SpatialHeader";
@@ -15,11 +16,12 @@ import { demoDistricts, demoSchemes } from "@/lib/demo-data";
 import { MASTER_SUBDISTRICTS, GHOGHA_48_VILLAGES } from "@/lib/master-hierarchy";
 import type { GlobalSearchItem } from "../layout/Topbar";
 import { Search, X, MapPin, Sparkles, FileText, CheckCircle2, Info, ArrowRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, MotionConfig } from "framer-motion";
+import type { AppLanguage } from "@/lib/i18n";
 
 export function SpatialShell() {
-  const [lang, setLang] = useState<"gu" | "en">("gu");
-  const [activeKey, setActiveKey] = useState<SpatialNavKey>("schemes");
+  const [lang, setLang] = useState<AppLanguage>("gu");
+  const [activeKey, setActiveKey] = useState<SpatialNavKey>("dashboard");
   const [fy] = useState<string>(() => {
     const current = new Date();
     const startYear = current.getMonth() >= 3 ? current.getFullYear() : current.getFullYear() - 1;
@@ -29,9 +31,36 @@ export function SpatialShell() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSchemeTerm, setSelectedSchemeTerm] = useState("");
   const [focusRequest, setFocusRequest] = useState<{ id: number; target: GlobalSearchItem } | null>(null);
+  const [remoteSearchResults, setRemoteSearchResults] = useState<GlobalSearchItem[]>([]);
+  const [remoteSearchQuery, setRemoteSearchQuery] = useState("");
+  const [remoteSearchErrorQuery, setRemoteSearchErrorQuery] = useState("");
+  const [remoteSearchCoverage, setRemoteSearchCoverage] = useState<{ indexedVillages: number; indexedSubdistricts: number; totalSubdistricts: number } | null>(null);
   const focusRequestSequence = useRef(0);
 
   const gu = lang === "gu";
+
+  useEffect(() => {
+    const saved = window.localStorage.getItem("yojana-drishti-language");
+    if (saved === "gu" || saved === "en" || saved === "hi") startTransition(() => setLang(saved));
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.title = lang === "gu"
+      ? "યોજના દૃષ્ટિ | સરકારી યોજનાઓ અને ગુજરાતનો નકશો"
+      : lang === "hi"
+        ? "योजना दृष्टि | सरकारी योजनाएँ और गुजरात का नक्शा"
+        : "Yojana Drishti | Government Schemes and Gujarat Map";
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (description) {
+      description.content = lang === "gu"
+        ? "ગુજરાત માટેની સરકારી યોજનાઓ શોધો અને વહીવટી નકશા સાથે વિસ્તારની વિગતો જુઓ. આ જાહેર પૂર્વદર્શન છે."
+        : lang === "hi"
+          ? "गुजरात की सरकारी योजनाएँ खोजें और प्रशासनिक नक्शे पर क्षेत्र का विवरण देखें। यह सार्वजनिक पूर्वावलोकन है।"
+          : "Find Gujarat government schemes and explore administrative boundaries with area details. This is a public preview.";
+    }
+    window.localStorage.setItem("yojana-drishti-language", lang);
+  }, [lang]);
 
   // Keyboard shortcut Cmd+K / Ctrl+K
   useEffect(() => {
@@ -56,16 +85,16 @@ export function SpatialShell() {
   const searchItems = useMemo<GlobalSearchItem[]>(() => [
     ...demoDistricts.map((district) => ({
       id: district.id,
-      label: gu ? district.gu : district.name,
-      detail: `${gu ? district.regionGu : district.region} · ${gu ? "જિલ્લો" : "District"}`,
+      label: localizeText(lang, gu ? district.gu : district.name),
+      detail: `${localizeText(lang, gu ? district.regionGu : district.region)} · ${localizeText(lang, gu ? "જિલ્લો" : "District")}`,
       kind: "district" as const,
       districtId: district.id,
       aliases: [district.name, district.gu, district.code],
     })),
     ...MASTER_SUBDISTRICTS.map((taluka) => ({
       id: String(taluka.code),
-      label: gu ? taluka.nameGu : taluka.nameEn,
-      detail: `${gu ? taluka.districtNameGu : taluka.districtNameEn} · LGD ${taluka.code}`,
+      label: localizeText(lang, gu ? taluka.nameGu : taluka.nameEn),
+      detail: `${localizeText(lang, gu ? taluka.districtNameGu : taluka.districtNameEn)} · LGD ${taluka.code}`,
       kind: "taluka" as const,
       districtId: taluka.districtId,
       subdistrictCode: taluka.code,
@@ -73,24 +102,68 @@ export function SpatialShell() {
     })),
     ...demoSchemes.map((scheme) => ({
       id: scheme.id,
-      label: gu ? scheme.gu : scheme.name,
-      detail: `${gu ? scheme.categoryGu : scheme.category} · ${gu ? "યોજના" : "Scheme"}`,
+      label: localizeText(lang, gu ? scheme.gu : scheme.name),
+      detail: `${localizeText(lang, gu ? scheme.categoryGu : scheme.category)} · ${localizeText(lang, gu ? "યોજના" : "Scheme")}`,
       kind: "scheme" as const,
       aliases: [scheme.name, scheme.gu, scheme.shortName, scheme.shortNameGu],
     })),
-  ], [gu]);
+  ], [gu, lang]);
 
   const filteredSearchResults = useMemo(() => {
-    const q = searchQuery.trim().toLowerCase();
-    if (!q) return searchItems.slice(0, 8);
-    return searchItems
-      .filter((item) =>
-        item.label.toLowerCase().includes(q) ||
-        item.detail.toLowerCase().includes(q) ||
-        (item.aliases || []).some((a) => a.toLowerCase().includes(q))
-      )
-      .slice(0, 8);
-  }, [searchItems, searchQuery]);
+    const q = searchQuery.trim().toLowerCase().normalize("NFKC");
+    const localMatches = !q ? searchItems.slice(0, 8) : searchItems.filter((item) =>
+      `${item.label} ${item.detail} ${item.id} ${(item.aliases || []).join(" ")}`
+        .toLowerCase().normalize("NFKC").includes(q),
+    );
+    const currentRemote = remoteSearchQuery === searchQuery.trim() ? remoteSearchResults : [];
+    const seen = new Set<string>();
+    return [...currentRemote, ...localMatches].filter((item) => {
+      const key = `${item.kind}-${item.id}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    }).slice(0, 12);
+  }, [remoteSearchQuery, remoteSearchResults, searchItems, searchQuery]);
+
+  useEffect(() => {
+    const query = searchQuery.trim();
+    if (!searchOpen || query.length < 2) return;
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => {
+      fetch(`/api/v1/search?q=${encodeURIComponent(query)}&lang=${lang}`, { signal: controller.signal })
+        .then((response) => {
+          if (!response.ok) throw new Error("Search service unavailable");
+          return response.json() as Promise<{
+            data?: GlobalSearchItem[];
+            meta?: { coverage?: { indexedVillages: number; indexedSubdistricts: number; totalSubdistricts: number } };
+          }>;
+        })
+        .then((payload) => {
+          if (controller.signal.aborted) return;
+          setRemoteSearchResults(Array.isArray(payload.data) ? payload.data : []);
+          setRemoteSearchCoverage(payload.meta?.coverage ?? null);
+          setRemoteSearchQuery(query);
+          setRemoteSearchErrorQuery("");
+        })
+        .catch((reason: Error) => {
+          if (reason.name !== "AbortError" && !controller.signal.aborted) setRemoteSearchErrorQuery(query);
+        });
+    }, 180);
+    return () => {
+      window.clearTimeout(timer);
+      controller.abort();
+    };
+  }, [lang, searchOpen, searchQuery]);
+
+  const isRemoteSearchLoading = searchOpen && searchQuery.trim().length >= 2 && remoteSearchQuery !== searchQuery.trim() && remoteSearchErrorQuery !== searchQuery.trim();
+  const searchKindLabel = (kind: GlobalSearchItem["kind"]) => {
+    const labels = {
+      gu: { district: "જિલ્લો", taluka: "તાલુકો", village: "ગામ/શહેર", scheme: "યોજના" },
+      hi: { district: "जिला", taluka: "तालुका", village: "गाँव/शहर", scheme: "योजना" },
+      en: { district: "District", taluka: "Taluka", village: "Village/city", scheme: "Scheme" },
+    };
+    return labels[lang][kind];
+  };
 
   const handleSelectSearchResult = (item: GlobalSearchItem) => {
     setSearchOpen(false);
@@ -105,18 +178,12 @@ export function SpatialShell() {
   };
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="spatial-app-shell">
       {/* 1. Background Gujarat SVG & Atmospheric Canvas */}
-      <SpatialGujaratCanvas gu={gu} />
+      <SpatialGujaratCanvas gu={gu} lang={lang} />
 
-      {/* 2. Left Floating Capsule Dock */}
-      <SpatialDock
-        activeKey={activeKey}
-        onSelect={(key) => setActiveKey(key)}
-        gu={gu}
-      />
-
-        {/* 3. Main public-service workspace */}
+      {/* Main public-service workspace */}
       <motion.main
         className="spatial-main-container"
         initial={{ opacity: 0, y: 16 }}
@@ -126,34 +193,17 @@ export function SpatialShell() {
         {/* Primary header */}
         <SpatialHeader
           gu={gu}
-          onToggleLanguage={() => setLang((prev) => (prev === "gu" ? "en" : "gu"))}
+          lang={lang}
+          onSelectLanguage={setLang}
           onOpenSearch={() => setSearchOpen(true)}
         />
 
-        <div className="spatial-demo-disclaimer" role="note" aria-label={gu ? "ડેમો ડેટાની નોંધ" : "Demo data notice"}>
-          <div className="spatial-demo-icon" aria-hidden="true">
-            <Info size={16} />
-          </div>
-          <div className="spatial-demo-text">
-            <strong>
-              {gu ? "ડેમો પૂર્વદર્શન · નમૂનાનો ડેટા" : "DEMO PREVIEW · SAMPLE DATA"}
-            </strong>
-            <span>
-              {gu
-                ? "યોજનાની વિગતો, લાભાર્થી, નાણાં, સમયમર્યાદા અને નકશાની યોજના-પહોંચ નમૂનાના છે; સત્તાવાર માહિતી નથી. સરકારી ડેટા જોડાયેલો નથી."
-                : "Scheme details, beneficiaries, funding, deadlines, and mapped coverage are samples, not official information. Government data is not connected."}
-            </span>
-          </div>
-          <button
-            type="button"
-            onClick={() => setActiveKey("map")}
-            className="spatial-demo-action"
-            aria-label={gu ? "જિલ્લા નકશો ખોલો" : "Open district map"}
-          >
-            <span>{gu ? "જિલ્લા નકશો" : "District map"}</span>
-            <ArrowRight size={13} aria-hidden="true" />
-          </button>
-        </div>
+        <SpatialDock
+          activeKey={activeKey}
+          onSelect={(key) => setActiveKey(key)}
+          gu={gu}
+          lang={lang}
+        />
 
         {/* View Switcher with Spring Animation */}
         <AnimatePresence mode="wait">
@@ -167,6 +217,7 @@ export function SpatialShell() {
             >
               <SpatialBentoDashboard
                 gu={gu}
+                lang={lang}
                 fy={fy}
                 onNavigate={(view) => {
                   if (view === "map" || view === "schemes" || view === "wizard" || view === "saved" || view === "settings") {
@@ -191,7 +242,7 @@ export function SpatialShell() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              <SchemesView gu={gu} fy={fy} initialSearchTerm={selectedSchemeTerm} />
+              <SchemesView gu={gu} lang={lang} fy={fy} initialSearchTerm={selectedSchemeTerm} onOpenMap={() => setActiveKey("map")} />
             </motion.div>
           )}
 
@@ -203,7 +254,7 @@ export function SpatialShell() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              <MapExplorerView gu={gu} fy={fy} focusRequest={focusRequest} />
+              <MapExplorerView gu={gu} lang={lang} fy={fy} focusRequest={focusRequest} />
             </motion.div>
           )}
 
@@ -215,7 +266,7 @@ export function SpatialShell() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              <PublicPortalView gu={gu} />
+              <PublicPortalView gu={gu} lang={lang} />
             </motion.div>
           )}
 
@@ -227,7 +278,7 @@ export function SpatialShell() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              <BeneficiaryAnalyticsView gu={gu} fy={fy} />
+              <BeneficiaryAnalyticsView gu={gu} lang={lang} fy={fy} />
             </motion.div>
           )}
 
@@ -239,7 +290,7 @@ export function SpatialShell() {
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
             >
-              <AdministrationView gu={gu} />
+              <AdministrationView gu={gu} lang={lang} />
             </motion.div>
           )}
         </AnimatePresence>
@@ -263,7 +314,7 @@ export function SpatialShell() {
               exit={{ scale: 0.95, y: -20 }}
               role="dialog"
               aria-modal="true"
-              aria-label={gu ? "શોધખોળ" : "Search"}
+              aria-label={localizeText(lang, gu ? "શોધખોળ" : "Search")}
               onClick={(e) => e.stopPropagation()}
             >
               <div style={{ display: "flex", alignItems: "center", padding: "16px 20px", borderBottom: "1px solid rgba(255,255,255,0.12)", gap: "12px" }}>
@@ -273,8 +324,18 @@ export function SpatialShell() {
                   autoFocus
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  aria-label={gu ? "યોજના, જિલ્લો અથવા તાલુકો શોધો" : "Search schemes, districts, or talukas"}
-                  placeholder={gu ? "યોજના, જિલ્લો અથવા તાલુકો શોધો..." : "Search schemes, districts, talukas..."}
+                  onKeyDown={(event) => {
+                    if (event.key === "Escape") {
+                      event.preventDefault();
+                      setSearchOpen(false);
+                      setSearchQuery("");
+                    } else if (event.key === "Enter" && filteredSearchResults[0]) {
+                      event.preventDefault();
+                      handleSelectSearchResult(filteredSearchResults[0]);
+                    }
+                  }}
+                  aria-label={lang === "gu" ? "યોજના, જિલ્લો, તાલુકો, ગામ અથવા શહેર શોધો" : lang === "hi" ? "योजना, जिला, तालुका, गाँव या शहर खोजें" : "Search schemes, districts, talukas, villages, or cities"}
+                  placeholder={lang === "gu" ? "નામ અથવા LGD codeથી ગામ, શહેર, તાલુકો, જિલ્લો શોધો..." : lang === "hi" ? "नाम या LGD code से गाँव, शहर, तालुका, जिला खोजें..." : "Find a village, city, taluka, or district by name or LGD code…"}
                   style={{
                     flex: 1,
                     background: "transparent",
@@ -287,14 +348,23 @@ export function SpatialShell() {
                 <button
                   type="button"
                   onClick={() => setSearchOpen(false)}
-                  aria-label={gu ? "શોધ બંધ કરો" : "Close search"}
+                  aria-label={localizeText(lang, gu ? "શોધ બંધ કરો" : "Close search")}
                   style={{ background: "transparent", border: "none", color: "rgba(255,255,255,0.6)", cursor: "pointer" }}
                 >
                   <X size={20} />
                 </button>
               </div>
 
-              <div className="spatial-search-results" role="group" aria-label={gu ? "શોધના પરિણામો" : "Search results"}>
+              <div className="spatial-search-results" role="listbox" aria-label={lang === "gu" ? "શોધનાં પરિણામો" : lang === "hi" ? "खोज परिणाम" : "Search results"} aria-busy={isRemoteSearchLoading}>
+                {searchQuery.trim().length >= 2 && remoteSearchQuery === searchQuery.trim() && remoteSearchCoverage && (
+                  <p className="spatial-search-coverage">
+                    {lang === "gu"
+                      ? `${remoteSearchCoverage.indexedVillages.toLocaleString("gu-IN")} ગામ/શહેરના નામ · ${remoteSearchCoverage.indexedSubdistricts}/${remoteSearchCoverage.totalSubdistricts} તાલુકા સૂચિ`
+                      : lang === "hi"
+                        ? `${remoteSearchCoverage.indexedVillages.toLocaleString("hi-IN")} गाँव/शहर के नाम · ${remoteSearchCoverage.indexedSubdistricts}/${remoteSearchCoverage.totalSubdistricts} तालुका सूचियाँ`
+                        : `${remoteSearchCoverage.indexedVillages.toLocaleString("en-IN")} village/city names · ${remoteSearchCoverage.indexedSubdistricts}/${remoteSearchCoverage.totalSubdistricts} taluka lists`}
+                  </p>
+                )}
                 {filteredSearchResults.map((item) => (
                   <button
                     key={`${item.kind}-${item.id}`}
@@ -303,7 +373,7 @@ export function SpatialShell() {
                     onClick={() => handleSelectSearchResult(item)}
                   >
                     <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                      {item.kind === "district" || item.kind === "taluka" ? (
+                      {item.kind !== "scheme" ? (
                         <MapPin size={18} style={{ color: "rgba(255,255,255,0.78)" }} aria-hidden="true" />
                       ) : (
                         <Sparkles size={18} style={{ color: "rgba(255,255,255,0.78)" }} aria-hidden="true" />
@@ -318,13 +388,19 @@ export function SpatialShell() {
                       </div>
                     </div>
                     <span style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase" }}>
-                      {item.kind}
+                      {searchKindLabel(item.kind)}
                     </span>
                   </button>
                 ))}
-                {filteredSearchResults.length === 0 && (
+                {isRemoteSearchLoading && (
+                  <p className="spatial-search-status" role="status">{lang === "gu" ? "ગુજરાતનાં ગામ અને શહેર શોધી રહ્યા છીએ…" : lang === "hi" ? "गुजरात के गाँव और शहर खोज रहे हैं…" : "Searching Gujarat villages and cities…"}</p>
+                )}
+                {searchQuery.trim().length >= 2 && remoteSearchErrorQuery === searchQuery.trim() && (
+                  <p className="spatial-search-status spatial-search-status--error" role="alert">{lang === "gu" ? "ગામ શોધી શકાયું નથી. ફરી પ્રયાસ કરો અથવા નકશાની તાલુકાવાર યાદી વાપરો." : lang === "hi" ? "गाँव खोजा नहीं जा सका। फिर कोशिश करें या नक्शे की तालुका सूची देखें।" : "Village search is unavailable. Retry or use the taluka list on the map."}</p>
+                )}
+                {filteredSearchResults.length === 0 && !isRemoteSearchLoading && remoteSearchErrorQuery !== searchQuery.trim() && (
                   <p className="spatial-search-empty" role="status">
-                    {gu ? "કોઈ મેળ ખાતું પરિણામ મળ્યું નથી." : "No matching results found."}
+                    {lang === "gu" ? "મેળ ન મળ્યો. નામના 2 અક્ષર અથવા LGD code લખો." : lang === "hi" ? "कोई मेल नहीं मिला। नाम के 2 अक्षर या LGD code लिखें।" : "No match. Enter two or more name characters or an LGD code."}
                   </p>
                 )}
               </div>
@@ -335,9 +411,11 @@ export function SpatialShell() {
 
       {/* AI Drishti Sahayak Assistant */}
       <DrishtiAISahayak
+        key={lang}
         gu={gu}
+        lang={lang}
         onNavigate={(page, searchTerm) => {
-          if (page === "portal" || page === "wizard") setActiveKey("wizard");
+          if (page === "portal" || page === "public" || page === "wizard") setActiveKey("wizard");
           else if (page === "map") setActiveKey("map");
           else if (page === "schemes") {
             setSelectedSchemeTerm(searchTerm || "");
@@ -348,5 +426,6 @@ export function SpatialShell() {
         }}
       />
     </div>
+    </MotionConfig>
   );
 }

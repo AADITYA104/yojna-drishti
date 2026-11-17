@@ -1,5 +1,7 @@
 import React from "react";
 import { GUJARAT_DISTRICT_POLYGONS } from "@/lib/gujarat-svg-paths";
+import type { AppLanguage } from "@/lib/i18n";
+import { localizeText } from "@/lib/i18n";
 
 interface CityNode {
   name: string;
@@ -18,7 +20,7 @@ const HIGHLIGHT_NODES: CityNode[] = [
   { name: "Kutch", nameGu: "કચ્છ", x: 300, y: 190 },
 ];
 
-export function SpatialGujaratCanvas({ gu = true }: { gu?: boolean }) {
+export function SpatialGujaratCanvas({ gu = true, lang = gu ? "gu" : "en" }: { gu?: boolean; lang?: AppLanguage }) {
   return (
     <div className="spatial-bg-canvas" aria-hidden="true">
       {/* 1. Deep atmospheric Slate-Teal canvas */}
@@ -84,7 +86,7 @@ export function SpatialGujaratCanvas({ gu = true }: { gu?: boolean }) {
                 letterSpacing="0.03em"
                 className="spatial-node-label"
               >
-                {gu ? node.nameGu : node.name}
+                {gu ? node.nameGu : localizeText(lang, node.name)}
               </text>
             </g>
           ))}

@@ -6,3 +6,6 @@ node_modules/
 data/raw/*
 data/uploads/*
 !.gitkeep
+__pycache__/
+*.pyc
+.codex-tmp-pdf-review/
