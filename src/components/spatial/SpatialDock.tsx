@@ -19,48 +19,64 @@ export type SpatialNavKey =
   | "saved"
   | "settings";
 
+type Lang = "gu" | "en" | "hi";
+
 interface SpatialDockProps {
   activeKey: SpatialNavKey;
   onSelect: (key: SpatialNavKey) => void;
   gu?: boolean;
+  lang?: Lang;
 }
 
-export function SpatialDock({ activeKey, onSelect, gu = true }: SpatialDockProps) {
+export function SpatialDock({
+  activeKey,
+  onSelect,
+  gu = true,
+  lang = gu ? "gu" : "en",
+}: SpatialDockProps) {
+  const currentLang: Lang = lang || (gu ? "gu" : "en");
+
   const navItems = [
     {
       key: "schemes" as const,
       labelGu: "બધી યોજનાઓ",
       labelEn: "All schemes",
+      labelHi: "सभी योजनाएं",
       icon: Compass,
     },
     {
       key: "dashboard" as const,
       labelGu: "સારાંશ",
       labelEn: "Overview",
+      labelHi: "सारांश",
       icon: LayoutDashboard,
     },
     {
       key: "map" as const,
       labelGu: "ગુજરાત ભૌગોલિક નકશો",
       labelEn: "Gujarat map",
+      labelHi: "गुजरात नक्शा",
       icon: MapPin,
     },
     {
       key: "wizard" as const,
       labelGu: "પાત્રતા પૂર્વદર્શન",
       labelEn: "Eligibility preview",
+      labelHi: "पात्रता पूर्वदर्शन",
       icon: Sparkles,
     },
     {
       key: "saved" as const,
       labelGu: "લાભાર્થી વિશ્લેષણ · ડેમો",
       labelEn: "Beneficiary analytics · demo",
+      labelHi: "लाभार्थी विश्लेषण · डेमो",
       icon: BookmarkCheck,
     },
     {
       key: "settings" as const,
       labelGu: "વહીવટી પૂર્વદર્શન",
       labelEn: "Administration preview",
+      labelHi: "प्रशासन पूर्वदर्शन",
       icon: Settings,
     },
   ];
@@ -71,7 +87,12 @@ export function SpatialDock({ activeKey, onSelect, gu = true }: SpatialDockProps
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeKey === item.key;
-          const title = gu ? item.labelGu : item.labelEn;
+          const title =
+            currentLang === "gu"
+              ? item.labelGu
+              : currentLang === "hi"
+              ? item.labelHi
+              : item.labelEn;
 
           return (
             <button

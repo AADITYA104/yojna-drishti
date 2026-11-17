@@ -46,7 +46,7 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
       jurisdiction: gu ? "પોતાનો જિ. (૩૪ ઓ.)" : "Own District (34 slots)",
       users:       34,
       canViewAll:  true,  canUpload: true,  canApprove: true,  canAudit: false, canConfig: false,
-      color:       "#D9D9D9",
+      color:       "#D0DCF0",
     },
     {
       tier: 3,
@@ -272,7 +272,7 @@ export function AdministrationView({ gu }: AdministrationViewProps) {
             </thead>
             <tbody>
               {filteredLogs.length === 0 ? (
-                <tr><td colSpan={4} style={{ textAlign: "center", color: "#6B6B6B", padding: "24px" }}>{gu ? "ક. મળ. ન." : "No matching entries"}</td></tr>
+                <tr><td colSpan={4} style={{ textAlign: "center", color: "#4A6080", padding: "24px" }}>{gu ? "ક. મળ. ન." : "No matching entries"}</td></tr>
               ) : filteredLogs.map((log, i) => (
                 <tr key={i}>
                   <td><small style={{ fontFamily: "monospace", color: "#64748b" }}>{log.ts}</small></td>

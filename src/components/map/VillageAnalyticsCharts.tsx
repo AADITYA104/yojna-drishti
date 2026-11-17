@@ -20,8 +20,8 @@ const SECTOR_PALETTE: Record<string, string> = {
   "આવાસ": "#A8A8A8",
   health: "#8C8C8C",
   "આરોગ્ય": "#8C8C8C",
-  "social welfare": "#6B6B6B",
-  "સામાજિક ન્યાય": "#6B6B6B",
+  "social welfare": "#4A6080",
+  "સામાજિક ન્યાય": "#4A6080",
   energy: "#4A4A4A",
   "ઊર્જા અને કિસાન": "#4A4A4A",
 };
@@ -49,8 +49,8 @@ export function VillageAnalyticsCharts({ village, gu }: VillageAnalyticsChartsPr
         backgroundColor: "transparent",
         tooltip: {
           trigger: "axis",
-          backgroundColor: "#1A1A1A",
-          borderColor: "#333333",
+          backgroundColor: "#020C47",
+          borderColor: "#011F65",
           textStyle: { color: "#FFFFFF", fontSize: 12 },
           axisPointer: { type: "shadow" },
           formatter: (params: any) => {
@@ -61,7 +61,7 @@ export function VillageAnalyticsCharts({ village, gu }: VillageAnalyticsChartsPr
               <div style="font-weight:700; color:#FFFFFF; margin-bottom:4px;">
                 ${gu ? s.schemeNameGu : s.schemeNameEn}
               </div>
-              <div style="font-size:11px; color:#6B6B6B; margin-bottom:6px;">
+              <div style="font-size:11px; color:#4A6080; margin-bottom:6px;">
                 ${gu ? "શ્રેણી" : "Sector"}: ${gu ? s.categoryGu : s.categoryEn}
               </div>
               <div style="display:flex; justify-content:space-between; gap:16px; margin:2px 0;">
@@ -70,7 +70,7 @@ export function VillageAnalyticsCharts({ village, gu }: VillageAnalyticsChartsPr
               </div>
               <div style="display:flex; justify-content:space-between; gap:16px; margin:2px 0;">
                 <span>${gu ? "લાભાર્થીઓ" : "Beneficiaries"}:</span>
-                <b style="color:#D9D9D9;">${s.beneficiaries.toLocaleString("en-IN")} ${gu ? "નાગરિકો" : "Citizens"}</b>
+                <b style="color:#D0DCF0;">${s.beneficiaries.toLocaleString("en-IN")} ${gu ? "નાગરિકો" : "Citizens"}</b>
               </div>
               <div style="display:flex; justify-content:space-between; gap:16px; margin:2px 0;">
                 <span>${gu ? "સેચ્યુરેશન" : "Saturation"}:</span>
@@ -85,7 +85,7 @@ export function VillageAnalyticsCharts({ village, gu }: VillageAnalyticsChartsPr
             gu ? "લાભાર્થીઓ" : "Beneficiaries",
           ],
           bottom: 0,
-          textStyle: { color: "#D9D9D9", fontSize: 11 },
+          textStyle: { color: "#D0DCF0", fontSize: 11 },
           icon: "roundRect",
         },
         grid: {
@@ -99,27 +99,27 @@ export function VillageAnalyticsCharts({ village, gu }: VillageAnalyticsChartsPr
           type: "category",
           data: schemeNames,
           axisLabel: {
-            color: "#D9D9D9",
+            color: "#D0DCF0",
             fontSize: 10,
             interval: 0,
             rotate: schemeNames.length > 3 ? 18 : 0,
           },
-          axisLine: { lineStyle: { color: "#333333" } },
+          axisLine: { lineStyle: { color: "#011F65" } },
         },
         yAxis: [
           {
             type: "value",
             name: gu ? "₹ લાખ" : "₹ Lakhs",
             nameTextStyle: { color: "#FFFFFF", fontSize: 10 },
-            splitLine: { lineStyle: { color: "#333333" } },
-            axisLabel: { color: "#6B6B6B", fontSize: 10 },
+            splitLine: { lineStyle: { color: "#011F65" } },
+            axisLabel: { color: "#4A6080", fontSize: 10 },
           },
           {
             type: "value",
             name: gu ? "લાભાર્થી" : "Count",
-            nameTextStyle: { color: "#6B6B6B", fontSize: 10 },
+            nameTextStyle: { color: "#4A6080", fontSize: 10 },
             splitLine: { show: false },
-            axisLabel: { color: "#6B6B6B", fontSize: 10 },
+            axisLabel: { color: "#4A6080", fontSize: 10 },
           },
         ],
         series: [
@@ -168,7 +168,7 @@ export function VillageAnalyticsCharts({ village, gu }: VillageAnalyticsChartsPr
       village.activeSchemes.forEach((s) => {
         const catKey = s.categoryEn.toLowerCase();
         const label = gu ? s.categoryGu : s.categoryEn;
-        const color = SECTOR_PALETTE[catKey] || SECTOR_PALETTE[s.categoryGu] || "#D9D9D9";
+        const color = SECTOR_PALETTE[catKey] || SECTOR_PALETTE[s.categoryGu] || "#D0DCF0";
         const current = sectorMap.get(label) || { label, value: 0, color };
         current.value = Number((current.value + s.grantLakhs).toFixed(1));
         sectorMap.set(label, current);
@@ -184,8 +184,8 @@ export function VillageAnalyticsCharts({ village, gu }: VillageAnalyticsChartsPr
         backgroundColor: "transparent",
         tooltip: {
           trigger: "item",
-          backgroundColor: "#1A1A1A",
-          borderColor: "#333333",
+          backgroundColor: "#020C47",
+          borderColor: "#011F65",
           textStyle: { color: "#FFFFFF", fontSize: 12 },
           formatter: (p: any) => {
             return `
@@ -204,7 +204,7 @@ export function VillageAnalyticsCharts({ village, gu }: VillageAnalyticsChartsPr
           top: "middle",
           itemWidth: 10,
           itemHeight: 10,
-          textStyle: { color: "#D9D9D9", fontSize: 11 },
+          textStyle: { color: "#D0DCF0", fontSize: 11 },
         },
         series: [
           {
@@ -215,7 +215,7 @@ export function VillageAnalyticsCharts({ village, gu }: VillageAnalyticsChartsPr
             avoidLabelOverlap: false,
             itemStyle: {
               borderRadius: 6,
-              borderColor: "#1A1A1A",
+              borderColor: "#020C47",
               borderWidth: 2,
             },
             label: { show: false },
@@ -253,7 +253,7 @@ export function VillageAnalyticsCharts({ village, gu }: VillageAnalyticsChartsPr
           <h4>
             {gu ? "યોજનાવાર સહાય ફાળવણી અને લાભાર્થીઓ" : "Scheme Grants (₹ Lakhs) & Beneficiaries"}
           </h4>
-          <span style={{ fontSize: "11px", color: "#6B6B6B" }}>
+          <span style={{ fontSize: "11px", color: "#4A6080" }}>
             {gu ? "દ્વિ-અક્ષીય સરખામણી" : "Dual-axis view"}
           </span>
         </div>
@@ -265,7 +265,7 @@ export function VillageAnalyticsCharts({ village, gu }: VillageAnalyticsChartsPr
           <h4>
             {gu ? "ક્ષેત્રવાર ભંડોળ વિભાજન" : "Sectoral Fund Distribution"}
           </h4>
-          <span style={{ fontSize: "11px", color: "#6B6B6B" }}>
+          <span style={{ fontSize: "11px", color: "#4A6080" }}>
             {gu ? "ટકાવારી હિસ્સો" : "% Share"}
           </span>
         </div>

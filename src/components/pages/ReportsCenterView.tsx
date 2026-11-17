@@ -151,10 +151,10 @@ export function ReportsCenterView({ gu, fy }: ReportsCenterViewProps) {
         <div className="report-templates-grid">
           {[
             { icon: <Building2 size={18} />, color: "#FFFFFF", titleEn: "District Summary", titleGu: "જિલ્લા સારાંશ", descEn: "34 districts · beneficiaries · disbursed · approval rate", descGu: "34 જિલ્લા · લ. · ચૂ. · અ.%", badge: "CSV", badgeClass: "csv", key: "districts" as const },
-            { icon: <MapPin size={18} />, color: "#D9D9D9", titleEn: "Taluka Directory", titleGu: "તાલુકા ડિરેક્ટરી", descEn: "Sample talukas · villages · population", descGu: "નમૂના તાલુકા · ગ.ટ. · વ.સ.", badge: "CSV", badgeClass: "csv", key: "talukas" as const },
-            { icon: <Users size={18} />, color: "#6B6B6B", titleEn: "Village Register", titleGu: "ગ.ટ. રજિસ્ટર", descEn: "Ghogha 48 villages · anganwadi · households", descGu: "ઘોઘા ૪૮ ગ.ટ. · અ.ક. · ઘ.સ.", badge: "Demo", badgeClass: "demo", key: "villages" as const },
-            { icon: <FileText size={18} />, color: "#333333", titleEn: "Scheme Catalogue", titleGu: "યોજના સૂચિ", descEn: "10 schemes · eligibility · budget · disbursed", descGu: "૧૦ યોજના · ઓ.ક. · બ. · ચૂ.", badge: "CSV", badgeClass: "csv", key: "schemes" as const },
-            { icon: <Wallet size={18} />, color: "#6B6B6B", titleEn: "Financial Overview", titleGu: "નાણાં ઝાંખી", descEn: "Budget allocated vs disbursed by scheme", descGu: "ફ.ફ. vs ચૂ. — યોજના પ્રમાણ", badge: "Demo", badgeClass: "demo", key: "schemes" as const },
+            { icon: <MapPin size={18} />, color: "#D0DCF0", titleEn: "Taluka Directory", titleGu: "તાલુકા ડિરેક્ટરી", descEn: "Sample talukas · villages · population", descGu: "નમૂના તાલુકા · ગ.ટ. · વ.સ.", badge: "CSV", badgeClass: "csv", key: "talukas" as const },
+            { icon: <Users size={18} />, color: "#4A6080", titleEn: "Village Register", titleGu: "ગ.ટ. રજિસ્ટર", descEn: "Ghogha 48 villages · anganwadi · households", descGu: "ઘોઘા ૪૮ ગ.ટ. · અ.ક. · ઘ.સ.", badge: "Demo", badgeClass: "demo", key: "villages" as const },
+            { icon: <FileText size={18} />, color: "#011F65", titleEn: "Scheme Catalogue", titleGu: "યોજના સૂચિ", descEn: "10 schemes · eligibility · budget · disbursed", descGu: "૧૦ યોજના · ઓ.ક. · બ. · ચૂ.", badge: "CSV", badgeClass: "csv", key: "schemes" as const },
+            { icon: <Wallet size={18} />, color: "#4A6080", titleEn: "Financial Overview", titleGu: "નાણાં ઝાંખી", descEn: "Budget allocated vs disbursed by scheme", descGu: "ફ.ફ. vs ચૂ. — યોજના પ્રમાણ", badge: "Demo", badgeClass: "demo", key: "schemes" as const },
             { icon: <CheckCircle2 size={18} />, color: "#FFFFFF", titleEn: "Approval Analytics", titleGu: "મ.દ. વિશ્લેષણ", descEn: "Approval rates across all districts", descGu: "34 જિલ્લા — મ.દ. analytics", badge: "CSV", badgeClass: "csv", key: "districts" as const },
           ].map((t, i) => (
             <div key={i} className="report-template-card" onClick={() => setReportType(t.key)}>

@@ -21,8 +21,25 @@ import { Search, X, MapPin, Sparkles, FileText, CheckCircle2, Info, ArrowRight, 
 import { motion, AnimatePresence } from "framer-motion";
 
 export function SpatialShell() {
-  const [lang, setLang] = useState<"gu" | "en">("gu");
+  const [lang, setLang] = useState<"gu" | "en" | "hi">("gu");
   const [activeKey, setActiveKey] = useState<SpatialNavKey>("dashboard");
+
+  // Load persisted language
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("yd_lang");
+      if (saved === "gu" || saved === "en" || saved === "hi") {
+        setLang(saved);
+      }
+    } catch (_) {}
+  }, []);
+
+  const handleSetLang = (newLang: "gu" | "en" | "hi") => {
+    setLang(newLang);
+    try {
+      localStorage.setItem("yd_lang", newLang);
+    } catch (_) {}
+  };
   // FIX C-01: Derive fiscal year with useMemo — no stale state.
   // Recomputes correctly on re-render; use a stable reference.
   const fy = useMemo<string>(() => {
@@ -40,6 +57,7 @@ export function SpatialShell() {
   const previousFocusRef = useRef<HTMLElement | null>(null);
 
   const gu = lang === "gu";
+  const hi = lang === "hi";
 
   // Focus management & keyboard trap for search dialog (A-01)
   useEffect(() => {
@@ -68,7 +86,11 @@ export function SpatialShell() {
       };
 
       window.addEventListener("keydown", handleTabKey);
-      return () => {
+      const cycleLang = () => {
+    setLang((prev) => prev === "gu" ? "en" : prev === "en" ? "hi" : "gu");
+  };
+
+  return () => {
         window.removeEventListener("keydown", handleTabKey);
         previousFocusRef.current?.focus();
       };
@@ -87,7 +109,11 @@ export function SpatialShell() {
       }
     };
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    const cycleLang = () => {
+    setLang((prev) => prev === "gu" ? "en" : prev === "en" ? "hi" : "gu");
+  };
+
+  return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   useEffect(() => {
@@ -166,6 +192,10 @@ export function SpatialShell() {
     }
   };
 
+  const cycleLang = () => {
+    setLang((prev) => prev === "gu" ? "en" : prev === "en" ? "hi" : "gu");
+  };
+
   return (
     <div className="spatial-app-shell">
       {/* 1. Background Gujarat SVG & Atmospheric Canvas */}
@@ -176,6 +206,7 @@ export function SpatialShell() {
         activeKey={activeKey}
         onSelect={(key) => setActiveKey(key)}
         gu={gu}
+        lang={lang}
       />
 
         {/* 3. Main public-service workspace */}
@@ -188,21 +219,25 @@ export function SpatialShell() {
         {/* Primary header */}
         <SpatialHeader
           gu={gu}
-          onToggleLanguage={() => setLang((prev) => (prev === "gu" ? "en" : "gu"))}
+          lang={lang}
+          onToggleLanguage={() => handleSetLang(lang === "gu" ? "en" : lang === "en" ? "hi" : "gu")}
+          onSelectLang={handleSetLang}
           onOpenSearch={() => setSearchOpen(true)}
         />
 
-        <div className="spatial-demo-disclaimer" role="note" aria-label={gu ? "ડેમો ડેટાની નોંધ" : "Demo data notice"}>
+        <div className="spatial-demo-disclaimer" role="note" aria-label={lang === "gu" ? "ડેમો ડેટાની નોંધ" : lang === "hi" ? "डेमो डेटा नोट" : "Demo data notice"}>
           <div className="spatial-demo-icon" aria-hidden="true">
             <Info size={16} />
           </div>
           <div className="spatial-demo-text">
             <strong>
-              {gu ? "ડેમો પૂર્વદર્શન · નમૂનાનો ડેટા" : "DEMO PREVIEW · SAMPLE DATA"}
+              {lang === "gu" ? "ડેમો પૂર્વદર્શન · નમૂનાનો ડેટા" : lang === "hi" ? "डेमो पूर्वदर्शन · नमूना डेटा" : "DEMO PREVIEW · SAMPLE DATA"}
             </strong>
             <span>
-              {gu
+              {lang === "gu"
                 ? "યોજનાની વિગતો, લાભાર્થી, નાણાં, સમયમર્યાદા અને નકશાની યોજના-પહોંચ નમૂનાના છે; સત્તાવાર માહિતી નથી. સરકારી ડેટા જોડાયેલો નથી."
+                : lang === "hi"
+                ? "યોজना विवरण, लाभार्थी, राशि, समय सीमा और मानचित्र पर दर्शाई गई जानकारी नमूने के रूप में है; यह आधिकारिक जानकारी नहीं है।"
                 : "Scheme details, beneficiaries, funding, deadlines, and mapped coverage are samples, not official information. Government data is not connected."}
             </span>
           </div>
@@ -212,7 +247,7 @@ export function SpatialShell() {
             className="spatial-demo-action"
             aria-label={gu ? "જિલ્લા નકશો ખોલો" : "Open district map"}
           >
-            <span>{gu ? "જિલ્લા નકશો" : "District map"}</span>
+            <span>{lang === "gu" ? "જિલ્લા નકશો" : lang === "hi" ? "जिला नक्शा" : "District map"}</span>
             <ArrowRight size={13} aria-hidden="true" />
           </button>
         </div>
@@ -353,7 +388,7 @@ export function SpatialShell() {
               exit={{ scale: 0.95, y: -20 }}
               role="dialog"
               aria-modal="true"
-              aria-label={gu ? "શોધખોળ" : "Search"}
+              aria-label={lang === "gu" ? "શોધખોળ" : lang === "hi" ? "खोजें" : "Search"}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="spatial-search-header">
@@ -363,21 +398,21 @@ export function SpatialShell() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  aria-label={gu ? "યોજના, જિલ્લો, તાલુકો અથવા ગામ શોધો" : "Search schemes, districts, talukas, or villages"}
-                  placeholder={gu ? "યોજના, જિલ્લો, તાલુકો કે ગામ શોધો..." : "Search schemes, districts, talukas, villages..."}
+                  aria-label={lang === "gu" ? "યોજના, જિલ્લો, તાલુકો અથવા ગામ શોધો" : lang === "hi" ? "योजना, जिला, तालुका या गाँव खोजें" : "Search schemes, districts, talukas, or villages"}
+                  placeholder={lang === "gu" ? "યોજના, જિલ્લો, તાલુકો કે ગામ શોધો..." : lang === "hi" ? "योजना, जिला, तालुका या गाँव खोजें..." : "Search schemes, districts, talukas, villages..."}
                   className="spatial-search-input"
                 />
                 <button
                   type="button"
                   onClick={() => setSearchOpen(false)}
-                  aria-label={gu ? "શોધ બંધ કરો" : "Close search"}
+                  aria-label={lang === "gu" ? "શોધ બંધ કરો" : lang === "hi" ? "खोज बंद करें" : "Close search"}
                   className="spatial-search-close-btn"
                 >
                   <X size={20} aria-hidden="true" />
                 </button>
               </div>
 
-              <div className="spatial-search-results" role="group" aria-label={gu ? "શોધના પરિણામો" : "Search results"}>
+              <div className="spatial-search-results" role="group" aria-label={lang === "gu" ? "શોધના પરિણામો" : lang === "hi" ? "खोज परिणाम" : "Search results"}>
                 {filteredSearchResults.map((item) => (
                   <button
                     key={`${item.kind}-${item.id}`}
@@ -409,7 +444,7 @@ export function SpatialShell() {
                 ))}
                 {filteredSearchResults.length === 0 && (
                   <p className="spatial-search-empty" role="status">
-                    {gu ? "કોઈ મેળ ખાતું પરિણામ મળ્યું નથી." : "No matching results found."}
+                    {lang === "gu" ? "કોઈ મેળ ખાતું પરિણામ મળ્યું નથી." : lang === "hi" ? "कोई मेल खाता परिणाम नहीं मिला।" : "No matching results found."}
                   </p>
                 )}
               </div>

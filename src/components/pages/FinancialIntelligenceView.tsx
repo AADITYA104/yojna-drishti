@@ -47,10 +47,10 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
         trigger: "axis",
         formatter: (p: any) => `${p[0].name}: <b>₹ ${p[0].value} Cr</b>`,
       },
-      xAxis: { type: "category", data: months, axisLabel: { color: "#D9D9D9", fontSize: 10 } },
+      xAxis: { type: "category", data: months, axisLabel: { color: "#D0DCF0", fontSize: 10 } },
       yAxis: {
         type: "value",
-        axisLabel: { formatter: "₹{value}Cr", color: "#6B6B6B", fontSize: 10 },
+        axisLabel: { formatter: "₹{value}Cr", color: "#4A6080", fontSize: 10 },
         splitLine: { lineStyle: { color: "rgba(255,255,255,0.06)" } },
       },
       series: [{
@@ -77,15 +77,15 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
   useEffect(() => {
     if (!schemeDonutRef.current) return;
     const chart = echarts.init(schemeDonutRef.current);
-    const COLORS = ["#FFFFFF", "#E0E0E0", "#C4C4C4", "#A8A8A8", "#8C8C8C", "#707070", "#545454", "#383838", "#6B6B6B", "#D9D9D9"];
+    const COLORS = ["#FFFFFF", "#E0E0E0", "#C4C4C4", "#A8A8A8", "#8C8C8C", "#707070", "#545454", "#383838", "#4A6080", "#D0DCF0"];
     chart.setOption({
       tooltip: { trigger: "item", formatter: "{b}: ₹{c} Cr ({d}%)" },
-      legend: { type: "scroll", bottom: 0, left: "center", itemWidth: 10, itemHeight: 10, textStyle: { color: "#D9D9D9", fontSize: 10 } },
+      legend: { type: "scroll", bottom: 0, left: "center", itemWidth: 10, itemHeight: 10, textStyle: { color: "#D0DCF0", fontSize: 10 } },
       series: [{
         name: gu ? "યોજના-ભાર" : "Scheme Share",
         type: "pie", radius: ["40%", "65%"], center: ["50%", "43%"],
         label: { show: false }, labelLine: { show: false },
-        itemStyle: { borderRadius: 4, borderColor: "#1A1A1A", borderWidth: 2 },
+        itemStyle: { borderRadius: 4, borderColor: "#020C47", borderWidth: 2 },
         data: demoSchemes.map((s, i) => ({
           value: scaleDemoValue(s.budgetDisbursedCr, fy),
           name: gu ? (s.shortNameGu || s.shortName) : s.shortName,
@@ -111,15 +111,15 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
       xAxis: {
         type: "category",
         data: gu ? regGu : regions,
-        axisLabel: { color: "#D9D9D9", fontSize: 10, interval: 0 },
+        axisLabel: { color: "#D0DCF0", fontSize: 10, interval: 0 },
       },
-      yAxis: { type: "value", axisLabel: { formatter: "₹{value}Cr", color: "#6B6B6B", fontSize: 10 }, splitLine: { lineStyle: { color: "rgba(255,255,255,0.06)" } } },
+      yAxis: { type: "value", axisLabel: { formatter: "₹{value}Cr", color: "#4A6080", fontSize: 10 }, splitLine: { lineStyle: { color: "rgba(255,255,255,0.06)" } } },
       series: [{
         name: gu ? "DBT" : "DBT (Cr)",
         type: "bar", barWidth: "40%",
         data: regVals.map((v, i) => ({
           value: v,
-          itemStyle: { color: ["#FFFFFF","#E0E0E0","#C4C4C4","#8C8C8C","#6B6B6B","#333333"][i], borderRadius: [4,4,0,0] },
+          itemStyle: { color: ["#FFFFFF","#E0E0E0","#C4C4C4","#8C8C8C","#4A6080","#011F65"][i], borderRadius: [4,4,0,0] },
         })),
         label: { show: true, position: "top", color: "#FFFFFF", fontSize: 10, formatter: (p: any) => `₹${p.value}` },
       }],
@@ -142,7 +142,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
         min: 0, max: 100,
         progress: { show: true, roundCap: true, width: 16, itemStyle: { color: "#FFFFFF" } },
         pointer: { show: true, length: "60%", width: 4, itemStyle: { color: "#FFFFFF" } },
-        axisLine: { lineStyle: { width: 16, color: [[1, "#333333"]] } },
+        axisLine: { lineStyle: { width: 16, color: [[1, "#011F65"]] } },
         axisTick: { show: false },
         splitLine: { show: false },
         axisLabel: { show: false },
@@ -155,7 +155,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
           offsetCenter: [0, "30%"],
         },
         data: [{ value: utilRate, name: gu ? "ઉપયોગ" : "Utilized" }],
-        title: { offsetCenter: [0, "55%"], color: "#D9D9D9", fontSize: 12 },
+        title: { offsetCenter: [0, "55%"], color: "#D0DCF0", fontSize: 12 },
       }],
     });
     const r = () => chart.resize();

@@ -19,9 +19,9 @@ interface BeneficiaryAnalyticsViewProps {
   fy: string;
 }
 
-const GENDER_COLORS = ["#FFFFFF", "#8C8C8C", "#333333"];
-const SOCIAL_COLORS = ["#FFFFFF", "#D9D9D9", "#8C8C8C", "#333333"];
-const AGE_COLORS   = ["#FFFFFF", "#D9D9D9", "#A8A8A8", "#6B6B6B", "#333333"];
+const GENDER_COLORS = ["#FFFFFF", "#8C8C8C", "#011F65"];
+const SOCIAL_COLORS = ["#FFFFFF", "#D0DCF0", "#8C8C8C", "#011F65"];
+const AGE_COLORS   = ["#FFFFFF", "#D0DCF0", "#A8A8A8", "#4A6080", "#011F65"];
 
 export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewProps) {
   const socialChartRef = useRef<HTMLDivElement>(null);
@@ -70,8 +70,8 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
       backgroundColor: "transparent",
       tooltip: {
         trigger: "item",
-        backgroundColor: "#1A1A1A",
-        borderColor: "#333333",
+        backgroundColor: "#020C47",
+        borderColor: "#011F65",
         textStyle: { color: "#ffffff" },
         formatter: "{b}: {c} ({d}%)",
       },
@@ -111,13 +111,13 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
       grid: { left: "4%", right: "4%", bottom: "5%", top: "12%", containLabel: true },
       tooltip: {
         trigger: "axis",
-        backgroundColor: "#1A1A1A",
-        borderColor: "#333333",
+        backgroundColor: "#020C47",
+        borderColor: "#011F65",
         textStyle: { color: "#ffffff" },
         formatter: (p: any) => `${p[0].name}: <b>${fmt(p[0].value)}</b>`,
       },
       xAxis: { type: "category", data: ageData.map(d => d.label), axisLabel: { color: "#cbd5e1", fontSize: 11, interval: 0 } },
-      yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#6B6B6B", fontSize: 10 } },
+      yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#4A6080", fontSize: 10 } },
       series: [{
         name: gu ? "લાભાર્થીઓ" : "Beneficiaries",
         type: "bar", barWidth: "38%",
@@ -140,8 +140,8 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
       backgroundColor: "transparent",
       tooltip: {
         trigger: "item",
-        backgroundColor: "#1A1A1A",
-        borderColor: "#333333",
+        backgroundColor: "#020C47",
+        borderColor: "#011F65",
         textStyle: { color: "#ffffff" },
         formatter: "{b}: {c} ({d}%)",
       },
@@ -177,13 +177,13 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
       grid: { left: "4%", right: "4%", bottom: "6%", top: "12%", containLabel: true },
       tooltip: {
         trigger: "axis",
-        backgroundColor: "#1A1A1A",
-        borderColor: "#333333",
+        backgroundColor: "#020C47",
+        borderColor: "#011F65",
         textStyle: { color: "#ffffff" },
         formatter: (p: any) => `${p[0].name}: <b>${fmt(p[0].value)}</b>`,
       },
       xAxis: { type: "category", data: years, axisLabel: { color: "#cbd5e1", fontSize: 10 } },
-      yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#6B6B6B", fontSize: 10 } },
+      yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#4A6080", fontSize: 10 } },
       series: [{
         name: gu ? "લાભાર્થીઓ" : "Beneficiaries",
         type: "line", smooth: true,
@@ -217,12 +217,12 @@ export function BeneficiaryAnalyticsView({ gu, fy }: BeneficiaryAnalyticsViewPro
       grid: { left: "4%", right: "12%", bottom: "4%", top: "12%", containLabel: true },
       tooltip: {
         trigger: "axis",
-        backgroundColor: "#1A1A1A",
-        borderColor: "#333333",
+        backgroundColor: "#020C47",
+        borderColor: "#011F65",
         textStyle: { color: "#ffffff" },
         formatter: (p: any) => `${p[0].name}: <b>${fmt(p[0].value)}</b>`,
       },
-      xAxis: { type: "value", axisLabel: { color: "#6B6B6B", fontSize: 10 }, splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } } },
+      xAxis: { type: "value", axisLabel: { color: "#4A6080", fontSize: 10 }, splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } } },
       yAxis: { type: "category", data: data.map(d => d.name), axisLabel: { color: "#cbd5e1", fontSize: 11, width: 100, overflow: "truncate" } },
       series: [{
         name: gu ? "લાભાર્થીઓ" : "Beneficiaries",

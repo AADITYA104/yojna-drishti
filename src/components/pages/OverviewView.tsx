@@ -95,12 +95,12 @@ export function OverviewView({
       xAxis: {
         type: "category",
         data: names,
-        axisLine: { lineStyle: { color: "#333333" } },
-        axisLabel: { color: "#D9D9D9", fontSize: 11, interval: 0 },
+        axisLine: { lineStyle: { color: "#D0DCF0" } },
+        axisLabel: { color: "#4A6080", fontSize: 11, interval: 0 },
       },
       yAxis: {
         type: "value",
-        axisLabel: { color: "#6B6B6B", fontSize: 10 },
+        axisLabel: { color: "#4A6080", fontSize: 10 },
         splitLine: { lineStyle: { color: "rgba(255, 255, 255, 0.06)" } },
       },
       series: [
@@ -111,7 +111,7 @@ export function OverviewView({
           data: vals.map((val, idx) => ({
             value: val,
             itemStyle: {
-              color: idx === 3 ? "#FFFFFF" : "#6B6B6B",
+              color: idx === 3 ? "#2078CF" : "#0E4EB2",
               borderRadius: [4, 4, 0, 0],
             },
           })),
@@ -136,8 +136,8 @@ export function OverviewView({
     const pendingCount = Math.max(0, totalApps - totalApproved);
 
     donut.setOption({
-      tooltip: { trigger: "item", backgroundColor: "#1A1A1A", borderColor: "#333333", textStyle: { color: "#FFFFFF" }, formatter: "{b}: {c} ({d}%)" },
-      legend: { bottom: "0%", left: "center", itemWidth: 10, itemHeight: 10, textStyle: { color: "#D9D9D9" } },
+      tooltip: { trigger: "item", backgroundColor: "#020C47", borderColor: "#011F65", textStyle: { color: "#FFFFFF" }, formatter: "{b}: {c} ({d}%)" },
+      legend: { bottom: "0%", left: "center", itemWidth: 10, itemHeight: 10, textStyle: { color: "#011F65" } },
       series: [
         {
           name: gu ? "અરજી સ્થિતિ" : "Application Status",
@@ -151,12 +151,12 @@ export function OverviewView({
             {
               value: approvedCount,
               name: gu ? "મંજૂર અરજીઓ" : "Approved",
-              itemStyle: { color: "#FFFFFF", borderColor: "#1A1A1A", borderWidth: 2 },
+              itemStyle: { color: "#2078CF", borderColor: "#011F65", borderWidth: 2 },
             },
             {
               value: pendingCount,
               name: gu ? "પ્રક્રિયા હેઠળ" : "Under Process",
-              itemStyle: { color: "#333333", borderColor: "#6B6B6B", borderWidth: 2 },
+              itemStyle: { color: "#A8C0E0", borderColor: "#0E4EB2", borderWidth: 2 },
             },
           ],
         },

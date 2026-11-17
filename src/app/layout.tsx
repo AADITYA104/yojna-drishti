@@ -6,6 +6,7 @@ import "@/styles/drishti-ui.css";
 import "@/styles/motion.css";
 import "@/styles/glass.css";
 import "@/styles/spatial.css";
+import "@/styles/brand.css";
 
 export const metadata: Metadata = {
   title: "યોજના દૃષ્ટિ | Yojana Drishti — Scheme Directory & Gujarat Map",

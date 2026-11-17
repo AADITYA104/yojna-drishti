@@ -237,7 +237,7 @@ export function VillageSchemeAnalyticsHub({
         <div className="vah-kpi-card">
           <div className="vah-kpi-top">
             <span>{gu ? "કુલ યોજના વપરાશ" : "Total Funds Disbursed"}</span>
-            <Wallet size={18} style={{ color: "#D9D9D9" }} />
+            <Wallet size={18} style={{ color: "#D0DCF0" }} />
           </div>
           <div className="vah-kpi-value" style={{ color: "#fde047" }}>
             ₹{fmt(totalFundsDisbursed)} <span style={{ fontSize: "14px", fontWeight: "600" }}>{gu ? "લાખ" : "L"}</span>
@@ -261,7 +261,7 @@ export function VillageSchemeAnalyticsHub({
             <span>{gu ? "સરેરાશ સેચ્યુરેશન" : "Avg Scheme Saturation"}</span>
             <TrendingUp size={18} style={{ color: "#fbbf24" }} />
           </div>
-          <div className="vah-kpi-value" style={{ color: "#D9D9D9" }}>
+          <div className="vah-kpi-value" style={{ color: "#D0DCF0" }}>
             {avgSaturation}%
           </div>
           <span className="vah-kpi-sub">{gu ? "લક્ષિત પરિવારો સુધી પહોંચ" : "Targeted households reached"}</span>
@@ -489,7 +489,7 @@ export function VillageSchemeAnalyticsHub({
                           style={{
                             height: "100%",
                             width: `${village.saturationPct}%`,
-                            background: "linear-gradient(90deg, #FFFFFF 0%, #6B6B6B 100%)",
+                            background: "linear-gradient(90deg, #FFFFFF 0%, #4A6080 100%)",
                           }}
                         />
                       </div>
@@ -719,10 +719,10 @@ export function VillageSchemeAnalyticsHub({
                               style={{
                                 width: `${scheme.saturationPct}%`,
                                 background: scheme.saturationPct >= 95
-                                  ? "linear-gradient(90deg, #FFFFFF 0%, #D9D9D9 100%)"
+                                  ? "linear-gradient(90deg, #FFFFFF 0%, #D0DCF0 100%)"
                                   : scheme.saturationPct >= 85
-                                  ? "linear-gradient(90deg, #D9D9D9 0%, #6B6B6B 100%)"
-                                  : "linear-gradient(90deg, #333333 0%, #6B6B6B 100%)",
+                                  ? "linear-gradient(90deg, #D0DCF0 0%, #4A6080 100%)"
+                                  : "linear-gradient(90deg, #011F65 0%, #4A6080 100%)",
                               }}
                             />
                           </div>
@@ -778,7 +778,7 @@ export function VillageSchemeAnalyticsHub({
                                   style={{
                                     height: "100%",
                                     width: `${scheme.saturationPct}%`,
-                                    background: "linear-gradient(90deg, #FFFFFF 0%, #6B6B6B 100%)",
+                                    background: "linear-gradient(90deg, #FFFFFF 0%, #4A6080 100%)",
                                   }}
                                 />
                               </div>

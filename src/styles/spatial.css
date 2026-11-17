@@ -6,45 +6,35 @@
 
 :root {
   color-scheme: light !important;
-  --spatial-teal-950: #0B0B0B;
-  --spatial-teal-900: #0B0B0B;
-  --spatial-teal-800: #1A1A1A;
-  --spatial-teal-700: #333333;
-  --spatial-teal-600: #333333;
+  --spatial-teal-950: #000521;
+  --spatial-teal-900: #020C47;
+  --spatial-teal-800: #011F65;
+  --spatial-teal-700: #0E4EB2;
+  --spatial-teal-600: #2078CF;
 
-  /* Surface tokens used by the spatial workspace */
-  --spatial-glass-main: rgba(51, 51, 51, 0.62);
-  --spatial-glass-card: rgba(255, 255, 255, 0.065);
-  --spatial-glass-card-hover: rgba(255, 255, 255, 0.09);
-  --spatial-glass-border: rgba(255, 255, 255, 0.16);
-  --spatial-glass-border-subtle: rgba(255, 255, 255, 0.09);
-  --spatial-glass-highlight: rgba(255, 255, 255, 0.28);
-  --spatial-glass-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.65), 0 1px 0 rgba(255, 255, 255, 0.14) inset;
+  --spatial-glass-main: rgba(2,12,71,0.92);
+  --spatial-glass-card: rgba(255,255,255,0.95);
+  --spatial-glass-card-hover: rgba(244,247,252,1);
+  --spatial-glass-border: rgba(32,120,207,0.25);
+  --spatial-glass-border-subtle: rgba(32,120,207,0.12);
+  --spatial-glass-highlight: rgba(32,120,207,0.35);
+  --spatial-glass-shadow: 0 24px 60px -15px rgba(1,31,101,0.25), 0 1px 0 rgba(255,255,255,0.8) inset;
 
-  /* Restrained Accents (Strictly for Donut Ring and Status Badges) */
-  --spatial-lime: #FFFFFF;
-  --spatial-lime-ink: #1A1A1A;
-  --spatial-emerald: #FFFFFF;
-  --spatial-emerald-ink: #1A1A1A;
-  --spatial-amber: #D9D9D9;
-  --spatial-cyan: #FFFFFF;
+  --spatial-lime: #2078CF;
+  --spatial-lime-ink: #FFFFFF;
+  --spatial-emerald: #0E4EB2;
+  --spatial-emerald-ink: #FFFFFF;
+  --spatial-amber: #A8C0E0;
+  --spatial-cyan: #2078CF;
 
   --spatial-font-display: var(--font-display, "Rasa", "Noto Serif Gujarati", Georgia, serif);
-  --spatial-font-ui: var(--font-ui, "Hind Vadodara", "Noto Sans Gujarati", system-ui, sans-serif);
+  --spatial-font-ui: var(--font-ui, "Hind Vadodara", "Noto Sans Gujarati", "Noto Sans Devanagari", system-ui, sans-serif);
 }
 
 /* Base Body when in Spatial View */
-body.spatial-mode,
-body.dr-glass,
-body.portal-theme {
-  background-color: var(--spatial-teal-900);
-  color: #FFFFFF;
-  font-family: var(--spatial-font-ui);
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+body.spatial-mode, body.dr-glass, body.portal-theme {
+  background-color: #F4F7FC;
+  color: #011F65;
 }
 
 /* Outer Shell Wrapper */
@@ -67,20 +57,11 @@ body.portal-theme {
 
 /* 1. Deep Atmospheric Slate-Teal Canvas (Layer behind everything) */
 .spatial-bg-canvas {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-  user-select: none;
+  background: radial-gradient(ellipse 85% 65% at 50% 25%, #E8EEF8 0%, #F4F7FC 60%, #FFFFFF 100%);
 }
 
 .spatial-slate-teal-mesh {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 85% 65% at 50% 25%, #333333 0%, #1A1A1A 60%, #1A1A1A 100%);
-  overflow: hidden;
+  background: radial-gradient(ellipse 85% 65% at 50% 25%, #E8EEF8 0%, #F4F7FC 60%, #FFFFFF 100%);
 }
 
 /* Ambient Ponytail-inspired drifting mesh orbs */
@@ -93,31 +74,15 @@ body.portal-theme {
 }
 
 .spatial-mesh-orb-1 {
-  width: 550px;
-  height: 550px;
-  background: radial-gradient(circle, #FFFFFF 0%, transparent 70%);
-  top: -120px;
-  left: -80px;
-  animation: spatialDrift1 22s ease-in-out infinite alternate;
+  background: radial-gradient(circle, rgba(32,120,207,0.15) 0%, transparent 70%);
 }
 
 .spatial-mesh-orb-2 {
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, #FFFFFF 0%, transparent 70%);
-  bottom: -100px;
-  right: -60px;
-  animation: spatialDrift2 26s ease-in-out infinite alternate;
+  background: radial-gradient(circle, rgba(14,78,178,0.1) 0%, transparent 70%);
 }
 
 .spatial-mesh-orb-3 {
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, #6B6B6B 0%, transparent 70%);
-  top: 45%;
-  left: 45%;
-  transform: translate(-50%, -50%);
-  animation: spatialDrift3 20s ease-in-out infinite alternate;
+  background: radial-gradient(circle, rgba(32,120,207,0.12) 0%, transparent 70%);
 }
 
 @keyframes spatialDrift1 {
@@ -141,7 +106,7 @@ body.portal-theme {
   background: url("/images/gujarat-hero.webp") center / contain no-repeat;
   opacity: 0.11;
   mix-blend-mode: soft-light;
-  filter: grayscale(100%) contrast(1.06) brightness(0.92);
+  /* natural photography */
   transform: none;
   pointer-events: none;
 }
@@ -161,7 +126,7 @@ body.portal-theme {
   height: 85vh;
   max-height: 800px;
   opacity: 0.3;
-  filter: grayscale(100%);
+  /* natural photography */
 }
 
 .spatial-district-vector {
@@ -217,7 +182,7 @@ body.portal-theme {
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-top-color: rgba(255, 255, 255, 0.4);
   box-shadow: 
-    0 24px 60px rgba(0, 0, 0, 0.55),
+    0 24px 60px rgba(1,31,101,0.22),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
   max-height: calc(100vh - 32px);
 }
@@ -258,7 +223,7 @@ body.portal-theme {
   border: 1px solid rgba(255, 255, 255, 0.40);
   box-shadow: 
     inset 0 1px 2px rgba(255, 255, 255, 0.35),
-    0 4px 14px rgba(0, 0, 0, 0.35);
+    0 4px 14px rgba(1,31,101,0.14);
   z-index: 0;
 }
 
@@ -322,7 +287,7 @@ body.portal-theme {
   border: 1px solid rgba(255, 255, 255, 0.20);
   border-top-color: rgba(255, 255, 255, 0.36);
   box-shadow: 
-    0 30px 70px rgba(0, 0, 0, 0.55),
+    0 30px 70px rgba(1,31,101,0.22),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   padding: 24px;
   box-sizing: border-box;
@@ -375,7 +340,7 @@ body.portal-theme {
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #D9D9D9;
+  color: #D0DCF0;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 3px 10px;
@@ -409,7 +374,7 @@ body.portal-theme {
   align-items: center;
   gap: 10px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(32,120,207,0.2);
   border-radius: 9999px;
   padding: 8px 16px;
   color: rgba(255, 255, 255, 0.75);
@@ -439,7 +404,7 @@ body.portal-theme {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px;
   padding: 2px 6px;
-  color: #D9D9D9;
+  color: #D0DCF0;
 }
 
 .spatial-lang-pill {
@@ -447,7 +412,7 @@ body.portal-theme {
   align-items: center;
   gap: 6px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(32,120,207,0.2);
   border-radius: 9999px;
   padding: 6px 14px;
   font-size: 0.78rem;
@@ -479,7 +444,7 @@ body.portal-theme {
   height: 38px;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(32,120,207,0.2);
   color: rgba(255, 255, 255, 0.8);
   display: flex;
   align-items: center;
@@ -489,7 +454,7 @@ body.portal-theme {
 }
 
 .spatial-icon-btn:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(32,120,207,0.2);
   color: #FFFFFF;
 }
 
@@ -513,7 +478,7 @@ body.portal-theme {
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 8px rgba(1,31,101,0.1);
   cursor: pointer;
 }
 
@@ -531,7 +496,7 @@ body.portal-theme {
   height: 8px;
   border-radius: 9999px;
   background: #FFFFFF;
-  border: 1.5px solid #1A1A1A;
+  border: 1.5px solid #020C47;
 }
 
 /* 4. DEMO & SYNTHETIC DATA FIXTURE BANNER */
@@ -558,12 +523,12 @@ body.portal-theme {
   width: 32px;
   height: 32px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.09);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(244,247,252,1);
+  border: 1px solid rgba(32,120,207,0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #D9D9D9;
+  color: #D0DCF0;
   flex-shrink: 0;
 }
 
@@ -592,7 +557,7 @@ body.portal-theme {
   align-items: center;
   gap: 6px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(32,120,207,0.2);
   border-radius: 9999px;
   padding: 6px 14px;
   font-size: 0.75rem;
@@ -603,7 +568,7 @@ body.portal-theme {
 }
 
 .spatial-demo-action:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(32,120,207,0.2);
 }
 
 /* 5. 12-COLUMN BENTO GRID SYSTEM */
@@ -623,7 +588,7 @@ body.portal-theme {
   border-radius: 24px;
   padding: 24px;
   box-shadow: 
-    0 16px 40px rgba(0, 0, 0, 0.28),
+    0 16px 40px rgba(1,31,101,0.11),
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
   overflow: hidden;
   backdrop-filter: blur(20px);
@@ -692,7 +657,7 @@ body.portal-theme {
 .spatial-select-pill-wrap select,
 .spatial-glass-select {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(32,120,207,0.2);
   border-radius: 9999px;
   padding: 4px 12px;
   font-size: 0.76rem;
@@ -707,7 +672,7 @@ body.portal-theme {
 }
 
 .spatial-glass-select option {
-  background: #1A1A1A;
+  background: #020C47;
   color: #FFFFFF;
 }
 
@@ -732,7 +697,7 @@ body.portal-theme {
   width: 36px;
   height: 170px;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(244,247,252,1);
   border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 3px;
   display: flex;
@@ -795,7 +760,7 @@ body.portal-theme {
   display: flex;
   align-items: center;
   gap: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 8px 24px rgba(1,31,101,0.09);
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
@@ -940,7 +905,7 @@ body.portal-theme {
   gap: 10px;
   min-height: 42px;
   padding: 9px 11px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(244,247,252,1);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.035);
   color: rgba(255, 255, 255, 0.78);
@@ -1020,7 +985,7 @@ body.portal-theme {
   height: 36px;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(32,120,207,0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1078,7 +1043,7 @@ body.portal-theme {
 
 .btn-demo {
   background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(32,120,207,0.2);
   color: rgba(255, 255, 255, 0.86);
   cursor: default;
 }
@@ -1093,7 +1058,7 @@ body.portal-theme {
   align-items: center;
   gap: 6px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(32,120,207,0.2);
   border-radius: 9999px;
   padding: 5px 12px;
   font-size: 0.75rem;
@@ -1103,7 +1068,7 @@ body.portal-theme {
 }
 
 .spatial-link-btn:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(32,120,207,0.2);
 }
 
 /* 5) Bottom-Right Stack (5 Cols): Timeline & Smart Eligibility */
@@ -1136,7 +1101,7 @@ body.portal-theme {
   height: 26px;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(32,120,207,0.2);
   color: rgba(255, 255, 255, 0.8);
   display: flex;
   align-items: center;
@@ -1176,7 +1141,7 @@ body.portal-theme {
 .spatial-day-pill.selected-day {
   background: rgba(255, 255, 255, 0.22);
   border-color: rgba(255, 255, 255, 0.38);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 14px rgba(1,31,101,0.1);
 }
 
 .spatial-day-name {
@@ -1310,7 +1275,7 @@ body.portal-theme {
   background: rgba(26, 26, 26, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 24px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 30px 80px rgba(1,31,101,0.28);
   overflow: hidden;
 }
 
@@ -1337,7 +1302,7 @@ body.portal-theme {
 
 .spatial-search-result:hover,
 .spatial-search-result:focus-visible {
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(244,247,252,1);
   border-color: rgba(255, 255, 255, 0.12);
   outline: none;
 }
@@ -1412,7 +1377,7 @@ body.portal-theme {
   padding: 20px 22px !important;
   position: relative !important;
   overflow: hidden !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 10px 30px rgba(1,31,101,0.12) !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
@@ -1427,7 +1392,7 @@ body.portal-theme {
 .spatial-main-container .kpi-card:hover {
   transform: translateY(-3px) !important;
   border-color: rgba(255, 255, 255, 0.25) !important;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 24px rgba(107, 107, 107, 0.25) !important;
+  box-shadow: 0 16px 40px rgba(1,31,101,0.18), 0 0 24px rgba(107, 107, 107, 0.25) !important;
 }
 
 .spatial-main-container .kpi-card::after {
@@ -1438,7 +1403,7 @@ body.portal-theme {
 }
 
 .spatial-main-container .kpi-card:nth-child(1)::after {
-  background: linear-gradient(90deg, #FFFFFF, #D9D9D9);
+  background: linear-gradient(90deg, #FFFFFF, #D0DCF0);
 }
 .spatial-main-container .kpi-card:nth-child(2)::after {
   background: linear-gradient(90deg, #FFFFFF, #FFFFFF);
@@ -1447,7 +1412,7 @@ body.portal-theme {
   background: linear-gradient(90deg, #FFFFFF, #FFFFFF);
 }
 .spatial-main-container .kpi-card:nth-child(4)::after {
-  background: linear-gradient(90deg, #D9D9D9, #D9D9D9);
+  background: linear-gradient(90deg, #D0DCF0, #D0DCF0);
 }
 
 .spatial-main-container .kpi-title {
@@ -1476,10 +1441,10 @@ body.portal-theme {
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
   border-radius: 10px !important;
 }
-.spatial-main-container .kpi-icon.tone-0 { color: #D9D9D9 !important; }
+.spatial-main-container .kpi-icon.tone-0 { color: #D0DCF0 !important; }
 .spatial-main-container .kpi-icon.tone-1 { color: #FFFFFF !important; }
 .spatial-main-container .kpi-icon.tone-2 { color: #FFFFFF !important; }
-.spatial-main-container .kpi-icon.tone-3 { color: #D9D9D9 !important; }
+.spatial-main-container .kpi-icon.tone-3 { color: #D0DCF0 !important; }
 
 /* Ponytail-refined Gateway Banner in Spatial shell */
 .spatial-main-container .gujarat-gis-gateway-card {
@@ -1488,7 +1453,7 @@ body.portal-theme {
   -webkit-backdrop-filter: blur(24px) !important;
   border: 1px solid rgba(107, 107, 107, 0.35) !important;
   border-radius: 20px !important;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45), 0 0 35px rgba(107, 107, 107, 0.2) !important;
+  box-shadow: 0 16px 48px rgba(1,31,101,0.18), 0 0 35px rgba(107, 107, 107, 0.2) !important;
   position: relative;
   overflow: hidden;
 }
@@ -1498,7 +1463,7 @@ body.portal-theme {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #FFFFFF, #D9D9D9, #FFFFFF);
+  background: linear-gradient(90deg, #FFFFFF, #D0DCF0, #FFFFFF);
 }
 
 .spatial-main-container .btn-gis-launch {
@@ -1732,31 +1697,31 @@ body.portal-theme {
    Public-service theme: clear paper surfaces, deep navy structure, teal actions
    -------------------------------------------------------------------------- */
 :root {
-  --spatial-teal-950: #1A1A1A;
+  --spatial-teal-950: #020C47;
   --spatial-teal-900: #FFFFFF;
-  --spatial-teal-800: #333333;
-  --spatial-teal-700: #333333;
-  --spatial-teal-600: #6B6B6B;
+  --spatial-teal-800: #011F65;
+  --spatial-teal-700: #011F65;
+  --spatial-teal-600: #4A6080;
   --spatial-glass-main: #FFFFFF;
   --spatial-glass-card: #FFFFFF;
   --spatial-glass-card-hover: #FFFFFF;
-  --spatial-glass-border: #D9D9D9;
-  --spatial-glass-border-subtle: #D9D9D9;
+  --spatial-glass-border: #D0DCF0;
+  --spatial-glass-border-subtle: #D0DCF0;
   --spatial-glass-highlight: #FFFFFF;
   --spatial-glass-shadow: 0 10px 28px rgba(51, 51, 51, 0.08);
   --spatial-lime: #FFFFFF;
-  --spatial-lime-ink: #333333;
+  --spatial-lime-ink: #011F65;
   --spatial-emerald: #FFFFFF;
-  --spatial-emerald-ink: #333333;
-  --spatial-amber: #D9D9D9;
-  --spatial-cyan: #6B6B6B;
+  --spatial-emerald-ink: #011F65;
+  --spatial-amber: #D0DCF0;
+  --spatial-cyan: #4A6080;
   --spatial-font-display: var(--spatial-font-ui);
 }
 
 body.spatial-mode,
 body.dr-glass {
   background: #FFFFFF !important;
-  color: #333333 !important;
+  color: #011F65 !important;
 }
 
 .spatial-app-shell {
@@ -1773,12 +1738,12 @@ body.dr-glass {
 .spatial-art-backdrop {
   opacity: 0.045;
   mix-blend-mode: multiply;
-  filter: grayscale(100%) contrast(1.04);
+  /* natural photography */
 }
 
 .spatial-gujarat-svg {
   opacity: 0.12;
-  filter: grayscale(100%);
+  /* natural photography */
 }
 
 .spatial-district-vector {
@@ -1794,9 +1759,9 @@ body.dr-glass {
 }
 
 .spatial-dock-capsule {
-  background: #333333;
-  border: 1px solid #333333;
-  border-top-color: #6B6B6B;
+  background: #011F65;
+  border: 1px solid #011F65;
+  border-top-color: #4A6080;
   box-shadow: 0 12px 32px rgba(51, 51, 51, 0.20);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -1809,21 +1774,21 @@ body.dr-glass {
 .spatial-dock-item:hover,
 .spatial-dock-item:focus-visible {
   color: #FFFFFF;
-  outline-color: #D9D9D9;
+  outline-color: #D0DCF0;
 }
 
 .spatial-dock-active-pill {
-  background: #6B6B6B;
-  border-color: #6B6B6B;
+  background: #4A6080;
+  border-color: #4A6080;
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.22);
 }
 
 .spatial-main-container,
 .spatial-main-viewport {
   background: #FFFFFF;
-  color: #333333;
-  border: 1px solid #D9D9D9;
-  border-top-color: #D9D9D9;
+  color: #011F65;
+  border: 1px solid #D0DCF0;
+  border-top-color: #D0DCF0;
   border-radius: 22px;
   box-shadow: 0 18px 50px rgba(51, 51, 51, 0.10);
   backdrop-filter: none;
@@ -1833,9 +1798,9 @@ body.dr-glass {
 .spatial-header-bar {
   margin: -28px -36px 22px;
   padding: 20px 30px;
-  background: #333333;
+  background: #011F65;
   border: 0;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid #011F65;
   border-radius: 21px 21px 0 0;
 }
 
@@ -1846,7 +1811,7 @@ body.dr-glass {
 }
 
 .spatial-brand-badge {
-  color: #D9D9D9;
+  color: #D0DCF0;
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.18);
   text-transform: none;
@@ -1854,7 +1819,7 @@ body.dr-glass {
 }
 
 .spatial-tricolor-pip {
-  background: #D9D9D9;
+  background: #D0DCF0;
 }
 
 .spatial-search-trigger,
@@ -1886,7 +1851,7 @@ body.dr-glass {
 
 .spatial-avatar-circle {
   color: #FFFFFF;
-  background: #333333;
+  background: #011F65;
   border-color: rgba(255, 255, 255, 0.28);
   box-shadow: none;
 }
@@ -1897,8 +1862,8 @@ body.dr-glass {
 
 .spatial-demo-disclaimer {
   background: #FFFFFF;
-  border: 1px solid #D9D9D9;
-  border-left: 4px solid #6B6B6B;
+  border: 1px solid #D0DCF0;
+  border-left: 4px solid #4A6080;
   border-radius: 10px;
   box-shadow: none;
   backdrop-filter: none;
@@ -1906,28 +1871,28 @@ body.dr-glass {
 }
 
 .spatial-demo-icon {
-  color: #6B6B6B;
-  background: #D9D9D9;
-  border-color: #D9D9D9;
+  color: #4A6080;
+  background: #D0DCF0;
+  border-color: #D0DCF0;
 }
 
 .spatial-demo-text strong {
-  color: #333333;
+  color: #011F65;
   letter-spacing: 0;
 }
 
 .spatial-demo-text span {
-  color: #6B6B6B;
+  color: #4A6080;
 }
 
 .spatial-demo-action {
   color: #FFFFFF;
-  background: #6B6B6B;
-  border-color: #6B6B6B;
+  background: #4A6080;
+  border-color: #4A6080;
 }
 
 .spatial-demo-action:hover {
-  background: #333333;
+  background: #011F65;
 }
 
 .spatial-glass-card,
@@ -1936,8 +1901,8 @@ body.dr-glass {
 .spatial-timeline-glass-subcard,
 .spatial-action-glass-subcard {
   background: #FFFFFF;
-  border: 1px solid #D9D9D9;
-  border-top-color: #D9D9D9;
+  border: 1px solid #D0DCF0;
+  border-top-color: #D0DCF0;
   border-radius: 14px;
   box-shadow: 0 4px 14px rgba(51, 51, 51, 0.055);
   backdrop-filter: none;
@@ -1948,7 +1913,7 @@ body.dr-glass {
 .spatial-bento-card:hover,
 .spatial-mini-stat-card:hover {
   background: #FFFFFF;
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
   transform: translateY(-1px);
 }
 
@@ -1958,7 +1923,7 @@ body.dr-glass {
 .spatial-stat-value,
 .spatial-ring-bold,
 .spatial-day-date {
-  color: #333333;
+  color: #011F65;
   font-family: var(--spatial-font-ui);
 }
 
@@ -1968,34 +1933,34 @@ body.dr-glass {
 .spatial-day-name,
 .spatial-instant-tag,
 .spatial-action-p {
-  color: #6B6B6B;
+  color: #4A6080;
 }
 
 .spatial-glass-select,
 .spatial-select-pill-wrap select {
-  color: #333333;
+  color: #011F65;
   background: #FFFFFF;
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
 }
 
 .spatial-glass-select option {
-  color: #333333;
+  color: #011F65;
   background: #FFFFFF;
 }
 
 .spatial-capsule-track {
   background: #FFFFFF;
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
 }
 
 .spatial-capsule-fill,
 .spatial-capsule-fill.highlight-fill {
-  background: #6B6B6B;
+  background: #4A6080;
   box-shadow: none;
 }
 
 .spatial-capsule-track:hover .spatial-capsule-fill {
-  background: #6B6B6B;
+  background: #4A6080;
 }
 
 .spatial-capsule-pct {
@@ -2003,60 +1968,60 @@ body.dr-glass {
 }
 
 .spatial-capsule-label {
-  color: #6B6B6B;
+  color: #4A6080;
 }
 
 .spatial-stat-icon-box,
 .spatial-action-icon,
 .spatial-check-bubble {
-  color: #6B6B6B;
+  color: #4A6080;
   background: #FFFFFF;
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
 }
 
 .spatial-source-status-row {
-  color: #6B6B6B;
+  color: #4A6080;
   background: #FFFFFF;
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
 }
 
 .spatial-source-status-row > svg {
-  color: #6B6B6B;
+  color: #4A6080;
 }
 
 .spatial-source-status-row strong {
-  color: #6B6B6B;
+  color: #4A6080;
 }
 
 .spatial-yojna-row {
-  border-bottom-color: #D9D9D9;
+  border-bottom-color: #D0DCF0;
 }
 
 .spatial-yojna-row:hover,
 .spatial-yojna-row:focus-visible {
   background: #FFFFFF;
-  outline: 2px solid #D9D9D9;
+  outline: 2px solid #D0DCF0;
   outline-offset: -2px;
 }
 
 .btn-demo {
-  color: #6B6B6B;
+  color: #4A6080;
   background: #FFFFFF;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #D0DCF0;
 }
 
 .spatial-link-btn,
 .spatial-glowing-frosted-btn {
   color: #FFFFFF;
-  background: #6B6B6B;
-  border: 1px solid #6B6B6B;
+  background: #4A6080;
+  border: 1px solid #4A6080;
   box-shadow: none;
 }
 
 .spatial-link-btn:hover,
 .spatial-glowing-frosted-btn:hover {
   color: #FFFFFF;
-  background: #333333;
+  background: #011F65;
 }
 
 .spatial-day-pill:hover {
@@ -2065,31 +2030,31 @@ body.dr-glass {
 
 .spatial-day-pill.selected-day {
   background: #FFFFFF;
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
   box-shadow: none;
 }
 
 .spatial-day-event-box {
-  color: #6B6B6B;
+  color: #4A6080;
   background: #FFFFFF;
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
 }
 
 .spatial-event-text {
-  color: #6B6B6B;
+  color: #4A6080;
 }
 
 .spatial-circle-arrow {
-  color: #6B6B6B;
+  color: #4A6080;
   background: #FFFFFF;
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
 }
 
 .spatial-main-container .page-hero-gov,
 .spatial-main-container .schemes-toolbar-gov {
-  color: #333333;
+  color: #011F65;
   background: #FFFFFF;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #D0DCF0;
   border-radius: 12px;
   box-shadow: none;
   backdrop-filter: none;
@@ -2097,12 +2062,12 @@ body.dr-glass {
 }
 
 .spatial-main-container .geo-explorer-header {
-  background: rgba(255, 255, 255, 0.065) !important;
-  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  background: rgba(255,255,255,0.95) !important;
+  border: 1px solid rgba(32,120,207,0.2) !important;
   border-radius: 20px !important;
   backdrop-filter: blur(28px) saturate(140%) !important;
   -webkit-backdrop-filter: blur(28px) saturate(140%) !important;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 16px 40px rgba(1,31,101,0.14) !important;
   color: #FFFFFF !important;
 }
 
@@ -2115,40 +2080,40 @@ body.dr-glass {
 }
 
 .spatial-main-container .page-hero-gov h1 {
-  color: #333333;
+  color: #011F65;
 }
 
 .spatial-main-container .page-hero-gov p {
-  color: #6B6B6B;
+  color: #4A6080;
 }
 
 .spatial-main-container .scheme-master-card {
-  color: #333333;
+  color: #011F65;
   background: #FFFFFF;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #D0DCF0;
   border-radius: 12px;
   box-shadow: 0 3px 12px rgba(51, 51, 51, 0.05);
 }
 
 .spatial-main-container .search-box-gov {
-  color: #6B6B6B;
+  color: #4A6080;
   background: #FFFFFF;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #D0DCF0;
   border-radius: 9px;
   box-shadow: 0 1px 2px rgba(51, 51, 51, 0.03);
 }
 
 .spatial-main-container .search-box-gov:focus-within {
-  border-color: #6B6B6B;
+  border-color: #4A6080;
   box-shadow: 0 0 0 3px rgba(107, 107, 107, 0.13);
 }
 
 .spatial-main-container .search-box-gov input {
-  color: #333333;
+  color: #011F65;
 }
 
 .spatial-main-container .search-box-gov input::placeholder {
-  color: #6B6B6B;
+  color: #4A6080;
 }
 
 .spatial-main-container .filter-pills-row {
@@ -2157,34 +2122,34 @@ body.dr-glass {
 }
 
 .spatial-main-container .cat-pill-btn {
-  color: #333333;
+  color: #011F65;
   background: #FFFFFF;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #D0DCF0;
   border-radius: 999px;
 }
 
 .spatial-main-container .cat-pill-btn:hover {
-  color: #333333;
+  color: #011F65;
   background: #FFFFFF;
 }
 
 .spatial-main-container .cat-pill-btn.active {
   color: #FFFFFF;
-  background: #6B6B6B;
-  border-color: #6B6B6B;
+  background: #4A6080;
+  border-color: #4A6080;
 }
 
 .spatial-main-container .hero-kicker-tag {
-  color: #6B6B6B;
+  color: #4A6080;
   background: #FFFFFF;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #D0DCF0;
   background-image: none;
 }
 
 .spatial-main-container .scheme-preview-label {
-  color: #6B6B6B;
+  color: #4A6080;
   background: #FFFFFF;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #D0DCF0;
   border-radius: 999px;
   padding: 6px 10px;
   font-size: 12px;
@@ -2192,7 +2157,7 @@ body.dr-glass {
 }
 
 .spatial-main-container .scheme-master-card.expanded {
-  border-color: #6B6B6B;
+  border-color: #4A6080;
   box-shadow: 0 5px 18px rgba(51, 51, 51, 0.09);
 }
 
@@ -2206,42 +2171,42 @@ body.dr-glass {
 
 .spatial-main-container .smc-titles h3,
 .spatial-main-container .smc-col h4 {
-  color: #333333;
+  color: #011F65;
 }
 
 .spatial-main-container .smc-dept,
 .spatial-main-container .smc-year-tag {
-  color: #6B6B6B;
+  color: #4A6080;
 }
 
 .spatial-main-container .smc-code,
 .spatial-main-container .smc-category-tag,
 .spatial-main-container .stat-pill-sm,
 .spatial-main-container .stat-pill-sm.teal {
-  color: #333333;
+  color: #011F65;
   background: #FFFFFF;
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
 }
 
 .spatial-main-container .smc-expanded-body {
-  color: #333333;
+  color: #011F65;
   background: #FFFFFF;
-  border-top-color: #D9D9D9;
+  border-top-color: #D0DCF0;
 }
 
 .spatial-main-container .smc-benefit-highlight {
   background: #FFFFFF;
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
 }
 
 .spatial-main-container .benefit-label,
 .spatial-main-container .benefit-val,
 .spatial-main-container .gov-bullet-list {
-  color: #333333;
+  color: #011F65;
 }
 
 .spatial-main-container .smc-footer-bar {
-  border-top-color: #D9D9D9;
+  border-top-color: #D0DCF0;
 }
 
 .spatial-main-container .scheme-empty-state {
@@ -2249,16 +2214,16 @@ body.dr-glass {
   justify-items: center;
   gap: 8px;
   padding: 36px 20px;
-  color: #6B6B6B;
+  color: #4A6080;
   text-align: center;
   background: #FFFFFF;
-  border: 1px dashed #D9D9D9;
+  border: 1px dashed #D0DCF0;
   border-radius: 12px;
 }
 
 .spatial-main-container .scheme-empty-state h2 {
   margin: 0;
-  color: #333333;
+  color: #011F65;
   font-size: 1.1rem;
 }
 
@@ -2268,84 +2233,84 @@ body.dr-glass {
 
 .spatial-main-container .geo-demo-pill,
 .spatial-main-container .geo-source-pill {
-  color: #333333 !important;
+  color: #011F65 !important;
   background: #FFFFFF !important;
-  border-color: #D9D9D9 !important;
+  border-color: #D0DCF0 !important;
 }
 
 .spatial-main-container .geo-data-disclaimer {
-  color: #6B6B6B;
+  color: #4A6080;
   background: #FFFFFF;
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
 }
 
 .spatial-main-container .citizen-hero {
-  color: #333333 !important;
+  color: #011F65 !important;
   background: #FFFFFF !important;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #D0DCF0;
   box-shadow: none;
 }
 
 .spatial-main-container .citizen-hero h1 {
-  color: #333333 !important;
+  color: #011F65 !important;
 }
 
 .spatial-main-container .citizen-hero p {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .citizen-tag {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
   background: #FFFFFF !important;
-  border-color: #D9D9D9 !important;
+  border-color: #D0DCF0 !important;
 }
 
 .spatial-main-container .wizard-step-pill.is-current {
   color: #FFFFFF;
-  background: #6B6B6B;
-  border-color: #6B6B6B;
+  background: #4A6080;
+  border-color: #4A6080;
   box-shadow: none;
 }
 
 .spatial-main-container .wizard-step-pill.is-completed,
 .spatial-main-container .wizard-opt-btn.active,
 .spatial-main-container .wizard-dist-pill.active {
-  color: #333333;
+  color: #011F65;
   background: #FFFFFF;
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
 }
 
 .spatial-main-container .wizard-step-pill.is-current .wsp-num {
-  color: #6B6B6B;
+  color: #4A6080;
 }
 
 .spatial-main-container .btn-wizard-next,
 .spatial-main-container .btn-wizard-view-results {
   color: #FFFFFF;
-  background: #6B6B6B;
-  border: 1px solid #6B6B6B;
+  background: #4A6080;
+  border: 1px solid #4A6080;
   box-shadow: none;
 }
 
 .spatial-main-container .btn-wizard-next:hover,
 .spatial-main-container .btn-wizard-view-results:hover {
   color: #FFFFFF;
-  background: #333333;
+  background: #011F65;
 }
 
 .spatial-main-container .wizard-preview-note {
   display: block;
   margin: 0 0 10px;
-  color: #6B6B6B;
+  color: #4A6080;
 }
 
 .spatial-main-container .public-scheme-card {
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
   box-shadow: 0 3px 12px rgba(51, 51, 51, 0.05);
 }
 
 .spatial-main-container .public-scheme-card h3 {
-  color: #333333;
+  color: #011F65;
 }
 
 .spatial-search-modal-backdrop {
@@ -2355,7 +2320,7 @@ body.dr-glass {
 
 .spatial-search-modal-box {
   background: #FFFFFF;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #D0DCF0;
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(51, 51, 51, 0.2);
 }
@@ -2363,11 +2328,11 @@ body.dr-glass {
 .spatial-search-result:hover,
 .spatial-search-result:focus-visible {
   background: #FFFFFF;
-  border-color: #D9D9D9;
+  border-color: #D0DCF0;
 }
 
 .spatial-search-empty {
-  color: #6B6B6B;
+  color: #4A6080;
 }
 
 @media (max-width: 768px) {
@@ -2426,10 +2391,10 @@ body.dr-glass {
   left: 28px;
   height: 4px;
   content: "";
-  background-color: #6B6B6B;
+  background-color: #4A6080;
   background-image:
-    linear-gradient(135deg, transparent 38%, #D9D9D9 40% 60%, transparent 62%),
-    linear-gradient(45deg, transparent 38%, #D9D9D9 40% 60%, transparent 62%);
+    linear-gradient(135deg, transparent 38%, #D0DCF0 40% 60%, transparent 62%),
+    linear-gradient(45deg, transparent 38%, #D0DCF0 40% 60%, transparent 62%);
   background-position: 0 0, 6px 0;
   background-size: 12px 4px;
   opacity: 0.9;
@@ -2455,8 +2420,8 @@ body.dr-glass {
 }
 
 .spatial-gujarat-mark path {
-  fill: #D9D9D9;
-  stroke: #333333;
+  fill: #D0DCF0;
+  stroke: #011F65;
   stroke-width: 7px;
   stroke-linejoin: round;
 }
@@ -2467,7 +2432,7 @@ body.dr-glass {
   min-height: 230px;
   margin: 0 0 18px;
   overflow: hidden;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #D0DCF0;
   border-radius: 18px;
   background: linear-gradient(110deg, #FFFFFF 0%, #FFFFFF 100%);
   box-shadow: 0 8px 24px rgba(51, 51, 51, 0.07);
@@ -2482,7 +2447,7 @@ body.dr-glass {
 }
 
 .geo-gujarat-showcase-kicker {
-  color: #6B6B6B;
+  color: #4A6080;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -2490,7 +2455,7 @@ body.dr-glass {
 
 .geo-gujarat-showcase-copy h2 {
   margin: 8px 0 6px;
-  color: #333333;
+  color: #011F65;
   font-size: clamp(1.25rem, 1.6vw, 1.75rem);
   line-height: 1.3;
 }
@@ -2498,7 +2463,7 @@ body.dr-glass {
 .geo-gujarat-showcase-copy p {
   max-width: 620px;
   margin: 0 0 14px;
-  color: #6B6B6B;
+  color: #4A6080;
   font-size: 0.9rem;
   line-height: 1.6;
 }
@@ -2508,9 +2473,9 @@ body.dr-glass {
   align-items: center;
   gap: 8px;
   padding: 9px 14px;
-  border: 1px solid #6B6B6B;
+  border: 1px solid #4A6080;
   border-radius: 8px;
-  background: #6B6B6B;
+  background: #4A6080;
   color: #FFFFFF;
   font: inherit;
   font-size: 0.84rem;
@@ -2520,7 +2485,7 @@ body.dr-glass {
 
 .geo-gujarat-showcase-copy button:hover,
 .geo-gujarat-showcase-copy button:focus-visible {
-  background: #333333;
+  background: #011F65;
   outline: 3px solid rgba(107, 107, 107, 0.22);
   outline-offset: 2px;
 }
@@ -2529,7 +2494,7 @@ body.dr-glass {
   position: relative;
   min-height: 230px;
   overflow: hidden;
-  background: #D9D9D9;
+  background: #D0DCF0;
 }
 
 .geo-gujarat-showcase-image::after {
@@ -2557,7 +2522,7 @@ body.dr-glass {
   color: #FFFFFF;
   font-size: 0.72rem;
   font-weight: 700;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 4px rgba(1,31,101,0.2);
 }
 
 .geo-coverage-pending {
@@ -2566,10 +2531,10 @@ body.dr-glass {
   gap: 10px;
   margin: 14px 0;
   padding: 13px;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #D0DCF0;
   border-radius: 10px;
   background: #FFFFFF;
-  color: #6B6B6B;
+  color: #4A6080;
 }
 
 .geo-coverage-pending > svg {
@@ -2579,20 +2544,20 @@ body.dr-glass {
 
 .geo-coverage-pending strong {
   display: block;
-  color: #333333;
+  color: #011F65;
   font-size: 0.84rem;
   line-height: 1.45;
 }
 
 .geo-coverage-pending p {
   margin: 4px 0 0;
-  color: #6B6B6B;
+  color: #4A6080;
   font-size: 0.78rem;
   line-height: 1.55;
 }
 
 .geo-explorer-filters .geo-filter-select select:disabled {
-  color: #6B6B6B;
+  color: #4A6080;
   cursor: not-allowed;
 }
 
@@ -2696,7 +2661,7 @@ body.dr-glass {
   backdrop-filter: blur(28px) saturate(140%);
   -webkit-backdrop-filter: blur(28px) saturate(140%);
   border: 1px solid rgba(255, 255, 255, 0.20);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 70px rgba(1,31,101,0.22), inset 0 1px 0 rgba(255, 255, 255, 0.15);
   padding: 24px;
   box-sizing: border-box;
   overflow: hidden;
@@ -2736,7 +2701,7 @@ body.dr-glass {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #D9D9D9;
+  color: #D0DCF0;
   flex-shrink: 0;
 }
 
@@ -2880,7 +2845,7 @@ body.dr-glass {
   min-height: 480px;
   max-height: 640px;
   border-radius: 20px;
-  background: radial-gradient(ellipse at 50% 40%, #333333 0%, #1A1A1A 60%, #0B0B0B 100%);
+  background: radial-gradient(ellipse at 50% 40%, #011F65 0%, #020C47 60%, #000521 100%);
   border: 1px solid rgba(255, 255, 255, 0.15);
   overflow: hidden;
   display: flex;
@@ -2942,7 +2907,7 @@ body.dr-glass {
 }
 
 .pure-map-district-path--selected {
-  fill: #D9D9D9 !important;
+  fill: #D0DCF0 !important;
   fill-opacity: 0.92 !important;
   stroke: #FFFFFF !important;
   stroke-width: 3.4 !important;
@@ -2986,7 +2951,7 @@ body.dr-glass {
   border: 1px solid rgba(217, 217, 217, 0.65);
   border-radius: 20px;
   padding: 16px 18px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 24px 60px rgba(1,31,101,0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   color: #FFFFFF;
   z-index: 25;
 }
@@ -3009,7 +2974,7 @@ body.dr-glass {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #D9D9D9;
+  color: #D0DCF0;
 }
 
 .pure-map-hud-title {
@@ -3060,8 +3025,8 @@ body.dr-glass {
   gap: 8px;
   padding: 10px 14px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #D9D9D9 0%, #D9D9D9 100%);
-  color: #1A1A1A;
+  background: linear-gradient(135deg, #D0DCF0 0%, #D0DCF0 100%);
+  color: #020C47;
   font-size: 12px;
   font-weight: 800;
   border: none;
@@ -3071,7 +3036,7 @@ body.dr-glass {
 }
 
 .pure-map-hud-cta:hover {
-  background: linear-gradient(135deg, #FFFFFF 0%, #D9D9D9 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #D0DCF0 100%);
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(217, 217, 217, 0.5);
 }
@@ -3083,13 +3048,13 @@ body.dr-glass {
   left: 18px;
   background: rgba(11, 11, 11, 0.90);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(32,120,207,0.2);
   border-radius: 16px;
   padding: 12px 14px;
   font-size: 11px;
   color: rgba(255, 255, 255, 0.85);
   z-index: 20;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 16px 36px rgba(1,31,101,0.24);
   pointer-events: none;
 }
 
@@ -3129,7 +3094,7 @@ body.dr-glass {
   font-weight: 800;
   text-transform: uppercase;
   background: rgba(217, 217, 217, 0.20);
-  color: #D9D9D9;
+  color: #D0DCF0;
   border: 1px solid rgba(217, 217, 217, 0.40);
   margin-bottom: 6px;
 }
@@ -3180,7 +3145,7 @@ body.dr-glass {
 .vah-view-toggle-btn--active {
   background: rgba(255, 255, 255, 0.25);
   color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(1,31,101,0.12);
 }
 
 /* 4 KPI Metric Tiles */
@@ -3204,7 +3169,7 @@ body.dr-glass {
 }
 
 .vah-kpi-card {
-  background: rgba(255, 255, 255, 0.065);
+  background: rgba(255,255,255,0.95);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 18px;
   padding: 18px 20px;
@@ -3278,7 +3243,7 @@ body.dr-glass {
 
 .vah-search-input {
   width: 100%;
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(244,247,252,1);
   border: 1px solid rgba(255, 255, 255, 0.20);
   border-radius: 12px;
   padding: 10px 36px 10px 40px;
@@ -3321,7 +3286,7 @@ body.dr-glass {
 .vah-select {
   width: 100%;
   appearance: none;
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(244,247,252,1);
   border: 1px solid rgba(255, 255, 255, 0.20);
   border-radius: 12px;
   padding: 10px 32px 10px 14px;
@@ -3366,7 +3331,7 @@ body.dr-glass {
 }
 
 .vah-village-card {
-  background: rgba(255, 255, 255, 0.065);
+  background: rgba(255,255,255,0.95);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 18px;
   padding: 20px;
@@ -3380,9 +3345,9 @@ body.dr-glass {
 
 .vah-village-card:hover {
   border-color: rgba(107, 107, 107, 0.55);
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(244,247,252,1);
   transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 16px 36px rgba(1,31,101,0.16);
 }
 
 .vah-card-head {
@@ -3506,7 +3471,7 @@ body.dr-glass {
 }
 
 .vah-table th {
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(244,247,252,1);
   padding: 12px 16px;
   font-size: 11px;
   font-weight: 800;
@@ -3545,10 +3510,10 @@ body.dr-glass {
   width: 100%;
   max-width: 960px;
   max-height: 88vh;
-  background: #1A1A1A;
+  background: #020C47;
   border: 1px solid rgba(107, 107, 107, 0.45);
   border-radius: 26px;
-  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 35px 80px rgba(1,31,101,0.34);
   padding: 28px;
   display: flex;
   flex-direction: column;
@@ -3639,7 +3604,7 @@ body.dr-glass {
 .vah-modal-tab-btn--active {
   background: rgba(107, 107, 107, 0.25);
   border: 1px solid rgba(107, 107, 107, 0.45);
-  color: #D9D9D9;
+  color: #D0DCF0;
 }
 
 .vah-modal-table-wrap {
@@ -3795,7 +3760,7 @@ body.dr-glass {
 }
 
 .geo-filter-select option {
-  background: #1A1A1A;
+  background: #020C47;
   color: #FFFFFF;
 }
 
@@ -3808,7 +3773,7 @@ body.dr-glass {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(11, 11, 11, 0.6);
-  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 48px -12px rgba(1,31,101,0.24);
 }
 
 /* Map dynamic loading skeleton */
@@ -3949,7 +3914,7 @@ body.dr-glass {
   transition: opacity 0.15s ease, transform 0.15s ease;
   color: #FFFFFF;
   z-index: 100;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 4px 14px rgba(1,31,101,0.22);
 }
 
 .spatial-dock-item:hover .spatial-dock-label-text,
@@ -4059,7 +4024,7 @@ body.dr-glass {
 .geo-district-region-chip {
   background: rgba(107, 107, 107, 0.22);
   border-color: rgba(107, 107, 107, 0.45);
-  color: #D9D9D9;
+  color: #D0DCF0;
 }
 
 /* Stats row */
@@ -4078,14 +4043,14 @@ body.dr-glass {
   min-width: 90px;
   padding: 12px 16px;
   background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.09);
+  border: 1px solid rgba(244,247,252,1);
   border-radius: 12px;
   text-align: center;
   transition: background 0.2s, border-color 0.2s;
 }
 
 .geo-district-stat-card:hover {
-  background: rgba(255,255,255,0.09);
+  background: rgba(244,247,252,1);
   border-color: rgba(217, 217, 217, 0.3);
 }
 
@@ -4142,7 +4107,7 @@ body.dr-glass {
   border-radius: 10px;
   padding: 1px 7px;
   font-size: 11px;
-  color: #D9D9D9;
+  color: #D0DCF0;
   font-weight: 700;
 }
 
@@ -4241,7 +4206,7 @@ body.dr-glass {
   border-radius: 20px !important;
   backdrop-filter: blur(24px) !important;
   -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 12px 36px rgba(1,31,101,0.14) !important;
   padding: 24px 28px !important;
   margin-bottom: 24px !important;
 }
@@ -4264,7 +4229,7 @@ body.dr-glass {
   border-radius: 18px !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+  box-shadow: 0 10px 30px rgba(1,31,101,0.1) !important;
   color: #FFFFFF !important;
   padding: 20px !important;
   margin-bottom: 20px !important;
@@ -4474,7 +4439,7 @@ body.dr-glass {
 
 .vah-badge-amber {
   background: rgba(217, 217, 217, 0.2);
-  color: #D9D9D9;
+  color: #D0DCF0;
   border: 1px solid rgba(217, 217, 217, 0.4);
 }
 
@@ -4541,50 +4506,48 @@ body.dr-glass {
 /* ==========================================================================
  * 13. MASTER 6-SHADE MONOCHROME LUXURY DESIGN SYSTEM
  * Strict implementation of user-provided palette:
- *   --mono-0: #0B0B0B (Deepest Obsidian Canvas)
- *   --mono-1: #1A1A1A (Dark Charcoal Surface / Containers)
- *   --mono-2: #333333 (Slate Precision Border / Inactive / Dividers)
- *   --mono-3: #6B6B6B (Muted Mid-Grey Labels / Secondary Icons)
- *   --mono-4: #D9D9D9 (Light Silver Primary Body / Subheadings)
+ *   --mono-0: #000521 (Deepest Obsidian Canvas)
+ *   --mono-1: #020C47 (Dark Charcoal Surface / Containers)
+ *   --mono-2: #011F65 (Slate Precision Border / Inactive / Dividers)
+ *   --mono-3: #4A6080 (Muted Mid-Grey Labels / Secondary Icons)
+ *   --mono-4: #D0DCF0 (Light Silver Primary Body / Subheadings)
  *   --mono-5: #FFFFFF (Pure White Headlines / High-Contrast Badges / Active)
  * ========================================================================== */
 
 /* ── 1. GLOBAL ROOT TOKENS & CANVAS ──────────────────────────────────────── */
 :root {
-  --mono-0: #0B0B0B !important;
-  --mono-1: #1A1A1A !important;
-  --mono-2: #333333 !important;
-  --mono-3: #6B6B6B !important;
-  --mono-4: #D9D9D9 !important;
+  --mono-0: #000521 !important;
+  --mono-1: #020C47 !important;
+  --mono-2: #011F65 !important;
+  --mono-3: #4A6080 !important;
+  --mono-4: #D0DCF0 !important;
   --mono-5: #FFFFFF !important;
 
-  --spatial-teal-950: #0B0B0B !important;
-  --spatial-teal-900: #0B0B0B !important;
-  --spatial-teal-800: #1A1A1A !important;
-  --spatial-teal-700: #1A1A1A !important;
-  --spatial-teal-600: #1A1A1A !important;
+  --spatial-teal-950: #000521 !important;
+  --spatial-teal-900: #000521 !important;
+  --spatial-teal-800: #020C47 !important;
+  --spatial-teal-700: #020C47 !important;
+  --spatial-teal-600: #020C47 !important;
 
   --spatial-glass-main: rgba(26, 26, 26, 0.94) !important;
   --spatial-glass-card: rgba(255, 255, 255, 0.04) !important;
   --spatial-glass-card-hover: rgba(255, 255, 255, 0.07) !important;
-  --spatial-glass-border: #333333 !important;
+  --spatial-glass-border: #011F65 !important;
   --spatial-glass-border-subtle: rgba(255, 255, 255, 0.08) !important;
-  --spatial-glass-highlight: rgba(255, 255, 255, 0.16) !important;
-  --spatial-glass-shadow: 0 24px 60px rgba(0, 0, 0, 0.85) !important;
+  --spatial-glass-highlight: rgba(32,120,207,0.2) !important;
+  --spatial-glass-shadow: 0 24px 60px rgba(1,31,101,0.34) !important;
 
-  --spatial-lime: #D9D9D9 !important;
-  --spatial-lime-ink: #0B0B0B !important;
-  --spatial-emerald: #D9D9D9 !important;
-  --spatial-emerald-ink: #0B0B0B !important;
+  --spatial-lime: #D0DCF0 !important;
+  --spatial-lime-ink: #000521 !important;
+  --spatial-emerald: #D0DCF0 !important;
+  --spatial-emerald-ink: #000521 !important;
   --spatial-amber: #FFFFFF !important;
   --spatial-cyan: #FFFFFF !important;
 }
 
-body.spatial-mode,
-body.dr-glass,
-body.portal-theme {
-  background-color: #0B0B0B !important;
-  color: #D9D9D9 !important;
+body.spatial-mode, body.dr-glass, body.portal-theme {
+  background-color: #F4F7FC;
+  color: #011F65;
 }
 
 /* Atmospheric Monochrome Spotlight Mesh */
@@ -4592,19 +4555,18 @@ body.portal-theme {
   background:
     radial-gradient(ellipse 70% 50% at 20% 10%, rgba(255, 255, 255, 0.045) 0%, transparent 60%),
     radial-gradient(ellipse 60% 45% at 80% 80%, rgba(255, 255, 255, 0.035) 0%, transparent 55%),
-    linear-gradient(180deg, #0B0B0B 0%, #0B0B0B 50%, #0B0B0B 100%) !important;
+    linear-gradient(180deg, #000521 0%, #000521 50%, #000521 100%) !important;
 }
 
 .spatial-mesh-orb-1,
 .spatial-mesh-orb-2,
 .spatial-mesh-orb-3 {
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%) !important;
-  filter: blur(90px) !important;
+  background: radial-gradient(circle, rgba(32,120,207,0.12) 0%, transparent 70%);
 }
 
 .spatial-art-backdrop {
   opacity: 0.04 !important;
-  filter: grayscale(100%) contrast(1.1) !important;
+  /* natural photography */
 }
 
 .spatial-gujarat-svg {
@@ -4619,29 +4581,29 @@ body.portal-theme {
 .spatial-main-container,
 .spatial-main-viewport {
   background: rgba(26, 26, 26, 0.94) !important;
-  color: #D9D9D9 !important;
-  border: 1px solid #333333 !important;
+  color: #D0DCF0 !important;
+  border: 1px solid #011F65 !important;
   border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
   backdrop-filter: blur(28px) saturate(120%) !important;
   -webkit-backdrop-filter: blur(28px) saturate(120%) !important;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85) !important;
+  box-shadow: 0 30px 80px rgba(1,31,101,0.34) !important;
 }
 
 .map-explorer-page,
 .spatial-main-container .map-explorer-page {
   background: transparent !important;
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
 }
 
 /* ── 3. HEADER BAR ────────────────────────────────────────────────────────── */
 .spatial-header-bar {
   background: rgba(20, 20, 20, 0.95) !important;
   border: 0 !important;
-  border-bottom: 1px solid #333333 !important;
+  border-bottom: 1px solid #011F65 !important;
 }
 
 .spatial-header-bar::after {
-  background-color: #333333 !important;
+  background-color: #011F65 !important;
   background-image: none !important;
   opacity: 0.5 !important;
 }
@@ -4651,9 +4613,9 @@ body.portal-theme {
 }
 
 .spatial-brand-badge {
-  color: #D9D9D9 !important;
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  color: #D0DCF0 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-tricolor-pip {
@@ -4662,23 +4624,23 @@ body.portal-theme {
 
 .spatial-search-trigger,
 .spatial-lang-pill {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
   background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-search-trigger:hover,
 .spatial-search-trigger:focus-visible,
 .spatial-lang-pill:hover {
   color: #FFFFFF !important;
-  background: #333333 !important;
-  border-color: #6B6B6B !important;
+  background: #011F65 !important;
+  border-color: #4A6080 !important;
 }
 
 .spatial-search-placeholder,
 .spatial-lang-pill .muted-lang,
 .spatial-lang-divider {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-lang-pill .active-lang {
@@ -4687,45 +4649,45 @@ body.portal-theme {
 }
 
 .spatial-kbd-chip {
-  color: #D9D9D9 !important;
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  color: #D0DCF0 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-avatar-circle {
   color: #FFFFFF !important;
-  background: #333333 !important;
-  border: 1px solid #6B6B6B !important;
+  background: #011F65 !important;
+  border: 1px solid #4A6080 !important;
 }
 
 .spatial-gujarat-mark {
-  border: 1px solid #333333 !important;
-  background: #1A1A1A !important;
+  border: 1px solid #011F65 !important;
+  background: #020C47 !important;
 }
 
 .spatial-gujarat-mark path {
-  fill: #D9D9D9 !important;
-  stroke: #0B0B0B !important;
+  fill: #D0DCF0 !important;
+  stroke: #000521 !important;
 }
 
 /* ── 4. FLOATING DOCK (LEFT SIDEBAR) ──────────────────────────────────────── */
 .spatial-dock-capsule {
   background: rgba(20, 20, 20, 0.96) !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
   border-top-color: rgba(255, 255, 255, 0.18) !important;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.8) !important;
+  box-shadow: 0 16px 45px rgba(1,31,101,0.32) !important;
   backdrop-filter: blur(24px) !important;
   -webkit-backdrop-filter: blur(24px) !important;
 }
 
 .spatial-dock-item {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-dock-item:hover,
 .spatial-dock-item:focus-visible {
   color: #FFFFFF !important;
-  outline-color: #6B6B6B !important;
+  outline-color: #4A6080 !important;
 }
 
 .spatial-dock-active-pill {
@@ -4735,28 +4697,28 @@ body.portal-theme {
 }
 
 .spatial-dock-item.active {
-  color: #0B0B0B !important;
+  color: #000521 !important;
 }
 
 .spatial-dock-item.active .spatial-dock-icon-wrap svg {
-  stroke: #0B0B0B !important;
+  stroke: #000521 !important;
 }
 
 /* ── 5. DISCLAIMER & DEMO BANNERS ────────────────────────────────────────── */
 .spatial-demo-disclaimer {
   background: rgba(26, 26, 26, 0.85) !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
   border-left: 4px solid #FFFFFF !important;
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 4px 16px rgba(1,31,101,0.16) !important;
 }
 
 .spatial-demo-icon {
   color: #FFFFFF !important;
-  background: #333333 !important;
-  border-color: #6B6B6B !important;
+  background: #011F65 !important;
+  border-color: #4A6080 !important;
 }
 
 .spatial-demo-text strong {
@@ -4764,18 +4726,18 @@ body.portal-theme {
 }
 
 .spatial-demo-text span {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-demo-action {
-  color: #0B0B0B !important;
+  color: #000521 !important;
   background: #FFFFFF !important;
   border: 1px solid #FFFFFF !important;
   font-weight: 750 !important;
 }
 
 .spatial-demo-action:hover {
-  background: #D9D9D9 !important;
+  background: #D0DCF0 !important;
 }
 
 /* ── 6. PAGE HERO & HEADERS ───────────────────────────────────────────────── */
@@ -4784,13 +4746,13 @@ body.portal-theme {
 .geo-explorer-header,
 .spatial-main-container .schemes-toolbar-gov,
 .schemes-toolbar-gov {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
   background: rgba(26, 26, 26, 0.8) !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
   border-radius: 20px !important;
   backdrop-filter: blur(24px) !important;
   -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45) !important;
+  box-shadow: 0 10px 30px rgba(1,31,101,0.18) !important;
 }
 
 .spatial-main-container .page-hero-gov h1,
@@ -4806,7 +4768,7 @@ body.portal-theme {
 .spatial-main-container .geo-explorer-lead,
 .geo-explorer-lead,
 .geo-explorer-header p {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .hero-kicker-tag,
@@ -4814,16 +4776,16 @@ body.portal-theme {
 .geo-explorer-eyebrow {
   color: #FFFFFF !important;
   background: rgba(255, 255, 255, 0.06) !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
   background-image: none !important;
 }
 
 /* ── 7. PILL BUTTONS & INTERACTIVE CHIPS ─────────────────────────────────── */
 .spatial-main-container .cat-pill-btn,
 .cat-pill-btn {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
   background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
   border-radius: 999px !important;
   transition: all 0.2s ease !important;
 }
@@ -4831,13 +4793,13 @@ body.portal-theme {
 .spatial-main-container .cat-pill-btn:hover,
 .cat-pill-btn:hover {
   color: #FFFFFF !important;
-  background: #333333 !important;
-  border-color: #6B6B6B !important;
+  background: #011F65 !important;
+  border-color: #4A6080 !important;
 }
 
 .spatial-main-container .cat-pill-btn.active,
 .cat-pill-btn.active {
-  color: #0B0B0B !important;
+  color: #000521 !important;
   background: #FFFFFF !important;
   border-color: #FFFFFF !important;
   font-weight: 750 !important;
@@ -4847,9 +4809,9 @@ body.portal-theme {
 /* ── 8. SEARCH BOX & FORM CONTROLS ────────────────────────────────────────── */
 .spatial-main-container .search-box-gov,
 .search-box-gov {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
   background: rgba(20, 20, 20, 0.85) !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
   border-radius: 12px !important;
 }
 
@@ -4866,21 +4828,21 @@ body.portal-theme {
 
 .spatial-main-container .search-box-gov input::placeholder,
 .search-box-gov input::placeholder {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-glass-select,
 .spatial-select-pill-wrap select,
 .geo-explorer-filters .geo-filter-select {
   color: #FFFFFF !important;
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-glass-select option,
 .geo-explorer-filters .geo-filter-select option {
   color: #FFFFFF !important;
-  background: #1A1A1A !important;
+  background: #020C47 !important;
 }
 
 /* ── 9. ALL CARDS (KPI, GLASS, BENTO, STAT, ANALYTICS) ────────────────────── */
@@ -4902,12 +4864,12 @@ body.portal-theme {
 .scheme-master-card,
 .compare-district-card {
   background: rgba(26, 26, 26, 0.78) !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
   border-radius: 16px !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
-  color: #D9D9D9 !important;
+  box-shadow: 0 8px 24px rgba(1,31,101,0.16) !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .spatial-glass-card:hover,
@@ -4917,7 +4879,7 @@ body.portal-theme {
 .spatial-main-container .scheme-master-card:hover,
 .spatial-main-container .analytics-card-gov:hover {
   background: rgba(35, 35, 35, 0.85) !important;
-  border-color: #6B6B6B !important;
+  border-color: #4A6080 !important;
   transform: translateY(-1px);
 }
 
@@ -4942,7 +4904,7 @@ body.portal-theme {
 .kpi-title,
 .smc-dept,
 .smc-year-tag {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .stat-card-compact strong {
@@ -4950,11 +4912,11 @@ body.portal-theme {
 }
 
 .stat-card-compact .stat-label {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .stat-card-compact small {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
 }
 
 .stat-card-compact .text-teal,
@@ -4975,63 +4937,63 @@ body.portal-theme {
 }
 
 .spatial-main-container .smc-index-badge {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .smc-code,
 .spatial-main-container .smc-category-tag,
 .spatial-main-container .stat-pill-sm {
-  color: #D9D9D9 !important;
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  color: #D0DCF0 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .stat-pill-sm.teal {
-  background: #333333 !important;
-  border-color: #6B6B6B !important;
+  background: #011F65 !important;
+  border-color: #4A6080 !important;
   color: #FFFFFF !important;
 }
 
 .spatial-main-container .smc-expanded-body {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
   background: rgba(18, 18, 18, 0.6) !important;
-  border-top: 1px solid #333333 !important;
+  border-top: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .smc-benefit-highlight {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .benefit-label,
 .spatial-main-container .benefit-val,
 .spatial-main-container .gov-bullet-list {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .smc-footer-bar {
-  border-top: 1px solid #333333 !important;
+  border-top: 1px solid #011F65 !important;
 }
 
 /* ── 11. GOV DATA TABLES (34 DISTRICTS & COMPARISON) ──────────────────────── */
 .spatial-main-container .gov-table-wrap,
 .gov-table-wrap {
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
   border-radius: 14px !important;
-  background: #1A1A1A !important;
+  background: #020C47 !important;
 }
 
 .spatial-main-container .gov-data-table th,
 .gov-data-table th {
-  background: #1A1A1A !important;
+  background: #020C47 !important;
   color: #FFFFFF !important;
-  border-bottom: 1px solid #333333 !important;
+  border-bottom: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .gov-data-table td,
 .gov-data-table td {
-  border-bottom: 1px solid #1A1A1A !important;
-  color: #D9D9D9 !important;
+  border-bottom: 1px solid #020C47 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .gov-data-table tbody tr:hover,
@@ -5052,7 +5014,7 @@ body.portal-theme {
 
 .pilot-tag-pill {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
   font-weight: 800 !important;
 }
 
@@ -5063,7 +5025,7 @@ body.portal-theme {
 .geo-view-analysis-btn,
 .btn-wizard-next,
 .btn-wizard-view-results {
-  color: #0B0B0B !important;
+  color: #000521 !important;
   background: #FFFFFF !important;
   border: 1px solid #FFFFFF !important;
   font-weight: 750 !important;
@@ -5074,50 +5036,50 @@ body.portal-theme {
 .spatial-glowing-frosted-btn:hover,
 .btn-gis-launch:hover,
 .geo-view-analysis-btn:hover {
-  background: #D9D9D9 !important;
-  border-color: #D9D9D9 !important;
-  color: #0B0B0B !important;
+  background: #D0DCF0 !important;
+  border-color: #D0DCF0 !important;
+  color: #000521 !important;
   transform: translateY(-1px) !important;
 }
 
 .btn-demo {
-  color: #D9D9D9 !important;
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  color: #D0DCF0 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .btn-demo:hover {
   color: #FFFFFF !important;
-  background: #333333 !important;
+  background: #011F65 !important;
 }
 
 /* ── 13. MAP EXPLORER SIDEBAR & CONTROLS ──────────────────────────────────── */
 .spatial-main-container .geo-map-card,
 .geo-map-card {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .geo-detail-panel,
 .geo-detail-panel {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .geo-entity-list,
 .geo-entity-list {
-  background: #1A1A1A !important;
+  background: #020C47 !important;
 }
 
 .geo-entity-item {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .geo-entity-item:hover {
-  background: #333333 !important;
+  background: #011F65 !important;
   color: #FFFFFF !important;
 }
 
@@ -5128,13 +5090,13 @@ body.portal-theme {
 }
 
 .geo-entity-meta {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .geo-gujarat-showcase {
-  border: 1px solid #333333 !important;
-  background: linear-gradient(110deg, #1A1A1A 0%, #0B0B0B 100%) !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid #011F65 !important;
+  background: linear-gradient(110deg, #020C47 0%, #000521 100%) !important;
+  box-shadow: 0 8px 24px rgba(1,31,101,0.24) !important;
 }
 
 .geo-gujarat-showcase-kicker {
@@ -5146,7 +5108,7 @@ body.portal-theme {
 }
 
 .geo-gujarat-showcase-copy p {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
 }
 
 /* ── 14. VILLAGE SCHEME ANALYTICS HUB MODAL ───────────────────────────────── */
@@ -5156,14 +5118,14 @@ body.portal-theme {
 }
 
 .vah-modal-box {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95) !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
+  box-shadow: 0 30px 90px rgba(1,31,101,0.38) !important;
+  color: #D0DCF0 !important;
 }
 
 .vah-modal-header {
-  border-bottom: 1px solid #333333 !important;
+  border-bottom: 1px solid #011F65 !important;
 }
 
 .vah-village-title {
@@ -5171,16 +5133,16 @@ body.portal-theme {
 }
 
 .vah-subhead {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .vah-tab-btn {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
   border-bottom: 2px solid transparent !important;
 }
 
 .vah-tab-btn:hover {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
 }
 
 .vah-tab-btn.active {
@@ -5189,8 +5151,8 @@ body.portal-theme {
 }
 
 .vah-stat-card {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .vah-stat-value {
@@ -5198,12 +5160,12 @@ body.portal-theme {
 }
 
 .vah-stat-label {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .vah-spc-item {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .vah-spc-title {
@@ -5211,7 +5173,7 @@ body.portal-theme {
 }
 
 .vah-spc-meter-wrap {
-  background: #333333 !important;
+  background: #011F65 !important;
 }
 
 .vah-spc-meter-fill {
@@ -5219,7 +5181,7 @@ body.portal-theme {
 }
 
 .vah-spc-stats-row {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .vah-spc-stats-row b {
@@ -5229,14 +5191,14 @@ body.portal-theme {
 .vah-badge-emerald,
 .vah-badge-amber,
 .vah-badge-teal {
-  background: #1A1A1A !important;
-  border: 1px solid #6B6B6B !important;
+  background: #020C47 !important;
+  border: 1px solid #4A6080 !important;
   color: #FFFFFF !important;
 }
 
 .vah-saturation-banner {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
   border-left: 4px solid #FFFFFF !important;
 }
 
@@ -5245,25 +5207,25 @@ body.portal-theme {
 }
 
 .vah-sat-desc {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
 }
 
 /* ── 15. BADGES, CAPSULES & ICONS ─────────────────────────────────────────── */
 .badge-pill {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .badge-pill.active {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
   border-color: #FFFFFF !important;
 }
 
 .spatial-capsule-track {
-  background: #333333 !important;
-  border-color: #333333 !important;
+  background: #011F65 !important;
+  border-color: #011F65 !important;
 }
 
 .spatial-capsule-fill,
@@ -5273,19 +5235,19 @@ body.portal-theme {
 }
 
 .spatial-capsule-label {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-stat-icon-box,
 .spatial-action-icon,
 .spatial-check-bubble {
   color: #FFFFFF !important;
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-link-btn:hover {
-  background: #D9D9D9 !important;
+  background: #D0DCF0 !important;
 }
 
 .social-legend-item strong {
@@ -5293,7 +5255,7 @@ body.portal-theme {
 }
 
 .social-legend-item .legend-label {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
 }
 
 
@@ -5311,7 +5273,7 @@ body.portal-theme {
 
 .spatial-main-container .compare-district-card {
   background: rgba(26, 26, 26, 0.88) !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .cdc-head h2 {
@@ -5319,11 +5281,11 @@ body.portal-theme {
 }
 
 .spatial-main-container .cdc-head small {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .cdc-metric-row span {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .cdc-metric-row b {
@@ -5333,20 +5295,20 @@ body.portal-theme {
 .spatial-main-container .geo-map-box,
 .spatial-main-container .geo-map-canvas,
 .spatial-main-container .geo-sidebar-panel {
-  background: #0B0B0B !important;
-  border-color: #333333 !important;
+  background: #000521 !important;
+  border-color: #011F65 !important;
 }
 
 .spatial-main-container .geo-nav-btn {
-  background: #1A1A1A !important;
-  border-color: #333333 !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border-color: #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .geo-nav-btn:hover,
 .spatial-main-container .geo-nav-btn.active {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
   border-color: #FFFFFF !important;
 }
 
@@ -5355,29 +5317,29 @@ body.portal-theme {
 .spatial-main-container .geo-explorer,
 .spatial-main-container .geo-map-card,
 .spatial-main-container .full-map-wrapper {
-  background: #0B0B0B !important;
-  border-color: #333333 !important;
+  background: #000521 !important;
+  border-color: #011F65 !important;
   box-shadow: none !important;
 }
 
 .spatial-main-container .geo-map-toolbar {
-  background: #1A1A1A !important;
-  border-bottom: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border-bottom: 1px solid #011F65 !important;
   color: #FFFFFF !important;
 }
 
 .spatial-main-container .geo-breadcrumbs {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .geo-breadcrumbs button {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .geo-breadcrumbs button:hover,
 .spatial-main-container .geo-breadcrumbs button.is-active {
   color: #FFFFFF !important;
-  background: #333333 !important;
+  background: #011F65 !important;
 }
 
 .spatial-main-container .geo-current-crumb {
@@ -5385,44 +5347,44 @@ body.portal-theme {
 }
 
 .spatial-main-container .geo-back-button {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
   color: #FFFFFF !important;
 }
 
 .spatial-main-container .geo-back-button:hover {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
 }
 
 .spatial-main-container .geo-fy-pill,
 .spatial-main-container .geo-demo-pill {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .geo-map-controls button {
-  background: #1A1A1A !important;
+  background: #020C47 !important;
   color: #FFFFFF !important;
-  border: 1px solid #333333 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid #011F65 !important;
+  box-shadow: 0 4px 12px rgba(1,31,101,0.2) !important;
 }
 
 .spatial-main-container .geo-map-controls button:hover {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
 }
 
 .spatial-main-container .geo-zoom-status {
   background: rgba(26, 26, 26, 0.95) !important;
-  border: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  border: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .geo-zoom-status b {
   color: #FFFFFF !important;
-  border-left-color: #333333 !important;
+  border-left-color: #011F65 !important;
 }
 
 .spatial-main-container .geo-zoom-dot {
@@ -5432,24 +5394,24 @@ body.portal-theme {
 
 .spatial-main-container .geo-map-coverage-legend {
   background: rgba(26, 26, 26, 0.95) !important;
-  border: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  border: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .geo-map-hint {
   background: rgba(26, 26, 26, 0.95) !important;
-  border: 1px solid #333333 !important;
-  color: #6B6B6B !important;
+  border: 1px solid #011F65 !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .geo-detail-panel {
-  background: #1A1A1A !important;
-  border-left: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border-left: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .geo-panel-top {
-  border-bottom: 1px solid #333333 !important;
+  border-bottom: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .geo-panel-top h2 {
@@ -5457,34 +5419,34 @@ body.portal-theme {
 }
 
 .spatial-main-container .geo-panel-top p {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .geo-panel-kicker {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .geo-count-pill {
-  background: #1A1A1A !important;
+  background: #020C47 !important;
   color: #FFFFFF !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .geo-village-switch {
-  background: #1A1A1A !important;
-  color: #D9D9D9 !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  color: #D0DCF0 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .geo-village-switch:hover {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
 }
 
 .spatial-main-container .geo-list-search {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .geo-list-search input {
@@ -5492,27 +5454,27 @@ body.portal-theme {
 }
 
 .spatial-main-container .geo-list-search input::placeholder {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .geo-entity-list {
-  background: #0B0B0B !important;
-  border-top: 1px solid #333333 !important;
+  background: #000521 !important;
+  border-top: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .geo-entity-row {
-  background: #1A1A1A !important;
-  border-bottom: 1px solid #1A1A1A !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border-bottom: 1px solid #020C47 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .geo-entity-row:hover {
-  background: #1A1A1A !important;
+  background: #020C47 !important;
   color: #FFFFFF !important;
 }
 
 .spatial-main-container .geo-entity-row.is-selected {
-  background: #1A1A1A !important;
+  background: #020C47 !important;
   box-shadow: inset 3px 0 0 #FFFFFF !important;
   color: #FFFFFF !important;
 }
@@ -5520,7 +5482,7 @@ body.portal-theme {
 .spatial-main-container .geo-entity-icon,
 .spatial-main-container .geo-entity-icon--teal,
 .spatial-main-container .geo-entity-icon--amber {
-  background: #1A1A1A !important;
+  background: #020C47 !important;
   color: #FFFFFF !important;
 }
 
@@ -5529,16 +5491,16 @@ body.portal-theme {
 }
 
 .spatial-main-container .geo-entity-name small {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .geo-entity-meta {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .geo-profile-card {
-  background: #1A1A1A !important;
-  border-top: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border-top: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .geo-profile-heading h3 {
@@ -5547,23 +5509,23 @@ body.portal-theme {
 
 .spatial-main-container .geo-summary-grid > div,
 .spatial-main-container .geo-village-stats > div {
-  background: #1A1A1A !important;
+  background: #020C47 !important;
   color: #FFFFFF !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .geo-summary-grid > div small,
 .spatial-main-container .geo-village-stats > div small {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .geo-district-info-panel {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .geo-district-info-badge {
-  background: #333333 !important;
+  background: #011F65 !important;
   color: #FFFFFF !important;
 }
 
@@ -5572,21 +5534,21 @@ body.portal-theme {
 }
 
 .spatial-main-container .geo-district-name-gu {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .geo-district-meta-chip {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .geo-explorer-header {
-  border-bottom: 1px solid #333333 !important;
+  border-bottom: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .geo-explorer-eyebrow {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .geo-explorer-h1 {
@@ -5594,16 +5556,16 @@ body.portal-theme {
 }
 
 .spatial-main-container .geo-explorer-lead {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .geo-filter-control {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .geo-filter-label {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .geo-filter-select {
@@ -5612,108 +5574,108 @@ body.portal-theme {
 }
 
 .spatial-main-container .geo-filter-select option {
-  background: #1A1A1A !important;
+  background: #020C47 !important;
   color: #FFFFFF !important;
 }
 
 /* ── 18. FLOATING ASSISTANT, BANNERS, PROGRESS & GIS GATEWAY ─────────────── */
 .gov-helpdesk-floating-trigger {
-  background: #1A1A1A !important;
+  background: #020C47 !important;
   color: #FFFFFF !important;
-  border: 1px solid #333333 !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid #011F65 !important;
+  box-shadow: 0 8px 24px rgba(1,31,101,0.24) !important;
 }
 
 .gov-helpdesk-floating-trigger:hover,
 .gov-helpdesk-floating-trigger.is-open {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
   border-color: #FFFFFF !important;
   box-shadow: 0 12px 28px rgba(255, 255, 255, 0.2) !important;
 }
 
 .gov-helpdesk-popup-card {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
   color: #FFFFFF !important;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8) !important;
+  box-shadow: 0 20px 48px rgba(1,31,101,0.32) !important;
 }
 
 .ghd-card-header {
-  background: #1A1A1A !important;
+  background: #020C47 !important;
   color: #FFFFFF !important;
-  border-bottom: 1px solid #333333 !important;
+  border-bottom: 1px solid #011F65 !important;
 }
 
 .ghd-emblem-badge {
-  background: #333333 !important;
+  background: #011F65 !important;
   color: #FFFFFF !important;
 }
 
 .ghd-emergency-strip {
-  background: #1A1A1A !important;
-  color: #D9D9D9 !important;
-  border-bottom: 1px solid #333333 !important;
+  background: #020C47 !important;
+  color: #D0DCF0 !important;
+  border-bottom: 1px solid #011F65 !important;
 }
 
 .ghd-card-body {
-  background: #0B0B0B !important;
+  background: #000521 !important;
 }
 
 .ghd-msg-bubble {
-  background: #1A1A1A !important;
-  color: #D9D9D9 !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  color: #D0DCF0 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .ghd-message--user .ghd-msg-bubble {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
   border-color: #FFFFFF !important;
 }
 
 .ghd-quick-prompts-bar {
-  background: #1A1A1A !important;
-  border-top: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border-top: 1px solid #011F65 !important;
 }
 
 .ghd-prompt-chip {
-  background: #1A1A1A !important;
-  color: #D9D9D9 !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  color: #D0DCF0 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .ghd-prompt-chip:hover {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
   border-color: #FFFFFF !important;
 }
 
 .ghd-card-footer {
-  background: #1A1A1A !important;
-  border-top: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border-top: 1px solid #011F65 !important;
 }
 
 .ghd-card-footer input {
-  background: #0B0B0B !important;
+  background: #000521 !important;
   color: #FFFFFF !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .ghd-send-btn {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
 }
 
 .spatial-main-container .demo-banner-gov {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .demo-symbol-gov {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
   color: #FFFFFF !important;
 }
 
@@ -5722,24 +5684,24 @@ body.portal-theme {
 }
 
 .spatial-main-container .demo-text-gov span {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .demo-btn-gov {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
   border: 1px solid #FFFFFF !important;
 }
 
 .spatial-main-container .spatial-demo-disclaimer {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .spatial-demo-icon {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
   color: #FFFFFF !important;
 }
 
@@ -5748,40 +5710,40 @@ body.portal-theme {
 }
 
 .spatial-main-container .spatial-demo-text span {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .spatial-demo-action {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
   border: 1px solid #FFFFFF !important;
 }
 
 .spatial-main-container .btn-primary-gov {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
   border: 1px solid #FFFFFF !important;
 }
 
 .spatial-main-container .btn-primary-gov:hover {
-  background: #D9D9D9 !important;
-  color: #0B0B0B !important;
+  background: #D0DCF0 !important;
+  color: #000521 !important;
 }
 
 .spatial-main-container .btn-secondary-gov {
-  background: #1A1A1A !important;
-  color: #D9D9D9 !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  color: #D0DCF0 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .btn-secondary-gov:hover {
-  background: #333333 !important;
+  background: #011F65 !important;
   color: #FFFFFF !important;
 }
 
 .spatial-main-container .kpi-icon {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
   color: #FFFFFF !important;
 }
 
@@ -5790,49 +5752,49 @@ body.portal-theme {
 .spatial-main-container .kpi-icon.tone-2,
 .spatial-main-container .kpi-icon.tone-3 {
   color: #FFFFFF !important;
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .trend-up,
 .spatial-main-container .trend-down {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
   color: #FFFFFF !important;
 }
 
 .spatial-main-container .gujarat-gis-gateway-card {
   background: rgba(26, 26, 26, 0.88) !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .gis-gateway-tag {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .gis-stat-pill {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .btn-gis-launch {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
   border: 1px solid #FFFFFF !important;
 }
 
 .spatial-main-container .btn-gis-launch:hover {
-  background: #D9D9D9 !important;
-  color: #0B0B0B !important;
+  background: #D0DCF0 !important;
+  color: #000521 !important;
 }
 
 .spatial-main-container .rank-badge {
-  background: #1A1A1A !important;
+  background: #020C47 !important;
   color: #FFFFFF !important;
-  border: 1px solid #333333 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .table-rate-bar span {
@@ -5844,9 +5806,9 @@ body.portal-theme {
 }
 
 .spatial-main-container .ai-insight-banner {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
-  color: #D9D9D9 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
+  color: #D0DCF0 !important;
 }
 
 .spatial-main-container .ai-insight-icon {
@@ -5854,35 +5816,35 @@ body.portal-theme {
 }
 
 .spatial-main-container .compare-selectors-bar {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
 }
 
 .spatial-main-container .compare-pick-box label {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 .spatial-main-container .compare-pick-box select {
-  background: #0B0B0B !important;
-  border: 1px solid #333333 !important;
+  background: #000521 !important;
+  border: 1px solid #011F65 !important;
   color: #FFFFFF !important;
 }
 
 .spatial-main-container .compare-vs-badge {
-  background: #333333 !important;
-  border: 1px solid #333333 !important;
+  background: #011F65 !important;
+  border: 1px solid #011F65 !important;
   color: #FFFFFF !important;
 }
 
 .spatial-main-container .leading-pill {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
   color: #FFFFFF !important;
 }
 
 .spatial-main-container .card-badge-pill {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
   color: #FFFFFF !important;
 }
 
@@ -5891,8 +5853,8 @@ body.portal-theme {
 }
 
 .spatial-main-container .dbt-rate-pill {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
   color: #FFFFFF !important;
 }
 
@@ -5903,7 +5865,7 @@ body.portal-theme {
 .spatial-main-container .badge-pill-success,
 .badge-pill-success {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
   border: 1px solid #FFFFFF !important;
   font-size: 10px !important;
   font-weight: 700 !important;
@@ -5914,22 +5876,22 @@ body.portal-theme {
 /* badge-pill base → dark charcoal */
 .spatial-main-container .badge-pill,
 .badge-pill {
-  background: #1A1A1A !important;
-  color: #D9D9D9 !important;
-  border: 1px solid #333333 !important;
+  background: #020C47 !important;
+  color: #D0DCF0 !important;
+  border: 1px solid #011F65 !important;
 }
 
 /* geo-map-loading / geo-map-error — dark */
 .geo-map-loading,
 .geo-map-error {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
   background: rgba(26, 26, 26, 0.95) !important;
-  border: 1px solid #333333 !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid #011F65 !important;
+  box-shadow: 0 2px 8px rgba(1,31,101,0.2) !important;
 }
 .geo-map-error {
-  color: #6B6B6B !important;
-  background: #1A1A1A !important;
+  color: #4A6080 !important;
+  background: #020C47 !important;
 }
 
 /* text-sky class (SVG icon color) */
@@ -5940,34 +5902,34 @@ body.portal-theme {
 
 /* text-mono-* utility classes used in patched TSX files */
 .text-mono-white  { color: #FFFFFF !important; }
-.text-mono-silver { color: #D9D9D9 !important; }
-.text-mono-mid    { color: #6B6B6B !important; }
+.text-mono-silver { color: #D0DCF0 !important; }
+.text-mono-mid    { color: #4A6080 !important; }
 
 /* Footer → dark */
 .footer-gov {
   margin-top: 40px !important;
   padding-top: 20px !important;
-  border-top: 1px solid #333333 !important;
-  background: #0B0B0B !important;
-  color: #6B6B6B !important;
+  border-top: 1px solid #011F65 !important;
+  background: #000521 !important;
+  color: #4A6080 !important;
 }
 
 /* alert-success-gov → monochrome */
 .alert-success-gov,
 .alert-success-gov span {
   color: #FFFFFF !important;
-  background: #1A1A1A !important;
-  border-color: #333333 !important;
+  background: #020C47 !important;
+  border-color: #011F65 !important;
 }
 
 /* progress bar track → dark */
 .progress-track-gov {
-  background: #333333 !important;
+  background: #011F65 !important;
 }
 
 /* stat-label text */
 .stat-label {
-  color: #6B6B6B !important;
+  color: #4A6080 !important;
 }
 
 /* gis-stat-pill icon color inherit fix */
@@ -5990,7 +5952,7 @@ body.portal-theme {
 /* trophy / award icon */
 .text-amber svg,
 svg.text-amber {
-  color: #D9D9D9 !important;
+  color: #D0DCF0 !important;
 }
 
 
@@ -5998,9 +5960,9 @@ svg.text-amber {
 /* === SECTION 20: Final Ultra-Monochrome Direct Overrides ================= */
 .gujarat-gis-gateway-card,
 .spatial-main-container .gujarat-gis-gateway-card {
-  background: #1A1A1A !important;
-  border: 1px solid #333333 !important;
-  box-shadow: 0 12px 36px -6px rgba(0, 0, 0, 0.6) !important;
+  background: #020C47 !important;
+  border: 1px solid #011F65 !important;
+  box-shadow: 0 12px 36px -6px rgba(1,31,101,0.24) !important;
 }
 
 .gujarat-gis-gateway-card::before,
@@ -6016,15 +5978,15 @@ svg.text-amber {
 .btn-gis-launch,
 .spatial-main-container .btn-gis-launch {
   background: #FFFFFF !important;
-  color: #0B0B0B !important;
+  color: #000521 !important;
   border: 1px solid #FFFFFF !important;
   font-weight: 700 !important;
 }
 
 .btn-gis-launch:hover,
 .spatial-main-container .btn-gis-launch:hover {
-  background: #D9D9D9 !important;
-  color: #0B0B0B !important;
+  background: #D0DCF0 !important;
+  color: #000521 !important;
 }
 
 /* Ensure no radial gradients leak color */
@@ -6039,5 +6001,5 @@ svg.text-amber {
 .spatial-main-container img,
 .dr-hero__img,
 .overview-view-container img {
-  filter: grayscale(100%) contrast(115%) brightness(0.65) !important;
+  /* natural photography */
 }

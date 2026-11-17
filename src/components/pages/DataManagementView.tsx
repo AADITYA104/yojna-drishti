@@ -202,19 +202,19 @@ export function DataManagementView({ gu }: { gu: boolean }) {
           <strong className="text-mono-white">{checkedValues.districts}</strong>
           <small>{gu ? "LGD master" : "LGD master"}</small>
         </div>
-        <div className="stat-card-compact" style={{ borderLeft: "3px solid #D9D9D9" }}>
-          <HardDrive size={16} style={{ color: "#D9D9D9" }} />
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #D0DCF0" }}>
+          <HardDrive size={16} style={{ color: "#D0DCF0" }} />
           <span className="stat-label">{gu ? "ઉ.જ." : "Subdistricts"}</span>
           <strong className="text-mono-white">{checkedValues.talukas}</strong>
           <small>{gu ? "LGD 309" : "LGD 309"}</small>
         </div>
-        <div className="stat-card-compact" style={{ borderLeft: "3px solid #6B6B6B" }}>
-          <Activity size={16} style={{ color: "#6B6B6B" }} />
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #4A6080" }}>
+          <Activity size={16} style={{ color: "#4A6080" }} />
           <span className="stat-label">{gu ? "ઘોઘા ગ.ટ." : "Ghogha Vil."}</span>
           <strong className="text-mono-white">{checkedValues.ghoghaVillages}</strong>
           <small>{gu ? "Pilot" : "Pilot"}</small>
         </div>
-        <div className="stat-card-compact" style={{ borderLeft: "3px solid #333333" }}>
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #011F65" }}>
           <Database size={16} className="text-mono-silver" />
           <span className="stat-label">{gu ? "સ્ત્રોત" : "Data Source"}</span>
           <strong className="text-mono-silver">{gu ? "ઉ. / Local" : "DEMO / LOCAL"}</strong>
