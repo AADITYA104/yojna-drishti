@@ -214,13 +214,21 @@ export function SpatialShell() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3 }}
+              className="space-y-10"
             >
               <SpatialBentoDashboard
                 gu={gu}
                 lang={lang}
                 fy={fy}
                 onNavigate={(view) => {
-                  if (view === "map" || view === "schemes" || view === "wizard" || view === "saved" || view === "settings") {
+                  if (view === "map") {
+                    const mapElement = document.getElementById("spatial-gujarat-map");
+                    if (mapElement) {
+                      mapElement.scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      setActiveKey("map");
+                    }
+                  } else if (view === "schemes" || view === "wizard" || view === "saved" || view === "settings") {
                     setActiveKey(view);
                   } else {
                     setActiveKey("schemes");
@@ -231,6 +239,11 @@ export function SpatialShell() {
                   setActiveKey("schemes");
                 }}
               />
+
+              {/* Integrated 33-District Gujarat Map & Village Scheme Analytics Hub on Main Dashboard */}
+              <section id="spatial-gujarat-map" className="mt-10 pt-6 border-t border-white/10">
+                <MapExplorerView gu={gu} lang={lang} fy={fy} focusRequest={focusRequest} />
+              </section>
             </motion.div>
           )}
 
