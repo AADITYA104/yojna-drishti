@@ -198,7 +198,7 @@ export function DistrictIntelligenceView({
                   <span>{gu ? selectedDistrict.gu : selectedDistrict.name} {gu ? "જિલ્લો" : "District"}</span>
                 </h3>
                 <span className="dhsc-hq-tag">
-                  <Building2 size={13} className="inline mr-1 text-teal" />
+                  <Building2 size={13} className="inline mr-1 text-mono-white" />
                   {gu ? `મુખ્ય મથક: ${selectedDistrict.headquartersGu}` : `HQ: ${selectedDistrict.headquarters}`}
                 </span>
               </div>
@@ -242,12 +242,12 @@ export function DistrictIntelligenceView({
             </div>
             <div className="stat-card-compact">
               <span className="stat-label">{gu ? "મંજૂરી ટકાવારી" : "Approval Rate"}</span>
-              <strong className="text-teal">{stats.rate}%</strong>
+              <strong className="text-mono-white">{stats.rate}%</strong>
               <small>{gu ? "ડેમો ગુણોત્તર · ચકાસાયેલ નથી" : "Demo ratio · unverified"}</small>
             </div>
             <div className="stat-card-compact">
               <span className="stat-label">{gu ? "વિતરિત ભંડોળ" : "Disbursed"}</span>
-              <strong className="text-amber">₹ {fmt(stats.disb)} Cr</strong>
+              <strong className="text-mono-silver">₹ {fmt(stats.disb)} Cr</strong>
               <small>{gu ? "DBT બેંક ટ્રાન્સફર" : "Direct Benefit Transfer"}</small>
             </div>
           </div>

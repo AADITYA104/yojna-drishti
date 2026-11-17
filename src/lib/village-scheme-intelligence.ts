@@ -441,3 +441,16 @@ export function searchVillagesAcrossGujarat(query: string, districtId?: string):
     );
   }).slice(0, 24);
 }
+
+export function getAllSearchableVillages(): EnhancedVillageRecord[] {
+  const pool: EnhancedVillageRecord[] = [...ALL_GHOGHA_ENHANCED_VILLAGES];
+  const presetKeys = Object.keys(SAMPLE_TALUKA_VILLAGE_NAMES);
+  for (const pKey of presetKeys) {
+    const sub = MASTER_SUBDISTRICTS.find((s) => s.nameEn.toLowerCase() === pKey);
+    if (sub) {
+      pool.push(...getVillagesForSubdistrict(sub.code, sub.districtId));
+    }
+  }
+  return pool;
+}
+

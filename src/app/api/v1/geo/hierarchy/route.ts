@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { MASTER_DISTRICTS, MASTER_SUBDISTRICTS, getSubdistrictsForDistrict } from "@/lib/master-hierarchy";
-import fs from "fs";
+import fs from "fs/promises";
 import path from "path";
 
 export async function GET(request: NextRequest) {
@@ -15,29 +15,29 @@ export async function GET(request: NextRequest) {
     const subCode = parseInt(subdistrictCodeParam, 10);
     const filePath = path.join(process.cwd(), "public", "data", "hierarchy", "villages", `${subCode}.json`);
     
-    if (fs.existsSync(filePath)) {
-      try {
-        const fileContent = fs.readFileSync(filePath, "utf-8");
-        let villages = JSON.parse(fileContent);
+    try {
+      const fileContent = await fs.readFile(filePath, "utf-8");
+      let villages = JSON.parse(fileContent);
 
-        if (query) {
-          villages = villages.filter((v: { nameEn: string; code: string }) => 
-            v.nameEn.toLowerCase().includes(query) || v.code.includes(query)
-          );
-        }
-
-        return NextResponse.json({
-          status: "success",
-          level: "villages",
-          subdistrictCode: subCode,
-          count: villages.length,
-          data: villages,
-        });
-      } catch (err) {
-        return NextResponse.json({ status: "error", message: "Failed reading village file" }, { status: 500 });
+      if (query) {
+        villages = villages.filter((v: { nameEn: string; code: string }) => 
+          v.nameEn.toLowerCase().includes(query) || v.code.includes(query)
+        );
       }
-    } else {
-      return NextResponse.json({ status: "error", message: "Subdistrict not found" }, { status: 404 });
+
+      return NextResponse.json({
+        status: "success",
+        level: "villages",
+        subdistrictCode: subCode,
+        count: villages.length,
+        data: villages,
+      }, { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=300" } });
+    } catch (err: unknown) {
+      const error = err as { code?: string };
+      if (error?.code === "ENOENT") {
+        return NextResponse.json({ status: "error", message: "Subdistrict not found" }, { status: 404 });
+      }
+      return NextResponse.json({ status: "error", message: "Failed reading village file" }, { status: 500 });
     }
   }
 
@@ -62,7 +62,7 @@ export async function GET(request: NextRequest) {
       level: "subdistricts",
       count: subdistricts.length,
       data: subdistricts,
-    });
+    }, { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=600" } });
   }
 
   // 3. Default: return all 34 districts
@@ -80,5 +80,5 @@ export async function GET(request: NextRequest) {
     level: "districts",
     count: districts.length,
     data: districts,
-  });
+  }, { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=600" } });
 }

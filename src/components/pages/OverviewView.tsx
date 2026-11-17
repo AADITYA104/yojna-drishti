@@ -95,13 +95,13 @@ export function OverviewView({
       xAxis: {
         type: "category",
         data: names,
-        axisLine: { lineStyle: { color: "#cbd5e1" } },
-        axisLabel: { color: "#475569", fontSize: 11, interval: 0 },
+        axisLine: { lineStyle: { color: "#D0DCF0" } },
+        axisLabel: { color: "#4A6080", fontSize: 11, interval: 0 },
       },
       yAxis: {
         type: "value",
-        axisLabel: { color: "#64748b", fontSize: 10 },
-        splitLine: { lineStyle: { color: "#f1f5f9" } },
+        axisLabel: { color: "#4A6080", fontSize: 10 },
+        splitLine: { lineStyle: { color: "rgba(255, 255, 255, 0.06)" } },
       },
       series: [
         {
@@ -111,7 +111,7 @@ export function OverviewView({
           data: vals.map((val, idx) => ({
             value: val,
             itemStyle: {
-              color: idx === 3 ? "#0f766e" : "#0284c7",
+              color: idx === 3 ? "#2078CF" : "#0E4EB2",
               borderRadius: [4, 4, 0, 0],
             },
           })),
@@ -136,8 +136,8 @@ export function OverviewView({
     const pendingCount = Math.max(0, totalApps - totalApproved);
 
     donut.setOption({
-      tooltip: { trigger: "item", formatter: "{b}: {c} ({d}%)" },
-      legend: { bottom: "0%", left: "center", itemWidth: 10, itemHeight: 10 },
+      tooltip: { trigger: "item", backgroundColor: "#020C47", borderColor: "#011F65", textStyle: { color: "#FFFFFF" }, formatter: "{b}: {c} ({d}%)" },
+      legend: { bottom: "0%", left: "center", itemWidth: 10, itemHeight: 10, textStyle: { color: "#011F65" } },
       series: [
         {
           name: gu ? "અરજી સ્થિતિ" : "Application Status",
@@ -151,12 +151,12 @@ export function OverviewView({
             {
               value: approvedCount,
               name: gu ? "મંજૂર અરજીઓ" : "Approved",
-              itemStyle: { color: "#0f766e" },
+              itemStyle: { color: "#2078CF", borderColor: "#011F65", borderWidth: 2 },
             },
             {
               value: pendingCount,
               name: gu ? "પ્રક્રિયા હેઠળ" : "Under Process",
-              itemStyle: { color: "#eab308" },
+              itemStyle: { color: "#A8C0E0", borderColor: "#0E4EB2", borderWidth: 2 },
             },
           ],
         },
@@ -259,7 +259,7 @@ export function OverviewView({
       {/* Administrative Coverage Bar */}
       <div className="admin-coverage-bar">
         <div className="coverage-unit">
-          <Building2 size={16} className="text-teal" />
+          <Building2 size={16} className="text-mono-white" />
           <div>
             <strong>34</strong>
             <span>{gu ? "જિલ્લાઓ (વાવ-થરાદ સહિત)" : "Districts (inc. Vav-Tharad)"}</span>
@@ -267,7 +267,7 @@ export function OverviewView({
         </div>
         <div className="coverage-divider" />
         <div className="coverage-unit">
-          <Landmark size={16} className="text-navy" />
+          <Landmark size={16} className="text-mono-white" />
           <div>
             <strong>309</strong>
             <span>{gu ? "અધિકૃત તાલુકાઓ (LGD)" : "Talukas (Official LGD)"}</span>
@@ -275,7 +275,7 @@ export function OverviewView({
         </div>
         <div className="coverage-divider" />
         <div className="coverage-unit">
-          <Home size={16} className="text-amber" />
+          <Home size={16} className="text-mono-white" />
           <div>
             <strong>19,201</strong>
             <span>{gu ? "ગામો (૧૮,૫૦૦+ વાસ્તવિક યોજના પહોંચ)" : "Villages (18,500+ Grassroots Reach)"}</span>
@@ -283,7 +283,7 @@ export function OverviewView({
         </div>
         <div className="coverage-divider" />
         <div className="coverage-unit">
-          <CheckCircle2 size={16} className="text-emerald" />
+          <CheckCircle2 size={16} className="text-mono-white" />
           <div>
             <strong>{demoSchemes.length}</strong>
             <span>{gu ? "સક્રિય યોજનાઓ (૫ મુખ્ય + ૫ વિસ્તૃત)" : "Schemes (5 Core + 5 Ext)"}</span>
@@ -305,10 +305,10 @@ export function OverviewView({
               : "Explore live scheme delivery, saturation rates, and DBT disbursement mapped across all 34 districts, 309 talukas, and 18,500+ grassroots villages."}
           </p>
           <div className="gis-gateway-stats">
-            <span className="gis-stat-pill"><Building2 size={13} className="inline mr-1 text-teal" /><b>34</b> {gu ? "જિલ્લા [GJ-01 થી GJ-39]" : "Districts"}</span>
-            <span className="gis-stat-pill"><MapPin size={13} className="inline mr-1 text-sky" /><b>309</b> {gu ? "તાલુકા" : "Talukas"}</span>
-            <span className="gis-stat-pill"><Home size={13} className="inline mr-1 text-amber" /><b>18,500+</b> {gu ? "ગામો નકશા પર" : "Villages"}</span>
-            <span className="gis-stat-pill"><CheckCircle2 size={13} className="inline mr-1 text-emerald" /><b>{demoSchemes.length}</b> {gu ? "યોજનાઓ" : "Schemes"}</span>
+            <span className="gis-stat-pill"><Building2 size={13} className="inline mr-1 text-mono-white" /><b>34</b> {gu ? "જિલ્લા [GJ-01 થી GJ-39]" : "Districts"}</span>
+            <span className="gis-stat-pill"><MapPin size={13} className="inline mr-1 text-mono-white" /><b>309</b> {gu ? "તાલુકા" : "Talukas"}</span>
+            <span className="gis-stat-pill"><Home size={13} className="inline mr-1 text-mono-white" /><b>18,500+</b> {gu ? "ગામો નકશા પર" : "Villages"}</span>
+            <span className="gis-stat-pill"><CheckCircle2 size={13} className="inline mr-1 text-mono-white" /><b>{demoSchemes.length}</b> {gu ? "યોજનાઓ" : "Schemes"}</span>
           </div>
         </div>
 
@@ -416,7 +416,7 @@ export function OverviewView({
                       </div>
                     </td>
                     <td>
-                      <strong className="text-teal">₹ {fmt(d.disbursed)} Cr</strong>
+                      <strong className="text-mono-white">₹ {fmt(d.disbursed)} Cr</strong>
                     </td>
                     <td>
                       <button

@@ -8,6 +8,10 @@ import {
   RefreshCw,
   ShieldCheck,
   UploadCloud,
+  Sparkles,
+  Activity,
+  HardDrive,
+  Layers,
 } from "lucide-react";
 
 type HierarchyCheck = {
@@ -180,8 +184,46 @@ export function DataManagementView({ gu }: { gu: boolean }) {
         </div>
       </div>
 
+      {/* AI Insight Banner */}
+      <div className="ai-insight-banner">
+        <Sparkles size={17} className="ai-insight-icon" />
+        <p>
+          {gu
+            ? `🤖 AI સૂઝ (ઉ.): ${checkedValues.districts} જિલ્લા · ${checkedValues.talukas} ઉ.જ. · ${checkedValues.ghoghaVillages} ઘોઘા ગ.ટ. ફ.ત. Load. CSV validate કરવા ઉપર ડ્રોપ ઝોન વાપરો — format error AI detect કરે છે.`
+            : `🤖 AI Insight (demo): ${checkedValues.districts} districts · ${checkedValues.talukas} sub-districts · ${checkedValues.ghoghaVillages} Ghogha villages loaded. Drop a CSV above — AI detects format errors, duplicate headers, and row mismatches instantly.`}
+        </p>
+      </div>
+
+      {/* Data Health Cards */}
+      <div className="stats-strip-4" style={{ marginBottom: "0.5rem" }}>
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #FFFFFF" }}>
+          <Layers size={16} className="text-mono-white" />
+          <span className="stat-label">{gu ? "জিল્લા" : "Districts"}</span>
+          <strong className="text-mono-white">{checkedValues.districts}</strong>
+          <small>{gu ? "LGD master" : "LGD master"}</small>
+        </div>
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #D0DCF0" }}>
+          <HardDrive size={16} style={{ color: "#D0DCF0" }} />
+          <span className="stat-label">{gu ? "ઉ.જ." : "Subdistricts"}</span>
+          <strong className="text-mono-white">{checkedValues.talukas}</strong>
+          <small>{gu ? "LGD 309" : "LGD 309"}</small>
+        </div>
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #4A6080" }}>
+          <Activity size={16} style={{ color: "#4A6080" }} />
+          <span className="stat-label">{gu ? "ઘોઘા ગ.ટ." : "Ghogha Vil."}</span>
+          <strong className="text-mono-white">{checkedValues.ghoghaVillages}</strong>
+          <small>{gu ? "Pilot" : "Pilot"}</small>
+        </div>
+        <div className="stat-card-compact" style={{ borderLeft: "3px solid #011F65" }}>
+          <Database size={16} className="text-mono-silver" />
+          <span className="stat-label">{gu ? "સ્ત્રોત" : "Data Source"}</span>
+          <strong className="text-mono-silver">{gu ? "ઉ. / Local" : "DEMO / LOCAL"}</strong>
+          <small>{gu ? "No Gov. API" : "No Gov. API"}</small>
+        </div>
+      </div>
+
       <div className="data-security-alert-bar">
-        <ShieldCheck size={18} className="text-teal" />
+        <ShieldCheck size={18} className="text-mono-white" />
         <div>
           <strong>{gu ? "ડેમો અને સ્થાનિક ડેટા:" : "Demo and local data:"}</strong>{" "}
           <span>{gu ? "હાલના આંકડા આ પ્રોજેક્ટના પૂર્વદર્શન માટે છે; કોઈ ફાઇલ અપલોડ, મંજૂર કે પ્રકાશિત થતી નથી." : "Current figures are project preview data. Selected files stay in this browser and are not uploaded, approved, or published."}</span>
@@ -202,22 +244,22 @@ export function DataManagementView({ gu }: { gu: boolean }) {
       <div className="stats-strip-4">
         <div className="stat-card-compact">
           <span className="stat-label">{gu ? "સ્થાનિક જિલ્લા નિર્દેશિકા" : "Local district directory"}</span>
-          <strong className="text-navy">{checkedValues.districts} {gu ? "જિલ્લા" : "districts"}</strong>
+          <strong className="text-mono-white">{checkedValues.districts} {gu ? "જિલ્લા" : "districts"}</strong>
           <small>{gu ? "પ્રોજેક્ટની hierarchy" : "Project hierarchy files"}</small>
         </div>
         <div className="stat-card-compact">
           <span className="stat-label">{gu ? "સ્થાનિક તાલુકા નિર્દેશિકા" : "Local subdistrict directory"}</span>
-          <strong className="text-navy">{checkedValues.talukas} {gu ? "નોંધ" : "records"}</strong>
+          <strong className="text-mono-white">{checkedValues.talukas} {gu ? "નોંધ" : "records"}</strong>
           <small>{gu ? "પ્રોજેક્ટની hierarchy" : "Project hierarchy files"}</small>
         </div>
         <div className="stat-card-compact">
           <span className="stat-label">{gu ? "ઘોઘાની ગામ યાદી" : "Ghogha village list"}</span>
-          <strong className="text-navy">{checkedValues.ghoghaVillages} {gu ? "ગામ" : "villages"}</strong>
+          <strong className="text-mono-white">{checkedValues.ghoghaVillages} {gu ? "ગામ" : "villages"}</strong>
           <small>{gu ? "સ્થાનિક pilot યાદી" : "Local pilot list"}</small>
         </div>
         <div className="stat-card-compact">
           <span className="stat-label">{gu ? "ડેટાનો સ્ત્રોત" : "Data source"}</span>
-          <strong className="text-amber">{gu ? "ડેમો / સ્થાનિક" : "DEMO / LOCAL"}</strong>
+          <strong className="text-mono-silver">{gu ? "ડેમો / સ્થાનિક" : "DEMO / LOCAL"}</strong>
           <small>{gu ? "સરકારી API જોડાયેલ નથી" : "No government API connected"}</small>
         </div>
       </div>
@@ -228,7 +270,7 @@ export function DataManagementView({ gu }: { gu: boolean }) {
             <h3>{gu ? "CSV / GeoJSON ફાઇલની માળખાકીય તપાસ" : "CSV / GeoJSON Structural Validation"}</h3>
             <small>{gu ? "ફાઇલ આ બ્રાઉઝરમાં જ વાંચવામાં આવશે; કોઈ ડેટાબેઝમાં સંગ્રહ નહીં થાય." : "The file is read in this browser only; nothing is saved to a database."}</small>
           </div>
-          <Database size={19} className="text-teal" />
+          <Database size={19} className="text-mono-white" />
         </div>
 
         <div

@@ -160,14 +160,14 @@ export function TalukaIntelligenceView({
                 </div>
                 <div className="tgc-stat">
                   <small>{gu ? "ચૂકવણી" : "Disbursed"}</small>
-                  <strong className="text-teal">{disbCr === null ? "—" : `₹${disbCr} Cr`}</strong>
+                  <strong className="text-mono-white">{disbCr === null ? "—" : `₹${disbCr} Cr`}</strong>
                   {isPilot && <small>{gu ? "ડેમો" : "Demo"}</small>}
                 </div>
               </div>
 
               <div className="tgc-footer">
                 <span className="tgc-clearance">
-                  {isPilot && <CheckCircle2 size={13} className="text-teal" />}
+                  {isPilot && <CheckCircle2 size={13} className="text-mono-white" />}
                   <span>{approvalRate === null ? (gu ? "યોજના આંકડા ઉપલબ્ધ નથી" : "Scheme metrics unavailable") : `${approvalRate}% ${gu ? "મંજૂરી · ડેમો" : "approval · demo"}`}</span>
                 </span>
 

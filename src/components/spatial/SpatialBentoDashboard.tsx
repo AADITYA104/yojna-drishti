@@ -167,17 +167,23 @@ export function SpatialBentoDashboard({
 
   const monthLabel = new Intl.DateTimeFormat(getLocale(lang), { month: "long", year: "numeric" }).format(calendarMonth);
 
+  // FIX M-06: Stale closure bug — compute the new firstVisibleDay correctly
+  // before using it, instead of reading the stale captured value.
   const handlePrevWeek = () => {
     if (weekOffset > 0) {
-      setWeekOffset((prev) => prev - 1);
-      setActiveDay(Math.max(1, firstVisibleDay - 7));
+      const newOffset = weekOffset - 1;
+      const newFirstVisible = 1 - firstWeekday + newOffset * 7;
+      setWeekOffset(newOffset);
+      setActiveDay(Math.max(1, newFirstVisible));
     }
   };
 
   const handleNextWeek = () => {
     if (weekOffset < maxWeekOffset) {
-      setWeekOffset((prev) => prev + 1);
-      setActiveDay(Math.max(1, firstVisibleDay + 7));
+      const newOffset = weekOffset + 1;
+      const newFirstVisible = 1 - firstWeekday + newOffset * 7;
+      setWeekOffset(newOffset);
+      setActiveDay(Math.max(1, newFirstVisible));
     }
   };
 

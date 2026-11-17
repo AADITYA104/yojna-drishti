@@ -4,14 +4,17 @@ import React, { useState, useMemo } from "react";
 import {
   FileText,
   Search,
-  Filter,
-  CheckCircle2,
+  Download,
   Users,
   Wallet,
+  Building2,
+  MapPin,
+  Sparkles,
+  BarChart2,
+  CheckCircle2,
   ShieldCheck,
-  Eye,
-  Download,
   Printer,
+  Eye,
 } from "lucide-react";
 import {
   demoDistricts,
@@ -126,9 +129,49 @@ export function ReportsCenterView({ gu, fy }: ReportsCenterViewProps) {
         </div>
       </div>
 
+      {/* AI Insight Banner */}
+      <div className="ai-insight-banner">
+        <Sparkles size={17} className="ai-insight-icon" />
+        <p>
+          {gu
+            ? `🤖 AI સૂઝ (ઉ.): ${filteredDistricts.length} જિલ્લા — ₹${filteredDistricts.reduce((s, d) => s + scaleDemoAmount(d.disbursed, fy), 0).toFixed(0)} Cr ચૂકવણી. District view CSVમાં export કરી BI tool (Power BI / Tableau)માં visualize કરો.`
+            : `🤖 AI Insight (demo): ${filteredDistricts.length} districts — ₹${filteredDistricts.reduce((s, d) => s + scaleDemoAmount(d.disbursed, fy), 0).toFixed(0)} Cr disbursed. Export to CSV for BI tools (Power BI / Tableau) for deeper insights.`}
+        </p>
+      </div>
+
+      {/* Quick Report Templates */}
+      <div className="panel-gov">
+        <div className="panel-gov-head">
+          <div>
+            <h3>{gu ? "રિપોર્ટ ટેમ્પ્લેટ" : "Report Templates"}</h3>
+            <small>{gu ? "ઝડપી export ટૂલ્સ (ઉ. ડેટા)" : "Quick export tools (demo data)"}</small>
+          </div>
+          <BarChart2 size={18} className="text-mono-white" />
+        </div>
+        <div className="report-templates-grid">
+          {[
+            { icon: <Building2 size={18} />, color: "#FFFFFF", titleEn: "District Summary", titleGu: "જિલ્લા સારાંશ", descEn: "34 districts · beneficiaries · disbursed · approval rate", descGu: "34 જિલ્લા · લ. · ચૂ. · અ.%", badge: "CSV", badgeClass: "csv", key: "districts" as const },
+            { icon: <MapPin size={18} />, color: "#D0DCF0", titleEn: "Taluka Directory", titleGu: "તાલુકા ડિરેક્ટરી", descEn: "Sample talukas · villages · population", descGu: "નમૂના તાલુકા · ગ.ટ. · વ.સ.", badge: "CSV", badgeClass: "csv", key: "talukas" as const },
+            { icon: <Users size={18} />, color: "#4A6080", titleEn: "Village Register", titleGu: "ગ.ટ. રજિસ્ટર", descEn: "Ghogha 48 villages · anganwadi · households", descGu: "ઘોઘા ૪૮ ગ.ટ. · અ.ક. · ઘ.સ.", badge: "Demo", badgeClass: "demo", key: "villages" as const },
+            { icon: <FileText size={18} />, color: "#011F65", titleEn: "Scheme Catalogue", titleGu: "યોજના સૂચિ", descEn: "10 schemes · eligibility · budget · disbursed", descGu: "૧૦ યોજના · ઓ.ક. · બ. · ચૂ.", badge: "CSV", badgeClass: "csv", key: "schemes" as const },
+            { icon: <Wallet size={18} />, color: "#4A6080", titleEn: "Financial Overview", titleGu: "નાણાં ઝાંખી", descEn: "Budget allocated vs disbursed by scheme", descGu: "ફ.ફ. vs ચૂ. — યોજના પ્રમાણ", badge: "Demo", badgeClass: "demo", key: "schemes" as const },
+            { icon: <CheckCircle2 size={18} />, color: "#FFFFFF", titleEn: "Approval Analytics", titleGu: "મ.દ. વિશ્લેષણ", descEn: "Approval rates across all districts", descGu: "34 જિલ્લા — મ.દ. analytics", badge: "CSV", badgeClass: "csv", key: "districts" as const },
+          ].map((t, i) => (
+            <div key={i} className="report-template-card" onClick={() => setReportType(t.key)}>
+              <div className="rtc-icon" style={{ background: `${t.color}22` }}>
+                <span style={{ color: t.color }}>{t.icon}</span>
+              </div>
+              <div className="rtc-title">{gu ? t.titleGu : t.titleEn}</div>
+              <div className="rtc-desc">{gu ? t.descGu : t.descEn}</div>
+              <span className={`rtc-badge ${t.badgeClass}`}>{t.badge}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Security Governance Notice */}
       <div className="data-security-alert-bar">
-        <ShieldCheck size={18} className="text-teal" />
+        <ShieldCheck size={18} className="text-mono-white" />
         <div>
           <strong>{gu ? "ડેટા ગવર્નન્સ અને ગોપનીયતા સુરક્ષા:" : "Data Governance & Privacy Security:"}</strong>{" "}
           <span>
@@ -207,7 +250,7 @@ export function ReportsCenterView({ gu, fy }: ReportsCenterViewProps) {
                   <td>{fmt(d.villageCount)}</td>
                   <td><b>{fmt(scaleDemoValue(d.beneficiaries, fy))}</b></td>
                   <td>{fmt(scaleDemoValue(d.applications, fy))}</td>
-                  <td className="text-teal"><b>₹{fmt(scaleDemoAmount(d.disbursed, fy))} Cr</b></td>
+                  <td className="text-mono-white"><b>₹{fmt(scaleDemoAmount(d.disbursed, fy))} Cr</b></td>
                 </tr>
               ))}
             </tbody>
@@ -238,7 +281,7 @@ export function ReportsCenterView({ gu, fy }: ReportsCenterViewProps) {
                   <td><b>{fmt(scaleDemoValue(t.beneficiaries, fy))}</b></td>
                   <td>{fmt(scaleDemoValue(t.applications, fy))}</td>
                   <td>{fmt(scaleDemoValue(t.approved, fy))}</td>
-                  <td className="text-teal"><b>₹{fmt(scaleDemoAmount(t.disbursed, fy))} Cr</b></td>
+                  <td className="text-mono-white"><b>₹{fmt(scaleDemoAmount(t.disbursed, fy))} Cr</b></td>
                 </tr>
               ))}
             </tbody>
@@ -269,7 +312,7 @@ export function ReportsCenterView({ gu, fy }: ReportsCenterViewProps) {
                   <td>{fmt(v.population)}</td>
                   <td>{v.anganwadiCount}</td>
                   <td><b>{fmt(scaleDemoValue(v.totalBeneficiaries, fy))}</b></td>
-                  <td className="text-teal"><b>₹{fmt(scaleDemoAmount(v.disbursedLakhs, fy))} Lakh</b></td>
+                  <td className="text-mono-white"><b>₹{fmt(scaleDemoAmount(v.disbursedLakhs, fy))} Lakh</b></td>
                 </tr>
               ))}
             </tbody>
@@ -303,7 +346,7 @@ export function ReportsCenterView({ gu, fy }: ReportsCenterViewProps) {
                   <td>{s.launchYear}</td>
                   <td><b>{fmt(scaleDemoValue(s.beneficiariesStatewide, fy))}</b></td>
                   <td>₹{fmt(scaleDemoValue(s.budgetAllocatedCr, fy))} Cr</td>
-                  <td className="text-teal"><b>₹{fmt(scaleDemoValue(s.budgetDisbursedCr, fy))} Cr</b></td>
+                  <td className="text-mono-white"><b>₹{fmt(scaleDemoValue(s.budgetDisbursedCr, fy))} Cr</b></td>
                 </tr>
               ))}
             </tbody>
