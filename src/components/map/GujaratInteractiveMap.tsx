@@ -145,11 +145,12 @@ function colorForOrdinal(
   ordinal: number,
   hueOffset: number,
   saturation = 0.43,
-  lightness = 0.72,
 ) {
   // Keep map fills within the requested muted blue family while varying hue,
-  // saturation, and lightness enough to distinguish adjacent boundaries.
-  const hue = (198 + (Math.abs(ordinal * 23 + hueOffset) % 25)) / 30;
+  // saturation, and lightness enough to distinguish neighboring boundaries.
+  const paletteIndex = Math.abs((ordinal * 7 + hueOffset) % 45);
+  const hue = (198 + (paletteIndex % 9) * 3) / 30;
+  const lightness = 0.58 + Math.floor(paletteIndex / 9) * 0.06;
   const amplitude = saturation * Math.min(lightness, 1 - lightness);
   const channel = (n: number) => {
     const k = (n + hue) % 12;
@@ -178,8 +179,7 @@ function talukaColor(subdistrictCode: number) {
 function settlementColor(locationCode: string) {
   const hash = stableHash(locationCode);
   const saturation = 0.5 + ((hash >>> 8) % 16) / 100;
-  const lightness = 0.64 + ((hash >>> 16) % 10) / 100;
-  return colorForOrdinal(hash, 132, saturation, lightness);
+  return colorForOrdinal(hash, 132, saturation);
 }
 
 const MAP_COLOR_SWATCHES = Array.from({ length: 8 }, (_, index) => colorForOrdinal(index, 14));
