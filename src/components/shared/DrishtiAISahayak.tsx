@@ -8,9 +8,7 @@ import {
   X,
   Send,
   ChevronRight,
-  Building2,
   Sparkles,
-  Bot,
 } from "lucide-react";
 
 interface DrishtiAISahayakProps {
@@ -35,11 +33,11 @@ export function DrishtiAISahayak({ gu, lang, onNavigate }: DrishtiAISahayakProps
       id: "welcome",
       sender: "bot",
       text: gu
-        ? "નમસ્તે! હું યોજના દૃષ્ટિ AI સહાયક છું. ગુજરાત સરકારની તમામ યોજનાઓ, પાત્રતા, આવક મર્યાદા અને અરજી પ્રક્રિયામાં હું આપને તાત્કાલિક માર્ગદર્શન આપી શકું છું. આપને કઈ યોજના વિશે માહિતી જોઈએ છે?"
+        ? "નમસ્તે! આ સહાયક જાહેર પૂર્વદર્શનનો ભાગ છે. અહીં યોજનાઓના કૃત્રિમ નમૂના દેખાય છે; સત્તાવાર પાત્રતા, સહાયની રકમ, દસ્તાવેજો કે અરજીની સ્થિતિ જોડાયેલી નથી. અરજી કરતાં પહેલાં સંબંધિત સરકારી વિભાગ પાસેથી માહિતી ચકાસો. તમને કઈ માહિતી જોઈએ છે?"
         : lang === "hi"
-          ? "नमस्ते! मैं योजना दृष्टि AI सहायक हूँ। गुजरात सरकार की सभी योजनाओं, पात्रता, आय सीमा और आवेदन प्रक्रिया में मैं आपकी सहायता कर सकता हूँ। आप किस योजना के बारे में जानना चाहते हैं?"
-          : "Hello! I am Drishti AI Assistant. I can guide you through Gujarat government welfare schemes, eligibility rules, required documents, and application steps. How can I assist you today?",
-      timestamp: gu ? "સહાયક ઓનલાઇન" : lang === "hi" ? "सहायक ऑनलाइन" : "Assistant Online",
+          ? "नमस्ते! यह सहायक सार्वजनिक पूर्वावलोकन का हिस्सा है। यहाँ योजनाओं के कृत्रिम नमूने दिखते हैं; आधिकारिक पात्रता, सहायता राशि, दस्तावेज़ या आवेदन स्थिति जुड़ी नहीं है। आवेदन से पहले संबंधित सरकारी विभाग से जानकारी की पुष्टि करें। आपको क्या जानना है?"
+          : "Hello. This preview assistant can help you browse sample entries. Official eligibility, benefit amounts, required documents, and application status are not connected. Confirm details with the relevant government department before applying. What would you like to find?",
+      timestamp: gu ? "પૂર્વદર્શન સહાયક" : lang === "hi" ? "पूर्वावलोकन सहायक" : "Preview assistant",
     },
   ]);
 
@@ -93,10 +91,10 @@ export function DrishtiAISahayak({ gu, lang, onNavigate }: DrishtiAISahayakProps
 
       if (lower.includes("દીકરી") || lower.includes("girl") || lower.includes("कन्या") || lower.includes("बालिका") || lower.includes("लड़की") || lower.includes("વાહલી")) {
         botResponse = gu
-          ? "દીકરીઓ માટે ગુજરાત સરકારની 'વ્હાલી દીકરી યોજના' હેઠળ કુલ ₹૧,૧૦,૦૦૦ ની સહાય ત્રણ તબક્કે (ધોરણ ૧, ધોરણ ૯ અને ૧૮ વર્ષ પૂરા થયે) મળે છે. આ ઉપરાંત નમો લક્ષ્મી અને સરસ્વતી સાધના યોજનાઓ પણ સક્રિય છે."
+          ? "નમૂના કેટલોગમાં દીકરીઓ સંબંધિત યોજનાઓની કેટલીક એન્ટ્રીઓ છે. અહીં રકમ, પાત્રતા, અરજીની સ્થિતિ કે સત્તાવાર સ્રોત ચકાસેલા નથી. અરજી કરતાં પહેલાં સત્તાવાર યોજના પોર્ટલ અથવા સંબંધિત વિભાગ તપાસો."
           : lang === "hi"
-            ? "बालिकाओं के लिए 'व्हाली दीकरी योजना' के तहत कुल ₹१,१०,००० की वित्तीय सहायता तीन किस्तों में (कक्षा १, कक्षा ९ और १८ वर्ष पूर्ण होने पर) दी जाती है। नमो लक्ष्मी योजना भी सक्रिय है।"
-            : "For girl children, Gujarat's flagship 'Vahli Dikri Yojna' provides total assistance of ₹1,10,000 across 3 stages (Class 1, Class 9, and at age 18). Namo Lakshmi and Namo Saraswati schemes are also available.";
+            ? "नमूना सूची में बालिकाओं से जुड़ी कुछ योजना प्रविष्टियाँ हैं। यहाँ राशि, पात्रता, आवेदन की स्थिति या आधिकारिक स्रोत सत्यापित नहीं हैं। आवेदन से पहले आधिकारिक पोर्टल या संबंधित विभाग से पुष्टि करें।"
+            : "The sample catalogue contains a few entries related to girls. Benefit amounts, eligibility, application status, and official sources are not verified here. Check the official scheme portal or department before applying.";
         action = {
           label: gu ? "વ્હાલી દીકરી યોજના જુઓ" : lang === "hi" ? "व्हाली दीकरी योजना देखें" : "View Vahli Dikri Yojna",
           page: "schemes",
@@ -104,10 +102,10 @@ export function DrishtiAISahayak({ gu, lang, onNavigate }: DrishtiAISahayakProps
         };
       } else if (lower.includes("વિધવા") || lower.includes("गंगा") || lower.includes("विधवा") || lower.includes("widow")) {
         botResponse = gu
-          ? "ગુજરાત સરકારની 'ગંગા સ્વરૂપા આર્થિક સહાય યોજના' હેઠળ નિરાધાર વિધવા બહેનોને દર મહિને ₹૧,૨૫૦ ની માસિક પેન્શન સહાય સીધી તેમના બેંક ખાતામાં DBT મારફતે જમા કરવામાં આવે છે."
+          ? "નમૂના કેટલોગમાં ગંગા સ્વરૂપા યોજનાની એન્ટ્રી છે. તેની હાલની પાત્રતા, સહાયની રકમ, અરજીની રીત કે સ્થિતિ અહીં સત્તાવાર રીતે ચકાસેલી નથી. અરજી પહેલાં સંબંધિત સરકારી વિભાગ પાસેથી માહિતી મેળવો."
           : lang === "hi"
-            ? "'गंगा स्वरूपा आर्थिक सहायता योजना' के अंतर्गत निराधार विधवा बहनों को प्रतिमाह ₹१,२५० की पेंशन सीधे उनके बैंक खाते में DBT के माध्यम से दी जाती है।"
-            : "Under the 'Ganga Swarupa Economic Assistance Scheme', eligible widowed women receive a monthly pension of ₹1,250 transferred directly to their bank account via DBT.";
+            ? "नमूना सूची में गंगा स्वरूपा योजना की प्रविष्टि है। इसकी वर्तमान पात्रता, सहायता राशि, आवेदन प्रक्रिया या स्थिति यहाँ आधिकारिक रूप से सत्यापित नहीं है। आवेदन से पहले संबंधित विभाग से जानकारी लें।"
+            : "The sample catalogue includes a Ganga Swarupa entry. Current eligibility, benefit amount, application process, and status are not officially verified here. Confirm them with the relevant government department before applying.";
         action = {
           label: gu ? "ગંગા સ્વરૂપા સહાય જુઓ" : lang === "hi" ? "गंगा स्वरूपा योजना देखें" : "View Ganga Swarupa Scheme",
           page: "schemes",
@@ -115,30 +113,30 @@ export function DrishtiAISahayak({ gu, lang, onNavigate }: DrishtiAISahayakProps
         };
       } else if (lower.includes("દસ્તાવેજ") || lower.includes("document") || lower.includes("પુરાવા") || lower.includes("दस्तावेज़") || lower.includes("दस्तावेज") || lower.includes("कागज़")) {
         botResponse = gu
-          ? "મોટાભાગની સરકારી યોજનાઓ માટે મુખ્ય દસ્તાવેજો: ૧) આધાર કાર્ડ, ૨) રેશન કાર્ડ, ૩) આવકનો દાખલો (મામલતદાર/TDO), ૪) બેંક પાસબુક (IFSC કોડ સાથે), અને ૫) રહેઠાણનો પુરાવો (લાઈટબિલ/ચૂંટણી કાર્ડ) જરૂરી છે."
+          ? "દસ્તાવેજોની યાદી દરેક યોજના પ્રમાણે અલગ હોઈ શકે છે. આ પૂર્વદર્શનમાં સત્તાવાર ચેકલિસ્ટ જોડાયેલી નથી. વ્યક્તિગત ઓળખ અથવા બેંકની વિગતો અહીં મોકલશો નહીં; યોજનાના સત્તાવાર પોર્ટલ અથવા વિભાગ પાસે જરૂરી યાદી તપાસો."
           : lang === "hi"
-            ? "अधिकांश योजनाओं के लिए मुख्य दस्तावेज़: १) आधार कार्ड, २) राशन कार्ड, ३) आय प्रमाण पत्र (मामलतदार/TDO), ४) बैंक पासबुक (IFSC कोड सहित), और ५) निवास प्रमाण आवश्यक हैं।"
-            : "Key documents needed for most welfare schemes: 1) Aadhaar Card, 2) Ration Card, 3) Income Certificate from Mamlatdar/TDO, 4) Bank Passbook with IFSC, and 5) Proof of Residence.";
+            ? "दस्तावेज़ों की सूची हर योजना के अनुसार अलग हो सकती है। इस पूर्वावलोकन में आधिकारिक सूची जुड़ी नहीं है। अपनी पहचान या बैंक विवरण यहाँ साझा न करें; आधिकारिक पोर्टल या विभाग से आवश्यक सूची जाँचें।"
+            : "Document requirements vary by scheme. This preview does not include an official checklist. Do not share identity or bank details here; check the scheme’s official portal or department for the required documents.";
         action = {
           label: gu ? "સ્માર્ટ પાત્રતા વિઝાર્ડ ખોલો" : lang === "hi" ? "स्मार्ट पात्रता विज़ार्ड खोलें" : "Open Eligibility Wizard",
           page: "wizard",
         };
       } else if (lower.includes("ક્યાં") || lower.includes("જમા") || lower.includes("અરજી") || lower.includes("form") || lower.includes("कहाँ") || lower.includes("जमा") || lower.includes("आवेदन") || lower.includes("फ़ॉर्म") || lower.includes("फॉर्म")) {
         botResponse = gu
-          ? "આપ Digital Gujarat પોર્ટલ (digitalgujarat.gov.in) પર ઓનલાઇન અરજી કરી શકો છો, અથવા આપના ગામના e-Gram પંચાયત કેન્દ્ર (VCE), મામલતદાર કચેરી કે તાલુકા પંચાયત (TDO) કચેરીએ રૂબરૂ ફોર્મ જમા કરાવી શકો છો."
+          ? "આ પૂર્વદર્શનમાં સત્તાવાર અરજી લિંક, અંતિમ તારીખ અથવા કચેરીનો સંપર્ક જોડાયેલો નથી. અરજી ક્યાં કરવી તે યોજનાના સત્તાવાર પોર્ટલ અથવા સંબંધિત વિભાગ પાસે ચકાસો."
           : lang === "hi"
-            ? "आप Digital Gujarat पोर्टल (digitalgujarat.gov.in) पर ऑनलाइन आवेदन कर सकते हैं, या अपने ग्राम पंचायत के e-Gram केंद्र (VCE), मामलतदार कार्यालय या तालुका पंचायत (TDO) में फ़ॉर्म जमा कर सकते हैं।"
-            : "You can apply online at digitalgujarat.gov.in, or submit application forms in person at your village eGram center (VCE), Taluka Panchayat TDO office, or Mamlatdar office.";
+            ? "इस पूर्वावलोकन में आधिकारिक आवेदन लिंक, अंतिम तिथि या कार्यालय का संपर्क जुड़ा नहीं है। कहाँ आवेदन करना है, यह योजना के आधिकारिक पोर्टल या संबंधित विभाग से जाँचें।"
+            : "This preview has no official application link, deadline, or office contact. Check the scheme’s official portal or department to confirm where and how to apply.";
         action = {
           label: gu ? "જિલ્લા અને કચેરીઓ જુઓ" : lang === "hi" ? "जिले और कार्यालय देखें" : "Explore District Offices",
           page: "map",
         };
       } else {
         botResponse = gu
-          ? "યોજના દૃષ્ટિ પોર્ટલ પર ગુજરાત સરકારના તમામ વિભાગોની ૨૮૫+ કલ્યાણકારી યોજનાઓની માહિતી, પાત્રતા અને સહાય રકમ ઉપલબ્ધ છે. આપ કેટેગરી કે કીવર્ડ દ્વારા યોજના શોધી શકો છો."
+          ? "યોજના દૃષ્ટિનું આ જાહેર પૂર્વદર્શન કૃત્રિમ નમૂનાના દાખલા બતાવે છે; ગુજરાત સરકારની તમામ યોજનાઓ કે સત્તાવાર પાત્રતા/સહાય માહિતી અહીં જોડાયેલી નથી."
           : lang === "hi"
-            ? "योजना दृष्टि पोर्टल पर गुजरात सरकार के सभी विभागों की २८५+ कल्याणकारी योजनाओं की जानकारी, पात्रता और सहायता राशि उपलब्ध है। आप श्रेणी या खोज द्वारा योजना पा सकते हैं।"
-            : "Yojana Drishti features 285+ welfare schemes across Gujarat government departments with complete eligibility rules, benefit amounts, and application assistance.";
+            ? "योजना दृष्टि का यह सार्वजनिक पूर्वावलोकन कृत्रिम नमूना प्रविष्टियाँ दिखाता है; गुजरात की सभी योजनाएँ या आधिकारिक पात्रता/सहायता विवरण यहाँ जुड़े नहीं हैं।"
+            : "This public preview shows synthetic sample entries. It is not a complete list of Gujarat schemes, and official eligibility or benefit data is not connected.";
         action = {
           label: gu ? "યોજના નિર્દેશિકા જુઓ" : lang === "hi" ? "योजना सूची देखें" : "Browse Schemes Directory",
           page: "schemes",
@@ -149,7 +147,7 @@ export function DrishtiAISahayak({ gu, lang, onNavigate }: DrishtiAISahayakProps
         id: String(Date.now() + 1),
         sender: "bot",
         text: botResponse,
-        timestamp: gu ? "દૃષ્ટિ AI" : "Drishti AI",
+        timestamp: gu ? "પૂર્વદર્શન સહાયક" : lang === "hi" ? "पूर्वावलोकन सहायक" : "Preview assistant",
         suggestedAction: action,
       };
 
@@ -171,7 +169,7 @@ export function DrishtiAISahayak({ gu, lang, onNavigate }: DrishtiAISahayakProps
 
       {/* Chat Window Panel */}
       {isOpen && (
-        <div className="gov-helpdesk-floating-panel" role="dialog" aria-modal="true" aria-label="Drishti AI Assistant">
+        <div className="gov-helpdesk-floating-panel" role="dialog" aria-modal="true" aria-label={gu ? "દૃષ્ટિ ડિજિટલ સહાયક" : lang === "hi" ? "दृष्टि डिजिटल सहायक" : "Preview assistant"}>
           <div className="ghp-head">
             <div className="ghp-brand">
               <div className="ghp-avatar">
@@ -179,7 +177,7 @@ export function DrishtiAISahayak({ gu, lang, onNavigate }: DrishtiAISahayakProps
               </div>
               <div>
                 <strong>{gu ? "દૃષ્ટિ ડિજિટલ સહાયક" : lang === "hi" ? "दृष्टि डिजिटल सहायक" : "Drishti AI Assistant"}</strong>
-                <small>{gu ? "ગુજરાત યોજના હેલ્પડેસ્ક · ૨૪/૭" : "Gujarat Scheme Helpdesk · 24/7"}</small>
+                <small>{gu ? "જાહેર પૂર્વદર્શન · સત્તાવાર માહિતી જોડાયેલી નથી" : lang === "hi" ? "सार्वजनिक पूर्वावलोकन · आधिकारिक जानकारी जुड़ी नहीं है" : "Public preview · official information is not connected"}</small>
               </div>
             </div>
             <button className="ghp-close-btn" onClick={() => setIsOpen(false)} aria-label={gu ? "બંધ કરો" : "Close"}>
@@ -234,10 +232,10 @@ export function DrishtiAISahayak({ gu, lang, onNavigate }: DrishtiAISahayakProps
           >
             <input
               type="text"
-              placeholder={gu ? "આપનો પ્રશ્ન અહીં લખો..." : lang === "hi" ? "अपना प्रश्न यहाँ लिखें..." : "Ask about any Gujarat scheme..."}
+              placeholder={gu ? "યોજના અથવા પૂર્વદર્શન વિશે પૂછો..." : lang === "hi" ? "योजना या पूर्वावलोकन के बारे में पूछें..." : "Ask about a sample scheme entry..."}
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              aria-label={gu ? "સહાયકને પ્રશ્ન પૂછો" : "Ask assistant"}
+              aria-label={gu ? "પૂર્વદર્શન સહાયકને પ્રશ્ન પૂછો" : lang === "hi" ? "पूर्वावलोकन सहायक से पूछें" : "Ask the preview assistant"}
             />
             <button type="submit" disabled={!inputText.trim()} aria-label={gu ? "મોકલો" : "Send"}>
               <Send size={15} />

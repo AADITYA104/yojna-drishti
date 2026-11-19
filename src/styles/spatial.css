@@ -3678,12 +3678,12 @@ body.dr-glass {
   --spatial-glass-card-hover: #f5f8fc;
   --spatial-glass-border: #d9e2ee;
   --spatial-glass-border-subtle: #e7edf5;
-  --spatial-lime: #2078cf;
-  --spatial-lime-ink: #000521;
-  --spatial-emerald: #0e4eb2;
+  --spatial-lime: #32764c;
+  --spatial-lime-ink: #ffffff;
+  --spatial-emerald: #0f7e83;
   --spatial-emerald-ink: #ffffff;
-  --spatial-amber: #0e4eb2;
-  --spatial-cyan: #2078cf;
+  --spatial-amber: #df9826;
+  --spatial-cyan: #2879b9;
 }
 
 body.portal-theme,
@@ -3769,8 +3769,8 @@ body.dr-glass {
 .spatial-search-trigger svg { color: #0e4eb2 !important; }
 .spatial-search-placeholder { color: #536782; font-size: 0.84rem; }
 .spatial-lang-pill { gap: 2px; padding: 3px; background: #f5f8fc; border: 1px solid #d9e2ee; }
-.spatial-lang-pill button { min-height: 34px; padding: 0 10px; border-radius: 7px; font-size: 0.77rem; font-weight: 600; }
-.spatial-lang-pill .muted-lang { color: #536782; }
+.spatial-lang-pill button { min-height: 34px; padding: 0 10px; border: 0; border-radius: 7px; font-size: 0.77rem; font-weight: 600; }
+.spatial-lang-pill .muted-lang { color: #3c526e; background: transparent; }
 .spatial-lang-pill .active-lang { color: #ffffff; background: #0e4eb2; box-shadow: none; }
 .spatial-region-chip { padding: 7px 10px; color: #011f65; background: #e6effa; border: 1px solid #d3e2f5; border-radius: 8px; font-size: 0.78rem; font-weight: 700; }
 
@@ -4130,3 +4130,59 @@ body.dr-glass {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
+
+/* A clear, persistent distinction between public geography and illustrative metrics. */
+.spatial-demo-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin: 0 0 18px;
+  padding: 13px 16px;
+  color: #315164;
+  background: #fff8e9;
+  border: 1px solid #efd49b;
+  border-left: 4px solid #a96111;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+.spatial-demo-disclaimer svg { flex: 0 0 auto; margin-top: 2px; color: #a96111; }
+.spatial-demo-disclaimer strong { color: #75440c; }
+.map-explorer-page { color: #142f43; }
+.spatial-main-container .geo-explorer-header {
+  background: linear-gradient(120deg, #123650 0%, #174c70 64%, #0f7e83 100%) !important;
+  border-color: #174c70 !important;
+}
+.spatial-main-container .geo-map-card { border-color: #c8d7e3; box-shadow: 0 12px 30px rgb(18 54 80 / 0.12); }
+.spatial-main-container .geo-map-coverage-legend { background: rgb(255 255 255 / 0.96); border-color: #c8d7e3; }
+.spatial-main-container .geo-color-legend-note { color: #536c78; }
+.spatial-main-container .geo-selection-prompt,
+.spatial-main-container .map-selection-prompt {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 22px;
+  color: #315164;
+  background: #ffffff;
+  border: 1px solid #d5e0e4;
+  border-left: 4px solid #0f7e83;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgb(18 54 80 / 0.06);
+}
+.spatial-main-container .map-selection-prompt > svg { flex: 0 0 auto; color: #0f7e83; margin-top: 3px; }
+.map-selection-prompt > div { display: grid; gap: 6px; }
+.map-selection-prompt strong { color: #123650; font-size: 1.05rem; }
+.map-selection-prompt p { margin: 0; max-width: 90ch; color: #536c78; }
+.map-selection-prompt small { color: #0b626a; font-weight: 650; }
+.spatial-main-container .map-data-status { color: #315164; background: #edf4f6; border-color: #c8d7e3; }
+.spatial-main-container .map-data-status strong { color: #123650; }
+.spatial-main-container .map-data-status p { color: #536c78; }
+.spatial-accurate-status-list { display: grid; align-content: center; gap: 14px; min-height: 190px; padding: 8px 2px; }
+.spatial-accurate-status-item { display: flex; align-items: flex-start; gap: 10px; }
+.spatial-accurate-status-item > div { display: grid; gap: 3px; }
+.spatial-accurate-status-item strong { color: #123650; font-size: 0.88rem; }
+.spatial-accurate-status-item small { color: #607785; font-size: 0.75rem; line-height: 1.4; }
+.status-dot { width: 10px; height: 10px; flex: 0 0 auto; margin-top: 5px; border-radius: 50%; }
+.status-dot--blue { background: #2879b9; }
+.status-dot--teal { background: #0f7e83; }
+.status-dot--amber { background: #df9826; }

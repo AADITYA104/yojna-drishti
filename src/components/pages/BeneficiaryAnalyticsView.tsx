@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useMemo } from "react";
 import { getLocale, localizeText } from "@/lib/i18n";
 import type { AppLanguage } from "@/lib/i18n";
 import { Users, PieChart as PieIcon, BarChart3, ShieldCheck, IndianRupee } from "lucide-react";
-import { echarts } from "@/lib/echarts-theme";
+import { echarts, DRISHTI_PALETTE } from "@/lib/echarts-theme";
 import { demoDistricts } from "@/lib/demo-data";
 
 interface BeneficiaryAnalyticsViewProps {
@@ -44,7 +44,7 @@ export function BeneficiaryAnalyticsView({ gu, lang, fy }: BeneficiaryAnalyticsV
         itemWidth: 10,
         itemHeight: 10,
         itemGap: 12,
-        textStyle: { color: "#94a3b8", fontSize: 11 },
+        textStyle: { color: "#536c78", fontSize: 11 },
       },
       series: [
         {
@@ -55,7 +55,7 @@ export function BeneficiaryAnalyticsView({ gu, lang, fy }: BeneficiaryAnalyticsV
           avoidLabelOverlap: false,
           itemStyle: {
             borderRadius: 6,
-            borderColor: "#0f202b",
+            borderColor: "#ffffff",
             borderWidth: 2,
           },
           label: { show: false },
@@ -71,22 +71,22 @@ export function BeneficiaryAnalyticsView({ gu, lang, fy }: BeneficiaryAnalyticsV
             {
               value: Math.floor(totalBeneficiaries * 0.42),
               name: gu ? "OBC / સામાજિક પછાત" : lang === "hi" ? "ओबीसी / सामाजिक पिछड़ा" : "OBC / SEBC",
-              itemStyle: { color: "#38BDF8" },
+              itemStyle: { color: DRISHTI_PALETTE[0] },
             },
             {
               value: Math.floor(totalBeneficiaries * 0.26),
               name: gu ? "સામાન્ય / EWS" : lang === "hi" ? "सामान्य / ईडब्ल्यूएस" : "General / EWS",
-              itemStyle: { color: "#FACC15" },
+              itemStyle: { color: DRISHTI_PALETTE[3] },
             },
             {
               value: Math.floor(totalBeneficiaries * 0.18),
               name: gu ? "અનુસૂચિત જનજાતિ (ST)" : lang === "hi" ? "अनुसूचित जनजाति (ST)" : "Scheduled Tribe (ST)",
-              itemStyle: { color: "#42C88A" },
+              itemStyle: { color: DRISHTI_PALETTE[1] },
             },
             {
               value: Math.floor(totalBeneficiaries * 0.14),
               name: gu ? "અનુસૂચિત જાતિ (SC)" : lang === "hi" ? "अनुसूचित जाति (SC)" : "Scheduled Caste (SC)",
-              itemStyle: { color: "#C5D846" },
+              itemStyle: { color: DRISHTI_PALETTE[2] },
             },
           ],
         },
@@ -115,16 +115,16 @@ export function BeneficiaryAnalyticsView({ gu, lang, fy }: BeneficiaryAnalyticsV
             ? ["०-६ वर्ष (बालिका)", "७-१८ वर्ष (कन्या)", "१९-३५ वर्ष (मातृत्व)", "३६-५५ वर्ष (स्वावलंबन)", "५६+ वर्ष (वरिष्ठ)"]
             : ["0-6 Yrs (Infant)", "7-18 Yrs (Girl)", "19-35 Yrs (Maternal)", "36-55 Yrs (Enterprise)", "56+ Yrs (Senior)"],
         axisLabel: {
-          color: "#94a3b8",
+          color: "#536c78",
           fontSize: 10,
           interval: 0,
         },
-        axisLine: { lineStyle: { color: "rgba(255,255,255,0.15)" } },
+        axisLine: { lineStyle: { color: "#c8d7e3" } },
       },
       yAxis: {
         type: "value",
-        splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } },
-        axisLabel: { color: "#94a3b8" },
+        splitLine: { lineStyle: { color: "#e1e9eb" } },
+        axisLabel: { color: "#536c78" },
       },
       series: [
         {
@@ -132,7 +132,7 @@ export function BeneficiaryAnalyticsView({ gu, lang, fy }: BeneficiaryAnalyticsV
           type: "bar",
           barWidth: "32%",
           itemStyle: {
-            color: "#38BDF8",
+            color: DRISHTI_PALETTE[0],
             borderRadius: [6, 6, 0, 0],
           },
           data: [
@@ -166,17 +166,17 @@ export function BeneficiaryAnalyticsView({ gu, lang, fy }: BeneficiaryAnalyticsV
         <div>
           <span className="hero-kicker-tag">
             <Users size={14} className="inline mr-1" />
-            {gu ? "લાભાર્થી વિશ્લેષણ મંચ" : lang === "hi" ? "लाभार्थी विश्लेषण मंच" : "BENEFICIARY DEMOGRAPHIC INTELLIGENCE"}
+            {gu ? "ડેમો ડેટા · સત્તાવાર નથી" : lang === "hi" ? "डेमो डेटा · आधिकारिक नहीं" : "DEMO DATA · NOT OFFICIAL"}
           </span>
           <h1>
             {gu ? "લાભાર્થી વસ્તી અને સામાજિક આવરણ" : lang === "hi" ? "लाभार्थी जनसंख्या और सामाजिक कवरेज" : "Beneficiary Demographics & Social Coverage"}
           </h1>
           <p>
             {gu
-              ? "સામાજિક જૂથો, વયજૂથો અને ગ્રામીણ-શહેરી વિભાજન મુજબ કલ્યાણકારી યોજનાઓનું સંતુલિત વિતરણ અને પ્રગતિ."
+              ? "સામાજિક અને વયજૂથોના ચાર્ટ કૃત્રિમ નમૂનાના આંકડા પરથી છે; સત્તાવાર લાભાર્થી રજિસ્ટર જોડાયેલું નથી."
               : lang === "hi"
-                ? "सामाजिक समूहों, आयु वर्गों और ग्रामीण-शहरी विभाजन अनुसार कल्याणकारी योजनाओं का संतुलित वितरण।"
-                : "Comprehensive coverage and inclusion metrics tracking welfare reach across age, social categories, and rural/urban areas of Gujarat."}
+                ? "सामाजिक और आयु वर्ग के चार्ट कृत्रिम नमूना आँकड़ों पर आधारित हैं; आधिकारिक लाभार्थी रजिस्टर जुड़ा नहीं है।"
+                : "Social and age charts use synthetic sample figures; no official beneficiary register is connected."}
           </p>
         </div>
       </div>

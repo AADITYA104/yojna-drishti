@@ -43,13 +43,13 @@ const featuredYojnas = [
     title: "Mukhyamantri Kisan Sahay Yojna",
     titleGu: "મુખ્યમંત્રી કિસાન સહાય યોજના",
     titleHi: "मुख्यमंत्री किसान सहाय योजना",
-    criteria: "4/4 Criteria Matched",
-    criteriaGu: "૪/૪ પાત્રતા પરિપૂર્ણ",
-    criteriaHi: "4/4 पात्रता परिपूर्ण",
+    criteria: "Illustrative example · check official rules",
+    criteriaGu: "નમૂનો · સત્તાવાર પાત્રતા તપાસો",
+    criteriaHi: "उदाहरण · आधिकारिक पात्रता जाँचें",
     status: "apply",
-    actionLabel: "Apply Now",
-    actionLabelGu: "અરજી કરો",
-    actionLabelHi: "आवेदन करें",
+    actionLabel: "View sample",
+    actionLabelGu: "નમૂનો જુઓ",
+    actionLabelHi: "नमूना देखें",
     btnClass: "btn-apply",
   },
   {
@@ -57,13 +57,13 @@ const featuredYojnas = [
     title: "Vahli Dikri Yojna",
     titleGu: "વ્હાલી દીકરી યોજના",
     titleHi: "व्हाली दीकरी योजना",
-    criteria: "100% Verified",
-    criteriaGu: "૧૦૦% ચકાસાયેલ",
-    criteriaHi: "100% सत्यापित",
+    criteria: "Illustrative catalogue entry",
+    criteriaGu: "યોજનાનો નમૂનો",
+    criteriaHi: "योजना का नमूना",
     status: "verified",
-    actionLabel: "Verified",
-    actionLabelGu: "ચકાસાયેલ",
-    actionLabelHi: "सत्यापित",
+    actionLabel: "View sample",
+    actionLabelGu: "નમૂનો જુઓ",
+    actionLabelHi: "नमूना देखें",
     btnClass: "btn-verified",
   },
   {
@@ -71,54 +71,19 @@ const featuredYojnas = [
     title: "Namo Lakshmi & Saraswati Yojna",
     titleGu: "નમો લક્ષ્મી & સરસ્વતી સાધના યોજના",
     titleHi: "नमो लक्ष्मी & सरस्वती साधना योजना",
-    criteria: "4/4 Criteria Matched",
-    criteriaGu: "૪/૪ પાત્રતા પરિપૂર્ણ",
-    criteriaHi: "4/4 पात्रता परिपूर्ण",
+    criteria: "Illustrative example · check official rules",
+    criteriaGu: "નમૂનો · સત્તાવાર પાત્રતા તપાસો",
+    criteriaHi: "उदाहरण · आधिकारिक पात्रता जाँचें",
     status: "apply",
-    actionLabel: "Apply Now",
-    actionLabelGu: "અરજી કરો",
-    actionLabelHi: "आवेदन करें",
+    actionLabel: "View sample",
+    actionLabelGu: "નમૂનો જુઓ",
+    actionLabelHi: "नमूना देखें",
     btnClass: "btn-apply",
   },
 ];
 
-const deadlineEvents: Record<number, { titleEn: string; titleGu: string; titleHi: string }> = {
-  1: {
-    titleEn: "Farm Mechanization Subsidy Window Open",
-    titleGu: "કૃષિ યાંત્રિકીકરણ સહાય પોર્ટલ નોંધણી સક્રિય",
-    titleHi: "कृषि यंत्रीकरण सहायता पोर्टल पंजीकरण सक्रिय",
-  },
-  3: {
-    titleEn: "Mukhyamantri Kisan Sahay Registration Deadline",
-    titleGu: "મુખ્યમંત્રી કિસાન સહાય પોર્ટલ નોંધણી અંતિમ તારીખ નજીક",
-    titleHi: "मुख्यमंत्री किसान सहाय पोर्टल पंजीकरण अंतिम तिथि निकट",
-  },
-  7: {
-    titleEn: "Namo Saraswati Scholarship Batch Verification",
-    titleGu: "નમો સરસ્વતી સાધના શિષ્યવૃત્તિ બીજી બેચ ચકાસણી",
-    titleHi: "नमो सरस्वती साधना छात्रवृत्ति दूसरा बैच सत्यापन",
-  },
-  12: {
-    titleEn: "Vahli Dikri 1st Installment Sanction Session",
-    titleGu: "વ્હાલી દીકરી યોજના પ્રથમ હપ્તા મંજૂરી સત્ર",
-    titleHi: "व्हाली दीकरी योजना पहली किस्त स्वीकृति सत्र",
-  },
-  15: {
-    titleEn: "MSME Subsidy Cycle Application Review",
-    titleGu: "MSME સબસિડી ચક્ર અરજી સમીક્ષા તારીખ",
-    titleHi: "MSME सब्सिडी चक्र आवेदन समीक्षा तिथि",
-  },
-  20: {
-    titleEn: "Ayushman Gujarat Camp - All Taluka PHCs",
-    titleGu: "આયુષ્માન ગુજરાત કાર્ડ કેમ્પ - તમામ તાલુકા આરોગ્ય કેન્દ્ર",
-    titleHi: "आयुष्मान गुजरात कार्ड शिविर - सभी तालुका स्वास्थ्य केंद्र",
-  },
-  28: {
-    titleEn: "Manav Garima Toolkit Distribution Drive",
-    titleGu: "માનવ ગરિમા યોજના ટૂલકિટ વિતરણ શિબિર",
-    titleHi: "मानव गरिमा योजना टूलकिट वितरण शिविर",
-  },
-};
+// No current official deadline feed is connected, so the calendar stays unmarked.
+const deadlineEvents: Record<number, { titleEn: string; titleGu: string; titleHi: string }> = {};
 
 export function SpatialBentoDashboard({
   gu,
@@ -213,7 +178,7 @@ export function SpatialBentoDashboard({
                 {gu ? "ક્ષેત્રવાર યોજના પ્રવૃત્તિ" : lang === "hi" ? "क्षेत्रवार योजना गतिविधि" : "Sector Activity"}
               </h2>
               <p className="spatial-card-sub">
-                {gu ? "ગુજરાતના મુખ્ય ક્ષેત્રોમાં કલ્યાણકારી પહોંચ" : lang === "hi" ? "गुजरात के प्रमुख क्षेत्रों में कल्याणकारी पहुँच" : "Welfare coverage across key Gujarat sectors"}
+                {gu ? "ક્ષેત્રવાર સૂચક આંકડા · સત્તાવાર કવરેજ નથી" : lang === "hi" ? "क्षेत्रवार उदाहरण · आधिकारिक कवरेज नहीं" : "Illustrative sector figures · not official coverage"}
               </p>
             </div>
             <div className="spatial-select-pill-wrap">
@@ -273,7 +238,7 @@ export function SpatialBentoDashboard({
             2) TOP-CENTER STACK (3 COLS): 3 Stacked Mini-Stat Glass Cards
            ========================================================================= */}
         <div className="spatial-col-3 spatial-stack-col">
-          {/* Card 1: 285+ Active Gujarat Yojnas */}
+          {/* Count only the scheme entries shipped with this preview. */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -286,14 +251,14 @@ export function SpatialBentoDashboard({
               <Layers size={22} className="text-white/90" />
             </div>
             <div>
-              <strong className="spatial-stat-value">285+</strong>
+              <strong className="spatial-stat-value">{demoSchemes.length}</strong>
               <small className="spatial-stat-label">
-                {gu ? "ગુજરાત સક્રિય યોજનાઓ" : lang === "hi" ? "सक्रिय गुजरात योजनाएँ" : "Active Gujarat Yojnas"}
+                {gu ? "કેટલોગમાં યોજનાના દાખલા" : lang === "hi" ? "सूची में योजना उदाहरण" : "Scheme examples in catalogue"}
               </small>
             </div>
           </motion.div>
 
-          {/* Card 2: 33 / 33 Districts Covered */}
+          {/* Administrative boundary availability is not scheme coverage. */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -306,14 +271,14 @@ export function SpatialBentoDashboard({
               <Building2 size={22} className="text-white/90" />
             </div>
             <div>
-              <strong className="spatial-stat-value">33 / 33</strong>
+              <strong className="spatial-stat-value">{demoDistricts.length}</strong>
               <small className="spatial-stat-label">
-                {gu ? "સંપૂર્ણ જિલ્લા કવરેજ" : lang === "hi" ? "संपूर्ण जिला कवरेज" : "Districts Covered"}
+                {gu ? "નકશામાં જિલ્લા સીમાઓ" : lang === "hi" ? "नक्शे में जिला सीमाएँ" : "District boundaries mapped"}
               </small>
             </div>
           </motion.div>
 
-          {/* Card 3: 100% Free Direct Citizen Portal */}
+          {/* Boundary-code matches describe geography, not scheme reach. */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -326,9 +291,9 @@ export function SpatialBentoDashboard({
               <ShieldCheck size={22} className="text-white/90" />
             </div>
             <div>
-              <strong className="spatial-stat-value">100% Free</strong>
+                  <strong className="spatial-stat-value">18,110 / 18,818</strong>
               <small className="spatial-stat-label">
-                {gu ? "પ્રત્યક્ષ નાગરિક પોર્ટલ" : lang === "hi" ? "प्रत्यक्ष नागरिक पोर्टल" : "Direct Citizen Portal"}
+                {gu ? "ચોક્કસ ગામ સીમા-કોડ મેળ" : lang === "hi" ? "सटीक गाँव सीमा-कोड मिलान" : "Exact village boundary-code matches"}
               </small>
             </div>
           </motion.div>
@@ -346,91 +311,27 @@ export function SpatialBentoDashboard({
           <div className="spatial-card-head">
             <div>
               <h2 className="spatial-card-title">
-                {gu ? "યોજના વિહંગાવલોકન" : lang === "hi" ? "योजना विहंगावलोकन" : "Scheme Overview"}
+                {gu ? "આંકડાના સ્ત્રોત અને અર્થ" : lang === "hi" ? "डेटा स्रोत और अर्थ" : "Data sources and meaning"}
               </h2>
               <p className="spatial-card-sub">
-                {gu ? "રાજ્ય અને કેન્દ્ર સરકારી યોજનાઓ" : lang === "hi" ? "राज्य और केंद्र सरकारी योजनाएँ" : "State & Central Schemes"}
+                {gu ? "ભૂગોળ અને યોજના ડેટા અલગ રાખેલા છે" : lang === "hi" ? "भूगोल और योजना डेटा अलग हैं" : "Geography and scheme data are separate"}
               </p>
             </div>
             <span className="spatial-year-chip">FY {fy} ▾</span>
           </div>
 
-          <div className="spatial-donut-overview-wrap">
-            <div className="spatial-ring-container">
-              <svg viewBox="0 0 100 100" className="spatial-ring-svg">
-                <circle cx="50" cy="50" r="38" strokeWidth="9" className="spatial-ring-track" />
-                {/* Sky Cyan track: Central Schemes */}
-                <motion.circle
-                  cx="50"
-                  cy="50"
-                  r="38"
-                  strokeWidth="9"
-                  fill="none"
-                  stroke="#38BDF8"
-                  strokeDasharray="238.76"
-                  strokeDashoffset="71.6"
-                  strokeLinecap="round"
-                  initial={{ strokeDashoffset: "238.76" }}
-                  animate={{ strokeDashoffset: "71.6" }}
-                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                />
-                {/* Warm Amber track: State Schemes */}
-                <motion.circle
-                  cx="50"
-                  cy="50"
-                  r="38"
-                  strokeWidth="9"
-                  fill="none"
-                  stroke="#FACC15"
-                  strokeDasharray="238.76"
-                  strokeDashoffset="119.38"
-                  strokeLinecap="round"
-                  initial={{ strokeDashoffset: "238.76" }}
-                  animate={{ strokeDashoffset: "119.38" }}
-                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-                />
-              </svg>
-              <div className="spatial-ring-center-badge">
-                <span className="spatial-ring-bold">82%</span>
-                <span className="spatial-ring-sub">
-                  {gu ? "મેચ રેટ" : lang === "hi" ? "मैच रेट" : "Match Rate"}
-                </span>
-              </div>
+          <div className="spatial-accurate-status-list">
+            <div className="spatial-accurate-status-item">
+              <span className="status-dot status-dot--blue" />
+              <div><strong>{demoSchemes.length} {gu ? "યોજના દાખલા" : lang === "hi" ? "योजना उदाहरण" : "scheme examples"}</strong><small>{gu ? "પૂર્વદર્શન કેટલોગ · સત્તાવાર પૂર્ણ સૂચિ નથી" : lang === "hi" ? "पूर्वावलोकन सूची · आधिकारिक पूर्ण सूची नहीं" : "Preview catalogue · not the complete official directory"}</small></div>
             </div>
-
-            <div className="spatial-ring-metrics-list">
-              <div className="spatial-metric-row">
-                <div className="spatial-dot-label">
-                  <span className="spatial-legend-dot dot-amber" />
-                  <span>{gu ? "રાજ્ય યોજનાઓ" : lang === "hi" ? "राज्य योजनाएँ" : "State Schemes"}</span>
-                </div>
-                <div className="spatial-metric-values">
-                  <strong>190</strong>
-                  <span className="spatial-delta-pill">+12.4%</span>
-                </div>
-              </div>
-
-              <div className="spatial-metric-row">
-                <div className="spatial-dot-label">
-                  <span className="spatial-legend-dot dot-cyan" />
-                  <span>{gu ? "કેન્દ્ર યોજનાઓ" : lang === "hi" ? "केंद्र योजनाएँ" : "Central Schemes"}</span>
-                </div>
-                <div className="spatial-metric-values">
-                  <strong>95</strong>
-                  <span className="spatial-delta-pill">+5.8%</span>
-                </div>
-              </div>
-
-              <div className="spatial-metric-row">
-                <div className="spatial-dot-label">
-                  <span className="spatial-legend-dot dot-emerald" />
-                  <span>{gu ? "ઓનલાઇન અરજી" : lang === "hi" ? "ऑनलाइन आवेदन" : "Instant Online"}</span>
-                </div>
-                <div className="spatial-metric-values">
-                  <strong>240</strong>
-                  <span className="spatial-delta-pill">+18.2%</span>
-                </div>
-              </div>
+            <div className="spatial-accurate-status-item">
+              <span className="status-dot status-dot--teal" />
+              <div><strong>{demoDistricts.length} {gu ? "જિલ્લા સીમાઓ" : lang === "hi" ? "जिला सीमाएँ" : "district boundaries"}</strong><small>{gu ? "સરકારી ભૌગોલિક સીમા ડેટા" : lang === "hi" ? "सरकारी भौगोलिक सीमा डेटा" : "Government geographic boundary data"}</small></div>
+            </div>
+            <div className="spatial-accurate-status-item">
+              <span className="status-dot status-dot--amber" />
+              <div><strong>{gu ? "લાભાર્થી/DBT કુલ ઉપલબ્ધ નથી" : lang === "hi" ? "लाभार्थी/DBT कुल उपलब्ध नहीं" : "Beneficiary and DBT totals unavailable"}</strong><small>{gu ? "કૃત્રિમ દાખલાઓ વાસ્તવિક લાભનો પુરાવો નથી" : lang === "hi" ? "कृत्रिम प्रविष्टियाँ वास्तविक लाभ का प्रमाण नहीं हैं" : "Synthetic rows do not prove real benefits"}</small></div>
             </div>
           </div>
         </motion.article>
@@ -447,10 +348,10 @@ export function SpatialBentoDashboard({
           <div className="spatial-card-head">
             <div>
               <h2 className="spatial-card-title">
-                {gu ? "શ્રેષ્ઠ પાત્ર યોજનાઓ" : lang === "hi" ? "शीर्ष सुपात्र योजनाएँ" : "Top Matching Yojnas"}
+                {gu ? "યોજનાના ઉદાહરણો" : lang === "hi" ? "योजना के उदाहरण" : "Illustrative scheme examples"}
               </h2>
               <p className="spatial-card-sub">
-                {gu ? "તમારી પ્રોફાઇલ અને જરૂરિયાત મુજબ ચકાસાયેલ યોજનાઓ" : lang === "hi" ? "आपकी प्रोफ़ाइल और आवश्यकतानुसार सत्यापित योजनाएँ" : "Verified welfare programs tailored to your profile"}
+                {gu ? "આ દાખલા નમૂનાના છે; પાત્રતા માટે સત્તાવાર નિયમ તપાસો" : lang === "hi" ? "ये नमूने हैं; पात्रता के लिए आधिकारिक नियम जाँचें" : "Sample entries only; check official rules for eligibility"}
               </p>
             </div>
             <button
@@ -477,7 +378,7 @@ export function SpatialBentoDashboard({
                 {/* Left: Circular Checkmark Bubble */}
                 <div className="spatial-row-left-icon">
                   <div className="spatial-check-bubble">
-                    <CheckCircle2 size={18} strokeWidth={2} className="text-[#42C88A]" />
+                    <FileCheck2 size={18} strokeWidth={2} className="text-[#32764c]" />
                   </div>
                 </div>
 
@@ -592,10 +493,10 @@ export function SpatialBentoDashboard({
                       ? activeDayEvent.titleHi
                       : activeDayEvent.titleEn
                   : gu
-                    ? "સામાન્ય પોર્ટલ કાર્યકાળ · તમામ ઓનલાઇન અરજી સેવાઓ સક્રિય છે"
+                    ? "નમૂના કેલેન્ડર · સત્તાવાર અંતિમ તારીખો જોડાયેલી નથી"
                     : lang === "hi"
-                      ? "सामान्य पोर्टल कार्य दिवस · सभी ऑनलाइन सेवाएँ सक्रिय हैं"
-                      : "Portal Active · All online scheme services operational"}
+                      ? "नमूना कैलेंडर · आधिकारिक अंतिम तिथियाँ जुड़ी नहीं हैं"
+                      : "Calendar preview · official application deadlines are not connected"}
               </span>
             </div>
           </div>

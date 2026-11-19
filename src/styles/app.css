@@ -2517,6 +2517,13 @@ button:focus-visible, input:focus-visible, select:focus-visible {
   margin-bottom: 10px;
 }
 
+.wizard-field-hint {
+  margin: -2px 0 12px;
+  color: #52657a;
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
 .wizard-options-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));

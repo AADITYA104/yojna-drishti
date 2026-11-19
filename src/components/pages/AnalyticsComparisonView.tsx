@@ -16,7 +16,7 @@ function getAIInsight(dA: District, dB: District, sA: { ben: number; rate: numbe
   const laggard = sA.ben < sB.ben ? (gu ? dA.gu : dA.name) : (gu ? dB.gu : dB.name);
   const rateLeader = sA.rate >= sB.rate ? (gu ? dA.gu : dA.name) : (gu ? dB.gu : dB.name);
   const diff = Math.abs(sA.ben - sB.ben).toLocaleString(gu ? "gu-IN" : "en-IN");
-  if (gu) return `🤖 AI સૂઝ (ઉ.): ${leader} જિલ્લો ${diff} વધુ લાભાર્થી સાથે આગળ. ${rateLeader}ની approval rate ઊંચી. ${laggard}માં outreach campaign ફાયદાકારક.`;
+  if (gu) return `નમૂના આંકડાનું ઉદાહરણ: ${leader}માં ${diff} વધુ નોંધાયેલા દાખલા છે. આ વાસ્તવિક લાભાર્થી કે outreach સ્થિતિ નથી.`;
   return `🤖 AI Insight (demo): ${leader} leads by ${diff} beneficiaries. ${rateLeader} has the stronger approval rate. ${laggard} could benefit from targeted outreach.`;
 }
 
@@ -61,15 +61,15 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
       const c = echarts.getInstanceByDom(radarRef.current) || echarts.init(radarRef.current, null, { renderer: "svg" });
       charts.push(c);
       c.setOption({
-        color: ["#FFFFFF", "#4A6080"],
+        color: ["#2879b9", "#df9826"],
         backgroundColor: "transparent",
         tooltip: {
           trigger: "item",
-          backgroundColor: "#020C47",
-          borderColor: "#011F65",
+          backgroundColor: "#123650",
+          borderColor: "#0f7e83",
           textStyle: { color: "#ffffff" },
         },
-        legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#cbd5e1", fontSize: 11 } },
+        legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#536c78", fontSize: 11 } },
         radar: {
           indicator: [
             { name: gu ? "લાભ." : "Ben.", max: maxBen },
@@ -79,13 +79,13 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
             { name: gu ? "ગ.ટ." : "Vill.", max: Math.max(distA.villageCount, distB.villageCount, 1) },
           ],
           splitNumber: 4,
-          axisName: { color: "#cbd5e1", fontSize: 11, fontWeight: "bold" },
-          splitLine: { lineStyle: { color: "rgba(255, 255, 255, 0.1)" } },
-          splitArea: { areaStyle: { color: ["rgba(255, 255, 255, 0.02)", "rgba(255, 255, 255, 0.05)"] } },
+          axisName: { color: "#536c78", fontSize: 11, fontWeight: "bold" },
+          splitLine: { lineStyle: { color: "rgba(18, 54, 80, 0.14)" } },
+          splitArea: { areaStyle: { color: ["rgba(40, 121, 185, 0.025)", "rgba(15, 126, 131, 0.045)"] } },
         },
         series: [{ type: "radar", data: [
-          { value: [statsA.ben, statsA.rate, statsA.disb, statsA.apps, distA.villageCount], name: nameA, itemStyle: { color: "#FFFFFF" }, lineStyle: { color: "#FFFFFF", width: 2 }, areaStyle: { color: "rgba(255, 255, 255, 0.22)" }, symbol: "circle", symbolSize: 6 },
-          { value: [statsB.ben, statsB.rate, statsB.disb, statsB.apps, distB.villageCount], name: nameB, itemStyle: { color: "#4A6080" }, lineStyle: { color: "#4A6080", width: 2 }, areaStyle: { color: "rgba(107, 107, 107, 0.18)" }, symbol: "circle", symbolSize: 6 },
+          { value: [statsA.ben, statsA.rate, statsA.disb, statsA.apps, distA.villageCount], name: nameA, itemStyle: { color: "#2879b9" }, lineStyle: { color: "#2879b9", width: 2 }, areaStyle: { color: "rgba(40, 121, 185, 0.22)" }, symbol: "circle", symbolSize: 6 },
+          { value: [statsB.ben, statsB.rate, statsB.disb, statsB.apps, distB.villageCount], name: nameB, itemStyle: { color: "#df9826" }, lineStyle: { color: "#df9826", width: 2 }, areaStyle: { color: "rgba(223, 152, 38, 0.20)" }, symbol: "circle", symbolSize: 6 },
         ] }],
       });
     }
@@ -94,22 +94,22 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
       const c = echarts.getInstanceByDom(barRef.current) || echarts.init(barRef.current, null, { renderer: "svg" });
       charts.push(c);
       c.setOption({
-        color: ["#FFFFFF", "#4A6080"],
+        color: ["#2879b9", "#df9826"],
         backgroundColor: "transparent",
         tooltip: {
           trigger: "axis",
           axisPointer: { type: "shadow" },
-          backgroundColor: "#020C47",
-          borderColor: "#011F65",
+          backgroundColor: "#123650",
+          borderColor: "#0f7e83",
           textStyle: { color: "#ffffff" },
         },
-        legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#cbd5e1", fontSize: 11 } },
+        legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#536c78", fontSize: 11 } },
         grid: { top: 20, bottom: 36, left: 10, right: 10, containLabel: true },
-        xAxis: { type: "category", data: [gu ? "લ.(K)" : "Ben.(K)", gu ? "અ.%" : "Rate%", gu ? "ચૂ." : "Disb."], axisLabel: { color: "#cbd5e1", fontSize: 11 } },
+        xAxis: { type: "category", data: [gu ? "લ.(K)" : "Ben.(K)", gu ? "અ.%" : "Rate%", gu ? "ચૂ." : "Disb."], axisLabel: { color: "#536c78", fontSize: 11 } },
         yAxis: { type: "value", show: false },
         series: [
-          { name: nameA, type: "bar", data: [Math.round(statsA.ben / 1000), statsA.rate, statsA.disb], itemStyle: { color: "#FFFFFF", borderRadius: [4, 4, 0, 0] }, barMaxWidth: 32 },
-          { name: nameB, type: "bar", data: [Math.round(statsB.ben / 1000), statsB.rate, statsB.disb], itemStyle: { color: "#4A6080", borderRadius: [4, 4, 0, 0] }, barMaxWidth: 32 },
+          { name: nameA, type: "bar", data: [Math.round(statsA.ben / 1000), statsA.rate, statsA.disb], itemStyle: { color: "#2879b9", borderRadius: [4, 4, 0, 0] }, barMaxWidth: 32 },
+          { name: nameB, type: "bar", data: [Math.round(statsB.ben / 1000), statsB.rate, statsB.disb], itemStyle: { color: "#df9826", borderRadius: [4, 4, 0, 0] }, barMaxWidth: 32 },
         ],
       });
     }
@@ -119,21 +119,21 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
       charts.push(c);
       const years = ["21-22", "22-23", "23-24", "24-25", "25-26"];
       c.setOption({
-        color: ["#FFFFFF", "#4A6080"],
+        color: ["#2879b9", "#df9826"],
         backgroundColor: "transparent",
         tooltip: {
           trigger: "axis",
-          backgroundColor: "#020C47",
-          borderColor: "#011F65",
+          backgroundColor: "#123650",
+          borderColor: "#0f7e83",
           textStyle: { color: "#ffffff" },
         },
-        legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#cbd5e1", fontSize: 11 } },
+        legend: { data: [nameA, nameB], bottom: 0, textStyle: { color: "#536c78", fontSize: 11 } },
         grid: { top: 20, bottom: 40, left: 10, right: 10, containLabel: true },
-        xAxis: { type: "category", data: years, axisLabel: { color: "#cbd5e1", fontSize: 10 } },
-        yAxis: { type: "value", splitLine: { lineStyle: { color: "rgba(255,255,255,0.08)" } }, axisLabel: { color: "#4A6080", fontSize: 10, formatter: (v: number) => `${Math.round(v / 1000)}K` } },
+        xAxis: { type: "category", data: years, axisLabel: { color: "#536c78", fontSize: 10 } },
+        yAxis: { type: "value", splitLine: { lineStyle: { color: "#e1e9eb" } }, axisLabel: { color: "#607785", fontSize: 10, formatter: (v: number) => `${Math.round(v / 1000)}K` } },
         series: [
-          { name: nameA, type: "line", smooth: true, data: [0.72, 0.80, 0.88, 0.95, 1.0].map((f) => Math.round(distA.beneficiaries * f)), lineStyle: { color: "#FFFFFF", width: 2.5 }, areaStyle: { color: "rgba(255, 255, 255, 0.15)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#FFFFFF" } },
-          { name: nameB, type: "line", smooth: true, data: [0.70, 0.78, 0.85, 0.93, 1.0].map((f) => Math.round(distB.beneficiaries * f)), lineStyle: { color: "#4A6080", width: 2.5 }, areaStyle: { color: "rgba(107, 107, 107, 0.10)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#4A6080" } },
+          { name: nameA, type: "line", smooth: true, data: [0.72, 0.80, 0.88, 0.95, 1.0].map((f) => Math.round(distA.beneficiaries * f)), lineStyle: { color: "#2879b9", width: 2.5 }, areaStyle: { color: "rgba(40, 121, 185, 0.15)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#2879b9" } },
+          { name: nameB, type: "line", smooth: true, data: [0.70, 0.78, 0.85, 0.93, 1.0].map((f) => Math.round(distB.beneficiaries * f)), lineStyle: { color: "#df9826", width: 2.5 }, areaStyle: { color: "rgba(223, 152, 38, 0.12)" }, symbol: "circle", symbolSize: 7, itemStyle: { color: "#df9826" } },
         ],
       });
     }
@@ -157,9 +157,9 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
     <div className="analytics-compare-page">
       <div className="page-hero-gov">
         <div>
-          <span className="hero-kicker-tag">{gu ? "તુલનાત્મક વિશ્લેષણ" : "COMPARATIVE ANALYTICS"}</span>
+          <span className="hero-kicker-tag">{gu ? "નમૂના આંકડા · સત્તાવાર નથી" : "SAMPLE DATA · NOT OFFICIAL"}</span>
           <h1>{gu ? "જિલ્લા Side-by-Side સરખામણી" : "Side-by-Side District Comparison"}</h1>
-          <p>{gu ? "ગુજરાતના કોઈ પણ બે જિલ્લાની scheme, delivery, fiscal performance — ઉ.ડ.ત." : "Compare scheme reach, delivery performance, and fiscal data between any two districts. Demo data."}</p>
+          <p>{gu ? "બે જિલ્લાની સરખામણી માટેનું કૃત્રિમ ઉદાહરણ; સત્તાવાર લાભાર્થી, મંજૂરી કે નાણાકીય ડેટા જોડાયેલો નથી." : "Illustrative two-district comparison; no official beneficiary, approval, or financial data is connected."}</p>
         </div>
       </div>
 
@@ -188,10 +188,10 @@ export function AnalyticsComparisonView({ gu, fy }: AnalyticsComparisonViewProps
 
       {/* District Head Cards */}
       <div className="compare-cards-grid">
-        {[{ dist: distA, stats: statsA, tag: "A", color: "#FFFFFF", textColor: "#000521" }, { dist: distB, stats: statsB, tag: "B", color: "#4A6080", textColor: "#FFFFFF" }].map(({ dist, stats, tag, color }) => (
+        {[{ dist: distA, stats: statsA, tag: "A", color: "#2879b9" }, { dist: distB, stats: statsB, tag: "B", color: "#df9826" }].map(({ dist, stats, tag, color }) => (
           <div key={tag} className="compare-district-card" style={{ borderTopColor: color }}>
             <div className="cdc-head">
-              <span className="cdc-tag" style={{ background: color, color: (tag === "A" ? "#000521" : "#FFFFFF") }}>DISTRICT {tag}</span>
+              <span className="cdc-tag" style={{ background: color, color: "#ffffff" }}>{gu ? `જિલ્લો ${tag}` : `DISTRICT ${tag}`}</span>
               <h2>{gu ? dist.gu : dist.name}</h2>
               <small>{dist.code} · {gu ? dist.regionGu : dist.region}</small>
             </div>

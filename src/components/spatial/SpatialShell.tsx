@@ -186,7 +186,7 @@ export function SpatialShell() {
       {/* Main public-service workspace */}
       <motion.main
         className="spatial-main-container"
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 1, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
@@ -204,6 +204,18 @@ export function SpatialShell() {
           gu={gu}
           lang={lang}
         />
+
+        <aside className="spatial-demo-disclaimer" role="note">
+          <Info size={18} aria-hidden="true" />
+          <span>
+            <strong>{lang === "gu" ? "જાહેર પૂર્વદર્શન · " : lang === "hi" ? "सार्वजनिक पूर्वावलोकन · " : "Public preview · "}</strong>
+            {lang === "gu"
+              ? "યોજના, લાભાર્થી અને ચુકવણીના આંકડા કૃત્રિમ નમૂના છે; સત્તાવાર સરકારી ગણતરી નથી. નકશાની વહીવટી સીમાઓ સરકારી ભૌગોલિક સ્રોતો પરથી છે."
+              : lang === "hi"
+                ? "योजना, लाभार्थी और भुगतान के आँकड़े कृत्रिम नमूने हैं, आधिकारिक सरकारी गणना नहीं। नक्शे की प्रशासनिक सीमाएँ सरकारी भौगोलिक स्रोतों से हैं।"
+                : "Scheme, beneficiary, and payment figures are synthetic examples, not official government counts. Administrative map boundaries come from government geographic sources."}
+          </span>
+        </aside>
 
         {/* View Switcher with Spring Animation */}
         <AnimatePresence mode="wait">

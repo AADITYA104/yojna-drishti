@@ -1,15 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import { Info, MapPinned } from "lucide-react";
 import { localizeText, type AppLanguage } from "@/lib/i18n";
-import { Building2, Info, MapPinned, Map, Layers } from "lucide-react";
-import { demoDistricts, type District } from "@/lib/demo-data";
+import { demoDistricts } from "@/lib/demo-data";
 import { GujaratInteractiveMap, type MapSelectedArea, type MapSelectedLocation } from "../map/GujaratInteractiveMap";
-import { CleanGujaratSvgMap } from "../map/CleanGujaratSvgMap";
-import { VillageSchemeAnalyticsHub } from "../map/VillageSchemeAnalyticsHub";
 import { LocationAnalyticsDashboard } from "../map/LocationAnalyticsDashboard";
 import { AreaSchemeAnalyticsDashboard } from "../map/AreaSchemeAnalyticsDashboard";
-import districtDefaultLocations from "@/lib/district-default-locations.json";
 
 interface MapExplorerViewProps {
   gu: boolean;
@@ -27,140 +24,80 @@ interface MapExplorerViewProps {
   } | null;
 }
 
-const regions: { id: District["region"]; labelGu: string; labelEn: string; labelHi: string }[] = [
-  { id: "Saurashtra", labelGu: "સૌરાષ્ટ્ર", labelEn: "Saurashtra", labelHi: "सौराष्ट्र" },
-  { id: "North Gujarat", labelGu: "ઉત્તર ગુજરાત", labelEn: "North Gujarat", labelHi: "उत्तर गुजरात" },
-  { id: "Central Gujarat", labelGu: "મધ્ય ગુજરાત", labelEn: "Central Gujarat", labelHi: "मध्य गुजरात" },
-  { id: "South Gujarat", labelGu: "દક્ષિણ ગુજરાત", labelEn: "South Gujarat", labelHi: "दक्षिण गुजरात" },
-  { id: "Kutch", labelGu: "કચ્છ", labelEn: "Kutch", labelHi: "कच्छ" },
-];
+const selectionCopy = {
+  gu: {
+    title: "વિશ્લેષણ માટે નકશા પરથી વિસ્તાર પસંદ કરો",
+    body: "નકશાની સીમાઓ સરકારી ભૌગોલિક સ્રોતો પર આધારિત છે. યોજનાની હરોળો આપેલા કૃત્રિમ નમૂનાના ડેટા છે; સત્તાવાર લાભાર્થી કે ચુકવણીના આંકડા જોડાયેલા નથી.",
+    source: "ભૌગોલિક મેળ",
+    coverage: "ચોક્કસ ગામ/શહેર સીમા કોડ મેળ",
+  },
+  hi: {
+    title: "विश्लेषण के लिए नक्शे से क्षेत्र चुनें",
+    body: "नक्शे की सीमाएँ सरकारी भौगोलिक स्रोतों पर आधारित हैं। योजना की पंक्तियाँ दिए गए कृत्रिम नमूना डेटा से हैं; आधिकारिक लाभार्थी या भुगतान आँकड़े जुड़े नहीं हैं।",
+    source: "भौगोलिक मिलान",
+    coverage: "गाँव/शहर की सटीक सीमा-कोड मिलान",
+  },
+  en: {
+    title: "Choose an area on the map to see its analysis",
+    body: "Map boundaries use government geographic sources. Scheme rows come from the supplied synthetic sample dataset; official beneficiary and payment totals are not connected.",
+    source: "Geographic match",
+    coverage: "Exact village/city boundary-code match",
+  },
+} as const;
 
 export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplorerViewProps) {
-  const [selectedRegion, setSelectedRegion] = useState<"all" | District["region"]>("all");
-  const [activeDistrictId, setActiveDistrictId] = useState<string>(
-    focusRequest?.target?.districtId || "bhavnagar",
-  );
+  const [activeDistrictId, setActiveDistrictId] = useState(focusRequest?.target?.districtId || "");
   const [previousFocusRequestId, setPreviousFocusRequestId] = useState(focusRequest?.id);
   const [selectedArea, setSelectedArea] = useState<MapSelectedArea | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<MapSelectedLocation | null>(null);
-  const [mapMode, setMapMode] = useState<"svg" | "gis">("svg");
 
-  // Sync a new global map focus before rendering the updated explorer state.
   if (focusRequest?.target?.districtId && focusRequest.id !== previousFocusRequestId) {
     setPreviousFocusRequestId(focusRequest.id);
     setActiveDistrictId(focusRequest.target.districtId);
   }
 
-  // Handle region filter change
-  const handleRegionChange = (newRegion: "all" | District["region"]) => {
-    setSelectedRegion(newRegion);
-    setSelectedLocation(null);
-    setSelectedArea(null);
-    if (newRegion !== "all") {
-      const dist = demoDistricts.find((d) => d.region === newRegion);
-      if (dist) setActiveDistrictId(dist.id);
-    }
-  };
-
-  const activeLocation: MapSelectedLocation =
-    selectedLocation ||
-    (districtDefaultLocations as Record<string, MapSelectedLocation>)[activeDistrictId] ||
-    (districtDefaultLocations as Record<string, MapSelectedLocation>)["bhavnagar"];
+  const copy = selectionCopy[lang];
+  const selectedDistrictName = demoDistricts.find((district) => district.id === activeDistrictId);
 
   return (
-    <div className="map-explorer-page w-full space-y-8">
-      {/* Header Bar */}
-      <header className="geo-explorer-header flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-white/10">
+    <div className="map-explorer-page w-full space-y-6">
+      <header className="geo-explorer-header">
         <div className="geo-explorer-title">
-          <span className="geo-explorer-eyebrow flex items-center gap-1.5 text-xs font-bold text-cyan-300">
-            <MapPinned size={14} />
+          <span className="geo-explorer-eyebrow">
+            <MapPinned size={15} aria-hidden="true" />
             {lang === "gu" ? "ગુજરાત ભૌગોલિક એક્સપ્લોરર" : lang === "hi" ? "गुजरात भौगोलिक एक्सप्लोरर" : "GUJARAT GEOGRAPHIC EXPLORER"}
           </span>
-          <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight mt-1">
-            {lang === "gu" ? "ગુજરાત નકશો અને ગ્રામીણ યોજના વિશ્લેષણ" : lang === "hi" ? "गुजरात नक्शा और ग्रामीण योजना विश्लेषण" : "Gujarat Interactive Map & Grassroots Welfare Intelligence"}
+          <h1>
+            {lang === "gu" ? "ગુજરાતનો વહીવટી નકશો" : lang === "hi" ? "गुजरात का प्रशासनिक नक्शा" : "Gujarat administrative map"}
           </h1>
-          <p className="text-xs md:text-sm text-white/65 mt-1 max-w-3xl">
+          <p>
             {lang === "gu"
-              ? "ગુજરાતના તમામ ૩૩ જિલ્લાઓ, ૨૫૨ તાલુકાઓ અને ૧૮,૦૦૦+ ગામોમાં યોજનાઓની પહોંચ અને વાસ્તવિક પ્રગતિ જુઓ. કોઈપણ જિલ્લા પર ક્લિક કરો અથવા નીચે સીધા ગામનું નામ શોધો."
+              ? "જિલ્લાથી તાલુકા અને પછી ગામ/શહેર સુધી ઝૂમ કરો. નામ અથવા LGD કોડથી શોધો."
               : lang === "hi"
-                ? "गुजरात के सभी ३३ जिलों, २५२ तालुकों और १८,०००+ गाँवों में योजनाओं की पहुँच और वास्तविक प्रगति देखें।"
-                : "Explore scheme penetration and grassroots welfare delivery across all 33 districts, 252 talukas, and 18,000+ villages of Gujarat."}
+                ? "जिले से तालुका और फिर गाँव/शहर तक ज़ूम करें। नाम या LGD कोड से खोजें।"
+                : "Zoom from district to taluka, then to village or city. Search by place name or LGD code."}
           </p>
-        </div>
-
-        {/* View Mode Toggle: Clean Vector Gujarat Map vs Full GIS OpenStreetMap */}
-        <div className="flex items-center gap-2 bg-slate-900/80 p-1.5 rounded-2xl border border-white/15 self-start md:self-auto shadow-lg">
-          <button
-            type="button"
-            onClick={() => setMapMode("svg")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
-              mapMode === "svg"
-                ? "bg-[#38BDF8] text-slate-950 shadow-md font-bold"
-                : "text-white/70 hover:text-white"
-            }`}
-          >
-            <Map size={14} />
-            <span>{gu ? "શુદ્ધ ગુજરાત નકશો (Vector)" : "Clean Gujarat (Vector)"}</span>
-          </button>
-          <button
-            type="button"
-            onClick={() => setMapMode("gis")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
-              mapMode === "gis"
-                ? "bg-[#38BDF8] text-slate-950 shadow-md font-bold"
-                : "text-white/70 hover:text-white"
-            }`}
-          >
-            <Layers size={14} />
-            <span>{gu ? "GIS સેટેલાઇટ એક્સપ્લોરર" : "GIS Satellite Explorer"}</span>
-          </button>
         </div>
       </header>
 
-      {/* 1. MAIN INTERACTIVE MAP CONTAINER */}
       <section className="map-showcase-section" id="gujarat-map-canvas">
-        {mapMode === "svg" ? (
-          /* Clean Isolated Gujarat 33 Districts SVG Map (0 outside states clutter, interactive color change, city nodes) */
-          <CleanGujaratSvgMap
+        <div className="full-map-wrapper">
+          <GujaratInteractiveMap
+            key="administrative-drilldown-map"
             gu={gu}
             lang={lang}
+            fy={fy}
             selectedDistrictId={activeDistrictId}
-            onDistrictSelect={(districtId) => setActiveDistrictId(districtId)}
-            regionFilter={selectedRegion}
-            onRegionChange={handleRegionChange}
+            focusRequest={focusRequest}
+            onDistrictSelect={(district) => setActiveDistrictId(district.id)}
+            onAreaSelect={setSelectedArea}
+            onLocationSelect={setSelectedLocation}
+            variant="explorer"
           />
-        ) : (
-          /* Full GIS MapLibre Map */
-          <div className="full-map-wrapper rounded-[28px] overflow-hidden border border-white/20">
-            <GujaratInteractiveMap
-              key="administrative-drilldown-map"
-              gu={gu}
-              lang={lang}
-              fy={fy}
-              selectedDistrictId={activeDistrictId}
-              focusRequest={focusRequest}
-              onDistrictSelect={(district) => setActiveDistrictId(district.id)}
-              onAreaSelect={setSelectedArea}
-              onLocationSelect={setSelectedLocation}
-              variant="explorer"
-            />
-          </div>
-        )}
+        </div>
       </section>
 
-      {/* 2. VILLAGE SCHEME ANALYTICS HUB (Search village-by-village, scheme progress, beneficiary counts) */}
-      <section className="village-intelligence-hub-section pt-4" id="village-scheme-intelligence">
-        <VillageSchemeAnalyticsHub
-          gu={gu}
-          fy={fy}
-          selectedDistrictId={activeDistrictId}
-          onDistrictChange={(id) => setActiveDistrictId(id)}
-          targetVillageCode={focusRequest?.target?.villageCode || null}
-        />
-      </section>
-
-      {/* 3. LOCATION & AREA ANALYTICS */}
-      <section className="location-baseline-section pt-4">
+      <section className="location-baseline-section pt-2" aria-live="polite">
         {selectedLocation ? (
           <LocationAnalyticsDashboard key={selectedLocation.locationCode} location={selectedLocation} lang={lang} />
         ) : selectedArea ? (
@@ -170,21 +107,30 @@ export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplor
             lang={lang}
           />
         ) : (
-          <LocationAnalyticsDashboard key={activeLocation.locationCode} location={activeLocation} lang={lang} />
+          <div className="map-selection-prompt" role="status">
+            <Info size={21} aria-hidden="true" />
+            <div>
+              <span className="map-selection-kicker">{copy.source}</span>
+              <strong>{copy.title}</strong>
+              <p>{copy.body}</p>
+              <small>{copy.coverage}: 18,110 / 18,818</small>
+            </div>
+          </div>
         )}
       </section>
 
-      {/* Administrative Coverage Disclaimer */}
-      <section className="geo-data-disclaimer map-data-status" role="status" style={{ borderLeftColor: "#38BDF8" }}>
-        <MapPinned size={18} className="text-[#38BDF8]" aria-hidden="true" />
+      <section className="geo-data-disclaimer map-data-status" role="status">
+        <MapPinned size={18} aria-hidden="true" />
         <div>
-          <strong>{lang === "gu" ? "ગુજરાત રાજ્ય ભૌગોલિક અને વહીવટી સ્તરો" : lang === "hi" ? "गुजरात राज्य भौगोलिक एवं प्रशासनिक स्तर" : "Gujarat Geographic and Administrative Tiers"}</strong>
+          <strong>
+            {lang === "gu" ? "ગુજરાત વહીવટી નકશાની સીમા માહિતી" : lang === "hi" ? "गुजरात प्रशासनिक नक्शा सीमा डेटा" : "Gujarat administrative-boundary data"}
+          </strong>
           <p>
-            {gu
-              ? `પસંદ કરેલ જિલ્લો: ${demoDistricts.find((district) => district.id === activeDistrictId)?.gu || activeDistrictId} · સમગ્ર રાજ્ય કવરેજ: ૩૩ જિલ્લાઓ · ૨૫૨ તાલુકાઓ · ૧૮,૦૦૦+ ગામો. Survey of India / LGD કોડિંગ આધારિત સચોટ નકશો.`
+            {lang === "gu"
+              ? `જિલ્લા: ૩૪ · તાલુકા: ૩૦૯ · ${selectedDistrictName?.gu ? `પસંદ કરેલ જિલ્લો: ${selectedDistrictName.gu} · ` : ""}ગામ/શહેરની ચોક્કસ સીમા કોડ મેળ: ૧૮,૧૧૦ / ૧૮,૮૧૮. આ ભૂગોળની મેળ સ્થિતિ છે, યોજના કવરેજ નથી.`
               : lang === "hi"
-                ? `ચયનિત જિલ્લો: ${demoDistricts.find((district) => district.id === activeDistrictId)?.name || activeDistrictId} · સંપૂર્ણ રાજ્ય કવરેજ: ૩૩ જિલ્લા · ૨૫૨ તાલુકા · ૧૮,૦૦૦+ ગામો.`
-                : `Selected District: ${demoDistricts.find((district) => district.id === activeDistrictId)?.name || activeDistrictId} · Statewide Coverage: 33 Districts · 252 Talukas · 18,000+ Villages. Survey of India and LGD-aligned GIS framework.`}
+                ? `जिले: ३४ · तालुका: ३०९ · ${selectedDistrictName?.name ? `चयनित जिला: ${localizeText("hi", selectedDistrictName.name)} · ` : ""}गाँव/शहर का सटीक सीमा-कोड मिलान: १८,११० / १८,८१८। यह भूगोल मिलान है, योजना कवरेज नहीं।`
+                : `Districts: 34 · Talukas: 309 · ${selectedDistrictName?.name ? `Selected district: ${selectedDistrictName.name} · ` : ""}Exact village/city boundary-code matches: 18,110 / 18,818. This describes geographic matching, not scheme coverage.`}
           </p>
         </div>
       </section>

@@ -56,17 +56,17 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
         <div>
           <span className="hero-kicker-tag citizen-tag">
             <Sparkles size={14} className="inline mr-1" />
-            {gu ? "સ્માર્ટ પાત્રતા નિર્ધારક" : lang === "hi" ? "स्मार्ट पात्रता निर्धारक" : "SMART ELIGIBILITY FINDER"}
+            {gu ? "યોજના શોધ · નમૂનાનું પૂર્વદર્શન" : lang === "hi" ? "योजना खोज · नमूना पूर्वावलोकन" : "SCHEME FINDER · SAMPLE PREVIEW"}
           </span>
           <h1>
-            {gu ? "તમારા પરિવાર માટે યોગ્ય સરકારી યોજનાઓ શોધો" : lang === "hi" ? "अपने परिवार के लिए उपयुक्त सरकारी योजनाएँ खोजें" : "Find Eligible Welfare Schemes for Your Family"}
+            {gu ? "તમારા પરિવારને લગતી યોજના નોંધો શોધો" : lang === "hi" ? "अपने परिवार से जुड़ी योजना प्रविष्टियाँ खोजें" : "Explore scheme entries for your household"}
           </h1>
           <p>
             {gu
-              ? "તમારી ઉંમર, આવક, સામાજિક વર્ગ અને જિલ્લાની વિગતો પસંદ કરો અને માત્ર ૨ મિનિટમાં મેળવો પાત્ર યોજનાઓની સંપૂર્ણ યાદી."
+              ? "શ્રેણી, આવક જૂથ અને જિલ્લો પસંદ કરીને નમૂનાની સૂચિ ગોઠવો. આ સાધન સત્તાવાર પાત્રતા તપાસતું નથી અને અરજીની ખાતરી આપતું નથી."
               : lang === "hi"
-                ? "अपनी आयु, आय, सामाजिक वर्ग और जिले का चयन करें और २ मिनट में प्राप्त करें सुपात्र योजनाओं की सूची।"
-                : "Select your category, income, and district to find matching Gujarat government schemes with step-by-step guidance."}
+                ? "श्रेणी, आय वर्ग और जिला चुनकर नमूना सूची देखें। यह उपकरण आधिकारिक पात्रता नहीं जाँचता और आवेदन की पुष्टि नहीं करता।"
+                : "Choose a category, income group, and district to browse sample entries. This preview does not check official eligibility or confirm an application."}
           </p>
         </div>
       </div>
@@ -77,7 +77,7 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
           { num: 1, titleGu: "લાભાર્થી શ્રેણી", titleEn: "Category", titleHi: "लाभार्थी श्रेणी" },
           { num: 2, titleGu: "આવક મર્યાદા", titleEn: "Income Bracket", titleHi: "आय सीमा" },
           { num: 3, titleGu: "જિલ્લો પસંદગી", titleEn: "District", titleHi: "जिला चयन" },
-          { num: 4, titleGu: "પાત્ર યોજનાઓ", titleEn: "Eligible Schemes", titleHi: "पात्र योजनाएँ" },
+          { num: 4, titleGu: "નમૂનાની સૂચિ", titleEn: "Sample entries", titleHi: "नमूना सूची" },
         ].map((s) => (
           <button
             key={s.num}
@@ -147,13 +147,14 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
         <div className="finder-wizard-box">
           <div className="wizard-question-group">
             <label className="wizard-label">
-              {gu ? "૨. તમારા કુટુંબની અંદાજિત વાર્ષિક આવક કેટલી છે?" : lang === "hi" ? "२. आपके परिवार की अनुमानित वार्षिक आय कितनी है?" : "2. Select Family Annual Income Bracket:"}
+              {gu ? "૨. આવક જૂથ (માત્ર પૂર્વદર્શન માટે)" : lang === "hi" ? "२. आय वर्ग (केवल पूर्वावलोकन के लिए)" : "2. Income group (preview only):"}
             </label>
+            <p className="wizard-field-hint">{gu ? "યોજનાવાર સત્તાવાર આવક મર્યાદા અહીં જોડાયેલી નથી. આ પસંદગી પરિણામો અથવા પાત્રતાને અસર કરતી નથી." : lang === "hi" ? "योजना-विशिष्ट आधिकारिक आय सीमा यहाँ उपलब्ध नहीं है। यह चयन परिणामों या पात्रता को प्रभावित नहीं करता।" : "Official income limits vary by scheme and are not connected here. This choice does not affect results or eligibility."}</p>
             <div className="wizard-options-grid">
               {[
-                { id: "all", labelGu: "કોઈપણ આવક જૂથ (બધી યોજનાઓ)", labelEn: "Any Income Bracket", labelHi: "सभी आय वर्ग", IconComponent: Layers },
-                { id: "below_2l", labelGu: "₹૨ લાખથી ઓછી (BPL / EWS ગ્રામીણ-શહેરી)", labelEn: "Under ₹2 Lakhs / BPL & EWS", labelHi: "₹२ लाख से कम (BPL / EWS)", IconComponent: Wallet },
-                { id: "above_2l", labelGu: "₹૨ લાખથી વધુ (સામાન્ય/પોષણ/બચત યોજનાઓ)", labelEn: "Above ₹2 Lakhs (Nutrition/Savings/MSME)", labelHi: "₹२ लाख से अधिक", IconComponent: Landmark },
+                { id: "all", labelGu: "ઉલ્લેખ ન કરવો", labelEn: "Prefer not to specify", labelHi: "न बताना चाहें", IconComponent: Layers },
+                { id: "below_2l", labelGu: "નીચું આવક જૂથ (નમૂનાનો વિકલ્પ)", labelEn: "Lower income group (sample option)", labelHi: "निम्न आय वर्ग (नमूना विकल्प)", IconComponent: Wallet },
+                { id: "above_2l", labelGu: "બીજું આવક જૂથ (નમૂનાનો વિકલ્પ)", labelEn: "Another income group (sample option)", labelHi: "अन्य आय वर्ग (नमूना विकल्प)", IconComponent: Landmark },
               ].map((opt) => {
                 const Icon = opt.IconComponent;
                 const isSelected = incomeGroup === opt.id;
@@ -221,7 +222,7 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
             </button>
             <button className="btn-wizard-next btn-wizard-view-results" onClick={() => setStep(4)}>
               <Search size={16} />
-              <span>{gu ? `પાત્ર યોજનાઓ જુઓ (${matchedSchemes.length})` : lang === "hi" ? `सुपात्र योजनाएँ देखें (${matchedSchemes.length})` : `View Eligible Schemes (${matchedSchemes.length})`}</span>
+              <span>{gu ? `નમૂનાની સૂચિ જુઓ (${matchedSchemes.length})` : lang === "hi" ? `नमूना सूची देखें (${matchedSchemes.length})` : `View sample entries (${matchedSchemes.length})`}</span>
               <ArrowRight size={16} />
             </button>
           </div>
@@ -235,15 +236,17 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
             <div>
               <h2>
                 {gu
-                  ? `તમારા માટે યોગ્ય કલ્યાણકારી યોજનાઓ (${matchedSchemes.length})`
+                  ? `તમારી પસંદગીની શ્રેણી માટે નમૂનાની નોંધો (${matchedSchemes.length})`
                   : lang === "hi"
-                    ? `आपके लिए सुपात्र कल्याणकारी योजनाएँ (${matchedSchemes.length})`
-                    : `Matching Government Schemes for You (${matchedSchemes.length})`}
+                    ? `चुनी हुई श्रेणी की नमूना प्रविष्टियाँ (${matchedSchemes.length})`
+                    : `Sample entries in the selected category (${matchedSchemes.length})`}
               </h2>
               <small>
                 {gu
-                  ? `પસંદ કરેલ જિલ્લો: ${demoDistricts.find((d) => d.id === selectedDistrict)?.gu || selectedDistrict} · ૧૦૦% ચકાસાયેલ સરકારી પોર્ટલ સૂચિ`
-                  : `Selected District: ${demoDistricts.find((d) => d.id === selectedDistrict)?.name || selectedDistrict} · 100% Verified Gujarat Portal List`}
+                  ? `પસંદ કરેલો જિલ્લો: ${demoDistricts.find((d) => d.id === selectedDistrict)?.gu || selectedDistrict} · આવક અને જિલ્લાની પસંદગી પાત્રતા ફિલ્ટર નથી; સત્તાવાર પાત્રતાની ચકાસણી થતી નથી.`
+                  : lang === "hi"
+                    ? `चुना हुआ जिला: ${demoDistricts.find((d) => d.id === selectedDistrict)?.name || selectedDistrict} · आय और जिले के विकल्प पात्रता फ़िल्टर नहीं हैं; आधिकारिक पात्रता की जाँच नहीं होती।`
+                    : `Selected district: ${demoDistricts.find((d) => d.id === selectedDistrict)?.name || selectedDistrict} · income and district are not eligibility filters; no official eligibility check is performed.`}
               </small>
             </div>
 
@@ -257,32 +260,20 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
             {matchedSchemes.map((s) => (
               <article key={s.id} className="public-scheme-card">
                 <div className="psc-top">
-                  <span className="psc-badge">{gu ? s.categoryGu : s.category}</span>
+                  <span className="psc-badge">{gu ? s.categoryGu : localizeText(lang, s.category)}</span>
                   <span className="psc-code">{s.id}</span>
                 </div>
 
                 <h3>{gu ? s.gu : s.name}</h3>
                 <small style={{ color: "rgba(255,255,255,0.65)", display: "block", marginBottom: "8px" }}>
-                  {gu ? s.departmentGu : s.department}
+                  {gu ? "નમૂનાની નોંધ · સત્તાવાર સ્ત્રોત જોડાયેલો નથી" : lang === "hi" ? "नमूना प्रविष्टि · आधिकारिक स्रोत जुड़ा नहीं" : "Sample entry · no official source connected"}
                 </small>
 
                 <div className="psc-benefit-highlight">
                   <span className="psc-ben-lbl">
-                    {gu ? "મળવાપાત્ર લાભ / સહાય:" : lang === "hi" ? "प्राप्त सहायता राशि:" : "Benefit Amount:"}
+                    {gu ? "સત્તાવાર લાભ / પાત્રતા:" : lang === "hi" ? "आधिकारिक लाभ / पात्रता:" : "Official benefit / eligibility:"}
                   </span>
-                  <strong className="psc-ben-val">{gu ? s.benefitAmountGu : s.benefitAmount}</strong>
-                </div>
-
-                <div className="psc-docs-box">
-                  <strong>
-                    <FileText size={15} />
-                    <span>{gu ? "જરૂરી આધાર પુરાવા:" : lang === "hi" ? "आवश्यक दस्तावेज़:" : "Required Documents:"}</span>
-                  </strong>
-                  <div className="psc-docs-pills">
-                    {(gu ? s.documentsGu : s.documents).slice(0, 3).map((doc, idx) => (
-                      <span className="doc-pill" key={idx}>{doc}</span>
-                    ))}
-                  </div>
+                  <strong className="psc-ben-val">{gu ? "ચકાસેલ માહિતી ઉપલબ્ધ નથી" : lang === "hi" ? "सत्यापित जानकारी उपलब्ध नहीं" : "Verified details unavailable"}</strong>
                 </div>
 
                 {/* Card CTA */}
@@ -293,7 +284,7 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
                     onClick={() => setSelectedModalScheme(s)}
                   >
                     <FileText size={14} />
-                    <span>{gu ? "વિગતવાર માહિતી & અરજી" : lang === "hi" ? "विस्तृत विवरण और आवेदन" : "View Details & Apply"}</span>
+                    <span>{gu ? "ચકાસણી સ્થિતિ જુઓ" : lang === "hi" ? "सत्यापन स्थिति देखें" : "View verification status"}</span>
                   </button>
                 </div>
               </article>

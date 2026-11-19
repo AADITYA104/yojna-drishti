@@ -5,8 +5,6 @@ import Image from "next/image";
 import { getLocale, localizeText } from "@/lib/i18n";
 import {
   Search,
-  CheckCircle2,
-  Building2,
   FileText,
   ChevronDown,
   ChevronUp,
@@ -37,9 +35,9 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
   const fmt = (num: number) => new Intl.NumberFormat(getLocale(lang)).format(num);
   const intro = {
     gu: {
-      kicker: "ગુજરાત સત્તાવાર યોજના નિર્દેશિકા",
-      title: "ગુજરાતની સરકારી યોજનાઓ, હવે એક જ સ્થળે.",
-      description: "તમારી જરૂરિયાત, પાત્રતા અને જિલ્લાને અનુરૂપ તમામ કલ્યાણકારી યોજનાઓની અધિકૃત માહિતી મેળવો અને ઓનલાઇન અરજી કરો.",
+      kicker: "યોજના સૂચિ · નમૂનાનું પૂર્વદર્શન",
+      title: "ગુજરાતની યોજનાઓની સૂચિ",
+      description: "આ સૂચિમાં ઉદાહરણરૂપ નોંધો છે. સત્તાવાર લાભ, પાત્રતા, દસ્તાવેજો અને અરજીની વિગતો અહીં જોડાયેલી નથી.",
       directory: "યોજનાઓ શોધો",
       map: "ગુજરાતનો નકશો જુઓ",
       imageAlt: "ખેતરમાં ટપક સિંચાઈની પદ્ધતિ સાથે ઊભેલા ખેડૂતનું દૃશ્ય",
@@ -47,9 +45,9 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
       places: ["રાણીની વાવ · પાટણ", "સ્ટેચ્યુ ઑફ યુનિટી · નર્મદા", "કચ્છનું રણ", "સાબરમતી રિવરફ્રન્ટ · અમદાવાદ"],
     },
     en: {
-      kicker: "Gujarat Official Scheme Directory",
-      title: "Government schemes in Gujarat, all in one place.",
-      description: "Find verified scheme information, eligibility rules, benefit amounts, and application pathways across Gujarat.",
+      kicker: "Scheme catalogue · sample preview",
+      title: "Explore Gujarat scheme entries",
+      description: "This catalogue contains illustrative entries. Official benefits, eligibility, documents, and application details are not connected or verified here.",
       directory: "Explore schemes",
       map: "Explore Gujarat map",
       imageAlt: "A farmer walking through a field with drip irrigation lines",
@@ -57,9 +55,9 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
       places: ["Rani ki Vav · Patan", "Statue of Unity · Narmada", "The Rann of Kutch", "Sabarmati Riverfront · Ahmedabad"],
     },
     hi: {
-      kicker: "गुजरात आधिकारिक योजना सूची",
-      title: "गुजरात की सरकारी योजनाएँ, अब एक ही जगह।",
-      description: "अपनी ज़रूरत, पात्रता और ज़िले के अनुसार सभी कल्याणकारी योजनाओं की प्रामाणिक जानकारी खोजें और आवेदन करें।",
+      kicker: "योजना सूची · नमूना पूर्वावलोकन",
+      title: "गुजरात की योजना प्रविष्टियाँ देखें",
+      description: "इस सूची में उदाहरण प्रविष्टियाँ हैं। आधिकारिक लाभ, पात्रता, दस्तावेज़ और आवेदन विवरण यहाँ जुड़े या सत्यापित नहीं हैं।",
       directory: "योजनाएँ खोजें",
       map: "गुजरात का नक्शा देखें",
       imageAlt: "ड्रिप सिंचाई वाले खेत में चलते किसान का दृश्य",
@@ -191,7 +189,7 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
         <div className="filter-pills-row">
           {[
             { key: "all", en: `All schemes (${demoSchemes.length})`, gu: `બધી યોજનાઓ (${fmt(demoSchemes.length)})`, hi: `सभी योजनाएँ (${fmt(demoSchemes.length)})` },
-            ...categories.map((key) => ({ key, en: key, gu: categoryLabels.get(key) || key, hi: key })),
+            ...categories.map((key) => ({ key, en: key, gu: categoryLabels.get(key) || key, hi: localizeText("hi", key) })),
           ].map((cat) => (
             <button
               key={cat.key}
@@ -246,15 +244,15 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
                 <div className="smc-titles">
                   <div className="smc-top-meta">
                     <span className="smc-code">{s.id}</span>
-                    <span className="smc-category-tag">{gu ? s.categoryGu : s.category}</span>
-                    <span className="smc-year-tag">FY {fy} · {s.launchYear}</span>
+                    <span className="smc-category-tag">{gu ? s.categoryGu : localizeText(lang, s.category)}</span>
+                    <span className="smc-year-tag">{gu ? "નમૂનો · સત્તાવાર સ્ત્રોત જોડાયેલો નથી" : lang === "hi" ? "नमूना · आधिकारिक स्रोत जुड़ा नहीं" : "Sample · no official source connected"}</span>
                   </div>
-                  <h3>{gu ? s.gu : s.name}</h3>
-                  <small className="smc-dept">{gu ? s.departmentGu : s.department}</small>
+                  <h3>{gu ? s.gu : localizeText(lang, s.name)}</h3>
+                  <small className="smc-dept">{gu ? "ઉદાહરણરૂપ કેટલોગ નોંધ" : lang === "hi" ? "उदाहरण सूची प्रविष्टि" : "Illustrative catalogue entry"}</small>
                 </div>
 
                 <div className="smc-header-stats">
-                  <span className="scheme-preview-label">{gu ? s.benefitAmountGu : s.benefitAmount}</span>
+                  <span className="scheme-preview-label">{gu ? "નમૂનો" : lang === "hi" ? "नमूना" : "Sample"}</span>
                   <span className="expand-chevron-btn" aria-hidden="true">
                     {isExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </span>
@@ -264,45 +262,21 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
               {/* Collapsible In-Depth Drawer */}
               {isExpanded && (
                 <div className="smc-expanded-body">
-                  <div className="smc-benefit-highlight">
-                    <span className="benefit-label">
-                      {gu ? "સહાય / લાભની રકમ:" : lang === "hi" ? "सहायता / लाभ राशि:" : "Benefit Amount:"}
-                    </span>
-                    <strong className="benefit-val">{gu ? s.benefitAmountGu : s.benefitAmount}</strong>
-                  </div>
-
                   <div className="smc-two-columns">
-                    {/* Eligibility List */}
-                    <div className="smc-col">
-                      <h4>
-                        <CheckCircle2 size={16} className="text-teal" />
-                        <span>{gu ? "પાત્રતાના માપદંડ (Eligibility Criteria):" : lang === "hi" ? "पात्रता मापदंड:" : "Eligibility Criteria:"}</span>
-                      </h4>
-                      <ul className="scheme-bullet-list">
-                        {(gu ? s.eligibilityGu : s.eligibility).map((item, idx) => (
-                          <li key={idx}>{item}</li>
-                        ))}
-                      </ul>
+                    <div className="smc-col" role="note">
+                      <h4><FileText size={16} className="text-amber" /><span>{gu ? "માહિતીની સ્થિતિ" : lang === "hi" ? "जानकारी की स्थिति" : "Information status"}</span></h4>
+                      <p>{gu ? "લાભની રકમ, પાત્રતા નિયમો અને જરૂરી દસ્તાવેજો સત્તાવાર રીતે ચકાસેલા નથી. આ નોંધને પાત્રતાનો નિર્ણય માનશો નહીં." : lang === "hi" ? "लाभ राशि, पात्रता नियम और आवश्यक दस्तावेज़ आधिकारिक रूप से सत्यापित नहीं हैं। इस प्रविष्टि को पात्रता का निर्णय न मानें।" : "Benefit amounts, eligibility rules, and required documents are not officially verified. Do not treat this entry as an eligibility decision."}</p>
                     </div>
-
-                    {/* Required Documents */}
-                    <div className="smc-col">
-                      <h4>
-                        <FileText size={16} className="text-amber" />
-                        <span>{gu ? "જરૂરી આધાર-પુરાવા (Required Documents):" : lang === "hi" ? "आवश्यक दस्तावेज़:" : "Required Documents:"}</span>
-                      </h4>
-                      <ul className="scheme-bullet-list">
-                        {(gu ? s.documentsGu : s.documents).map((doc, idx) => (
-                          <li key={idx}>{doc}</li>
-                        ))}
-                      </ul>
+                    <div className="smc-col" role="note">
+                      <h4><FileText size={16} className="text-amber" /><span>{gu ? "સત્તાવાર વિગતો" : lang === "hi" ? "आधिकारिक विवरण" : "Official details"}</span></h4>
+                      <p>{gu ? "આ યોજનાનો અધિકૃત સ્રોત, વિભાગ, અરજી પોર્ટલ અને છેલ્લી ચકાસણીની તારીખ જોડાયેલી નથી." : lang === "hi" ? "इस योजना का आधिकारिक स्रोत, विभाग, आवेदन पोर्टल और अंतिम जाँच की तारीख उपलब्ध नहीं है।" : "An official source, department confirmation, application portal, and verification date are not connected for this entry."}</p>
                     </div>
                   </div>
 
                   <div className="smc-footer-bar">
                     <div className="target-summary">
-                      <span className="ts-label">{gu ? "લક્ષિત જૂથ:" : lang === "hi" ? "लक्षित समूह:" : "Target Beneficiary Group:"}</span>
-                      <span className="ts-val">{gu ? s.targetGroupGu : s.targetGroup}</span>
+                      <span className="ts-label">{gu ? "સ્થિતિ:" : lang === "hi" ? "स्थिति:" : "Status:"}</span>
+                      <span className="ts-val">{gu ? "નમૂનો · સત્તાવાર રીતે ચકાસાયેલો નથી" : lang === "hi" ? "नमूना · आधिकारिक रूप से सत्यापित नहीं" : "Sample · not officially verified"}</span>
                     </div>
 
                     <button
@@ -314,7 +288,7 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
                       }}
                     >
                       <FileText size={14} />
-                      <span>{gu ? "વિગતવાર માહિતી & અરજી" : lang === "hi" ? "विस्तृत विवरण और आवेदन" : "View Details & Apply"}</span>
+                      <span>{gu ? "ચકાસણી નોંધ જુઓ" : lang === "hi" ? "सत्यापन सूचना देखें" : "View verification note"}</span>
                     </button>
                   </div>
                 </div>

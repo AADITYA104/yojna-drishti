@@ -144,8 +144,8 @@ interface GujaratInteractiveMapProps {
 function colorForOrdinal(
   ordinal: number,
   hueOffset: number,
-  saturation = 0.62,
-  lightness = 0.62,
+  saturation = 0.54,
+  lightness = 0.68,
 ) {
   const hue = ((Math.abs(ordinal) * 137.508 + hueOffset) % 360) / 30;
   const amplitude = saturation * Math.min(lightness, 1 - lightness);
@@ -175,8 +175,8 @@ function talukaColor(subdistrictCode: number) {
 
 function settlementColor(locationCode: string) {
   const hash = stableHash(locationCode);
-  const saturation = 0.58 + ((hash >>> 8) % 22) / 100;
-  const lightness = 0.56 + ((hash >>> 16) % 14) / 100;
+  const saturation = 0.5 + ((hash >>> 8) % 16) / 100;
+  const lightness = 0.64 + ((hash >>> 16) % 10) / 100;
   return colorForOrdinal(hash, 132, saturation, lightness);
 }
 
@@ -1302,7 +1302,7 @@ export function GujaratInteractiveMap({
       "fill-color",
       (districtView
         ? ["get", "talukaColor"]
-        : ["case", selectedSettlement, "#ffb703", ["get", "settlementColor"]]) as never
+        : ["case", selectedSettlement, "#df9826", ["get", "settlementColor"]]) as never
     );
 
     map.setPaintProperty(
@@ -1319,13 +1319,13 @@ export function GujaratInteractiveMap({
         "line-color",
         (districtView
           ? "#ffffff"
-          : ["case", selectedSettlement, "#14213d", "#ffffff"]) as never
+          : ["case", selectedSettlement, "#123650", "#ffffff"]) as never
       );
 
       map.setPaintProperty(
         "soi-villages-lines",
         "line-width",
-        ["case", selectedSettlement, 2.6, ["interpolate", ["linear"], ["zoom"], 7, 0.8, 12, 1.25, 15, 1.8]] as never,
+        ["interpolate", ["linear"], ["zoom"], 7, 0.8, 12, 1.25, 15, 1.8] as never,
       );
     }
   }, [
@@ -1695,10 +1695,10 @@ export function GujaratInteractiveMap({
               </div>
               <span className="geo-color-legend-note">
                 {gu
-                  ? "પસંદ કરેલું સ્થળ amber અને ઘેરી outlineથી દેખાય છે. બાકીના રંગો ફક્ત સીમા ઓળખાવે છે; ક્ષેત્રફળ કે યોજનાની કામગીરી બતાવતા નથી."
+                    ? "વિવિધ રંગો જિલ્લા/તાલુકા/ગામની સીમા ઓળખાવે છે. પસંદ કરેલું ગામ સોનેરી દેખાય છે; આ રંગો ક્ષેત્રફળ કે યોજનાની કામગીરી નથી."
                   : lang === "hi"
-                    ? "चुना हुआ स्थान amber रंग और गहरी outline से दिखता है। बाकी रंग केवल सीमाएँ पहचानते हैं; क्षेत्रफल या योजना की स्थिति नहीं बताते।"
-                    : "The selected place is amber with a dark outline. Other colors only distinguish boundaries; they do not represent area or scheme activity."}
+                    ? "अलग रंग जिला/तालुका/गाँव की सीमाएँ पहचानते हैं। चुना हुआ गाँव सुनहरे रंग में दिखता है; रंग क्षेत्रफल या योजना गतिविधि नहीं दर्शाते।"
+                    : "Distinct colors identify district, taluka, and village boundaries. The selected village is gold; colors do not encode area or scheme activity."}
               </span>
             </div>
           )}
