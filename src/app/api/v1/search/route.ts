@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import { demoSchemes } from "@/lib/demo-data";
+import { localizeText } from "@/lib/i18n";
 import {
   GHOGHA_48_VILLAGES,
   MASTER_DISTRICTS,
@@ -92,13 +93,13 @@ export async function GET(request: NextRequest) {
   for (const district of MASTER_DISTRICTS) {
     const aliases = [district.id, district.nameEn, district.nameGu, district.officialNo, String(district.code)];
     if (aliases.some((value) => normalize(value).includes(query))) {
-      items.push({ id: district.id, label: language === "gu" ? district.nameGu : district.nameEn, detail: `${language === "gu" ? "જિલ્લો" : language === "hi" ? "जिला" : "District"} · ${district.officialNo}`, kind: "district", districtId: district.id, aliases });
+      items.push({ id: district.id, label: language === "gu" ? district.nameGu : localizeText(language, district.nameEn), detail: `${language === "gu" ? "જિલ્લો" : language === "hi" ? "जिला" : "District"} · ${district.officialNo}`, kind: "district", districtId: district.id, aliases });
     }
   }
   for (const taluka of MASTER_SUBDISTRICTS) {
     const aliases = [taluka.nameEn, taluka.nameGu, taluka.districtNameEn, taluka.districtNameGu, String(taluka.code)];
     if (aliases.some((value) => normalize(value).includes(query))) {
-      items.push({ id: String(taluka.code), label: language === "gu" ? taluka.nameGu : taluka.nameEn, detail: `${language === "gu" ? taluka.districtNameGu : taluka.districtNameEn} · ${language === "gu" ? "તાલુકો" : language === "hi" ? "तालुका" : "Taluka"} · LGD ${taluka.code}`, kind: "taluka", districtId: taluka.districtId, subdistrictCode: taluka.code, aliases });
+      items.push({ id: String(taluka.code), label: language === "gu" ? taluka.nameGu : localizeText(language, taluka.nameEn), detail: `${language === "gu" ? taluka.districtNameGu : localizeText(language, taluka.districtNameEn)} · ${language === "gu" ? "તાલુકો" : language === "hi" ? "तालुका" : "Taluka"} · LGD ${taluka.code}`, kind: "taluka", districtId: taluka.districtId, subdistrictCode: taluka.code, aliases });
     }
   }
 
@@ -117,8 +118,8 @@ export async function GET(request: NextRequest) {
     const aliases = [village.nameEn, village.nameGu || "", village.code];
     items.push({
       id: village.code,
-      label: language === "gu" ? village.nameGu || village.nameEn : village.nameEn,
-      detail: `${language === "gu" ? subdistrict.nameGu : subdistrict.nameEn} · ${language === "gu" ? district.nameGu : district.nameEn} · ${language === "gu" ? "ગામ/શહેર" : language === "hi" ? (village.category?.toLowerCase() === "urban" ? "शहर" : "गाँव") : (village.category?.toLowerCase() === "urban" ? "City/town" : "Village")} · LGD ${village.code}`,
+      label: language === "gu" ? village.nameGu || village.nameEn : localizeText(language, village.nameEn),
+      detail: `${language === "gu" ? subdistrict.nameGu : localizeText(language, subdistrict.nameEn)} · ${language === "gu" ? district.nameGu : localizeText(language, district.nameEn)} · ${language === "gu" ? "ગામ/શહેર" : language === "hi" ? (village.category?.toLowerCase() === "urban" ? "शहर" : "गाँव") : (village.category?.toLowerCase() === "urban" ? "City/town" : "Village")} · LGD ${village.code}`,
       kind: "village",
       districtId: district.id,
       subdistrictCode: subdistrict.code,
@@ -129,15 +130,25 @@ export async function GET(request: NextRequest) {
   for (const scheme of demoSchemes) {
     const aliases = [scheme.id, scheme.name, scheme.gu, scheme.shortName, scheme.shortNameGu, scheme.department, scheme.departmentGu];
     if (aliases.some((value) => normalize(value).includes(query))) {
-      items.push({ id: scheme.id, label: language === "gu" ? scheme.gu : scheme.name, detail: `${language === "gu" ? scheme.departmentGu : scheme.department} · ${language === "gu" ? "ડેમો સૂચિ" : language === "hi" ? "डेमो सूची" : "Demo catalogue"}`, kind: "scheme", aliases });
+      items.push({ id: scheme.id, label: language === "gu" ? scheme.gu : localizeText(language, scheme.name), detail: `${language === "gu" ? scheme.departmentGu : localizeText(language, scheme.department)} · ${language === "gu" ? "ડેમો સૂચિ" : language === "hi" ? "डेमो सूची" : "Demo catalogue"}`, kind: "scheme", aliases });
     }
   }
 
   const ranked = items
     .sort((a, b) => {
+      const aExactLabel = normalize(a.label) === query;
+      const bExactLabel = normalize(b.label) === query;
+      const aExactAlias = a.aliases.some((value) => normalize(value) === query);
+      const bExactAlias = b.aliases.some((value) => normalize(value) === query);
+      const aExactDistrict = a.kind === "district" && aExactAlias;
+      const bExactDistrict = b.kind === "district" && bExactAlias;
       const aStarts = [a.label, ...a.aliases].some((value) => normalize(value).startsWith(query));
       const bStarts = [b.label, ...b.aliases].some((value) => normalize(value).startsWith(query));
-      return Number(bStarts) - Number(aStarts) || a.label.localeCompare(b.label);
+      return Number(bExactLabel) - Number(aExactLabel)
+        || Number(bExactDistrict) - Number(aExactDistrict)
+        || Number(bExactAlias) - Number(aExactAlias)
+        || Number(bStarts) - Number(aStarts)
+        || a.label.localeCompare(b.label);
     })
     .slice(0, 12);
   return NextResponse.json({

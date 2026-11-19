@@ -11,9 +11,15 @@ import { useEffect } from "react";
 export function ScrollRevealProvider() {
   useEffect(() => {
     const selectors = ".reveal, .reveal-left, .reveal-scale, .reveal-stagger";
+    document.documentElement.classList.add("has-scroll-reveal");
 
     function attachObserver() {
       const targets = document.querySelectorAll<HTMLElement>(selectors);
+
+      if (!("IntersectionObserver" in window)) {
+        targets.forEach((element) => element.classList.add("is-visible"));
+        return null;
+      }
 
       const obs = new IntersectionObserver(
         (entries) => {
@@ -39,15 +45,16 @@ export function ScrollRevealProvider() {
 
     // Re-observe whenever user navigates or dynamic content loads
     const mutObs = new MutationObserver(() => {
-      obs.disconnect();
+      obs?.disconnect();
       obs = attachObserver();
     });
 
     mutObs.observe(document.body, { childList: true, subtree: true });
 
     return () => {
-      obs.disconnect();
+      obs?.disconnect();
       mutObs.disconnect();
+      document.documentElement.classList.remove("has-scroll-reveal");
     };
   }, []);
 

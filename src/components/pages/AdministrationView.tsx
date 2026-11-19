@@ -70,7 +70,7 @@ export function AdministrationView({ gu, lang }: AdministrationViewProps) {
   return (
     <div className="administration-page">
       {/* Page Hero */}
-      <div className="page-hero-gov">
+      <div className="page-hero-gov reveal">
         <div>
           <span className="hero-kicker-tag">
             {localizeText(lang, gu ? "વહીવટી નિયંત્રણ અને ભૂમિકાઓ" : "GOVERNANCE & ROLES")}
@@ -84,7 +84,7 @@ export function AdministrationView({ gu, lang }: AdministrationViewProps) {
         </div>
       </div>
 
-      <div className="data-security-alert-bar">
+      <div className="data-security-alert-bar reveal">
         <ShieldCheck size={18} className="text-teal" />
         <div>
           <strong>{localizeText(lang, gu ? "ડેમો RBAC પૂર્વદર્શન:" : "Demo RBAC preview:")}</strong>{" "}
@@ -93,7 +93,7 @@ export function AdministrationView({ gu, lang }: AdministrationViewProps) {
       </div>
 
       {/* Role Matrix Panel */}
-      <div className="panel-gov">
+      <div className="panel-gov reveal">
         <div className="panel-gov-head">
           <div>
             <h3>{localizeText(lang, gu ? "વહીવટી ભૂમિકાઓ અને પરવાનગી મેટ્રિક્સ" : "Administrative Role Permission Matrix")}</h3>
@@ -132,7 +132,7 @@ export function AdministrationView({ gu, lang }: AdministrationViewProps) {
       </div>
 
       {/* Audit Log Table */}
-      <div className="panel-gov">
+      <div className="panel-gov reveal">
         <div className="panel-gov-head">
           <div>
             <h3>{localizeText(lang, gu ? "નમૂના ઓડિટ પ્રવૃત્તિઓ" : "Sample Audit Activity")}</h3>

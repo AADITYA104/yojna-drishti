@@ -107,7 +107,7 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
   return (
     <div className="schemes-page w-full">
       {/* Visual Header with Real Gujarat Photography */}
-      <section className="gujarat-glass-hero" aria-label={intro.title}>
+      <section className="gujarat-glass-hero reveal" aria-label={intro.title}>
         <div className="gujarat-glass-hero-copy">
           <span className="gujarat-hero-kicker">
             <Award size={14} className="inline mr-1" />
@@ -157,7 +157,7 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
       </section>
 
       {/* 4 Landmark Photo Strip */}
-      <section className="gujarat-photo-strip" aria-label={intro.photoLabel}>
+      <section className="gujarat-photo-strip reveal" aria-label={intro.photoLabel}>
         <h2>{intro.photoLabel}</h2>
         <div className="gujarat-photo-strip-grid">
           {[
@@ -175,7 +175,7 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
       </section>
 
       {/* Filter Strip */}
-      <div className="table-filter-strip">
+      <div className="table-filter-strip reveal">
         <label className="search-box-gov">
           <Search size={15} />
           <input
@@ -224,17 +224,7 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
         )}
         {filteredSchemes.map((s, index) => {
           const isExpanded = expandedSchemeId === s.id || (!expandedSchemeIsVisible && s.id === filteredSchemes[0]?.id);
-          const catColors: Record<string, string> = {
-            "દીકરી સંરક્ષણ અને શિક્ષણ": "#2E7D52",
-            "વિધવા સહાય": "#6B4EAE",
-            "વિધવા પુનર્લગ્ન": "#6B4EAE",
-            "મહિલા સ્વાવલંબન": "#4D79A8",
-            "માતૃ અને શિશુ સ્વાસ્થ્ય": "#C63B5A",
-            "માતૃત્વ પ્રોત્સાહન": "#C63B5A",
-            "લઘુ ઉદ્યોગ ધિરાણ": "#2D7D84",
-            "મહિલા ઉદ્યોગસાહસિકતા": "#2D7D84",
-          };
-          const borderCatColor = catColors[s.categoryGu] || "#4D79A8";
+          const borderCatColor = "#4D79A8";
 
           return (
             <div

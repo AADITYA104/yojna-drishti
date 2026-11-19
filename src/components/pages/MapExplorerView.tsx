@@ -61,7 +61,7 @@ export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplor
 
   return (
     <div className="map-explorer-page w-full space-y-6">
-      <header className="geo-explorer-header">
+      <header className="geo-explorer-header reveal">
         <div className="geo-explorer-title">
           <span className="geo-explorer-eyebrow">
             <MapPinned size={15} aria-hidden="true" />
@@ -80,7 +80,7 @@ export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplor
         </div>
       </header>
 
-      <section className="map-showcase-section" id="gujarat-map-canvas">
+      <section className="map-showcase-section reveal" id="gujarat-map-canvas">
         <div className="full-map-wrapper">
           <GujaratInteractiveMap
             key="administrative-drilldown-map"
@@ -97,7 +97,7 @@ export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplor
         </div>
       </section>
 
-      <section className="location-baseline-section pt-2" aria-live="polite">
+      <section className="location-baseline-section pt-2 reveal" aria-live="polite">
         {selectedLocation ? (
           <LocationAnalyticsDashboard key={selectedLocation.locationCode} location={selectedLocation} lang={lang} />
         ) : selectedArea ? (

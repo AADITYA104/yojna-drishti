@@ -192,7 +192,6 @@ export function SpatialShell() {
       >
         {/* Primary header */}
         <SpatialHeader
-          gu={gu}
           lang={lang}
           onSelectLanguage={setLang}
           onOpenSearch={() => setSearchOpen(true)}

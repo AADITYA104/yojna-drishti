@@ -6,7 +6,7 @@ import {
   Compass,
   MapPin,
   Sparkles,
-  BookmarkCheck,
+  BarChart3,
   Settings,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -64,10 +64,10 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
     },
     {
       key: "saved" as const,
-      labelGu: "લાભાર્થી વિશ્લેષણ",
-      labelEn: "Beneficiary Analytics",
-      labelHi: "लाभार्थी विश्लेषण",
-      icon: BookmarkCheck,
+      labelGu: "ડેટાસેટ વિશ્લેષણ",
+      labelEn: "Dataset analytics",
+      labelHi: "डेटासेट विश्लेषण",
+      icon: BarChart3,
     },
     {
       key: "settings" as const,
@@ -79,8 +79,8 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
   ];
 
   return (
-    <aside className="spatial-dock-anchor" aria-label={language === "gu" ? "મુખ્ય નેવિગેશન" : language === "hi" ? "मुख्य नेविगेशन" : "Main navigation"}>
-      <nav className="spatial-dock-capsule">
+    <aside className="spatial-dock-anchor">
+      <nav className="spatial-dock-capsule" aria-label={language === "gu" ? "મુખ્ય નેવિગેશન" : language === "hi" ? "मुख्य नेविगेशन" : "Main navigation"}>
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeKey === item.key;
@@ -106,6 +106,7 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
               <span className="spatial-dock-icon-wrap">
                 <Icon size={20} strokeWidth={1.75} />
               </span>
+              <span className="spatial-dock-label">{title}</span>
             </button>
           );
         })}

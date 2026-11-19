@@ -242,15 +242,6 @@ body.portal-theme {
     padding: 8px 14px;
   }
 
-  .spatial-dock-anchor {
-    transition: opacity 180ms ease, transform 180ms ease;
-  }
-
-  .spatial-dock-anchor.is-scroll-hidden:not(:focus-within) {
-    opacity: 0;
-    transform: translate(-50%, calc(100% + 20px));
-    pointer-events: none;
-  }
 }
 
 /* Ensure Map Explorer and Sub-Views inside Spatial Glass Container have full responsive height */

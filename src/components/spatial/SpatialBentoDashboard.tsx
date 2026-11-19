@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { CSSProperties } from "react";
 import { ArrowRight, BarChart3, Building2, Database, MapPinned, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
-import type { AppLanguage } from "@/lib/i18n";
+import { localizeText, type AppLanguage } from "@/lib/i18n";
 
 interface SpatialBentoDashboardProps {
   gu: boolean;
@@ -109,14 +109,14 @@ export function SpatialBentoDashboard({ lang, onNavigate }: SpatialBentoDashboar
           <article className="data-panel reveal">
             <div className="data-panel-heading"><div><span className="data-panel-kicker">10 · {text.schemes}</span><h2>{text.schemeTitle}</h2></div><BarChart3 size={19} /></div>
             <div className="data-bar-list">{topSchemes.map((scheme) => <div className="data-bar-row" key={scheme.id}>
-              <div className="data-bar-label"><span>{lang === "gu" ? scheme.nameGu : scheme.nameEn}</span><strong>{number(scheme.count, lang)}</strong></div>
+              <div className="data-bar-label"><span>{lang === "gu" ? scheme.nameGu : localizeText(lang, scheme.nameEn)}</span><strong>{number(scheme.count, lang)}</strong></div>
               <div className="data-bar-track"><span style={{ width: `${Math.max(2, (scheme.count / maxScheme) * 100)}%` }} /></div>
             </div>)}</div>
           </article>
           <article className="data-panel reveal">
             <div className="data-panel-heading"><div><span className="data-panel-kicker">{overview.meta.districtCount} · {text.districts}</span><h2>{text.districtTitle}</h2></div><Building2 size={19} /></div>
             <div className="data-bar-list">{topDistricts.map((district) => <div className="data-bar-row" key={district.districtCode}>
-              <div className="data-bar-label"><span>{lang === "gu" ? district.nameGu : district.nameEn}</span><strong>{number(district.sampleRows, lang)} <small>{text.count}</small></strong></div>
+              <div className="data-bar-label"><span>{lang === "gu" ? district.nameGu : localizeText(lang, district.nameEn)}</span><strong>{number(district.sampleRows, lang)} <small>{text.count}</small></strong></div>
               <div className="data-bar-track"><span style={{ width: `${Math.max(2, (district.sampleRows / maxDistrict) * 100)}%` }} /></div>
               <small className="data-row-meta">{number(district.locationCount, lang)} {text.locations}</small>
             </div>)}</div>

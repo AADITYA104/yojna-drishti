@@ -52,7 +52,7 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
   return (
     <div className="public-portal-page w-full">
       {/* Page Hero */}
-      <div className="page-hero-gov citizen-hero">
+      <div className="page-hero-gov citizen-hero reveal">
         <div>
           <span className="hero-kicker-tag citizen-tag">
             <Sparkles size={14} className="inline mr-1" />
@@ -72,7 +72,7 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
       </div>
 
       {/* Progressive Step Indicator */}
-      <div className="wizard-step-progress-bar">
+      <div className="wizard-step-progress-bar reveal">
         {[
           { num: 1, titleGu: "લાભાર્થી શ્રેણી", titleEn: "Category", titleHi: "लाभार्थी श्रेणी" },
           { num: 2, titleGu: "આવક મર્યાદા", titleEn: "Income Bracket", titleHi: "आय सीमा" },
@@ -96,7 +96,7 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
 
       {/* STEP 1: LIFE STAGE / CATEGORY */}
       {step === 1 && (
-        <div className="finder-wizard-box">
+        <div className="finder-wizard-box reveal">
           <div className="wizard-question-group">
             <label className="wizard-label">
               {gu ? "૧. લાભાર્થીનો પ્રકાર અથવા જીવન તબક્કો પસંદ કરો:" : lang === "hi" ? "१. लाभार्थी प्रकार अथवा जीवन चरण चुनें:" : "1. Select Beneficiary Category / Life Stage:"}
@@ -144,7 +144,7 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
 
       {/* STEP 2: INCOME BRACKET */}
       {step === 2 && (
-        <div className="finder-wizard-box">
+        <div className="finder-wizard-box reveal">
           <div className="wizard-question-group">
             <label className="wizard-label">
               {gu ? "૨. આવક જૂથ (માત્ર પૂર્વદર્શન માટે)" : lang === "hi" ? "२. आय वर्ग (केवल पूर्वावलोकन के लिए)" : "2. Income group (preview only):"}
@@ -194,7 +194,7 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
 
       {/* STEP 3: DISTRICT SELECTION */}
       {step === 3 && (
-        <div className="finder-wizard-box">
+        <div className="finder-wizard-box reveal">
           <div className="wizard-question-group">
             <label className="wizard-label">
               {gu ? "૩. તમે ગુજરાતના કયા જિલ્લામાં રહો છો?" : lang === "hi" ? "३. आप गुजरात के किस जिले में रहते हैं?" : "3. Select Your Gujarat District:"}
@@ -231,7 +231,7 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
 
       {/* STEP 4: MATCHED RESULTS LIST */}
       {step === 4 && (
-        <div className="wizard-results-view">
+        <div className="wizard-results-view reveal">
           <div className="matched-results-header">
             <div>
               <h2>
