@@ -1,16 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { localizeText } from "@/lib/i18n";
+import { localizeText, type AppLanguage } from "@/lib/i18n";
 import { Building2, Info, MapPinned, Map, Layers } from "lucide-react";
 import { demoDistricts, type District } from "@/lib/demo-data";
-import { GujaratInteractiveMap } from "../map/GujaratInteractiveMap";
+import { GujaratInteractiveMap, type MapSelectedArea, type MapSelectedLocation } from "../map/GujaratInteractiveMap";
 import { CleanGujaratSvgMap } from "../map/CleanGujaratSvgMap";
 import { VillageSchemeAnalyticsHub } from "../map/VillageSchemeAnalyticsHub";
 import { LocationAnalyticsDashboard } from "../map/LocationAnalyticsDashboard";
+import { AreaSchemeAnalyticsDashboard } from "../map/AreaSchemeAnalyticsDashboard";
 import districtDefaultLocations from "@/lib/district-default-locations.json";
-import type { MapSelectedLocation } from "../map/GujaratInteractiveMap";
-import type { AppLanguage } from "@/lib/i18n";
 
 interface MapExplorerViewProps {
   gu: boolean;
@@ -42,6 +41,7 @@ export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplor
     focusRequest?.target?.districtId || "bhavnagar",
   );
   const [previousFocusRequestId, setPreviousFocusRequestId] = useState(focusRequest?.id);
+  const [selectedArea, setSelectedArea] = useState<MapSelectedArea | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<MapSelectedLocation | null>(null);
   const [mapMode, setMapMode] = useState<"svg" | "gis">("svg");
 
@@ -55,6 +55,7 @@ export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplor
   const handleRegionChange = (newRegion: "all" | District["region"]) => {
     setSelectedRegion(newRegion);
     setSelectedLocation(null);
+    setSelectedArea(null);
     if (newRegion !== "all") {
       const dist = demoDistricts.find((d) => d.region === newRegion);
       if (dist) setActiveDistrictId(dist.id);
@@ -119,7 +120,7 @@ export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplor
       {/* 1. MAIN INTERACTIVE MAP CONTAINER */}
       <section className="map-showcase-section" id="gujarat-map-canvas">
         {mapMode === "svg" ? (
-          /* Clean Isolated Gujarat 33 Districts SVG Map (0 outside states clutter, interactive color change) */
+          /* Clean Isolated Gujarat 33 Districts SVG Map (0 outside states clutter, interactive color change, city nodes) */
           <CleanGujaratSvgMap
             gu={gu}
             lang={lang}
@@ -132,14 +133,14 @@ export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplor
           /* Full GIS MapLibre Map */
           <div className="full-map-wrapper rounded-[28px] overflow-hidden border border-white/20">
             <GujaratInteractiveMap
-              key={selectedRegion}
+              key="administrative-drilldown-map"
               gu={gu}
               lang={lang}
               fy={fy}
               selectedDistrictId={activeDistrictId}
-              regionFilter={selectedRegion}
               focusRequest={focusRequest}
               onDistrictSelect={(district) => setActiveDistrictId(district.id)}
+              onAreaSelect={setSelectedArea}
               onLocationSelect={setSelectedLocation}
               variant="explorer"
             />
@@ -158,9 +159,19 @@ export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplor
         />
       </section>
 
-      {/* 3. LOCATION & CENSUS BASELINE ANALYTICS */}
+      {/* 3. LOCATION & AREA ANALYTICS */}
       <section className="location-baseline-section pt-4">
-        <LocationAnalyticsDashboard key={activeLocation.locationCode} location={activeLocation} lang={lang} />
+        {selectedLocation ? (
+          <LocationAnalyticsDashboard key={selectedLocation.locationCode} location={selectedLocation} lang={lang} />
+        ) : selectedArea ? (
+          <AreaSchemeAnalyticsDashboard
+            key={`${selectedArea.districtCode}-${selectedArea.subdistrictCode || "district"}`}
+            area={selectedArea}
+            lang={lang}
+          />
+        ) : (
+          <LocationAnalyticsDashboard key={activeLocation.locationCode} location={activeLocation} lang={lang} />
+        )}
       </section>
 
       {/* Administrative Coverage Disclaimer */}

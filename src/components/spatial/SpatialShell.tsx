@@ -240,7 +240,7 @@ export function SpatialShell() {
                 }}
               />
 
-              {/* Integrated 33-District Gujarat Map & Village Scheme Analytics Hub on Main Dashboard */}
+              {/* Integrated Gujarat administrative map and area analytics */}
               <section id="spatial-gujarat-map" className="mt-10 pt-6 border-t border-white/10">
                 <MapExplorerView gu={gu} lang={lang} fy={fy} focusRequest={focusRequest} />
               </section>

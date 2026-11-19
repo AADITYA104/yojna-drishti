@@ -17,6 +17,11 @@ import zipfile
 from collections import defaultdict
 from pathlib import Path
 
+try:
+    from .geo_projection import transform_geometry
+except ImportError:
+    from geo_projection import transform_geometry
+
 
 def read_csv(path: Path):
     with path.open("r", encoding="utf-8-sig", newline="") as source:
@@ -36,7 +41,7 @@ def main() -> None:
     parser.add_argument("--dataset-dir", required=True, type=Path, help="Supplied Gujarat 10 Schemes dataset folder")
     parser.add_argument("--soi-zip", required=True, type=Path, help="Survey of India Gujarat village-boundary GeoJSON ZIP")
     parser.add_argument("--legacy-boundaries", default=Path("public/data/boundaries/soi-villages"), type=Path)
-    parser.add_argument("--boundary-output", default=Path("public/data/boundaries/gujarat-villages"), type=Path)
+    parser.add_argument("--boundary-output", default=Path("public/data/boundaries/gujarat-villages-wgs84"), type=Path)
     parser.add_argument("--profile-output", default=Path("data/processed/village-census-2011.json.gz"), type=Path)
     parser.add_argument("--district-master", default=Path("src/lib/master-hierarchy.ts"), type=Path)
     args = parser.parse_args()
@@ -121,7 +126,9 @@ def main() -> None:
         }
         features_by_district[district_file][code] = {
             "type": "Feature",
-            "geometry": source["geometry"],
+            # NWIC distributes these SOI polygons in EPSG:7755 projected meters.
+            # Reproject and simplify before saving GeoJSON for MapLibre/WGS84.
+            "geometry": transform_geometry(source["geometry"], 25.0),
             "properties": {
                 "villageCode": code,
                 "locationCode": code,

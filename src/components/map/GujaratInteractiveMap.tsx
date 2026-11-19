@@ -13,7 +13,6 @@ import {
   ArrowLeft,
   Building2,
   ChevronRight,
-  FileText,
   Home,
   Info,
   Landmark,
@@ -23,7 +22,6 @@ import {
   RotateCcw,
   Search,
   Award,
-  ShieldCheck,
 } from "lucide-react";
 
 import {
@@ -45,7 +43,6 @@ import {
 } from "@/lib/master-hierarchy";
 
 import { DISTRICT_LAT_LNG, GUJARAT_STATE_CENTER, TALUKA_GPS_COORDS } from "@/lib/geo-coordinates";
-import { scaleDemoValue } from "@/lib/metrics.mjs"
 import type { AppLanguage } from "@/lib/i18n";
 
 
@@ -73,6 +70,16 @@ export type MapSelectedLocation = {
   districtNameGu: string;
 };
 
+export type MapSelectedArea = {
+  level: "district" | "taluka";
+  districtCode: string;
+  subdistrictCode?: string;
+  districtNameEn: string;
+  districtNameGu: string;
+  areaNameEn: string;
+  areaNameGu: string;
+};
+
 type DistrictFeature = {
   type: "Feature";
   geometry: { type: string; coordinates: unknown };
@@ -86,6 +93,10 @@ type DistrictFeature = {
     subdistrictCode?: number;
     districtCode?: number;
     nameEn?: string;
+    areaSqKm?: number;
+    unitColor?: string;
+    talukaColor?: string;
+    settlementColor?: string;
   };
 };
 
@@ -107,6 +118,8 @@ interface HoveredEntity {
   nameEn: string;
   type: "district" | "taluka" | "village";
   code?: string | number;
+  areaSqKm?: number;
+  boundaryMatch?: "exact" | "fallback";
   x: number;
   y: number;
 }
@@ -120,6 +133,7 @@ interface GujaratInteractiveMapProps {
   onTalukaSelect?: (taluka: Taluka) => void;
   onVillageSelect?: (village: Village) => void;
   onLocationSelect?: (location: MapSelectedLocation | null) => void;
+  onAreaSelect?: (area: MapSelectedArea | null) => void;
   regionFilter?: "all" | Region;
   variant?: "explorer" | "overview" | "embedded";
   initialLevel?: GeoLevel;
@@ -127,16 +141,106 @@ interface GujaratInteractiveMapProps {
   focusRequest?: MapFocusRequest | null;
 }
 
-const TALUKA_PALETTE = ["#d9e9fa", "#b9cde7", "#8bb5e7", "#2078cf", "#0e4eb2"];
+function colorForOrdinal(
+  ordinal: number,
+  hueOffset: number,
+  saturation = 0.62,
+  lightness = 0.62,
+) {
+  const hue = ((Math.abs(ordinal) * 137.508 + hueOffset) % 360) / 30;
+  const amplitude = saturation * Math.min(lightness, 1 - lightness);
+  const channel = (n: number) => {
+    const k = (n + hue) % 12;
+    const value = lightness - amplitude * Math.max(-1, Math.min(k - 3, 9 - k, 1));
+    return Math.round(value * 255).toString(16).padStart(2, "0");
+  };
+  return `#${channel(0)}${channel(8)}${channel(4)}`;
+}
 
-function talukaColorExpression(codes: number[]) {
-  if (!codes.length) return "#d9e2ee";
-  return [
-    "match",
-    ["get", "subdistrictCode"],
-    ...codes.flatMap((code, index) => [code, TALUKA_PALETTE[index % TALUKA_PALETTE.length]]),
-    "#d9e2ee",
-  ];
+function stableHash(value: string) {
+  let hash = 0;
+  for (const character of value) hash = (hash * 31 + character.charCodeAt(0)) >>> 0;
+  return hash;
+}
+
+function districtColor(districtId: string) {
+  const ordinal = MASTER_DISTRICTS.findIndex((item) => item.id === districtId);
+  return colorForOrdinal(ordinal < 0 ? stableHash(districtId) : ordinal, 14);
+}
+
+function talukaColor(subdistrictCode: number) {
+  const ordinal = MASTER_SUBDISTRICTS.findIndex((item) => item.code === subdistrictCode);
+  return colorForOrdinal(ordinal < 0 ? stableHash(String(subdistrictCode)) : ordinal, 58);
+}
+
+function settlementColor(locationCode: string) {
+  const hash = stableHash(locationCode);
+  const saturation = 0.58 + ((hash >>> 8) % 22) / 100;
+  const lightness = 0.56 + ((hash >>> 16) % 14) / 100;
+  return colorForOrdinal(hash, 132, saturation, lightness);
+}
+
+const MAP_COLOR_SWATCHES = Array.from({ length: 8 }, (_, index) => colorForOrdinal(index, 14));
+
+function ringStats(value: unknown): { area: number; center: [number, number] | null } {
+  if (!Array.isArray(value) || value.length < 4) return { area: 0, center: null };
+  const ring = value.filter((point): point is [number, number] =>
+    Array.isArray(point) && typeof point[0] === "number" && typeof point[1] === "number",
+  );
+  if (ring.length < 4) return { area: 0, center: null };
+  let crossTotal = 0;
+  let longitudeTotal = 0;
+  let latitudeTotal = 0;
+  for (let index = 0; index < ring.length - 1; index += 1) {
+    const [x1, y1] = ring[index];
+    const [x2, y2] = ring[index + 1];
+    const cross = x1 * y2 - x2 * y1;
+    crossTotal += cross;
+    longitudeTotal += (x1 + x2) * cross;
+    latitudeTotal += (y1 + y2) * cross;
+  }
+  if (Math.abs(crossTotal) < 1e-12) return { area: 0, center: null };
+  const center: [number, number] = [longitudeTotal / (3 * crossTotal), latitudeTotal / (3 * crossTotal)];
+  const area = Math.abs(crossTotal / 2) * 111.32 * 111.32 * Math.cos((center[1] * Math.PI) / 180);
+  return { area, center };
+}
+
+function polygonStats(value: unknown): { area: number; center: [number, number] | null } {
+  if (!Array.isArray(value) || value.length === 0) return { area: 0, center: null };
+  let totalArea = 0;
+  let longitudeTotal = 0;
+  let latitudeTotal = 0;
+  value.forEach((ring, index) => {
+    const stats = ringStats(ring);
+    if (!stats.center || !stats.area) return;
+    const ringArea = index === 0 ? stats.area : -stats.area;
+    totalArea += ringArea;
+    longitudeTotal += stats.center[0] * ringArea;
+    latitudeTotal += stats.center[1] * ringArea;
+  });
+  if (totalArea <= 0) return { area: 0, center: null };
+  return { area: totalArea, center: [longitudeTotal / totalArea, latitudeTotal / totalArea] };
+}
+
+function geometryStats(geometry: DistrictFeature["geometry"]): { area: number; center: [number, number] | null } {
+  const polygons = geometry.type === "Polygon"
+    ? [geometry.coordinates]
+    : geometry.type === "MultiPolygon" && Array.isArray(geometry.coordinates)
+      ? geometry.coordinates
+      : [];
+  let totalArea = 0;
+  let longitudeTotal = 0;
+  let latitudeTotal = 0;
+  polygons.forEach((polygon) => {
+    const stats = polygonStats(polygon);
+    if (!stats.center || !stats.area) return;
+    totalArea += stats.area;
+    longitudeTotal += stats.center[0] * stats.area;
+    latitudeTotal += stats.center[1] * stats.area;
+  });
+  return totalArea > 0
+    ? { area: totalArea, center: [longitudeTotal / totalArea, latitudeTotal / totalArea] }
+    : { area: 0, center: null };
 }
 
 function normalizeName(value: string) {
@@ -222,12 +326,12 @@ function formatNumber(value: number, gu: boolean, lang: AppLanguage = gu ? "gu" 
 export function GujaratInteractiveMap({
   gu,
   lang = gu ? "gu" : "en",
-  fy,
   selectedDistrictId = "bhavnagar",
   onDistrictSelect,
   onTalukaSelect,
   onVillageSelect,
   onLocationSelect,
+  onAreaSelect,
   regionFilter = "all",
   variant = "explorer",
   initialLevel = "state",
@@ -241,6 +345,7 @@ export function GujaratInteractiveMap({
   const districtInteractionsAdded = useRef(false);
   const officialBoundaryLayersAdded = useRef(false);
   const officialBoundaryInteractionsAdded = useRef(false);
+  const talukaLabelInteractionsAdded = useRef(false);
 
   const [mapReady, setMapReady] = useState(false);
   const [mapError, setMapError] = useState("");
@@ -283,6 +388,63 @@ export function GujaratInteractiveMap({
     [villageItems, currentVillageCode],
   );
 
+  const areaEnrichedBoundaries = useMemo(() => {
+    if (!officialBoundaryData) return null;
+    const groups = new Map<number, { area: number; longitudeTotal: number; latitudeTotal: number }>();
+    officialBoundaryData.features.forEach((feature) => {
+      const code = Number(feature.properties.subdistrictCode);
+      if (!Number.isFinite(code)) return;
+      const stats = geometryStats(feature.geometry);
+      if (!stats.center || !stats.area) return;
+      const group = groups.get(code) || { area: 0, longitudeTotal: 0, latitudeTotal: 0 };
+      group.area += stats.area;
+      group.longitudeTotal += stats.center[0] * stats.area;
+      group.latitudeTotal += stats.center[1] * stats.area;
+      groups.set(code, group);
+    });
+    const entries = [...groups.entries()].map(([code, group]) => ({ code, area: group.area }));
+    const features = officialBoundaryData.features.map((feature) => {
+      const code = Number(feature.properties.subdistrictCode);
+      return {
+        ...feature,
+        properties: {
+          ...feature.properties,
+          talukaColor: talukaColor(code),
+          settlementColor: settlementColor(String(feature.properties.villageCode || "")),
+          areaSqKm: groups.get(code)?.area || 0,
+          nameHi: localizeText("hi", String(feature.properties.nameEn || "")),
+        },
+      } as DistrictFeature;
+    });
+    const districtCode = MASTER_DISTRICTS.find((item) => item.id === currentDistrictId)?.code;
+    const labels = entries.flatMap((entry) => {
+      const group = groups.get(entry.code);
+      const subdistrict = currentSubdistricts.find((item) => item.code === entry.code);
+      if (!group || !subdistrict) return [];
+      const center: [number, number] = [
+        group.longitudeTotal / group.area,
+        group.latitudeTotal / group.area,
+      ];
+      return [{
+        type: "Feature" as const,
+        geometry: { type: "Point", coordinates: center },
+        properties: {
+          subdistrictCode: entry.code,
+          districtCode,
+          nameEn: subdistrict.nameEn,
+          nameGu: subdistrict.nameGu,
+          nameHi: localizeText("hi", subdistrict.nameEn),
+          areaSqKm: entry.area,
+          talukaColor: talukaColor(entry.code),
+        },
+      } as DistrictFeature];
+    });
+    return {
+      villages: { type: "FeatureCollection" as const, features },
+      talukas: { type: "FeatureCollection" as const, features: labels },
+    };
+  }, [currentDistrictId, currentSubdistricts, officialBoundaryData]);
+
   const handleDistrictClick = useCallback(
     (districtId: string) => {
       const district = demoDistricts.find((item) => item.id === districtId);
@@ -291,6 +453,15 @@ export function GujaratInteractiveMap({
       setCurrentTalukaCode(null);
       setCurrentVillageCode(null);
       onLocationSelect?.(null);
+      const districtEntry = MASTER_DISTRICTS.find((item) => item.id === district.id);
+      onAreaSelect?.({
+        level: "district",
+        districtCode: String(districtEntry?.code ?? ""),
+        districtNameEn: district.name,
+        districtNameGu: district.gu,
+        areaNameEn: district.name,
+        areaNameGu: district.gu,
+      });
       setVillageItems([]);
       setVillageLoadState("idle");
       setOfficialBoundaryData(null);
@@ -319,7 +490,7 @@ export function GujaratInteractiveMap({
         if (location) mapRef.current?.flyTo({ center: [location.lng, location.lat], zoom: location.zoom, duration: 900 });
       }
     },
-    [districtData, onDistrictSelect, onLocationSelect],
+    [districtData, onAreaSelect, onDistrictSelect, onLocationSelect],
   );
 
   const handleTalukaClick = useCallback(
@@ -329,6 +500,16 @@ export function GujaratInteractiveMap({
       setCurrentTalukaCode(code);
       setCurrentVillageCode(null);
       onLocationSelect?.(null);
+      const districtEntry = MASTER_DISTRICTS.find((item) => item.id === currentDistrictId);
+      onAreaSelect?.({
+        level: "taluka",
+        districtCode: String(districtEntry?.code ?? ""),
+        subdistrictCode: String(code),
+        districtNameEn: districtEntry?.nameEn || currentDistrict.name,
+        districtNameGu: districtEntry?.nameGu || currentDistrict.gu,
+        areaNameEn: subdistrict.nameEn,
+        areaNameGu: subdistrict.nameGu,
+      });
       setVillageItems([]);
       setVillageLoadState("loading");
       setLevel("taluka");
@@ -346,35 +527,34 @@ export function GujaratInteractiveMap({
         (feature) => feature.properties.districtCode === districtCode && feature.properties.subdistrictCode === code,
       ) || [];
       const subdistrictBounds = collectionBounds(subdistrictFeatures);
-      if (subdistrictBounds) {
-        if (mapRef.current) {
-          fitBoundsAtZoom(mapRef.current, subdistrictBounds, {
-            padding: { top: 44, right: 44, bottom: 44, left: 44 },
-            maxZoom: 12.3,
-            duration: 1100,
-          }, 9.2);
-        }
-        return;
-      }
-      const location = TALUKA_GPS_COORDS[currentDistrictId]?.[String(code)];
-      if (location) {
-        mapRef.current?.flyTo({
-          center: [location.lng, location.lat],
-          zoom: 12.2,
-          duration: 1100,
-        });
-      } else {
-        const districtLocation = DISTRICT_LAT_LNG[currentDistrictId];
-        if (districtLocation) {
+      if (!subdistrictBounds) {
+        setFocusNotice(lang === "gu"
+          ? "આ તાલુકાની મેળ ખાતી સીમા ઉપલબ્ધ નથી. નકશો ઉપલબ્ધ સંદર્ભ સ્થાન પર જાય છે; રંગીન ક્ષેત્રફળ આ તાલુકા માટે ઉપલબ્ધ નથી."
+          : lang === "hi"
+            ? "इस तालुका की मेल खाती सीमा उपलब्ध नहीं है। नक्शा संदर्भ स्थान पर जाएगा; इस तालुका का रंगीन क्षेत्रफल उपलब्ध नहीं है।"
+            : "A matching boundary is unavailable for this taluka. The map moves to its stored reference point; mapped area shading is unavailable here.");
+        const location = TALUKA_GPS_COORDS[currentDistrictId]?.[String(code)];
+        if (location) {
           mapRef.current?.flyTo({
-            center: [districtLocation.lng, districtLocation.lat],
-            zoom: 10.8,
-            duration: 900,
+            center: [location.lng, location.lat],
+            zoom: 12.2,
+            duration: 1100,
           });
+        } else {
+          const districtLocation = DISTRICT_LAT_LNG[currentDistrictId];
+          if (districtLocation) {
+            mapRef.current?.flyTo({
+              center: [districtLocation.lng, districtLocation.lat],
+              zoom: 10.8,
+              duration: 900,
+            });
+          }
         }
+      } else {
+        setFocusNotice("");
       }
     },
-    [currentDistrictId, officialBoundaryData, onLocationSelect, onTalukaSelect],
+    [currentDistrict, currentDistrictId, lang, onAreaSelect, officialBoundaryData, onLocationSelect, onTalukaSelect],
   );
 
   const handleVillageClick = useCallback(
@@ -383,6 +563,7 @@ export function GujaratInteractiveMap({
       if (!village) return;
       setCurrentVillageCode(code);
       setLevel("village");
+      onAreaSelect?.(null);
       setShowVillageList(false);
       setHoveredEntity(null);
       setFocusNotice(officialBoundaryData
@@ -404,7 +585,7 @@ export function GujaratInteractiveMap({
         districtNameGu: currentDistrict.gu,
       });
     },
-    [currentDistrict, currentDistrictId, currentTaluka, currentTalukaCode, lang, officialBoundaryData, onLocationSelect, onVillageSelect, villageItems],
+    [currentDistrict, currentDistrictId, currentTaluka, currentTalukaCode, lang, officialBoundaryData, onAreaSelect, onLocationSelect, onVillageSelect, villageItems],
   );
 
   const actionsRef = useRef({
@@ -478,7 +659,7 @@ export function GujaratInteractiveMap({
   useEffect(() => {
     if (!mapReady || level === "state" || boundaryDistrictId === currentDistrictId) return;
     const controller = new AbortController();
-    const boundaryUrl = `/data/boundaries/gujarat-villages/${currentDistrictId}.geojson`;
+    const boundaryUrl = `/data/boundaries/gujarat-villages-wgs84/${currentDistrictId}.geojson`;
 
     fetch(boundaryUrl, { signal: controller.signal })
       .then((response) => {
@@ -539,6 +720,24 @@ export function GujaratInteractiveMap({
         : `${name} is selected, but its precise boundary is unavailable. The map stays on the taluka area; no estimated point is shown.`));
     return () => window.cancelAnimationFrame(frame);
   }, [boundaryDistrictId, currentDistrictId, currentVillageCode, lang, level, mapReady, officialBoundaryData, villageItems]);
+
+  // A taluka can be selected before its district polygon file has arrived. Once
+  // it does, refit from the actual WGS84 boundaries so the click lands precisely.
+  useEffect(() => {
+    if (!mapReady || level !== "taluka" || !currentTalukaCode || boundaryDistrictId !== currentDistrictId || !officialBoundaryData) return;
+    const districtCode = MASTER_DISTRICTS.find((item) => item.id === currentDistrictId)?.code;
+    const features = officialBoundaryData.features.filter((feature) =>
+      feature.properties.districtCode === districtCode && feature.properties.subdistrictCode === currentTalukaCode,
+    );
+    const bounds = collectionBounds(features);
+    if (bounds) {
+      mapRef.current?.fitBounds(bounds, {
+        padding: { top: 44, right: 44, bottom: 44, left: 44 },
+        maxZoom: 12.3,
+        duration: 900,
+      });
+    }
+  }, [boundaryDistrictId, currentDistrictId, currentTalukaCode, level, mapReady, officialBoundaryData]);
 
   // Initialize MapLibre
   useEffect(() => {
@@ -623,9 +822,10 @@ export function GujaratInteractiveMap({
           return response.json();
         })
         .then((sourceData: DistrictCollection) => {
-          const features = (sourceData.features || []).map((feature) => {
+          const baseFeatures = (sourceData.features || []).map((feature) => {
             const sourceName = String(feature.properties.district || "");
             const district = matchDistrict(sourceName);
+            const stats = geometryStats(feature.geometry);
             return {
               ...feature,
               properties: {
@@ -634,10 +834,12 @@ export function GujaratInteractiveMap({
                 region: district?.region || "",
                 nameGu: district?.gu || sourceName,
                 nameHi: localizeText("hi", district?.name || sourceName),
+                areaSqKm: stats.area,
+                unitColor: districtColor(district?.id || sourceName),
               },
             } as DistrictFeature;
           });
-          setDistrictData({ type: "FeatureCollection", features });
+          setDistrictData({ type: "FeatureCollection", features: baseFeatures });
         })
         .catch((error: Error) => setMapError(error.message));
     });
@@ -656,6 +858,7 @@ export function GujaratInteractiveMap({
       districtInteractionsAdded.current = false;
       officialBoundaryLayersAdded.current = false;
       officialBoundaryInteractionsAdded.current = false;
+      talukaLabelInteractionsAdded.current = false;
       map.remove();
       mapRef.current = null;
     };
@@ -681,17 +884,12 @@ export function GujaratInteractiveMap({
           type: "fill",
           source: "geo-districts",
           paint: {
-            "fill-color": [
-              "case",
-              ["==", ["get", "districtId"], currentDistrictId],
-              "#2078cf",
-              "#d9e9fa",
-            ],
+            "fill-color": ["get", "unitColor"],
             "fill-opacity": [
               "case",
               ["==", ["get", "districtId"], currentDistrictId],
-              0.58,
-              0.27,
+              0.62,
+              0.46,
             ],
             "fill-color-transition": { duration: 420, delay: 0 },
           },
@@ -733,7 +931,7 @@ export function GujaratInteractiveMap({
         maxzoom: 10.5,
         layout: {
           "text-field": gu ? ["get", "nameGu"] : lang === "hi" ? ["get", "nameHi"] : ["get", "district"],
-          "text-size": ["interpolate", ["linear"], ["zoom"], 5.5, 9, 9, 13],
+          "text-size": ["interpolate", ["linear"], ["zoom"], 5.5, 10, 9, 14],
           "text-font": ["Noto Sans Regular"],
           "text-allow-overlap": false,
           "text-ignore-placement": false,
@@ -741,7 +939,7 @@ export function GujaratInteractiveMap({
         paint: {
           "text-color": "#020c47",
           "text-halo-color": "#ffffff",
-          "text-halo-width": 1.3,
+          "text-halo-width": 1.7,
         },
       });
     } else {
@@ -753,11 +951,12 @@ export function GujaratInteractiveMap({
       map.setLayoutProperty("district-names", "text-field", gu ? ["get", "nameGu"] : lang === "hi" ? ["get", "nameHi"] : ["get", "district"]);
     }
 
-    map.setPaintProperty("district-fill", "fill-color", [
+    map.setPaintProperty("district-fill", "fill-color", ["get", "unitColor"]);
+    map.setPaintProperty("district-fill", "fill-opacity", [
       "case",
       ["==", ["get", "districtId"], currentDistrictId],
-      "#2078cf",
-      "#d9e9fa",
+      0.62,
+      0.46,
     ]);
     map.setPaintProperty("district-lines", "line-color", [
       "case",
@@ -796,6 +995,7 @@ export function GujaratInteractiveMap({
             nameEn: distObj.name,
             type: "district",
             code: distObj.officialNo,
+            areaSqKm: Number(properties.areaSqKm) || undefined,
             x: event.point.x,
             y: event.point.y,
           });
@@ -818,9 +1018,9 @@ export function GujaratInteractiveMap({
 
     const source = map.getSource("soi-villages") as maplibregl.GeoJSONSource | undefined;
     if (source) {
-      source.setData(officialBoundaryData as never);
+      source.setData((areaEnrichedBoundaries?.villages || officialBoundaryData) as never);
     } else {
-      map.addSource("soi-villages", { type: "geojson", data: officialBoundaryData as never });
+      map.addSource("soi-villages", { type: "geojson", data: (areaEnrichedBoundaries?.villages || officialBoundaryData) as never });
     }
 
     if (!officialBoundaryLayersAdded.current) {
@@ -832,19 +1032,9 @@ export function GujaratInteractiveMap({
           type: "fill",
           source: "soi-villages",
           paint: {
-            "fill-color": [
-              "case",
-              ["==", ["to-string", ["get", "villageCode"]], currentVillageCode || ""],
-              "#0e4eb2",
-              "#d9e9fa",
-            ],
+            "fill-color": ["get", "settlementColor"],
             "fill-color-transition": { duration: 420, delay: 0 },
-            "fill-opacity": [
-              "case",
-              ["==", ["to-string", ["get", "villageCode"]], currentVillageCode || ""],
-            0.62,
-            0.23,
-            ],
+            "fill-opacity": 0.58,
             "fill-opacity-transition": { duration: 420, delay: 0 },
           },
         },
@@ -857,12 +1047,7 @@ export function GujaratInteractiveMap({
           type: "line",
           source: "soi-villages",
           paint: {
-            "line-color": [
-              "case",
-              ["==", ["to-string", ["get", "villageCode"]], currentVillageCode || ""],
-              "#011f65",
-              "#8bb5e7",
-            ],
+            "line-color": "#ffffff",
             "line-width": ["interpolate", ["linear"], ["zoom"], 7, 0.8, 12, 1.35, 15, 1.9],
             "line-color-transition": { duration: 420, delay: 0 },
             "line-width-transition": { duration: 320, delay: 0 },
@@ -886,17 +1071,18 @@ export function GujaratInteractiveMap({
         id: "soi-villages-names",
         type: "symbol",
         source: "soi-villages",
-        minzoom: 8.9,
+        minzoom: 10.6,
+        maxzoom: 14.8,
         layout: {
           "text-field": gu
             ? ["coalesce", ["get", "nameGu"], ["get", "nameEn"]]
-            : ["get", "nameEn"],
+            : lang === "hi" ? ["get", "nameHi"] : ["get", "nameEn"],
           "text-font": ["Noto Sans Regular"],
           "text-size": [
             "interpolate",
             ["linear"],
             ["zoom"],
-            8.9,
+            10.6,
             8,
             11,
             9.5,
@@ -914,6 +1100,11 @@ export function GujaratInteractiveMap({
       });
 
       officialBoundaryLayersAdded.current = true;
+    }
+    if (map.getLayer("soi-villages-names")) {
+      map.setLayoutProperty("soi-villages-names", "text-field", gu
+        ? ["coalesce", ["get", "nameGu"], ["get", "nameEn"]]
+        : lang === "hi" ? ["get", "nameHi"] : ["get", "nameEn"]);
     }
 
     if (!officialBoundaryInteractionsAdded.current) {
@@ -959,6 +1150,9 @@ export function GujaratInteractiveMap({
             nameEn,
             type: "village",
             code: vCode,
+            boundaryMatch: String(properties.boundarySource || "").includes("exact village-code match")
+              ? "exact"
+              : properties.boundarySource ? "fallback" : undefined,
             x: event.point.x,
             y: event.point.y,
           });
@@ -972,12 +1166,97 @@ export function GujaratInteractiveMap({
 
       officialBoundaryInteractionsAdded.current = true;
     }
-  }, [currentVillageCode, gu, mapReady, officialBoundaryData]);
+  }, [areaEnrichedBoundaries, currentVillageCode, gu, lang, mapReady, officialBoundaryData]);
+
+  // Taluka labels are placed at area-weighted centers of the available village
+  // boundary polygons, with a stable distinct color for each taluka.
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !mapReady || !areaEnrichedBoundaries) return;
+    const source = map.getSource("taluka-labels") as maplibregl.GeoJSONSource | undefined;
+    if (source) {
+      source.setData(areaEnrichedBoundaries.talukas as never);
+    } else {
+      map.addSource("taluka-labels", { type: "geojson", data: areaEnrichedBoundaries.talukas as never });
+    }
+
+    const beforeLayer = map.getLayer("label_other") ? "label_other" : undefined;
+    if (!map.getLayer("taluka-label-points")) {
+      map.addLayer({
+        id: "taluka-label-points",
+        type: "circle",
+        source: "taluka-labels",
+        minzoom: 8.2,
+        maxzoom: 11,
+        paint: {
+          "circle-radius": ["interpolate", ["linear"], ["zoom"], 8.2, 4, 10.5, 5.5],
+          "circle-color": ["get", "talukaColor"],
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+        },
+      }, beforeLayer);
+    }
+    if (!map.getLayer("taluka-names")) {
+      map.addLayer({
+        id: "taluka-names",
+        type: "symbol",
+        source: "taluka-labels",
+        minzoom: 8.2,
+        maxzoom: 11,
+        layout: {
+          "text-field": gu ? ["get", "nameGu"] : lang === "hi" ? ["get", "nameHi"] : ["get", "nameEn"],
+          "text-font": ["Noto Sans Regular"],
+          "text-size": ["interpolate", ["linear"], ["zoom"], 8.2, 10, 10.5, 12],
+          "text-offset": [0, 0.95],
+          "text-allow-overlap": false,
+          "text-ignore-placement": false,
+        },
+        paint: {
+          "text-color": "#011f65",
+          "text-halo-color": "#ffffff",
+          "text-halo-width": 1.7,
+        },
+      }, beforeLayer);
+    }
+    map.setLayoutProperty("taluka-names", "text-field", gu ? ["get", "nameGu"] : lang === "hi" ? ["get", "nameHi"] : ["get", "nameEn"]);
+
+    if (!talukaLabelInteractionsAdded.current) {
+      map.on("click", "taluka-names", (event) => {
+        if (viewRef.current.level !== "district") return;
+        const code = Number(event.features?.[0]?.properties?.subdistrictCode);
+        if (Number.isFinite(code)) actionsRef.current.selectTaluka(code);
+      });
+      map.on("mousemove", "taluka-names", (event) => {
+        map.getCanvas().style.cursor = "pointer";
+        const props = event.features?.[0]?.properties;
+        if (!props) return;
+        setHoveredEntity({
+          nameGu: String(props.nameGu || props.nameEn || ""),
+          nameEn: String(props.nameEn || ""),
+          type: "taluka",
+          code: props.subdistrictCode as number | undefined,
+          areaSqKm: Number(props.areaSqKm) || undefined,
+          x: event.point.x,
+          y: event.point.y,
+        });
+      });
+      map.on("mouseleave", "taluka-names", () => {
+        map.getCanvas().style.cursor = "";
+        setHoveredEntity(null);
+      });
+      talukaLabelInteractionsAdded.current = true;
+    }
+  }, [areaEnrichedBoundaries, gu, lang, mapReady]);
 
   // Dynamic filters and selected-village highlighting
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !mapReady || !map.getLayer("soi-villages-fill")) return;
+    if (!map || !mapReady) return;
+
+    if (map.getLayer("district-names")) {
+      map.setLayoutProperty("district-names", "visibility", level === "state" ? "visible" : "none");
+    }
+    if (!map.getLayer("soi-villages-fill")) return;
 
     const districtCode = MASTER_DISTRICTS.find((item) => item.id === currentDistrictId)?.code;
     const filter: unknown[] = ["all", ["==", ["get", "districtCode"], districtCode || -1]];
@@ -987,7 +1266,11 @@ export function GujaratInteractiveMap({
 
     const visible = level === "district" || level === "taluka" || level === "village";
     const districtView = level === "district";
-    const districtFillColor = talukaColorExpression(currentSubdistricts.map((item) => item.code));
+    const selectedSettlement = [
+      "==",
+      ["to-string", ["get", "villageCode"]],
+      currentVillageCode || "",
+    ];
 
     ["soi-villages-fill", "soi-villages-lines", "soi-villages-hit", "soi-villages-names"].forEach(
       (layerId) => {
@@ -1005,54 +1288,44 @@ export function GujaratInteractiveMap({
       );
     }
 
+    const talukaCode = MASTER_DISTRICTS.find((item) => item.id === currentDistrictId)?.code;
+    ["taluka-label-points", "taluka-names"].forEach((layerId) => {
+      if (!map.getLayer(layerId)) return;
+      map.setFilter(layerId, ["==", ["get", "districtCode"], talukaCode || -1]);
+      map.setLayoutProperty(layerId, "visibility", level === "district" ? "visible" : "none");
+    });
+
     // Keep the selected taluka readable, then give the selected village its own
     // stronger highlight as the user drills down.
     map.setPaintProperty(
       "soi-villages-fill",
       "fill-color",
-      districtView
-        ? (districtFillColor as never)
-        : currentVillageCode
-          ? [
-            "case",
-            ["==", ["to-string", ["get", "villageCode"]], currentVillageCode || ""],
-            "#0e4eb2",
-            "#d9e9fa",
-          ]
-          : "#d9e9fa"
+      (districtView
+        ? ["get", "talukaColor"]
+        : ["case", selectedSettlement, "#ffb703", ["get", "settlementColor"]]) as never
     );
 
     map.setPaintProperty(
       "soi-villages-fill",
       "fill-opacity",
-      districtView
-        ? 0.34
-        : [
-            "case",
-            ["==", ["to-string", ["get", "villageCode"]], currentVillageCode || ""],
-            0.62,
-            currentVillageCode ? 0.1 : 0.28,
-          ]
+      (districtView
+        ? 0.62
+        : ["case", selectedSettlement, 0.9, 0.58]) as never
     );
 
     if (map.getLayer("soi-villages-lines")) {
       map.setPaintProperty(
         "soi-villages-lines",
         "line-color",
-        districtView
-          ? (districtFillColor as never)
-          : [
-              "case",
-              ["==", ["to-string", ["get", "villageCode"]], currentVillageCode || ""],
-              "#011f65",
-              "#8bb5e7",
-            ]
+        (districtView
+          ? "#ffffff"
+          : ["case", selectedSettlement, "#14213d", "#ffffff"]) as never
       );
 
       map.setPaintProperty(
         "soi-villages-lines",
         "line-width",
-        ["interpolate", ["linear"], ["zoom"], 7, 0.8, 12, 1.35, 15, 1.9],
+        ["case", selectedSettlement, 2.6, ["interpolate", ["linear"], ["zoom"], 7, 0.8, 12, 1.25, 15, 1.8]] as never,
       );
     }
   }, [
@@ -1116,6 +1389,7 @@ export function GujaratInteractiveMap({
     setCurrentTalukaCode(null);
     setCurrentVillageCode(null);
     onLocationSelect?.(null);
+    onAreaSelect?.(null);
     setVillageItems([]);
     setVillageLoadState("idle");
     setListSearch("");
@@ -1158,17 +1432,14 @@ export function GujaratInteractiveMap({
       setLevel("taluka");
       setCurrentVillageCode(null);
       setFocusNotice("");
+      if (currentTaluka) {
+        const district = MASTER_DISTRICTS.find((item) => item.id === currentDistrictId);
+        onAreaSelect?.({ level: "taluka", districtCode: String(district?.code ?? ""), subdistrictCode: String(currentTaluka.code), districtNameEn: currentDistrict.name, districtNameGu: currentDistrict.gu, areaNameEn: currentTaluka.nameEn, areaNameGu: currentTaluka.nameGu });
+      }
     } else if (level === "taluka") {
-      setLevel("district");
-      setCurrentVillageCode(null);
-      setFocusNotice("");
+      handleDistrictClick(currentDistrictId);
     } else if (level === "district") {
-      setLevel("state");
-      setCurrentTalukaCode(null);
-      setCurrentVillageCode(null);
-      setVillageItems([]);
-      setVillageLoadState("idle");
-      setFocusNotice("");
+      resetMap();
     }
   };
 
@@ -1264,10 +1535,7 @@ export function GujaratInteractiveMap({
                 <button
                   className={level === "district" ? "is-active" : ""}
                   onClick={() => {
-                    setLevel("district");
-                    setCurrentTalukaCode(null);
-                    setCurrentVillageCode(null);
-                    onLocationSelect?.(null);
+                    handleDistrictClick(currentDistrictId);
                     setShowVillageList(false);
                   }}
                 >
@@ -1284,9 +1552,7 @@ export function GujaratInteractiveMap({
                 <button
                   className={level === "taluka" ? "is-active" : ""}
                   onClick={() => {
-                    setLevel("taluka");
-                    setCurrentVillageCode(null);
-                    onLocationSelect?.(null);
+                    handleTalukaClick(currentTaluka.code);
                     setShowVillageList(true);
                   }}
                 >
@@ -1312,10 +1578,9 @@ export function GujaratInteractiveMap({
                 <span>{localizeText(lang, gu ? "ઉપરના સ્તરે જાઓ" : "Back")}</span>
               </button>
             )}
-            <span className="geo-fy-pill">FY {fy}</span>
             <span className="geo-demo-pill">
               <Award size={13} />
-              {localizeText(lang, gu ? "નમૂના ડેટા" : "Sample data")}
+              {gu ? "કૃત્રિમ નમૂનો · સત્તાવાર નથી" : lang === "hi" ? "कृत्रिम नमूना · आधिकारिक नहीं" : "Synthetic sample · not official"}
             </span>
           </div>
         </div>
@@ -1357,11 +1622,18 @@ export function GujaratInteractiveMap({
                   <small>{hoveredEntity.nameEn}</small>
                 )}
               </div>
+              {hoveredEntity.areaSqKm ? (
+                <div className="gmhc-meta-row">
+                  <span>{new Intl.NumberFormat(lang === "gu" ? "gu-IN" : lang === "hi" ? "hi-IN" : "en-IN", { maximumFractionDigits: 0 }).format(hoveredEntity.areaSqKm)} km² · {localizeText(lang, gu ? "નકશા સીમા પરથી અંદાજિત વિસ્તાર" : "Approx. mapped boundary area")}</span>
+                </div>
+              ) : null}
               {hoveredEntity.type === "village" && (
                 <div className="gmhc-meta-row">
-                  <span className="gmhc-scheme-tag">
-                    {localizeText(lang, gu ? "યોજનાની સ્થાનવાર માહિતી ઉપલબ્ધ નથી" : "Scheme coverage data unavailable")}
-                  </span>
+                  <span className="gmhc-scheme-tag">{hoveredEntity.boundaryMatch === "exact"
+                    ? (gu ? "SOI/NWIC સીમા · ચોક્કસ સ્થળ કોડ મેળ" : lang === "hi" ? "SOI/NWIC सीमा · सटीक स्थान कोड मेल" : "SOI/NWIC boundary · exact location-code match")
+                    : hoveredEntity.boundaryMatch === "fallback"
+                      ? (gu ? "જૂની સંદર્ભ સીમા · ચોક્કસ મેળ નથી" : lang === "hi" ? "पुरानी संदर्भ सीमा · सटीक मेल नहीं" : "Prior reference boundary · no exact code match")
+                      : localizeText(lang, gu ? "યોજના-આંકડા સત્તાવાર રીતે જોડાયેલા નથી" : "Official scheme coverage is not connected")}</span>
                 </div>
               )}
             </div>
@@ -1413,13 +1685,20 @@ export function GujaratInteractiveMap({
 
           {variant !== "embedded" && (
             <div className="geo-map-coverage-legend" aria-live="polite">
-              <span className="geo-coverage-swatch" style={{ background: "#2078cf" }} />
-              <span>
-                {localizeText(lang, gu
-                ? "ગામ-સીમા: Survey of India/NWIC, 2025 પ્રકાશન · ૨૦૧૧ Census baseline જ્યાં code મળે · scheme coverage જોડાયેલું નથી"
+              <div className="geo-color-legend-copy">
+                <strong>{gu ? "વહીવટી વિસ્તારો માટે અલગ રંગ" : lang === "hi" ? "अलग प्रशासनिक क्षेत्रों के लिए अलग रंग" : "Distinct colors identify administrative areas"}</strong>
+                <div className="geo-color-legend-swatches" aria-hidden="true">
+                  {MAP_COLOR_SWATCHES.map((color) => <span key={color} style={{ background: color }} />)}
+                  <span className="is-selected" />
+                </div>
+                <small>{gu ? "પસંદ કરેલું સ્થળ" : lang === "hi" ? "चुना हुआ स्थान" : "Selected place"}</small>
+              </div>
+              <span className="geo-color-legend-note">
+                {gu
+                  ? "પસંદ કરેલું સ્થળ amber અને ઘેરી outlineથી દેખાય છે. બાકીના રંગો ફક્ત સીમા ઓળખાવે છે; ક્ષેત્રફળ કે યોજનાની કામગીરી બતાવતા નથી."
                   : lang === "hi"
-                    ? "गाँव सीमाएँ: Survey of India/NWIC, 2025 प्रकाशन · जहाँ कोड मिलता है वहाँ 2011 Census आधार · योजना कवरेज जुड़ा नहीं"
-                    : "Village boundaries: Survey of India/NWIC, published 2025 · 2011 Census baseline where codes match · no scheme coverage feed")}
+                    ? "चुना हुआ स्थान amber रंग और गहरी outline से दिखता है। बाकी रंग केवल सीमाएँ पहचानते हैं; क्षेत्रफल या योजना की स्थिति नहीं बताते।"
+                    : "The selected place is amber with a dark outline. Other colors only distinguish boundaries; they do not represent area or scheme activity."}
               </span>
             </div>
           )}
@@ -1430,7 +1709,7 @@ export function GujaratInteractiveMap({
               {level === "state"
                 ? localizeText(lang, gu ? "૩૪ જિલ્લાઓની સરહદ" : "District Boundaries")
                 : level === "district"
-                ? localizeText(lang, gu ? `[${currentDistrict.officialNo}] ${currentDistrict.gu}ના તાલુકાઓ` : "Taluka Boundaries")
+                ? localizeText(lang, gu ? `[${currentDistrict.officialNo}] ${currentDistrict.gu}ના તાલુકાઓ` : lang === "hi" ? `${localizeText("hi", currentDistrict.name)} के तालुके` : `${currentDistrict.name} talukas`)
                 : localizeText(lang, gu ? "ગામની સંદર્ભ સીમા" : lang === "hi" ? "गाँव की संदर्भ सीमा" : "Village reference boundaries")}
             </span>
             <b>{mapZoom.toFixed(1)}×</b>
@@ -1589,7 +1868,7 @@ export function GujaratInteractiveMap({
                       <Landmark size={16} />
                     </span>
                     <span className="geo-entity-name">
-                      <b>{localizeText(lang, gu ? subdistrict.nameGu : subdistrict.nameEn)}</b>
+                      <b>{localizeText(lang, gu ? subdistrict.nameGu : lang === "hi" ? localizeText("hi", subdistrict.nameEn) : subdistrict.nameEn)}</b>
                       <small>LGD {subdistrict.code}</small>
                     </span>
                     <span className="geo-entity-meta">
@@ -1614,17 +1893,17 @@ export function GujaratInteractiveMap({
                         <Home size={16} />
                       </span>
                       <span className="geo-entity-name">
-                        <b>{gu ? village.nameGu || village.nameEn : village.nameEn}</b>
+                        <b>{gu ? village.nameGu || village.nameEn : lang === "hi" ? localizeText("hi", village.nameEn) : village.nameEn}</b>
                         <small>LGD {village.code}</small>
                       </span>
                       <span className="geo-entity-meta">
                         {village.status?.toLowerCase() !== "inhabitant"
-                          ? gu ? "બિન-રહેણાંક વિસ્તાર" : lang === "hi" ? "गैर-आवासीय क्षेत्र" : "Non-residential Area"
+                          ? gu ? "વસવાટ વિનાનો / વિશેષ વિસ્તાર" : lang === "hi" ? "गैर-आबाद / विशेष क्षेत्र" : "Uninhabited / special area"
                           : village.category?.toLowerCase() === "urban"
-                            ? gu ? "નગરપાલિકા · નાગરિક સેવા કેન્દ્ર" : lang === "hi" ? "नगरपालिका · नागरिक सेवा केंद्र" : "Municipality · Civic Services"
+                            ? gu ? "શહેરી વસાહત" : lang === "hi" ? "शहरी बस्ती" : "Urban settlement"
                             : village.category?.toLowerCase() === "both"
-                              ? gu ? "સંયુક્ત વિસ્તાર · યોજના કવરેજ" : lang === "hi" ? "संयुक्त क्षेत्र · योजना कवरेज" : "Combined Area · Scheme Coverage"
-                              : gu ? "ગ્રામ પંચાયત · સક્રિય યોજનાઓ" : lang === "hi" ? "ग्राम पंचायत · सक्रिय योजनाएँ" : "Gram Panchayat · Active Schemes"}
+                              ? gu ? "મિશ્ર વહીવટી વર્ગીકરણ" : lang === "hi" ? "मिश्रित प्रशासनिक वर्गीकरण" : "Mixed administrative classification"
+                              : gu ? "ગ્રામીણ વસાહત" : lang === "hi" ? "ग्रामीण बस्ती" : "Rural settlement"}
                       </span>
                       <ChevronRight size={15} />
                     </button>
@@ -1660,8 +1939,8 @@ export function GujaratInteractiveMap({
                   </span>
                   <h3>{panelTitle}</h3>
                 </div>
-                <span className="geo-source-pill" style={{ color: "#42C88A", borderColor: "rgba(66,200,138,0.3)" }}>
-                  <ShieldCheck size={12} /> {gu ? "ચકાસાયેલ વહીવટી સ્તર" : lang === "hi" ? "सत्यापित प्रशासनिक स्तर" : "Verified Tier"}
+                <span className="geo-source-pill" style={{ color: "#0e4eb2", borderColor: "rgba(32,120,207,0.3)" }}>
+                  <MapPinned size={12} /> {gu ? "વહીવટી ડિરેક્ટરી" : lang === "hi" ? "प्रशासनिक निर्देशिका" : "Administrative directory"}
                 </span>
               </div>
 
@@ -1685,16 +1964,16 @@ export function GujaratInteractiveMap({
                 </div>
               )}
 
-              <div className="geo-coverage-pending" role="status" style={{ borderLeftColor: "#42C88A" }}>
-                <ShieldCheck size={18} className="text-[#42C88A]" aria-hidden="true" />
+              <div className="geo-coverage-pending" role="status" style={{ borderLeftColor: "#2078cf" }}>
+                <Info size={18} className="text-[#2078cf]" aria-hidden="true" />
                 <div>
-                  <strong>{gu ? "ગામ અને તાલુકા કક્ષાએ યોજના વિતરણ" : lang === "hi" ? "ग्राम एवं तालुका स्तर पर योजना वितरण" : "Grassroots Welfare Delivery"}</strong>
+                  <strong>{gu ? "યોજનાના નમૂના ડેટાની સ્થિતિ" : lang === "hi" ? "योजना नमूना डेटा की स्थिति" : "Scheme sample data status"}</strong>
                   <p>
                     {gu
-                      ? "નીચે આપેલા વિશ્લેષણ બોર્ડમાં આ ગામ અને વિસ્તાર માટે કાર્યરત યોજનાઓ, મંજૂર થયેલા લાભાર્થીઓ અને સહાય રકમનું સંપૂર્ણ પત્રક જુઓ."
+                      ? "આ વિસ્તાર માટે મળતા દાખલા કૃત્રિમ નમૂના છે. દાખલો મળવો એટલે યોજના અહીં કાર્યરત છે અથવા વાસ્તવિક લાભ મળ્યો છે એવો પુરાવો નથી. ગામ પસંદ કરો તો એ location code સાથે મેળ ખાતી યોજના-હરોળો નીચે જુઓ."
                       : lang === "hi"
-                        ? "नीचे दिए गए विश्लेषण बोर्ड में इस गाँव और क्षेत्र की कार्यरत योजनाओं, स्वीकृत लाभार्थियों और सहायता राशि का विवरण देखें।"
-                        : "View active welfare programs, enrolled citizens, and verified disbursement rosters for this location in the analytics hub below."}
+                        ? "इस क्षेत्र के उपलब्ध अभिलेख कृत्रिम नमूने हैं। अभिलेख मिलने का अर्थ यह नहीं कि योजना यहाँ चलती है या किसी को वास्तविक लाभ मिला है। गाँव चुनें तो उसी स्थान कोड से जुड़ी योजना पंक्तियाँ नीचे देखें।"
+                        : "Rows available for this area are synthetic examples. A row does not prove that a scheme operates here or that anyone received a real benefit. Select a village to view sample rows matched to its location code below."}
                   </p>
                 </div>
               </div>

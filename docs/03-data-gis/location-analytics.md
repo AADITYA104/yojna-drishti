@@ -17,7 +17,7 @@ It writes two artifacts:
 
 The row-detail API reads only the selected map location's source blocks from the supplied dataset folder. Set `YOJANA_DATASET_DIR` to the extracted `Gujarat_10_Schemes_Demo_Dataset` folder before starting the app. The map dashboard's expandable table shows the source rows and all 39 source columns, with 15 rows per scheme and paging. Empty source cells remain empty markers in the table; values are not inferred. Every displayed name, amount, status, record ID, and note is synthetic demo content.
 
-The two API routes include their compressed indexes in production output tracing. The row CSVs remain at the configured dataset folder and must be available to the server at runtime.
+The location and row-detail API routes include their compressed indexes in production output tracing. The `/api/v1/analytics/area` route aggregates the same exact location index by district or taluka code; its counts remain synthetic sample rows and are never presented as official scheme operations. The row CSVs remain at the configured dataset folder and must be available to the server at runtime.
 
 For the historical Government of India village baseline and merged Survey of India/NWIC boundaries, see [official-village-profiles.md](official-village-profiles.md). These historical values are kept separate from the synthetic scheme samples.
 
