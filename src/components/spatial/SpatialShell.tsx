@@ -183,6 +183,13 @@ export function SpatialShell() {
       {/* 1. Background Gujarat SVG & Atmospheric Canvas */}
       <SpatialGujaratCanvas gu={gu} lang={lang} />
 
+      <SpatialDock
+        activeKey={activeKey}
+        onSelect={(key) => setActiveKey(key)}
+        gu={gu}
+        lang={lang}
+      />
+
       {/* Main public-service workspace */}
       <motion.main
         className="spatial-main-container"
@@ -195,13 +202,6 @@ export function SpatialShell() {
           lang={lang}
           onSelectLanguage={setLang}
           onOpenSearch={() => setSearchOpen(true)}
-        />
-
-        <SpatialDock
-          activeKey={activeKey}
-          onSelect={(key) => setActiveKey(key)}
-          gu={gu}
-          lang={lang}
         />
 
         <aside className="spatial-demo-disclaimer" role="note">
@@ -233,12 +233,7 @@ export function SpatialShell() {
                 fy={fy}
                 onNavigate={(view) => {
                   if (view === "map") {
-                    const mapElement = document.getElementById("spatial-gujarat-map");
-                    if (mapElement) {
-                      mapElement.scrollIntoView({ behavior: "smooth" });
-                    } else {
-                      setActiveKey("map");
-                    }
+                    setActiveKey("map");
                   } else if (view === "schemes" || view === "wizard" || view === "saved" || view === "settings") {
                     setActiveKey(view);
                   } else {
@@ -251,10 +246,6 @@ export function SpatialShell() {
                 }}
               />
 
-              {/* Integrated Gujarat administrative map and area analytics */}
-              <section id="spatial-gujarat-map" className="mt-10 pt-6 border-t border-white/10">
-                <MapExplorerView gu={gu} lang={lang} fy={fy} focusRequest={focusRequest} />
-              </section>
             </motion.div>
           )}
 

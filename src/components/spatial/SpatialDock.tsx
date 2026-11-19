@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   LayoutDashboard,
   Compass,
@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import type { AppLanguage } from "@/lib/i18n";
-import { localizeText } from "@/lib/i18n";
 
 export type SpatialNavKey =
   | "dashboard"
@@ -32,6 +31,7 @@ interface SpatialDockProps {
 
 export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDockProps) {
   const language = lang ?? (gu ? "gu" : "en");
+  const [pulse, setPulse] = useState(0);
 
   const navItems = [
     {
@@ -71,9 +71,9 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
     },
     {
       key: "settings" as const,
-      labelGu: "વહીવટી વ્યવસ્થાપન",
-      labelEn: "Administration",
-      labelHi: "प्रशासनिक प्रबंधन",
+      labelGu: "ડેટા ગવર્નન્સ",
+      labelEn: "Data Governance",
+      labelHi: "डेटा गवर्नेंस",
       icon: Settings,
     },
   ];
@@ -81,6 +81,9 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
   return (
     <aside className="spatial-dock-anchor">
       <nav className="spatial-dock-capsule" aria-label={language === "gu" ? "મુખ્ય નેવિગેશન" : language === "hi" ? "मुख्य नेविगेशन" : "Main navigation"}>
+        <span className="spatial-dock-heading" aria-hidden="true">
+          {language === "gu" ? "વિભાગો" : language === "hi" ? "सेक्शन" : "SECTIONS"}
+        </span>
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeKey === item.key;
@@ -90,7 +93,10 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
             <button
               key={item.key}
               type="button"
-              onClick={() => onSelect(item.key)}
+              onClick={() => {
+                setPulse((current) => current + 1);
+                onSelect(item.key);
+              }}
               title={title}
               aria-label={title}
               aria-current={isActive ? "page" : undefined}
@@ -100,12 +106,20 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
                 <motion.div
                   layoutId="activeDockBubble"
                   className="spatial-dock-active-pill"
-                  transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  initial={{ opacity: 0, scale: 0.72 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ type: "spring", stiffness: 440, damping: 22, mass: 0.68 }}
                 />
               )}
-              <span className="spatial-dock-icon-wrap">
+              <motion.span
+                key={`${item.key}-${isActive}-${isActive ? pulse : 0}`}
+                className="spatial-dock-icon-wrap"
+                initial={false}
+                animate={isActive ? { y: [0, -10, 0], scale: [1, 1.14, 1] } : { y: 0, scale: 1 }}
+                transition={{ duration: 0.46, times: [0, 0.42, 1], ease: [0.22, 1, 0.36, 1] }}
+              >
                 <Icon size={20} strokeWidth={1.75} />
-              </span>
+              </motion.span>
               <span className="spatial-dock-label">{title}</span>
             </button>
           );
