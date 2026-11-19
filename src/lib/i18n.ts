@@ -3,6 +3,15 @@ export type AppLanguage = "gu" | "en" | "hi";
 /** Hindi copy for the shared app UI. Untranslated proper names fall back to their catalog label. */
 const HINDI: Record<string, string> = {
   "Asarva": "असारवा",
+  "Odarka": "ओडारका",
+  "Piparala": "पीपराला",
+  "Piram": "पीरम",
+  "Sarvadar": "सरवदार",
+  "Tagdi": "टागडी",
+  "Tanasa": "तानासा",
+  "Ukharala": "उखराला",
+  "Bhavnagar City (East)": "भावनगर शहर (पूर्व)",
+  "Bhavnagar City (West)": "भावनगर शहर (पश्चिम)",
   "Agriculture": "कृषि",
   "Education": "शिक्षा",
   "Health": "स्वास्थ्य",
