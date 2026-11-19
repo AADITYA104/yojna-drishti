@@ -10,8 +10,14 @@ type RecordIndex = {
   meta: { classification: string; sourceRows: number; columns: string[]; schemes: Record<string, string> };
   locations: Record<string, Record<string, RowBlock>>;
 };
+type ShardBlock = { file: string; districtCode: string; offset: number; length: number; rows: number };
+type ShardIndex = {
+  meta: { classification: string; sourceRows: number; locationCount: number; schemeCount: number; columns: string[]; schemes: Record<string, string> };
+  locations: Record<string, ShardBlock>;
+};
 
 let indexPromise: Promise<RecordIndex> | undefined;
+let shardIndexPromise: Promise<ShardIndex> | undefined;
 
 function loadIndex() {
   if (!indexPromise) {
@@ -24,6 +30,19 @@ function loadIndex() {
       });
   }
   return indexPromise;
+}
+
+function loadShardIndex() {
+  if (!shardIndexPromise) {
+    const indexPath = path.join(process.cwd(), "data", "processed", "location-record-shard-index.json.gz");
+    shardIndexPromise = readFile(indexPath)
+      .then((compressed) => JSON.parse(gunzipSync(compressed).toString("utf8")) as ShardIndex)
+      .catch((error: unknown) => {
+        shardIndexPromise = undefined;
+        throw error;
+      });
+  }
+  return shardIndexPromise;
 }
 
 function parseCsvRows(source: string, columnCount: number) {
@@ -94,6 +113,41 @@ async function readLocationRows(datasetRoot: string, columns: string[], location
   }
 }
 
+async function readRemoteLocationRows(baseUrl: string, columns: string[], locationCode: string, block: ShardBlock) {
+  if (!Number.isSafeInteger(block.offset) || !Number.isSafeInteger(block.length) || block.offset < 0 || block.length < 1 || block.length > 2_000_000) {
+    throw new Error("The indexed compressed row range is invalid.");
+  }
+  if (!/^[\w-]+\.bin$/i.test(block.file) || !/^\d{1,12}$/.test(block.districtCode)) {
+    throw new Error("The indexed district shard is invalid.");
+  }
+
+  const storageRoot = new URL(baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`);
+  if (storageRoot.protocol !== "https:" || !storageRoot.hostname.endsWith(".public.blob.vercel-storage.com")) {
+    throw new Error("YOJANA_DATASET_BASE_URL must be a public HTTPS Vercel Blob URL.");
+  }
+  const shardUrl = new URL(`location-record-shards/${block.file}`, storageRoot);
+  const end = block.offset + block.length - 1;
+  const response = await fetch(shardUrl, {
+    headers: { Range: `bytes=${block.offset}-${end}` },
+    cache: "force-cache",
+    signal: AbortSignal.timeout(20_000),
+  });
+  if (response.status !== 206 || response.headers.get("content-range")?.startsWith(`bytes ${block.offset}-${end}/`) !== true) {
+    throw new Error("The dataset storage did not return the requested location byte range.");
+  }
+
+  const compressed = Buffer.from(await response.arrayBuffer());
+  if (compressed.length !== block.length) throw new Error("The remote location shard range is incomplete.");
+  const source = gunzipSync(compressed).toString("utf8");
+  const values = parseCsvRows(source, columns.length);
+  if (values.length !== block.rows) throw new Error("The remote location shard row count does not match its index.");
+  return values.map((cells) => {
+    const row = Object.fromEntries(columns.map((column, index) => [column, cells[index]])) as Record<string, string>;
+    if (row.Location_Code !== locationCode) throw new Error("The remote rows do not match the selected map location.");
+    return row;
+  });
+}
+
 export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;
   const locationCode = params.get("locationCode")?.trim() ?? "";
@@ -106,36 +160,61 @@ export async function GET(request: Request) {
   }
 
   try {
-    const index = await loadIndex();
-    const location = index.locations[locationCode];
-    if (!location) return Response.json({ status: "not_found", data: null }, { status: 404 });
+    const storageBaseUrl = process.env.YOJANA_DATASET_BASE_URL?.trim();
+    let columns: string[];
+    let rows: Record<string, string>[];
+    let datasetMeta: ShardIndex["meta"] | RecordIndex["meta"];
 
-    const datasetDirectory = process.env.YOJANA_DATASET_DIR;
-    if (!datasetDirectory) {
-      return Response.json({ status: "unavailable", message: "Set YOJANA_DATASET_DIR to the supplied dataset folder." }, { status: 503 });
+    if (storageBaseUrl) {
+      const index = await loadShardIndex();
+      const location = index.locations[locationCode];
+      if (!location) return Response.json({ status: "not_found", data: null }, { status: 404 });
+      if (index.meta.columns.length !== 39) throw new Error("The remote row index does not match the 39-column source schema.");
+
+      const allRows = await readRemoteLocationRows(storageBaseUrl, index.meta.columns, locationCode, location);
+      const expectedSchemeIds = schemeId === "all" ? Object.keys(index.meta.schemes).sort() : [schemeId];
+      rows = schemeId === "all" ? allRows : allRows.filter((row) => row.Scheme_ID === schemeId);
+      if (!rows.length) return Response.json({ status: "not_found", data: null }, { status: 404 });
+      if (rows.length !== expectedSchemeIds.length * 15 || rows.length !== (schemeId === "all" ? location.rows : 15)) {
+        throw new Error("The remote row data is incomplete for the selected location and scheme.");
+      }
+      columns = index.meta.columns;
+      datasetMeta = index.meta;
+    } else {
+      const index = await loadIndex();
+      const location = index.locations[locationCode];
+      if (!location) return Response.json({ status: "not_found", data: null }, { status: 404 });
+
+      const datasetDirectory = process.env.YOJANA_DATASET_DIR;
+      if (!datasetDirectory) {
+        return Response.json({ status: "unavailable", message: "Configure YOJANA_DATASET_BASE_URL with the published district shards, or set YOJANA_DATASET_DIR for local development." }, { status: 503 });
+      }
+      const datasetRoot = path.resolve(datasetDirectory);
+      const schemeIds = schemeId === "all" ? Object.keys(location).sort() : [schemeId];
+      rows = [];
+      for (const id of schemeIds) {
+        const block = location[id];
+        if (!block) continue;
+        rows.push(...await readLocationRows(datasetRoot, index.meta.columns, locationCode, id, block));
+      }
+      if (!rows.length) return Response.json({ status: "not_found", data: null }, { status: 404 });
+      if (index.meta.columns.length !== 39 || rows.length !== schemeIds.length * 15) {
+        throw new Error("The indexed row data is incomplete or does not match the 39-column source schema.");
+      }
+      datasetMeta = index.meta;
+      columns = index.meta.columns;
     }
-    const datasetRoot = path.resolve(datasetDirectory);
-    const schemeIds = schemeId === "all" ? Object.keys(location).sort() : [schemeId];
-    const rows: Record<string, string>[] = [];
-    for (const id of schemeIds) {
-      const block = location[id];
-      if (!block) continue;
-      rows.push(...await readLocationRows(datasetRoot, index.meta.columns, locationCode, id, block));
-    }
-    if (!rows.length) return Response.json({ status: "not_found", data: null }, { status: 404 });
-    if (index.meta.columns.length !== 39 || rows.length !== schemeIds.length * 15) {
-      throw new Error("The indexed row data is incomplete or does not match the 39-column source schema.");
-    }
+
     if (new Set(rows.map((row) => row.Record_ID)).size !== rows.length) {
       throw new Error("The indexed row data contains duplicate record IDs.");
     }
 
     return Response.json({
       status: "success",
-      meta: { ...index.meta, rowCount: rows.length, schemeFilter: schemeId, classification: "SYNTHETIC DEMO ONLY — ALL SOURCE ROWS ARE FICTIONAL" },
-      data: { columns: index.meta.columns, rows },
+      meta: { ...datasetMeta, rowCount: rows.length, schemeFilter: schemeId, classification: "SYNTHETIC DEMO ONLY — ALL SOURCE ROWS ARE FICTIONAL" },
+      data: { columns, rows },
     }, { headers: { "Cache-Control": "private, max-age=300" } });
   } catch {
-    return Response.json({ status: "unavailable", message: "The location row data could not be read from the supplied dataset." }, { status: 503 });
+    return Response.json({ status: "unavailable", message: "The selected location rows could not be read from the configured dataset storage." }, { status: 503 });
   }
 }

@@ -9,3 +9,6 @@ data/uploads/*
 __pycache__/
 *.pyc
 .codex-tmp-pdf-review/
+
+.vercel
+.env*.local

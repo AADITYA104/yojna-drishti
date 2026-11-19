@@ -6,7 +6,10 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/v1/analytics/location": ["./data/processed/location-analytics.json.gz"],
     "/api/v1/analytics/area": ["./data/processed/location-analytics.json.gz"],
-    "/api/v1/analytics/location/records": ["./data/processed/location-record-index.json.gz"],
+    "/api/v1/analytics/location/records": [
+      "./data/processed/location-record-index.json.gz",
+      "./data/processed/location-record-shard-index.json.gz",
+    ],
     "/api/v1/analytics/village-profile": ["./data/processed/village-census-2011.json.gz"],
   },
   async headers() {
