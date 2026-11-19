@@ -19,7 +19,9 @@ export type SpatialNavKey =
   | "map"
   | "wizard"
   | "saved"
-  | "settings";
+  | "settings"
+  | "villages"
+  | "financials";
 
 interface SpatialDockProps {
   activeKey: SpatialNavKey;

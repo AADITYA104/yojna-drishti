@@ -1,253 +1,77 @@
 "use client";
 
-import React, { useEffect, useRef, useMemo } from "react";
-import { getLocale, localizeText } from "@/lib/i18n";
+import { useEffect, useMemo, useState } from "react";
+import type { CSSProperties } from "react";
+import { BarChart3, Database, Info, MapPinned, ShieldCheck } from "lucide-react";
 import type { AppLanguage } from "@/lib/i18n";
-import { Users, PieChart as PieIcon, BarChart3, ShieldCheck, IndianRupee } from "lucide-react";
-import { echarts, DRISHTI_PALETTE } from "@/lib/echarts-theme";
-import { demoDistricts } from "@/lib/demo-data";
 
-interface BeneficiaryAnalyticsViewProps {
-  gu: boolean;
-  lang: AppLanguage;
-  fy: string;
-}
+interface BeneficiaryAnalyticsViewProps { gu: boolean; lang: AppLanguage; fy: string }
+type Group = Record<string, number>;
+type Overview = {
+  status: string;
+  meta: { sourceRows: number; locationCount: number; schemeCount: number; districtCount: number; referenceDate: string; classification: string };
+  data: { demographics: { ageBands: Group; gender: Group; eligibility: Group; activity: Group; documents: Group } };
+};
 
-export function BeneficiaryAnalyticsView({ gu, lang, fy }: BeneficiaryAnalyticsViewProps) {
-  const socialChartRef = useRef<HTMLDivElement>(null);
-  const ageChartRef = useRef<HTMLDivElement>(null);
+const text = {
+  gu: { eyebrow: "નમૂના પંક્તિ વિશ્લેષણ", title: "ડેટાસેટ વર્ગીકરણ", desc: "આ પેજ datasetના sample recordsમાં રહેલા વર્ગીકરણોનું સારાંશ આપે છે. આ લાભાર્થી વસ્તી કે સત્તાવાર યોજના પરિણામ નથી.", note: "સત્તાવાર વસ્તી, DBT કે આવરણના આંકડા જોડાયેલા નથી. દરેક ગણતરી scheme-wise sample rows પર છે; એક જ કલ્પિત record અલગ schemeમાં હોય તો અલગ ગણાય છે.", rows: "કુલ sample rows", places: "સ્થળો", schemes: "યોજનાઓ", districts: "જિલ્લા", age: "Datasetમાં નોંધાયેલ વયજૂથ", gender: "Datasetમાં નોંધાયેલ લિંગ શ્રેણી", eligibility: "Demo eligibility labels", activity: "Demo activity labels", documents: "Demo document labels", loading: "Dataset વિશ્લેષણ લોડ થાય છે…", error: "Dataset વિશ્લેષણ ઉપલબ્ધ નથી.", share: "પંક્તિઓનો હિસ્સો", rowsLabel: "પંક્તિઓ", date: "Dataset સંદર્ભ તારીખ", source: "સ્રોત: જોડાયેલ synthetic dataset; સત્તાવાર વહીવટી આંકડા નહીં." },
+  hi: { eyebrow: "नमूना पंक्ति विश्लेषण", title: "Dataset वर्गीकरण", desc: "यह पृष्ठ dataset के sample records में मौजूद वर्गीकरणों का सार देता है। यह लाभार्थी जनसंख्या या आधिकारिक योजना परिणाम नहीं है।", note: "आधिकारिक जनसंख्या, DBT या कवरेज आँकड़े जुड़े नहीं हैं। प्रत्येक गणना scheme-wise sample rows पर है; एक ही काल्पनिक record अलग schemes में अलग गिना जा सकता है।", rows: "कुल sample rows", places: "स्थान", schemes: "योजनाएँ", districts: "जिले", age: "Dataset में दर्ज आयु वर्ग", gender: "Dataset में दर्ज लिंग श्रेणी", eligibility: "Demo पात्रता labels", activity: "Demo गतिविधि labels", documents: "Demo दस्तावेज़ labels", loading: "Dataset विश्लेषण लोड हो रहा है…", error: "Dataset विश्लेषण उपलब्ध नहीं है।", share: "पंक्तियों का हिस्सा", rowsLabel: "पंक्तियाँ", date: "Dataset संदर्भ तिथि", source: "स्रोत: जुड़ा synthetic dataset; आधिकारिक प्रशासनिक आँकड़े नहीं।" },
+  en: { eyebrow: "SAMPLE ROW ANALYTICS", title: "Dataset classifications", desc: "This page summarizes classifications in the dataset sample records. It is not a beneficiary population or official scheme outcome report.", note: "Official population, DBT, and coverage figures are not connected. Counts are scheme-wise sample rows; the same fictional record can appear separately under different schemes.", rows: "Total sample rows", places: "Places", schemes: "Schemes", districts: "Districts", age: "Age bands in dataset", gender: "Gender categories in dataset", eligibility: "Demo eligibility labels", activity: "Demo activity labels", documents: "Demo document labels", loading: "Loading dataset analytics…", error: "Dataset analytics are unavailable.", share: "Share of rows", rowsLabel: "rows", date: "Dataset reference date", source: "Source: connected synthetic dataset; not official administrative figures." },
+} as const;
 
-  const totalBeneficiaries = useMemo(() => {
-    return demoDistricts.reduce((acc, d) => acc + d.beneficiaries, 0);
-  }, []);
+const keyLabels: Record<AppLanguage, Record<string, string>> = {
+  gu: { under18: "18 વર્ષથી ઓછી", "18to29": "18–29 વર્ષ", "30to44": "30–44 વર્ષ", "45to59": "45–59 વર્ષ", "60plus": "60+ વર્ષ", unknown: "અજ્ઞાત", female: "સ્ત્રી", male: "પુરુષ", community: "સમુદાય", eligible: "પાત્ર (demo label)", notEligible: "પાત્ર નહીં (demo label)", review: "સમીક્ષા જરૂરી", potential: "સંભવિત", notApplicable: "લાગુ નથી", approved: "મંજૂર label", rejected: "નામંજૂર label", documentsPending: "દસ્તાવેજ બાકી", pending: "બાકી", notApplied: "અરજી નથી", serviceDelivered: "સેવા label", activityRecorded: "પ્રવૃત્તિ નોંધાયેલ", complete: "પૂર્ણ label", activityLog: "પ્રવૃત્તિ નોંધ" },
+  hi: { under18: "18 वर्ष से कम", "18to29": "18–29 वर्ष", "30to44": "30–44 वर्ष", "45to59": "45–59 वर्ष", "60plus": "60+ वर्ष", unknown: "अज्ञात", female: "महिला", male: "पुरुष", community: "समुदाय", eligible: "पात्र (demo label)", notEligible: "अपात्र (demo label)", review: "समीक्षा आवश्यक", potential: "संभावित", notApplicable: "लागू नहीं", approved: "स्वीकृत label", rejected: "अस्वीकृत label", documentsPending: "दस्तावेज़ लंबित", pending: "लंबित", notApplied: "आवेदन नहीं", serviceDelivered: "सेवा label", activityRecorded: "गतिविधि दर्ज", complete: "पूर्ण label", activityLog: "गतिविधि लॉग" },
+  en: { under18: "Under 18", "18to29": "18–29 years", "30to44": "30–44 years", "45to59": "45–59 years", "60plus": "60+ years", unknown: "Unknown", female: "Female", male: "Male", community: "Community", eligible: "Eligible (demo label)", notEligible: "Not eligible (demo label)", review: "Review required", potential: "Potential", notApplicable: "Not applicable", approved: "Approved label", rejected: "Rejected label", documentsPending: "Documents pending", pending: "Pending", notApplied: "Not applied", serviceDelivered: "Service label", activityRecorded: "Activity recorded", complete: "Complete label", activityLog: "Activity log" },
+};
 
-  const totalDisbursed = useMemo(() => {
-    return demoDistricts.reduce((acc, d) => acc + d.disbursed, 0);
-  }, []);
+const format = (value: number, lang: AppLanguage) => new Intl.NumberFormat(lang === "gu" ? "gu-IN" : lang === "hi" ? "hi-IN" : "en-IN").format(value);
 
-  const fmt = (num: number) => new Intl.NumberFormat(getLocale(lang)).format(num);
-
+export function BeneficiaryAnalyticsView({ lang }: BeneficiaryAnalyticsViewProps) {
+  const [overview, setOverview] = useState<Overview | null>(null);
+  const [failed, setFailed] = useState(false);
+  const labels = text[lang];
+  const kpis = overview ? [
+    { label: labels.rows, value: overview.meta.sourceRows, icon: Database },
+    { label: labels.places, value: overview.meta.locationCount, icon: MapPinned },
+    { label: labels.schemes, value: overview.meta.schemeCount, icon: BarChart3 },
+    { label: labels.districts, value: overview.meta.districtCount, icon: MapPinned },
+  ] : [];
   useEffect(() => {
-    if (!socialChartRef.current || !ageChartRef.current) return;
+    const controller = new AbortController();
+    fetch("/api/v1/analytics/overview", { signal: controller.signal, cache: "no-store" })
+      .then(async (response) => { if (!response.ok) throw new Error("analytics unavailable"); return response.json() as Promise<Overview>; })
+      .then((payload) => { if (payload.status !== "success") throw new Error("analytics unavailable"); setOverview(payload); })
+      .catch((error: Error) => { if (error.name !== "AbortError") setFailed(true); });
+    return () => controller.abort();
+  }, []);
 
-    // Social Category Pie Chart
-    const socialChart = echarts.init(socialChartRef.current, "drishti");
-    socialChart.setOption({
-      tooltip: {
-        trigger: "item",
-        formatter: "{b}: {c} ({d}%)",
-      },
-      legend: {
-        type: "scroll",
-        bottom: "0%",
-        left: "center",
-        itemWidth: 10,
-        itemHeight: 10,
-        itemGap: 12,
-        textStyle: { color: "#536c78", fontSize: 11 },
-      },
-      series: [
-        {
-          name: gu ? "સામાજિક શ્રેણી" : lang === "hi" ? "सामाजिक श्रेणी" : "Social Category",
-          type: "pie",
-          radius: ["38%", "68%"],
-          center: ["50%", "45%"],
-          avoidLabelOverlap: false,
-          itemStyle: {
-            borderRadius: 6,
-            borderColor: "#ffffff",
-            borderWidth: 2,
-          },
-          label: { show: false },
-          emphasis: {
-            label: {
-              show: true,
-              fontSize: 12,
-              fontWeight: "bold",
-              color: "#ffffff",
-            },
-          },
-          data: [
-            {
-              value: Math.floor(totalBeneficiaries * 0.42),
-              name: gu ? "OBC / સામાજિક પછાત" : lang === "hi" ? "ओबीसी / सामाजिक पिछड़ा" : "OBC / SEBC",
-              itemStyle: { color: DRISHTI_PALETTE[0] },
-            },
-            {
-              value: Math.floor(totalBeneficiaries * 0.26),
-              name: gu ? "સામાન્ય / EWS" : lang === "hi" ? "सामान्य / ईडब्ल्यूएस" : "General / EWS",
-              itemStyle: { color: DRISHTI_PALETTE[3] },
-            },
-            {
-              value: Math.floor(totalBeneficiaries * 0.18),
-              name: gu ? "અનુસૂચિત જનજાતિ (ST)" : lang === "hi" ? "अनुसूचित जनजाति (ST)" : "Scheduled Tribe (ST)",
-              itemStyle: { color: DRISHTI_PALETTE[1] },
-            },
-            {
-              value: Math.floor(totalBeneficiaries * 0.14),
-              name: gu ? "અનુસૂચિત જાતિ (SC)" : lang === "hi" ? "अनुसूचित जाति (SC)" : "Scheduled Caste (SC)",
-              itemStyle: { color: DRISHTI_PALETTE[2] },
-            },
-          ],
-        },
-      ],
-    });
+  const groups = useMemo(() => {
+    if (!overview) return [];
+    return [
+      [labels.age, overview.data.demographics.ageBands],
+      [labels.gender, overview.data.demographics.gender],
+      [labels.eligibility, overview.data.demographics.eligibility],
+      [labels.activity, overview.data.demographics.activity],
+      [labels.documents, overview.data.demographics.documents],
+    ] as Array<[string, Group]>;
+  }, [labels, overview]);
 
-    // Age Cohort Bar Chart
-    const ageChart = echarts.init(ageChartRef.current, "drishti");
-    ageChart.setOption({
-      tooltip: {
-        trigger: "axis",
-        axisPointer: { type: "shadow" },
-      },
-      grid: {
-        left: "3%",
-        right: "4%",
-        bottom: "8%",
-        top: "12%",
-        containLabel: true,
-      },
-      xAxis: {
-        type: "category",
-        data: gu
-          ? ["૦-૬ વર્ષ (બાળકી)", "૭-૧૮ વર્ષ (કન્યા)", "૧૯-૩૫ વર્ષ (માતૃત્વ)", "૩૬-૫૫ વર્ષ (સ્વાવલંબન)", "૫૬+ વર્ષ (વરિષ્ઠ)"]
-          : lang === "hi"
-            ? ["०-६ वर्ष (बालिका)", "७-१८ वर्ष (कन्या)", "१९-३५ वर्ष (मातृत्व)", "३६-५५ वर्ष (स्वावलंबन)", "५६+ वर्ष (वरिष्ठ)"]
-            : ["0-6 Yrs (Infant)", "7-18 Yrs (Girl)", "19-35 Yrs (Maternal)", "36-55 Yrs (Enterprise)", "56+ Yrs (Senior)"],
-        axisLabel: {
-          color: "#536c78",
-          fontSize: 10,
-          interval: 0,
-        },
-        axisLine: { lineStyle: { color: "#c8d7e3" } },
-      },
-      yAxis: {
-        type: "value",
-        splitLine: { lineStyle: { color: "#e1e9eb" } },
-        axisLabel: { color: "#536c78" },
-      },
-      series: [
-        {
-          name: gu ? "લાભાર્થીઓ" : lang === "hi" ? "लाभार्थी" : "Beneficiaries",
-          type: "bar",
-          barWidth: "32%",
-          itemStyle: {
-            color: DRISHTI_PALETTE[0],
-            borderRadius: [6, 6, 0, 0],
-          },
-          data: [
-            Math.floor(totalBeneficiaries * 0.22),
-            Math.floor(totalBeneficiaries * 0.18),
-            Math.floor(totalBeneficiaries * 0.32),
-            Math.floor(totalBeneficiaries * 0.16),
-            Math.floor(totalBeneficiaries * 0.12),
-          ],
-        },
-      ],
-    });
-
-    const handleResize = () => {
-      socialChart.resize();
-      ageChart.resize();
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      socialChart.dispose();
-      ageChart.dispose();
-    };
-  }, [gu, lang, totalBeneficiaries]);
-
-  return (
-    <div className="beneficiaries-analytics-page w-full">
-      {/* Hero Header */}
-      <div className="page-hero-gov">
-        <div>
-          <span className="hero-kicker-tag">
-            <Users size={14} className="inline mr-1" />
-            {gu ? "ડેમો ડેટા · સત્તાવાર નથી" : lang === "hi" ? "डेमो डेटा · आधिकारिक नहीं" : "DEMO DATA · NOT OFFICIAL"}
-          </span>
-          <h1>
-            {gu ? "લાભાર્થી વસ્તી અને સામાજિક આવરણ" : lang === "hi" ? "लाभार्थी जनसंख्या और सामाजिक कवरेज" : "Beneficiary Demographics & Social Coverage"}
-          </h1>
-          <p>
-            {gu
-              ? "સામાજિક અને વયજૂથોના ચાર્ટ કૃત્રિમ નમૂનાના આંકડા પરથી છે; સત્તાવાર લાભાર્થી રજિસ્ટર જોડાયેલું નથી."
-              : lang === "hi"
-                ? "सामाजिक और आयु वर्ग के चार्ट कृत्रिम नमूना आँकड़ों पर आधारित हैं; आधिकारिक लाभार्थी रजिस्टर जुड़ा नहीं है।"
-                : "Social and age charts use synthetic sample figures; no official beneficiary register is connected."}
-          </p>
-        </div>
-      </div>
-
-      {/* 4 Quick Stat Cards */}
-      <div className="stats-strip-4">
-        <div className="stat-card-compact">
-          <span className="stat-label">
-            {gu ? "કુલ નોંધાયેલ લાભાર્થીઓ" : lang === "hi" ? "कुल पंजीकृत लाभार्थी" : "Total Beneficiaries"}
-          </span>
-          <strong className="text-white">{fmt(totalBeneficiaries)}</strong>
-          <small>{gu ? "સમગ્ર ૩૩ જિલ્લા" : lang === "hi" ? "सभी ३३ जिले" : "All 33 Districts"}</small>
-        </div>
-
-        <div className="stat-card-compact">
-          <span className="stat-label">
-            {gu ? "ગ્રામીણ આવરણ ટકાવારી" : lang === "hi" ? "ग्रामीण कवरेज प्रतिशत" : "Rural Penetration"}
-          </span>
-          <strong className="text-teal" style={{ color: "#38BDF8" }}>74.2%</strong>
-          <small>{gu ? "૧૮,૦૦૦+ ગામો" : lang === "hi" ? "१८,०००+ गाँव" : "18,000+ Villages"}</small>
-        </div>
-
-        <div className="stat-card-compact">
-          <span className="stat-label">
-            {gu ? "શહેરી આવરણ ટકાવારી" : lang === "hi" ? "शहरी कवरेज प्रतिशत" : "Urban Penetration"}
-          </span>
-          <strong className="text-navy" style={{ color: "#FACC15" }}>25.8%</strong>
-          <small>{gu ? "મહાનગરપાલિકાઓ & નગરપાલિકાઓ" : lang === "hi" ? "महानगरपालिका और नगरपालिका" : "Municipalities"}</small>
-        </div>
-
-        <div className="stat-card-compact">
-          <span className="stat-label">
-            {gu ? "પ્રત્યક્ષ સહાય વિતરણ (DBT)" : lang === "hi" ? "प्रत्यक्ष सहायता वितरण (DBT)" : "Direct Benefit Disbursed"}
-          </span>
-          <strong className="text-emerald" style={{ color: "#42C88A" }}>₹{totalDisbursed.toFixed(1)} Cr</strong>
-          <small>{gu ? "નાગરિક બેંક ખાતામાં જમા" : lang === "hi" ? "नागरिक बैंक खातों में जमा" : "Direct Citizen Accounts"}</small>
-        </div>
-      </div>
-
-      {/* Two Demographic Charts */}
-      <div className="overview-analytics-grid">
-        <div className="analytics-card-gov">
-          <div className="card-head-gov">
-            <div>
-              <h3>
-                {gu ? "સામાજિક શ્રેણી મુજબ વિતરણ" : lang === "hi" ? "सामाजिक श्रेणी अनुसार वितरण" : "Distribution by Social Category"}
-              </h3>
-              <small>
-                {gu ? "SC, ST, OBC, General અને EWS શ્રેણીઓ" : lang === "hi" ? "SC, ST, OBC, General और EWS श्रेणियाँ" : "SC, ST, OBC, General & EWS Categories"}
-              </small>
-            </div>
-            <span className="badge-pill">SC / ST / OBC / GEN</span>
-          </div>
-          <div ref={socialChartRef} className="chart-box-echarts" style={{ minHeight: "260px" }} />
-        </div>
-
-        <div className="analytics-card-gov">
-          <div className="card-head-gov">
-            <div>
-              <h3>
-                {gu ? "લાભાર્થીઓનું વયજૂથ વિશ્લેષણ" : lang === "hi" ? "लाभार्थियों का आयु वर्ग विश्लेषण" : "Age Cohort Distribution"}
-              </h3>
-              <small>
-                {gu ? "બાળકી, કન્યા, માતૃત્વ અને વરિષ્ઠ નાગરિક જૂથો" : lang === "hi" ? "बालिका, कन्या, मातृत्व और वरिष्ठ नागरिक समूह" : "Infants, girls, maternity, and seniors"}
-              </small>
-            </div>
-            <span className="badge-pill">0 to 60+ Years</span>
-          </div>
-          <div ref={ageChartRef} className="chart-box-echarts" style={{ minHeight: "260px" }} />
-        </div>
-      </div>
-    </div>
-  );
+  return <div className="data-dashboard analytics-dashboard">
+    <header className="data-dashboard-hero reveal"><div><span className="data-dashboard-eyebrow"><BarChart3 size={14} />{labels.eyebrow}</span><h1>{labels.title}</h1><p>{labels.desc}</p></div></header>
+    <aside className="data-integrity-note reveal" role="note"><Info size={20} /><div><strong>{lang === "gu" ? "આંકડાનો યોગ્ય અર્થ સમજો" : lang === "hi" ? "आँकड़ों का सही अर्थ समझें" : "Read these counts in context"}</strong><p>{labels.note}</p></div></aside>
+    {overview ? <>
+      <section className="data-kpi-grid analytics-kpis">
+        {kpis.map(({ label, value, icon: Icon }, index) => <article className="data-kpi-card reveal" key={label} style={{ "--reveal-delay": `${index * 60}ms` } as CSSProperties}><span className="data-kpi-icon"><Icon size={18} /></span><small>{label}</small><strong>{format(value, lang)}</strong></article>)}
+      </section>
+      <div className="data-chart-grid analytics-group-grid">{groups.map(([title, group]) => {
+        const total = Object.values(group).reduce((sum, value) => sum + value, 0);
+        return <section className="data-panel analytics-group-panel reveal" key={title}><div className="data-panel-heading"><h2>{title}</h2><span>{format(total, lang)} {labels.rowsLabel}</span></div>
+          <p className="analytics-denominator">{labels.share}: {format(total, lang)} {labels.rowsLabel}</p>
+          <div className="data-bar-list">{Object.entries(group).sort((a, b) => b[1] - a[1]).map(([key, value]) => <div className="data-bar-row" key={key}><div className="data-bar-label"><span>{keyLabels[lang][key] ?? key}</span><strong>{format(value, lang)} <small>· {total ? `${((value / total) * 100).toFixed(1)}%` : "0%"}</small></strong></div><div className="data-bar-track"><span style={{ width: `${total ? Math.max(1, (value / total) * 100) : 0}%` }} /></div></div>)}</div>
+        </section>;
+      })}</div>
+      <footer className="data-dashboard-footer"><span>{labels.source}</span><span>{labels.date}: {overview.meta.referenceDate}</span></footer>
+    </> : <div className="data-panel data-loading" role={failed ? "alert" : "status"}>{failed ? labels.error : labels.loading}</div>}
+  </div>;
 }

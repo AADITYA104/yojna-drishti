@@ -6,6 +6,7 @@ import { demoSchemes, STATE_TOTALS } from "@/lib/demo-data";
 import { scaleDemoValue } from "@/lib/metrics.mjs";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { DRISHTI_PALETTE } from "@/lib/echarts-theme";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 interface FinancialIntelligenceViewProps {
   gu: boolean;
@@ -13,8 +14,10 @@ interface FinancialIntelligenceViewProps {
 }
 
 const MONTHLY_BASE = [112, 128, 142, 155, 168, 162, 175, 180, 188, 195, 204, 218];
+const HOLST_PALETTE = ["#4D79A8", "#6E9ECC", "#9FC0E3", "#355982", "#2D7D84", "#6B4EAE", "#C07820", "#55934b", "#cc6654", "#df9826"];
 
 export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewProps) {
+  useScrollReveal();
   const lineChartRef   = useRef<HTMLDivElement>(null);
   const schemeDonutRef = useRef<HTMLDivElement>(null);
   const regionBarRef   = useRef<HTMLDivElement>(null);
@@ -46,24 +49,33 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
       grid: { left: "4%", right: "4%", bottom: "6%", top: "12%", containLabel: true },
       tooltip: {
         trigger: "axis",
+        backgroundColor: "rgba(34, 58, 94, 0.95)",
+        borderColor: "#4D79A8",
+        borderWidth: 1,
+        textStyle: { color: "#FFFFFF" },
         formatter: (p: any) => `${p[0].name}: <b>₹ ${p[0].value} Cr</b>`,
       },
-        xAxis: { type: "category", data: months, axisLabel: { color: "#536c78", fontSize: 10 } },
+      xAxis: {
+        type: "category",
+        data: months,
+        axisLine: { lineStyle: { color: "rgba(110, 158, 204, 0.3)" } },
+        axisLabel: { color: "#355982", fontSize: 11, fontWeight: 500 },
+      },
       yAxis: {
         type: "value",
-        axisLabel: { formatter: "₹{value}Cr", color: "#607785", fontSize: 10 },
-        splitLine: { lineStyle: { color: "#e1e9eb" } },
+        axisLabel: { formatter: "₹{value}Cr", color: "#4D79A8", fontSize: 10 },
+        splitLine: { lineStyle: { color: "rgba(110, 158, 204, 0.12)" } },
       },
       series: [{
         name: gu ? "DBT ચુકવણી" : "DBT Outflow",
         type: "line", smooth: true,
         data: vals,
-        itemStyle: { color: DRISHTI_PALETTE[0] },
-        lineStyle: { width: 3, color: DRISHTI_PALETTE[0] },
+        itemStyle: { color: "#4D79A8" },
+        lineStyle: { width: 3, color: "#4D79A8" },
         areaStyle: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: "rgba(40,121,185,0.23)" },
-            { offset: 1, color: "rgba(40,121,185,0.01)" },
+            { offset: 0, color: "rgba(77, 121, 168, 0.35)" },
+            { offset: 1, color: "rgba(77, 121, 168, 0.02)" },
           ]),
         },
         symbol: "circle", symbolSize: 7,
@@ -78,19 +90,35 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
   useEffect(() => {
     if (!schemeDonutRef.current) return;
     const chart = echarts.init(schemeDonutRef.current);
-    const COLORS = DRISHTI_PALETTE;
     chart.setOption({
-      tooltip: { trigger: "item", formatter: "{b}: ₹{c} Cr ({d}%)" },
-      legend: { type: "scroll", bottom: 0, left: "center", itemWidth: 10, itemHeight: 10, textStyle: { color: "#D0DCF0", fontSize: 10 } },
+      tooltip: {
+        trigger: "item",
+        backgroundColor: "rgba(34, 58, 94, 0.95)",
+        borderColor: "#4D79A8",
+        borderWidth: 1,
+        textStyle: { color: "#FFFFFF" },
+        formatter: "{b}: ₹{c} Cr ({d}%)",
+      },
+      legend: {
+        type: "scroll",
+        bottom: 0,
+        left: "center",
+        itemWidth: 10,
+        itemHeight: 10,
+        textStyle: { color: "#355982", fontSize: 11, fontWeight: 500 },
+      },
       series: [{
         name: gu ? "યોજના-ભાર" : "Scheme Share",
-        type: "pie", radius: ["40%", "65%"], center: ["50%", "43%"],
-        label: { show: false }, labelLine: { show: false },
-        itemStyle: { borderRadius: 4, borderColor: "#ffffff", borderWidth: 2 },
+        type: "pie",
+        radius: ["40%", "65%"],
+        center: ["50%", "43%"],
+        label: { show: false },
+        labelLine: { show: false },
+        itemStyle: { borderRadius: 6, borderColor: "#FFFFFF", borderWidth: 2 },
         data: demoSchemes.map((s, i) => ({
           value: scaleDemoValue(s.budgetDisbursedCr, fy),
           name: gu ? (s.shortNameGu || s.shortName) : s.shortName,
-          itemStyle: { color: COLORS[i % COLORS.length] },
+          itemStyle: { color: HOLST_PALETTE[i % HOLST_PALETTE.length] },
         })),
       }],
     });
@@ -108,21 +136,44 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
     const regVals  = [420, 380, 310, 290, 150, 200].map(v => scaleDemoValue(v, fy));
     chart.setOption({
       grid: { left: "4%", right: "4%", bottom: "5%", top: "12%", containLabel: true },
-      tooltip: { trigger: "axis", formatter: (p: any) => `${p[0].name}: <b>₹ ${p[0].value} Cr</b>` },
+      tooltip: {
+        trigger: "axis",
+        backgroundColor: "rgba(34, 58, 94, 0.95)",
+        borderColor: "#4D79A8",
+        borderWidth: 1,
+        textStyle: { color: "#FFFFFF" },
+        formatter: (p: any) => `${p[0].name}: <b>₹ ${p[0].value} Cr</b>`,
+      },
       xAxis: {
         type: "category",
         data: gu ? regGu : regions,
-        axisLabel: { color: "#536c78", fontSize: 10, interval: 0 },
+        axisLine: { lineStyle: { color: "rgba(110, 158, 204, 0.3)" } },
+        axisLabel: { color: "#355982", fontSize: 11, interval: 0, fontWeight: 500 },
       },
-      yAxis: { type: "value", axisLabel: { formatter: "₹{value}Cr", color: "#607785", fontSize: 10 }, splitLine: { lineStyle: { color: "#e1e9eb" } } },
+      yAxis: {
+        type: "value",
+        axisLabel: { formatter: "₹{value}Cr", color: "#4D79A8", fontSize: 10 },
+        splitLine: { lineStyle: { color: "rgba(110, 158, 204, 0.12)" } },
+      },
       series: [{
         name: gu ? "DBT" : "DBT (Cr)",
-        type: "bar", barWidth: "40%",
+        type: "bar",
+        barWidth: "40%",
         data: regVals.map((v, i) => ({
           value: v,
-          itemStyle: { color: DRISHTI_PALETTE[i], borderRadius: [4,4,0,0] },
+          itemStyle: {
+            color: {
+              type: "linear",
+              x: 0, y: 0, x2: 0, y2: 1,
+              colorStops: [
+                { offset: 0, color: HOLST_PALETTE[i % HOLST_PALETTE.length] },
+                { offset: 1, color: "rgba(77, 121, 168, 0.45)" },
+              ],
+            },
+            borderRadius: [6, 6, 0, 0],
+          },
         })),
-        label: { show: true, position: "top", color: "#315164", fontSize: 10, formatter: (p: any) => `₹${p.value}` },
+        label: { show: true, position: "top", color: "#223A5E", fontSize: 11, fontWeight: "bold", formatter: (p: any) => `₹${p.value}` },
       }],
     });
     const r = () => chart.resize();
@@ -138,25 +189,39 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
       series: [{
         name: gu ? "ઉપયોગ દર" : "Budget Utilization",
         type: "gauge",
-        radius: "80%",
+        radius: "84%",
         startAngle: 200, endAngle: -20,
         min: 0, max: 100,
-        progress: { show: true, roundCap: true, width: 16, itemStyle: { color: "#0f7e83" } },
-        pointer: { show: true, length: "60%", width: 4, itemStyle: { color: "#123650" } },
-        axisLine: { lineStyle: { width: 16, color: [[1, "#d5e0e4"]] } },
+        progress: {
+          show: true,
+          roundCap: true,
+          width: 16,
+          itemStyle: {
+            color: {
+              type: "linear",
+              x: 0, y: 0, x2: 1, y2: 0,
+              colorStops: [
+                { offset: 0, color: "#6E9ECC" },
+                { offset: 1, color: "#4D79A8" },
+              ],
+            },
+          },
+        },
+        pointer: { show: true, length: "55%", width: 4, itemStyle: { color: "#223A5E" } },
+        axisLine: { lineStyle: { width: 16, color: [[1, "rgba(110, 158, 204, 0.2)"]] } },
         axisTick: { show: false },
         splitLine: { show: false },
         axisLabel: { show: false },
         detail: {
           valueAnimation: true,
           formatter: "{value}%",
-          color: "#123650",
-          fontSize: 24,
+          color: "#223A5E",
+          fontSize: 26,
           fontWeight: "bold",
           offsetCenter: [0, "30%"],
         },
         data: [{ value: utilRate, name: gu ? "ઉપયોગ" : "Utilized" }],
-        title: { offsetCenter: [0, "55%"], color: "#536c78", fontSize: 12 },
+        title: { offsetCenter: [0, "55%"], color: "#4D79A8", fontSize: 12, fontWeight: 600 },
       }],
     });
     const r = () => chart.resize();
@@ -183,23 +248,23 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
       </div>
 
       {/* KPI Strip */}
-      <div className="stats-strip-4">
-        <div className="stat-card-compact">
+      <div className="stats-strip-4 reveal-stagger is-visible">
+        <div className="stat-card-compact card-lift">
           <span className="stat-label">{gu ? "ફાળવેલ બજેટ" : "Allocated Budget"}</span>
           <strong className="text-mono-white">₹ {fmt(allocated)} Cr</strong>
           <small>{gu ? `ઉદ. ફાળવણી · FY ${fy}` : `Demo · FY ${fy}`}</small>
         </div>
-        <div className="stat-card-compact">
+        <div className="stat-card-compact card-lift">
           <span className="stat-label">{gu ? "વિતરિત (DBT)" : "Total Disbursed"}</span>
           <strong className="text-mono-white">₹ {fmt(totalDisbursed)} Cr</strong>
           <small>{gu ? `ઉ. ગ. · FY ${fy}` : `Demo calc · FY ${fy}`}</small>
         </div>
-        <div className="stat-card-compact">
+        <div className="stat-card-compact card-lift">
           <span className="stat-label">{gu ? "DBT સફળ ટ્રાન્ઝેક્શન" : "DBT Success Rate"}</span>
           <strong className="text-mono-white">{dbtSuccessRate}%</strong>
           <small>{gu ? "ઉ. ગ. · ચ. નથી" : "Demo · unverified"}</small>
         </div>
-        <div className="stat-card-compact">
+        <div className="stat-card-compact card-lift">
           <span className="stat-label">{gu ? "સ.ઘ. / લાભ." : "Avg Assist / Beneficiary"}</span>
           <strong className="text-mono-silver">₹ {fmt(avgPerBen)}</strong>
           <small>{gu ? "ઉ. ગ. · ચ. નથી" : "Demo · unverified"}</small>
@@ -207,8 +272,8 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
       </div>
 
       {/* Row 1: Monthly trend + Budget gauge */}
-      <div className="overview-analytics-grid">
-        <div className="analytics-card-gov">
+      <div className="overview-analytics-grid reveal">
+        <div className="analytics-card-gov chart-animate card-lift">
           <div className="card-head-gov">
             <div>
               <h3>{gu ? "માસિક DBT ખર્ચ (₹ કરોડ)" : "Monthly DBT Expenditure (₹ Crores)"}</h3>
@@ -219,7 +284,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
           <div ref={lineChartRef} className="chart-box-echarts" />
         </div>
 
-        <div className="analytics-card-gov">
+        <div className="analytics-card-gov chart-animate card-lift">
           <div className="card-head-gov">
             <div>
               <h3>{gu ? "બજેટ ઉપયોગ ગેજ" : "Budget Utilization Gauge"}</h3>
@@ -232,8 +297,8 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
       </div>
 
       {/* Row 2: Scheme donut + Region bar */}
-      <div className="overview-analytics-grid">
-        <div className="analytics-card-gov">
+      <div className="overview-analytics-grid reveal">
+        <div className="analytics-card-gov chart-animate card-lift">
           <div className="card-head-gov">
             <div>
               <h3>{gu ? "યોજના-ભાર ડોનટ" : "Scheme-wise DBT Share"}</h3>

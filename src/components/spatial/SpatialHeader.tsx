@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
-import { Search } from "lucide-react";
-import { GUJARAT_DISTRICT_POLYGONS } from "@/lib/gujarat-svg-paths";
+import React, { useState } from "react";
+import { Search, Bell, Sun, Moon, Sparkles, User, Mic } from "lucide-react";
 import type { AppLanguage } from "@/lib/i18n";
 import { localizeText } from "@/lib/i18n";
 
@@ -19,62 +18,240 @@ export function SpatialHeader({
   onSelectLanguage,
   onOpenSearch,
 }: SpatialHeaderProps) {
+  const [isDark, setIsDark] = useState(false);
+  const [hasNotif, setHasNotif] = useState(true);
+
   return (
-    <header className="spatial-header-bar">
-      {/* Left Title and Subtitle Badge */}
-      <div className="spatial-brand-group">
-        <span className="spatial-gujarat-mark" aria-hidden="true">
-          <svg viewBox="20 20 910 680" role="presentation">
-            {GUJARAT_DISTRICT_POLYGONS.map((district) => (
-              <path key={district.name} d={district.path} />
-            ))}
-          </svg>
-        </span>
-        <div className="spatial-brand-titles">
-          <h1 className="spatial-brand-heading">
-            {localizeText(lang, gu ? "યોજના દૃષ્ટિ" : lang === "hi" ? "योजना दृष्टि" : "Yojana Drishti")}
-          </h1>
-          <span className="spatial-brand-badge">
-            <span className="spatial-brand-status-dot" />
-            {gu ? "ગુજરાત રાજ્ય · જાહેર માહિતી" : lang === "hi" ? "गुजरात राज्य · सार्वजनिक जानकारी" : "Gujarat · Public information"}
+    <header
+      className="spatial-top-vision-bar"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 16,
+        padding: "10px 24px",
+        margin: "12px auto 20px",
+        maxWidth: "1400px",
+        width: "calc(100% - 32px)",
+        background: "rgba(243, 248, 253, 0.88)",
+        backdropFilter: "blur(24px) saturate(1.4)",
+        WebkitBackdropFilter: "blur(24px) saturate(1.4)",
+        border: "1px solid rgba(159, 192, 227, 0.35)",
+        borderRadius: "999px",
+        boxShadow: "0 4px 20px rgba(34, 58, 94, 0.08)",
+        position: "sticky",
+        top: 12,
+        zIndex: 90,
+      }}
+    >
+      {/* 1. Left: Profile Avatar + Welcome Chip (Mirroring Image 1) */}
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <div
+          style={{
+            width: 36,
+            height: 36,
+            borderRadius: "50%",
+            background: "linear-gradient(135deg, #4D79A8 0%, #223A5E 100%)",
+            color: "#FFFFFF",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 2px 8px rgba(34, 58, 94, 0.2)",
+            border: "2px solid rgba(255, 255, 255, 0.8)",
+          }}
+        >
+          <User size={18} />
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <span style={{ fontSize: "0.86rem", fontWeight: 700, color: "var(--holst-900, #223A5E)", lineHeight: 1.2 }}>
+            {gu ? "નમસ્તે, નાગરિક શ્રી" : lang === "hi" ? "नमस्ते, नागरिक महोदय" : "Welcome, Citizen"}
           </span>
+          <small style={{ fontSize: "0.7rem", color: "var(--holst-500, #4D79A8)", fontWeight: 500 }}>
+            {gu ? "યોજના દૃષ્ટિ · ગુજરાત સરકાર" : "Yojana Drishti · Govt of Gujarat"}
+          </small>
         </div>
       </div>
 
-      {/* Right Action Controls */}
-      <div className="spatial-header-actions">
-        {/* Search is available from the keyboard shortcut and this button. */}
+      {/* 2. Center: Glowing Siri / AI Search Capsule (Mirroring Image 1) */}
+      <button
+        type="button"
+        onClick={onOpenSearch}
+        style={{
+          flex: 1,
+          maxWidth: "460px",
+          display: "flex",
+          alignItems: "center",
+          gap: 12,
+          padding: "8px 18px",
+          borderRadius: "999px",
+          background: "rgba(255, 255, 255, 0.75)",
+          border: "1px solid rgba(110, 158, 204, 0.35)",
+          boxShadow: "0 2px 8px rgba(77, 121, 168, 0.08)",
+          cursor: "pointer",
+          transition: "all 0.2s ease",
+          outline: "none",
+        }}
+      >
+        <div
+          style={{
+            width: 22,
+            height: 22,
+            borderRadius: "50%",
+            background: "linear-gradient(135deg, #4D79A8, #6E9ECC, #2E7D52)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 0 10px rgba(77, 121, 168, 0.4)",
+            flexShrink: 0,
+          }}
+        >
+          <Sparkles size={12} color="#FFFFFF" />
+        </div>
+        <span
+          style={{
+            fontSize: "0.84rem",
+            color: "var(--holst-700, #355982)",
+            textAlign: "left",
+            flex: 1,
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {gu ? "શોધો: કઈ યોજના તમારા માટે છે? (Ctrl + K)..." : "Ask or search any scheme across Gujarat..."}
+        </span>
+        <Mic size={15} color="var(--holst-500, #4D79A8)" />
+      </button>
+
+      {/* 3. Right: Light/Dark Capsule + Notification Bell + Language (Mirroring Image 1) */}
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        {/* Light / Dark Mode Toggle Pill */}
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            background: "rgba(255, 255, 255, 0.8)",
+            border: "1px solid rgba(110, 158, 204, 0.3)",
+            borderRadius: "999px",
+            padding: "3px 4px",
+            gap: 2,
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => setIsDark(false)}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 4,
+              padding: "4px 10px",
+              borderRadius: "999px",
+              fontSize: "0.74rem",
+              fontWeight: 600,
+              border: "none",
+              cursor: "pointer",
+              background: !isDark ? "#FFFFFF" : "transparent",
+              color: !isDark ? "var(--holst-900, #223A5E)" : "var(--holst-500, #4D79A8)",
+              boxShadow: !isDark ? "0 1px 4px rgba(34, 58, 94, 0.12)" : "none",
+              transition: "all 0.15s ease",
+            }}
+          >
+            <Sun size={12} color={!isDark ? "#E09930" : "currentColor"} />
+            <span>Light</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setIsDark(true)}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 4,
+              padding: "4px 10px",
+              borderRadius: "999px",
+              fontSize: "0.74rem",
+              fontWeight: 600,
+              border: "none",
+              cursor: "pointer",
+              background: isDark ? "#223A5E" : "transparent",
+              color: isDark ? "#FFFFFF" : "var(--holst-500, #4D79A8)",
+              boxShadow: isDark ? "0 1px 4px rgba(0,0,0,0.2)" : "none",
+              transition: "all 0.15s ease",
+            }}
+          >
+            <Moon size={12} />
+            <span>Dark</span>
+          </button>
+        </div>
+
+        {/* Notification Bell Pill */}
         <button
           type="button"
-          onClick={onOpenSearch}
-          className="spatial-search-trigger"
-          aria-label={localizeText(lang, gu ? "શોધખોળ" : "Search")}
+          onClick={() => setHasNotif(!hasNotif)}
+          style={{
+            position: "relative",
+            width: 36,
+            height: 36,
+            borderRadius: "50%",
+            background: "rgba(255, 255, 255, 0.8)",
+            border: "1px solid rgba(110, 158, 204, 0.3)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+            color: "var(--holst-700, #355982)",
+          }}
+          title="Notifications"
         >
-          <Search size={16} strokeWidth={1.8} className="text-white/70" />
-          <span className="spatial-search-placeholder">
-            {gu ? "યોજના, ગામ અથવા શહેર શોધો" : lang === "hi" ? "योजना, गाँव या शहर खोजें" : "Search schemes, villages, or cities"}
-          </span>
+          <Bell size={16} />
+          {hasNotif && (
+            <span
+              style={{
+                position: "absolute",
+                top: 7,
+                right: 7,
+                width: 7,
+                height: 7,
+                borderRadius: "50%",
+                background: "#C63B5A",
+                boxShadow: "0 0 6px #C63B5A",
+              }}
+            />
+          )}
         </button>
 
-        {/* Language switcher uses each language's native name. */}
-        <div className="spatial-lang-pill" role="group" aria-label={gu ? "ભાષા પસંદ કરો" : lang === "hi" ? "भाषा चुनें" : "Choose language"}>
-          {(["gu", "en", "hi"] as const).map((language) => (
+        {/* Language Switcher */}
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            background: "rgba(255, 255, 255, 0.8)",
+            border: "1px solid rgba(110, 158, 204, 0.3)",
+            borderRadius: "999px",
+            padding: "3px 4px",
+            gap: 2,
+          }}
+        >
+          {(["gu", "en", "hi"] as const).map((l) => (
             <button
-              key={language}
+              key={l}
               type="button"
-              className={lang === language ? "active-lang" : "muted-lang"}
-              aria-pressed={lang === language}
-              aria-label={language === "gu" ? "ગુજરાતી" : language === "en" ? "English" : "हिन्दी"}
-              onClick={() => onSelectLanguage(language)}
+              onClick={() => onSelectLanguage(l)}
+              style={{
+                padding: "3px 8px",
+                borderRadius: "999px",
+                fontSize: "0.72rem",
+                fontWeight: lang === l ? 700 : 500,
+                border: "none",
+                cursor: "pointer",
+                background: lang === l ? "var(--holst-500, #4D79A8)" : "transparent",
+                color: lang === l ? "#FFFFFF" : "var(--holst-700, #355982)",
+                transition: "all 0.15s ease",
+              }}
             >
-              {language === "gu" ? "ગુજરાતી" : language === "en" ? "English" : "हिन्दी"}
+              {l === "gu" ? "ગુ" : l === "en" ? "EN" : "हि"}
             </button>
           ))}
         </div>
-
-        <span className="spatial-region-chip" aria-label={localizeText(lang, gu ? "ગુજરાત" : "Gujarat")}>
-          {gu ? "ગુજરાત" : lang === "hi" ? "गुजरात" : "Gujarat"}
-        </span>
       </div>
     </header>
   );

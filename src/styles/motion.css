@@ -1,69 +1,227 @@
 /* ==========================================================================
- * Motion system. Rules:
- *  1. ONE orchestrated moment per page (hero intro). Not a fade-up on every card.
- *  2. Motion answers an action (click, open, select) or reveals data. No decorative loops
- *     except: the live-dot, the pilot-district pulse, skeleton shimmer.
- *  3. Everything honours prefers-reduced-motion.
+ * YOJANA DRISHTI — Motion System v2 (Holst Edition)
+ * Scroll-triggered reveals + rich micro-interactions
+ * Rules: honour prefers-reduced-motion everywhere
  * ========================================================================== */
+
 :root {
   --dur-fast: 120ms;
-  --dur-base: 200ms;
-  --dur-slow: 340ms;
-  --dur-chart: 900ms;
+  --dur-base: 220ms;
+  --dur-slow: 380ms;
+  --dur-chart: 1000ms;
   --dur-hero: 1200ms;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-spring: linear(0, 0.34 8%, 0.82 18%, 1.06 28%, 1.08 34%, 1 48%, 0.99 60%, 1);
 }
 
-/* Page change (used with withViewTransition) */
+/* ── Page transitions ── */
 ::view-transition-old(root) { animation: dr-fade-out var(--dur-fast) var(--ease-in-out) both; }
-::view-transition-new(root) { animation: dr-fade-in var(--dur-slow) var(--ease-out) both; }
-@keyframes dr-fade-out { to { opacity: 0; } }
-@keyframes dr-fade-in { from { opacity: 0; transform: translateY(8px); } }
+::view-transition-new(root) { animation: dr-page-enter var(--dur-slow) var(--ease-out) both; }
+@keyframes dr-fade-out { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes dr-page-enter { from { opacity: 0; transform: translateY(12px); } }
 
-/* Hero intro: apply .dr-intro to the hero container ONLY */
+/* ── Hero stagger ── */
 .dr-intro > * { animation: dr-rise var(--dur-hero) var(--ease-out) both; }
-.dr-intro > *:nth-child(2) { animation-delay: 90ms; }
-.dr-intro > *:nth-child(3) { animation-delay: 180ms; }
-.dr-intro > *:nth-child(4) { animation-delay: 270ms; }
-@keyframes dr-rise { from { opacity: 0; transform: translateY(18px); } }
+.dr-intro > *:nth-child(1) { animation-delay: 0ms; }
+.dr-intro > *:nth-child(2) { animation-delay: 100ms; }
+.dr-intro > *:nth-child(3) { animation-delay: 200ms; }
+.dr-intro > *:nth-child(4) { animation-delay: 300ms; }
+.dr-intro > *:nth-child(5) { animation-delay: 400ms; }
+@keyframes dr-rise { from { opacity: 0; transform: translateY(20px); } }
 
-/* Choropleth district reveal: ripples outward from the pilot district via --d */
+/* ── Scroll-reveal (IntersectionObserver adds .is-visible) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance, 24px));
+  transition:
+    opacity var(--reveal-duration, 500ms) var(--ease-out),
+    transform var(--reveal-duration, 500ms) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger helpers */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 480ms var(--ease-out), transform 480ms var(--ease-out);
+}
+.reveal-stagger.is-visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:0ms; }
+.reveal-stagger.is-visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:80ms; }
+.reveal-stagger.is-visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:160ms; }
+.reveal-stagger.is-visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:240ms; }
+.reveal-stagger.is-visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:320ms; }
+.reveal-stagger.is-visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:400ms; }
+.reveal-stagger.is-visible > *:nth-child(n+7) { opacity:1; transform:none; transition-delay:480ms; }
+
+/* Slide in from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal-left.is-visible { opacity: 1; transform: translateX(0); }
+
+/* Scale in */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 450ms var(--ease-out), transform 450ms var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal-scale.is-visible { opacity: 1; transform: scale(1); }
+
+/* ── KPI card entrance ── */
+@keyframes kpi-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    }
+}
+.kpi-card-animate {
+  animation: kpi-in 450ms var(--ease-out) both;
+}
+.kpi-card-animate:nth-child(1) { animation-delay: 0ms; }
+.kpi-card-animate:nth-child(2) { animation-delay: 70ms; }
+.kpi-card-animate:nth-child(3) { animation-delay: 140ms; }
+.kpi-card-animate:nth-child(4) { animation-delay: 210ms; }
+.kpi-card-animate:nth-child(5) { animation-delay: 280ms; }
+
+/* ── Chart container fade-in ── */
+@keyframes chart-reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+.chart-animate { animation: chart-reveal 600ms var(--ease-out) both; }
+
+/* ── Map district reveal ── */
 .dr-dist {
   transform-box: fill-box;
   transform-origin: center;
   animation: dr-district-in 700ms var(--ease-out) both;
   animation-delay: var(--d, 0ms);
 }
-@keyframes dr-district-in { from { opacity: 0; transform: scale(0.92); } }
+@keyframes dr-district-in { from { opacity: 0; transform: scale(0.9); } }
 
-/* Live dot + pilot pulse */
-.dr-live { width: 8px; height: 8px; border-radius: 50%; background: var(--neem-600); position: relative; }
-.dr-live::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: inherit; animation: dr-ping 2.2s var(--ease-out) infinite; }
-@keyframes dr-ping { to { transform: scale(3.2); opacity: 0; } }
-.dr-pilot-ring { animation: dr-pilot 2.4s var(--ease-in-out) infinite; }
-@keyframes dr-pilot { 50% { stroke-width: 4; stroke-opacity: 0.55; } }
+/* ── Live dot pulse ── */
+.dr-live {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--neem-600); position: relative;
+}
+.dr-live::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: inherit; animation: dr-ping 2.4s var(--ease-out) infinite;
+}
+@keyframes dr-ping { to { transform: scale(3.5); opacity: 0; } }
 
-/* Skeleton */
+/* Status dot variants */
+.status-dot { width:9px; height:9px; border-radius:50%; display:inline-block; }
+.status-dot--online  { background: var(--neem-600); animation: status-pulse 2.5s ease infinite; }
+.status-dot--warn    { background: var(--haldi-500); }
+.status-dot--offline { background: var(--madder-600); }
+@keyframes status-pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+/* ── Skeleton shimmer ── */
 .dr-skeleton {
-  background: linear-gradient(100deg, var(--salt-100) 30%, var(--salt-50) 50%, var(--salt-100) 70%);
+  background: linear-gradient(100deg, var(--holst-50,#F3F8FD) 30%, var(--holst-200,#D0E1F2) 50%, var(--holst-50,#F3F8FD) 70%);
   background-size: 200% 100%;
-  animation: dr-sheen 1.4s linear infinite;
-  border-radius: var(--r-sm);
+  animation: dr-sheen 1.5s linear infinite;
+  border-radius: var(--r-sm, 8px);
 }
 @keyframes dr-sheen { to { background-position: -200% 0; } }
 
-/* Press feedback for real buttons */
+/* ── Press feedback ── */
 .dr-press { transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
-.dr-press:active { transform: scale(0.97); }
+.dr-press:active { transform: scale(0.96); }
 
-/* Sliding tab underline: set --x and --w from JS */
-.dr-tabs-ink { position: absolute; bottom: 0; height: 3px; border-radius: 3px 3px 0 0; background: var(--haldi-500);
+/* ── Button shimmer on hover ── */
+@keyframes btn-shimmer {
+  from { background-position: -200% center; }
+  to   { background-position: 200% center; }
+}
+.btn-shimmer:hover {
+  background-size: 200% auto;
+  animation: btn-shimmer 1.2s linear;
+}
+
+/* ── Sliding tab underline ── */
+.dr-tabs-ink {
+  position: absolute; bottom: 0; height: 3px; border-radius: 3px 3px 0 0;
+  background: var(--holst-500);
   left: 0; width: var(--w, 0); transform: translateX(var(--x, 0));
-  transition: transform var(--dur-slow) var(--ease-spring), width var(--dur-slow) var(--ease-out); }
+  transition: transform var(--dur-slow) var(--ease-spring), width var(--dur-slow) var(--ease-out);
+}
 
+/* ── Accordion / expand ── */
+@keyframes expand-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: none; }
+}
+.expand-animate { animation: expand-in 250ms var(--ease-out) both; }
+
+/* ── Number count-up (marker for JS) ── */
+.count-up { transition: all 0.6s var(--ease-out); }
+
+/* ── Card hover lift ── */
+.card-lift {
+  transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-2);
+}
+
+/* ── Progress bar fill animation ── */
+@keyframes progress-fill {
+  from { width: 0; }
+}
+.progress-bar-animate {
+  animation: progress-fill 1s var(--ease-out) both;
+  animation-delay: var(--reveal-delay, 200ms);
+}
+
+/* ── Badge pop ── */
+@keyframes badge-pop {
+  0% { transform: scale(0.7); opacity: 0; }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.badge-pop { animation: badge-pop 300ms var(--ease-spring) both; }
+
+/* ── Wizard step transition ── */
+@keyframes step-enter {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes step-exit {
+  from { opacity: 1; transform: none; }
+  to   { opacity: 0; transform: translateX(-20px); }
+}
+.wizard-step-enter { animation: step-enter 300ms var(--ease-out) both; }
+.wizard-step-exit  { animation: step-exit 200ms var(--ease-in-out) both; }
+
+/* ── Ken Burns for hero image ── */
+@keyframes dr-kenburns {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1); }
+}
+
+/* ── Pilot ring ── */
+.dr-pilot-ring { animation: dr-pilot 2.4s var(--ease-in-out) infinite; }
+@keyframes dr-pilot { 50% { stroke-width: 4; stroke-opacity: 0.55; } }
+
+/* ── Reduced motion: disable everything ── */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal, .reveal-left, .reveal-scale,
+  .reveal-stagger > * { opacity: 1 !important; transform: none !important; }
   ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
 }

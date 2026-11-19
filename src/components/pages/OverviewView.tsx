@@ -33,6 +33,7 @@ import { KPICard } from "../shared/KPICard";
 import { GlassHero } from "../glass/GlassHero";
 import { AnimatedNumber } from "../motion/AnimatedNumber";
 import { DemoBanner } from "../shared/DemoBanner";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 interface OverviewViewProps {
   gu: boolean;
@@ -49,6 +50,7 @@ export function OverviewView({
   onSelectDistrict,
   searchQuery,
 }: OverviewViewProps) {
+  useScrollReveal();
   const chartRef = useRef<HTMLDivElement>(null);
   const donutRef = useRef<HTMLDivElement>(null);
 
@@ -81,12 +83,17 @@ export function OverviewView({
     const topDistricts = demoDistricts.slice(0, 7);
     const names = topDistricts.map((d) => (gu ? d.gu : d.name));
     const vals = topDistricts.map((d) => scaleDemoValue(d.beneficiaries, fy));
+    const holstColors = ["#4D79A8", "#6E9ECC", "#9FC0E3", "#355982", "#2D7D84", "#6B4EAE", "#C07820"];
 
     chart.setOption({
       grid: { left: "3%", right: "4%", bottom: "3%", top: "12%", containLabel: true },
       tooltip: {
         trigger: "axis",
         axisPointer: { type: "shadow" },
+        backgroundColor: "rgba(34, 58, 94, 0.95)",
+        borderColor: "#4D79A8",
+        borderWidth: 1,
+        textStyle: { color: "#FFFFFF" },
         formatter: (params: any) => {
           const item = params[0];
           return `<b>${item.name}</b><br/>${gu ? "લાભાર્થી" : "Beneficiaries"}: <b>${fmt(item.value)}</b>`;
@@ -95,24 +102,31 @@ export function OverviewView({
       xAxis: {
         type: "category",
         data: names,
-        axisLine: { lineStyle: { color: "#D0DCF0" } },
-        axisLabel: { color: "#4A6080", fontSize: 11, interval: 0 },
+        axisLine: { lineStyle: { color: "rgba(110, 158, 204, 0.3)" } },
+        axisLabel: { color: "#355982", fontSize: 11, interval: 0, fontWeight: 500 },
       },
       yAxis: {
         type: "value",
-        axisLabel: { color: "#4A6080", fontSize: 10 },
-        splitLine: { lineStyle: { color: "rgba(255, 255, 255, 0.06)" } },
+        axisLabel: { color: "#4D79A8", fontSize: 10 },
+        splitLine: { lineStyle: { color: "rgba(110, 158, 204, 0.12)" } },
       },
       series: [
         {
           name: gu ? "લાભાર્થી" : "Beneficiaries",
           type: "bar",
-          barWidth: "32%",
+          barWidth: "36%",
           data: vals.map((val, idx) => ({
             value: val,
             itemStyle: {
-              color: idx === 3 ? "#2078CF" : "#0E4EB2",
-              borderRadius: [4, 4, 0, 0],
+              color: {
+                type: "linear",
+                x: 0, y: 0, x2: 0, y2: 1,
+                colorStops: [
+                  { offset: 0, color: holstColors[idx % holstColors.length] },
+                  { offset: 1, color: "rgba(77, 121, 168, 0.45)" },
+                ],
+              },
+              borderRadius: [6, 6, 0, 0],
             },
           })),
         },
@@ -136,27 +150,48 @@ export function OverviewView({
     const pendingCount = Math.max(0, totalApps - totalApproved);
 
     donut.setOption({
-      tooltip: { trigger: "item", backgroundColor: "#020C47", borderColor: "#011F65", textStyle: { color: "#FFFFFF" }, formatter: "{b}: {c} ({d}%)" },
-      legend: { bottom: "0%", left: "center", itemWidth: 10, itemHeight: 10, textStyle: { color: "#011F65" } },
+      tooltip: {
+        trigger: "item",
+        backgroundColor: "rgba(34, 58, 94, 0.95)",
+        borderColor: "#4D79A8",
+        borderWidth: 1,
+        textStyle: { color: "#FFFFFF" },
+        formatter: "{b}: {c} ({d}%)",
+      },
+      legend: {
+        bottom: "0%",
+        left: "center",
+        itemWidth: 12,
+        itemHeight: 12,
+        textStyle: { color: "#355982", fontWeight: 600, fontSize: 12 },
+      },
       series: [
         {
           name: gu ? "અરજી સ્થિતિ" : "Application Status",
           type: "pie",
-          radius: ["55%", "80%"],
+          radius: ["55%", "78%"],
           center: ["50%", "45%"],
           avoidLabelOverlap: false,
           label: { show: false },
-          emphasis: { label: { show: true, fontSize: 13, fontWeight: "bold" } },
+          emphasis: { label: { show: true, fontSize: 13, fontWeight: "bold", color: "#223A5E" } },
           data: [
             {
               value: approvedCount,
               name: gu ? "મંજૂર અરજીઓ" : "Approved",
-              itemStyle: { color: "#2078CF", borderColor: "#011F65", borderWidth: 2 },
+              itemStyle: {
+                color: "#4D79A8",
+                borderColor: "#FFFFFF",
+                borderWidth: 2,
+              },
             },
             {
               value: pendingCount,
               name: gu ? "પ્રક્રિયા હેઠળ" : "Under Process",
-              itemStyle: { color: "#A8C0E0", borderColor: "#0E4EB2", borderWidth: 2 },
+              itemStyle: {
+                color: "#9FC0E3",
+                borderColor: "#FFFFFF",
+                borderWidth: 2,
+              },
             },
           ],
         },
@@ -221,7 +256,7 @@ export function OverviewView({
       />
 
       {/* Main KPI Row */}
-      <div className="kpi-cards-grid">
+      <div className="kpi-cards-grid reveal-stagger is-visible">
         <KPICard
           title={gu ? "કુલ નોંધાયેલ લાભાર્થીઓ" : "Total Beneficiaries"}
           value={fmt(totalBen)}
@@ -229,6 +264,7 @@ export function OverviewView({
           icon={Users}
           tone={0}
           gu={gu}
+          index={0}
         />
         <KPICard
           title={gu ? "કુલ મળેલી અરજીઓ" : "Total Applications"}
@@ -237,6 +273,7 @@ export function OverviewView({
           icon={ClipboardList}
           tone={1}
           gu={gu}
+          index={1}
         />
         <KPICard
           title={gu ? "મંજૂરી દર" : "Approval Rate"}
@@ -245,6 +282,7 @@ export function OverviewView({
           icon={FileCheck2}
           tone={2}
           gu={gu}
+          index={2}
         />
         <KPICard
           title={gu ? "કુલ સહાય ચુકવણી" : "Public Spending (DBT)"}
@@ -253,11 +291,12 @@ export function OverviewView({
           icon={Wallet}
           tone={3}
           gu={gu}
+          index={3}
         />
       </div>
 
       {/* Administrative Coverage Bar */}
-      <div className="admin-coverage-bar">
+      <div className="admin-coverage-bar reveal">
         <div className="coverage-unit">
           <Building2 size={16} className="text-mono-white" />
           <div>
@@ -292,7 +331,7 @@ export function OverviewView({
       </div>
 
       {/* Gujarat GIS Gateway Card - Direct Launchpad to the Single Main Map */}
-      <section className="gujarat-gis-gateway-card">
+      <section className="gujarat-gis-gateway-card reveal">
         <div className="gis-gateway-left">
           <div className="gis-gateway-tag">
             <MapPin size={14} />
@@ -313,7 +352,7 @@ export function OverviewView({
         </div>
 
         <div className="gis-gateway-right">
-          <button className="btn-gis-launch" onClick={() => onNavigate("map")}>
+          <button className="btn-gis-launch btn-shimmer" onClick={() => onNavigate("map")}>
             <MapPin size={18} />
             <span>{gu ? "મુખ્ય ભૌગોલિક નકશો ખોલો" : "Open Main GIS Map"}</span>
             <ArrowRight size={18} />
@@ -326,9 +365,9 @@ export function OverviewView({
       </section>
 
       {/* Analytics Charts & District Table Grid */}
-      <div className="overview-analytics-grid">
+      <div className="overview-analytics-grid reveal">
         {/* Top Districts Chart */}
-        <div className="analytics-card-gov">
+        <div className="analytics-card-gov chart-animate card-lift">
           <div className="card-head-gov">
             <div>
               <h3>{gu ? "જિલ્લાવાર લાભાર્થી સરખામણી" : "Beneficiaries by District"}</h3>
@@ -340,7 +379,7 @@ export function OverviewView({
         </div>
 
         {/* Application Status Donut */}
-        <div className="analytics-card-gov">
+        <div className="analytics-card-gov chart-animate card-lift">
           <div className="card-head-gov">
             <div>
               <h3>{gu ? "અરજી મંજૂરી ગુણોત્તર" : "Application Clearance Ratio"}</h3>

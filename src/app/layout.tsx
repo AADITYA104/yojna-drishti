@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { displayFont, uiFont } from "@/lib/fonts";
+import { ScrollRevealProvider } from "@/components/motion/ScrollRevealProvider";
 import "@/styles/tokens.css";
 import "@/styles/app.css";
 import "@/styles/drishti-ui.css";
@@ -16,7 +17,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="gu" className={`${displayFont.variable} ${uiFont.variable}`}>
-      <body className="portal-theme">{children}</body>
+      <body className="portal-theme">
+        <ScrollRevealProvider />
+        {children}
+      </body>
     </html>
   );
 }

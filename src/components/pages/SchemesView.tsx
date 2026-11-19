@@ -16,6 +16,7 @@ import {
 import { demoSchemes, type Scheme } from "@/lib/demo-data";
 import { SchemeDetailModal } from "../shared/SchemeDetailModal";
 import type { AppLanguage } from "@/lib/i18n";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 interface SchemesViewProps {
   gu: boolean;
@@ -26,6 +27,7 @@ interface SchemesViewProps {
 }
 
 export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }: SchemesViewProps) {
+  useScrollReveal();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [search, setSearch] = useState(initialSearchTerm);
   const [expandedSchemeId, setExpandedSchemeId] = useState<string | null>("YD-CAND-01");
@@ -222,8 +224,28 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
         )}
         {filteredSchemes.map((s, index) => {
           const isExpanded = expandedSchemeId === s.id || (!expandedSchemeIsVisible && s.id === filteredSchemes[0]?.id);
+          const catColors: Record<string, string> = {
+            "દીકરી સંરક્ષણ અને શિક્ષણ": "#2E7D52",
+            "વિધવા સહાય": "#6B4EAE",
+            "વિધવા પુનર્લગ્ન": "#6B4EAE",
+            "મહિલા સ્વાવલંબન": "#4D79A8",
+            "માતૃ અને શિશુ સ્વાસ્થ્ય": "#C63B5A",
+            "માતૃત્વ પ્રોત્સાહન": "#C63B5A",
+            "લઘુ ઉદ્યોગ ધિરાણ": "#2D7D84",
+            "મહિલા ઉદ્યોગસાહસિકતા": "#2D7D84",
+          };
+          const borderCatColor = catColors[s.categoryGu] || "#4D79A8";
+
           return (
-            <div key={s.id} className={`scheme-master-card ${isExpanded ? "expanded" : ""}`}>
+            <div
+              key={s.id}
+              className={`scheme-master-card card-lift reveal ${isExpanded ? "expanded" : ""}`}
+              style={{
+                borderLeftColor: borderCatColor,
+                borderLeftWidth: "4px",
+                animationDelay: `${index * 50}ms`,
+              }}
+            >
               <div
                 className="smc-header"
                 role="button"

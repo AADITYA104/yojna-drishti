@@ -144,10 +144,12 @@ interface GujaratInteractiveMapProps {
 function colorForOrdinal(
   ordinal: number,
   hueOffset: number,
-  saturation = 0.54,
-  lightness = 0.68,
+  saturation = 0.43,
+  lightness = 0.72,
 ) {
-  const hue = ((Math.abs(ordinal) * 137.508 + hueOffset) % 360) / 30;
+  // Keep map fills within the requested muted blue family while varying hue,
+  // saturation, and lightness enough to distinguish adjacent boundaries.
+  const hue = (198 + (Math.abs(ordinal * 23 + hueOffset) % 25)) / 30;
   const amplitude = saturation * Math.min(lightness, 1 - lightness);
   const channel = (n: number) => {
     const k = (n + hue) % 12;

@@ -1,9 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { BarChart3, BookOpen, MapPin, Search, ShieldCheck, Users, Wallet } from "lucide-react";
-import { NOTEBOOK_WOMEN_SCHEMES, type NotebookScheme } from "@/lib/master-hierarchy";
-import { getVillageSchemeSummary } from "@/lib/village-scheme-demo";
+import { useEffect, useMemo, useState } from "react";
+import { AlertCircle, Database, Search, ShieldCheck } from "lucide-react";
+import type { AppLanguage } from "@/lib/i18n";
 
 interface VillageSchemeRegisterProps {
   villageCode: string;
@@ -14,207 +13,81 @@ interface VillageSchemeRegisterProps {
   districtNameGu?: string;
   districtNameEn?: string;
   gu: boolean;
+  lang?: AppLanguage;
 }
 
-const fmt = (value: number, gu: boolean) =>
-  new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(value);
+type DatasetResponse = {
+  status: string;
+  meta?: { classification: string; referenceDate?: string; rowCount: number; columns: string[]; schemes: Record<string, string> };
+  data?: { columns: string[]; rows: Record<string, string>[] };
+  message?: string;
+};
 
-function getSchemeInfo(id: string): NotebookScheme | undefined {
-  return NOTEBOOK_WOMEN_SCHEMES.find((scheme) => scheme.id === id);
-}
+const labels = {
+  gu: { title: "ગામના dataset records", subtitle: "પસંદ કરેલા ગામ માટે datasetમાં મળેલી દરેક scheme row જુઓ.", demo: "કૃત્રિમ નમૂના ડેટા", warning: "આ records સંપૂર્ણપણે synthetic છે. તેઓ વાસ્તવિક લાભાર્થીઓ, યોજના અમલ, પાત્રતા અથવા ચુકવણીનો પુરાવો નથી.", rows: "કુલ પંક્તિઓ", schemes: "યોજના કોડ", search: "પંક્તિઓ શોધો…", all: "બધી યોજનાઓ", loading: "ગામના records લોડ થાય છે…", empty: "આ સ્થળ માટે datasetમાં પંક્તિઓ નથી.", error: "આ સ્થળના dataset records હમણાં મળી શક્યા નથી.", page: "પાનું", of: "માંથી", previous: "પાછલું", next: "આગળ", source: "સ્રોત: જોડાયેલ synthetic dataset", date: "Dataset સંદર્ભ", noDate: "તારીખ ઉપલબ્ધ નથી" },
+  hi: { title: "गाँव के dataset records", subtitle: "चुने गए गाँव के लिए dataset में मिली प्रत्येक scheme row देखें।", demo: "कृत्रिम नमूना डेटा", warning: "ये records पूरी तरह synthetic हैं। ये वास्तविक लाभार्थी, योजना क्रियान्वयन, पात्रता या भुगतान का प्रमाण नहीं हैं।", rows: "कुल पंक्तियाँ", schemes: "योजना कोड", search: "पंक्तियाँ खोजें…", all: "सभी योजनाएँ", loading: "गाँव के records लोड हो रहे हैं…", empty: "इस स्थान के लिए dataset में कोई पंक्ति नहीं है।", error: "इस स्थान के dataset records अभी उपलब्ध नहीं हैं।", page: "पृष्ठ", of: "में से", previous: "पिछला", next: "अगला", source: "स्रोत: जुड़ा synthetic dataset", date: "Dataset संदर्भ", noDate: "तारीख उपलब्ध नहीं" },
+  en: { title: "Village dataset records", subtitle: "Inspect every scheme row found in the dataset for the selected village.", demo: "Synthetic sample data", warning: "These records are entirely synthetic. They are not evidence of real beneficiaries, scheme delivery, eligibility, or payments.", rows: "Total rows", schemes: "Scheme codes", search: "Search rows…", all: "All schemes", loading: "Loading village records…", empty: "No rows are present for this place in the dataset.", error: "Dataset records for this place could not be loaded.", page: "Page", of: "of", previous: "Previous", next: "Next", source: "Source: connected synthetic dataset", date: "Dataset reference", noDate: "Date unavailable" },
+} as const;
 
-export function VillageSchemeRegister({
-  villageCode,
-  villageNameGu,
-  villageNameEn,
-  talukaNameGu = "ઘોઘા",
-  talukaNameEn = "Ghogha",
-  districtNameGu = "ભાવનગર",
-  districtNameEn = "Bhavnagar",
-  gu,
-}: VillageSchemeRegisterProps) {
-  const [query, setQuery] = useState("");
-  const [selectedSchemeId, setSelectedSchemeId] = useState("all");
-  const schemeSummary = useMemo(() => getVillageSchemeSummary(villageCode), [villageCode]);
-  const villageName = gu ? villageNameGu : villageNameEn;
-  const districtName = gu ? districtNameGu : districtNameEn;
-  const talukaName = gu ? talukaNameGu : talukaNameEn;
+const humanizeFilename = (value: string) => value.replace(/^\d+_/, "").replace(/\.csv$/i, "").replaceAll("_", " ");
+const number = (value: number, lang: AppLanguage) => new Intl.NumberFormat(lang === "gu" ? "gu-IN" : lang === "hi" ? "hi-IN" : "en-IN").format(value);
 
-  const filteredSchemes = useMemo(() => {
-    const term = query.trim().toLocaleLowerCase();
-    return schemeSummary.schemes.filter((scheme) => {
-      if (selectedSchemeId !== "all" && scheme.schemeId !== selectedSchemeId) return false;
-      const info = getSchemeInfo(scheme.schemeId);
-      if (!term) return true;
-      return [
-        scheme.schemeNameEn,
-        scheme.schemeNameGu,
-        info?.target ?? "",
-        info?.targetGu ?? "",
-        info?.benefit ?? "",
-        info?.benefitGu ?? "",
-      ].join(" ").toLocaleLowerCase().includes(term);
-    });
-  }, [query, schemeSummary.schemes, selectedSchemeId]);
+export function VillageSchemeRegister({ villageCode, villageNameGu, villageNameEn, talukaNameGu = "", talukaNameEn = "", districtNameGu = "", districtNameEn = "", gu, lang }: VillageSchemeRegisterProps) {
+  const language = lang ?? (gu ? "gu" : "en");
+  const text = labels[language];
+  const [result, setResult] = useState<{ locationCode: string; payload: DatasetResponse } | null>(null);
+  const [search, setSearch] = useState("");
+  const [schemeFilter, setSchemeFilter] = useState("all");
+  const [page, setPage] = useState(0);
+  const pageSize = 20;
 
-  const highestEnrollment = Math.max(1, ...schemeSummary.schemes.map((scheme) => scheme.beneficiaries));
-  const coverageAvailable = schemeSummary.schemes.length > 0;
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch(`/api/v1/analytics/location/records?locationCode=${encodeURIComponent(villageCode)}`, { signal: controller.signal, cache: "no-store" })
+      .then(async (response) => {
+        if (response.status === 404) return { status: "not_found" } as DatasetResponse;
+        if (!response.ok) throw new Error("dataset unavailable");
+        return response.json() as Promise<DatasetResponse>;
+      })
+      .then((payload) => { if (!controller.signal.aborted) setResult({ locationCode: villageCode, payload }); })
+      .catch((error: Error) => { if (error.name !== "AbortError" && !controller.signal.aborted) setResult({ locationCode: villageCode, payload: { status: "unavailable" } }); });
+    return () => controller.abort();
+  }, [villageCode]);
 
-  return (
-    <section className="village-scheme-register-card vsa-card" aria-labelledby="vsa-title">
-      <div className="vsa-hero">
-        {/* Existing Gujarat collage asset; its source resolution is 1024px, so it is not presented as 4K. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/gujarat-vibrant-collage.jpg" alt="ગુજરાતના પ્રાકૃતિક અને સાંસ્કૃતિક સ્થળો" />
-        <div className="vsa-hero-overlay" />
-        <div className="vsa-hero-content">
-          <span className="vsa-eyebrow">
-            <MapPin size={13} />
-            {gu ? "ગામવાર યોજના પહોંચ" : "VILLAGE SCHEME REACH"}
-          </span>
-          <h2 id="vsa-title">{villageName || (gu ? "પસંદ કરેલું ગામ" : "Selected village")}</h2>
-          <p>{gu ? `${districtName} જિલ્લો · ${talukaName} તાલુકો · LGD ${villageCode}` : `${districtName} District · ${talukaName} Taluka · LGD ${villageCode}`}</p>
-        </div>
-        <span className="vsa-demo-badge"><ShieldCheck size={13} /> {gu ? "ડેમો આંકડા" : "DEMO DATA"}</span>
+  const loading = result?.locationCode !== villageCode;
+  const payload = loading ? null : result.payload;
+  const columns = payload?.data?.columns ?? [];
+  const rows = useMemo(() => payload?.data?.rows ?? [], [payload]);
+  const schemes = useMemo(() => [...new Set(rows.map((row) => row.Scheme_ID).filter(Boolean))].sort(), [rows]);
+  const filtered = useMemo(() => rows.filter((row) => {
+    if (schemeFilter !== "all" && row.Scheme_ID !== schemeFilter) return false;
+    const query = search.trim().toLocaleLowerCase();
+    return !query || Object.values(row).some((value) => String(value).toLocaleLowerCase().includes(query));
+  }), [rows, schemeFilter, search]);
+  const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
+  const currentPage = Math.min(page, pageCount - 1);
+  const visibleRows = filtered.slice(currentPage * pageSize, (currentPage + 1) * pageSize);
+  const place = language === "gu" ? villageNameGu : language === "hi" ? villageNameEn : villageNameEn;
+  const district = language === "gu" ? districtNameGu : districtNameEn;
+  const taluka = language === "gu" ? talukaNameGu : talukaNameEn;
+
+  return <section className="vsa-card village-records" aria-labelledby="vsa-title">
+    <header className="village-records-header">
+      <div><span className="data-dashboard-eyebrow"><Database size={14} />{text.demo}</span><h2 id="vsa-title">{place || villageNameGu || villageCode}</h2>
+        <p>{district} · {taluka} · LGD {villageCode}</p><p>{text.subtitle}</p>
+      </div><div className="village-records-location"><strong>{text.schemes}: {number(schemes.length, language)}</strong><strong>{text.rows}: {number(rows.length, language)}</strong></div>
+    </header>
+    <aside className="data-integrity-note village-integrity" role="note"><ShieldCheck size={19} /><div><strong>{text.demo}</strong><p>{text.warning}</p></div></aside>
+
+    {loading ? <div className="data-panel data-loading" role="status">{text.loading}</div> : payload?.status !== "success" ? <div className="village-record-empty" role="status"><AlertCircle size={20} />{payload?.status === "not_found" ? text.empty : text.error}</div> : <>
+      <div className="village-records-controls">
+        <label className="village-record-search"><Search size={16} /><input value={search} onChange={(event) => { setSearch(event.target.value); setPage(0); }} placeholder={text.search} /></label>
+        <label className="village-record-filter"><span>{text.schemes}</span><select value={schemeFilter} onChange={(event) => { setSchemeFilter(event.target.value); setPage(0); }}><option value="all">{text.all}</option>{schemes.map((id) => <option key={id} value={id}>{id} · {humanizeFilename(payload.meta?.schemes?.[id] ?? id)}</option>)}</select></label>
       </div>
-
-      <div className="vsa-content">
-        <div className="vsa-data-note" role="note">
-          <ShieldCheck size={17} />
-          <span>
-            {gu
-              ? "આ આંકડા માત્ર પ્રોટોટાઇપ માટેના ઉદાહરણ છે; સરકારી રીતે ચકાસાયેલા નથી. યોજનાવાર ગણતરીઓમાં એક જ વ્યક્તિ એકથી વધુ યોજનામાં હોઈ શકે છે, એટલે કુલ unique લોકો તરીકે ન ગણવો. પાત્રતા અને લાભની વિગતો પણ સત્તાવાર વિભાગમાં ચકાસો."
-              : "Illustrative prototype data only; not verified government records. A person may participate in more than one scheme, so scheme totals are not unique people. Verify eligibility and benefit details with the official department."}
-          </span>
-        </div>
-
-        {coverageAvailable ? (
-          <>
-            <div className="vsa-kpis">
-              <article className="vsa-kpi vsa-kpi-blue">
-                <span><BookOpen size={19} /></span>
-                <div><small>{gu ? "ગામમાં દર્શાવેલી યોજનાઓ" : "Schemes shown for village"}</small><strong>{fmt(schemeSummary.schemes.length, gu)}</strong></div>
-              </article>
-              <article className="vsa-kpi vsa-kpi-teal">
-                <span><Users size={19} /></span>
-                <div><small>{gu ? "યોજનાવાર ભાગીદારી" : "Scheme participations"}</small><strong>{fmt(schemeSummary.totalSchemeEnrollments, gu)}</strong></div>
-              </article>
-              <article className="vsa-kpi vsa-kpi-amber">
-                <span><Wallet size={19} /></span>
-                <div><small>{gu ? "નમૂનાનું કુલ વિતરણ" : "Illustrative disbursement"}</small><strong>₹ {fmt(schemeSummary.totalGrantLakhs, gu)} {gu ? "લાખ" : "lakh"}</strong></div>
-              </article>
-            </div>
-
-            <div className="vsa-analytics">
-              <section className="vsa-panel" aria-labelledby="vsa-chart-title">
-                <div className="vsa-panel-heading">
-                  <div>
-                    <span className="vsa-panel-icon"><BarChart3 size={17} /></span>
-                    <h3 id="vsa-chart-title">{gu ? "યોજનાવાર લાભાર્થી ભાગીદારી" : "Scheme-wise beneficiary participation"}</h3>
-                  </div>
-                  <small>{gu ? "ઉદાહરણ" : "Illustrative"}</small>
-                </div>
-                <div className="vsa-bars">
-                  {schemeSummary.schemes.map((scheme) => {
-                    const info = getSchemeInfo(scheme.schemeId);
-                    const schemeLabel = gu ? scheme.schemeNameGu : scheme.schemeNameEn;
-                    return (
-                      <button
-                        type="button"
-                        key={scheme.schemeId}
-                        className={`vsa-bar-row ${selectedSchemeId === scheme.schemeId ? "selected" : ""}`}
-                        onClick={() => setSelectedSchemeId(selectedSchemeId === scheme.schemeId ? "all" : scheme.schemeId)}
-                        aria-pressed={selectedSchemeId === scheme.schemeId}
-                        title={gu ? "આ યોજના પ્રમાણે વિગતો ફિલ્ટર કરો" : "Filter details to this scheme"}
-                      >
-                        <span className="vsa-bar-label">{schemeLabel}</span>
-                        <span className="vsa-bar-track"><i style={{ width: `${Math.max(4, (scheme.beneficiaries / highestEnrollment) * 100)}%` }} /></span>
-                        <strong>{scheme.beneficiaries < 10 ? (gu ? "૧૦થી ઓછા" : "<10") : fmt(scheme.beneficiaries, gu)}</strong>
-                        <small>{info ? (gu ? info.categoryGu : info.notebookCategory) : ""}</small>
-                      </button>
-                    );
-                  })}
-                </div>
-              </section>
-
-              <section className="vsa-panel vsa-location-panel" aria-labelledby="vsa-location-title">
-                <div className="vsa-panel-heading">
-                  <div>
-                    <span className="vsa-panel-icon"><MapPin size={17} /></span>
-                    <h3 id="vsa-location-title">{gu ? "આ માહિતી કયા વિસ્તારની છે?" : "Where does this data apply?"}</h3>
-                  </div>
-                </div>
-                <ol className="vsa-location-steps">
-                  <li><span>1</span><div><small>{gu ? "જિલ્લો" : "District"}</small><strong>{districtName}</strong></div></li>
-                  <li><span>2</span><div><small>{gu ? "તાલુકો" : "Taluka"}</small><strong>{talukaName}</strong></div></li>
-                  <li><span>3</span><div><small>{gu ? "ગામ" : "Village"}</small><strong>{villageName || (gu ? "પસંદ કરેલું ગામ" : "Selected village")}</strong></div></li>
-                </ol>
-                <p className="vsa-location-caption">
-                  {gu ? "ગામના નકશા પરથી પસંદ કરેલી જગ્યાની યોજના-માહિતી." : "Scheme details for the village selected from the map."}
-                </p>
-              </section>
-            </div>
-
-            <div className="vsa-scheme-list-head">
-              <div>
-                <h3>{gu ? "આ ગામમાં દર્શાવેલી યોજનાઓ" : "Schemes shown for this village"}</h3>
-                <p>{gu ? "યોજનાનું નામ, લક્ષિત જૂથ, મળતો લાભ અને નમૂનાની લાભાર્થી ગણતરી." : "Scheme name, target group, stated benefit, and illustrative participant count."}</p>
-              </div>
-              <label className="vsa-search">
-                <Search size={15} />
-                <input value={query} onChange={(event) => setQuery(event.target.value)} type="search" placeholder={gu ? "યોજના અથવા લાભ શોધો" : "Search scheme or benefit"} aria-label={gu ? "યોજના અથવા લાભ શોધો" : "Search scheme or benefit"} />
-              </label>
-            </div>
-
-            <div className="vsa-scheme-grid">
-              {filteredSchemes.length ? filteredSchemes.map((scheme) => {
-                const info = getSchemeInfo(scheme.schemeId);
-                const share = schemeSummary.totalSchemeEnrollments > 0
-                  ? Math.round((scheme.beneficiaries / schemeSummary.totalSchemeEnrollments) * 100)
-                  : 0;
-                return (
-                  <article className="vsa-scheme" key={scheme.schemeId}>
-                    <div className="vsa-scheme-top">
-                      <div><span className="vsa-scheme-category">{info ? (gu ? info.categoryGu : info.notebookCategory) : (gu ? "યોજના" : "Scheme")}</span><h4>{gu ? scheme.schemeNameGu : scheme.schemeNameEn}</h4></div>
-                      <span className="vsa-scheme-code">{scheme.schemeId}</span>
-                    </div>
-                    <div className="vsa-scheme-stats">
-                      <div><small>{gu ? "લાભાર્થી ભાગીદારી · ડેમો" : "Participant count · demo"}</small><strong><Users size={15} /> {scheme.beneficiaries < 10 ? (gu ? "૧૦થી ઓછા" : "<10") : fmt(scheme.beneficiaries, gu)}</strong></div>
-                      <div><small>{gu ? "વિતરણ · ડેમો" : "Disbursement · demo"}</small><strong><Wallet size={15} /> ₹ {fmt(scheme.grantLakhs, gu)} {gu ? "લાખ" : "lakh"}</strong></div>
-                    </div>
-                    <div className="vsa-share-line"><span>{gu ? "યોજનાવાર કુલ ભાગીદારીનો હિસ્સો" : "Share of all scheme participations"}</span><b>{share}%</b></div>
-                    <div className="vsa-share-track"><i style={{ width: `${share}%` }} /></div>
-                    <div className="vsa-detail-block">
-                      <small>{gu ? "કોના માટે?" : "Who is it for?"}</small>
-                      <p>{info ? (gu ? info.targetGu : info.target) : (gu ? "પાત્રતા વિગતો ઉપલબ્ધ નથી" : "Eligibility details unavailable")}</p>
-                    </div>
-                    <div className="vsa-detail-block vsa-benefit-block">
-                      <small>{gu ? "યોજનામાં દર્શાવેલો લાભ" : "Benefit described in catalogue"}</small>
-                      <p>{info ? (gu ? info.benefitGu : info.benefit) : (gu ? "લાભની માહિતી ઉપલબ્ધ નથી" : "Benefit details unavailable")}</p>
-                    </div>
-                    <div className="vsa-scheme-foot"><MapPin size={14} /> {districtName} · {talukaName} · {villageName || villageCode}</div>
-                  </article>
-                );
-              }) : (
-                <div className="vsa-no-results" role="status">{gu ? "આ શોધ માટે કોઈ યોજના મળી નથી." : "No schemes match this search."}</div>
-              )}
-            </div>
-          </>
-        ) : (
-          <div className="vsa-empty-state">
-            <div className="vsa-empty-icon"><MapPin size={22} /></div>
-            <div>
-              <h3>{gu ? "આ ગામ માટે યોજના-કવરેજ ડેટા ઉપલબ્ધ નથી" : "Scheme coverage data is not available for this village"}</h3>
-              <p>{gu ? "હાલમાં માત્ર ઘોઘા તાલુકાના ૪૮ ગામ માટે ઉદાહરણરૂપ coverage દાખલ છે. આ ગામ માટે સત્તાવાર અથવા ચકાસાયેલ લાભાર્થી ગણતરી જોડાયા પછી અહીં વિગતો દેખાશે." : "Illustrative coverage is currently available only for 48 villages in Ghogha taluka. This village’s details will appear once verified scheme and aggregate beneficiary data is connected."}</p>
-            </div>
-          </div>
-        )}
-
-        <footer className="vsa-privacy-note">
-          <ShieldCheck size={16} />
-          <span>{gu ? "ગોપનીયતા: અહીં વ્યક્તિગત લાભાર્થીનાં નામ, આધાર, મોબાઇલ, બેંક ખાતું કે અરજી નંબર બતાવતા નથી. આ ડેશબોર્ડ aggregate માહિતી માટે છે." : "Privacy: individual names, Aadhaar, mobile, bank account, and application IDs are not shown. This dashboard is for aggregate information."}</span>
-        </footer>
-      </div>
-    </section>
-  );
+      <div className="village-record-table-wrap" role="region" aria-label={`${text.title} ${place ?? villageCode}`} tabIndex={0}><table className="village-record-table"><thead><tr>{columns.map((column) => <th key={column} scope="col">{column.replaceAll("_", " ")}</th>)}</tr></thead><tbody>
+        {visibleRows.map((row, index) => <tr key={row.Record_ID || `${row.Scheme_ID}-${page * pageSize + index}`}>{columns.map((column) => <td key={column}>{row[column] || "—"}</td>)}</tr>)}
+      </tbody></table></div>
+      <footer className="village-records-footer"><span>{text.source} · {text.date}: {payload.meta?.referenceDate ?? text.noDate}</span><div><span>{text.page} {number(currentPage + 1, language)} {text.of} {number(pageCount, language)}</span><button type="button" disabled={currentPage <= 0} onClick={() => setPage((current) => Math.max(0, current - 1))}>{text.previous}</button><button type="button" disabled={currentPage + 1 >= pageCount} onClick={() => setPage((current) => Math.min(pageCount - 1, current + 1))}>{text.next}</button></div></footer>
+    </>}
+  </section>;
 }

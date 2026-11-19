@@ -1,86 +1,93 @@
-/* ==========================================================================
- * YOJANA DRISHTI — Gujarat blue public-service design tokens
- * Legacy variable names remain as aliases so older modules inherit the same palette.
- * ========================================================================== */
+/* YOJANA DRISHTI — Holst Blue Design Tokens v2 */
 :root {
   color-scheme: light;
 
-  /* Approved brand blues */
-  --blue-500: #2078cf;
-  --blue-600: #155f9c;
-  --blue-700: #174c70;
-  --blue-800: #123650;
-  --blue-900: #0b2539;
+  /* ── Holst Blue Palette (from user reference) ── */
+  --holst-900: #223A5E;
+  --holst-700: #355982;
+  --holst-500: #4D79A8;
+  --holst-400: #6E9ECC;
+  --holst-300: #9FC0E3;
+  --holst-200: #D0E1F2;
+  --holst-50: #F3F8FD;
 
-  /* Blue-derived steps for borders, selection, and quiet backgrounds */
-  --ink-950: var(--blue-900);
-  --ink-900: var(--blue-800);
-  --ink-800: var(--blue-700);
-  --ink-700: var(--blue-600);
-  --ink-500: var(--blue-500);
-  --ink-200: #c8d7e3;
-  --ink-100: #e5eef3;
+  /* ── Semantic aliases ── */
+  --blue-900: var(--holst-900);
+  --blue-700: var(--holst-700);
+  --blue-500: var(--holst-500);
+  --blue-400: var(--holst-400);
+  --blue-300: var(--holst-300);
+  --blue-200: var(--holst-200);
+  --blue-50: var(--holst-50);
 
-  --haldi-600: #a96111;
-  --haldi-500: #df9826;
-  --haldi-300: #f1c46e;
-  --haldi-100: #fbf0dc;
+  /* Legacy compat */
+  --blue-600: #2F6898;
+  --blue-800: #2C4F76;
+  --ink-950: var(--holst-900);
+  --ink-900: #2C4F76;
+  --ink-800: var(--holst-700);
+  --ink-700: var(--holst-500);
+  --ink-500: var(--holst-400);
+  --ink-200: var(--holst-200);
+  --ink-100: var(--holst-50);
+  --navy-950: var(--holst-900);
+  --navy-900: #2C4F76;
+  --navy-800: var(--holst-700);
 
-  --mor-700: #0b626a;
-  --mor-600: #0f7e83;
-  --mor-400: #38a4a2;
-  --mor-100: #e0f1ef;
-
-  /* Status */
-  --madder-600: #a23e3c;
-  --madder-100: #fae9e7;
-  --neem-600: #32764c;
-  --neem-100: #e4f2e8;
+  /* ── Status / Accent ── */
+  --neem-600: #2E7D52;    /* success green */
+  --neem-100: #E8F5EE;
+  --haldi-600: #C07820;   /* warning amber */
+  --haldi-500: #E09930;
+  --haldi-300: #F0C060;
+  --haldi-100: #FDF3DC;
+  --madder-600: #9E3B38;  /* error red */
+  --madder-100: #FAEAEA;
+  --mor-600: #2D7D84;     /* teal accent */
+  --mor-400: #3DA4A2;
+  --mor-100: #E0F1EF;
   --demo: #9b6712;
   --demo-100: #fff4dc;
-
-  /* Rann salt — cool white canvas (NOT cream) */
-  --salt-0: #ffffff;
-  --salt-50: #f3f7f8;
-  --salt-100: #eaf0f2;
-  --salt-200: #d5e0e4;
-  --salt-300: #b9cbd1;
-
-  --text: #142f43;
-  --text-soft: #315164;
-  --muted: #607785;
-
-  /* Categorical map and chart colors use a legible public-service palette. */
-  --chart-1: #2879b9;
-  --chart-2: #178a84;
-  --chart-3: #55934b;
-  --chart-4: #df9826;
-  --chart-5: #8063a5;
-  --chart-6: #cc6654;
-  --chart-7: #5370a5;
-  --chart-8: #718d48;
-  --map-1: #cce8df;
-  --map-2: #90cdbb;
-  --map-3: #49a89a;
-  --map-4: #16837e;
-  --map-5: #0b626a;
-
-  /* Legacy aliases (so existing app.css keeps working visually) */
-  --navy-950: var(--ink-950);
-  --navy-900: var(--ink-900);
-  --navy-800: var(--ink-800);
-  --navy-700: var(--ink-700);
   --teal-600: var(--mor-600);
   --teal-100: var(--mor-100);
   --orange-500: var(--haldi-500);
-  --bg: var(--salt-50);
-  --surface: var(--salt-0);
-  --surface-soft: var(--salt-50);
-  --border: var(--salt-200);
+
+  /* ── Surfaces ── */
+  --bg: var(--holst-50);           /* page background — near-white blue */
+  --surface: #FFFFFF;
+  --surface-soft: var(--holst-50);
+  --border: var(--holst-200);
   --success: var(--neem-600);
   --warning: var(--haldi-600);
 
-  /* Type */
+  /* Rann salt aliases */
+  --salt-0: #ffffff;
+  --salt-50: var(--holst-50);
+  --salt-100: var(--holst-200);
+  --salt-200: var(--holst-300);
+  --salt-300: var(--holst-400);
+
+  /* ── Text ── */
+  --text: var(--holst-900);
+  --text-soft: var(--holst-700);
+  --muted: var(--holst-500);
+
+  /* ── Chart colors (Holst-harmonious) ── */
+  --chart-1: var(--holst-500);    /* mid blue */
+  --chart-2: var(--mor-400);      /* teal */
+  --chart-3: #55934b;             /* green */
+  --chart-4: var(--haldi-500);    /* amber */
+  --chart-5: #8063a5;             /* purple */
+  --chart-6: #cc6654;             /* coral */
+  --chart-7: var(--holst-700);    /* deep blue */
+  --chart-8: #718d48;             /* olive */
+  --map-1: var(--holst-50);
+  --map-2: var(--holst-200);
+  --map-3: var(--holst-300);
+  --map-4: var(--holst-400);
+  --map-5: var(--holst-700);
+
+  /* ── Typography ── */
   --font-display: var(--font-display-next, "Rasa"), "Noto Serif Gujarati", Georgia, serif;
   --font-ui: var(--font-ui-next, "Hind Vadodara"), "Noto Sans Gujarati", system-ui, sans-serif;
   --fs-xs: 0.75rem;
@@ -92,23 +99,38 @@
   --fs-hero: clamp(2.25rem, 1.4rem + 3.4vw, 4rem);
   --lh-gu: 1.65;
 
-  /* Radius — different per hierarchy on purpose */
+  /* ── Radius ── */
   --r-xs: 4px;
   --r-sm: 8px;
   --r-md: 14px;
-  --r-lg: 22px;
+  --r-lg: 20px;
   --r-pill: 999px;
 
-  /* Elevation — ink-tinted, layered */
-  --shadow-1: 0 1px 2px rgb(0 5 33 / 0.05), 0 6px 14px -8px rgb(1 31 101 / 0.12);
-  --shadow-2: 0 2px 4px rgb(0 5 33 / 0.06), 0 14px 32px -12px rgb(1 31 101 / 0.18);
-  --shadow-pop: 0 4px 8px rgb(0 5 33 / 0.08), 0 28px 60px -16px rgb(0 5 33 / 0.25);
+  /* ── Elevation (blue-tinted) ── */
+  --shadow-1: 0 1px 3px rgb(34 58 94 / 0.06), 0 6px 16px -8px rgb(34 58 94 / 0.14);
+  --shadow-2: 0 2px 6px rgb(34 58 94 / 0.08), 0 16px 36px -12px rgb(34 58 94 / 0.18);
+  --shadow-pop: 0 4px 10px rgb(34 58 94 / 0.1), 0 28px 60px -16px rgb(34 58 94 / 0.26);
+  --shadow-glow: 0 0 0 3px rgba(110, 158, 204, 0.3);
 
-  /* Space (4px base) */
+  /* ── Space (4px base) ── */
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
   --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 72px;
 
-  /* Layout */
+  /* ── Layout ── */
   --rail-w: 76px;
   --rail-w-open: 268px;
+
+  /* ── Animation tokens ── */
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 380ms;
+  --dur-chart: 1000ms;
+  --dur-hero: 1200ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: linear(0, 0.34 8%, 0.82 18%, 1.06 28%, 1.08 34%, 1 48%, 0.99 60%, 1);
+
+  /* ── Scroll-reveal defaults ── */
+  --reveal-distance: 24px;
+  --reveal-duration: 500ms;
 }
