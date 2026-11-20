@@ -98,6 +98,7 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
                 onSelect(item.key);
               }}
               title={title}
+              data-tooltip={title}
               aria-label={title}
               aria-current={isActive ? "page" : undefined}
               className={`spatial-dock-item ${isActive ? "active" : ""}`}
@@ -115,8 +116,8 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
                 key={`${item.key}-${isActive}-${isActive ? pulse : 0}`}
                 className="spatial-dock-icon-wrap"
                 initial={false}
-                animate={isActive ? { y: [0, -10, 0], scale: [1, 1.14, 1] } : { y: 0, scale: 1 }}
-                transition={{ duration: 0.46, times: [0, 0.42, 1], ease: [0.22, 1, 0.36, 1] }}
+                animate={isActive ? { y: [0, -5, 0], scale: [1, 1.08, 1] } : { y: 0, scale: 1 }}
+                transition={{ duration: 0.34, times: [0, 0.38, 1], ease: [0.22, 1, 0.36, 1] }}
               >
                 <Icon size={20} strokeWidth={1.75} />
               </motion.span>

@@ -221,10 +221,10 @@ export function SpatialShell() {
           {activeKey === "dashboard" && (
             <motion.div
               key="dashboard"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
               className="space-y-10"
             >
               <SpatialBentoDashboard
@@ -252,10 +252,10 @@ export function SpatialShell() {
           {activeKey === "schemes" && (
             <motion.div
               key={`schemes-${selectedSchemeTerm}`}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
               <SchemesView gu={gu} lang={lang} fy={fy} initialSearchTerm={selectedSchemeTerm} onOpenMap={() => setActiveKey("map")} />
             </motion.div>
@@ -264,10 +264,10 @@ export function SpatialShell() {
           {activeKey === "map" && (
             <motion.div
               key={`map-${focusRequest?.id ?? 0}`}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
               <MapExplorerView gu={gu} lang={lang} fy={fy} focusRequest={focusRequest} />
             </motion.div>
@@ -276,10 +276,10 @@ export function SpatialShell() {
           {activeKey === "wizard" && (
             <motion.div
               key="wizard"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
               <PublicPortalView gu={gu} lang={lang} />
             </motion.div>
@@ -288,10 +288,10 @@ export function SpatialShell() {
           {activeKey === "saved" && (
             <motion.div
               key="saved"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
               <BeneficiaryAnalyticsView gu={gu} lang={lang} fy={fy} />
             </motion.div>
@@ -300,10 +300,10 @@ export function SpatialShell() {
           {activeKey === "settings" && (
             <motion.div
               key="settings"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
               <AdministrationView gu={gu} lang={lang} />
             </motion.div>

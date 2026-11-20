@@ -30,6 +30,8 @@ const copy = {
     rows: "નમૂના પંક્તિઓ", places: "સ્થળો સાથે જોડાયેલા", schemes: "યોજનાના કોડ", districts: "જિલ્લા", ref: "ડેટાસેટ સંદર્ભ તારીખ",
     schemeTitle: "યોજનાવાર નમૂના પંક્તિઓ", districtTitle: "જિલ્લાવાર dataset પંક્તિઓ", count: "પંક્તિઓ", locations: "સ્થળો", openMap: "નકશો ખોલો", openSchemes: "યોજનાઓ જુઓ",
     loading: "ડેટાસેટ વિશ્લેષણ લોડ થાય છે…", error: "હાલમાં dataset વિશ્લેષણ ઉપલબ્ધ નથી.", source: "સ્રોત: જોડાયેલ location dataset · ગણતરીનો અર્થ: કાચા sample records; વ્યક્તિઓની સંખ્યા નહીં.", viewAll: "બધા જિલ્લાઓ નકશામાં જુઓ",
+    journeyKicker: "શરૂઆત માટે માર્ગ", journeyTitle: "આ workspace કેવી રીતે કામ કરે છે", journeyText: "સ્થળ પસંદ કરો, જોડાયેલી નમૂના પંક્તિઓ તપાસો અને યોજના માહિતી અલગથી વાંચો.",
+    journeySteps: ["સ્થળ પસંદ કરો", "પંક્તિઓ તપાસો", "યોજનાની માહિતી વાંચો"],
   },
   hi: {
     eyebrow: "गुजरात · खुला डेटा पूर्वावलोकन", title: "योजना दृष्टि", subtitle: "गाँव और शहर के स्तर पर dataset में मौजूद योजना पंक्तियाँ देखें।",
@@ -37,6 +39,8 @@ const copy = {
     rows: "नमूना पंक्तियाँ", places: "स्थान शामिल", schemes: "योजना कोड", districts: "जिले", ref: "डेटासेट संदर्भ तिथि",
     schemeTitle: "योजनावार नमूना पंक्तियाँ", districtTitle: "जिलेवार dataset पंक्तियाँ", count: "पंक्तियाँ", locations: "स्थान", openMap: "नक्शा खोलें", openSchemes: "योजनाएँ देखें",
     loading: "Dataset विश्लेषण लोड हो रहा है…", error: "अभी dataset विश्लेषण उपलब्ध नहीं है।", source: "स्रोत: जुड़ा location dataset · गणना: कच्चे sample records; लोगों की संख्या नहीं।", viewAll: "सभी जिले नक्शे पर देखें",
+    journeyKicker: "शुरुआती मार्ग", journeyTitle: "यह workspace कैसे काम करता है", journeyText: "स्थान चुनें, उससे जुड़ी नमूना पंक्तियाँ जाँचें और योजना की जानकारी अलग से पढ़ें।",
+    journeySteps: ["स्थान चुनें", "पंक्तियाँ जाँचें", "योजना जानकारी पढ़ें"],
   },
   en: {
     eyebrow: "GUJARAT · OPEN DATA PREVIEW", title: "Yojana Drishti", subtitle: "Explore scheme rows present in the connected dataset, down to a village or city.",
@@ -44,6 +48,8 @@ const copy = {
     rows: "Sample rows", places: "Places represented", schemes: "Scheme codes", districts: "Districts", ref: "Dataset reference date",
     schemeTitle: "Sample rows by scheme", districtTitle: "Dataset rows by district", count: "rows", locations: "places", openMap: "Explore map", openSchemes: "Browse schemes",
     loading: "Loading dataset analytics…", error: "Dataset analytics are currently unavailable.", source: "Source: connected location dataset · Counts are source sample records, not people.", viewAll: "Explore all districts on map",
+    journeyKicker: "START HERE", journeyTitle: "How this workspace works", journeyText: "Choose a place, inspect its connected sample rows, then read scheme information separately.",
+    journeySteps: ["Choose a place", "Inspect the rows", "Read scheme information"],
   },
 } as const;
 
@@ -92,6 +98,27 @@ export function SpatialBentoDashboard({ lang, onNavigate }: SpatialBentoDashboar
         <ShieldCheck size={20} aria-hidden="true" />
         <div><strong>{text.noticeTitle}</strong><p>{text.notice}</p></div>
       </aside>
+
+      <section className="data-purpose-strip reveal" aria-labelledby="workspace-flow-title">
+        <div className="data-purpose-copy">
+          <span>{text.journeyKicker}</span>
+          <h2 id="workspace-flow-title">{text.journeyTitle}</h2>
+          <p>{text.journeyText}</p>
+        </div>
+        <ol className="data-purpose-steps">
+          {[
+            { icon: MapPinned, label: text.journeySteps[0] },
+            { icon: Database, label: text.journeySteps[1] },
+            { icon: ShieldCheck, label: text.journeySteps[2] },
+          ].map(({ icon: Icon, label }, index) => (
+            <li key={label}>
+              <span className="data-purpose-index">0{index + 1}</span>
+              <span className="data-purpose-icon"><Icon size={17} /></span>
+              <strong>{label}</strong>
+            </li>
+          ))}
+        </ol>
+      </section>
 
       {overview ? <>
         <section className="data-kpi-grid" aria-label={text.title}>
