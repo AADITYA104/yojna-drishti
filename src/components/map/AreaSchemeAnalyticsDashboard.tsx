@@ -20,32 +20,35 @@ type AreaPayload = {
 const copy = {
   en: {
     loading: "Loading area sample analysis…", error: "Area analysis could not be loaded.",
-    emptyTitle: "No matching sample rows", empty: "The supplied dataset has no sample records for this area. Nothing is estimated.",
+    emptyTitle: "No linked sample locations", empty: "This administrative code has no linked settlement records in the supplied dataset, so no figures are estimated. For a city/town, select its populated city/town location code from the map or search.",
     demo: "Synthetic dataset sample · not official", title: "Area scheme sample analysis", district: "District", taluka: "Taluka",
     locations: "Settlements represented in sample", locationsHint: "Exact location codes included in the dataset",
     rows: "Synthetic sample rows", rowsHint: "Not people, applications, payments or services",
     schemes: "Schemes with sample rows", schemesHint: "Catalogue entries represented in the sample",
     chart: "Sample rows by scheme", source: "Dataset", reference: "Dataset reference date",
+    scope: "Data scope", districtScope: "District-wide aggregate", talukaScope: "Taluka-wide aggregate", cityScope: "Whole city/town aggregate", scopeDetail: "All linked location codes inside this administrative area are included. This is a sample-row aggregate, not a count of people or scheme coverage.",
     noteTitle: "How to read these figures", note: "These are synthetic demonstration rows aggregated from the supplied dataset. A row under a scheme does not confirm that the scheme is available, active, funded, or used in this district or taluka. No real beneficiary or coverage totals are connected.",
   },
   gu: {
     loading: "વિસ્તારના નમૂનાનું વિશ્લેષણ લોડ થાય છે…", error: "વિસ્તારનું વિશ્લેષણ લોડ થઈ શક્યું નથી.",
-    emptyTitle: "મેળ ખાતા નમૂના દાખલા નથી", empty: "આ વિસ્તાર માટે આપેલા માહિતી સમૂહમાં નમૂનાના દાખલા નથી. કોઈ આંકડો અંદાજથી બનાવ્યો નથી.",
+    emptyTitle: "જોડાયેલા નમૂના સ્થળો નથી", empty: "આ વહીવટી કોડ માટે આપેલા datasetમાં કોઈ વસાહતનો દાખલો જોડાયેલો નથી, તેથી કોઈ આંકડો અંદાજથી બનાવ્યો નથી. શહેર/નગર માટે નકશા કે શોધમાંથી તેનો ચોક્કસ વસાહત કોડ પસંદ કરો.",
     demo: "કૃત્રિમ માહિતીનો નમૂનો · સત્તાવાર નથી", title: "વિસ્તારવાર યોજના નમૂના વિશ્લેષણ", district: "જિલ્લો", taluka: "તાલુકો",
     locations: "નમૂનામાં દર્શાવેલાં ગામ/શહેર", locationsHint: "માહિતી સમૂહમાં સમાવાયેલા ચોક્કસ location code",
     rows: "કૃત્રિમ નમૂના હરોળો", rowsHint: "વ્યક્તિ, અરજી, ચુકવણી કે સેવા નથી",
     schemes: "નમૂનામાં યોજનાઓ", schemesHint: "નમૂનામાં દર્શાવેલી યોજના સૂચિની એન્ટ્રીઓ",
     chart: "યોજનાવાર નમૂના હરોળો", source: "માહિતી સમૂહ", reference: "માહિતી સમૂહની સંદર્ભ તારીખ",
+    scope: "data scope", districtScope: "આખા જિલ્લાનો સરવાળો", talukaScope: "આખા તાલુકાનો સરવાળો", cityScope: "આખા શહેર/નગરનો સરવાળો", scopeDetail: "આ વહીવટી વિસ્તારમાં જોડાયેલા બધા location codesનો સમાવેશ થાય છે. આ નમૂના હરોળોનો સરવાળો છે, વ્યક્તિઓ કે યોજના-પહોંચનો આંકડો નથી.",
     noteTitle: "આ આંકડા કેવી રીતે સમજવા", note: "આ આપેલા માહિતી સમૂહની કૃત્રિમ નમૂના હરોળોનો સરવાળો છે. કોઈ યોજના હેઠળ હરોળ હોવી એ યોજના આ જિલ્લામાં કે તાલુકામાં ઉપલબ્ધ, ચાલુ, ભંડોળવાળી અથવા વપરાયેલી હોવાનો પુરાવો નથી. વાસ્તવિક લાભાર્થી કે પહોંચના આંકડા જોડાયેલા નથી.",
   },
   hi: {
     loading: "क्षेत्र का नमूना विश्लेषण लोड हो रहा है…", error: "क्षेत्र का विश्लेषण लोड नहीं हो सका।",
-    emptyTitle: "मेल खाने वाली नमूना पंक्तियाँ नहीं", empty: "दिए गए डेटा संग्रह में इस क्षेत्र के लिए नमूना रिकॉर्ड नहीं हैं। कोई संख्या अनुमान से नहीं बनाई गई।",
+    emptyTitle: "कोई जुड़ा हुआ sample location नहीं", empty: "इस प्रशासनिक code के लिए दिए गए dataset में कोई बस्ती record नहीं जुड़ा है, इसलिए कोई संख्या अनुमान से नहीं बनाई गई है। शहर/नगर के लिए नक्शे या खोज से उसका सटीक location code चुनें।",
     demo: "कृत्रिम डेटा नमूना · आधिकारिक नहीं", title: "क्षेत्रवार योजना नमूना विश्लेषण", district: "जिला", taluka: "तालुका",
     locations: "नमूने में शामिल गाँव/शहर", locationsHint: "डेटा संग्रह में शामिल सटीक स्थान कोड",
     rows: "कृत्रिम नमूना पंक्तियाँ", rowsHint: "लोग, आवेदन, भुगतान या सेवाएँ नहीं",
     schemes: "नमूने में योजनाएँ", schemesHint: "नमूने में मौजूद सूची प्रविष्टियाँ",
     chart: "योजनावार नमूना पंक्तियाँ", source: "डेटा संग्रह", reference: "डेटा संग्रह की संदर्भ तिथि",
+    scope: "data scope", districtScope: "पूरे जिले का योग", talukaScope: "पूरे तालुका का योग", cityScope: "पूरे शहर/नगर का योग", scopeDetail: "इस प्रशासनिक क्षेत्र में जुड़े सभी location codes शामिल हैं। यह नमूना पंक्तियों का योग है, लोगों या योजना पहुँच की संख्या नहीं।",
     noteTitle: "इन आँकड़ों को कैसे समझें", note: "ये दिए गए डेटा संग्रह की कृत्रिम नमूना पंक्तियों का योग हैं। किसी योजना की पंक्ति यह साबित नहीं करती कि योजना इस जिले या तालुका में उपलब्ध, चालू, वित्तपोषित या उपयोग में है। वास्तविक लाभार्थी या पहुँच के आँकड़े जुड़े नहीं हैं।",
   },
 } as const;
@@ -88,6 +91,7 @@ export function AreaSchemeAnalyticsDashboard({ area, lang }: { area: MapSelected
   const schemeRows = data?.schemes || [];
   const maxRows = Math.max(1, ...schemeRows.map((scheme) => scheme.sampleRows));
   const levelLabel = area.level === "taluka" ? t.taluka : t.district;
+  const isCityArea = area.level === "taluka" && /city|urban/i.test(area.areaNameEn);
 
   return <section className="location-analytics area-analytics" aria-labelledby="area-analytics-title" aria-live="polite">
     <AnimatePresence mode="wait">
@@ -102,6 +106,12 @@ export function AreaSchemeAnalyticsDashboard({ area, lang }: { area: MapSelected
                   <p className="location-breadcrumb"><MapPin size={15} />{levelLabel}: {displayArea} · {t.district}: {displayDistrict}{area.subdistrictCode ? ` · LGD ${area.subdistrictCode}` : ""}</p>
                 </div>
               </header>
+
+              <div className="area-data-scope" role="note">
+                <span>{t.scope}</span>
+                <strong>{isCityArea ? t.cityScope : area.level === "taluka" ? t.talukaScope : t.districtScope}</strong>
+                <p>{t.scopeDetail}</p>
+              </div>
 
               <div className="location-kpi-grid area-kpi-grid">
                 {[

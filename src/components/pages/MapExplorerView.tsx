@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import { Info, MapPinned } from "lucide-react";
+import React, { useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Building2, FileSpreadsheet, Info, Landmark, MapPin, MapPinned } from "lucide-react";
 import { localizeText, type AppLanguage } from "@/lib/i18n";
 import { demoDistricts } from "@/lib/demo-data";
 import { GujaratInteractiveMap, type MapSelectedArea, type MapSelectedLocation } from "../map/GujaratInteractiveMap";
@@ -45,6 +46,36 @@ const selectionCopy = {
   },
 } as const;
 
+const scopeCopy = {
+  gu: {
+    eyebrow: "પસંદ કરેલ data scope", district: "આખા પસંદ કરેલ જિલ્લાનો dataset સારાંશ", taluka: "આખા પસંદ કરેલ તાલુકાનો dataset સારાંશ", cityArea: "આખા પસંદ કરેલ શહેર/નગરનો dataset સારાંશ", city: "આખા પસંદ કરેલ શહેર/નગરનો dataset", village: "પસંદ કરેલ ગામનો dataset",
+    districtDetail: "આ જિલ્લામાં જોડાયેલા બધા location codesની synthetic sample rowsનો સરવાળો નીચે બતાવવામાં આવે છે.",
+    talukaDetail: "આ તાલુકામાં જોડાયેલા બધા location codesની synthetic sample rowsનો સરવાળો નીચે બતાવવામાં આવે છે.",
+    cityAreaDetail: "આ શહેર-વહીવટી વિસ્તારમાં જોડાયેલા બધા location codesની synthetic sample rowsનો સરવાળો નીચે બતાવવામાં આવે છે.",
+    cityDetail: "આ પસંદ કરેલ શહેર/નગરના ચોક્કસ location code સાથે જોડાયેલ તમામ source rows, scheme breakdown અને 39-column table નીચે ઉપલબ્ધ છે.",
+    villageDetail: "આ પસંદ કરેલ ગામના ચોક્કસ location code સાથે જોડાયેલ તમામ source rows, scheme breakdown અને 39-column table નીચે ઉપલબ્ધ છે.",
+    aggregate: "વિસ્તારનો સરવાળો", exact: "ચોક્કસ location code", next: "નીચે સંપૂર્ણ વિગત જુઓ", code: "LGD કોડ",
+  },
+  hi: {
+    eyebrow: "चुना हुआ data scope", district: "पूरे चुने हुए जिले का dataset सार", taluka: "पूरे चुने हुए तालुका का dataset सार", cityArea: "पूरे चुने हुए शहर/नगर का dataset सार", city: "पूरे चुने हुए शहर/नगर का dataset", village: "चुने हुए गाँव का dataset",
+    districtDetail: "नीचे इस जिले के सभी जुड़े location codes की synthetic sample rows का योग दिखता है।",
+    talukaDetail: "नीचे इस तालुका के सभी जुड़े location codes की synthetic sample rows का योग दिखता है।",
+    cityAreaDetail: "नीचे इस शहरी प्रशासनिक क्षेत्र के सभी जुड़े location codes की synthetic sample rows का योग दिखता है।",
+    cityDetail: "नीचे चुने हुए शहर/नगर के सटीक location code से जुड़ी सभी source rows, scheme breakdown और 39-column table उपलब्ध है।",
+    villageDetail: "नीचे चुने हुए गाँव के सटीक location code से जुड़ी सभी source rows, scheme breakdown और 39-column table उपलब्ध है।",
+    aggregate: "क्षेत्र का योग", exact: "सटीक location code", next: "नीचे पूरी जानकारी देखें", code: "LGD कोड",
+  },
+  en: {
+    eyebrow: "SELECTED DATA SCOPE", district: "Whole selected district dataset summary", taluka: "Whole selected taluka dataset summary", cityArea: "Whole selected city/town dataset summary", city: "Whole selected city/town dataset", village: "Selected village dataset",
+    districtDetail: "The analysis below aggregates synthetic sample rows from every linked location code in this district.",
+    talukaDetail: "The analysis below aggregates synthetic sample rows from every linked location code in this taluka.",
+    cityAreaDetail: "The analysis below aggregates synthetic sample rows from every linked location code in this urban administrative area.",
+    cityDetail: "The analysis below contains all source rows, scheme breakdowns, and the 39-column table linked to this selected city/town location code.",
+    villageDetail: "The analysis below contains all source rows, scheme breakdowns, and the 39-column table linked to this selected village location code.",
+    aggregate: "Area aggregate", exact: "Exact location code", next: "See the complete detail below", code: "LGD code",
+  },
+} as const;
+
 export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplorerViewProps) {
   const [activeDistrictId, setActiveDistrictId] = useState(focusRequest?.target?.districtId || "");
   const [previousFocusRequestId, setPreviousFocusRequestId] = useState(focusRequest?.id);
@@ -57,7 +88,40 @@ export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplor
   }
 
   const copy = selectionCopy[lang];
+  const scope = scopeCopy[lang];
   const selectedDistrictName = demoDistricts.find((district) => district.id === activeDistrictId);
+  const selectedScope = useMemo(() => {
+    if (selectedLocation) {
+      const isCity = selectedLocation.category?.toLowerCase() === "urban";
+      const name = lang === "gu"
+        ? selectedLocation.nameGu || selectedLocation.nameEn
+        : lang === "hi" ? localizeText("hi", selectedLocation.nameEn) : selectedLocation.nameEn;
+      return {
+        key: `location-${selectedLocation.locationCode}`,
+        kind: isCity ? "city" : "village",
+        name,
+        title: isCity ? scope.city : scope.village,
+        description: isCity ? scope.cityDetail : scope.villageDetail,
+        detail: `${scope.exact} · ${scope.code} ${selectedLocation.locationCode}`,
+      };
+    }
+    if (selectedArea) {
+      const isTaluka = selectedArea.level === "taluka";
+      const isCityArea = isTaluka && /city|urban/i.test(selectedArea.areaNameEn);
+      const name = lang === "gu"
+        ? selectedArea.areaNameGu || selectedArea.areaNameEn
+        : lang === "hi" ? localizeText("hi", selectedArea.areaNameEn) : selectedArea.areaNameEn;
+      return {
+        key: `${selectedArea.level}-${selectedArea.districtCode}-${selectedArea.subdistrictCode || "all"}`,
+        kind: isCityArea ? "city" : selectedArea.level,
+        name,
+        title: isCityArea ? scope.cityArea : isTaluka ? scope.taluka : scope.district,
+        description: isCityArea ? scope.cityAreaDetail : isTaluka ? scope.talukaDetail : scope.districtDetail,
+        detail: `${scope.aggregate} · ${scope.code} ${isTaluka ? selectedArea.subdistrictCode : selectedArea.districtCode}`,
+      };
+    }
+    return null;
+  }, [lang, scope, selectedArea, selectedLocation]);
 
   return (
     <div className="map-explorer-page w-full space-y-6">
@@ -97,7 +161,29 @@ export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplor
         </div>
       </section>
 
-      <section className="location-baseline-section pt-2 reveal" aria-live="polite">
+      <section className="location-baseline-section pt-2" aria-live="polite">
+        <AnimatePresence mode="wait">
+          {selectedScope && (
+            <motion.div
+              key={selectedScope.key}
+              className={`map-data-scope map-data-scope--${selectedScope.kind}`}
+              initial={{ opacity: 0, y: 14, scale: 0.985 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.985 }}
+              transition={{ type: "spring", stiffness: 320, damping: 28, mass: 0.72 }}
+            >
+              <span className="map-data-scope-icon" aria-hidden="true">
+                {selectedScope.kind === "district" ? <Building2 size={20} /> : selectedScope.kind === "taluka" ? <Landmark size={20} /> : <MapPin size={20} />}
+              </span>
+              <div className="map-data-scope-copy">
+                <span>{scope.eyebrow}</span>
+                <h2>{selectedScope.title}</h2>
+                <p><strong>{selectedScope.name}</strong> · {selectedScope.description}</p>
+              </div>
+              <div className="map-data-scope-meta"><span><FileSpreadsheet size={14} />{selectedScope.detail}</span><small>{scope.next}</small></div>
+            </motion.div>
+          )}
+        </AnimatePresence>
         {selectedLocation ? (
           <LocationAnalyticsDashboard key={selectedLocation.locationCode} location={selectedLocation} lang={lang} />
         ) : selectedArea ? (

@@ -62,6 +62,7 @@ export type MapSelectedLocation = {
   locationCode: string;
   nameEn: string;
   nameGu: string;
+  category?: string;
   talukaCode: string;
   talukaNameEn: string;
   talukaNameGu: string;
@@ -579,6 +580,7 @@ export function GujaratInteractiveMap({
         locationCode: village.code,
         nameEn: village.nameEn,
         nameGu: village.nameGu || "",
+        category: village.category,
         talukaCode: String(currentTalukaCode ?? ""),
         talukaNameEn: currentTaluka?.nameEn || "",
         talukaNameGu: currentTaluka?.nameGu || "",

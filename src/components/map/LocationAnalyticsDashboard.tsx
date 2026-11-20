@@ -51,6 +51,7 @@ const copy = {
     complete: "Complete label", docReview: "Review label", docNotApplicable: "Not applicable label", activityLog: "Activity log label", other: "Other label",
     female: "Female label", male: "Male label", community: "Community label", ageUnder18: "Under 18", age18to29: "18–29", age30to44: "30–44", age45to59: "45–59", age60plus: "60+", unknown: "Unknown",
     location: "Location", categoryUrban: "Urban", categoryRural: "Rural", categoryMixed: "Mixed urban/rural · address review needed", village: "Village", settlement: "Settlement",
+    cityScope: "Whole selected city/town dataset", villageScope: "Whole selected village dataset", settlementScope: "Selected settlement dataset", exactScope: "Exact location-code detail", scopeDescription: "Every chart and source row below belongs to this selected location code only. District and taluka totals are shown separately when those areas are selected on the map.",
     recordsTable: "Source data rows and columns", recordsTableHint: "All 39 columns in the synthetic sample · 15 sample rows per scheme · scroll horizontally to inspect fields",
     recordsLoading: "Loading source rows…", recordsError: "Source rows could not be loaded. Check the dataset folder connection.",
     recordsSearch: "Search within these rows", recordsSearchPlaceholder: "Search any column value…", recordsEmpty: "No rows match this search.",
@@ -78,6 +79,7 @@ const copy = {
     complete: "દસ્તાવેજ પૂર્ણ", docReview: "સમીક્ષા બાકી", docNotApplicable: "લાગુ પડતું નથી", activityLog: "પ્રવૃત્તિ નોંધ", other: "અન્ય નોંધ",
     female: "સ્ત્રી તરીકે નોંધ", male: "પુરુષ તરીકે નોંધ", community: "સમુદાય તરીકે નોંધ", ageUnder18: "18થી નીચે", age18to29: "18–29", age30to44: "30–44", age45to59: "45–59", age60plus: "60+", unknown: "અજ્ઞાત",
     location: "વિસ્તાર", categoryUrban: "શહેરી", categoryRural: "ગ્રામીણ", categoryMixed: "મિશ્ર શહેરી/ગ્રામીણ · સરનામાની સમીક્ષા જરૂરી", village: "ગામ", settlement: "વસાહત",
+    cityScope: "આખા પસંદ કરેલ શહેર/નગરનો dataset", villageScope: "પસંદ કરેલ ગામનો સંપૂર્ણ dataset", settlementScope: "પસંદ કરેલ વસાહતનો dataset", exactScope: "ચોક્કસ location-code વિગત", scopeDescription: "નીચેનો દરેક chart અને source row ફક્ત આ પસંદ કરેલા location codeનો છે. નકશા પર જિલ્લો કે તાલુકો પસંદ કરશો ત્યારે તેમના સરવાળા અલગથી દેખાશે.",
     recordsTable: "મૂળ માહિતીની હરોળ અને કૉલમ", recordsTableHint: "મૂળના બધા 39 કૉલમ · દરેક યોજના માટે 15 દાખલા · બધા કૉલમ જોવા આડી દિશામાં સ્ક્રોલ કરો · માત્ર કૃત્રિમ માહિતી",
     recordsLoading: "મૂળ માહિતી લોડ થાય છે…", recordsError: "મૂળ દાખલા લોડ થયા નથી. માહિતી સમૂહના ફોલ્ડરનું જોડાણ તપાસો.",
     recordsSearch: "આ દાખલામાં શોધો", recordsSearchPlaceholder: "કોઈપણ કૉલમનું લખાણ શોધો…", recordsEmpty: "આ શોધને મેળ ખાતા દાખલા નથી.",
@@ -105,6 +107,7 @@ const copy = {
     complete: "दस्तावेज़ पूरे", docReview: "समीक्षा लंबित", docNotApplicable: "लागू नहीं", activityLog: "गतिविधि अभिलेख", other: "अन्य विवरण",
     female: "महिला के रूप में दर्ज", male: "पुरुष के रूप में दर्ज", community: "समुदाय के रूप में दर्ज", ageUnder18: "18 से कम", age18to29: "18–29", age30to44: "30–44", age45to59: "45–59", age60plus: "60+", unknown: "अज्ञात",
     location: "स्थान", categoryUrban: "शहरी", categoryRural: "ग्रामीण", categoryMixed: "मिश्रित शहरी/ग्रामीण · पते की जाँच आवश्यक", village: "गाँव", settlement: "बस्ती",
+    cityScope: "पूरे चुने हुए शहर/नगर का dataset", villageScope: "चुने हुए गाँव का पूरा dataset", settlementScope: "चुनी हुई बस्ती का dataset", exactScope: "सटीक location-code विवरण", scopeDescription: "नीचे का हर chart और source row केवल इस चुने हुए location code का है। नक्शे पर जिला या तालुका चुनने पर उनके योग अलग से दिखते हैं।",
     recordsTable: "स्रोत डेटा की पंक्तियाँ और कॉलम", recordsTableHint: "सभी 39 स्रोत कॉलम · हर योजना के 15 अभिलेख · सभी कॉलम देखने के लिए क्षैतिज स्क्रॉल करें · केवल कृत्रिम डेटा",
     recordsLoading: "स्रोत अभिलेख लोड हो रहे हैं…", recordsError: "स्रोत अभिलेख लोड नहीं हुए। आँकड़ा संग्रह फ़ोल्डर का कनेक्शन जाँचें।",
     recordsSearch: "इन अभिलेखों में खोजें", recordsSearchPlaceholder: "किसी भी कॉलम का मान खोजें…", recordsEmpty: "इस खोज से कोई अभिलेख नहीं मिला।",
@@ -305,6 +308,8 @@ export function LocationAnalyticsDashboard({ location, lang }: { location: MapSe
     : lang === "hi" ? localizeText("hi", location.talukaNameEn) : location.talukaNameEn;
   const districtName = lang === "gu" ? location.districtNameGu : lang === "hi" ? localizeText("hi", location.districtNameEn) : location.districtNameEn;
   const category = locationData?.category.toLowerCase() === "urban" ? t.categoryUrban : locationData?.category.toLowerCase() === "rural" ? t.categoryRural : locationData?.category.toLowerCase() === "both" ? t.categoryMixed : t.settlement;
+  const isCity = locationData?.category.toLowerCase() === "urban";
+  const locationScopeTitle = isCity ? t.cityScope : locationData?.category.toLowerCase() === "rural" ? t.villageScope : t.settlementScope;
   const censusFields = censusProfile?.data?.sourceFields;
   const censusNumber = (key: string) => {
     const value = censusFields?.[key];
@@ -342,6 +347,12 @@ export function LocationAnalyticsDashboard({ location, lang }: { location: MapSe
                   {schemes.map((scheme) => <option key={scheme.id} value={scheme.id}>{scheme.id}{proposedCatalogueIds[scheme.id] ? ` · ${proposedCatalogueIds[scheme.id]} ${lang === "gu" ? "સૂચિત" : lang === "hi" ? "प्रस्तावित" : "proposed"}` : ""} · {nameForScheme(scheme, lang)}</option>)}
                 </select></label>
               </header>
+
+              <div className={`location-data-scope ${isCity ? "location-data-scope--city" : ""}`} role="note">
+                <span><MapPin size={15} />{t.exactScope}</span>
+                <strong>{locationScopeTitle}</strong>
+                <p>{t.scopeDescription}</p>
+              </div>
 
               <section className="location-census-profile" aria-labelledby="location-census-title">
                 <header className="location-census-heading">
