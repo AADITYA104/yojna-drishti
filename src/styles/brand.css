@@ -2328,3 +2328,234 @@ html.has-scroll-reveal .reveal-scale.in-view {
 @media (prefers-reduced-motion: reduce) {
   .gov-helpdesk-floating-panel { animation: none; }
 }
+
+/* ── 32. UNIFIED CONTROL LANGUAGE ───────────────────────────
+   Pages formerly carried several incompatible button treatments. These
+   families retain their purpose (action, filter, icon) while sharing a
+   measured civic interface: clear hierarchy, quiet borders and dependable
+   keyboard/touch feedback. */
+.spatial-app-shell button:not(:disabled) { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.spatial-app-shell button:focus-visible {
+  outline: 3px solid rgba(46, 113, 152, .34) !important;
+  outline-offset: 3px;
+}
+
+/* Decisive actions only. */
+.btn-primary-gov,
+.data-action-primary,
+.spatial-main-container .btn-open-checklist-modal,
+.spatial-main-container .btn-wizard-next,
+.spatial-main-container .btn-wizard-view-results,
+.spatial-main-container .gujarat-hero-action-row .spatial-glowing-frosted-btn,
+.btn-spotlight-action,
+.btn-gis-launch,
+.vah-card-action-btn,
+.geo-map-error button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  color: #fff !important;
+  border: 1px solid #163b5a !important;
+  border-radius: 10px;
+  background: #163b5a !important;
+  box-shadow: 0 3px 8px rgba(19, 50, 74, .12);
+  font: inherit;
+  font-size: .86rem;
+  font-weight: 750;
+  letter-spacing: .005em;
+  text-decoration: none;
+  transition: transform 160ms var(--ease-out), background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease !important;
+}
+.btn-primary-gov:hover,
+.data-action-primary:hover,
+.spatial-main-container .btn-open-checklist-modal:hover,
+.spatial-main-container .btn-wizard-next:hover,
+.spatial-main-container .btn-wizard-view-results:hover,
+.spatial-main-container .gujarat-hero-action-row .spatial-glowing-frosted-btn:hover,
+.btn-spotlight-action:hover,
+.btn-gis-launch:hover,
+.vah-card-action-btn:hover,
+.geo-map-error button:hover {
+  color: #fff !important;
+  border-color: #0e2d46 !important;
+  background: #0e2d46 !important;
+  box-shadow: 0 7px 16px rgba(19, 50, 74, .17);
+  transform: translateY(-1px);
+}
+
+/* Secondary choices stay legible without competing with the main action. */
+.btn-secondary-gov,
+.data-action-secondary,
+.spatial-main-container .spatial-link-btn,
+.spatial-main-container .spatial-glowing-frosted-btn,
+.spatial-main-container .spatial-circle-arrow,
+.spatial-main-container .geo-back-button,
+.spatial-main-container .geo-map-controls button,
+.village-records-footer button,
+.btn-wizard-prev,
+.btn-wizard-restart,
+.btn-card-checklist,
+.section-action-btn,
+.btn-link-action,
+.demo-btn-gov,
+.tgc-drill-btn,
+.geo-breadcrumbs button,
+.data-dashboard-footer button,
+.geo-village-switch,
+.location-records-pagination button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 0 13px;
+  color: #1c557a !important;
+  border: 1px solid #c6d9e6 !important;
+  border-radius: 10px;
+  background: #fff !important;
+  box-shadow: 0 1px 2px rgba(19, 50, 74, .03);
+  font: inherit;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 160ms var(--ease-out), background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease !important;
+}
+.btn-secondary-gov:hover,
+.data-action-secondary:hover,
+.spatial-main-container .spatial-link-btn:hover,
+.spatial-main-container .spatial-glowing-frosted-btn:hover,
+.spatial-main-container .spatial-circle-arrow:hover,
+.spatial-main-container .geo-back-button:hover,
+.spatial-main-container .geo-map-controls button:hover,
+.village-records-footer button:hover:not(:disabled),
+.btn-wizard-prev:hover,
+.btn-wizard-restart:hover,
+.btn-card-checklist:hover,
+.section-action-btn:hover,
+.btn-link-action:hover,
+.demo-btn-gov:hover,
+.tgc-drill-btn:hover,
+.geo-breadcrumbs button:hover,
+.geo-breadcrumbs button.is-active,
+.data-dashboard-footer button:hover,
+.geo-village-switch:hover,
+.location-records-pagination button:hover:not(:disabled) {
+  color: #123f60 !important;
+  border-color: #9ebed2 !important;
+  background: #f0f7fb !important;
+  box-shadow: 0 5px 12px rgba(19, 50, 74, .08);
+  transform: translateY(-1px);
+}
+
+/* Filters and segmented choices: compact, consistently selectable, no loud glow. */
+.spatial-main-container .cat-pill-btn,
+.spatial-main-container .wizard-step-pill,
+.spatial-main-container .wizard-dist-pill,
+.spatial-main-container .spatial-day-pill,
+.pure-map-btn,
+.vah-view-toggle-btn,
+.vah-scheme-pill,
+.vah-modal-tab-btn,
+.report-tab-pill {
+  min-height: 36px;
+  padding: 0 11px;
+  color: #48677b;
+  border: 1px solid #d3e0e8;
+  border-radius: 9px;
+  background: #f8fafb;
+  font: inherit;
+  font-size: .76rem;
+  font-weight: 700;
+  line-height: 1.2;
+  box-shadow: none;
+  transition: transform 150ms var(--ease-out), color 150ms ease, border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease !important;
+}
+.spatial-main-container .cat-pill-btn:hover,
+.spatial-main-container .wizard-step-pill:hover,
+.spatial-main-container .wizard-dist-pill:hover,
+.spatial-main-container .spatial-day-pill:hover,
+.pure-map-btn:hover,
+.vah-view-toggle-btn:hover,
+.vah-scheme-pill:hover,
+.vah-modal-tab-btn:hover,
+.report-tab-pill:hover {
+  color: #1b587d;
+  border-color: #aac5d5;
+  background: #eef6fa;
+  transform: translateY(-1px);
+}
+.spatial-main-container .cat-pill-btn.active,
+.spatial-main-container .wizard-step-pill.is-current,
+.spatial-main-container .wizard-step-pill.is-completed,
+.spatial-main-container .wizard-opt-btn.active,
+.spatial-main-container .wizard-dist-pill.active,
+.spatial-main-container .spatial-day-pill.selected-day,
+.pure-map-btn--active,
+.vah-view-toggle-btn--active,
+.vah-modal-tab-btn--active,
+.report-tab-pill.active {
+  color: #123f60 !important;
+  border-color: #91b5ca !important;
+  background: #e3f0f6 !important;
+  box-shadow: inset 0 0 0 1px rgba(55, 108, 141, .06);
+}
+
+/* Small, square controls retain a generous target without turning into pills. */
+.spatial-icon-btn,
+.pure-map-zoom-btn,
+.expand-chevron-btn,
+.smh-close-btn,
+.ghp-close-btn,
+.ghp-footer button[type="submit"] {
+  display: inline-grid;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  padding: 0;
+  place-items: center;
+  border-radius: 10px;
+}
+.spatial-icon-btn,
+.pure-map-zoom-btn,
+.expand-chevron-btn,
+.smh-close-btn {
+  color: #265c7c;
+  border: 1px solid #c7d9e5;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(19, 50, 74, .04);
+}
+.spatial-icon-btn:hover,
+.pure-map-zoom-btn:hover,
+.expand-chevron-btn:hover,
+.smh-close-btn:hover { color: #123f60; border-color: #9dbdd1; background: #eef6fa; }
+
+/* List rows are controls too: keep their hit area clear without a decorative jump. */
+.geo-entity-row { transition: background-color 150ms ease, box-shadow 150ms ease !important; }
+.geo-entity-row:hover { background: #f0f7fb !important; box-shadow: inset 3px 0 0 #80a9bf !important; transform: none !important; }
+.geo-entity-row.is-selected { background: #e4f1f7 !important; box-shadow: inset 3px 0 0 #1c587d !important; }
+
+/* The old sweeping shimmer made one CTA look like a template effect. */
+.btn-shimmer:hover { animation: none !important; }
+
+@media (hover: hover) {
+  .spatial-app-shell button:not(:disabled):active { transform: translateY(0) scale(.985); }
+}
+@media (max-width: 640px) {
+  .btn-primary-gov,
+  .data-action-primary,
+  .spatial-main-container .btn-open-checklist-modal,
+  .spatial-main-container .btn-wizard-next,
+  .spatial-main-container .btn-wizard-view-results { min-height: 46px; }
+  .spatial-main-container .cat-pill-btn,
+  .spatial-main-container .wizard-step-pill,
+  .spatial-main-container .wizard-dist-pill,
+  .spatial-main-container .spatial-day-pill,
+  .pure-map-btn,
+  .vah-view-toggle-btn,
+  .vah-scheme-pill,
+  .vah-modal-tab-btn { min-height: 40px; }
+}
