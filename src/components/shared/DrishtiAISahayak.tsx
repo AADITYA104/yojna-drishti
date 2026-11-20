@@ -162,7 +162,7 @@ export function DrishtiAISahayak({ gu, lang, onNavigate }: DrishtiAISahayakProps
         type="button"
         className={`gov-helpdesk-floating-trigger ${isOpen ? "is-open" : ""}`}
         onClick={() => setIsOpen((open) => !open)}
-        aria-label={gu ? "યોજના ડિજિટલ સહાયક" : "Drishti Digital Assistant"}
+        aria-label={gu ? "યોજના ડિજિટલ સહાયક" : lang === "hi" ? "योजना डिजिटल सहायक" : "Scheme preview assistant"}
       >
         {isOpen ? <X size={20} /> : <Headphones size={20} />}
       </button>

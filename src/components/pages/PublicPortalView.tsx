@@ -32,6 +32,27 @@ interface PublicPortalViewProps {
   lang: AppLanguage;
 }
 
+type WizardPreviewContent = {
+  kicker: string;
+  title: string;
+  description: string;
+  points: readonly string[];
+};
+
+function WizardPreviewBoundary({ copy }: { copy: WizardPreviewContent }) {
+  return (
+    <aside className="wizard-preview-boundary" role="note" aria-label={copy.title}>
+      <span className="wizard-preview-icon" aria-hidden="true"><ShieldCheck size={18} /></span>
+      <span className="wizard-preview-kicker">{copy.kicker}</span>
+      <h2>{copy.title}</h2>
+      <p>{copy.description}</p>
+      <ul>
+        {copy.points.map((point) => <li key={point}><CheckCircle2 size={14} aria-hidden="true" />{point}</li>)}
+      </ul>
+    </aside>
+  );
+}
+
 export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
   const [step, setStep] = useState<number>(1);
   const [lifeStage, setLifeStage] = useState<string>("all");
@@ -48,6 +69,27 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
       return true;
     });
   }, [lifeStage]);
+
+  const previewBoundary = {
+    gu: {
+      kicker: "પૂર્વદર્શનની મર્યાદા",
+      title: "આ સાધન શું કરે છે",
+      description: "પસંદગીઓ ફક્ત નમૂના નોંધોની સૂચિ ગોઠવે છે. તે સત્તાવાર પાત્રતા કે અરજીનો નિર્ણય નથી.",
+      points: ["સત્તાવાર પાત્રતા નિર્ણય નથી", "કોઈ અરજી સબમિટ થતી નથી", "ચકાસેલ લાભની માહિતી જોડાયેલી નથી"],
+    },
+    hi: {
+      kicker: "पूर्वावलोकन की सीमा",
+      title: "यह उपकरण क्या करता है",
+      description: "आपकी पसंद केवल नमूना प्रविष्टियों की सूची को व्यवस्थित करती है। यह आधिकारिक पात्रता या आवेदन का निर्णय नहीं है।",
+      points: ["आधिकारिक पात्रता निर्णय नहीं", "कोई आवेदन जमा नहीं होता", "सत्यापित लाभ जानकारी जुड़ी नहीं है"],
+    },
+    en: {
+      kicker: "PREVIEW BOUNDARY",
+      title: "What this tool does",
+      description: "Your choices only organize the sample entries shown here. They do not determine official eligibility or submit an application.",
+      points: ["No official eligibility decision", "No application is submitted", "Verified benefit information is not connected"],
+    },
+  }[lang];
 
   return (
     <div className="public-portal-page w-full">
@@ -97,39 +139,42 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
       {/* STEP 1: LIFE STAGE / CATEGORY */}
       {step === 1 && (
         <div className="finder-wizard-box reveal">
-          <div className="wizard-question-group">
-            <label className="wizard-label">
-              {gu ? "૧. લાભાર્થીનો પ્રકાર અથવા જીવન તબક્કો પસંદ કરો:" : lang === "hi" ? "१. लाभार्थी प्रकार अथवा जीवन चरण चुनें:" : "1. Select Beneficiary Category / Life Stage:"}
-            </label>
-            <div className="wizard-options-grid">
-              {[
-                { id: "all", labelGu: "તમામ યોજનાઓ", labelEn: "All Beneficiaries", labelHi: "सभी योजनाएँ", IconComponent: Layers },
-                { id: "girl", labelGu: "દીકરી / કન્યા (શાળા-શિક્ષણ)", labelEn: "Girl Child / Student", labelHi: "बालिका / छात्रा", IconComponent: GraduationCap },
-                { id: "maternal", labelGu: "સગર્ભા / ધાત્રી માતા (૧૦૦૦ દિવસ)", labelEn: "Pregnant / Nursing Mother", labelHi: "गर्भवती / धात्री माता", IconComponent: Baby },
-                { id: "widow", labelGu: "ગંગા સ્વરૂપા બહેન (વિધવા સહાય)", labelEn: "Widowed Sister (Ganga Swarupa)", labelHi: "गंगा स्वरूपा बहन (विधवा सहायता)", IconComponent: Users },
-                { id: "entrepreneur", labelGu: "મહિલા સાહસિક / ગૃહિણી (સ્વરોજગાર)", labelEn: "Woman Entrepreneur / Self Employed", labelHi: "महिला उद्यमी / स्वरोजगार", IconComponent: Briefcase },
-              ].map((opt) => {
-                const Icon = opt.IconComponent;
-                const isSelected = lifeStage === opt.id;
-                return (
-                  <button
-                    key={opt.id}
-                    type="button"
-                    className={`wizard-opt-btn ${isSelected ? "active" : ""}`}
-                    aria-pressed={isSelected}
-                    onClick={() => setLifeStage(opt.id)}
-                  >
-                    <span className="w-icon">
-                      <Icon size={18} />
-                    </span>
-                    <span className="w-text">{gu ? opt.labelGu : lang === "hi" ? opt.labelHi : opt.labelEn}</span>
-                    <span className="w-check">
-                      {isSelected ? <Check size={15} /> : <span className="w-dot-empty" />}
-                    </span>
-                  </button>
-                );
-              })}
+          <div className="wizard-workspace">
+            <div className="wizard-question-group">
+              <label className="wizard-label">
+                {gu ? "૧. લાભાર્થીનો પ્રકાર અથવા જીવન તબક્કો પસંદ કરો:" : lang === "hi" ? "१. लाभार्थी प्रकार अथवा जीवन चरण चुनें:" : "1. Select Beneficiary Category / Life Stage:"}
+              </label>
+              <div className="wizard-options-grid">
+                {[
+                  { id: "all", labelGu: "તમામ યોજનાઓ", labelEn: "All Beneficiaries", labelHi: "सभी योजनाएँ", IconComponent: Layers },
+                  { id: "girl", labelGu: "દીકરી / કન્યા (શાળા-શિક્ષણ)", labelEn: "Girl Child / Student", labelHi: "बालिका / छात्रा", IconComponent: GraduationCap },
+                  { id: "maternal", labelGu: "સગર્ભા / ધાત્રી માતા (૧૦૦૦ દિવસ)", labelEn: "Pregnant / Nursing Mother", labelHi: "गर्भवती / धात्री माता", IconComponent: Baby },
+                  { id: "widow", labelGu: "ગંગા સ્વરૂપા બહેન (વિધવા સહાય)", labelEn: "Widowed Sister (Ganga Swarupa)", labelHi: "गंगा स्वरूपा बहन (विधवा सहायता)", IconComponent: Users },
+                  { id: "entrepreneur", labelGu: "મહિલા સાહસિક / ગૃહિણી (સ્વરોજગાર)", labelEn: "Woman Entrepreneur / Self Employed", labelHi: "महिला उद्यमी / स्वरोजगार", IconComponent: Briefcase },
+                ].map((opt) => {
+                  const Icon = opt.IconComponent;
+                  const isSelected = lifeStage === opt.id;
+                  return (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      className={`wizard-opt-btn ${isSelected ? "active" : ""}`}
+                      aria-pressed={isSelected}
+                      onClick={() => setLifeStage(opt.id)}
+                    >
+                      <span className="w-icon">
+                        <Icon size={18} />
+                      </span>
+                      <span className="w-text">{gu ? opt.labelGu : lang === "hi" ? opt.labelHi : opt.labelEn}</span>
+                      <span className="w-check">
+                        {isSelected ? <Check size={15} /> : <span className="w-dot-empty" />}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
+            <WizardPreviewBoundary copy={previewBoundary} />
           </div>
 
           <div className="wizard-nav-actions">
@@ -145,12 +190,13 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
       {/* STEP 2: INCOME BRACKET */}
       {step === 2 && (
         <div className="finder-wizard-box reveal">
-          <div className="wizard-question-group">
-            <label className="wizard-label">
-              {gu ? "૨. આવક જૂથ (માત્ર પૂર્વદર્શન માટે)" : lang === "hi" ? "२. आय वर्ग (केवल पूर्वावलोकन के लिए)" : "2. Income group (preview only):"}
-            </label>
-            <p className="wizard-field-hint">{gu ? "યોજનાવાર સત્તાવાર આવક મર્યાદા અહીં જોડાયેલી નથી. આ પસંદગી પરિણામો અથવા પાત્રતાને અસર કરતી નથી." : lang === "hi" ? "योजना-विशिष्ट आधिकारिक आय सीमा यहाँ उपलब्ध नहीं है। यह चयन परिणामों या पात्रता को प्रभावित नहीं करता।" : "Official income limits vary by scheme and are not connected here. This choice does not affect results or eligibility."}</p>
-            <div className="wizard-options-grid">
+          <div className="wizard-workspace">
+            <div className="wizard-question-group">
+              <label className="wizard-label">
+                {gu ? "૨. આવક જૂથ (માત્ર પૂર્વદર્શન માટે)" : lang === "hi" ? "२. आय वर्ग (केवल पूर्वावलोकन के लिए)" : "2. Income group (preview only):"}
+              </label>
+              <p className="wizard-field-hint">{gu ? "યોજનાવાર સત્તાવાર આવક મર્યાદા અહીં જોડાયેલી નથી. આ પસંદગી પરિણામો અથવા પાત્રતાને અસર કરતી નથી." : lang === "hi" ? "योजना-विशिष्ट आधिकारिक आय सीमा यहाँ उपलब्ध नहीं है। यह चयन परिणामों या पात्रता को प्रभावित नहीं करता।" : "Official income limits vary by scheme and are not connected here. This choice does not affect results or eligibility."}</p>
+              <div className="wizard-options-grid">
               {[
                 { id: "all", labelGu: "ઉલ્લેખ ન કરવો", labelEn: "Prefer not to specify", labelHi: "न बताना चाहें", IconComponent: Layers },
                 { id: "below_2l", labelGu: "નીચું આવક જૂથ (નમૂનાનો વિકલ્પ)", labelEn: "Lower income group (sample option)", labelHi: "निम्न आय वर्ग (नमूना विकल्प)", IconComponent: Wallet },
@@ -176,7 +222,9 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
                   </button>
                 );
               })}
+              </div>
             </div>
+            <WizardPreviewBoundary copy={previewBoundary} />
           </div>
 
           <div className="wizard-nav-actions">
@@ -195,11 +243,12 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
       {/* STEP 3: DISTRICT SELECTION */}
       {step === 3 && (
         <div className="finder-wizard-box reveal">
-          <div className="wizard-question-group">
-            <label className="wizard-label">
-              {gu ? "૩. તમે ગુજરાતના કયા જિલ્લામાં રહો છો?" : lang === "hi" ? "३. आप गुजरात के किस जिले में रहते हैं?" : "3. Select Your Gujarat District:"}
-            </label>
-            <div className="wizard-district-select-grid">
+          <div className="wizard-workspace">
+            <div className="wizard-question-group">
+              <label className="wizard-label">
+                {gu ? "૩. તમે ગુજરાતના કયા જિલ્લામાં રહો છો?" : lang === "hi" ? "३. आप गुजरात के किस जिले में रहते हैं?" : "3. Select Your Gujarat District:"}
+              </label>
+              <div className="wizard-district-select-grid">
               {demoDistricts.map((d) => (
                 <button
                   key={d.id}
@@ -212,7 +261,9 @@ export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
                   <span>{gu ? d.gu : lang === "hi" ? d.name : d.name}</span>
                 </button>
               ))}
+              </div>
             </div>
+            <WizardPreviewBoundary copy={previewBoundary} />
           </div>
 
           <div className="wizard-nav-actions">

@@ -1952,3 +1952,379 @@ html.has-scroll-reveal .reveal-scale.in-view {
 @media (prefers-reduced-motion: reduce) {
   .spatial-dock-item::after { transition: none; }
 }
+
+/* ── 30. CONTENT-SPECIFIC PAGE COMPOSITION ────────────────
+   The scheme directory and eligibility preview use distinct layouts rather
+   than inheriting a generic card treatment. */
+.spatial-main-container .gujarat-glass-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(340px, .96fr);
+  align-items: stretch;
+  min-height: 352px;
+  overflow: hidden;
+  margin: 0;
+  color: #173b58;
+  border: 1px solid #d7e2eb;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(19, 50, 74, .06);
+}
+.spatial-main-container .gujarat-glass-hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(26px, 4vw, 48px);
+}
+.spatial-main-container .gujarat-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  color: #24658c;
+  border: 1px solid #cbe0ec;
+  border-radius: 999px;
+  background: #eff7fa;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .035em;
+}
+.spatial-main-container .gujarat-glass-hero h1 {
+  max-width: 17ch;
+  margin: 15px 0 10px;
+  color: #173b58;
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  letter-spacing: -.04em;
+  line-height: 1.12;
+}
+.spatial-main-container .gujarat-glass-hero-copy > p {
+  max-width: 57ch;
+  margin: 0;
+  color: #546f84;
+  font-size: .96rem;
+  line-height: 1.65;
+}
+.spatial-main-container .gujarat-hero-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+.spatial-main-container .gujarat-hero-action-row .spatial-glowing-frosted-btn,
+.spatial-main-container .gujarat-hero-action-row .spatial-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 15px;
+  border-radius: 10px;
+  font-size: .86rem;
+  font-weight: 750;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.spatial-main-container .gujarat-hero-action-row .spatial-glowing-frosted-btn {
+  color: #fff;
+  border: 1px solid #163b5a;
+  background: #163b5a;
+  box-shadow: none;
+}
+.spatial-main-container .gujarat-hero-action-row .spatial-link-btn {
+  color: #1a5277;
+  border: 1px solid #c5d7e4;
+  background: #fff;
+}
+.spatial-main-container .gujarat-hero-action-row .spatial-glowing-frosted-btn:hover,
+.spatial-main-container .gujarat-hero-action-row .spatial-link-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(19, 50, 74, .1);
+}
+.spatial-main-container .gujarat-hero-action-row .spatial-glowing-frosted-btn:hover { background: #0e2d46; }
+.spatial-main-container .gujarat-hero-action-row .spatial-link-btn:hover { background: #f1f7fa; border-color: #a9c5d8; }
+.spatial-main-container .gujarat-glass-hero-frame {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #dceaf0;
+}
+.spatial-main-container .gujarat-glass-hero-frame::after {
+  position: absolute;
+  inset: 42% 0 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(10, 35, 53, .78));
+}
+.spatial-main-container .gujarat-glass-hero-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.spatial-main-container .gujarat-hero-caption {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  bottom: 18px;
+  left: 20px;
+  display: grid;
+  gap: 3px;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .35);
+}
+.spatial-main-container .gujarat-hero-caption strong { color: inherit; font-size: .88rem; }
+.spatial-main-container .gujarat-hero-caption span { color: #e7f3f8; font-size: .74rem; }
+
+.spatial-main-container .finder-wizard-box {
+  padding: clamp(20px, 3vw, 28px);
+  border-color: #d8e2ec;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(19, 50, 74, .05);
+}
+.wizard-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(228px, .32fr);
+  gap: 24px;
+  align-items: stretch;
+}
+.wizard-workspace .wizard-question-group { margin: 0; }
+.wizard-preview-boundary {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 18px;
+  color: #365a71;
+  border: 1px solid #d9e6ed;
+  border-radius: 13px;
+  background: #f5f9fb;
+}
+.wizard-preview-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 13px;
+  place-items: center;
+  color: #1e6b75;
+  border: 1px solid #c8e0e3;
+  border-radius: 10px;
+  background: #e8f4f4;
+}
+.wizard-preview-kicker { color: #39707b; font-size: .66rem; font-weight: 800; letter-spacing: .075em; }
+.wizard-preview-boundary h2 { margin: 4px 0 7px; color: #183f59; font-size: 1rem; }
+.wizard-preview-boundary p { margin: 0; color: #587386; font-size: .8rem; line-height: 1.55; }
+.wizard-preview-boundary ul { display: grid; gap: 8px; margin: auto 0 0; padding: 15px 0 0; list-style: none; }
+.wizard-preview-boundary li { display: flex; align-items: flex-start; gap: 7px; color: #466579; font-size: .75rem; line-height: 1.4; }
+.wizard-preview-boundary li svg { flex: 0 0 auto; margin-top: 1px; color: #1e7b72; }
+.wizard-nav-actions { margin-top: 22px; border-top-color: #e5edf3; }
+.spatial-main-container .wizard-opt-btn {
+  min-height: 58px;
+  border-color: #d4e0e9;
+  border-radius: 10px;
+  background: #fbfcfd;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.spatial-main-container .wizard-opt-btn:hover {
+  border-color: #aac8da;
+  background: #f4f8fb;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 13px rgba(19, 50, 74, .06);
+}
+.spatial-main-container .wizard-opt-btn:focus-visible,
+.spatial-main-container .wizard-dist-pill:focus-visible,
+.spatial-main-container .wizard-step-pill:focus-visible {
+  outline: 3px solid rgba(46, 113, 152, .25);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .spatial-main-container .gujarat-glass-hero { grid-template-columns: 1fr; }
+  .spatial-main-container .gujarat-glass-hero-frame { min-height: 270px; }
+  .wizard-workspace { grid-template-columns: 1fr; gap: 18px; }
+  .wizard-preview-boundary ul { margin-top: 14px; }
+}
+@media (max-width: 640px) {
+  .spatial-main-container .gujarat-glass-hero { min-height: 0; border-radius: 16px; }
+  .spatial-main-container .gujarat-glass-hero-copy { padding: 23px 20px; }
+  .spatial-main-container .gujarat-glass-hero h1 { font-size: clamp(1.85rem, 8vw, 2.45rem); }
+  .spatial-main-container .gujarat-hero-action-row { width: 100%; }
+  .spatial-main-container .gujarat-hero-action-row .spatial-glowing-frosted-btn,
+  .spatial-main-container .gujarat-hero-action-row .spatial-link-btn { flex: 1 1 100%; }
+  .spatial-main-container .gujarat-glass-hero-frame { min-height: 220px; }
+  .spatial-main-container .gujarat-hero-caption { right: 14px; bottom: 13px; left: 14px; }
+  .spatial-main-container .finder-wizard-box { padding: 16px; border-radius: 14px; }
+  .wizard-preview-boundary { padding: 15px; }
+}
+
+/* ── 31. MOBILE WAYFINDING & PREVIEW HELPER ─────────────────
+   The bottom dock is deliberately a compact navigation control on phones;
+   content and the optional preview helper always sit above it. */
+.gov-helpdesk-floating-panel {
+  position: fixed;
+  right: clamp(14px, 2vw, 26px);
+  bottom: 82px;
+  z-index: 130;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  width: min(390px, calc(100vw - 28px));
+  height: min(540px, calc(100dvh - 112px));
+  overflow: hidden;
+  color: #24465f;
+  border: 1px solid #cfdde7;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 20px 54px rgba(19, 50, 74, .2);
+  animation: preview-helper-enter 240ms var(--ease-out, cubic-bezier(.16, 1, .3, 1)) both;
+}
+.ghp-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 16px;
+  color: #fff;
+  background: #163b5a;
+}
+.ghp-brand { display: flex; min-width: 0; align-items: center; gap: 10px; }
+.ghp-avatar {
+  display: grid;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .36);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .14);
+}
+.ghp-brand strong { display: block; color: inherit; font-size: .88rem; line-height: 1.25; }
+.ghp-brand small { display: block; margin-top: 2px; color: #dcebf3; font-size: .69rem; line-height: 1.35; }
+.ghp-close-btn {
+  display: grid;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  place-items: center;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .1);
+}
+.ghp-close-btn:hover { background: rgba(255, 255, 255, .2); }
+.ghp-body {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  padding: 14px;
+  background: #f5f9fb;
+}
+.ghp-msg { display: flex; max-width: 88%; flex-direction: column; }
+.ghp-msg.user-msg { align-self: flex-end; align-items: flex-end; }
+.ghp-msg.bot-msg { align-self: flex-start; align-items: flex-start; }
+.ghp-msg-text {
+  padding: 10px 12px;
+  border: 1px solid #dce7ee;
+  border-radius: 11px;
+  background: #fff;
+  color: #294b64;
+  font-size: .79rem;
+  line-height: 1.5;
+}
+.ghp-msg.user-msg .ghp-msg-text { color: #fff; border-color: #1f648c; border-bottom-right-radius: 3px; background: #1c587d; }
+.ghp-msg.bot-msg .ghp-msg-text { border-bottom-left-radius: 3px; }
+.ghp-msg-time { margin-top: 4px; color: #72899a; font-size: .64rem; }
+.ghp-action-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 32px;
+  margin-top: 7px;
+  padding: 0 10px;
+  color: #1b5d83;
+  border: 1px solid #c8dce9;
+  border-radius: 8px;
+  background: #edf6fa;
+  font-size: .72rem;
+  font-weight: 750;
+}
+.ghp-action-chip:hover { border-color: #a9c6d9; background: #e3f0f6; }
+.ghp-quick-prompts {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  padding: 9px 12px;
+  border-top: 1px solid #e1eaf0;
+  background: #fff;
+  scrollbar-width: thin;
+}
+.ghp-qp-btn {
+  flex: 0 0 auto;
+  min-height: 30px;
+  padding: 0 9px;
+  color: #315c76;
+  border: 1px solid #d4e2eb;
+  border-radius: 999px;
+  background: #f5f9fb;
+  font-size: .69rem;
+  font-weight: 700;
+}
+.ghp-qp-btn:hover { border-color: #acc7d7; background: #eaf3f7; }
+.ghp-footer { display: flex; align-items: center; gap: 8px; padding: 11px 12px; border-top: 1px solid #e1eaf0; background: #fff; }
+.ghp-footer input {
+  min-width: 0;
+  flex: 1;
+  min-height: 40px;
+  padding: 0 11px;
+  color: #24465f;
+  border: 1px solid #ccdce6;
+  border-radius: 9px;
+  background: #fff;
+  font: inherit;
+  font-size: .78rem;
+}
+.ghp-footer input:focus { border-color: #5788a6; outline: 3px solid rgba(46, 113, 152, .16); outline-offset: 1px; }
+.ghp-footer button[type="submit"] {
+  display: grid;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
+  color: #fff;
+  border: 1px solid #163b5a;
+  border-radius: 9px;
+  background: #163b5a;
+}
+.ghp-footer button[type="submit"]:disabled { color: #8297a6; border-color: #e0e8ed; background: #e9eff3; }
+@keyframes preview-helper-enter {
+  from { opacity: 0; transform: translateY(10px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 1199px) {
+  .spatial-app-shell { padding-bottom: calc(102px + env(safe-area-inset-bottom)) !important; }
+  .spatial-dock-anchor { bottom: calc(10px + env(safe-area-inset-bottom)) !important; }
+  .gov-helpdesk-floating-trigger { bottom: calc(86px + env(safe-area-inset-bottom)) !important; }
+  .gov-helpdesk-floating-panel { bottom: calc(142px + env(safe-area-inset-bottom)); }
+}
+@media (max-width: 640px) {
+  .spatial-app-shell { padding: 10px 10px calc(96px + env(safe-area-inset-bottom)) !important; }
+  .spatial-dock-capsule { max-height: 64px !important; gap: 2px !important; padding: 5px !important; }
+  .spatial-dock-item { min-width: 48px !important; min-height: 48px !important; padding: 0 !important; }
+  .spatial-dock-label {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .spatial-dock-item.active .spatial-dock-icon-wrap { width: 29px !important; height: 29px !important; }
+  .gov-helpdesk-floating-trigger { right: 12px; bottom: calc(78px + env(safe-area-inset-bottom)) !important; }
+  .gov-helpdesk-floating-panel { right: 10px; bottom: calc(134px + env(safe-area-inset-bottom)); width: calc(100vw - 20px); height: min(520px, calc(100dvh - 154px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gov-helpdesk-floating-panel { animation: none; }
+}
