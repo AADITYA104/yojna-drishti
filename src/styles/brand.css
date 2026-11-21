@@ -1085,7 +1085,7 @@ footer a:hover { color: var(--holst-700, #355982); }
 
 /* ── 24. UTILITY HELPERS ─────────────────────────────────── */
 
-/* Scroll reveal (JS-driven, works with motion.css) */
+/* Scroll reveal (reliable fallback: always visible) */
 .reveal, .reveal-left, .reveal-scale {
   opacity: 1;
   transform: none;
@@ -1093,10 +1093,8 @@ footer a:hover { color: var(--holst-700, #355982); }
 html.has-scroll-reveal .reveal,
 html.has-scroll-reveal .reveal-left,
 html.has-scroll-reveal .reveal-scale {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 600ms var(--ease-out, cubic-bezier(0.16,1,0.3,1)),
-              transform 600ms var(--ease-out, cubic-bezier(0.16,1,0.3,1));
+  opacity: 1;
+  transform: none;
 }
 html.has-scroll-reveal .reveal-left { transform: translateX(-18px); }
 html.has-scroll-reveal .reveal-scale { transform: scale(0.96); }

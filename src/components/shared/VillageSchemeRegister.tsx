@@ -132,9 +132,16 @@ export function VillageSchemeRegister({ villageCode, villageNameGu, villageNameE
 
   return <section className="vsa-card village-records" aria-labelledby="vsa-title">
     <header className="village-records-header">
-      <div><span className="data-dashboard-eyebrow"><Database size={14} />{text.demo}</span><h2 id="vsa-title">{place || villageNameGu || villageCode}</h2>
-        <p>{district} · {taluka} · LGD {villageCode}</p><p>{text.subtitle}</p>
-      </div><div className="village-records-location"><strong>{text.schemes}: {number(schemes.length, language)}</strong><strong>{text.rows}: {number(rows.length, language)}</strong></div>
+      <div>
+        <span className="data-dashboard-eyebrow"><Database size={14} />{text.demo}</span>
+        <h2 id="vsa-title">{place || villageNameGu || villageCode}</h2>
+        <p>{district} · {taluka} · LGD {villageCode}</p>
+        <p>{text.subtitle}</p>
+      </div>
+      <div className="village-records-location">
+        <strong>{text.schemes}: {loading ? "—" : number(schemes.length, language)}</strong>
+        <strong>{text.rows}: {loading ? "—" : number(rows.length, language)}</strong>
+      </div>
     </header>
     <aside className="data-integrity-note village-integrity" role="note"><ShieldCheck size={19} /><div><strong>{text.demo}</strong><p>{text.warning}</p></div></aside>
 

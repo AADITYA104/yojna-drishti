@@ -245,10 +245,33 @@ export function VillageIntelligenceView({
     setSearch("");
   };
 
+  const fallbackVillage: VillageRecord = useMemo(() => ({
+    code: selectedVillageCode || "516307",
+    id: `v_${selectedVillageCode || "516307"}`,
+    nameEn: "Village",
+    nameGu: "ગામ",
+    subDistrictCode: selectedSubdistrictCode,
+    districtCode: 0,
+    category: "Rural",
+    status: "Inhabitant",
+    venueGu: "ગ્રામ પંચાયત ભવન",
+    venueEn: "Gram Panchayat Bhawan",
+    households: 300,
+    population: 1200,
+    femalePopulation: 580,
+    beneficiaries: 240,
+    applications: 270,
+    approved: 240,
+    disbursedLakhs: 24.5,
+    anganwadis: 2,
+    coordinates: { x: 0, y: 0 },
+    hasDemoMetrics: true,
+  }), [selectedVillageCode, selectedSubdistrictCode]);
+
   const currentVillage = useMemo(() => {
     const found = villagesList.find((v) => v.code === selectedVillageCode);
-    return found || villagesList[0];
-  }, [villagesList, selectedVillageCode]);
+    return found || villagesList[0] || fallbackVillage;
+  }, [villagesList, selectedVillageCode, fallbackVillage]);
 
   const yearFactor = fy === "2024–25" ? 0.88 : fy === "2023–24" ? 0.75 : 1;
   const currentVillageBeneficiaries = currentVillage ? scaleDemoValue(currentVillage.beneficiaries, fy) : 0;
@@ -696,6 +719,10 @@ export function VillageIntelligenceView({
               <div
                 className="vdc-total-grant-box"
                 style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-end",
+                  gap: 3,
                   background: "linear-gradient(135deg, rgba(77, 121, 168, 0.12) 0%, rgba(110, 158, 204, 0.18) 100%)",
                   border: "1px solid rgba(77, 121, 168, 0.25)",
                   borderRadius: "14px",
@@ -708,7 +735,7 @@ export function VillageIntelligenceView({
                   {gu ? "કુલ વિતરિત DBT સહાય" : "Total DBT Disbursed"}
                 </small>
                 <strong style={{ display: "block", fontSize: "1.45rem", color: "var(--holst-900, #223A5E)", fontWeight: 700, margin: "2px 0" }}>
-                  ₹ {currentVillageDisbursed} Lakh
+                  ₹ {currentVillageDisbursed} {gu ? "લાખ" : "Lakh"}
                 </strong>
                 <span style={{ fontSize: "0.76rem", color: "#2E7D52", fontWeight: 600 }}>
                   {fmt(currentVillageBeneficiaries)} {gu ? "કુલ નોંધાયેલ લાભાર્થીઓ" : "Total Enrolled Beneficiaries"}

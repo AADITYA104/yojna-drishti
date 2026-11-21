@@ -116,7 +116,9 @@ export function AdministrationView({ lang }: AdministrationViewProps) {
 
       <aside className="data-security-alert-bar governance-note reveal" role="note">
         <ShieldCheck size={18} />
-        <div><strong>{text.noteTitle}</strong><span>{text.note}</span></div>
+        <div>
+          <strong>{text.noteTitle}</strong> — <span>{text.note}</span>
+        </div>
       </aside>
 
       <section className="governance-section reveal" aria-labelledby="source-status-heading">
