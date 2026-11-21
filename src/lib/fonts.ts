@@ -1,17 +1,18 @@
-import { Rasa, Hind_Vadodara } from "next/font/google";
+import { Noto_Sans_Gujarati, Inter } from "next/font/google";
 
-// Rasa: a Gujarati + Latin serif with real calligraphic character. Headlines and big numbers.
-export const displayFont = Rasa({
+// Noto Sans Gujarati: authoritative Gujarati typography with complete diacritic coverage.
+export const displayFont = Noto_Sans_Gujarati({
   subsets: ["gujarati", "latin"],
   weight: ["500", "600", "700"],
   variable: "--font-display-next",
   display: "swap",
 });
 
-// Hind Vadodara: clean Gujarati + Latin UI face. Body, tables, forms.
-export const uiFont = Hind_Vadodara({
-  subsets: ["gujarati", "latin"],
+// Inter: crisp Latin and numeric UI face, pairing seamlessly with Noto Sans Gujarati.
+export const uiFont = Inter({
+  subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-ui-next",
   display: "swap",
 });
+

@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Activity, BarChart3, CalendarDays, Database, Layers, MapPin, ShieldAlert, ShieldCheck, UsersRound } from "lucide-react";
 import { localizeText, type AppLanguage } from "@/lib/i18n";
 import type { MapSelectedLocation } from "./GujaratInteractiveMap";
+import { VillageSchemeRegister } from "../shared/VillageSchemeRegister";
 
 type Bucket = Record<string, number>;
 type Scheme = {
@@ -452,6 +453,19 @@ export function LocationAnalyticsDashboard({ location, lang }: { location: MapSe
                   ]} />
                 </article>
               </div>
+
+              {/* Village Women Schemes Reach Register (Pilot: 5 core women schemes) */}
+              <VillageSchemeRegister
+                villageCode={location.locationCode}
+                villageNameGu={location.nameGu}
+                villageNameEn={location.nameEn}
+                talukaNameGu={location.talukaNameGu}
+                talukaNameEn={location.talukaNameEn}
+                districtNameGu={location.districtNameGu}
+                districtNameEn={location.districtNameEn}
+                gu={lang === "gu"}
+                lang={lang}
+              />
 
               <details className="location-records-panel" onToggle={(event) => { setRecordsOpen(event.currentTarget.open); if (event.currentTarget.open) { setRecordPage(0); setRecordsBusy(true); setRecordsError(false); setRecordsPayload(null); } }}>
                 <summary>

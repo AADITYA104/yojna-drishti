@@ -1,136 +1,167 @@
-/* YOJANA DRISHTI — Holst Blue Design Tokens v2 */
+/* ==========================================================================
+ * YOJANA DRISHTI — CANONICAL DESIGN TOKENS
+ * Single Source of Truth for Government-Grade Administrative Experience
+ * Palette, 8px Spacing, 2 Radii, 2 Shadows, Typography & Gujarati Line-Heights
+ * ========================================================================== */
+
 :root {
-  color-scheme: light;
+  color-scheme: dark light;
 
-  /* ── Holst Blue Palette (from user reference) ── */
-  --holst-900: #223A5E;
-  --holst-700: #355982;
-  --holst-500: #4D79A8;
-  --holst-400: #6E9ECC;
-  --holst-300: #9FC0E3;
-  --holst-200: #D0E1F2;
-  --holst-50: #F3F8FD;
+  /* ── 1. Color Palette ── */
+  /* Base Slate (Gujarat Government Neutral) */
+  --color-base: #0B1720;
+  --color-base-soft: #122432;
+  --color-base-elevated: #182F40;
 
-  /* ── Semantic aliases ── */
-  --blue-900: var(--holst-900);
-  --blue-700: var(--holst-700);
-  --blue-500: var(--holst-500);
-  --blue-400: var(--holst-400);
-  --blue-300: var(--holst-300);
-  --blue-200: var(--holst-200);
-  --blue-50: var(--holst-50);
+  /* Surfaces (Clean frosted card surfaces per visionOS/glassmorphic standard) */
+  --color-surface: rgba(255, 255, 255, 0.07);
+  --color-surface-hover: rgba(255, 255, 255, 0.11);
+  --color-surface-solid: #152735;
+  --color-surface-glass: rgba(20, 38, 50, 0.72);
 
-  /* Legacy compat */
-  --blue-600: #2F6898;
-  --blue-800: #2C4F76;
-  --ink-950: var(--holst-900);
-  --ink-900: #2C4F76;
-  --ink-800: var(--holst-700);
-  --ink-700: var(--holst-500);
-  --ink-500: var(--holst-400);
-  --ink-200: var(--holst-200);
-  --ink-100: var(--holst-50);
-  --navy-950: var(--holst-900);
-  --navy-900: #2C4F76;
-  --navy-800: var(--holst-700);
+  /* Text & Contrast (Minimum 4.5:1 ratio verified) */
+  --color-text: #F8FAFC;
+  --color-text-muted: rgba(255, 255, 255, 0.78);
+  --color-text-subtle: rgba(255, 255, 255, 0.60);
 
-  /* ── Status / Accent ── */
-  --neem-600: #2E7D52;    /* success green */
-  --neem-100: #E8F5EE;
-  --haldi-600: #C07820;   /* warning amber */
-  --haldi-500: #E09930;
-  --haldi-300: #F0C060;
-  --haldi-100: #FDF3DC;
-  --madder-600: #9E3B38;  /* error red */
-  --madder-100: #FAEAEA;
-  --mor-600: #2D7D84;     /* teal accent */
-  --mor-400: #3DA4A2;
-  --mor-100: #E0F1EF;
-  --demo: #9b6712;
-  --demo-100: #fff4dc;
-  --teal-600: var(--mor-600);
-  --teal-100: var(--mor-100);
-  --orange-500: var(--haldi-500);
+  /* Borders */
+  --color-border: rgba(255, 255, 255, 0.14);
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-focus: #F59E0B;
 
-  /* ── Surfaces ── */
-  --bg: var(--holst-50);           /* page background — near-white blue */
-  --surface: #FFFFFF;
-  --surface-soft: var(--holst-50);
-  --border: var(--holst-200);
-  --success: var(--neem-600);
-  --warning: var(--haldi-600);
+  /* Accent (Saffron / Ochre government tone) */
+  --color-accent: #D97706;
+  --color-accent-light: #F59E0B;
+  --color-accent-soft: rgba(217, 119, 6, 0.18);
+  --color-accent-contrast: #FFFFFF;
 
-  /* Rann salt aliases */
-  --salt-0: #ffffff;
-  --salt-50: var(--holst-50);
-  --salt-100: var(--holst-200);
-  --salt-200: var(--holst-300);
-  --salt-300: var(--holst-400);
+  /* Status Colors */
+  --color-success: #15803D;
+  --color-success-soft: rgba(21, 128, 61, 0.18);
+  --color-warning: #B45309;
+  --color-warning-soft: rgba(180, 83, 9, 0.18);
+  --color-danger: #B91C1C;
+  --color-danger-soft: rgba(185, 28, 28, 0.18);
 
-  /* ── Text ── */
-  --text: var(--holst-900);
-  --text-soft: var(--holst-700);
-  --muted: var(--holst-500);
+  /* Scheme Reach: Unknown Grey (Distinct from 0 / not_reached) */
+  --color-unknown: #64748B;
+  --color-unknown-soft: rgba(100, 116, 139, 0.18);
 
-  /* ── Chart colors (Holst-harmonious) ── */
-  --chart-1: var(--holst-500);    /* mid blue */
-  --chart-2: var(--mor-400);      /* teal */
-  --chart-3: #55934b;             /* green */
-  --chart-4: var(--haldi-500);    /* amber */
-  --chart-5: #8063a5;             /* purple */
-  --chart-6: #cc6654;             /* coral */
-  --chart-7: var(--holst-700);    /* deep blue */
-  --chart-8: #718d48;             /* olive */
-  --map-1: var(--holst-50);
-  --map-2: var(--holst-200);
-  --map-3: var(--holst-300);
-  --map-4: var(--holst-400);
-  --map-5: var(--holst-700);
+  /* ── 2. Spacing Scale (8px Grid) ── */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-7: 64px;
 
-  /* ── Typography ── */
-  --font-display: var(--font-display-next, "Rasa"), "Noto Serif Gujarati", Georgia, serif;
-  --font-ui: var(--font-ui-next, "Hind Vadodara"), "Noto Sans Gujarati", system-ui, sans-serif;
-  --fs-xs: 0.75rem;
-  --fs-sm: 0.8125rem;
-  --fs-base: 0.9375rem;
-  --fs-md: 1.0625rem;
-  --fs-lg: 1.375rem;
-  --fs-xl: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);
-  --fs-hero: clamp(2.25rem, 1.4rem + 3.4vw, 4rem);
+  /* ── 3. Radii Scale (Strict 2-Radii Rule) ── */
+  --radius-sm: 8px;     /* Buttons, inputs, search fields, chips, tabs */
+  --radius-lg: 16px;    /* Cards, containers, modals, bottom sheets */
+  --radius-full: 9999px; /* Tactile pill toggles & badges */
+
+  /* ── 4. Shadow Scale (Strict 2-Shadow Rule) ── */
+  --shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 36px -10px rgba(0, 0, 0, 0.52), 0 1px 0 rgba(255, 255, 255, 0.14) inset;
+
+  /* ── 5. Typography Scale ── */
+  --font-display: var(--font-display-next, "Noto Sans Gujarati"), "Noto Sans Gujarati", system-ui, sans-serif;
+  --font-ui: var(--font-ui-next, "Inter"), "Noto Sans Gujarati", system-ui, sans-serif;
+
+  --fs-xs: 0.75rem;     /* 12px */
+  --fs-sm: 0.875rem;    /* 14px */
+  --fs-base: 1rem;      /* 16px */
+  --fs-md: 1.125rem;    /* 18px */
+  --fs-lg: 1.375rem;    /* 22px */
+  --fs-xl: 1.75rem;     /* 28px */
+  --fs-hero: 2.25rem;   /* 36px */
+
+  /* Mandatory Gujarati Line Height (>= 1.6 to prevent diacritic clipping) */
   --lh-gu: 1.65;
+  --lh-tight: 1.35;
+  --lh-heading: 1.45;
 
-  /* ── Radius ── */
-  --r-xs: 4px;
-  --r-sm: 8px;
-  --r-md: 14px;
-  --r-lg: 20px;
-  --r-pill: 999px;
+  /* ── 6. Semantic & Legacy Compatibility Aliases ── */
+  --bg: var(--color-base);
+  --surface: var(--color-surface);
+  --surface-soft: var(--color-surface-solid);
+  --border: var(--color-border);
+  --text: var(--color-text);
+  --text-soft: var(--color-text-muted);
+  --muted: var(--color-text-subtle);
+  --success: var(--color-success);
+  --warning: var(--color-warning);
+  --demo: var(--color-warning);
+  --demo-100: var(--color-warning-soft);
+  --haldi-500: var(--color-accent-light);
+  --haldi-600: var(--color-accent);
+  --neem-600: var(--color-success);
+  --madder-600: var(--color-danger);
 
-  /* ── Elevation (blue-tinted) ── */
-  --shadow-1: 0 1px 3px rgb(34 58 94 / 0.06), 0 6px 16px -8px rgb(34 58 94 / 0.14);
-  --shadow-2: 0 2px 6px rgb(34 58 94 / 0.08), 0 16px 36px -12px rgb(34 58 94 / 0.18);
-  --shadow-pop: 0 4px 10px rgb(34 58 94 / 0.1), 0 28px 60px -16px rgb(34 58 94 / 0.26);
-  --shadow-glow: 0 0 0 3px rgba(110, 158, 204, 0.3);
+  /* Legacy spatial variables mapped to canonical tokens */
+  --spatial-teal-950: #070e14;
+  --spatial-teal-900: var(--color-base);
+  --spatial-teal-800: var(--color-base-soft);
+  --spatial-teal-700: var(--color-base-elevated);
+  --spatial-glass-main: var(--color-surface-glass);
+  --spatial-glass-card: var(--color-surface);
+  --spatial-glass-card-hover: var(--color-surface-hover);
+  --spatial-glass-border: var(--color-border);
+  --spatial-glass-border-subtle: var(--color-border-subtle);
+  --spatial-glass-highlight: rgba(255, 255, 255, 0.22);
+  --spatial-glass-shadow: var(--shadow-lg);
 
-  /* ── Space (4px base) ── */
-  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
-  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 72px;
+  /* Spacing aliases */
+  --sp-1: var(--space-1);
+  --sp-2: var(--space-2);
+  --sp-3: var(--space-3);
+  --sp-4: var(--space-4);
+  --sp-5: var(--space-5);
+  --sp-6: var(--space-6);
+  --sp-7: var(--space-7);
 
-  /* ── Layout ── */
-  --rail-w: 76px;
-  --rail-w-open: 268px;
+  /* Radius aliases */
+  --r-xs: var(--radius-sm);
+  --r-sm: var(--radius-sm);
+  --r-md: var(--radius-lg);
+  --r-lg: var(--radius-lg);
+  --r-pill: var(--radius-full);
 
-  /* ── Animation tokens ── */
-  --dur-fast: 120ms;
-  --dur-base: 220ms;
-  --dur-slow: 380ms;
-  --dur-chart: 1000ms;
-  --dur-hero: 1200ms;
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --ease-spring: linear(0, 0.34 8%, 0.82 18%, 1.06 28%, 1.08 34%, 1 48%, 0.99 60%, 1);
+  /* Shadow aliases */
+  --shadow-1: var(--shadow-sm);
+  --shadow-2: var(--shadow-lg);
+  --shadow-pop: var(--shadow-lg);
+}
 
-  /* ── Scroll-reveal defaults ── */
-  --reveal-distance: 24px;
-  --reveal-duration: 500ms;
+/* Global Gujarati Line-Height & Font Family Rule */
+html[lang="gu"],
+[lang="gu"],
+body {
+  font-family: var(--font-ui);
+  line-height: var(--lh-gu);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: var(--lh-heading);
+}
+
+/* Mobile-first touch-friendly focus states */
+:focus-visible {
+  outline: 2px solid var(--color-accent-light);
+  outline-offset: 2px;
+}
+
+/* Strict prefers-reduced-motion standard */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -42,6 +42,23 @@ export function SpatialShell() {
   const gu = lang === "gu";
 
   useEffect(() => {
+    const syncHash = () => {
+      const raw = window.location.hash.replace("#", "").split("?")[0] as SpatialNavKey;
+      if (["dashboard", "schemes", "map", "wizard", "saved", "settings", "villages", "financials"].includes(raw)) {
+        setActiveKey(raw);
+      }
+    };
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, []);
+
+  const handleNavSelect = (key: SpatialNavKey) => {
+    setActiveKey(key);
+    window.location.hash = key;
+  };
+
+  useEffect(() => {
     const saved = window.localStorage.getItem("yojana-drishti-language");
     if (saved === "gu" || saved === "en" || saved === "hi") startTransition(() => setLang(saved));
   }, []);
@@ -187,7 +204,7 @@ export function SpatialShell() {
 
       <SpatialDock
         activeKey={activeKey}
-        onSelect={(key) => setActiveKey(key)}
+        onSelect={handleNavSelect}
         gu={gu}
         lang={lang}
       />
