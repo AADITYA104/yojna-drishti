@@ -187,23 +187,23 @@ export function CleanGujaratSvgMap({
         <div className="lg:col-span-8 bg-gradient-to-b from-[#0F202B]/90 to-[#0A161E]/95 rounded-[24px] border border-white/15 p-4 relative shadow-2xl overflow-hidden">
           {/* Subtle water labels */}
           <div className="absolute top-16 left-6 pointer-events-none text-[11px] font-bold text-white/20 tracking-widest uppercase">
-            {gu ? "કચ્છનું મોટું રણ (Rann of Kachchh)" : "Rann of Kachchh"}
+            {gu ? "કચ્છનું મોટું રણ" : "Rann of Kachchh"}
           </div>
           <div className="absolute top-[48%] left-10 pointer-events-none text-[11px] font-bold text-white/20 tracking-wider">
-            {gu ? "કચ્છનો અખાત (Gulf of Kachchh)" : "Gulf of Kachchh"}
+            {gu ? "કચ્છનો અખાત" : "Gulf of Kachchh"}
           </div>
           <div className="absolute bottom-28 left-[58%] pointer-events-none text-[11px] font-bold text-white/20 tracking-wider">
-            {gu ? "ખંભાતનો અખાત (Gulf of Khambhat)" : "Gulf of Khambhat"}
+            {gu ? "ખંભાતનો અખાત" : "Gulf of Khambhat"}
           </div>
           <div className="absolute bottom-12 left-10 pointer-events-none text-xs font-bold text-cyan-400/25 tracking-widest uppercase">
-            {gu ? "અરબી સમુદ્ર (Arabian Sea)" : "Arabian Sea"}
+            {gu ? "અરબી સમુદ્ર" : "Arabian Sea"}
           </div>
 
           <svg
             viewBox="20 20 910 680"
             className="w-full h-auto select-none"
             style={{ filter: "drop-shadow(0 12px 32px rgba(0,0,0,0.5))" }}
-            aria-label={gu ? "ગુજરાતનો સત્તાવાર ૩૩ જિલ્લા નકશો" : "Official Gujarat 33 District Map"}
+            aria-label={gu ? "ગુજરાતનો ૩૩ જિલ્લા નકશો" : "Gujarat 33 District Map"}
           >
             <defs>
               <linearGradient id="selected-district-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -463,7 +463,7 @@ export function CleanGujaratSvgMap({
               <div className="bg-white/5 rounded-lg p-2.5 border border-white/5 text-xs flex items-center justify-between">
                 <div>
                   <div className="font-semibold text-white">
-                    {gu ? "વ્હાલી દીકરી યોજના" : "Vahli Dikri Yojna"}
+                    {gu ? "વ્હાલી દીકરી યોજના" : "Vahali Dikri Yojana"}
                   </div>
                   <div className="text-[10px] text-white/50">{gu ? "મહિલા અને બાળકલ્યાણ" : "Women & Child"}</div>
                 </div>

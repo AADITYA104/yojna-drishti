@@ -96,9 +96,9 @@ export function DrishtiAISahayak({ gu, lang, onNavigate }: DrishtiAISahayakProps
             ? "नमूना सूची में बालिकाओं से जुड़ी कुछ योजना प्रविष्टियाँ हैं। यहाँ राशि, पात्रता, आवेदन की स्थिति या आधिकारिक स्रोत सत्यापित नहीं हैं। आवेदन से पहले आधिकारिक पोर्टल या संबंधित विभाग से पुष्टि करें।"
             : "The sample catalogue contains a few entries related to girls. Benefit amounts, eligibility, application status, and official sources are not verified here. Check the official scheme portal or department before applying.";
         action = {
-          label: gu ? "વ્હાલી દીકરી યોજના જુઓ" : lang === "hi" ? "व्हाली दीकरी योजना देखें" : "View Vahli Dikri Yojna",
+          label: gu ? "વ્હાલી દીકરી યોજના જુઓ" : lang === "hi" ? "व्हाली दीकरी योजना देखें" : "View Vahali Dikri Yojana",
           page: "schemes",
-          searchTerm: gu ? "વ્હાલી દીકરી" : "Vahli Dikri",
+          searchTerm: gu ? "વ્હાલી દીકરી" : "Vahali Dikri",
         };
       } else if (lower.includes("વિધવા") || lower.includes("गंगा") || lower.includes("विधवा") || lower.includes("widow")) {
         botResponse = gu

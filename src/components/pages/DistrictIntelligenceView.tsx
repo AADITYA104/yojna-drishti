@@ -217,7 +217,7 @@ export function DistrictIntelligenceView({
                   <strong>{fmt(selectedDistrict.villageCount)}</strong>
                 </div>
                 <div className="dhsc-kpi-pill">
-                  <small>{gu ? "સત્તાવાર આવરણ સૂચકાંક" : "Official coverage index"}</small>
+                  <small>{gu ? "યોજના પહોંચ સૂચકાંક (નમૂનો)" : "Coverage Index (Sample)"}</small>
                   <strong>{gu ? "ઉપલબ્ધ નથી" : "Unavailable"}</strong>
                 </div>
                 <div className="dhsc-kpi-pill">

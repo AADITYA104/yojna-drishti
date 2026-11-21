@@ -67,21 +67,29 @@ export function SpatialHeader({ lang, onSelectLanguage, onOpenSearch }: SpatialH
           <kbd aria-hidden="true">Ctrl / ⌘ K</kbd>
         </button>
 
-        <div className="spatial-lang-pill spatial-header-languages" role="group" aria-label={lang === "gu" ? "ભાષા પસંદ કરો" : lang === "hi" ? "भाषा चुनें" : "Choose language"}>
-          {(["gu", "en", "hi"] as const).map((language) => (
-            <button
-              key={language}
-              type="button"
-              className={lang === language ? "active-lang" : "muted-lang"}
-              onClick={() => onSelectLanguage(language)}
-              aria-label={text.languages[language]}
-              aria-pressed={lang === language}
-              title={text.languages[language]}
-            >
-              <span className="spatial-lang-short" aria-hidden="true">{text.languageShort[language]}</span>
-              <span className="spatial-lang-full">{languageNames[language]}</span>
-            </button>
-          ))}
+        <div className="spatial-lang-pill spatial-header-languages" role="group" aria-label={lang === "gu" ? "ભાષા પસંદગી" : lang === "hi" ? "भाषा चयन" : "Language selection"}>
+          {(["gu", "en", "hi"] as const).map((language) => {
+            const accessibleLabel =
+              language === "gu"
+                ? "ગુજરાતી ભાષા"
+                : language === "hi"
+                  ? "हिन्दी भाषा"
+                  : "English language";
+            return (
+              <button
+                key={language}
+                type="button"
+                className={lang === language ? "active-lang" : "muted-lang"}
+                onClick={() => onSelectLanguage(language)}
+                aria-label={accessibleLabel}
+                aria-pressed={lang === language}
+                title={text.languages[language]}
+              >
+                <span className="spatial-lang-short" aria-hidden="true">{text.languageShort[language]}</span>
+                <span className="spatial-lang-full" aria-hidden="true">{text.languages[language]}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </header>

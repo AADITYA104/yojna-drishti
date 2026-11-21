@@ -167,7 +167,7 @@ export function Topbar({
 
           <div className="gov-portal-official-tag">
             <span className="gov-live-dot" />
-            <span>{gu ? "સત્તાવાર ભૌગોલિક મંચ (GIS)" : "Official Geo-Portal"}</span>
+            <span>{gu ? "ભૌગોલિક માહિતી પ્રણાલી (GIS)" : "Geographic Information System (GIS)"}</span>
           </div>
         </div>
       </div>

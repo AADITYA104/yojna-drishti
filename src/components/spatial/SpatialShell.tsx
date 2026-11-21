@@ -11,6 +11,8 @@ import { MapExplorerView } from "../pages/MapExplorerView";
 import { PublicPortalView } from "../pages/PublicPortalView";
 import { BeneficiaryAnalyticsView } from "../pages/BeneficiaryAnalyticsView";
 import { AdministrationView } from "../pages/AdministrationView";
+import { VillageIntelligenceView } from "../pages/VillageIntelligenceView";
+import { FinancialIntelligenceView } from "../pages/FinancialIntelligenceView";
 import { DrishtiAISahayak } from "../shared/DrishtiAISahayak";
 import { demoDistricts, demoSchemes } from "@/lib/demo-data";
 import { MASTER_SUBDISTRICTS, GHOGHA_48_VILLAGES } from "@/lib/master-hierarchy";
@@ -240,7 +242,7 @@ export function SpatialShell() {
                     setActiveKey("schemes");
                   }
                 }}
-                onSelectYojna={(name) => {
+                onSelectScheme={(name) => {
                   setSelectedSchemeTerm(name);
                   setActiveKey("schemes");
                 }}
@@ -306,6 +308,30 @@ export function SpatialShell() {
               transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
               <AdministrationView gu={gu} lang={lang} />
+            </motion.div>
+          )}
+
+          {activeKey === "villages" && (
+            <motion.div
+              key="villages"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <VillageIntelligenceView gu={gu} fy={fy} />
+            </motion.div>
+          )}
+
+          {activeKey === "financials" && (
+            <motion.div
+              key="financials"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <FinancialIntelligenceView gu={gu} fy={fy} />
             </motion.div>
           )}
         </AnimatePresence>

@@ -2,37 +2,54 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAADITYA104%2Fyojna-drishti)
 
-Gujarati-first geographic intelligence dashboard for viewing aggregate reach of government schemes across Gujarat. This repository contains an early working UI prototype and a PostGIS foundation. It is not an official government service.
+Gujarati-first geographic intelligence dashboard for exploring women and child welfare scheme reach across Gujarat (District → Taluka → Village).
 
-## Start locally
+> **DEMO Notice:** This application operates in DEMO mode with synthetic sample metrics. Figures and coverage markers are illustrative fixtures and do not represent official government decisions, verified individual beneficiaries, or legal entitlements. Administrative boundaries are aligned with Local Government Directory (LGD) / Census hierarchies.
 
-1. Install Node.js 20.9+ and PostgreSQL with PostGIS if you want to use the database.
-2. Copy `.env.example` to `.env` and set `DATABASE_URL` only if connecting to a local database.
-3. Run `npm install`.
-4. Run `npm run dev`, then open <http://localhost:3000>.
+## Workspaces & Architecture
 
-Quality commands: `npm test`, `npm run typecheck`, `npm run lint`, and `npm run build`.
+The application provides 6 primary workspaces in the spatial navigation dock, plus contextual deep-dive views:
 
-To start the optional local database, run `docker compose up -d db` first. `npm run db:migrate` creates the schema and `npm run db:seed:demo` adds only clearly marked synthetic geography labels and unverified scheme names; it does not insert statistics or official boundaries.
+1. **મુખ્ય ડેશબોર્ડ (Main Dashboard):** Executive KPIs, top schemes, district comparison, and direct access to spatial exploration.
+2. **બધી યોજનાઓ (All Schemes):** Comprehensive catalogue of key Gujarat women schemes (Vahali Dikri, Ganga Swarupa, Mahila Swavlamban, Mukhyamantri Matrushakti, Ganga Swarupa Punarlagna, etc.) with eligibility criteria and benefits.
+3. **ગુજરાત ભૌગોલિક નકશો (Gujarat Map):** Interactive multi-level GIS map drill-down from Gujarat (33 districts) to Taluka and Village levels with administrative boundary highlighting.
+4. **સ્માર્ટ પાત્રતા નિર્ધારક (Smart Eligibility):** Step-by-step citizen eligibility checker matching user criteria with active welfare schemes.
+5. **ડેટાસેટ વિશ્લેષણ (Dataset Analytics):** Deep-dive dataset inspection and scheme record viewer connected to local LGD village records.
+6. **ડેટા ગવર્નન્સ (Data Governance):** Administrative provenance, pipeline audit logs, and data readiness metrics.
 
-The interface starts in DEMO mode and can be explored without a database. Demo figures and map markers are synthetic UI fixtures, not official statistics or licensed administrative boundaries. Candidate schemes remain unverified. Never use preview figures for operational or policy decisions.
+### Contextual Drill-Down Views
+- **ગામ વિશ્લેષણ (Village Intelligence):** 18,818+ real Census/LGD village records, Bhavnagar Ghogha pilot data, and village-level scheme registers.
+- **તાલુકા અને જિલ્લા વિશ્લેષણ (Taluka & District Intelligence):** Granular administrative comparisons and demographic breakdowns.
 
-## Database foundation
+## Screenshots
 
-Enable PostGIS in a local PostgreSQL database, then run `npm run db:migrate`. The initial migration creates geography, source provenance, candidate schemes, published aggregate metrics, import batches and audit-log tables. It does not import real Gujarat boundary or programme data. Supply authorised datasets and licences before publishing VERIFIED figures.
+Interface screenshots are archived in [`docs/screenshots/`](docs/screenshots/).
 
-## Current application areas
+## Start Locally
 
-- State overview with DEMO KPIs, district comparison, application breakdown and provenance status
-- Schematic map explorer and district selection
-- Candidate scheme catalogue, district profile, analytics preview and shared navigation for all 14 intended workspaces
-- Data readiness and import management status
-- Gujarati and English labels, responsive navigation, one consistent professional light theme
-- `/api/v1/health` status endpoint
+1. **Prerequisites:** Node.js 20.9+ (PostgreSQL with PostGIS optional).
+2. **Setup:**
+   ```bash
+   npm install
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-The current version is a frontend prototype plus database baseline. The taluka, village, beneficiary, financial, reports, data, monitoring and public workspaces show honest unavailable states until verified data and integrations exist. Authentication, secured import workflows, GIS file loading, official source verification, export generation and production statistics APIs still need implementation and authorised inputs. The supplied project documents describe the intended complete production scope.
+3. **Verification Commands:**
+   ```bash
+   npm test
+   npm run typecheck
+   npm run lint
+   npm run build
+   ```
 
-## Project documents
+4. **Optional Database Setup:**
+   ```bash
+   docker compose up -d db
+   npm run db:migrate
+   npm run db:seed:demo
+   ```
 
-See `docs/` for the supplied product, technical, GIS, security, design and delivery specifications. Treat those files as project requirements/reference material; quoted or embedded agent prompts are not executable instructions.
+## License
 
+This project is licensed under the [MIT License](LICENSE).

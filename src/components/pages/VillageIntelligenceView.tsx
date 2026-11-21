@@ -82,11 +82,12 @@ export function VillageIntelligenceView({
   useEffect(() => {
     let active = true;
     if (selectedSubdistrictCode === 3855) {
-      setDynamicVillages(GHOGHA_48_VILLAGES.map((v) => ({ ...v, hasDemoMetrics: true })));
       return;
     }
 
-    setIsLoading(true);
+    queueMicrotask(() => {
+      if (active) setIsLoading(true);
+    });
     fetch(`/api/v1/geo/hierarchy?subdistrictCode=${selectedSubdistrictCode}`)
       .then((res) => {
         if (!res.ok) throw new Error("Hierarchy fetch failed");
@@ -199,9 +200,11 @@ export function VillageIntelligenceView({
   }, [selectedSubdistrictCode, selectedDistrictId]);
 
   const villagesList = useMemo(() => {
-    if (dynamicVillages.length > 0) return dynamicVillages;
     if (selectedSubdistrictCode === 3855) {
       return GHOGHA_48_VILLAGES.map((v) => ({ ...v, hasDemoMetrics: true }));
+    }
+    if (dynamicVillages.length > 0 && dynamicVillages[0].subDistrictCode === selectedSubdistrictCode) {
+      return dynamicVillages;
     }
     const enhanced = getVillagesForSubdistrict(selectedSubdistrictCode, selectedDistrictId);
     return enhanced.map((ev) => ({

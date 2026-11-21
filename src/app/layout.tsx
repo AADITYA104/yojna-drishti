@@ -10,8 +10,21 @@ import "@/styles/spatial.css";
 import "@/styles/brand.css";
 
 export const metadata: Metadata = {
-  title: "યોજના દૃષ્ટિ | Yojana Drishti — Gujarat Welfare Portal & GIS",
-  description: "ગુજરાત રાજ્યની તમામ કલ્યાણકારી સરકારી યોજનાઓ, પાત્રતા અને ગામ-સ્તર ભૌગોલિક વિશ્લેષણ પોર્ટલ.",
+  metadataBase: new URL("https://yojana-drishti.gujarat.gov.in"),
+  title: {
+    default: "યોજના દૃષ્ટિ | Yojana Drishti",
+    template: "%s | Yojana Drishti",
+  },
+  description: "ગુજરાત રાજ્યની મહિલા કલ્યાણકારી યોજનાઓ અને ભૌગોલિક પહોંચ વિશ્લેષણ મંચ (Yojana Drishti).",
+  applicationName: "Yojana Drishti",
+  keywords: [
+    "Yojana Drishti",
+    "Gujarat Schemes",
+    "Women Empowerment",
+    "GIS Analytics",
+    "Vahali Dikri",
+    "Ganga Swarupa",
+  ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

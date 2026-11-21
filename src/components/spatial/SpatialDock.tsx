@@ -64,14 +64,14 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
     },
     {
       key: "saved" as const,
-      labelGu: "ડેટાસેટ વિશ્લેષણ",
-      labelEn: "Dataset analytics",
+      labelGu: "માહિતી વિશ્લેષણ",
+      labelEn: "Dataset Analytics",
       labelHi: "डेटासेट विश्लेषण",
       icon: BarChart3,
     },
     {
       key: "settings" as const,
-      labelGu: "ડેટા ગવર્નન્સ",
+      labelGu: "માહિતી શાસન અને વહીવટ",
       labelEn: "Data Governance",
       labelHi: "डेटा गवर्नेंस",
       icon: Settings,

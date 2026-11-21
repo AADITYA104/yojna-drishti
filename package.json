@@ -1,6 +1,17 @@
 {
   "name": "yojana-drishti",
   "version": "0.1.0",
+  "description": "Yojana Drishti - Gujarat Women Scheme Intelligence and GIS Geo-Analytics Platform",
+  "license": "MIT",
+  "keywords": [
+    "yojana-drishti",
+    "gujarat",
+    "women-schemes",
+    "gis",
+    "analytics",
+    "nextjs",
+    "postgis"
+  ],
   "private": true,
   "engines": {
     "node": ">=20.9.0"

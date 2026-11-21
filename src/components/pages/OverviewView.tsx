@@ -335,7 +335,7 @@ export function OverviewView({
         <div className="gis-gateway-left">
           <div className="gis-gateway-tag">
             <MapPin size={14} />
-            <span>{gu ? "સત્તાવાર ભૌગોલિક પ્રણાલી" : "Official GIS System"}</span>
+            <span>{gu ? "ભૌગોલિક માહિતી પ્રણાલી" : "GIS Information System"}</span>
           </div>
           <h2>{gu ? "ગુજરાત ઇન્ટરેક્ટિવ નકશો · રાજ્યથી છેવાડાના ગામ સુધી" : "Gujarat Interactive Map · State to Grassroots Village"}</h2>
           <p>
