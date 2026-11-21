@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import {
   Home,
   School,
@@ -76,8 +76,130 @@ export function VillageIntelligenceView({
     return MASTER_SUBDISTRICTS.find((s) => s.code === selectedSubdistrictCode) || districtSubdistricts[0];
   }, [selectedSubdistrictCode, districtSubdistricts]);
 
-  // Generate complete villages for current subdistrict
-  const initialVillages = useMemo(() => {
+  const [dynamicVillages, setDynamicVillages] = useState<VillageRecord[]>([]);
+
+  // Fetch real hierarchy villages with real 6-digit Census/LGD codes
+  useEffect(() => {
+    let active = true;
+    if (selectedSubdistrictCode === 3855) {
+      setDynamicVillages(GHOGHA_48_VILLAGES.map((v) => ({ ...v, hasDemoMetrics: true })));
+      return;
+    }
+
+    setIsLoading(true);
+    fetch(`/api/v1/geo/hierarchy?subdistrictCode=${selectedSubdistrictCode}`)
+      .then((res) => {
+        if (!res.ok) throw new Error("Hierarchy fetch failed");
+        return res.json();
+      })
+      .then((json) => {
+        if (!active) return;
+        if (json.status === "success" && Array.isArray(json.data) && json.data.length > 0) {
+          const list: VillageRecord[] = json.data.map((item: any, idx: number) => {
+            const seed = parseInt(item.code, 10) || (selectedSubdistrictCode * 100 + idx);
+            const households = 250 + (seed % 500);
+            const population = households * 4 + (seed % 150);
+            const femalePopulation = Math.round(population * 0.49);
+            const beneficiaries = Math.round(households * 0.78 + (idx * 3));
+            const disbursedLakhs = Number((14 + (seed % 32)).toFixed(1));
+
+            return {
+              code: String(item.code),
+              id: `${selectedSubdistrictCode}_${item.code}`,
+              nameEn: item.nameEn || `Village ${idx + 1}`,
+              nameGu: item.nameEn || `ગામ ${idx + 1}`,
+              subDistrictCode: selectedSubdistrictCode,
+              districtCode: item.districtCode || 0,
+              category: item.category || "Rural",
+              status: item.status || "Inhabitant",
+              venueGu: `${item.nameEn} ગ્રામ પંચાયત ભવન અને પ્રાથમિક શાળા`,
+              venueEn: `${item.nameEn} Gram Panchayat & Primary School`,
+              households,
+              population,
+              femalePopulation,
+              beneficiaries,
+              applications: Math.round(beneficiaries * 1.15),
+              approved: beneficiaries,
+              disbursedLakhs,
+              anganwadis: Math.max(1, Math.round(population / 450)),
+              coordinates: { x: 0, y: 0 },
+              hasDemoMetrics: true,
+            };
+          });
+
+          setDynamicVillages(list);
+          if (list.length > 0) {
+            setSelectedVillageCode(list[0].code);
+          }
+        } else {
+          // Fallback to procedural villages if no file exists
+          const enhanced = getVillagesForSubdistrict(selectedSubdistrictCode, selectedDistrictId);
+          const list: VillageRecord[] = enhanced.map((ev) => ({
+            code: ev.code,
+            id: `${selectedSubdistrictCode}_${ev.code}`,
+            nameEn: ev.nameEn,
+            nameGu: ev.nameGu,
+            subDistrictCode: selectedSubdistrictCode,
+            districtCode: 0,
+            category: "Rural",
+            status: "Inhabitant",
+            venueGu: `${ev.nameGu} ગ્રામ પંચાયત ભવન અને પ્રાથમિક શાળા`,
+            venueEn: `${ev.nameEn} Gram Panchayat & Primary School`,
+            households: ev.households,
+            population: ev.population,
+            femalePopulation: ev.femalePopulation,
+            beneficiaries: ev.beneficiaries,
+            applications: Math.round(ev.beneficiaries * 1.15),
+            approved: ev.beneficiaries,
+            disbursedLakhs: ev.disbursedLakhs,
+            anganwadis: Math.max(1, Math.round(ev.population / 450)),
+            coordinates: { x: 0, y: 0 },
+            hasDemoMetrics: true,
+          }));
+          setDynamicVillages(list);
+          if (list.length > 0) {
+            setSelectedVillageCode(list[0].code);
+          }
+        }
+      })
+      .catch(() => {
+        if (!active) return;
+        const enhanced = getVillagesForSubdistrict(selectedSubdistrictCode, selectedDistrictId);
+        const list: VillageRecord[] = enhanced.map((ev) => ({
+          code: ev.code,
+          id: `${selectedSubdistrictCode}_${ev.code}`,
+          nameEn: ev.nameEn,
+          nameGu: ev.nameGu,
+          subDistrictCode: selectedSubdistrictCode,
+          districtCode: 0,
+          category: "Rural",
+          status: "Inhabitant",
+          venueGu: `${ev.nameGu} ગ્રામ પંચાયત ભવન અને પ્રાથમિક શાળા`,
+          venueEn: `${ev.nameEn} Gram Panchayat & Primary School`,
+          households: ev.households,
+          population: ev.population,
+          femalePopulation: ev.femalePopulation,
+          beneficiaries: ev.beneficiaries,
+          applications: Math.round(ev.beneficiaries * 1.15),
+          approved: ev.beneficiaries,
+          disbursedLakhs: ev.disbursedLakhs,
+          anganwadis: Math.max(1, Math.round(ev.population / 450)),
+          coordinates: { x: 0, y: 0 },
+          hasDemoMetrics: true,
+        }));
+        setDynamicVillages(list);
+      })
+      .finally(() => {
+        if (active) setIsLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [selectedSubdistrictCode, selectedDistrictId]);
+
+  const villagesList = useMemo(() => {
+    if (dynamicVillages.length > 0) return dynamicVillages;
     if (selectedSubdistrictCode === 3855) {
       return GHOGHA_48_VILLAGES.map((v) => ({ ...v, hasDemoMetrics: true }));
     }
@@ -104,9 +226,7 @@ export function VillageIntelligenceView({
       coordinates: { x: 0, y: 0 },
       hasDemoMetrics: true,
     }));
-  }, [selectedSubdistrictCode, selectedDistrictId]);
-
-  const villagesList = initialVillages;
+  }, [dynamicVillages, selectedSubdistrictCode, selectedDistrictId]);
 
   // When district changes, set subdistrict to first one in that district
   const handleDistrictChange = (dId: string) => {
@@ -747,10 +867,10 @@ export function VillageIntelligenceView({
                 villageCode={currentVillage.code}
                 villageNameGu={currentVillage.nameGu}
                 villageNameEn={currentVillage.nameEn}
-                talukaNameGu={selectedSubdistrict.nameGu}
-                talukaNameEn={selectedSubdistrict.nameEn}
-                districtNameGu={selectedDistrict.nameGu}
-                districtNameEn={selectedDistrict.nameEn}
+                talukaNameGu={selectedSubdistrict?.nameGu || ""}
+                talukaNameEn={selectedSubdistrict?.nameEn || ""}
+                districtNameGu={selectedDistrict?.nameGu || ""}
+                districtNameEn={selectedDistrict?.nameEn || ""}
                 gu={gu}
               />
             </div>
