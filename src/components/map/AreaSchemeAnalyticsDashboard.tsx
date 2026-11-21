@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Activity, BarChart3, Info, Layers3, MapPin, ShieldAlert } from "lucide-react";
+import { Activity, BarChart3, Building2, Info, Layers3, MapPin, ShieldAlert } from "lucide-react";
 import { localizeText, type AppLanguage } from "@/lib/i18n";
-import type { MapSelectedArea } from "./GujaratInteractiveMap";
+import type { MapSelectedArea, MapSelectedLocation } from "./GujaratInteractiveMap";
 
 type AreaPayload = {
   status: string;
@@ -12,7 +12,17 @@ type AreaPayload = {
   data?: {
     area: MapSelectedArea;
     locationCount: number;
+    urbanCount?: number;
+    ruralCount?: number;
     sampleRecordCount: number;
+    urbanLocations?: Array<{
+      code: string;
+      nameEn: string;
+      nameGu: string;
+      talukaEn: string;
+      talukaGu: string;
+      sampleRows: number;
+    }>;
     schemes: { id: string; nameEn: string; nameGu: string; sampleRows: number; locationsWithRows: number }[];
   };
 };
@@ -28,6 +38,7 @@ const copy = {
     chart: "Sample rows by scheme", source: "Dataset", reference: "Dataset reference date",
     scope: "Data scope", districtScope: "District-wide aggregate", talukaScope: "Taluka-wide aggregate", cityScope: "Whole city/town aggregate", scopeDetail: "All linked location codes inside this administrative area are included. This is a sample-row aggregate, not a count of people or scheme coverage.",
     noteTitle: "How to read these figures", note: "These are synthetic demonstration rows aggregated from the supplied dataset. A row under a scheme does not confirm that the scheme is available, active, funded, or used in this district or taluka. No real beneficiary or coverage totals are connected.",
+    citiesTitle: "Cities and towns in this area:",
   },
   gu: {
     loading: "વિસ્તારના નમૂનાનું વિશ્લેષણ લોડ થાય છે…", error: "વિસ્તારનું વિશ્લેષણ લોડ થઈ શક્યું નથી.",
@@ -39,6 +50,7 @@ const copy = {
     chart: "યોજનાવાર નમૂના હરોળો", source: "માહિતી સમૂહ", reference: "માહિતી સમૂહની સંદર્ભ તારીખ",
     scope: "માહિતી ક્ષેત્ર", districtScope: "આખા જિલ્લાનો સરવાળો", talukaScope: "આખા તાલુકાનો સરવાળો", cityScope: "આખા શહેર/નગરનો સરવાળો", scopeDetail: "આ વહીવટી વિસ્તારમાં જોડાયેલા બધા સ્થળ કોડનો સમાવેશ થાય છે. આ નમૂના હરોળોનો સરવાળો છે, વ્યક્તિઓ કે યોજના-પહોંચનો આંકડો નથી.",
     noteTitle: "આ આંકડા કેવી રીતે સમજવા", note: "આ આપેલા માહિતી સમૂહની કૃત્રિમ નમૂના હરોળોનો સરવાળો છે. કોઈ યોજના હેઠળ હરોળ હોવી એ યોજના આ જિલ્લામાં કે તાલુકામાં ઉપલબ્ધ, ચાલુ, ભંડોળવાળી અથવા વપરાયેલી હોવાનો પુરાવો નથી. વાસ્તવિક લાભાર્થી કે પહોંચના આંકડા જોડાયેલા નથી.",
+    citiesTitle: "આ વિસ્તારમાં સમાવિષ્ટ મુખ્ય શહેરો / નગરો:",
   },
   hi: {
     loading: "क्षेत्र का नमूना विश्लेषण लोड हो रहा है…", error: "क्षेत्र का विश्लेषण लोड नहीं हो सका।",
@@ -50,6 +62,7 @@ const copy = {
     chart: "योजनावार नमूना पंक्तियाँ", source: "डेटा संग्रह", reference: "डेटा संग्रह की संदर्भ तिथि",
     scope: "data scope", districtScope: "पूरे जिले का योग", talukaScope: "पूरे तालुका का योग", cityScope: "पूरे शहर/नगर का योग", scopeDetail: "इस प्रशासनिक क्षेत्र में जुड़े सभी location codes शामिल हैं। यह नमूना पंक्तियों का योग है, लोगों या योजना पहुँच की संख्या नहीं।",
     noteTitle: "इन आँकड़ों को कैसे समझें", note: "ये दिए गए डेटा संग्रह की कृत्रिम नमूना पंक्तियों का योग हैं। किसी योजना की पंक्ति यह साबित नहीं करती कि योजना इस जिले या तालुका में उपलब्ध, चालू, वित्तपोषित या उपयोग में है। वास्तविक लाभार्थी या पहुँच के आँकड़े जुड़े नहीं हैं।",
+    citiesTitle: "इस क्षेत्र में शामिल प्रमुख शहर / नगर:",
   },
 } as const;
 
@@ -63,7 +76,15 @@ function schemeName(scheme: { id: string; nameEn: string; nameGu: string }, lang
   return lang === "hi" ? hindi : scheme.nameEn;
 }
 
-export function AreaSchemeAnalyticsDashboard({ area, lang }: { area: MapSelectedArea; lang: AppLanguage }) {
+export function AreaSchemeAnalyticsDashboard({
+  area,
+  lang,
+  onSelectLocation,
+}: {
+  area: MapSelectedArea;
+  lang: AppLanguage;
+  onSelectLocation?: (loc: MapSelectedLocation) => void;
+}) {
   const t = copy[lang];
   const [payload, setPayload] = useState<AreaPayload | null>(null);
   const [loading, setLoading] = useState(true);
@@ -122,6 +143,54 @@ export function AreaSchemeAnalyticsDashboard({ area, lang }: { area: MapSelected
                   <span className="location-kpi-icon">{card.icon}</span><span className="location-kpi-label">{card.label}</span><strong>{formatNumber(card.value, lang)}</strong><small>{card.hint}</small>
                 </motion.article>)}
               </div>
+
+              {data.urbanLocations && data.urbanLocations.length > 0 && (
+                <article style={{ margin: "16px 0", padding: "16px", borderRadius: "10px", background: "rgba(255, 255, 255, 0.8)", border: "1px solid #dbe3ee" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px", fontWeight: 700, fontSize: "0.875rem", color: "#16385c" }}>
+                    <Building2 size={16} />
+                    <span>{t.citiesTitle} ({data.urbanLocations.length})</span>
+                  </div>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                    {data.urbanLocations.map((u) => (
+                      <button
+                        key={u.code}
+                        type="button"
+                        onClick={() => {
+                          onSelectLocation?.({
+                            locationCode: u.code,
+                            nameEn: u.nameEn,
+                            nameGu: u.nameGu,
+                            category: "Urban",
+                            talukaCode: "",
+                            talukaNameEn: u.talukaEn,
+                            talukaNameGu: u.talukaGu,
+                            districtCode: area.districtCode,
+                            districtNameEn: area.districtNameEn,
+                            districtNameGu: area.districtNameGu,
+                          });
+                        }}
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "6px",
+                          padding: "5px 12px",
+                          borderRadius: "9999px",
+                          border: "1px solid #cbd5e1",
+                          background: "#ffffff",
+                          fontSize: "0.8125rem",
+                          fontWeight: 600,
+                          cursor: "pointer",
+                          color: "#1e293b",
+                          transition: "all 140ms ease",
+                        }}
+                      >
+                        <span>{lang === "gu" && u.nameGu ? u.nameGu : u.nameEn}</span>
+                        <span style={{ fontSize: "0.75rem", color: "#64748b", fontWeight: 400 }}>({formatNumber(u.sampleRows, lang)})</span>
+                      </button>
+                    ))}
+                  </div>
+                </article>
+              )}
 
               <article className="location-chart-card area-scheme-chart">
                 <div className="location-chart-heading"><div><h3>{t.chart}</h3><p>{t.rows}</p></div></div>

@@ -257,29 +257,29 @@ const copy = {
 
 // Top prominent cities in Gujarat with LGD codes from dataset
 const POPULAR_CITIES = [
-  { code: "516249", nameEn: "Bhavnagar City", nameGu: "ભાવનગર શહેર", districtCode: "441" },
-  { code: "512750", nameEn: "Ahmedabad (East/West)", nameGu: "અમદાવાદ શહેર", districtCode: "438" },
-  { code: "523753", nameEn: "Surat City (Umra)", nameGu: "સુરત શહેર", districtCode: "459" },
-  { code: "521400", nameEn: "Vadodara City", nameGu: "વડોદરા શહેર", districtCode: "461" },
-  { code: "513800", nameEn: "Rajkot City", nameGu: "રાજકોટ શહેર", districtCode: "455" },
-  { code: "510900", nameEn: "Jamnagar City", nameGu: "જામનગર શહેર", districtCode: "447" },
-  { code: "508500", nameEn: "Gandhinagar City", nameGu: "ગાંધીનગર શહેર", districtCode: "446" },
-  { code: "515100", nameEn: "Junagadh City", nameGu: "જૂનાગઢ શહેર", districtCode: "448" },
-  { code: "517200", nameEn: "Anand Town", nameGu: "આણંદ નગર", districtCode: "439" },
-  { code: "522100", nameEn: "Bharuch Town", nameGu: "ભરૂચ નગર", districtCode: "440" },
-  { code: "524500", nameEn: "Navsari Town", nameGu: "નવસારી નગર", districtCode: "452" },
-  { code: "956072", nameEn: "Palitana Town", nameGu: "પાલિતાણા નગર", districtCode: "441" },
+  { code: "516249", nameEn: "Bhavnagar (Ruva)", nameGu: "ભાવનગર શહેર", districtCode: "443" },
+  { code: "511497", nameEn: "Ahmedabad (Sabalpura)", nameGu: "અમદાવાદ શહેર", districtCode: "438" },
+  { code: "523753", nameEn: "Surat (Umra)", nameGu: "સુરત શહેર", districtCode: "459" },
+  { code: "519857", nameEn: "Vadodara (Vadadla)", nameGu: "વડોદરા શહેર", districtCode: "461" },
+  { code: "513004", nameEn: "Rajkot (Ghanteshvar)", nameGu: "રાજકોટ શહેર", districtCode: "457" },
+  { code: "513673", nameEn: "Jamnagar (OG)", nameGu: "જામનગર શહેર", districtCode: "447" },
+  { code: "511185", nameEn: "Gandhinagar (Kalol)", nameGu: "ગાંધીનગર શહેર", districtCode: "446" },
+  { code: "930087", nameEn: "Junagadh (Bhavnath)", nameGu: "જૂનાગઢ શહેર", districtCode: "448" },
+  { code: "516914", nameEn: "Anand (Lambhvel)", nameGu: "આણંદ નગર", districtCode: "440" },
+  { code: "961595", nameEn: "Bharuch (Aali)", nameGu: "ભરૂચ નગર", districtCode: "442" },
+  { code: "522869", nameEn: "Navsari (Viraval)", nameGu: "નવસારી નગર", districtCode: "453" },
+  { code: "956072", nameEn: "Palitana Town", nameGu: "પાલિતાણા નગર", districtCode: "443" },
 ];
 
 export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps) {
   const t = copy[lang];
   const [level, setLevel] = useState<InspectorLevel>("city");
 
-  // Selection states
-  const [selectedDistrictCode, setSelectedDistrictCode] = useState<string>("441"); // Default Bhavnagar
-  const [selectedTalukaCode, setSelectedTalukaCode] = useState<string>("3850"); // Default Ghogha
-  const [selectedCityCode, setSelectedCityCode] = useState<string>("516249"); // Default Bhavnagar City
-  const [selectedVillageCode, setSelectedVillageCode] = useState<string>("516015"); // Default Babarkot
+  // Selection states (Default: Bhavnagar pilot district)
+  const [selectedDistrictCode, setSelectedDistrictCode] = useState<string>("443");
+  const [selectedTalukaCode, setSelectedTalukaCode] = useState<string>("3855");
+  const [selectedCityCode, setSelectedCityCode] = useState<string>("516249");
+  const [selectedVillageCode, setSelectedVillageCode] = useState<string>("516291");
 
   // Data lists
   const [urbanSettlements, setUrbanSettlements] = useState<SettlementSummary[]>([]);
@@ -400,18 +400,19 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
   // Filtered cities list
   const filteredCities = useMemo(() => {
     let list = urbanSettlements;
-    if (selectedDistrictCode && selectedDistrictCode !== "all") {
-      list = list.filter((c) => c.districtCode === selectedDistrictCode);
-    }
     if (citySearchQuery.trim()) {
       const q = citySearchQuery.trim().toLowerCase();
-      list = list.filter(
+      return list.filter(
         (c) =>
           c.nameEn.toLowerCase().includes(q) ||
           c.nameGu.includes(q) ||
           c.code.includes(q) ||
-          c.talukaEn.toLowerCase().includes(q)
+          c.talukaEn.toLowerCase().includes(q) ||
+          c.districtEn.toLowerCase().includes(q)
       );
+    }
+    if (selectedDistrictCode && selectedDistrictCode !== "all") {
+      list = list.filter((c) => c.districtCode === selectedDistrictCode);
     }
     return list;
   }, [urbanSettlements, selectedDistrictCode, citySearchQuery]);
@@ -637,11 +638,15 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
             className="dx-select"
             value={selectedDistrictCode}
             onChange={(e) => {
-              setSelectedDistrictCode(e.target.value);
-              // auto-select first taluka
-              const dCode = parseInt(e.target.value, 10);
+              const newDCode = e.target.value;
+              setSelectedDistrictCode(newDCode);
+              const dCode = parseInt(newDCode, 10);
               const talukas = MASTER_SUBDISTRICTS.filter((sub) => sub.districtCode === dCode);
               if (talukas.length > 0) setSelectedTalukaCode(String(talukas[0].code));
+              const citiesInDistrict = urbanSettlements.filter((c) => c.districtCode === newDCode);
+              if (citiesInDistrict.length > 0) {
+                setSelectedCityCode(citiesInDistrict[0].code);
+              }
             }}
           >
             {MASTER_DISTRICTS.map((d) => (
@@ -701,7 +706,15 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
                 id="dx-city-select"
                 className="dx-select"
                 value={selectedCityCode}
-                onChange={(e) => setSelectedCityCode(e.target.value)}
+                onChange={(e) => {
+                  const newCode = e.target.value;
+                  setSelectedCityCode(newCode);
+                  const match = urbanSettlements.find((c) => c.code === newCode);
+                  if (match?.districtCode) {
+                    setSelectedDistrictCode(match.districtCode);
+                    if (match.talukaCode) setSelectedTalukaCode(match.talukaCode);
+                  }
+                }}
               >
                 {filteredCities.slice(0, 80).map((c) => (
                   <option key={c.code} value={c.code}>
@@ -767,6 +780,8 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
                 onClick={() => {
                   setSelectedCityCode(city.code);
                   setSelectedDistrictCode(city.districtCode);
+                  const match = urbanSettlements.find((c) => c.code === city.code);
+                  if (match?.talukaCode) setSelectedTalukaCode(match.talukaCode);
                 }}
               >
                 <Building2 size={13} aria-hidden="true" />

@@ -191,6 +191,7 @@ export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplor
             key={`${selectedArea.districtCode}-${selectedArea.subdistrictCode || "district"}`}
             area={selectedArea}
             lang={lang}
+            onSelectLocation={setSelectedLocation}
           />
         ) : (
           <div className="map-selection-prompt" role="status">
