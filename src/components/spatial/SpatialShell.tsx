@@ -261,6 +261,7 @@ export function SpatialShell() {
                   setSelectedSchemeTerm(name);
                   setActiveKey("schemes");
                 }}
+                onFocusMap={handleSelectSearchResult}
               />
 
             </motion.div>

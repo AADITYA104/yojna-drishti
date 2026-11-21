@@ -6,10 +6,30 @@ import { MASTER_DISTRICTS, MASTER_SUBDISTRICTS } from "@/lib/master-hierarchy";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+type Bucket = Record<string, number>;
+
+type SchemeAggregate = {
+  id: string;
+  nameEn: string;
+  nameGu: string;
+  count: number;
+  activity: Bucket;
+  gender: Bucket;
+  eligibility: Bucket;
+};
+
 type LocationAggregate = {
+  code: string;
+  nameEn: string;
+  nameGu: string;
+  category: string;
   districtCode: string;
+  districtEn: string;
+  districtGu: string;
   talukaCode: string;
-  schemes: Record<string, { id: string; nameEn: string; nameGu: string; count: number }>;
+  talukaEn: string;
+  talukaGu: string;
+  schemes: Record<string, SchemeAggregate>;
 };
 
 type AnalyticsIndex = {
@@ -17,7 +37,15 @@ type AnalyticsIndex = {
   locations: Record<string, LocationAggregate>;
 };
 
-type SchemeAggregate = { id: string; nameEn: string; nameGu: string; sampleRows: number; locationsWithRows: number };
+type AreaSchemeSummary = {
+  id: string;
+  nameEn: string;
+  nameGu: string;
+  sampleRows: number;
+  locationsWithRows: number;
+  activity: Bucket;
+  gender: Bucket;
+};
 
 let indexPromise: Promise<AnalyticsIndex> | undefined;
 
@@ -52,17 +80,69 @@ export async function GET(request: Request) {
     const matchingLocations = Object.values(index.locations).filter((location) =>
       location.districtCode === districtCode && (!subdistrictCode || location.talukaCode === subdistrictCode),
     );
-    const schemes = new Map<string, SchemeAggregate>();
+
+    let urbanCount = 0;
+    let ruralCount = 0;
+    const urbanLocationsList: Array<{ code: string; nameEn: string; nameGu: string; talukaEn: string; talukaGu: string; sampleRows: number }> = [];
+
+    const schemes = new Map<string, AreaSchemeSummary>();
+    const totalActivity: Bucket = {};
+    const totalGender: Bucket = {};
+
     for (const location of matchingLocations) {
+      if (location.category === "Urban") {
+        urbanCount++;
+        const totalRows = Object.values(location.schemes || {}).reduce((sum, s) => sum + (s.count || 0), 0);
+        if (urbanLocationsList.length < 50) {
+          urbanLocationsList.push({
+            code: location.code,
+            nameEn: location.nameEn,
+            nameGu: location.nameGu,
+            talukaEn: location.talukaEn,
+            talukaGu: location.talukaGu,
+            sampleRows: totalRows,
+          });
+        }
+      } else {
+        ruralCount++;
+      }
+
       for (const [id, scheme] of Object.entries(location.schemes || {})) {
-        const aggregate = schemes.get(id) || { id, nameEn: scheme.nameEn, nameGu: scheme.nameGu, sampleRows: 0, locationsWithRows: 0 };
+        let aggregate = schemes.get(id);
+        if (!aggregate) {
+          aggregate = {
+            id,
+            nameEn: scheme.nameEn,
+            nameGu: scheme.nameGu,
+            sampleRows: 0,
+            locationsWithRows: 0,
+            activity: {},
+            gender: {},
+          };
+          schemes.set(id, aggregate);
+        }
+
         if (scheme.count > 0) {
           aggregate.sampleRows += scheme.count;
           aggregate.locationsWithRows += 1;
+
+          if (scheme.activity) {
+            for (const [key, val] of Object.entries(scheme.activity)) {
+              aggregate.activity[key] = (aggregate.activity[key] || 0) + val;
+              totalActivity[key] = (totalActivity[key] || 0) + val;
+            }
+          }
+
+          if (scheme.gender) {
+            for (const [key, val] of Object.entries(scheme.gender)) {
+              aggregate.gender[key] = (aggregate.gender[key] || 0) + val;
+              totalGender[key] = (totalGender[key] || 0) + val;
+            }
+          }
         }
-        schemes.set(id, aggregate);
       }
     }
+
     const sampleRecordCount = [...schemes.values()].reduce((sum, scheme) => sum + scheme.sampleRows, 0);
     const area = {
       level: subdistrictCode ? "taluka" : "district",
@@ -73,13 +153,19 @@ export async function GET(request: Request) {
       areaNameEn: taluka?.nameEn || district.nameEn,
       areaNameGu: taluka?.nameGu || district.nameGu,
     };
+
     return Response.json({
       status: "success",
       meta: index.meta,
       data: {
         area,
         locationCount: matchingLocations.length,
+        urbanCount,
+        ruralCount,
         sampleRecordCount,
+        totalActivity,
+        totalGender,
+        urbanLocations: urbanLocationsList,
         schemes: [...schemes.values()].sort((left, right) => left.id.localeCompare(right.id)),
       },
     }, { headers: { "Cache-Control": "public, max-age=300, stale-while-revalidate=600" } });

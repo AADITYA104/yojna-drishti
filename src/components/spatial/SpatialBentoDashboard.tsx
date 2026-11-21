@@ -8,6 +8,7 @@ import { KpiCard } from "@/components/ui/KpiCard";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { CardSkeleton, Skeleton } from "@/components/ui/Skeleton";
 import { DataBadge } from "@/components/ui/DataBadge";
+import { SmartAreaInspector } from "@/components/spatial/SmartAreaInspector";
 
 interface SpatialBentoDashboardProps {
   gu: boolean;
@@ -17,6 +18,15 @@ interface SpatialBentoDashboardProps {
   talukaCount: number;
   onNavigate: (view: "map" | "schemes" | "wizard" | "saved" | "settings") => void;
   onSelectScheme?: (name: string) => void;
+  onFocusMap?: (item: {
+    id: string;
+    label: string;
+    detail: string;
+    kind: "district" | "taluka" | "village" | "scheme";
+    districtId?: string;
+    subdistrictCode?: number;
+    villageCode?: string;
+  }) => void;
 }
 
 type Activity = Partial<Record<StatusKey, number>>;
@@ -155,7 +165,7 @@ function useInView<T extends HTMLElement>(ready: boolean) {
   return [ref, seen] as const;
 }
 
-export function SpatialBentoDashboard({ lang, talukaCount, onNavigate }: SpatialBentoDashboardProps) {
+export function SpatialBentoDashboard({ lang, talukaCount, onNavigate, onFocusMap }: SpatialBentoDashboardProps) {
   const [overview, setOverview] = useState<Overview | null>(null);
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
@@ -261,6 +271,8 @@ export function SpatialBentoDashboard({ lang, talukaCount, onNavigate }: Spatial
             <KpiCard title={text.kpiSchemes} value={<AnimatedNumber value={overview.meta.schemeCount} locale={localeOf(lang)} />} sublabel={text.kpiSchemesSub} icon={BookOpenCheck} badge="DEMO" badgeLabel={text.badge} accent="blue" />
             <KpiCard title={text.kpiApproved} value={<AnimatedNumber value={approval.share} decimals={1} suffix="%" locale={localeOf(lang)} />} sublabel={text.kpiApprovedSub.replace("{n}", fmt(approval.schemes, lang))} icon={Percent} badge="DEMO" badgeLabel={text.badge} accent="teal" />
           </section>
+
+          <SmartAreaInspector lang={lang} onFocusMap={onFocusMap} />
 
           <div className="dx-panels">
             <section ref={schemeRef} className={`dx-panel${schemeSeen ? " dx-in" : ""}`} aria-labelledby="dx-schemes">
