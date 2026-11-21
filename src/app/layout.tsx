@@ -8,9 +8,10 @@ import "@/styles/motion.css";
 import "@/styles/glass.css";
 import "@/styles/spatial.css";
 import "@/styles/brand.css";
+import "@/styles/dashboard.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://yojana-drishti.gujarat.gov.in"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://yojna-drishtiii.vercel.app"),
   title: {
     default: "યોજના દૃષ્ટિ | Yojana Drishti",
     template: "%s | Yojana Drishti",

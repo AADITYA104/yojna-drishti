@@ -53,6 +53,13 @@ export function SpatialShell() {
     return () => window.removeEventListener("hashchange", syncHash);
   }, []);
 
+  // Persist only when the visitor picks a language. Saving from an effect overwrote the stored
+  // choice with the default on first render, so the preference was lost after a reload.
+  const selectLanguage = (next: AppLanguage) => {
+    setLang(next);
+    try { window.localStorage.setItem("yojana-drishti-language", next); } catch { /* private mode: keep working */ }
+  };
+
   const handleNavSelect = (key: SpatialNavKey) => {
     setActiveKey(key);
     window.location.hash = key;
@@ -78,7 +85,6 @@ export function SpatialShell() {
           ? "गुजरात की सरकारी योजनाएँ खोजें और प्रशासनिक नक्शे पर क्षेत्र का विवरण देखें। यह सार्वजनिक पूर्वावलोकन है।"
           : "Find Gujarat government schemes and explore administrative boundaries with area details. This is a public preview.";
     }
-    window.localStorage.setItem("yojana-drishti-language", lang);
   }, [lang]);
 
   // Keyboard shortcut Cmd+K / Ctrl+K
@@ -219,7 +225,7 @@ export function SpatialShell() {
         {/* Primary header */}
         <SpatialHeader
           lang={lang}
-          onSelectLanguage={setLang}
+          onSelectLanguage={selectLanguage}
           onOpenSearch={() => setSearchOpen(true)}
         />
 
@@ -244,21 +250,13 @@ export function SpatialShell() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-              className="space-y-10"
             >
               <SpatialBentoDashboard
                 gu={gu}
                 lang={lang}
                 fy={fy}
-                onNavigate={(view) => {
-                  if (view === "map") {
-                    setActiveKey("map");
-                  } else if (view === "schemes" || view === "wizard" || view === "saved" || view === "settings") {
-                    setActiveKey(view);
-                  } else {
-                    setActiveKey("schemes");
-                  }
-                }}
+                talukaCount={MASTER_SUBDISTRICTS.length}
+                onNavigate={handleNavSelect}
                 onSelectScheme={(name) => {
                   setSelectedSchemeTerm(name);
                   setActiveKey("schemes");
@@ -376,7 +374,7 @@ export function SpatialShell() {
               onClick={(e) => e.stopPropagation()}
             >
               <div style={{ display: "flex", alignItems: "center", padding: "16px 20px", borderBottom: "1px solid rgba(255,255,255,0.12)", gap: "12px" }}>
-                <Search size={20} className="text-white/60" />
+                <Search size={20} style={{ color: "rgba(255,255,255,0.6)" }} aria-hidden="true" />
                 <input
                   type="text"
                   autoFocus
