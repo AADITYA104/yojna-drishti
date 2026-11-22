@@ -815,6 +815,7 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
             <div className="dx-scheme-grid">
               {summary.schemesList.map((scheme) => {
                 const act = scheme.activity || {};
+                const isActivityBased = scheme.id === "S10" || typeof act.activityRecorded === "number";
                 const total = Math.max(1, scheme.count || 1);
                 const approved = (act.approved || 0) + (act.serviceDelivered || 0);
                 const pending = act.pending || 0;
@@ -823,7 +824,7 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
                 const other = Math.max(0, total - (approved + pending + docsPending + rejected));
 
                 return (
-                  <div key={scheme.id} className="dx-scheme-card">
+                  <div key={scheme.id} className="dx-scheme-card" data-scheme-id={scheme.id}>
                     <div className="dx-scheme-card__top">
                       <span className="dx-scheme-card__id">{scheme.id}</span>
                       <h5 className="dx-scheme-card__name">
@@ -833,59 +834,77 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
 
                     <div className="dx-scheme-card__meter">
                       <div className="dx-meter-bar">
-                        {approved > 0 && (
+                        {isActivityBased ? (
                           <div
-                            className="dx-meter-seg dx-meter-seg--approved"
-                            style={{ width: `${(approved / total) * 100}%` }}
-                            title={`${t.statusLabels.approved}: ${approved}`}
+                            className="dx-meter-seg dx-meter-seg--activity"
+                            style={{ width: "100%", background: "#3b82f6" }}
+                            title={`${t.statusLabels.activityRecorded}: ${act.activityRecorded ?? total}`}
                           />
-                        )}
-                        {pending > 0 && (
-                          <div
-                            className="dx-meter-seg dx-meter-seg--pending"
-                            style={{ width: `${(pending / total) * 100}%` }}
-                            title={`${t.statusLabels.pending}: ${pending}`}
-                          />
-                        )}
-                        {docsPending > 0 && (
-                          <div
-                            className="dx-meter-seg dx-meter-seg--docs"
-                            style={{ width: `${(docsPending / total) * 100}%` }}
-                            title={`${t.statusLabels.documentsPending}: ${docsPending}`}
-                          />
-                        )}
-                        {rejected > 0 && (
-                          <div
-                            className="dx-meter-seg dx-meter-seg--rejected"
-                            style={{ width: `${(rejected / total) * 100}%` }}
-                            title={`${t.statusLabels.rejected}: ${rejected}`}
-                          />
-                        )}
-                        {other > 0 && (
-                          <div
-                            className="dx-meter-seg dx-meter-seg--other"
-                            style={{ width: `${(other / total) * 100}%` }}
-                            title={`${t.statusLabels.notApplied}: ${other}`}
-                          />
+                        ) : (
+                          <>
+                            {approved > 0 && (
+                              <div
+                                className="dx-meter-seg dx-meter-seg--approved"
+                                style={{ width: `${(approved / total) * 100}%` }}
+                                title={`${t.statusLabels.approved}: ${approved}`}
+                              />
+                            )}
+                            {pending > 0 && (
+                              <div
+                                className="dx-meter-seg dx-meter-seg--pending"
+                                style={{ width: `${(pending / total) * 100}%` }}
+                                title={`${t.statusLabels.pending}: ${pending}`}
+                              />
+                            )}
+                            {docsPending > 0 && (
+                              <div
+                                className="dx-meter-seg dx-meter-seg--docs"
+                                style={{ width: `${(docsPending / total) * 100}%` }}
+                                title={`${t.statusLabels.documentsPending}: ${docsPending}`}
+                              />
+                            )}
+                            {rejected > 0 && (
+                              <div
+                                className="dx-meter-seg dx-meter-seg--rejected"
+                                style={{ width: `${(rejected / total) * 100}%` }}
+                                title={`${t.statusLabels.rejected}: ${rejected}`}
+                              />
+                            )}
+                            {other > 0 && (
+                              <div
+                                className="dx-meter-seg dx-meter-seg--other"
+                                style={{ width: `${(other / total) * 100}%` }}
+                                title={`${t.statusLabels.notApplied}: ${other}`}
+                              />
+                            )}
+                          </>
                         )}
                       </div>
                     </div>
 
                     <div className="dx-scheme-card__stats">
-                      <span className="dx-stat-pill dx-stat-pill--teal">
-                        <CheckCircle2 size={12} /> {approved} {t.statusLabels.approved}
-                      </span>
-                      <span className="dx-stat-pill dx-stat-pill--amber">
-                        <Clock size={12} /> {pending} {t.statusLabels.pending}
-                      </span>
-                      {docsPending > 0 && (
-                        <span className="dx-stat-pill dx-stat-pill--blue">
-                          <FileQuestion size={12} /> {docsPending} {t.statusLabels.documentsPending}
+                      {isActivityBased ? (
+                        <span className="dx-stat-pill dx-stat-pill--blue" data-testid="s10-activity-pill">
+                          <Sparkles size={12} /> {t.activityBasedScheme}: {act.activityRecorded ?? total} {t.statusLabels.activityRecorded}
                         </span>
+                      ) : (
+                        <>
+                          <span className="dx-stat-pill dx-stat-pill--teal">
+                            <CheckCircle2 size={12} /> {approved} {t.statusLabels.approved}
+                          </span>
+                          <span className="dx-stat-pill dx-stat-pill--amber">
+                            <Clock size={12} /> {pending} {t.statusLabels.pending}
+                          </span>
+                          {docsPending > 0 && (
+                            <span className="dx-stat-pill dx-stat-pill--blue">
+                              <FileQuestion size={12} /> {docsPending} {t.statusLabels.documentsPending}
+                            </span>
+                          )}
+                          <span className="dx-stat-pill dx-stat-pill--red">
+                            <XCircle size={12} /> {rejected} {t.statusLabels.rejected}
+                          </span>
+                        </>
                       )}
-                      <span className="dx-stat-pill dx-stat-pill--red">
-                        <XCircle size={12} /> {rejected} {t.statusLabels.rejected}
-                      </span>
                     </div>
                   </div>
                 );
