@@ -163,6 +163,20 @@ export function PublicPortalView({ gu, lang, initialState, onStateChange }: Publ
       {/* STEP 1: LIFE STAGE / CATEGORY */}
       {step === 1 && (
         <div className="finder-wizard-box reveal">
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                .wizard-options-grid {
+                  display: grid !important;
+                  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+                  gap: 10px;
+                }
+                .wizard-options-grid > .wizard-opt-btn:last-child:nth-child(odd) {
+                  grid-column: 1 / -1 !important;
+                }
+              `,
+            }}
+          />
           <div className="wizard-workspace">
             <div className="wizard-question-group">
               <label className="wizard-label">
