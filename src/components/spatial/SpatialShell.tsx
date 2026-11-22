@@ -72,7 +72,8 @@ export function SpatialShell() {
   // Issue #5: Persist area selector & wizard progress across workspace switches
   const [areaState, setAreaState] = useState<AreaSelectionState>(() => {
     if (typeof window !== "undefined") {
-      const sp = new URLSearchParams(window.location.search);
+      const searchStr = window.location.search || (window.location.hash.includes("?") ? window.location.hash.slice(window.location.hash.indexOf("?")) : "");
+      const sp = new URLSearchParams(searchStr);
       const urlParams = {
         district: sp.get("district"),
         taluka: sp.get("taluka"),
@@ -90,7 +91,8 @@ export function SpatialShell() {
 
   const [wizardState, setWizardState] = useState<WizardProgressState>(() => {
     if (typeof window !== "undefined") {
-      const sp = new URLSearchParams(window.location.search);
+      const searchStr = window.location.search || (window.location.hash.includes("?") ? window.location.hash.slice(window.location.hash.indexOf("?")) : "");
+      const sp = new URLSearchParams(searchStr);
       const urlParams = {
         step: sp.get("wizard_step"),
         lifeStage: sp.get("wizard_lifestage"),
