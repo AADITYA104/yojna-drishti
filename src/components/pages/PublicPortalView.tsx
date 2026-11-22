@@ -139,6 +139,28 @@ export function PublicPortalView({ gu, lang, initialState, onStateChange }: Publ
 
       {/* Progressive Step Indicator */}
       <div className="wizard-step-progress-bar reveal">
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              .wizard-step-progress-bar::before {
+                display: none !important;
+                content: none !important;
+              }
+              .wizard-step-progress-bar {
+                display: flex !important;
+                align-items: center !important;
+                gap: 10px !important;
+                flex-wrap: wrap !important;
+                position: relative !important;
+                margin-bottom: 24px !important;
+              }
+              .wizard-step-pill {
+                position: relative !important;
+                z-index: 1 !important;
+              }
+            `,
+          }}
+        />
         {[
           { num: 1, titleGu: "લાભાર્થી શ્રેણી", titleEn: "Category", titleHi: "लाभार्थी श्रेणी" },
           { num: 2, titleGu: "આવક મર્યાદા", titleEn: "Income Bracket", titleHi: "आय सीमा" },
