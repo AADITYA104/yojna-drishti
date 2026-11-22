@@ -3,7 +3,7 @@
 import React from "react";
 import { CheckCircle2, Database, FileCheck2, Link2Off, MapPinned, ShieldCheck } from "lucide-react";
 import type { AppLanguage } from "@/lib/i18n";
-import { MASTER_SUBDISTRICTS } from "@/lib/master-hierarchy";
+import { MASTER_SUBDISTRICTS, TOTAL_DISTRICTS_GU, TOTAL_DISTRICTS_HI, TOTAL_DISTRICTS_EN } from "@/lib/master-hierarchy";
 
 interface AdministrationViewProps {
   gu: boolean;
@@ -22,7 +22,7 @@ const copy = {
     sourceTitle: "માહિતી સ્ત્રોત અને વિશ્વાસ સ્તર",
     boundaryTitle: "વહીવટી સીમાઓ",
     boundaryDesc: "જિલ્લો, તાલુકો અને ઉપલબ્ધ ગામ તથા શહેરની સીમાઓ નકશા વિશ્લેષણ માટે વપરાય છે.",
-    boundaryMeta: `૩૩ જિલ્લા · ${MASTER_SUBDISTRICTS.length} તાલુકા`,
+    boundaryMeta: `${TOTAL_DISTRICTS_GU} જિલ્લા · ${MASTER_SUBDISTRICTS.length} તાલુકા`,
     datasetTitle: "સ્થાનવાર નમૂના માહિતી સમૂહ",
     datasetDesc: "દરેક પસંદ કરેલા સ્થાન માટે ૩૯ ખાનાઓ અને ૧૦ યોજના કોડવાળી કૃત્રિમ હરોળો વાંચી શકાય છે.",
     datasetMeta: "માત્ર કૃત્રિમ નમૂનો · દરેક યોજના/સ્થળ દીઠ ૧૫ હરોળો",
@@ -50,7 +50,7 @@ const copy = {
     sourceTitle: "डेटा स्रोत और भरोसे की स्थिति",
     boundaryTitle: "प्रशासनिक सीमाएँ",
     boundaryDesc: "जिला, तालुका और उपलब्ध गाँव/शहर boundaries को map drill-down के लिए उपयोग किया जाता है।",
-    boundaryMeta: `34 जिले · ${MASTER_SUBDISTRICTS.length} तालुके`,
+    boundaryMeta: `${TOTAL_DISTRICTS_HI} जिले · ${MASTER_SUBDISTRICTS.length} तालुके`,
     datasetTitle: "स्थान-आधारित sample dataset",
     datasetDesc: "हर चुने स्थान के लिए 39 fields और 10 scheme codes वाली synthetic rows पढ़ी जा सकती हैं।",
     datasetMeta: "केवल synthetic demo · हर scheme/location पर 15 rows",
@@ -78,7 +78,7 @@ const copy = {
     sourceTitle: "Source and confidence status",
     boundaryTitle: "Administrative boundaries",
     boundaryDesc: "District, taluka, and available village/city boundaries power the map drill-down.",
-    boundaryMeta: `34 districts · ${MASTER_SUBDISTRICTS.length} talukas`,
+    boundaryMeta: `${TOTAL_DISTRICTS_EN} districts · ${MASTER_SUBDISTRICTS.length} talukas`,
     datasetTitle: "Location-level sample dataset",
     datasetDesc: "The selected location can expose synthetic rows across 39 fields and 10 scheme codes.",
     datasetMeta: "Synthetic demo only · 15 rows per scheme/location",

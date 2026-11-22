@@ -543,6 +543,20 @@ export const MASTER_DISTRICTS: MasterDistrict[] = [
   }
 ];
 
+function toGujaratiDigits(num: number): string {
+  const guDigits = ["૦", "૧", "૨", "૩", "૪", "૫", "૬", "૭", "૮", "૯"];
+  return String(num).replace(/\d/g, (d) => guDigits[Number(d)]);
+}
+function toHindiDigits(num: number): string {
+  const hiDigits = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"];
+  return String(num).replace(/\d/g, (d) => hiDigits[Number(d)]);
+}
+
+export const TOTAL_DISTRICTS_COUNT = MASTER_DISTRICTS.length;
+export const TOTAL_DISTRICTS_GU = toGujaratiDigits(TOTAL_DISTRICTS_COUNT);
+export const TOTAL_DISTRICTS_HI = toHindiDigits(TOTAL_DISTRICTS_COUNT);
+export const TOTAL_DISTRICTS_EN = String(TOTAL_DISTRICTS_COUNT);
+
 // ========================================================
 // 2. ALL 309 SUB-DISTRICTS / TALUKAS OF GUJARAT
 // ========================================================

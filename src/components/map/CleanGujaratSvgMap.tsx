@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from "react";
 import { GUJARAT_DISTRICT_POLYGONS } from "@/lib/gujarat-svg-paths";
 import { demoDistricts, type District } from "@/lib/demo-data";
+import { TOTAL_DISTRICTS_GU, TOTAL_DISTRICTS_EN } from "@/lib/master-hierarchy";
 import { localizeText, type AppLanguage } from "@/lib/i18n";
 import {
   MapPin,
@@ -128,7 +129,7 @@ export function CleanGujaratSvgMap({
   };
 
   const regions: { id: "all" | District["region"]; gu: string; en: string }[] = [
-    { id: "all", gu: "સમગ્ર ગુજરાત (૩૩ જિલ્લા)", en: "All Gujarat (33)" },
+    { id: "all", gu: `સમગ્ર ગુજરાત (${TOTAL_DISTRICTS_GU} જિલ્લા)`, en: `All Gujarat (${TOTAL_DISTRICTS_EN})` },
     { id: "Saurashtra", gu: "સૌરાષ્ટ્ર", en: "Saurashtra" },
     { id: "North Gujarat", gu: "ઉત્તર ગુજરાત", en: "North Gujarat" },
     { id: "Central Gujarat", gu: "મધ્ય ગુજરાત", en: "Central Gujarat" },
@@ -203,7 +204,7 @@ export function CleanGujaratSvgMap({
             viewBox="20 20 910 680"
             className="w-full h-auto select-none"
             style={{ filter: "drop-shadow(0 12px 32px rgba(0,0,0,0.5))" }}
-            aria-label={gu ? "ગુજરાતનો ૩૩ જિલ્લા નકશો" : "Gujarat 33 District Map"}
+            aria-label={gu ? `ગુજરાતનો ${TOTAL_DISTRICTS_GU} જિલ્લા નકશો` : `Gujarat ${TOTAL_DISTRICTS_EN} District Map`}
           >
             <defs>
               <linearGradient id="selected-district-grad" x1="0%" y1="0%" x2="100%" y2="100%">

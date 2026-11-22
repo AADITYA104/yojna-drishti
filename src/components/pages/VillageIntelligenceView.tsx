@@ -23,6 +23,8 @@ import {
 import {
   MASTER_DISTRICTS,
   MASTER_SUBDISTRICTS,
+  TOTAL_DISTRICTS_GU,
+  TOTAL_DISTRICTS_EN,
   GHOGHA_48_VILLAGES,
   getSubdistrictsForDistrict,
   type MasterVillage,
@@ -329,7 +331,7 @@ export function VillageIntelligenceView({
               }}
             >
               <Sparkles size={13} />
-              {gu ? "૩૩ જિલ્લા · ૨૫૦+ તાલુકા · તમામ ગામોની લાઈવ યોજના સ્થિતિ" : "33 DISTRICTS · 250+ TALUKAS · ALL VILLAGES ACTIVE DATA"}
+              {gu ? `${TOTAL_DISTRICTS_GU} જિલ્લા · ${MASTER_SUBDISTRICTS.length} તાલુકા · તમામ ગામોની લાઈવ યોજના સ્થિતિ` : `${TOTAL_DISTRICTS_EN} DISTRICTS · ${MASTER_SUBDISTRICTS.length} TALUKAS · ALL VILLAGES ACTIVE DATA`}
             </span>
             <h1
               style={{
