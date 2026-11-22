@@ -7,13 +7,7 @@ test("Issue #8: Breadcrumb shows rural village as 4th crumb matching urban patte
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
     await page.goto("http://localhost:3000/?district=bhavnagar&taluka=3855&village=516291#map", { waitUntil: "domcontentloaded" });
-    await page.waitForTimeout(2500);
-
-    const breadcrumbs = await page.$(".geo-breadcrumbs");
-    assert.ok(breadcrumbs, "Breadcrumbs container must exist");
-
-    // Check for the 4th crumb
-    const fourthCrumb = await page.$(".geo-current-crumb");
+    const fourthCrumb = await page.waitForSelector(".geo-current-crumb", { timeout: 12000 });
     assert.ok(fourthCrumb, "Rural village 4th crumb must exist");
 
     const text = await fourthCrumb.textContent();

@@ -7,7 +7,7 @@ test("Issue #11: Invalid hash falls back to #dashboard and calls replaceState to
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
     await page.goto("http://localhost:3000/#completely_invalid_hash_xyz", { waitUntil: "domcontentloaded" });
-    await page.waitForTimeout(1500);
+    await page.waitForFunction(() => window.location.hash === "#dashboard", { timeout: 10000 });
 
     const currentUrl = page.url();
     assert.ok(currentUrl.endsWith("#dashboard"), `URL must be cleaned to end with #dashboard, but was: ${currentUrl}`);

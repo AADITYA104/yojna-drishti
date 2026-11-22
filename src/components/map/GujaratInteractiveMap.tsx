@@ -326,6 +326,13 @@ function formatNumber(value: number, gu: boolean, lang: AppLanguage = gu ? "gu" 
   return new Intl.NumberFormat(gu ? "gu-IN" : lang === "hi" ? "hi-IN" : "en-IN").format(value);
 }
 
+/** Blank basemap used when the online style cannot load, so our own boundary polygons still work. */
+const OFFLINE_STYLE: maplibregl.StyleSpecification = {
+  version: 8,
+  sources: {},
+  layers: [{ id: "offline-background", type: "background", paint: { "background-color": "#e9eef4" } }],
+};
+
 export function GujaratInteractiveMap({
   gu,
   lang = gu ? "gu" : "en",
@@ -352,6 +359,7 @@ export function GujaratInteractiveMap({
 
   const [mapReady, setMapReady] = useState(false);
   const [mapError, setMapError] = useState("");
+  const [basemapOffline, setBasemapOffline] = useState(false);
   const [districtData, setDistrictData] = useState<DistrictCollection | null>(null);
   const [officialBoundaryData, setOfficialBoundaryData] = useState<DistrictCollection | null>(null);
   const [boundaryDistrictId, setBoundaryDistrictId] = useState("");
@@ -828,14 +836,19 @@ export function GujaratInteractiveMap({
     map.addControl(new maplibregl.AttributionControl({ compact: false }), "bottom-right");
 
     let styleLoaded = false;
+    let usedOffline = false;
+    const switchToOfflineBasemap = () => {
+      if (styleLoaded || usedOffline) return;
+      usedOffline = true;
+      setBasemapOffline(true);
+      map.setStyle(OFFLINE_STYLE);
+    };
     map.on("error", (event) => {
+      if (usedOffline) return; // label/glyph requests fail by design on the blank basemap
+      if (!styleLoaded) { switchToOfflineBasemap(); return; }
       if (event.error?.message) setMapError(event.error.message);
     });
-    const styleLoadTimeout = window.setTimeout(() => {
-      if (!styleLoaded) {
-        setMapError("Road map style did not finish loading. Check your connection and retry.");
-      }
-    }, 15000);
+    const styleLoadTimeout = window.setTimeout(switchToOfflineBasemap, 8000);
 
     const addAdminBoundaryLayers = () => {
       if (boundaryLayersAdded.current || !map.getSource("openmaptiles")) return;
@@ -1560,8 +1573,8 @@ export function GujaratInteractiveMap({
         : "Gujarat State")
       : level === "district"
       ? localizeText(lang, gu
-        ? `[${currentDistrict.officialNo}] ${currentDistrict.gu} જિલ્લો`
-        : `[${currentDistrict.officialNo}] ${currentDistrict.name} District`)
+        ? `${currentDistrict.gu} જિલ્લો`
+        : `${currentDistrict.name} District`)
       : level === "taluka"
       ? currentTaluka
         ? localizeText(lang, gu
@@ -1608,7 +1621,7 @@ export function GujaratInteractiveMap({
                 >
                   <Building2 size={14} />
                   <span>
-                    [{currentDistrict.officialNo}] {localizeText(lang, gu ? currentDistrict.gu : currentDistrict.name)}
+                    {localizeText(lang, gu ? currentDistrict.gu : currentDistrict.name)}
                   </span>
                 </button>
               </>
@@ -1717,12 +1730,21 @@ export function GujaratInteractiveMap({
             </div>
           )}
 
+          {basemapOffline && !mapError && (
+            <div className="geo-map-error" role="status" style={{ top: "auto", bottom: 56 }}>
+              <Info size={16} />
+              <span>
+                {localizeText(lang, gu ? "બેઝ-મેપ ઉપલબ્ધ નથી; ફક્ત વહીવટી સીમાઓ બતાવી છે." : "Base map unavailable; showing administrative boundaries only.")}
+              </span>
+            </div>
+          )}
+
           {mapError && (
             <div className="geo-map-error" role="alert">
               <Info size={16} />
               <span>
-                {localizeText(lang, gu ? "નકશાનો ડેટા લોડ થયો નથી." : mapError)}
-                {gu && mapError ? <small className="geo-map-error-detail">{mapError}</small> : null}
+                {localizeText(lang, gu ? "નકશાનો ડેટા લોડ થયો નથી." : "The map data could not be loaded.")}
+                
               </span>
               <button onClick={() => window.location.reload()}>
                 {localizeText(lang, gu ? "ફરી પ્રયાસ કરો" : "Retry")}
@@ -1780,7 +1802,7 @@ export function GujaratInteractiveMap({
               {level === "state"
                 ? localizeText(lang, gu ? "૩૪ જિલ્લાઓની સરહદ" : "District Boundaries")
                 : level === "district"
-                ? localizeText(lang, gu ? `[${currentDistrict.officialNo}] ${currentDistrict.gu}ના તાલુકાઓ` : lang === "hi" ? `${localizeText("hi", currentDistrict.name)} के तालुके` : `${currentDistrict.name} talukas`)
+                ? localizeText(lang, gu ? `${currentDistrict.gu}ના તાલુકાઓ` : lang === "hi" ? `${localizeText("hi", currentDistrict.name)} के तालुके` : `${currentDistrict.name} talukas`)
                 : localizeText(lang, gu ? "ગામની સંદર્ભ સીમા" : lang === "hi" ? "गाँव की संदर्भ सीमा" : "Village reference boundaries")}
             </span>
             <b>{mapZoom.toFixed(1)}×</b>
@@ -1914,8 +1936,8 @@ export function GujaratInteractiveMap({
                         <Building2 size={16} />
                       </span>
                       <span className="geo-entity-name">
-                        <b>[{district.officialNo}] {localizeText(lang, gu ? district.gu : district.name)}</b>
-                        <small>{localizeText(lang, gu ? district.regionGu : district.region)}</small>
+                        <b>{localizeText(lang, gu ? district.gu : district.name)}</b>
+                        <small>{localizeText(lang, gu ? district.regionGu : district.region)} · {district.officialNo}</small>
                       </span>
                       <span className="geo-entity-meta">
                         {subdistrictCount} {localizeText(lang, gu ? "તાલુકા" : "talukas")}
@@ -2031,7 +2053,7 @@ export function GujaratInteractiveMap({
               {currentVillage && (
                 <div className="geo-village-summary">
                   <span><Home size={15} /> {localizeText(lang, gu ? (currentTaluka?.nameGu || "") : (currentTaluka?.nameEn || ""))}</span>
-                  <span><Landmark size={15} /> [{currentDistrict.officialNo}] {localizeText(lang, gu ? currentDistrict.gu : currentDistrict.name)}</span>
+                  <span><Landmark size={15} /> {localizeText(lang, gu ? currentDistrict.gu : currentDistrict.name)}</span>
                 </div>
               )}
 

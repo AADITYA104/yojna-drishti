@@ -7,9 +7,7 @@ test("Issue #15: Wizard category grid makes last orphan card span full width", a
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
     await page.goto("http://localhost:3000/#wizard", { waitUntil: "domcontentloaded" });
-    await page.waitForTimeout(1500);
-
-    const grid = await page.$(".wizard-options-grid");
+    const grid = await page.waitForSelector(".wizard-options-grid", { timeout: 10000 });
     assert.ok(grid, "Wizard options grid must exist");
     const gridBox = await grid.boundingBox();
     assert.ok(gridBox, "Grid bounding box must exist");
