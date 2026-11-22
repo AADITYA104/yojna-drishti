@@ -27,6 +27,7 @@ let villageCoverageMeta = {
   totalSubdistricts: MASTER_SUBDISTRICTS.length,
   indexedSubdistricts: 0,
   indexedVillages: 0,
+  datasetVillages: 18818,
   missingSubdistricts: 0,
   isPartial: false,
 };
@@ -73,6 +74,7 @@ function loadVillageIndex() {
     totalSubdistricts: MASTER_SUBDISTRICTS.length,
     indexedSubdistricts: indexed,
     indexedVillages: villageIndex.length,
+    datasetVillages: 18818,
     missingSubdistricts: missing,
     isPartial: missing > 0,
   };

@@ -36,7 +36,7 @@ export function SpatialShell() {
   const [remoteSearchResults, setRemoteSearchResults] = useState<GlobalSearchItem[]>([]);
   const [remoteSearchQuery, setRemoteSearchQuery] = useState("");
   const [remoteSearchErrorQuery, setRemoteSearchErrorQuery] = useState("");
-  const [remoteSearchCoverage, setRemoteSearchCoverage] = useState<{ indexedVillages: number; indexedSubdistricts: number; totalSubdistricts: number } | null>(null);
+  const [remoteSearchCoverage, setRemoteSearchCoverage] = useState<{ indexedVillages: number; datasetVillages?: number; indexedSubdistricts: number; totalSubdistricts: number } | null>(null);
   const focusRequestSequence = useRef(0);
 
   const gu = lang === "gu";
@@ -160,7 +160,7 @@ export function SpatialShell() {
           if (!response.ok) throw new Error("Search service unavailable");
           return response.json() as Promise<{
             data?: GlobalSearchItem[];
-            meta?: { coverage?: { indexedVillages: number; indexedSubdistricts: number; totalSubdistricts: number } };
+            meta?: { coverage?: { indexedVillages: number; datasetVillages?: number; indexedSubdistricts: number; totalSubdistricts: number } };
           }>;
         })
         .then((payload) => {
@@ -416,10 +416,10 @@ export function SpatialShell() {
                 {searchQuery.trim().length >= 2 && remoteSearchQuery === searchQuery.trim() && remoteSearchCoverage && (
                   <p className="spatial-search-coverage">
                     {lang === "gu"
-                      ? `${remoteSearchCoverage.indexedVillages.toLocaleString("gu-IN")} ગામ/શહેરના નામ · ${remoteSearchCoverage.indexedSubdistricts}/${remoteSearchCoverage.totalSubdistricts} તાલુકા સૂચિ`
+                      ? `${remoteSearchCoverage.indexedVillages.toLocaleString("gu-IN")} LGD સરકારી વહીવટી સ્થાનો (${(remoteSearchCoverage.datasetVillages || 18818).toLocaleString("gu-IN")} ડેમો ડેટાસેટ) · ${remoteSearchCoverage.indexedSubdistricts}/${remoteSearchCoverage.totalSubdistricts} તાલુકા`
                       : lang === "hi"
-                        ? `${remoteSearchCoverage.indexedVillages.toLocaleString("hi-IN")} गाँव/शहर के नाम · ${remoteSearchCoverage.indexedSubdistricts}/${remoteSearchCoverage.totalSubdistricts} तालुका सूचियाँ`
-                        : `${remoteSearchCoverage.indexedVillages.toLocaleString("en-IN")} village/city names · ${remoteSearchCoverage.indexedSubdistricts}/${remoteSearchCoverage.totalSubdistricts} taluka lists`}
+                        ? `${remoteSearchCoverage.indexedVillages.toLocaleString("hi-IN")} LGD प्रशासनिक स्थान (${(remoteSearchCoverage.datasetVillages || 18818).toLocaleString("hi-IN")} डेमो डेटासेट) · ${remoteSearchCoverage.indexedSubdistricts}/${remoteSearchCoverage.totalSubdistricts} तालुका`
+                        : `${remoteSearchCoverage.indexedVillages.toLocaleString("en-IN")} LGD settlements (${(remoteSearchCoverage.datasetVillages || 18818).toLocaleString("en-IN")} demo dataset) · ${remoteSearchCoverage.indexedSubdistricts}/${remoteSearchCoverage.totalSubdistricts} talukas`}
                   </p>
                 )}
                 {filteredSearchResults.map((item) => (

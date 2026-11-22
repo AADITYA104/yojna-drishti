@@ -317,7 +317,7 @@ export function OverviewView({
           <Home size={16} className="text-mono-white" />
           <div>
             <strong>19,201</strong>
-            <span>{gu ? "ગામો (૧૮,૫૦૦+ વાસ્તવિક યોજના પહોંચ)" : "Villages (18,500+ Grassroots Reach)"}</span>
+            <span>{gu ? "વહીવટી સ્થાનો (૧૯,૨૦૧ LGD · ૧૮,૮૧૮ ડેમો ડેટાસેટ)" : "Settlements (19,201 LGD · 18,818 Demo Dataset)"}</span>
           </div>
         </div>
         <div className="coverage-divider" />
