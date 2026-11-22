@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useMemo, useRef } from "react";
-import Image from "next/image";
 import { getLocale, localizeText } from "@/lib/i18n";
 import {
   Search,
@@ -37,34 +36,25 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
   const fmt = (num: number) => new Intl.NumberFormat(getLocale(lang)).format(num);
   const intro = {
     gu: {
-      kicker: "યોજના સૂચિ · નમૂનાનું પૂર્વદર્શન",
-      title: "ગુજરાતની યોજનાઓની સૂચિ",
-      description: "આ સૂચિમાં ઉદાહરણરૂપ નોંધો છે. સત્તાવાર લાભ, પાત્રતા, દસ્તાવેજો અને અરજીની વિગતો અહીં જોડાયેલી નથી.",
+      kicker: "મહિલા કલ્યાણ યોજના નિર્દેશિકા · નમૂનાનું પૂર્વદર્શન",
+      title: "ગુજરાત મહિલા કલ્યાણ યોજનાઓ",
+      description: "આ નિર્દેશિકામાં ગુજરાત રાજ્યની મહિલા અને બાળ વિકાસ, આરોગ્ય અને પોષણ સંબંધિત યોજનાઓની ડેમો નોંધો દર્શાવેલ છે. સત્તાવાર લાભ, પાત્રતા અને દસ્તાવેજોની ચકાસણી સરકારી પોર્ટલ પર કરવી.",
       directory: "યોજનાઓ શોધો",
       map: "ગુજરાતનો નકશો જુઓ",
-      imageAlt: "ખેતરમાં ટપક સિંચાઈની પદ્ધતિ સાથે ઊભેલા ખેડૂતનું દૃશ્ય",
-      photoLabel: "ગુજરાતનાં પ્રમુખ સ્થળો",
-      places: ["રાણીની વાવ · પાટણ", "સ્ટેચ્યુ ઑફ યુનિટી · નર્મદા", "કચ્છનું રણ", "સાબરમતી રિવરફ્રન્ટ · અમદાવાદ"],
     },
     en: {
-      kicker: "Scheme catalogue · sample preview",
-      title: "Explore Gujarat scheme entries",
-      description: "This catalogue contains illustrative entries. Official benefits, eligibility, documents, and application details are not connected or verified here.",
+      kicker: "Women Welfare Directory · Sample Preview",
+      title: "Gujarat Women Welfare Schemes",
+      description: "This directory displays illustrative demo entries for women and child development, nutrition, and welfare schemes across Gujarat. Official eligibility and benefits should be verified on government portals.",
       directory: "Explore schemes",
       map: "Explore Gujarat map",
-      imageAlt: "A farmer walking through a field with drip irrigation lines",
-      photoLabel: "Landmarks of Gujarat",
-      places: ["Rani ki Vav · Patan", "Statue of Unity · Narmada", "The Rann of Kutch", "Sabarmati Riverfront · Ahmedabad"],
     },
     hi: {
-      kicker: "योजना सूची · नमूना पूर्वावलोकन",
-      title: "गुजरात की योजना प्रविष्टियाँ देखें",
-      description: "इस सूची में उदाहरण प्रविष्टियाँ हैं। आधिकारिक लाभ, पात्रता, दस्तावेज़ और आवेदन विवरण यहाँ जुड़े या सत्यापित नहीं हैं।",
+      kicker: "महिला कल्याण योजना सूची · नमूना पूर्वावलोकन",
+      title: "गुजरात महिला कल्याण योजनाएँ",
+      description: "इस निर्देशिका में गुजरात राज्य की महिला एवं बाल विकास, पोषण और कल्याण योजनाओं की उदाहरणात्मक डेमो प्रविष्टियाँ हैं। आधिकारिक पात्रता एवं लाभ सरकारी पोर्टल पर सत्यापित करें।",
       directory: "योजनाएँ खोजें",
       map: "गुजरात का नक्शा देखें",
-      imageAlt: "ड्रिप सिंचाई वाले खेत में चलते किसान का दृश्य",
-      photoLabel: "गुजरात के प्रमुख स्थान",
-      places: ["रानी की वाव · पाटन", "स्टैच्यू ऑफ यूनिटी · नर्मदा", "कच्छ का रण", "साबरमती रिवरफ्रंट · अहमदाबाद"],
     },
   }[lang];
 
@@ -140,37 +130,60 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
           </div>
         </div>
 
-        <figure className="gujarat-glass-hero-frame">
-          <Image
-            src="/images/gujarat-farmer.webp"
-            alt={intro.imageAlt}
-            width={640}
-            height={440}
-            priority
-            sizes="(max-width: 900px) 100vw, 420px"
-          />
-          <figcaption className="gujarat-hero-caption">
-            <strong>{gu ? "કિસાન કલ્યાણ & કૃષિ વિકાસ" : lang === "hi" ? "किसान कल्याण एवं कृषि विकास" : "Farmer Welfare & Agriculture"}</strong>
-            <span>{gu ? "ટપક સિંચાઈ અને મુખ્યમંત્રી કિસાન સહાય યોજના" : lang === "hi" ? "ड्रिप सिंचाई और मुख्यमंत्री किसान सहाय योजना" : "Micro-irrigation & Kisan Sahay"}</span>
-          </figcaption>
-        </figure>
-      </section>
+        <div className="gujarat-glass-hero-summary p-6 sm:p-8 flex flex-col justify-between bg-gradient-to-br from-[#eff7fa] to-[#dceaf0] border-t md:border-t-0 md:border-l border-slate-200/80">
+          <div>
+            <div className="flex items-center justify-between gap-2 mb-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-500/30">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                {gu ? "કૃત્રિમ ડેમો ડેટાસેટ" : lang === "hi" ? "कृत्रिम नमूना डेटा" : "SYNTHETIC DEMO DATA"}
+              </span>
+              <span className="text-xs font-semibold text-slate-600 bg-white/70 px-2.5 py-1 rounded-md border border-slate-200/60">
+                {gu ? `નાણાકીય વર્ષ ${fy}` : lang === "hi" ? `वित्तीय वर्ष ${fy}` : `FY ${fy}`}
+              </span>
+            </div>
 
-      {/* 4 Landmark Photo Strip */}
-      <section className="gujarat-photo-strip reveal" aria-label={intro.photoLabel}>
-        <h2>{intro.photoLabel}</h2>
-        <div className="gujarat-photo-strip-grid">
-          {[
-            { src: "/images/gujarat-stepwell.webp", alt: intro.places[0] },
-            { src: "/images/gujarat-unity.webp", alt: intro.places[1] },
-            { src: "/images/gujarat-rann.webp", alt: intro.places[2] },
-            { src: "/images/gujarat-riverfront.webp", alt: intro.places[3] },
-          ].map((place) => (
-            <figure className="gujarat-photo-tile" key={place.src}>
-              <Image src={place.src} alt={place.alt} width={420} height={156} sizes="(max-width: 640px) 50vw, 25vw" />
-              <figcaption>{place.alt}</figcaption>
-            </figure>
-          ))}
+            <div className="grid grid-cols-2 gap-3 mb-5">
+              <div className="bg-white/95 p-3.5 rounded-xl border border-slate-200 shadow-xs">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#173b58]">{fmt(demoSchemes.length)}</div>
+                <div className="text-xs font-semibold text-slate-600 mt-1">{gu ? "કુલ સક્રિય યોજનાઓ" : lang === "hi" ? "कुल सक्रिय योजनाएँ" : "Total Active Schemes"}</div>
+              </div>
+              <div className="bg-white/95 p-3.5 rounded-xl border border-slate-200 shadow-xs">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#1a5277]">{fmt(categories.length)}</div>
+                <div className="text-xs font-semibold text-slate-600 mt-1">{gu ? "મુખ્ય શ્રેણીઓ" : lang === "hi" ? "प्रमुख श्रेणियाँ" : "Key Categories"}</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">{gu ? "શ્રેણી ફિલ્ટર" : lang === "hi" ? "श्रेणी फ़िल्टर" : "Category Filter"}</div>
+            <div className="flex flex-wrap gap-1.5">
+              <button
+                type="button"
+                onClick={() => setSelectedCategory("all")}
+                className={`px-2.5 py-1 text-xs rounded-lg font-medium transition-all ${
+                  selectedCategory === "all"
+                    ? "bg-[#173b58] text-white shadow-xs"
+                    : "bg-white/80 hover:bg-white text-slate-700 border border-slate-200"
+                }`}
+              >
+                {gu ? "બધી યોજનાઓ" : lang === "hi" ? "सभी योजनाएँ" : "All Schemes"}
+              </button>
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-2.5 py-1 text-xs rounded-lg font-medium transition-all ${
+                    selectedCategory === cat
+                      ? "bg-[#173b58] text-white shadow-xs"
+                      : "bg-white/80 hover:bg-white text-slate-700 border border-slate-200"
+                  }`}
+                >
+                  {gu ? (categoryLabels.get(cat) || cat) : lang === "hi" ? localizeText("hi", cat) : cat}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
