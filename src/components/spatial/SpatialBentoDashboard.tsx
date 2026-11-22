@@ -288,6 +288,42 @@ export function SpatialBentoDashboard({ lang, talukaCount, onNavigate, onFocusMa
 
           <div className="dx-panels">
             <section ref={schemeRef} className={`dx-panel${schemeSeen ? " dx-in" : ""}`} aria-labelledby="dx-schemes">
+              <style
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    .dx-panel .dx-bar:not(.dx-bar--single) {
+                      height: 22px !important;
+                      border-radius: 8px !important;
+                      gap: 1px !important;
+                    }
+                    .dx-panel .dx-bar:not(.dx-bar--single) > i {
+                      display: inline-flex !important;
+                      align-items: center !important;
+                      justify-content: center !important;
+                      height: 100% !important;
+                      min-width: 0 !important;
+                      cursor: pointer;
+                      transition: opacity 160ms ease;
+                    }
+                    .dx-panel .dx-bar:not(.dx-bar--single) > i:hover,
+                    .dx-panel .dx-bar:not(.dx-bar--single) > i:focus-visible {
+                      opacity: 0.9;
+                      outline: 2px solid #ffffff;
+                      outline-offset: -2px;
+                      z-index: 2;
+                    }
+                    .dx-bar__pct {
+                      font-size: 0.6875rem;
+                      font-weight: 750;
+                      color: #ffffff;
+                      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+                      line-height: 1;
+                      pointer-events: none;
+                      user-select: none;
+                    }
+                  `,
+                }}
+              />
               <div className="dx-panel__head">
                 <div>
                   <h2 id="dx-schemes" className="dx-h2">{text.schemeTitle}</h2>
@@ -323,7 +359,26 @@ export function SpatialBentoDashboard({ lang, talukaCount, onNavigate, onFocusMa
                       <div className="dx-bar" role="img" aria-label={`${nameOf(scheme)}: ${summary}`} title={summary}>
                         {usedStatuses.map((s, i) => {
                           const value = scheme.activity[s.key] ?? 0;
-                          return value > 0 ? <i key={s.key} style={{ "--w": `${(value / total) * 100}%`, "--c": s.color, "--i": i } as React.CSSProperties} /> : null;
+                          if (value <= 0) return null;
+                          const pct = (value / total) * 100;
+                          const isWideEnough = pct >= 14;
+                          const segTooltip = `${text.status[s.key]}: ${fmt(value, lang)} (${fmt(Math.round(pct), lang)}%)`;
+                          return (
+                            <i
+                              key={s.key}
+                              style={{ "--w": `${pct}%`, "--c": s.color, "--i": i } as React.CSSProperties}
+                              title={segTooltip}
+                              aria-label={segTooltip}
+                              tabIndex={0}
+                              role="img"
+                            >
+                              {isWideEnough && (
+                                <span className="dx-bar__pct" aria-hidden="true">
+                                  {fmt(Math.round(pct), lang)}%
+                                </span>
+                              )}
+                            </i>
+                          );
                         })}
                       </div>
                     </li>
