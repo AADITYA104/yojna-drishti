@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, BookOpenCheck, Building2, Map as MapIcon, Percent, Rows3, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpenCheck, Building2, Home, Map as MapIcon, Percent, Rows3, Sparkles, Wallet } from "lucide-react";
 import { localizeText, type AppLanguage } from "@/lib/i18n";
 import { AnimatedNumber } from "@/components/motion/AnimatedNumber";
 import { KpiCard } from "@/components/ui/KpiCard";
@@ -16,7 +16,7 @@ interface SpatialBentoDashboardProps {
   fy?: string;
   /** Number of talukas in the master hierarchy (real boundary data, not demo). */
   talukaCount: number;
-  onNavigate: (view: "map" | "schemes" | "wizard" | "saved" | "settings") => void;
+  onNavigate: (view: "map" | "schemes" | "wizard" | "saved" | "settings" | "villages" | "financials") => void;
   onSelectScheme?: (name: string) => void;
   onFocusMap?: (item: {
     id: string;
@@ -77,6 +77,8 @@ const copy = {
     source: "સ્રોત: જાહેર પૂર્વદર્શન નમૂના ડેટા. બધા આંકડા કૃત્રિમ છે.",
     ref: "સંદર્ભ તારીખ",
     allDistricts: "નકશામાં બધા જિલ્લા જુઓ",
+    villageIntel: "ગામવાર યોજના વિશ્લેષણ",
+    financialIntel: "નાણાકીય બજેટ & DBT",
     errorTitle: "વિશ્લેષણ હાલમાં ઉપલબ્ધ નથી",
     errorMsg: "ડેશબોર્ડનો ડેટા લોડ થઈ શક્યો નથી. ઇન્ટરનેટ તપાસી ફરી પ્રયાસ કરો.",
     retry: "ફરી પ્રયાસ કરો",
@@ -109,6 +111,8 @@ const copy = {
     source: "स्रोत: सार्वजनिक पूर्वावलोकन नमूना डेटा। सभी आँकड़े कृत्रिम हैं।",
     ref: "संदर्भ तिथि",
     allDistricts: "नक्शे पर सभी जिले देखें",
+    villageIntel: "ग्रामवार योजना विश्लेषण",
+    financialIntel: "वित्तीय बजट व DBT",
     errorTitle: "विश्लेषण अभी उपलब्ध नहीं है",
     errorMsg: "डैशबोर्ड का डेटा लोड नहीं हो सका। इंटरनेट जाँचकर फिर कोशिश करें।",
     retry: "फिर कोशिश करें",
@@ -141,6 +145,8 @@ const copy = {
     source: "Source: public preview sample data. Every figure is synthetic.",
     ref: "Reference date",
     allDistricts: "See all districts on the map",
+    villageIntel: "Village Intelligence",
+    financialIntel: "Financial Spending & DBT",
     errorTitle: "Analytics are unavailable",
     errorMsg: "The dashboard data could not be loaded. Check your connection and try again.",
     retry: "Try again",
@@ -448,11 +454,23 @@ export function SpatialBentoDashboard({ lang, talukaCount, onNavigate, onFocusMa
 
           <footer className="dx-foot">
             <span>{text.source} {text.ref}: {fmtDate(overview.meta.referenceDate, lang)}.</span>
-            <button type="button" className="dx-link" onClick={() => onNavigate("map")}>
-              <Building2 size={15} aria-hidden="true" />
-              {text.allDistricts}
-              <ArrowRight size={14} aria-hidden="true" />
-            </button>
+            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", alignItems: "center" }}>
+              <button type="button" className="dx-link" onClick={() => onNavigate("villages")}>
+                <Home size={15} aria-hidden="true" />
+                {text.villageIntel}
+                <ArrowRight size={14} aria-hidden="true" />
+              </button>
+              <button type="button" className="dx-link" onClick={() => onNavigate("financials")}>
+                <Wallet size={15} aria-hidden="true" />
+                {text.financialIntel}
+                <ArrowRight size={14} aria-hidden="true" />
+              </button>
+              <button type="button" className="dx-link" onClick={() => onNavigate("map")}>
+                <Building2 size={15} aria-hidden="true" />
+                {text.allDistricts}
+                <ArrowRight size={14} aria-hidden="true" />
+              </button>
+            </div>
           </footer>
         </>
       )}

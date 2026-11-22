@@ -34,11 +34,13 @@ import { scaleDemoValue } from "@/lib/metrics.mjs";
 import { VillageSchemeRegister } from "../shared/VillageSchemeRegister";
 import { getVillagesForSubdistrict } from "@/lib/village-scheme-intelligence";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { localizeText, type AppLanguage } from "@/lib/i18n";
 
 type VillageRecord = MasterVillage & { hasDemoMetrics: boolean };
 
 interface VillageIntelligenceViewProps {
   gu: boolean;
+  lang?: AppLanguage;
   fy: string;
   initialDistrictId?: string;
   initialSubdistrictCode?: number;
@@ -47,12 +49,19 @@ interface VillageIntelligenceViewProps {
 
 export function VillageIntelligenceView({
   gu,
+  lang,
   fy,
   initialDistrictId = "bhavnagar",
   initialSubdistrictCode = 3855,
   initialVillageCode = "516307",
 }: VillageIntelligenceViewProps) {
   useScrollReveal();
+  const currentLang: AppLanguage = lang ?? (gu ? "gu" : "en");
+  const t = (guText: string, hiText: string, enText: string) => {
+    if (currentLang === "gu") return guText;
+    if (currentLang === "hi") return hiText;
+    return enText;
+  };
 
   const [selectedDistrictId, setSelectedDistrictId] = useState<string>(initialDistrictId);
   const [selectedSubdistrictCode, setSelectedSubdistrictCode] = useState<number>(initialSubdistrictCode);
@@ -61,7 +70,7 @@ export function VillageIntelligenceView({
   const [sortOrder, setSortOrder] = useState<"ben" | "name">("ben");
   const [isLoading, setIsLoading] = useState(false);
 
-  const fmt = (num: number) => new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(num);
+  const fmt = (num: number) => new Intl.NumberFormat(currentLang === "gu" ? "gu-IN" : currentLang === "hi" ? "hi-IN" : "en-IN").format(num);
 
   // Selected district object
   const selectedDistrict = useMemo(() => {
@@ -331,7 +340,11 @@ export function VillageIntelligenceView({
               }}
             >
               <Sparkles size={13} />
-              {gu ? `${TOTAL_DISTRICTS_GU} જિલ્લા · ${MASTER_SUBDISTRICTS.length} તાલુકા · તમામ ગામોની લાઈવ યોજના સ્થિતિ` : `${TOTAL_DISTRICTS_EN} DISTRICTS · ${MASTER_SUBDISTRICTS.length} TALUKAS · ALL VILLAGES ACTIVE DATA`}
+              {t(
+                `${TOTAL_DISTRICTS_GU} જિલ્લા · ${MASTER_SUBDISTRICTS.length} તાલુકા · તમામ ગામોની લાઈવ યોજના સ્થિતિ`,
+                `34 ज़िले · ${MASTER_SUBDISTRICTS.length} तालुक़े · सभी गाँवों की लाइव योजना स्थिति`,
+                `${TOTAL_DISTRICTS_EN} DISTRICTS · ${MASTER_SUBDISTRICTS.length} TALUKAS · ALL VILLAGES ACTIVE DATA`
+              )}
             </span>
             <h1
               style={{
@@ -342,12 +355,14 @@ export function VillageIntelligenceView({
                 letterSpacing: "-0.01em",
               }}
             >
-              {gu ? "ગામવાર યોજના અને લાભ વિશ્લેષણ પોર્ટલ" : "Village Scheme & Benefit Geo-Intelligence"}
+              {t("ગામવાર યોજના અને લાભ વિશ્લેષણ પોર્ટલ", "ग्रामवार योजना एवं लाभ विश्लेषण पोर्टल", "Village Scheme & Benefit Geo-Intelligence")}
             </h1>
             <p style={{ color: "rgba(243, 248, 253, 0.9)", margin: 0, maxWidth: "780px", fontSize: "0.95rem" }}>
-              {gu
-                ? "ગુજરાતના દરેક ગામડામાં કઈ યોજનાઓ કાર્યરત છે, કેટલા લાભાર્થીઓને સીધો DBT લાભ મળ્યો છે અને યોજના સંતૃપ્તિ (Saturation) દર કેટલો છે તેનું સંપૂર્ણ વાસ્તવિક પૂર્વાવલોકન."
-                : "Comprehensive intelligence on active schemes, direct DBT transfers, and saturation rates for every individual village across Gujarat."}
+              {t(
+                "ગુજરાતના દરેક ગામડામાં કઈ યોજનાઓ કાર્યરત છે, કેટલા લાભાર્થીઓને સીધો DBT લાભ મળ્યો છે અને યોજના સંતૃપ્તિ (Saturation) દર કેટલો છે તેનું સંપૂર્ણ વાસ્તવિક પૂર્વાવલોકન.",
+                "गुजरात के प्रत्येक गाँव में कौन सी योजनाएँ सक्रिय हैं, कितने लाभार्थियों को प्रत्यक्ष डीबीटी लाभ मिला है और योजना संतृप्ति दर कितनी है, इसका व्यापक पूर्वावलोकन।",
+                "Comprehensive intelligence on active schemes, direct DBT transfers, and saturation rates for every individual village across Gujarat."
+              )}
             </p>
           </div>
 
@@ -363,13 +378,13 @@ export function VillageIntelligenceView({
             }}
           >
             <small style={{ color: "rgba(243, 248, 253, 0.75)", fontSize: "0.74rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-              {gu ? "પસંદ કરેલ જિલ્લો" : "Active District"}
+              {t("પસંદ કરેલ જિલ્લો", "सक्रिय ज़िला", "Active District")}
             </small>
             <div style={{ fontSize: "1.2rem", fontWeight: 700, color: "#FFFFFF", marginTop: 2 }}>
-              {gu ? selectedDistrict.nameGu : selectedDistrict.nameEn}
+              {currentLang === "gu" ? selectedDistrict.nameGu : currentLang === "hi" ? localizeText("hi", selectedDistrict.nameEn) : selectedDistrict.nameEn}
             </div>
             <div style={{ fontSize: "0.78rem", color: "#D0E1F2", marginTop: 2 }}>
-              {selectedDistrict.subDistrictCount} {gu ? "તાલુકા" : "Talukas"} · {selectedDistrict.villageCount} {gu ? "ગામો" : "Villages"}
+              {selectedDistrict.subDistrictCount} {t("તાલુકા", "तालुक़े", "Talukas")} · {selectedDistrict.villageCount} {t("ગામો", "गाँव", "Villages")}
             </div>
           </div>
         </div>
@@ -395,7 +410,7 @@ export function VillageIntelligenceView({
       >
         <div className="filter-dropdown-gov" style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <span style={{ fontSize: "0.84rem", fontWeight: 600, color: "var(--holst-700, #355982)" }}>
-            {gu ? "જિલ્લો:" : "District:"}
+            {t("જિલ્લો:", "ज़िला:", "District:")}
           </span>
           <select
             value={selectedDistrictId}
@@ -414,7 +429,7 @@ export function VillageIntelligenceView({
           >
             {MASTER_DISTRICTS.map((d) => (
               <option key={d.id} value={d.id}>
-                [{d.officialNo}] {gu ? d.nameGu : d.nameEn} ({d.subDistrictCount} {gu ? "તાલુકા" : "Talukas"})
+                [{d.officialNo}] {currentLang === "gu" ? d.nameGu : currentLang === "hi" ? localizeText("hi", d.nameEn) : d.nameEn} ({d.subDistrictCount} {t("તાલુકા", "तालुक़े", "Talukas")})
               </option>
             ))}
           </select>
@@ -422,7 +437,7 @@ export function VillageIntelligenceView({
 
         <div className="filter-dropdown-gov" style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <span style={{ fontSize: "0.84rem", fontWeight: 600, color: "var(--holst-700, #355982)" }}>
-            {gu ? "તાલુકો:" : "Taluka:"}
+            {t("તાલુકો:", "तालुक़ा:", "Taluka:")}
           </span>
           <select
             value={selectedSubdistrictCode}
@@ -441,7 +456,7 @@ export function VillageIntelligenceView({
           >
             {districtSubdistricts.map((s) => (
               <option key={s.code} value={s.code}>
-                {gu ? s.nameGu : s.nameEn} ({s.villageCount} {gu ? "ગામડાં" : "Villages"})
+                {currentLang === "gu" ? s.nameGu : currentLang === "hi" ? localizeText("hi", s.nameEn) : s.nameEn} ({s.villageCount} {t("ગામડાં", "गाँव", "Villages")})
               </option>
             ))}
           </select>
@@ -464,7 +479,7 @@ export function VillageIntelligenceView({
           <Search size={16} color="var(--holst-500, #4D79A8)" />
           <input
             type="search"
-            placeholder={gu ? "ગામ અથવા યોજનાનું નામ શોધો..." : "Search village or active scheme..."}
+            placeholder={t("ગામ અથવા યોજનાનું નામ શોધો...", "गाँव या योजना का नाम खोजें...", "Search village or active scheme...")}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={{
@@ -500,7 +515,7 @@ export function VillageIntelligenceView({
           <div className="vsc-head" style={{ marginBottom: "12px", borderBottom: "1px solid rgba(110, 158, 204, 0.18)", paddingBottom: "10px" }}>
             <div className="vsc-title-row" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
               <h3 style={{ fontSize: "1.05rem", fontWeight: 700, margin: 0, color: "var(--holst-900, #223A5E)" }}>
-                {gu ? "તાલુકાના ગામો" : "Taluka Villages"}
+                {t("તાલુકાના ગામો", "तालुक़ा के गाँव", "Taluka Villages")}
               </h3>
               <span
                 className="vsc-count-badge"
@@ -514,7 +529,7 @@ export function VillageIntelligenceView({
                   border: "1px solid rgba(77, 121, 168, 0.25)",
                 }}
               >
-                {filteredVillages.length} {gu ? "ગામો" : "Villages"}
+                {filteredVillages.length} {t("ગામો", "गाँव", "Villages")}
               </span>
             </div>
 
@@ -533,7 +548,7 @@ export function VillageIntelligenceView({
                   cursor: "pointer",
                 }}
               >
-                {sortOrder === "ben" ? (gu ? "લાભાર્થી સંખ્યા ↓" : "Beneficiaries ↓") : (gu ? "નામ A-Z" : "Name A-Z")}
+                {sortOrder === "ben" ? t("લાભાર્થી સંખ્યા ↓", "लाभार्थी संख्या ↓", "Beneficiaries ↓") : t("નામ A-Z", "नाम A-Z", "Name A-Z")}
               </button>
             </div>
           </div>
@@ -551,7 +566,7 @@ export function VillageIntelligenceView({
           >
             {filteredVillages.length === 0 ? (
               <div style={{ padding: "2rem 1rem", textAlign: "center", color: "var(--holst-500, #4D79A8)" }}>
-                {gu ? "કોઈ ગામ મળ્યું નથી" : "No villages found in this unit"}
+                {t("કોઈ ગામ મળ્યું નથી", "कोई गाँव नहीं मिला", "No villages found in this unit")}
               </div>
             ) : (
               filteredVillages.map((v) => {
@@ -584,11 +599,11 @@ export function VillageIntelligenceView({
                             fontWeight: isSelected ? 700 : 600,
                           }}
                         >
-                          {gu ? v.nameGu : v.nameEn}
+                          {currentLang === "gu" ? v.nameGu : currentLang === "hi" ? localizeText("hi", v.nameEn) : v.nameEn}
                         </strong>
                       </div>
                       <small style={{ fontSize: "0.72rem", color: "var(--holst-500, #4D79A8)" }}>
-                        LGD: {v.code} · {v.category}
+                        LGD: {v.code} · {v.category === "Rural" ? t("ગ્રામીણ", "ग्रामीण", "Rural") : t("શહેરી", "शहरी", "Urban")}
                       </small>
                     </div>
 
@@ -605,7 +620,7 @@ export function VillageIntelligenceView({
                         {fmt(scaleDemoValue(v.beneficiaries, fy))}
                       </span>
                       <small style={{ fontSize: "0.68rem", color: "#2E7D52", fontWeight: 600 }}>
-                        {gu ? "લાભાર્થી" : "Beneficiaries"}
+                        {t("લાભાર્થી", "लाभार्थी", "Beneficiaries")}
                       </small>
                     </div>
                   </button>
@@ -659,7 +674,7 @@ export function VillageIntelligenceView({
                   }}
                 >
                   <MapPin size={12} />
-                  {gu ? "ગુજરાત રાજ્ય" : "Gujarat"} · [{selectedDistrict.officialNo}] {gu ? selectedDistrict.nameGu : selectedDistrict.nameEn} · {gu ? selectedSubdistrict?.nameGu : selectedSubdistrict?.nameEn}
+                  {t("ગુજરાત રાજ્ય", "गुजरात राज्य", "Gujarat")} · [{selectedDistrict.officialNo}] {currentLang === "gu" ? selectedDistrict.nameGu : currentLang === "hi" ? localizeText("hi", selectedDistrict.nameEn) : selectedDistrict.nameEn} · {currentLang === "gu" ? selectedSubdistrict?.nameGu : currentLang === "hi" ? localizeText("hi", selectedSubdistrict?.nameEn || "") : selectedSubdistrict?.nameEn}
                 </span>
                 <h2
                   style={{
@@ -670,7 +685,7 @@ export function VillageIntelligenceView({
                     fontFamily: "var(--font-display, inherit)",
                   }}
                 >
-                  {gu ? currentVillage.nameGu : currentVillage.nameEn}
+                  {currentLang === "gu" ? currentVillage.nameGu : currentLang === "hi" ? localizeText("hi", currentVillage.nameEn) : currentVillage.nameEn}
                 </h2>
                 <div className="vdc-meta-chips" style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                   <span
@@ -699,7 +714,7 @@ export function VillageIntelligenceView({
                       fontWeight: 600,
                     }}
                   >
-                    {currentVillage.category}
+                    {currentVillage.category === "Rural" ? t("ગ્રામીણ", "ग्रामीण", "Rural") : t("શહેરી", "शहरी", "Urban")}
                   </span>
                   <span
                     className="meta-chip stat"
@@ -713,7 +728,7 @@ export function VillageIntelligenceView({
                       fontWeight: 600,
                     }}
                   >
-                    {currentVillage.status}
+                    {currentVillage.status === "Inhabitant" ? t("વસવાટ ધરાવતું", "आबाद", "Inhabitant") : currentVillage.status}
                   </span>
                 </div>
               </div>
@@ -734,13 +749,13 @@ export function VillageIntelligenceView({
                 }}
               >
                 <small style={{ color: "var(--holst-500, #4D79A8)", fontSize: "0.72rem", textTransform: "uppercase", fontWeight: 600 }}>
-                  {gu ? "કુલ વિતરિત DBT સહાય" : "Total DBT Disbursed"}
+                  {t("કુલ વિતરિત DBT સહાય", "कुल वितरित डीबीटी सहायता", "Total DBT Disbursed")}
                 </small>
                 <strong style={{ display: "block", fontSize: "1.45rem", color: "var(--holst-900, #223A5E)", fontWeight: 700, margin: "2px 0" }}>
-                  ₹ {currentVillageDisbursed} {gu ? "લાખ" : "Lakh"}
+                  ₹ {currentVillageDisbursed} {t("લાખ", "लाख", "Lakh")}
                 </strong>
                 <span style={{ fontSize: "0.76rem", color: "#2E7D52", fontWeight: 600 }}>
-                  {fmt(currentVillageBeneficiaries)} {gu ? "કુલ નોંધાયેલ લાભાર્થીઓ" : "Total Enrolled Beneficiaries"}
+                  {fmt(currentVillageBeneficiaries)} {t("કુલ નોંધાયેલ લાભાર્થીઓ", "कुल पंजीकृत लाभार्थी", "Total Enrolled Beneficiaries")}
                 </span>
               </div>
             </div>
@@ -777,15 +792,17 @@ export function VillageIntelligenceView({
               </div>
               <div>
                 <span className="vvs-label" style={{ fontSize: "0.74rem", textTransform: "uppercase", fontWeight: 600, color: "var(--holst-500, #4D79A8)" }}>
-                  {gu ? "યોજના સહાય વિતરણ કેન્દ્ર અને અમલીકરણ સ્થળ" : "Scheme Delivery Center & Venue"}
+                  {t("યોજના સહાય વિતરણ કેન્દ્ર અને અમલીકરણ સ્થળ", "योजना सहायता वितरण केंद्र एवं कार्यान्वयन स्थल", "Scheme Delivery Center & Venue")}
                 </span>
                 <strong className="vvs-name" style={{ display: "block", fontSize: "0.95rem", color: "var(--holst-900, #223A5E)", marginTop: 2 }}>
-                  {gu ? currentVillage.venueGu : currentVillage.venueEn}
+                  {currentLang === "gu" ? currentVillage.venueGu : currentLang === "hi" ? `${localizeText("hi", currentVillage.nameEn)} ग्राम पंचायत भवन एवं प्राथमिक विद्यालय` : currentVillage.venueEn}
                 </strong>
                 <p className="vvs-sub" style={{ margin: "2px 0 0", fontSize: "0.78rem", color: "var(--holst-500, #4D79A8)" }}>
-                  {gu
-                    ? "ગામ પંચાયત ડિજિટલ સેવા કેન્દ્ર અને સ્થાનિક આંગણવાડી કેમ્પ દ્વારા સીધો લાભ આપવામાં આવે છે."
-                    : "Assisted via Gram Panchayat Digital Seva Kendra and local Anganwadi outreach camps."}
+                  {t(
+                    "ગામ પંચાયત ડિજિટલ સેવા કેન્દ્ર અને સ્થાનિક આંગણવાડી કેમ્પ દ્વારા સીધો લાભ આપવામાં આવે છે.",
+                    "ग्राम पंचायत डिजिटल सेवा केंद्र और स्थानीय आंगनवाड़ी शिविर के माध्यम से प्रत्यक्ष लाभ प्रदान किया जाता है।",
+                    "Assisted via Gram Panchayat Digital Seva Kendra and local Anganwadi outreach camps."
+                  )}
                 </p>
               </div>
             </div>
@@ -815,7 +832,7 @@ export function VillageIntelligenceView({
                 <Users size={20} color="var(--holst-500, #4D79A8)" />
                 <div>
                   <small style={{ fontSize: "0.72rem", color: "var(--holst-500, #4D79A8)", textTransform: "uppercase" }}>
-                    {gu ? "કુલ વસ્તી" : "Population"}
+                    {t("કુલ વસ્તી", "कुल जनसंख्या", "Population")}
                   </small>
                   <strong style={{ display: "block", fontSize: "1.1rem", color: "var(--holst-900, #223A5E)" }}>
                     {fmt(currentVillage.population)}
@@ -838,7 +855,7 @@ export function VillageIntelligenceView({
                 <Users size={20} color="#6B4EAE" />
                 <div>
                   <small style={{ fontSize: "0.72rem", color: "var(--holst-500, #4D79A8)", textTransform: "uppercase" }}>
-                    {gu ? "મહિલા વસ્તી" : "Female Pop"}
+                    {t("મહિલા વસ્તી", "महिला जनसंख्या", "Female Pop")}
                   </small>
                   <strong style={{ display: "block", fontSize: "1.1rem", color: "var(--holst-900, #223A5E)" }}>
                     {fmt(currentVillage.femalePopulation)}
@@ -861,7 +878,7 @@ export function VillageIntelligenceView({
                 <Home size={20} color="#2D7D84" />
                 <div>
                   <small style={{ fontSize: "0.72rem", color: "var(--holst-500, #4D79A8)", textTransform: "uppercase" }}>
-                    {gu ? "કુટુંબો (ઘર)" : "Households"}
+                    {t("કુટુંબો (ઘર)", "परिवार (घर)", "Households")}
                   </small>
                   <strong style={{ display: "block", fontSize: "1.1rem", color: "var(--holst-900, #223A5E)" }}>
                     {fmt(currentVillage.households)}
@@ -884,10 +901,10 @@ export function VillageIntelligenceView({
                 <School size={20} color="#2E7D52" />
                 <div>
                   <small style={{ fontSize: "0.72rem", color: "var(--holst-500, #4D79A8)", textTransform: "uppercase" }}>
-                    {gu ? "આંગણવાડી કેન્દ્રો" : "Anganwadi"}
+                    {t("આંગણવાડી કેન્દ્રો", "आंगनवाड़ी केंद्र", "Anganwadi")}
                   </small>
                   <strong style={{ display: "block", fontSize: "1.1rem", color: "var(--holst-900, #223A5E)" }}>
-                    {currentVillage.anganwadis} {gu ? "કેન્દ્રો" : "Centers"}
+                    {currentVillage.anganwadis} {t("કેન્દ્રો", "केंद्र", "Centers")}
                   </strong>
                 </div>
               </div>
@@ -904,6 +921,7 @@ export function VillageIntelligenceView({
                 districtNameGu={selectedDistrict?.nameGu || ""}
                 districtNameEn={selectedDistrict?.nameEn || ""}
                 gu={gu}
+                lang={currentLang}
               />
             </div>
           </div>
@@ -920,7 +938,7 @@ export function VillageIntelligenceView({
           >
             <Home size={36} color="var(--holst-400, #6E9ECC)" style={{ margin: "0 auto 12px" }} />
             <p style={{ color: "var(--holst-700, #355982)", fontWeight: 600 }}>
-              {gu ? "ડાબી બાજુની યાદીમાંથી કોઈપણ ગામ પસંદ કરો" : "Select a village from the left list"}
+              {t("ડાબી બાજુની યાદીમાંથી કોઈપણ ગામ પસંદ કરો", "बाएँ तरफ की सूची से कोई भी गाँव चुनें", "Select a village from the left list")}
             </p>
           </div>
         )}

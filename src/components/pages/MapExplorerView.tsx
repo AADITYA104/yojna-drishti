@@ -17,7 +17,7 @@ interface MapExplorerViewProps {
     id: number;
     target: {
       id: string;
-      kind: "district" | "taluka" | "village" | "scheme";
+      kind: "district" | "taluka" | "village" | "scheme" | "page";
       districtId?: string;
       subdistrictCode?: number;
       villageCode?: string;

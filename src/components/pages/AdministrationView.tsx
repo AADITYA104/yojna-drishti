@@ -146,6 +146,69 @@ export function AdministrationView({ lang }: AdministrationViewProps) {
           {text.next.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p><CheckCircle2 size={18} aria-hidden="true" /></li>)}
         </ol>
       </section>
+
+      <section className="governance-section reveal" aria-labelledby="deep-views-heading" style={{ marginTop: 24 }}>
+        <div className="governance-section-heading">
+          <span>{lang === "gu" ? "વિસ્તૃત સંશોધન દૃશ્યો" : lang === "hi" ? "विस्तृत अनुसंधान दृश्य" : "DEEP RESEARCH VIEWS"}</span>
+          <h2 id="deep-views-heading">{lang === "gu" ? "વિશેષ પોર્ટલ વિભાગો" : lang === "hi" ? "विशेष पोर्टल अनुभाग" : "Specialized Portal Workspaces"}</h2>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
+          <a
+            href="#villages"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              padding: "16px 20px",
+              borderRadius: "14px",
+              background: "rgba(255, 255, 255, 0.9)",
+              border: "1px solid rgba(110, 158, 204, 0.25)",
+              color: "inherit",
+              textDecoration: "none",
+              boxShadow: "0 2px 10px rgba(34, 58, 94, 0.04)",
+            }}
+          >
+            <span style={{ width: 40, height: 40, borderRadius: 10, background: "rgba(77, 121, 168, 0.12)", color: "#355982", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <MapPinned size={20} />
+            </span>
+            <div>
+              <strong style={{ display: "block", fontSize: "0.95rem", color: "#223A5E" }}>
+                {lang === "gu" ? "ગામવાર યોજના વિશ્લેષણ (#villages)" : lang === "hi" ? "ग्रामवार योजना विश्लेषण (#villages)" : "Village Scheme Geo-Intelligence (#villages)"}
+              </strong>
+              <small style={{ color: "#4D79A8", fontSize: "0.78rem" }}>
+                {lang === "gu" ? "દરેક ગામના LGD કોડ, DBT વિતરણ અને લાભાર્થી નોંધણી" : lang === "hi" ? "प्रत्येक गाँव का एलजीडी कोड, डीबीटी वितरण एवं लाभार्थी" : "LGD codes, DBT disbursement & beneficiary reach by village"}
+              </small>
+            </div>
+          </a>
+          <a
+            href="#financials"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              padding: "16px 20px",
+              borderRadius: "14px",
+              background: "rgba(255, 255, 255, 0.9)",
+              border: "1px solid rgba(110, 158, 204, 0.25)",
+              color: "inherit",
+              textDecoration: "none",
+              boxShadow: "0 2px 10px rgba(34, 58, 94, 0.04)",
+            }}
+          >
+            <span style={{ width: 40, height: 40, borderRadius: 10, background: "rgba(77, 121, 168, 0.12)", color: "#355982", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Database size={20} />
+            </span>
+            <div>
+              <strong style={{ display: "block", fontSize: "0.95rem", color: "#223A5E" }}>
+                {lang === "gu" ? "DBT નાણાકીય પ્રવાહ (#financials)" : lang === "hi" ? "डीबीटी वित्तीय प्रवाह (#financials)" : "Public Spending & Financials (#financials)"}
+              </strong>
+              <small style={{ color: "#4D79A8", fontSize: "0.78rem" }}>
+                {lang === "gu" ? "યોજનાવાર બજેટ ફાળવણી, માસિક ખર્ચ અને ઉપયોગ ગેજ" : lang === "hi" ? "योजनावार बजट आवंटन, मासिक व्यय और उपयोग गेज" : "Budget allocation, monthly outflow & utilization gauges"}
+              </small>
+            </div>
+          </a>
+        </div>
+      </section>
     </div>
   );
 }

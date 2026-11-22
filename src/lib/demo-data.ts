@@ -505,7 +505,7 @@ export const demoDistricts: District[] = [
   },
   {
     id: "chhota_udepur",
-    name: "Chhota Udaipur",
+    name: "Chhotaudepur",
     gu: "છોટા ઉદેપુર",
     officialNo: "GJ-34",
     code: "GJ-34",
@@ -4394,7 +4394,7 @@ export const demoTalukas: Taluka[] = [
   },
   {
     id: "chhotaudepur_chhota_udaipur",
-    name: "Chhota Udaipur",
+    name: "Chhotaudepur",
     gu: "Chhota Udaipur",
     districtId: "chhotaudepur",
     code: "CHH-CH",

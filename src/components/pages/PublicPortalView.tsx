@@ -375,7 +375,7 @@ export function PublicPortalView({ gu, lang, initialState, onStateChange }: Publ
                   <span className="psc-code">{s.id}</span>
                 </div>
 
-                <h3>{gu ? s.gu : s.name}</h3>
+                <h3>{gu ? s.gu : lang === "hi" ? localizeText("hi", s.name) : s.name}</h3>
                 <small style={{ color: "rgba(255,255,255,0.65)", display: "block", marginBottom: "8px" }}>
                   {gu ? "નમૂનાની નોંધ · સત્તાવાર સ્ત્રોત જોડાયેલો નથી" : lang === "hi" ? "नमूना प्रविष्टि · आधिकारिक स्रोत जुड़ा नहीं" : "Sample entry · no official source connected"}
                 </small>

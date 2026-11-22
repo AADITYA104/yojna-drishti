@@ -33,7 +33,17 @@ import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import type { AppLanguage } from "@/lib/i18n";
 
 export function SpatialShell() {
-  const [lang, setLang] = useState<AppLanguage>("gu");
+  const [lang, setLang] = useState<AppLanguage>(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = window.localStorage.getItem("yojana-drishti-language");
+        if (saved === "gu" || saved === "en" || saved === "hi") return saved as AppLanguage;
+      } catch {
+        /* storage restricted */
+      }
+    }
+    return "gu";
+  });
   const [activeKey, setActiveKey] = useState<SpatialNavKey>("dashboard");
   const [fy] = useState<string>(() => {
     const current = new Date();
@@ -66,7 +76,11 @@ export function SpatialShell() {
     };
     syncHash();
     window.addEventListener("hashchange", syncHash);
-    return () => window.removeEventListener("hashchange", syncHash);
+    window.addEventListener("popstate", syncHash);
+    return () => {
+      window.removeEventListener("hashchange", syncHash);
+      window.removeEventListener("popstate", syncHash);
+    };
   }, []);
 
   // Issue #5: Persist area selector & wizard progress across workspace switches
@@ -145,25 +159,35 @@ export function SpatialShell() {
   };
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("yojana-drishti-language");
-    if (saved === "gu" || saved === "en" || saved === "hi") startTransition(() => setLang(saved));
+    const handleStorage = (e: StorageEvent) => {
+      if (e.key === "yojana-drishti-language" && (e.newValue === "gu" || e.newValue === "en" || e.newValue === "hi")) {
+        setLang(e.newValue);
+      }
+    };
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
   }, []);
 
   useEffect(() => {
-    document.documentElement.lang = lang;
-    document.title = lang === "gu"
-      ? "યોજના દૃષ્ટિ | સરકારી યોજનાઓ અને ગુજરાતનો નકશો"
-      : lang === "hi"
-        ? "योजना दृष्टि | सरकारी योजनाएँ और गुजरात का नक्शा"
-        : "Yojana Drishti | Government Schemes and Gujarat Map";
-    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    if (description) {
-      description.content = lang === "gu"
-        ? "ગુજરાત માટેની સરકારી યોજનાઓ શોધો અને વહીવટી નકશા સાથે વિસ્તારની વિગતો જુઓ. આ જાહેર પૂર્વદર્શન છે."
+    const applyTitle = () => {
+      document.documentElement.lang = lang;
+      document.title = lang === "gu"
+        ? "યોજના દૃષ્ટિ | સરકારી યોજનાઓ અને ગુજરાતનો નકશો"
         : lang === "hi"
-          ? "गुजरात की सरकारी योजनाएँ खोजें और प्रशासनिक नक्शे पर क्षेत्र का विवरण देखें। यह सार्वजनिक पूर्वावलोकन है।"
-          : "Find Gujarat government schemes and explore administrative boundaries with area details. This is a public preview.";
-    }
+          ? "योजना दृष्टि | सरकारी योजनाएँ और गुजरात का नक्शा"
+          : "Yojana Drishti | Government Schemes and Gujarat Map";
+      const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+      if (description) {
+        description.content = lang === "gu"
+          ? "ગુજરાત માટેની સરકારી યોજનાઓ શોધો અને વહીવટી નકશા સાથે વિસ્તારની વિગતો જુઓ. આ જાહેર પૂર્વદર્શન છે."
+          : lang === "hi"
+            ? "गुजरात की सरकारी योजनाएँ खोजें और प्रशासनिक नक्शे पर क्षेत्र का विवरण देखें। यह सार्वजनिक पूर्वावलोकन है।"
+            : "Find Gujarat government schemes and explore administrative boundaries with area details. This is a public preview.";
+      }
+    };
+    applyTitle();
+    const t = window.setTimeout(applyTitle, 50);
+    return () => window.clearTimeout(t);
   }, [lang]);
 
   // Keyboard shortcut Cmd+K / Ctrl+K
@@ -211,6 +235,20 @@ export function SpatialShell() {
       kind: "scheme" as const,
       aliases: [scheme.name, scheme.gu, scheme.shortName, scheme.shortNameGu],
     })),
+    {
+      id: "villages",
+      label: gu ? "ગામવાર યોજના અને લાભ વિશ્લેષણ (#villages)" : lang === "hi" ? "ग्रामवार योजना और लाभ विश्लेषण (#villages)" : "Village Scheme & Benefit Intelligence (#villages)",
+      detail: gu ? "તમામ ગામોની યોજના સ્થિતિ, લાભાર્થીઓ અને DBT વિગતો" : lang === "hi" ? "सभी गाँवों की योजना स्थिति, लाभार्थी और DBT विवरण" : "Live village-level metrics, saturation and beneficiaries",
+      kind: "page" as const,
+      aliases: ["villages", "village", "ગામ", "ગામડાં", "गाँव", "dbt", "લાભાર્થી", "intelligence"],
+    },
+    {
+      id: "financials",
+      label: gu ? "જાહેર ખર્ચ અને DBT સહાય વિશ્લેષણ (#financials)" : lang === "hi" ? "सार्वजनिक व्यय और DBT सहायता विश्लेषण (#financials)" : "Public Spending & Direct Benefit Transfers (#financials)",
+      detail: gu ? "₹૨,૧૫૦ કરોડ બજેટ ફાળવણી, માસિક વલણ અને ઉપયોગિતા" : lang === "hi" ? "₹२,१५० करोड़ बजट आवंटन, मासिक रुझान और उपयोगिता" : "₹2,150 Cr Budget, Disbursed & Monthly Trends",
+      kind: "page" as const,
+      aliases: ["financials", "budget", "dbt", "બજેટ", "નાણાકીય", "ખર્ચ", "वित्तीय", "spending"],
+    },
   ], [gu, lang]);
 
   const filteredSearchResults = useMemo(() => {
@@ -262,9 +300,9 @@ export function SpatialShell() {
   const isRemoteSearchLoading = searchOpen && searchQuery.trim().length >= 2 && remoteSearchQuery !== searchQuery.trim() && remoteSearchErrorQuery !== searchQuery.trim();
   const searchKindLabel = (kind: GlobalSearchItem["kind"]) => {
     const labels = {
-      gu: { district: "જિલ્લો", taluka: "તાલુકો", village: "ગામ/શહેર", scheme: "યોજના" },
-      hi: { district: "जिला", taluka: "तालुका", village: "गाँव/शहर", scheme: "योजना" },
-      en: { district: "District", taluka: "Taluka", village: "Village/city", scheme: "Scheme" },
+      gu: { district: "જિલ્લો", taluka: "તાલુકો", village: "ગામ/શહેર", scheme: "યોજના", page: "વિભાગ" },
+      hi: { district: "जिला", taluka: "तालुका", village: "गाँव/शहर", scheme: "योजना", page: "विभाग" },
+      en: { district: "District", taluka: "Taluka", village: "Village/city", scheme: "Scheme", page: "Workspace" },
     };
     return labels[lang][kind];
   };
@@ -275,6 +313,8 @@ export function SpatialShell() {
     if (item.kind === "scheme") {
       setSelectedSchemeTerm(item.label);
       handleNavSelect("schemes");
+    } else if (item.kind === "page") {
+      handleNavSelect(item.id as SpatialNavKey);
     } else {
       setFocusRequest({ id: ++focusRequestSequence.current, target: item });
       handleNavSelect("map");
@@ -428,7 +468,7 @@ export function SpatialShell() {
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
-              <VillageIntelligenceView gu={gu} fy={fy} />
+              <VillageIntelligenceView gu={gu} lang={lang} fy={fy} />
             </motion.div>
           )}
 
@@ -440,7 +480,7 @@ export function SpatialShell() {
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
-              <FinancialIntelligenceView gu={gu} fy={fy} />
+              <FinancialIntelligenceView gu={gu} lang={lang} fy={fy} />
             </motion.div>
           )}
         </AnimatePresence>

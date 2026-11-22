@@ -131,6 +131,26 @@ export function DrishtiAISahayak({ gu, lang, onNavigate }: DrishtiAISahayakProps
           label: gu ? "જિલ્લા અને કચેરીઓ જુઓ" : lang === "hi" ? "जिले और कार्यालय देखें" : "Explore District Offices",
           page: "map",
         };
+      } else if (lower.includes("ગામ") || lower.includes("ગામડા") || lower.includes("गाँव") || lower.includes("village")) {
+        botResponse = gu
+          ? "ગામવાર યોજના અને DBT લાભાર્થી વિશ્લેષણ પોર્ટલ પર ગુજરાતના તમામ ગામડાંઓની સ્થિતિ જોઈ શકાય છે."
+          : lang === "hi"
+            ? "ग्रामवार योजना और DBT लाभार्थी विश्लेषण पोर्टल पर गुजरात के सभी गाँवों की स्थिति देखी जा सकती है।"
+            : "View village-level scheme implementation, saturation rates, and DBT reach on the Village Intelligence view.";
+        action = {
+          label: gu ? "ગામવાર વિશ્લેષણ ખોલો" : lang === "hi" ? "ग्रामवार विश्लेषण खोलें" : "Open Village Intelligence",
+          page: "villages",
+        };
+      } else if (lower.includes("બજેટ") || lower.includes("ખર્ચ") || lower.includes("નાણા") || lower.includes("dbt") || lower.includes("बजट") || lower.includes("व्यय") || lower.includes("financial") || lower.includes("spending")) {
+        botResponse = gu
+          ? "જાહેર ખર્ચ અને DBT સહાય પોર્ટલ પર ₹૨,૧૫૦ કરોડ બજેટ ફાળવણી, માસિક ખર્ચ અને ઉપયોગિતા દર દર્શાવેલ છે."
+          : lang === "hi"
+            ? "सार्वजनिक व्यय व DBT पोर्टल पर ₹२,१५० करोड़ बजट आवंटन, मासिक खर्च और उपयोगिता दर उपलब्ध है।"
+            : "Explore budget allocation, ₹1,493 Cr DBT disbursements, and 12-month trends on the Financial Intelligence dashboard.";
+        action = {
+          label: gu ? "નાણાકીય વિશ્લેષણ જુઓ" : lang === "hi" ? "वित्तीय विश्लेषण देखें" : "Open Financial Intelligence",
+          page: "financials",
+        };
       } else {
         botResponse = gu
           ? "યોજના દૃષ્ટિનું આ જાહેર પૂર્વદર્શન કૃત્રિમ નમૂનાના દાખલા બતાવે છે; ગુજરાત સરકારની તમામ યોજનાઓ કે સત્તાવાર પાત્રતા/સહાય માહિતી અહીં જોડાયેલી નથી."

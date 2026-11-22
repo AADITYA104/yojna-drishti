@@ -101,6 +101,26 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
       <style
         dangerouslySetInnerHTML={{
           __html: `
+            @media (min-width: 641px) and (max-width: 860px) {
+              .spatial-dock-capsule {
+                gap: 2px !important;
+                padding: 4px !important;
+                max-width: calc(100vw - 20px) !important;
+              }
+              .spatial-dock-item {
+                min-width: 0 !important;
+                flex: 1 1 0% !important;
+                padding: 0 5px !important;
+                gap: 4px !important;
+              }
+              .spatial-dock-label {
+                font-size: 0.70rem !important;
+                white-space: nowrap !important;
+              }
+              .spatial-dock-icon-wrap {
+                margin-right: 2px !important;
+              }
+            }
             @media (max-width: 640px) {
               .spatial-dock-item.active {
                 display: flex !important;

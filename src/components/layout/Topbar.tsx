@@ -17,7 +17,7 @@ export type GlobalSearchItem = {
   id: string;
   label: string;
   detail: string;
-  kind: "district" | "taluka" | "village" | "scheme";
+  kind: "district" | "taluka" | "village" | "scheme" | "page";
   districtId?: string;
   subdistrictCode?: number;
   villageCode?: string;

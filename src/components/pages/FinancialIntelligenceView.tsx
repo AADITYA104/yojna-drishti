@@ -7,25 +7,36 @@ import { scaleDemoValue } from "@/lib/metrics.mjs";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { DRISHTI_PALETTE } from "@/lib/echarts-theme";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { localizeText, type AppLanguage } from "@/lib/i18n";
 
 interface FinancialIntelligenceViewProps {
   gu: boolean;
+  lang?: AppLanguage;
   fy: string;
 }
 
 const MONTHLY_BASE = [112, 128, 142, 155, 168, 162, 175, 180, 188, 195, 204, 218];
 const HOLST_PALETTE = ["#4D79A8", "#6E9ECC", "#9FC0E3", "#355982", "#2D7D84", "#6B4EAE", "#C07820", "#55934b", "#cc6654", "#df9826"];
 
-export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewProps) {
+export function FinancialIntelligenceView({ gu, lang, fy }: FinancialIntelligenceViewProps) {
   useScrollReveal();
+  const currentLang: AppLanguage = lang ?? (gu ? "gu" : "en");
+  const t = useCallback(
+    (guText: string, hiText: string, enText: string) => {
+      if (currentLang === "gu") return guText;
+      if (currentLang === "hi") return hiText;
+      return enText;
+    },
+    [currentLang]
+  );
   const lineChartRef   = useRef<HTMLDivElement>(null);
   const schemeDonutRef = useRef<HTMLDivElement>(null);
   const regionBarRef   = useRef<HTMLDivElement>(null);
   const utilBarRef     = useRef<HTMLDivElement>(null);
 
   const fmt = useCallback(
-    (n: number) => new Intl.NumberFormat(gu ? "gu-IN" : "en-IN").format(Math.round(n)),
-    [gu]
+    (n: number) => new Intl.NumberFormat(currentLang === "gu" ? "gu-IN" : currentLang === "hi" ? "hi-IN" : "en-IN").format(Math.round(n)),
+    [currentLang]
   );
 
   const totalDisbursed = useMemo(() => scaleDemoValue(STATE_TOTALS.disbursedCr, fy), [fy]);
@@ -35,10 +46,10 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
   const dbtSuccessRate = 99.2;
 
   const months = useMemo(() => {
-    return gu
-      ? ["એ", "મે", "જૂ", "જુ", "ઓ", "સ", "ઓ", "ન", "ડ", "જ", "ફ", "મા"]
-      : ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar"];
-  }, [gu]);
+    if (currentLang === "gu") return ["એ", "મે", "જૂ", "જુ", "ઓ", "સ", "ઓ", "ન", "ડ", "જ", "ફ", "મા"];
+    if (currentLang === "hi") return ["अप्रै", "मई", "जून", "जुला", "अग", "सित", "अक्टू", "नव", "दिस", "जन", "फ़र", "मार्च"];
+    return ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar"];
+  }, [currentLang]);
 
   // ── MONTHLY LINE ────────────────────────────────────────────────────
   useEffect(() => {
@@ -67,7 +78,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
         splitLine: { lineStyle: { color: "rgba(110, 158, 204, 0.12)" } },
       },
       series: [{
-        name: gu ? "DBT ચુકવણી" : "DBT Outflow",
+        name: t("DBT સીધી સહાય", "डीबीटी प्रत्यक्ष सहायता", "DBT Outflow"),
         type: "line", smooth: true,
         data: vals,
         itemStyle: { color: "#4D79A8" },
@@ -84,7 +95,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
     const r = () => chart.resize();
     window.addEventListener("resize", r);
     return () => { window.removeEventListener("resize", r); chart.dispose(); };
-  }, [gu, fy, months]);
+  }, [fy, months, t]);
 
   // ── SCHEME DONUT ────────────────────────────────────────────────────
   useEffect(() => {
@@ -108,7 +119,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
         textStyle: { color: "#355982", fontSize: 11, fontWeight: 500 },
       },
       series: [{
-        name: gu ? "યોજના-ભાર" : "Scheme Share",
+        name: t("યોજના હિસ્સો", "योजना हिस्सेदारी", "Scheme Share"),
         type: "pie",
         radius: ["40%", "65%"],
         center: ["50%", "43%"],
@@ -117,7 +128,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
         itemStyle: { borderRadius: 6, borderColor: "#FFFFFF", borderWidth: 2 },
         data: demoSchemes.map((s, i) => ({
           value: scaleDemoValue(s.budgetDisbursedCr, fy),
-          name: gu ? (s.shortNameGu || s.shortName) : s.shortName,
+          name: currentLang === "gu" ? (s.shortNameGu || s.shortName) : currentLang === "hi" ? localizeText("hi", s.shortName) : s.shortName,
           itemStyle: { color: HOLST_PALETTE[i % HOLST_PALETTE.length] },
         })),
       }],
@@ -125,7 +136,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
     const r = () => chart.resize();
     window.addEventListener("resize", r);
     return () => { window.removeEventListener("resize", r); chart.dispose(); };
-  }, [gu, fy]);
+  }, [fy, currentLang, t]);
 
   // ── REGION BAR ──────────────────────────────────────────────────────
   useEffect(() => {
@@ -133,6 +144,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
     const chart = echarts.init(regionBarRef.current);
     const regions = ["Saurashtra", "Central", "South", "North", "Kutch", "East"];
     const regGu   = ["સૌરાષ્ટ્ર", "મધ્ય", "દ.ગુ.", "ઉ.ગુ.", "કચ્છ", "પૂ.ગુ."];
+    const regHi   = ["सौराष्ट्र", "मध्य", "द.गु.", "उ.गु.", "कच्छ", "पू.गु."];
     const regVals  = [420, 380, 310, 290, 150, 200].map(v => scaleDemoValue(v, fy));
     chart.setOption({
       grid: { left: "4%", right: "4%", bottom: "5%", top: "12%", containLabel: true },
@@ -146,7 +158,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
       },
       xAxis: {
         type: "category",
-        data: gu ? regGu : regions,
+        data: currentLang === "gu" ? regGu : currentLang === "hi" ? regHi : regions,
         axisLine: { lineStyle: { color: "rgba(110, 158, 204, 0.3)" } },
         axisLabel: { color: "#355982", fontSize: 11, interval: 0, fontWeight: 500 },
       },
@@ -156,7 +168,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
         splitLine: { lineStyle: { color: "rgba(110, 158, 204, 0.12)" } },
       },
       series: [{
-        name: gu ? "DBT" : "DBT (Cr)",
+        name: t("DBT સહાય", "डीबीटी सहायता", "DBT (Cr)"),
         type: "bar",
         barWidth: "40%",
         data: regVals.map((v, i) => ({
@@ -179,7 +191,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
     const r = () => chart.resize();
     window.addEventListener("resize", r);
     return () => { window.removeEventListener("resize", r); chart.dispose(); };
-  }, [gu, fy]);
+  }, [currentLang, fy, t]);
 
   // ── UTILIZATION GAUGE ───────────────────────────────────────────────
   useEffect(() => {
@@ -187,7 +199,7 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
     const chart = echarts.init(utilBarRef.current);
     chart.setOption({
       series: [{
-        name: gu ? "ઉપયોગ દર" : "Budget Utilization",
+        name: t("ઉપયોગ દર", "उपयोग दर", "Budget Utilization"),
         type: "gauge",
         radius: "84%",
         startAngle: 200, endAngle: -20,
@@ -220,14 +232,14 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
           fontWeight: "bold",
           offsetCenter: [0, "30%"],
         },
-        data: [{ value: utilRate, name: gu ? "ઉપયોગ" : "Utilized" }],
+        data: [{ value: utilRate, name: t("ઉપયોગ", "उपयोग", "Utilized") }],
         title: { offsetCenter: [0, "55%"], color: "#4D79A8", fontSize: 12, fontWeight: 600 },
       }],
     });
     const r = () => chart.resize();
     window.addEventListener("resize", r);
     return () => { window.removeEventListener("resize", r); chart.dispose(); };
-  }, [utilRate, gu]);
+  }, [utilRate, currentLang, t]);
 
   return (
     <div className="financial-intel-page">
@@ -236,13 +248,15 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
       <div className="page-hero-gov">
         <div>
           <span className="hero-kicker-tag">
-            {gu ? "ડેમો પૂર્વદર્શન · DBT નાણાકીય ઉદાહરણ" : "DEMO PREVIEW · DBT FINANCIAL EXAMPLE"}
+            {t("ડેમો પૂર્વદર્શન · DBT નાણાકીય ઉદાહરણ", "डेमो पूर्वावलोकन · डीबीटी वित्तीय उदाहरण", "DEMO PREVIEW · DBT FINANCIAL EXAMPLE")}
           </span>
-          <h1>{gu ? `DBT સીધી સહાય ચુકવણી · ₹ ${fmt(totalDisbursed)} Cr` : `Public Spending & Direct Benefit Transfers · ₹ ${fmt(totalDisbursed)} Cr`}</h1>
+          <h1>{t(`DBT સીધી સહાય ચુકવણી · ₹ ${fmt(totalDisbursed)} Cr`, `डीबीटी प्रत्यक्ष लाभ भुगतान · ₹ ${fmt(totalDisbursed)} Cr`, `Public Spending & Direct Benefit Transfers · ₹ ${fmt(totalDisbursed)} Cr`)}</h1>
           <p>
-            {gu
-              ? `FY ${fy} — કૃત્રિમ નમૂનાના આંકડા. સત્તાવાર DBT/બજેટ ડેટા જોડાયેલો નથી.`
-              : `FY ${fy} — illustrative synthetic figures. Official DBT and budget data are not connected.`}
+            {t(
+              `FY ${fy} — કૃત્રિમ નમૂનાના આંકડા. સત્તાવાર DBT/બજેટ ડેટા જોડાયેલો નથી.`,
+              `FY ${fy} — उदाहरणात्मक सिंथेटिक आंकड़े। आधिकारिक डीबीटी/बजट डेटा जुड़ा नहीं है।`,
+              `FY ${fy} — illustrative synthetic figures. Official DBT and budget data are not connected.`
+            )}
           </p>
         </div>
       </div>
@@ -250,24 +264,24 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
       {/* KPI Strip */}
       <div className="stats-strip-4 reveal-stagger is-visible">
         <div className="stat-card-compact card-lift">
-          <span className="stat-label">{gu ? "ફાળવેલ બજેટ" : "Allocated Budget"}</span>
+          <span className="stat-label">{t("ફાળવેલ બજેટ", "आवंटित बजट", "Allocated Budget")}</span>
           <strong className="text-mono-white">₹ {fmt(allocated)} Cr</strong>
-          <small>{gu ? `ઉદ. ફાળવણી · FY ${fy}` : `Demo · FY ${fy}`}</small>
+          <small>{t(`ઉદ. ફાળવણી · FY ${fy}`, `डेमो आवंटन · FY ${fy}`, `Demo · FY ${fy}`)}</small>
         </div>
         <div className="stat-card-compact card-lift">
-          <span className="stat-label">{gu ? "વિતરિત (DBT)" : "Total Disbursed"}</span>
+          <span className="stat-label">{t("વિતરિત (DBT)", "कुल वितरित (DBT)", "Total Disbursed")}</span>
           <strong className="text-mono-white">₹ {fmt(totalDisbursed)} Cr</strong>
-          <small>{gu ? `ઉ. ગ. · FY ${fy}` : `Demo calc · FY ${fy}`}</small>
+          <small>{t(`ઉ. ગ. · FY ${fy}`, `डेमो गणना · FY ${fy}`, `Demo calc · FY ${fy}`)}</small>
         </div>
         <div className="stat-card-compact card-lift">
-          <span className="stat-label">{gu ? "DBT સફળ ટ્રાન્ઝેક્શન" : "DBT Success Rate"}</span>
+          <span className="stat-label">{t("DBT સફળ ટ્રાન્ઝેક્શન", "डीबीटी सफल दर", "DBT Success Rate")}</span>
           <strong className="text-mono-white">{dbtSuccessRate}%</strong>
-          <small>{gu ? "ઉ. ગ. · ચ. નથી" : "Demo · unverified"}</small>
+          <small>{t("ઉ. ગ. · અચકાસાયેલ", "डेमो · असत्यापित", "Demo · unverified")}</small>
         </div>
         <div className="stat-card-compact card-lift">
-          <span className="stat-label">{gu ? "સ.ઘ. / લાભ." : "Avg Assist / Beneficiary"}</span>
+          <span className="stat-label">{t("સરેરાશ સહાય / લાભાર્થી", "औसत सहायता / लाभार्थी", "Avg Assist / Beneficiary")}</span>
           <strong className="text-mono-silver">₹ {fmt(avgPerBen)}</strong>
-          <small>{gu ? "ઉ. ગ. · ચ. નથી" : "Demo · unverified"}</small>
+          <small>{t("ઉ. ગ. · અચકાસાયેલ", "डेमो · असत्यापित", "Demo · unverified")}</small>
         </div>
       </div>
 
@@ -276,8 +290,8 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
         <div className="analytics-card-gov chart-animate card-lift">
           <div className="card-head-gov">
             <div>
-              <h3>{gu ? "માસિક DBT ખર્ચ (₹ કરોડ)" : "Monthly DBT Expenditure (₹ Crores)"}</h3>
-              <small>{gu ? `FY ${fy} — ૧૨ મહિના ટ્રૅન્ડ` : `FY ${fy} — 12-month outflow trend`}</small>
+              <h3>{t("માસિક DBT ખર્ચ (₹ કરોડ)", "मासिक डीबीटी व्यय (₹ करोड़)", "Monthly DBT Expenditure (₹ Crores)")}</h3>
+              <small>{t(`FY ${fy} — ૧૨ મહિના ટ્રૅન્ડ`, `FY ${fy} — 12 महीने का रुझान`, `FY ${fy} — 12-month outflow trend`)}</small>
             </div>
             <span className="badge-pill">FY {fy}</span>
           </div>
@@ -287,10 +301,10 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
         <div className="analytics-card-gov chart-animate card-lift">
           <div className="card-head-gov">
             <div>
-              <h3>{gu ? "બજેટ ઉપયોગ ગેજ" : "Budget Utilization Gauge"}</h3>
-              <small>{gu ? `₹ ${fmt(totalDisbursed)} / ₹ ${fmt(allocated)} Cr` : `₹ ${fmt(totalDisbursed)} disbursed of ₹ ${fmt(allocated)} Cr`}</small>
+              <h3>{t("બજેટ ઉપયોગ ગેજ", "बजट उपयोग गेज", "Budget Utilization Gauge")}</h3>
+              <small>{t(`₹ ${fmt(totalDisbursed)} વિતરિત / ₹ ${fmt(allocated)} Cr ફાળવેલ`, `₹ ${fmt(totalDisbursed)} वितरित / ₹ ${fmt(allocated)} Cr आवंटित`, `₹ ${fmt(totalDisbursed)} disbursed of ₹ ${fmt(allocated)} Cr`)}</small>
             </div>
-            <span className="badge-pill">{utilRate}% Used</span>
+            <span className="badge-pill">{utilRate}% {t("વપરાયેલ", "प्रयुक्त", "Used")}</span>
           </div>
           <div ref={utilBarRef} style={{ height: 240, width: "100%" }} />
         </div>
@@ -301,10 +315,10 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
         <div className="analytics-card-gov chart-animate card-lift">
           <div className="card-head-gov">
             <div>
-              <h3>{gu ? "યોજના-ભાર ડોનટ" : "Scheme-wise DBT Share"}</h3>
-              <small>{gu ? "કઈ યોજનામાં કેટલું ₹" : "DBT allocation across schemes"}</small>
+              <h3>{t("યોજના-વાર DBT હિસ્સો", "योजना-वार डीबीटी हिस्सेदारी", "Scheme-wise DBT Share")}</h3>
+              <small>{t("કઈ યોજનામાં કેટલું ફાળવ્યું", "किस योजना में कितना आवंटन", "DBT allocation across schemes")}</small>
             </div>
-            <span className="badge-pill">{demoSchemes.length} Schemes</span>
+            <span className="badge-pill">{demoSchemes.length} {t("યોજનાઓ", "योजनाएँ", "Schemes")}</span>
           </div>
           <div ref={schemeDonutRef} className="chart-box-echarts" />
         </div>
@@ -312,10 +326,10 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
         <div className="analytics-card-gov">
           <div className="card-head-gov">
             <div>
-              <h3>{gu ? "ક્ષેત્ર-વાર DBT વિભાજન" : "Region-wise DBT Breakdown"}</h3>
-              <small>{gu ? "સૌ., મ., દ., ઉ., ક., પૂ. ગુ." : "Saurashtra, Central, South, North, Kutch, East"}</small>
+              <h3>{t("ક્ષેત્ર-વાર DBT વિભાજન", "क्षेत्र-वार डीबीटी वितरण", "Region-wise DBT Breakdown")}</h3>
+              <small>{t("સૌ., મ., દ., ઉ., ક., પૂ. ગુ.", "सौ., म., द., उ., क., पू. गु.", "Saurashtra, Central, South, North, Kutch, East")}</small>
             </div>
-            <span className="badge-pill">6 Regions</span>
+            <span className="badge-pill">{t("૬ ક્ષેત્રો", "6 क्षेत्र", "6 Regions")}</span>
           </div>
           <div ref={regionBarRef} className="chart-box-echarts" />
         </div>
@@ -325,8 +339,8 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
       <div className="panel-gov">
         <div className="panel-gov-head">
           <div>
-            <h3>{gu ? "યોજનાવાર બજેટ ફાળવણી અને ઉપયોગ" : "Scheme-wise Budget Allocation vs Spending"}</h3>
-            <small>{gu ? `ઉ. આ. · FY ${fy}` : `Illustrative · FY ${fy}`}</small>
+            <h3>{t("યોજનાવાર બજેટ ફાળવણી અને ઉપયોગ", "योजनावार बजट आवंटन एवं व्यय", "Scheme-wise Budget Allocation vs Spending")}</h3>
+            <small>{t(`કૃત્રિમ નમૂનો · FY ${fy}`, `सिंथेटिक नमूना · FY ${fy}`, `Illustrative · FY ${fy}`)}</small>
           </div>
           <span className="badge-pill">FY {fy}</span>
         </div>
@@ -334,12 +348,12 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
           <table className="gov-data-table">
             <thead>
               <tr>
-                <th>{gu ? "યોજના" : "Scheme"}</th>
-                <th>{gu ? "કેટ." : "Category"}</th>
-                <th>{gu ? "ફાળ. (Cr)" : "Allocated (Cr)"}</th>
-                <th>{gu ? "વ. (Cr)" : "Disbursed (Cr)"}</th>
-                <th>{gu ? "ઉ.દ.%" : "Utilization %"}</th>
-                <th>{gu ? "DBT %" : "DBT %"}</th>
+                <th>{t("યોજના", "योजना", "Scheme")}</th>
+                <th>{t("શ્રેણી", "श्रेणी", "Category")}</th>
+                <th>{t("ફાળવણી (Cr)", "आवंटन (Cr)", "Allocated (Cr)")}</th>
+                <th>{t("વિતરણ (Cr)", "वितरण (Cr)", "Disbursed (Cr)")}</th>
+                <th>{t("ઉપયોગ %", "उपयोग %", "Utilization %")}</th>
+                <th>{t("DBT %", "डीबीटी %", "DBT %")}</th>
               </tr>
             </thead>
             <tbody>
@@ -352,10 +366,10 @@ export function FinancialIntelligenceView({ gu, fy }: FinancialIntelligenceViewP
                 return (
                   <tr key={s.id}>
                     <td>
-                      <strong>{gu ? s.shortNameGu : s.shortName}</strong>
+                      <strong>{currentLang === "gu" ? s.shortNameGu : currentLang === "hi" ? localizeText("hi", s.shortName) : s.shortName}</strong>
                       <small className="block text-muted">{s.id}</small>
                     </td>
-                    <td>{gu ? s.categoryGu : s.category}</td>
+                    <td>{currentLang === "gu" ? s.categoryGu : currentLang === "hi" ? localizeText("hi", s.category) : s.category}</td>
                     <td>₹ {fmt(alloc)} Cr</td>
                     <td><strong className="text-mono-white">₹ {fmt(disb)} Cr</strong></td>
                     <td>

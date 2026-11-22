@@ -433,6 +433,39 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
 
   return (
     <section className="dx-inspector" aria-labelledby="dx-inspector-title">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @media (max-width: 640px) {
+              .dx-inspector__controls {
+                padding-right: 56px !important;
+              }
+            }
+            .dx-meter-bar {
+              height: 20px !important;
+              display: flex !important;
+              border-radius: 6px !important;
+              overflow: hidden !important;
+            }
+            .dx-meter-seg {
+              display: inline-flex !important;
+              align-items: center !important;
+              justify-content: center !important;
+              height: 100% !important;
+              position: relative !important;
+            }
+            .dx-meter-pct {
+              font-size: 0.625rem;
+              font-weight: 750;
+              color: #ffffff;
+              text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+              line-height: 1;
+              pointer-events: none;
+              user-select: none;
+            }
+          `,
+        }}
+      />
       {/* 1. Header */}
       <div className="dx-inspector__head">
         <div className="dx-inspector__title-group">
@@ -838,45 +871,72 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
                           <div
                             className="dx-meter-seg dx-meter-seg--activity"
                             style={{ width: "100%", background: "#3b82f6" }}
-                            title={`${t.statusLabels.activityRecorded}: ${act.activityRecorded ?? total}`}
-                          />
+                            title={`${t.statusLabels.activityRecorded}: ${act.activityRecorded ?? total} (100%)`}
+                          >
+                            <span className="dx-meter-pct">100%</span>
+                          </div>
                         ) : (
                           <>
-                            {approved > 0 && (
-                              <div
-                                className="dx-meter-seg dx-meter-seg--approved"
-                                style={{ width: `${(approved / total) * 100}%` }}
-                                title={`${t.statusLabels.approved}: ${approved}`}
-                              />
-                            )}
-                            {pending > 0 && (
-                              <div
-                                className="dx-meter-seg dx-meter-seg--pending"
-                                style={{ width: `${(pending / total) * 100}%` }}
-                                title={`${t.statusLabels.pending}: ${pending}`}
-                              />
-                            )}
-                            {docsPending > 0 && (
-                              <div
-                                className="dx-meter-seg dx-meter-seg--docs"
-                                style={{ width: `${(docsPending / total) * 100}%` }}
-                                title={`${t.statusLabels.documentsPending}: ${docsPending}`}
-                              />
-                            )}
-                            {rejected > 0 && (
-                              <div
-                                className="dx-meter-seg dx-meter-seg--rejected"
-                                style={{ width: `${(rejected / total) * 100}%` }}
-                                title={`${t.statusLabels.rejected}: ${rejected}`}
-                              />
-                            )}
-                            {other > 0 && (
-                              <div
-                                className="dx-meter-seg dx-meter-seg--other"
-                                style={{ width: `${(other / total) * 100}%` }}
-                                title={`${t.statusLabels.notApplied}: ${other}`}
-                              />
-                            )}
+                            {approved > 0 && (() => {
+                              const pct = Math.round((approved / total) * 100);
+                              return (
+                                <div
+                                  className="dx-meter-seg dx-meter-seg--approved"
+                                  style={{ width: `${(approved / total) * 100}%` }}
+                                  title={`${t.statusLabels.approved}: ${approved} (${pct}%)`}
+                                >
+                                  {pct >= 14 && <span className="dx-meter-pct">{pct}%</span>}
+                                </div>
+                              );
+                            })()}
+                            {pending > 0 && (() => {
+                              const pct = Math.round((pending / total) * 100);
+                              return (
+                                <div
+                                  className="dx-meter-seg dx-meter-seg--pending"
+                                  style={{ width: `${(pending / total) * 100}%` }}
+                                  title={`${t.statusLabels.pending}: ${pending} (${pct}%)`}
+                                >
+                                  {pct >= 14 && <span className="dx-meter-pct">{pct}%</span>}
+                                </div>
+                              );
+                            })()}
+                            {docsPending > 0 && (() => {
+                              const pct = Math.round((docsPending / total) * 100);
+                              return (
+                                <div
+                                  className="dx-meter-seg dx-meter-seg--docs"
+                                  style={{ width: `${(docsPending / total) * 100}%` }}
+                                  title={`${t.statusLabels.documentsPending}: ${docsPending} (${pct}%)`}
+                                >
+                                  {pct >= 14 && <span className="dx-meter-pct">{pct}%</span>}
+                                </div>
+                              );
+                            })()}
+                            {rejected > 0 && (() => {
+                              const pct = Math.round((rejected / total) * 100);
+                              return (
+                                <div
+                                  className="dx-meter-seg dx-meter-seg--rejected"
+                                  style={{ width: `${(rejected / total) * 100}%` }}
+                                  title={`${t.statusLabels.rejected}: ${rejected} (${pct}%)`}
+                                >
+                                  {pct >= 14 && <span className="dx-meter-pct">{pct}%</span>}
+                                </div>
+                              );
+                            })()}
+                            {other > 0 && (() => {
+                              const pct = Math.round((other / total) * 100);
+                              return (
+                                <div
+                                  className="dx-meter-seg dx-meter-seg--other"
+                                  style={{ width: `${(other / total) * 100}%` }}
+                                  title={`${t.statusLabels.notApplied}: ${other} (${pct}%)`}
+                                >
+                                  {pct >= 14 && <span className="dx-meter-pct">{pct}%</span>}
+                                </div>
+                              );
+                            })()}
                           </>
                         )}
                       </div>

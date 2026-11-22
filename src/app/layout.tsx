@@ -13,8 +13,8 @@ import "@/styles/dashboard.css";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://yojna-drishtiii.vercel.app"),
   title: {
-    default: "યોજના દૃષ્ટિ | Yojana Drishti",
-    template: "%s | Yojana Drishti",
+    default: "યોજના દૃષ્ટિ | સરકારી યોજનાઓ અને ગુજરાતનો નકશો",
+    template: "%s | યોજના દૃષ્ટિ",
   },
   description: "ગુજરાત રાજ્યની મહિલા કલ્યાણકારી યોજનાઓ અને ભૌગોલિક પહોંચ વિશ્લેષણ મંચ (Yojana Drishti).",
   applicationName: "Yojana Drishti",
