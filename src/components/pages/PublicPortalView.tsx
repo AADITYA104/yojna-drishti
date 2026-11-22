@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { localizeText } from "@/lib/i18n";
 import type { AppLanguage } from "@/lib/i18n";
 import {
@@ -30,6 +30,20 @@ import { SchemeDetailModal } from "../shared/SchemeDetailModal";
 interface PublicPortalViewProps {
   gu: boolean;
   lang: AppLanguage;
+  initialState?: {
+    step?: number;
+    lifeStage?: string;
+    incomeGroup?: string;
+    selectedDistrict?: string;
+    selectedCategory?: string;
+  };
+  onStateChange?: (state: {
+    step: number;
+    lifeStage: string;
+    incomeGroup: string;
+    selectedDistrict: string;
+    selectedCategory: string;
+  }) => void;
 }
 
 type WizardPreviewContent = {
@@ -53,12 +67,22 @@ function WizardPreviewBoundary({ copy }: { copy: WizardPreviewContent }) {
   );
 }
 
-export function PublicPortalView({ gu, lang }: PublicPortalViewProps) {
-  const [step, setStep] = useState<number>(1);
-  const [lifeStage, setLifeStage] = useState<string>("all");
-  const [incomeGroup, setIncomeGroup] = useState<string>("all");
-  const [selectedDistrict, setSelectedDistrict] = useState<string>("bhavnagar");
+export function PublicPortalView({ gu, lang, initialState, onStateChange }: PublicPortalViewProps) {
+  const [step, setStep] = useState<number>(initialState?.step ?? 1);
+  const [lifeStage, setLifeStage] = useState<string>(initialState?.lifeStage ?? "all");
+  const [incomeGroup, setIncomeGroup] = useState<string>(initialState?.incomeGroup ?? "all");
+  const [selectedDistrict, setSelectedDistrict] = useState<string>(initialState?.selectedDistrict ?? "bhavnagar");
   const [selectedModalScheme, setSelectedModalScheme] = useState<Scheme | null>(null);
+
+  useEffect(() => {
+    onStateChange?.({
+      step,
+      lifeStage,
+      incomeGroup,
+      selectedDistrict,
+      selectedCategory: initialState?.selectedCategory ?? "all",
+    });
+  }, [step, lifeStage, incomeGroup, selectedDistrict, onStateChange, initialState?.selectedCategory]);
 
   const matchedSchemes = useMemo(() => {
     return demoSchemes.filter((s) => {

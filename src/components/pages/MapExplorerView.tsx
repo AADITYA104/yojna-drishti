@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Building2, FileSpreadsheet, Info, Landmark, MapPin, MapPinned } from "lucide-react";
 import { localizeText, type AppLanguage } from "@/lib/i18n";
@@ -23,6 +23,15 @@ interface MapExplorerViewProps {
       villageCode?: string;
     };
   } | null;
+  initialDistrictId?: string;
+  initialTalukaCode?: number | null;
+  initialVillageCode?: string | null;
+  onAreaChange?: (state: {
+    districtId: string;
+    talukaCode: number | null;
+    villageCode: string | null;
+    areaType?: "rural" | "urban" | null;
+  }) => void;
 }
 
 const selectionCopy = {
@@ -76,15 +85,71 @@ const scopeCopy = {
   },
 } as const;
 
-export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplorerViewProps) {
-  const [activeDistrictId, setActiveDistrictId] = useState(focusRequest?.target?.districtId || "");
+export function MapExplorerView({
+  gu,
+  lang,
+  fy,
+  focusRequest = null,
+  initialDistrictId = "bhavnagar",
+  initialTalukaCode = null,
+  initialVillageCode = null,
+  onAreaChange,
+}: MapExplorerViewProps) {
+  const [activeDistrictId, setActiveDistrictId] = useState(focusRequest?.target?.districtId || initialDistrictId || "bhavnagar");
   const [previousFocusRequestId, setPreviousFocusRequestId] = useState(focusRequest?.id);
   const [selectedArea, setSelectedArea] = useState<MapSelectedArea | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<MapSelectedLocation | null>(null);
 
-  if (focusRequest?.target?.districtId && focusRequest.id !== previousFocusRequestId) {
-    setPreviousFocusRequestId(focusRequest.id);
-    setActiveDistrictId(focusRequest.target.districtId);
+  const effectiveFocusRequest = useMemo(() => {
+    if (focusRequest) return focusRequest;
+    if (initialVillageCode) {
+      return {
+        id: -1,
+        target: {
+          id: initialVillageCode,
+          kind: "village" as const,
+          districtId: initialDistrictId || "bhavnagar",
+          subdistrictCode: initialTalukaCode ?? undefined,
+          villageCode: initialVillageCode,
+        },
+      };
+    }
+    if (initialTalukaCode) {
+      return {
+        id: -2,
+        target: {
+          id: String(initialTalukaCode),
+          kind: "taluka" as const,
+          districtId: initialDistrictId || "bhavnagar",
+          subdistrictCode: initialTalukaCode,
+        },
+      };
+    }
+    if (initialDistrictId && initialDistrictId !== "bhavnagar") {
+      return {
+        id: -3,
+        target: {
+          id: initialDistrictId,
+          kind: "district" as const,
+          districtId: initialDistrictId,
+        },
+      };
+    }
+    return null;
+  }, [focusRequest, initialDistrictId, initialTalukaCode, initialVillageCode]);
+
+  useEffect(() => {
+    onAreaChange?.({
+      districtId: activeDistrictId || "bhavnagar",
+      talukaCode: selectedArea?.subdistrictCode ? Number(selectedArea.subdistrictCode) : initialTalukaCode,
+      villageCode: selectedLocation?.locationCode || initialVillageCode,
+      areaType: selectedLocation?.category?.toLowerCase() === "urban" ? "urban" : selectedLocation ? "rural" : null,
+    });
+  }, [activeDistrictId, selectedArea, selectedLocation, onAreaChange, initialTalukaCode, initialVillageCode]);
+
+  if (effectiveFocusRequest?.target?.districtId && effectiveFocusRequest.id !== previousFocusRequestId) {
+    setPreviousFocusRequestId(effectiveFocusRequest.id);
+    setActiveDistrictId(effectiveFocusRequest.target.districtId);
   }
 
   const copy = selectionCopy[lang];
@@ -152,7 +217,7 @@ export function MapExplorerView({ gu, lang, fy, focusRequest = null }: MapExplor
             lang={lang}
             fy={fy}
             selectedDistrictId={activeDistrictId}
-            focusRequest={focusRequest}
+            focusRequest={effectiveFocusRequest}
             onDistrictSelect={(district) => setActiveDistrictId(district.id)}
             onAreaSelect={setSelectedArea}
             onLocationSelect={setSelectedLocation}

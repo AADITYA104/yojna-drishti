@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useEffect, useRef, startTransition } from "react";
+import React, { useState, useMemo, useEffect, useRef, useCallback, startTransition } from "react";
 import { localizeText } from "@/lib/i18n";
 import { SpatialGujaratCanvas } from "./SpatialGujaratCanvas";
 import { SpatialDock, type SpatialNavKey } from "./SpatialDock";
@@ -16,6 +16,17 @@ import { FinancialIntelligenceView } from "../pages/FinancialIntelligenceView";
 import { DrishtiAISahayak } from "../shared/DrishtiAISahayak";
 import { demoDistricts, demoSchemes } from "@/lib/demo-data";
 import { MASTER_SUBDISTRICTS, GHOGHA_48_VILLAGES } from "@/lib/master-hierarchy";
+import {
+  type AreaSelectionState,
+  type WizardProgressState,
+  validateAreaParams,
+  validateWizardParams,
+  readAreaFromStorage,
+  saveAreaToStorage,
+  readWizardFromStorage,
+  saveWizardToStorage,
+  syncUrlParams,
+} from "@/lib/url-state";
 import type { GlobalSearchItem } from "../layout/Topbar";
 import { Search, X, MapPin, Sparkles, FileText, CheckCircle2, Info, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
@@ -46,11 +57,77 @@ export function SpatialShell() {
       const raw = window.location.hash.replace("#", "").split("?")[0] as SpatialNavKey;
       if (["dashboard", "schemes", "map", "wizard", "saved", "settings", "villages", "financials"].includes(raw)) {
         setActiveKey(raw);
+      } else {
+        setActiveKey("dashboard");
+        if (window.location.hash && window.location.hash !== "#dashboard") {
+          window.history.replaceState(null, "", "#dashboard");
+        }
       }
     };
     syncHash();
     window.addEventListener("hashchange", syncHash);
     return () => window.removeEventListener("hashchange", syncHash);
+  }, []);
+
+  // Issue #5: Persist area selector & wizard progress across workspace switches
+  const [areaState, setAreaState] = useState<AreaSelectionState>(() => {
+    if (typeof window !== "undefined") {
+      const sp = new URLSearchParams(window.location.search);
+      const urlParams = {
+        district: sp.get("district"),
+        taluka: sp.get("taluka"),
+        village: sp.get("village"),
+        area_type: sp.get("area_type"),
+      };
+      if (urlParams.district || urlParams.taluka || urlParams.village || urlParams.area_type) {
+        return validateAreaParams(urlParams);
+      }
+      const stored = readAreaFromStorage();
+      if (stored) return stored;
+    }
+    return { districtId: "bhavnagar", talukaCode: null, villageCode: null, areaType: null };
+  });
+
+  const [wizardState, setWizardState] = useState<WizardProgressState>(() => {
+    if (typeof window !== "undefined") {
+      const sp = new URLSearchParams(window.location.search);
+      const urlParams = {
+        step: sp.get("wizard_step"),
+        lifeStage: sp.get("wizard_lifestage"),
+        incomeGroup: sp.get("wizard_income"),
+        district: sp.get("wizard_district"),
+        category: sp.get("wizard_cat"),
+      };
+      if (urlParams.step || urlParams.lifeStage || urlParams.incomeGroup || urlParams.district || urlParams.category) {
+        return validateWizardParams(urlParams);
+      }
+      const stored = readWizardFromStorage();
+      if (stored) return stored;
+    }
+    return { step: 1, lifeStage: "all", incomeGroup: "all", selectedDistrict: "bhavnagar", selectedCategory: "all" };
+  });
+
+  const handleAreaChange = useCallback((next: AreaSelectionState) => {
+    setAreaState(next);
+    saveAreaToStorage(next);
+    syncUrlParams({
+      district: next.districtId,
+      taluka: next.talukaCode ? String(next.talukaCode) : null,
+      village: next.villageCode,
+      area_type: next.areaType,
+    });
+  }, []);
+
+  const handleWizardChange = useCallback((next: WizardProgressState) => {
+    setWizardState(next);
+    saveWizardToStorage(next);
+    syncUrlParams({
+      wizard_step: next.step > 1 ? String(next.step) : null,
+      wizard_lifestage: next.lifeStage !== "all" ? next.lifeStage : null,
+      wizard_income: next.incomeGroup !== "all" ? next.incomeGroup : null,
+      wizard_district: next.selectedDistrict !== "bhavnagar" ? next.selectedDistrict : null,
+      wizard_cat: next.selectedCategory !== "all" ? next.selectedCategory : null,
+    });
   }, []);
 
   // Persist only when the visitor picks a language. Saving from an effect overwrote the stored
@@ -287,7 +364,16 @@ export function SpatialShell() {
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
-              <MapExplorerView gu={gu} lang={lang} fy={fy} focusRequest={focusRequest} />
+              <MapExplorerView
+                gu={gu}
+                lang={lang}
+                fy={fy}
+                focusRequest={focusRequest}
+                initialDistrictId={areaState.districtId}
+                initialTalukaCode={areaState.talukaCode}
+                initialVillageCode={areaState.villageCode}
+                onAreaChange={handleAreaChange}
+              />
             </motion.div>
           )}
 
@@ -299,7 +385,12 @@ export function SpatialShell() {
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
-              <PublicPortalView gu={gu} lang={lang} />
+              <PublicPortalView
+                gu={gu}
+                lang={lang}
+                initialState={wizardState}
+                onStateChange={handleWizardChange}
+              />
             </motion.div>
           )}
 
