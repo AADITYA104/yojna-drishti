@@ -386,10 +386,46 @@ export function GujaratInteractiveMap({
     [currentSubdistricts, currentTalukaCode],
   );
 
-  const currentVillage = useMemo(
-    () => villageItems.find((village) => village.code === currentVillageCode) || null,
-    [villageItems, currentVillageCode],
-  );
+  const currentVillage = useMemo<VillageItem | null>(() => {
+    if (!currentVillageCode) return null;
+    const fromItems = villageItems.find((village) => String(village.code) === String(currentVillageCode));
+    if (fromItems) return fromItems;
+    const fromGhogha = GHOGHA_48_VILLAGES.find((v) => String(v.code) === String(currentVillageCode));
+    if (fromGhogha) {
+      return {
+        code: fromGhogha.code,
+        nameEn: fromGhogha.nameEn,
+        nameGu: fromGhogha.nameGu,
+        category: "Rural",
+        sample: fromGhogha,
+      };
+    }
+    const fromDemo = demoVillages.find((v) => String(v.code) === String(currentVillageCode));
+    if (fromDemo) {
+      return {
+        code: fromDemo.code,
+        nameEn: fromDemo.name,
+        nameGu: fromDemo.gu,
+        category: "Rural",
+      };
+    }
+    const fromBoundary = officialBoundaryData?.features.find(
+      (f) => String(f.properties.villageCode) === String(currentVillageCode)
+    )?.properties;
+    if (fromBoundary) {
+      return {
+        code: String(currentVillageCode),
+        nameEn: String(fromBoundary.nameEn || currentVillageCode),
+        nameGu: fromBoundary.nameGu ? String(fromBoundary.nameGu) : undefined,
+        category: "Rural",
+      };
+    }
+    return {
+      code: String(currentVillageCode),
+      nameEn: String(currentVillageCode),
+      category: "Rural",
+    };
+  }, [currentVillageCode, officialBoundaryData, villageItems]);
 
   const areaEnrichedBoundaries = useMemo(() => {
     if (!officialBoundaryData) return null;
@@ -562,9 +598,33 @@ export function GujaratInteractiveMap({
 
   const handleVillageClick = useCallback(
     (code: string) => {
-      const village = villageItems.find((item) => item.code === code);
-      if (!village) return;
-      setCurrentVillageCode(code);
+      const stringCode = String(code);
+      const matchedVillage =
+        villageItems.find((item) => String(item.code) === stringCode) ||
+        GHOGHA_48_VILLAGES.find((item) => String(item.code) === stringCode) ||
+        demoVillages.find((item) => String(item.code) === stringCode);
+
+      const featureProps = officialBoundaryData?.features.find(
+        (f) => String(f.properties.villageCode) === stringCode
+      )?.properties;
+
+      const village: VillageItem = matchedVillage
+        ? "nameEn" in matchedVillage
+          ? (matchedVillage as VillageItem)
+          : {
+              code: stringCode,
+              nameEn: (matchedVillage as { name: string; gu?: string }).name || stringCode,
+              nameGu: (matchedVillage as { name: string; gu?: string }).gu,
+              category: "Rural",
+            }
+        : {
+            code: stringCode,
+            nameEn: String(featureProps?.nameEn || stringCode),
+            nameGu: featureProps?.nameGu ? String(featureProps.nameGu) : undefined,
+            category: "Rural",
+          };
+
+      setCurrentVillageCode(stringCode);
       setLevel("village");
       onAreaSelect?.(null);
       setShowVillageList(false);
@@ -573,14 +633,14 @@ export function GujaratInteractiveMap({
         ? ""
         : lang === "gu" ? "ગામની સીમા લોડ થાય છે…"
           : lang === "hi" ? "गाँव की सीमा लोड हो रही है…" : "Loading village boundary…");
-      const demoVillage = demoVillages.find((item) => item.code === code);
+      const demoVillage = demoVillages.find((item) => String(item.code) === stringCode);
       if (demoVillage) onVillageSelect?.(demoVillage);
       const district = MASTER_DISTRICTS.find((item) => item.id === currentDistrictId);
       onLocationSelect?.({
         locationCode: village.code,
         nameEn: village.nameEn,
         nameGu: village.nameGu || "",
-        category: village.category,
+        category: village.category || "Rural",
         talukaCode: String(currentTalukaCode ?? ""),
         talukaNameEn: currentTaluka?.nameEn || "",
         talukaNameGu: currentTaluka?.nameGu || "",
@@ -646,16 +706,13 @@ export function GujaratInteractiveMap({
       completedFocusRequestRef.current = focusRequest.id;
       return;
     }
-    if (target.kind === "village" && villageLoadState === "ready") {
-      const villageCode = target.villageCode || target.id;
-      const village = villageItems.find((item) => item.code === villageCode);
-      if (village && currentVillageCode !== village.code) {
-        actionsRef.current.selectVillage(village.code);
-      } else {
-        completedFocusRequestRef.current = focusRequest.id;
+    if (target.kind === "village") {
+      const villageCode = String(target.villageCode || target.id);
+      if (currentVillageCode !== villageCode) {
+        actionsRef.current.selectVillage(villageCode);
       }
-    } else if (target.kind === "village" && villageLoadState === "error") {
       completedFocusRequestRef.current = focusRequest.id;
+      return;
     }
   }, [currentDistrictId, currentTalukaCode, currentVillageCode, focusRequest, level, mapReady, villageItems, villageLoadState]);
 
@@ -1565,12 +1622,16 @@ export function GujaratInteractiveMap({
                 </button>
               </>
             )}
-            {level === "village" && currentVillage && (
+            {level === "village" && (currentVillage || currentVillageCode) && (
               <>
                 <ChevronRight size={14} />
-                <span className="geo-current-crumb">
+                <span className="geo-current-crumb" data-testid="village-breadcrumb">
                   <Home size={14} style={{ display: "inline-block", marginRight: "4px" }} />
-                  {gu ? currentVillage.nameGu || currentVillage.nameEn : currentVillage.nameEn}
+                  {gu
+                    ? currentVillage?.nameGu || currentVillage?.nameEn || currentVillageCode
+                    : lang === "hi"
+                    ? localizeText("hi", currentVillage?.nameEn || currentVillageCode || "")
+                    : currentVillage?.nameEn || currentVillageCode}
                 </span>
               </>
             )}
