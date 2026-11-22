@@ -117,143 +117,7 @@ type AreaPayload = {
   } | null;
 };
 
-const copy = {
-  gu: {
-    badge: "નમૂનો · DEMO",
-    title: "સ્માર્ટ વિસ્તાર અને યોજના નિરીક્ષક",
-    subtitle: "ગુજરાતના કોઈપણ શહેર, જિલ્લો, તાલુકો કે ગામ પસંદ કરો અને તેમાં ચાલતી યોજનાઓની વિગતવાર સ્થિતિ જુઓ.",
-    levels: {
-      city: "🏙️ શહેર / નગર",
-      district: "🗺️ જિલ્લો",
-      taluka: "🏛️ તાલુકો",
-      village: "🏡 ગામડું",
-    },
-    popularCities: "મુખ્ય શહેરો:",
-    selectDistrict: "જિલ્લો પસંદ કરો",
-    selectTaluka: "તાલુકો પસંદ કરો",
-    selectSettlement: "શહેર / નગર પસંદ કરો",
-    selectVillage: "ગામ પસંદ કરો",
-    allDistricts: "બધા જિલ્લા",
-    searchCityPlaceholder: "શહેર અથવા નગરનું નામ શોધો...",
-    searchVillagePlaceholder: "ગામનું નામ શોધો...",
-    schemesRunning: "સક્રિય યોજનાઓ",
-    totalRecords: "કુલ નમૂના હરોળો",
-    approvalRate: "મંજૂરી / સેવા દર",
-    femaleRatio: "સ્ત્રી લાભાર્થી હિસ્સો",
-    urbanCount: "શહેરી વસાહતો",
-    ruralCount: "ગ્રામીણ ગામડાં",
-    activeCount: "{active} / {total} યોજનાઓ સક્રિય",
-    viewOnMap: "નકશામાં આ વિસ્તાર જુઓ",
-    inspectFullData: "સંપૂર્ણ ૩૯ કૉલમ ડેટા જુઓ",
-    closeFullData: "ડેટા ટેબલ બંધ કરો",
-    schemeStatusTitle: "યોજનાવાર વિગતવાર સ્થિતિ",
-    statusLabels: {
-      approved: "મંજૂર",
-      serviceDelivered: "સેવા અપાઈ",
-      pending: "પ્રક્રિયામાં",
-      documentsPending: "દસ્તાવેજ બાકી",
-      rejected: "નામંજૂર",
-      activityRecorded: "પ્રવૃત્તિ નોંધાઈ",
-      notApplied: "અરજી નથી",
-    },
-    loading: "ડેટા લોડ થઈ રહ્યો છે...",
-    noData: "આ પસંદગી માટે કોઈ નમૂના ડેટા મળ્યો નથી.",
-    urbanBadge: "શહેરી વિસ્તાર",
-    ruralBadge: "ગ્રામીણ વિસ્તાર",
-    lgdCode: "LGD કોડ",
-    citiesInArea: "આ વિસ્તારમાં સમાવિષ્ટ મુખ્ય શહેરો / નગરો:",
-  },
-  hi: {
-    badge: "नमूना · DEMO",
-    title: "स्मार्ट क्षेत्र और योजना निरीक्षक",
-    subtitle: "गुजरात का कोई भी शहर, जिला, तालुका या गाँव चुनें और वहाँ चल रही योजनाओं की स्थिति देखें।",
-    levels: {
-      city: "🏙️ शहर / नगर",
-      district: "🗺️ जिला",
-      taluka: "🏛️ तालुका",
-      village: "🏡 गाँव",
-    },
-    popularCities: "प्रमुख शहर:",
-    selectDistrict: "जिला चुनें",
-    selectTaluka: "तालुका चुनें",
-    selectSettlement: "शहर / नगर चुनें",
-    selectVillage: "गाँव चुनें",
-    allDistricts: "सभी जिले",
-    searchCityPlaceholder: "शहर या नगर का नाम खोजें...",
-    searchVillagePlaceholder: "गाँव का नाम खोजें...",
-    schemesRunning: "सक्रिय योजनाएँ",
-    totalRecords: "कुल नमूना पंक्तियाँ",
-    approvalRate: "स्वीकृति / सेवा दर",
-    femaleRatio: "महिला लाभार्थी अनुपात",
-    urbanCount: "शहरी बस्तियाँ",
-    ruralCount: "ग्रामीण गाँव",
-    activeCount: "{active} / {total} योजनाएँ सक्रिय",
-    viewOnMap: "नक्शे पर यह क्षेत्र देखें",
-    inspectFullData: "पूरा ३९ कॉलम डेटा देखें",
-    closeFullData: "डेटा टेबल बंद करें",
-    schemeStatusTitle: "योजनावार विस्तृत स्थिति",
-    statusLabels: {
-      approved: "स्वीकृत",
-      serviceDelivered: "सेवा दी गई",
-      pending: "प्रक्रिया में",
-      documentsPending: "दस्तावेज़ बाकी",
-      rejected: "अस्वीकृत",
-      activityRecorded: "गतिविधि दर्ज",
-      notApplied: "आवेदन नहीं",
-    },
-    loading: "डेटा लोड हो रहा है...",
-    noData: "इस चयन के लिए नमूना डेटा उपलब्ध नहीं है।",
-    urbanBadge: "शहरी क्षेत्र",
-    ruralBadge: "ग्रामीण क्षेत्र",
-    lgdCode: "LGD कोड",
-    citiesInArea: "इस क्षेत्र में शामिल प्रमुख शहर / नगर:",
-  },
-  en: {
-    badge: "Sample · DEMO",
-    title: "Smart Area & Scheme Inspector",
-    subtitle: "Select any City, District, Taluka, or Village in Gujarat to inspect running schemes and granular micro-data.",
-    levels: {
-      city: "🏙️ City / Urban",
-      district: "🗺️ District",
-      taluka: "🏛️ Taluka",
-      village: "🏡 Village / Rural",
-    },
-    popularCities: "Prominent cities:",
-    selectDistrict: "Select District",
-    selectTaluka: "Select Taluka",
-    selectSettlement: "Select City / Town",
-    selectVillage: "Select Village",
-    allDistricts: "All Districts",
-    searchCityPlaceholder: "Search city or town name...",
-    searchVillagePlaceholder: "Search village name...",
-    schemesRunning: "Active Schemes",
-    totalRecords: "Total Sample Rows",
-    approvalRate: "Approval / Service Rate",
-    femaleRatio: "Female Share",
-    urbanCount: "Urban Settlements",
-    ruralCount: "Rural Villages",
-    activeCount: "{active} of {total} schemes active",
-    viewOnMap: "View this area on Map",
-    inspectFullData: "Inspect Full 39 Columns",
-    closeFullData: "Close Data Table",
-    schemeStatusTitle: "Detailed Status by Scheme",
-    statusLabels: {
-      approved: "Approved",
-      serviceDelivered: "Delivered",
-      pending: "In Process",
-      documentsPending: "Docs Pending",
-      rejected: "Rejected",
-      activityRecorded: "Activity Logged",
-      notApplied: "Not Applied",
-    },
-    loading: "Loading area data...",
-    noData: "No sample data found for this selection.",
-    urbanBadge: "Urban Area",
-    ruralBadge: "Rural Area",
-    lgdCode: "LGD Code",
-    citiesInArea: "Cities and towns in this area:",
-  },
-} as const;
+import { smartAreaInspectorCopy as copy } from "@/lib/inspector-i18n.ts";
 
 // Top prominent cities in Gujarat with LGD codes from dataset
 const POPULAR_CITIES = [
@@ -873,7 +737,7 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
                   .replace("{total}", String(summary.totalSchemes))}
               </div>
               <span className="dx-stat-box__sub">
-                {summary.activeSchemes === summary.totalSchemes ? "૧૦૦% ઉપલબ્ધતા" : "નમૂના આધારિત"}
+                {summary.activeSchemes === summary.totalSchemes ? t.hundredPercentAvailability : t.sampleBased}
               </span>
             </div>
 
@@ -885,7 +749,7 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
               <div className="dx-stat-box__value">
                 {new Intl.NumberFormat(lang === "gu" ? "gu-IN" : "en-IN").format(summary.totalRows)}
               </div>
-              <span className="dx-stat-box__sub">કૃત્રિમ ડેમો પંક્તિઓ</span>
+              <span className="dx-stat-box__sub">{t.syntheticDemoRows}</span>
             </div>
 
             <div className="dx-stat-box dx-stat-box--teal">
@@ -894,7 +758,7 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
                 <CheckCircle2 size={18} className="dx-stat-box__icon" aria-hidden="true" />
               </div>
               <div className="dx-stat-box__value">{summary.approvalRate}%</div>
-              <span className="dx-stat-box__sub">મંજૂર અથવા સેવા અપાઈ</span>
+              <span className="dx-stat-box__sub">{t.approvedOrDelivered}</span>
             </div>
 
             <div className="dx-stat-box dx-stat-box--purple">
@@ -908,7 +772,7 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
                 {areaData ? `${areaData.urbanCount} 🏙️ / ${areaData.ruralCount} 🏡` : `${summary.femaleRate}% 👩`}
               </div>
               <span className="dx-stat-box__sub">
-                {areaData ? "શહેરી અને ગ્રામીણ વિભાજન" : "મહિલા લાભાર્થી ગુણોત્તર"}
+                {areaData ? t.urbanRuralSplit : t.femaleBeneficiaryRatio}
               </span>
             </div>
           </div>
@@ -932,7 +796,7 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
                     }}
                   >
                     <strong>{lang === "gu" && u.nameGu ? u.nameGu : u.nameEn}</strong>
-                    <span>({u.sampleRows} પંક્તિઓ)</span>
+                    <span>({u.sampleRows} {t.rowsUnit})</span>
                   </button>
                 ))}
               </div>
@@ -944,7 +808,7 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
             <div className="dx-scheme-deepdive__header">
               <h4 className="dx-scheme-deepdive__title">{t.schemeStatusTitle}</h4>
               <span className="dx-scheme-deepdive__note">
-                દરેક યોજના માટે મંજૂર, પ્રક્રિયામાં, દસ્તાવેજ બાકી અને નામંજૂર વિગત
+                {t.schemeDeepDiveNote}
               </span>
             </div>
 
