@@ -6,6 +6,7 @@ import { Activity, BarChart3, CalendarDays, Database, Layers, MapPin, ShieldAler
 import { localizeText, type AppLanguage } from "@/lib/i18n";
 import type { MapSelectedLocation } from "./GujaratInteractiveMap";
 import { VillageSchemeRegister } from "../shared/VillageSchemeRegister";
+import { COLUMN_DICTIONARY } from "@/lib/column-dictionary";
 
 type Bucket = Record<string, number>;
 type Scheme = {
@@ -483,7 +484,17 @@ export function LocationAnalyticsDashboard({ location, lang }: { location: MapSe
                       : recordsPayload?.data && visibleSourceRows.length ? <>
                         <div className="location-records-table-wrap" role="region" aria-label={t.recordsTable} tabIndex={0}>
                           <table className="location-records-table">
-                            <thead><tr>{recordsPayload.data.columns.map((column) => <th key={column} scope="col">{recordColumnLabels[column]?.[lang] || column}</th>)}</tr></thead>
+                            <thead><tr>{recordsPayload.data.columns.map((column) => {
+                              const label = recordColumnLabels[column]?.[lang] || column.replaceAll("_", " ");
+                              return (
+                                <th key={column} scope="col" title={`${label} (${column})`}>
+                                  <div style={{ display: "flex", flexDirection: "column", gap: "2px", alignItems: "flex-start" }}>
+                                    <span style={{ fontWeight: 650, whiteSpace: "nowrap" }}>{label}</span>
+                                    <small style={{ fontSize: "0.6875rem", opacity: 0.8, fontWeight: 400, whiteSpace: "nowrap" }}>{column}</small>
+                                  </div>
+                                </th>
+                              );
+                            })}</tr></thead>
                             <tbody>{visibleSourceRows.map((row) => <tr key={row.Record_ID}>
                               {recordsPayload.data!.columns.map((column) => {
                                 const value = row[column] || "—";

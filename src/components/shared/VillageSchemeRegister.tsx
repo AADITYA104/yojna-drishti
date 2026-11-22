@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { AlertCircle, Database, Search, ShieldCheck, CheckCircle2, XCircle, HelpCircle, Download, Printer } from "lucide-react";
 import type { AppLanguage } from "@/lib/i18n";
+import { COLUMN_DICTIONARY } from "@/lib/column-dictionary";
 
 interface VillageSchemeRegisterProps {
   villageCode: string;
@@ -259,7 +260,22 @@ export function VillageSchemeRegister({ villageCode, villageNameGu, villageNameE
           </button>
         </div>
       </div>
-      <div className="village-record-table-wrap" role="region" aria-label={`${text.title} ${place ?? villageCode}`} tabIndex={0}><table className="village-record-table"><thead><tr>{columns.map((column) => <th key={column} scope="col">{column.replaceAll("_", " ")}</th>)}</tr></thead><tbody>
+      <div className="village-record-table-wrap" role="region" aria-label={`${text.title} ${place ?? villageCode}`} tabIndex={0}><table className="village-record-table"><thead><tr>{columns.map((column) => {
+        const dictEntry = COLUMN_DICTIONARY[column];
+        const localizedLabel = dictEntry ? dictEntry[language] : column.replaceAll("_", " ");
+        return (
+          <th key={column} scope="col" title={`${localizedLabel} (${column})`}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "2px", alignItems: "flex-start" }}>
+              <span style={{ fontWeight: 650, color: "var(--dx-navy, #011f65)", whiteSpace: "nowrap" }}>
+                {localizedLabel}
+              </span>
+              <small style={{ fontSize: "0.6875rem", color: "var(--dx-muted, #5a7184)", fontWeight: 400, opacity: 0.85, whiteSpace: "nowrap" }}>
+                {column}
+              </small>
+            </div>
+          </th>
+        );
+      })}</tr></thead><tbody>
         {visibleRows.map((row, index) => <tr key={row.Record_ID || `${row.Scheme_ID}-${page * pageSize + index}`}>{columns.map((column) => <td key={column}>{row[column] || "—"}</td>)}</tr>)}
       </tbody></table></div>
       <footer className="village-records-footer"><span>{text.source} · {text.date}: {payload.meta?.referenceDate ?? text.noDate}</span><div><span>{text.page} {number(currentPage + 1, language)} {text.of} {number(pageCount, language)}</span><button type="button" disabled={currentPage <= 0} onClick={() => setPage((current) => Math.max(0, current - 1))}>{text.previous}</button><button type="button" disabled={currentPage + 1 >= pageCount} onClick={() => setPage((current) => Math.min(pageCount - 1, current + 1))}>{text.next}</button></div></footer>
