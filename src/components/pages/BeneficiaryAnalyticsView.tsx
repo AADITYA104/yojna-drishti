@@ -40,9 +40,9 @@ const text = {
 } as const;
 
 const keyLabels: Record<AppLanguage, Record<string, string>> = {
-  gu: { under18: "18 વર્ષથી ઓછી", "18to29": "18–29 વર્ષ", "30to44": "30–44 વર્ષ", "45to59": "45–59 વર્ષ", "60plus": "60+ વર્ષ", unknown: "અજ્ઞાત", female: "સ્ત્રી", male: "પુરુષ", community: "સમુદાય", eligible: "પાત્ર (નમૂનો)", notEligible: "અપાત્ર (નમૂનો)", review: "સમીક્ષા જરૂરી", potential: "સંભવિત", notApplicable: "લાગુ નથી", approved: "મંજૂર (નમૂનો)", rejected: "નામંજૂર (નમૂનો)", documentsPending: "દસ્તાવેજ બાકી", pending: "બાકી", notApplied: "અરજી નથી", serviceDelivered: "સેવા પૂર્ણ", activityRecorded: "પ્રવૃત્તિ નોંધાયેલ", complete: "સંપૂર્ણ", activityLog: "પ્રવૃત્તિ નોંધ" },
-  hi: { under18: "18 वर्ष से कम", "18to29": "18–29 वर्ष", "30to44": "30–44 वर्ष", "45to59": "45–59 वर्ष", "60plus": "60+ वर्ष", unknown: "अज्ञात", female: "महिला", male: "पुरुष", community: "समुदाय", eligible: "पात्र (demo label)", notEligible: "अपात्र (demo label)", review: "समीक्षा आवश्यक", potential: "संभावित", notApplicable: "लागू नहीं", approved: "स्वीकृत label", rejected: "अस्वीकृत label", documentsPending: "दस्तावेज़ लंबित", pending: "लंबित", notApplied: "आवेदन नहीं", serviceDelivered: "सेवा label", activityRecorded: "गतिविधि दर्ज", complete: "पूर्ण label", activityLog: "गतिविधि लॉग" },
-  en: { under18: "Under 18", "18to29": "18–29 years", "30to44": "30–44 years", "45to59": "45–59 years", "60plus": "60+ years", unknown: "Unknown", female: "Female", male: "Male", community: "Community", eligible: "Eligible (demo label)", notEligible: "Not eligible (demo label)", review: "Review required", potential: "Potential", notApplicable: "Not applicable", approved: "Approved label", rejected: "Rejected label", documentsPending: "Documents pending", pending: "Pending", notApplied: "Not applied", serviceDelivered: "Service label", activityRecorded: "Activity recorded", complete: "Complete label", activityLog: "Activity log" },
+  gu: { under18: "18 વર્ષથી ઓછી", "18to29": "18–29 વર્ષ", "30to44": "30–44 વર્ષ", "45to59": "45–59 વર્ષ", "60plus": "60+ વર્ષ", unknown: "અજ્ઞાત", female: "સ્ત્રી", male: "પુરુષ", community: "સમુદાય (પ્રવૃત્તિ એન્ટ્રી)", eligible: "પાત્ર (નમૂનો)", notEligible: "અપાત્ર (નમૂનો)", review: "સમીક્ષા જરૂરી", potential: "સંભવિત", notApplicable: "લાગુ નથી", approved: "મંજૂર (નમૂનો)", rejected: "નામંજૂર (નમૂનો)", documentsPending: "દસ્તાવેજ બાકી", pending: "બાકી", notApplied: "અરજી નથી", serviceDelivered: "સેવા પૂર્ણ", activityRecorded: "પ્રવૃત્તિ નોંધાયેલ", complete: "સંપૂર્ણ", activityLog: "પ્રવૃત્તિ નોંધ" },
+  hi: { under18: "18 वर्ष से कम", "18to29": "18–29 वर्ष", "30to44": "30–44 वर्ष", "45to59": "45–59 वर्ष", "60plus": "60+ वर्ष", unknown: "अज्ञात", female: "महिला", male: "पुरुष", community: "समुदाय (गतिविधि प्रविष्टि)", eligible: "पात्र (demo label)", notEligible: "अपात्र (demo label)", review: "समीक्षा आवश्यक", potential: "संभावित", notApplicable: "लागू नहीं", approved: "स्वीकृत label", rejected: "अस्वीकृत label", documentsPending: "दस्तावेज़ लंबित", pending: "लंबित", notApplied: "आवेदन नहीं", serviceDelivered: "सेवा label", activityRecorded: "गतिविधि दर्ज", complete: "पूर्ण label", activityLog: "गतिविधि लॉग" },
+  en: { under18: "Under 18", "18to29": "18–29 years", "30to44": "30–44 years", "45to59": "45–59 years", "60plus": "60+ years", unknown: "Unknown", female: "Female", male: "Male", community: "Community (Activity Entry)", eligible: "Eligible (demo label)", notEligible: "Not eligible (demo label)", review: "Review required", potential: "Potential", notApplicable: "Not applicable", approved: "Approved label", rejected: "Rejected label", documentsPending: "Documents pending", pending: "Pending", notApplied: "Not applied", serviceDelivered: "Service label", activityRecorded: "Activity recorded", complete: "Complete label", activityLog: "Activity log" },
 };
 
 const format = (value: number, lang: AppLanguage) => new Intl.NumberFormat(lang === "gu" ? "gu-IN" : lang === "hi" ? "hi-IN" : "en-IN").format(value);
@@ -88,7 +88,28 @@ export function BeneficiaryAnalyticsView({ lang }: BeneficiaryAnalyticsViewProps
         const total = Object.values(group).reduce((sum, value) => sum + value, 0);
         return <section className="data-panel analytics-group-panel reveal" key={title}><div className="data-panel-heading"><h2>{title}</h2><span>{format(total, lang)} {labels.rowsLabel}</span></div>
           <p className="analytics-denominator">{labels.share}: {format(total, lang)} {labels.rowsLabel}</p>
-          <div className="data-bar-list">{Object.entries(group).sort((a, b) => b[1] - a[1]).map(([key, value]) => <div className="data-bar-row" key={key}><div className="data-bar-label"><span>{keyLabels[lang][key] ?? key}</span><strong>{format(value, lang)} <small>· {total ? `${((value / total) * 100).toFixed(1)}%` : "0%"}</small></strong></div><div className="data-bar-track"><span style={{ width: `${total ? Math.max(1, (value / total) * 100) : 0}%` }} /></div></div>)}</div>
+          <div className="data-bar-list">{Object.entries(group).sort((a, b) => b[1] - a[1]).map(([key, value]) => {
+            const isCommunity = key === "community";
+            return (
+              <div className={`data-bar-row ${isCommunity ? "data-bar-row--community" : ""}`} key={key}>
+                <div className="data-bar-label">
+                  <span>{keyLabels[lang][key] ?? key}</span>
+                  <strong>{format(value, lang)} <small>· {total ? `${((value / total) * 100).toFixed(1)}%` : "0%"}</small></strong>
+                </div>
+                <div className="data-bar-track">
+                  <span
+                    style={{
+                      width: `${total ? Math.max(1, (value / total) * 100) : 0}%`,
+                      ...(isCommunity ? {
+                        background: "repeating-linear-gradient(45deg, #6366f1, #6366f1 6px, #4f46e5 6px, #4f46e5 12px)",
+                        border: "1px dashed #c7d2fe",
+                      } : {}),
+                    }}
+                  />
+                </div>
+              </div>
+            );
+          })}</div>
         </section>;
       })}</div>
       <footer className="data-dashboard-footer"><span>{labels.source}</span><span>{labels.date}: {overview.meta.referenceDate}</span></footer>
