@@ -195,10 +195,10 @@ export function SpatialShell() {
     setSearchQuery("");
     if (item.kind === "scheme") {
       setSelectedSchemeTerm(item.label);
-      setActiveKey("schemes");
+      handleNavSelect("schemes");
     } else {
       setFocusRequest({ id: ++focusRequestSequence.current, target: item });
-      setActiveKey("map");
+      handleNavSelect("map");
     }
   };
 
@@ -259,7 +259,7 @@ export function SpatialShell() {
                 onNavigate={handleNavSelect}
                 onSelectScheme={(name) => {
                   setSelectedSchemeTerm(name);
-                  setActiveKey("schemes");
+                  handleNavSelect("schemes");
                 }}
                 onFocusMap={handleSelectSearchResult}
               />
@@ -275,7 +275,7 @@ export function SpatialShell() {
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
-              <SchemesView gu={gu} lang={lang} fy={fy} initialSearchTerm={selectedSchemeTerm} onOpenMap={() => setActiveKey("map")} />
+              <SchemesView gu={gu} lang={lang} fy={fy} initialSearchTerm={selectedSchemeTerm} onOpenMap={() => handleNavSelect("map")} />
             </motion.div>
           )}
 
@@ -472,14 +472,14 @@ export function SpatialShell() {
         gu={gu}
         lang={lang}
         onNavigate={(page, searchTerm) => {
-          if (page === "portal" || page === "public" || page === "wizard") setActiveKey("wizard");
-          else if (page === "map") setActiveKey("map");
+          if (page === "portal" || page === "public" || page === "wizard") handleNavSelect("wizard");
+          else if (page === "map") handleNavSelect("map");
           else if (page === "schemes") {
             setSelectedSchemeTerm(searchTerm || "");
-            setActiveKey("schemes");
+            handleNavSelect("schemes");
           }
-          else if (page === "analytics" || page === "beneficiaries") setActiveKey("saved");
-          else setActiveKey("dashboard");
+          else if (page === "analytics" || page === "beneficiaries") handleNavSelect("saved");
+          else handleNavSelect("dashboard");
         }}
       />
     </div>
