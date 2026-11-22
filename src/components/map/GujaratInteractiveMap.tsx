@@ -949,8 +949,8 @@ export function GujaratInteractiveMap({
             "fill-opacity": [
               "case",
               ["==", ["get", "districtId"], currentDistrictId],
-              0.62,
-              0.46,
+              0.82,
+              0.65,
             ],
             "fill-color-transition": { duration: 420, delay: 0 },
           },
@@ -973,8 +973,8 @@ export function GujaratInteractiveMap({
             "line-width": [
               "case",
               ["==", ["get", "districtId"], currentDistrictId],
-              2.6,
-              1.15,
+              3.0,
+              1.8,
             ],
             "line-opacity": 0.95,
             "line-color-transition": { duration: 420, delay: 0 },
@@ -989,10 +989,10 @@ export function GujaratInteractiveMap({
         type: "symbol",
         source: "geo-districts",
         minzoom: 5.5,
-        maxzoom: 10.5,
+        maxzoom: 9.0,
         layout: {
           "text-field": gu ? ["get", "nameGu"] : lang === "hi" ? ["get", "nameHi"] : ["get", "district"],
-          "text-size": ["interpolate", ["linear"], ["zoom"], 5.5, 10, 9, 14],
+          "text-size": ["interpolate", ["linear"], ["zoom"], 5.5, 11, 8.5, 15],
           "text-font": ["Noto Sans Regular"],
           "text-allow-overlap": false,
           "text-ignore-placement": false,
@@ -1000,7 +1000,8 @@ export function GujaratInteractiveMap({
         paint: {
           "text-color": "#020c47",
           "text-halo-color": "#ffffff",
-          "text-halo-width": 1.7,
+          "text-halo-width": 2.6,
+          "text-halo-blur": 0.5,
         },
       });
     } else {
@@ -1016,8 +1017,8 @@ export function GujaratInteractiveMap({
     map.setPaintProperty("district-fill", "fill-opacity", [
       "case",
       ["==", ["get", "districtId"], currentDistrictId],
-      0.62,
-      0.46,
+      0.82,
+      0.65,
     ]);
     map.setPaintProperty("district-lines", "line-color", [
       "case",
@@ -1028,9 +1029,14 @@ export function GujaratInteractiveMap({
     map.setPaintProperty("district-lines", "line-width", [
       "case",
       ["==", ["get", "districtId"], currentDistrictId],
-      2.6,
-      1.15,
+      3.0,
+      1.8,
     ]);
+    if (map.getLayer("district-names")) {
+      map.setPaintProperty("district-names", "text-halo-width", 2.6);
+      map.setPaintProperty("district-names", "text-halo-color", "#ffffff");
+      map.setPaintProperty("district-names", "text-color", "#020c47");
+    }
 
     if (!districtInteractionsAdded.current && map.getLayer("district-fill")) {
       // Click district to fly in
