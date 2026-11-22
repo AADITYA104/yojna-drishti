@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, BookOpenCheck, Building2, Map as MapIcon, Percent, Rows3 } from "lucide-react";
+import { ArrowRight, BookOpenCheck, Building2, Map as MapIcon, Percent, Rows3, Sparkles } from "lucide-react";
 import { localizeText, type AppLanguage } from "@/lib/i18n";
 import { AnimatedNumber } from "@/components/motion/AnimatedNumber";
 import { KpiCard } from "@/components/ui/KpiCard";
@@ -81,6 +81,8 @@ const copy = {
     errorMsg: "ડેશબોર્ડનો ડેટા લોડ થઈ શક્યો નથી. ઇન્ટરનેટ તપાસી ફરી પ્રયાસ કરો.",
     retry: "ફરી પ્રયાસ કરો",
     loading: "ડેશબોર્ડ લોડ થાય છે",
+    keyInsightTitle: "મુખ્ય આંતરદૃષ્ટિ",
+    keyInsightTemplate: "નમૂના ડેટાસેટમાં સૌથી વધુ {rows} પંક્તિઓ {district} જિલ્લામાં નોંધાયેલ છે ({places} સ્થળો).",
   },
   hi: {
     badge: "नमूना · DEMO",
@@ -111,6 +113,8 @@ const copy = {
     errorMsg: "डैशबोर्ड का डेटा लोड नहीं हो सका। इंटरनेट जाँचकर फिर कोशिश करें।",
     retry: "फिर कोशिश करें",
     loading: "डैशबोर्ड लोड हो रहा है",
+    keyInsightTitle: "मुख्य अंतर्दृष्टि",
+    keyInsightTemplate: "नमूना डेटासेट में सर्वाधिक {rows} पंक्तियाँ {district} जिले में दर्ज हैं ({places} स्थान)।",
   },
   en: {
     badge: "Sample · DEMO",
@@ -141,6 +145,8 @@ const copy = {
     errorMsg: "The dashboard data could not be loaded. Check your connection and try again.",
     retry: "Try again",
     loading: "Loading dashboard",
+    keyInsightTitle: "Key insight",
+    keyInsightTemplate: "In this sample dataset, {district} district has the highest record concentration with {rows} sample rows across {places} locations.",
   },
 } as const;
 
@@ -283,6 +289,35 @@ export function SpatialBentoDashboard({ lang, talukaCount, onNavigate, onFocusMa
             <KpiCard title={text.kpiSchemes} value={<AnimatedNumber value={overview.meta.schemeCount} locale={localeOf(lang)} />} sublabel={text.kpiSchemesSub} icon={BookOpenCheck} badge="DEMO" badgeLabel={text.badge} accent="blue" />
             <KpiCard title={text.kpiApproved} value={<AnimatedNumber value={approval.share} decimals={1} suffix="%" locale={localeOf(lang)} />} sublabel={text.kpiApprovedSub.replace("{n}", fmt(approval.schemes, lang))} icon={Percent} badge="DEMO" badgeLabel={text.badge} accent="teal" />
           </section>
+
+          {districts[0] && (
+            <div
+              className="dx-insight-banner"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "12px 18px",
+                borderRadius: "12px",
+                background: "rgba(238, 108, 43, 0.08)",
+                border: "1px solid rgba(238, 108, 43, 0.22)",
+                fontSize: "0.875rem",
+                color: "var(--dx-ink)",
+                margin: "12px 0 16px 0",
+              }}
+            >
+              <Sparkles size={18} style={{ color: "var(--dx-saffron)", flexShrink: 0 }} aria-hidden="true" />
+              <div style={{ lineHeight: 1.5 }}>
+                <strong style={{ color: "var(--dx-saffron)", marginRight: "6px" }}>{text.keyInsightTitle}:</strong>
+                <span>
+                  {text.keyInsightTemplate
+                    .replace("{rows}", fmt(districts[0].sampleRows, lang))
+                    .replace("{district}", nameOf(districts[0]))
+                    .replace("{places}", fmt(districts[0].locationCount, lang))}
+                </span>
+              </div>
+            </div>
+          )}
 
           <SmartAreaInspector lang={lang} onFocusMap={onFocusMap} />
 
