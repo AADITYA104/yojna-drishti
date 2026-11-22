@@ -240,6 +240,18 @@ export function SpatialBentoDashboard({ lang, talukaCount, onNavigate, onFocusMa
         </div>
 
         <div aria-label={text.ladderTitle} role="group">
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                @media (max-width: 640px) {
+                  .dx-ladder {
+                    margin-right: 54px !important;
+                    max-width: calc(100% - 54px) !important;
+                  }
+                }
+              `,
+            }}
+          />
           {overview ? (
             <ol className="dx-ladder">
               {ladder.map((step, index) => (

@@ -161,15 +161,40 @@ export function DrishtiAISahayak({ gu, lang, onNavigate }: DrishtiAISahayakProps
       <button
         type="button"
         className={`gov-helpdesk-floating-trigger ${isOpen ? "is-open" : ""}`}
+        style={{
+          bottom: "calc(var(--nav-h, 68px) + 32px + env(safe-area-inset-bottom))",
+          zIndex: 48,
+        }}
         onClick={() => setIsOpen((open) => !open)}
         aria-label={gu ? "યોજના ડિજિટલ સહાયક" : lang === "hi" ? "योजना डिजिटल सहायक" : "Scheme preview assistant"}
       >
         {isOpen ? <X size={20} /> : <Headphones size={20} />}
       </button>
 
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @media (max-width: 768px) {
+              button.gov-helpdesk-floating-trigger {
+                bottom: calc(var(--nav-h, 68px) + 32px + env(safe-area-inset-bottom)) !important;
+                right: 14px !important;
+                z-index: 48 !important;
+              }
+              .gov-helpdesk-floating-panel {
+                bottom: calc(var(--nav-h, 68px) + 84px + env(safe-area-inset-bottom)) !important;
+                right: 12px !important;
+              }
+            }
+          `,
+        }}
+      />
+
       {/* Chat Window Panel */}
       {isOpen && (
-        <div className="gov-helpdesk-floating-panel" role="dialog" aria-modal="true" aria-label={gu ? "દૃષ્ટિ ડિજિટલ સહાયક" : lang === "hi" ? "दृष्टि डिजिटल सहायक" : "Preview assistant"}>
+        <div
+          className="gov-helpdesk-floating-panel"
+          style={{ bottom: "calc(var(--nav-h, 68px) + 72px + env(safe-area-inset-bottom))" }}
+          role="dialog" aria-modal="true" aria-label={gu ? "દૃષ્ટિ ડિજિટલ સહાયક" : lang === "hi" ? "दृष्टि डिजिटल सहायक" : "Preview assistant"}>
           <div className="ghp-head">
             <div className="ghp-brand">
               <div className="ghp-avatar">

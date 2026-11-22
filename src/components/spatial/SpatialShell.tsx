@@ -281,7 +281,7 @@ export function SpatialShell() {
 
   return (
     <MotionConfig reducedMotion="user">
-    <div className="spatial-app-shell">
+    <div className="spatial-app-shell" style={{ "--nav-h": "68px" } as React.CSSProperties}>
       {/* 1. Background Gujarat SVG & Atmospheric Canvas */}
       <SpatialGujaratCanvas gu={gu} lang={lang} />
 
