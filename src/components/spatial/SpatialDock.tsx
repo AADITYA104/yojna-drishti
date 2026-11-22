@@ -39,6 +39,9 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
       labelGu: "મુખ્ય ડેશબોર્ડ",
       labelEn: "Main Dashboard",
       labelHi: "मुख्य डैशबोर्ड",
+      shortGu: "ડેશબોર્ડ",
+      shortEn: "Dashboard",
+      shortHi: "डैशबोर्ड",
       icon: LayoutDashboard,
     },
     {
@@ -46,6 +49,9 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
       labelGu: "બધી યોજનાઓ",
       labelEn: "All Schemes",
       labelHi: "सभी योजनाएँ",
+      shortGu: "યોજનાઓ",
+      shortEn: "Schemes",
+      shortHi: "योजनाएँ",
       icon: Compass,
     },
     {
@@ -53,6 +59,9 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
       labelGu: "ગુજરાત ભૌગોલિક નકશો",
       labelEn: "Gujarat Map",
       labelHi: "गुजरात नक्शा",
+      shortGu: "નકશો",
+      shortEn: "Map",
+      shortHi: "नक्शा",
       icon: MapPin,
     },
     {
@@ -60,6 +69,9 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
       labelGu: "સ્માર્ટ પાત્રતા નિર્ધારક",
       labelEn: "Smart Eligibility",
       labelHi: "स्मार्ट पात्रता",
+      shortGu: "વિઝાર્ડ",
+      shortEn: "Wizard",
+      shortHi: "विज़ार्ड",
       icon: Sparkles,
     },
     {
@@ -67,6 +79,9 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
       labelGu: "માહિતી વિશ્લેષણ",
       labelEn: "Dataset Analytics",
       labelHi: "डेटासेट विश्लेषण",
+      shortGu: "વિશ્લેષણ",
+      shortEn: "Analytics",
+      shortHi: "विश्लेषण",
       icon: BarChart3,
     },
     {
@@ -74,12 +89,56 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
       labelGu: "માહિતી શાસન અને વહીવટ",
       labelEn: "Data Governance",
       labelHi: "डेटा गवर्नेंस",
+      shortGu: "શાસન",
+      shortEn: "Governance",
+      shortHi: "शासन",
       icon: Settings,
     },
   ];
 
   return (
     <aside className="spatial-dock-anchor">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @media (max-width: 640px) {
+              .spatial-dock-item.active {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                min-width: 54px !important;
+                padding: 2px 2px !important;
+              }
+              .spatial-dock-item.active .spatial-dock-label {
+                position: static !important;
+                width: auto !important;
+                height: auto !important;
+                overflow: visible !important;
+                clip: auto !important;
+                clip-path: none !important;
+                font-size: 0.625rem !important;
+                font-weight: 700 !important;
+                line-height: 1.1 !important;
+                color: #011f65 !important;
+                text-align: center !important;
+                margin-top: 1px !important;
+                white-space: nowrap !important;
+                display: block !important;
+              }
+              .spatial-dock-item.active .spatial-dock-icon-wrap {
+                width: 20px !important;
+                height: 20px !important;
+                margin: 0 !important;
+              }
+              .spatial-dock-item.active .spatial-dock-icon-wrap svg {
+                width: 16px !important;
+                height: 16px !important;
+              }
+            }
+          `,
+        }}
+      />
       <nav className="spatial-dock-capsule" aria-label={language === "gu" ? "મુખ્ય નેવિગેશન" : language === "hi" ? "मुख्य नेविगेशन" : "Main navigation"}>
         <span className="spatial-dock-heading" aria-hidden="true">
           {language === "gu" ? "વિભાગો" : language === "hi" ? "सेक्शन" : "SECTIONS"}
@@ -87,7 +146,8 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeKey === item.key;
-          const title = language === "gu" ? item.labelGu : language === "hi" ? item.labelHi : item.labelEn;
+          const fullTitle = language === "gu" ? item.labelGu : language === "hi" ? item.labelHi : item.labelEn;
+          const shortTitle = language === "gu" ? item.shortGu : language === "hi" ? item.shortHi : item.shortEn;
 
           return (
             <button
@@ -97,9 +157,9 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
                 setPulse((current) => current + 1);
                 onSelect(item.key);
               }}
-              title={title}
-              data-tooltip={title}
-              aria-label={title}
+              title={fullTitle}
+              data-tooltip={fullTitle}
+              aria-label={fullTitle}
               aria-current={isActive ? "page" : undefined}
               className={`spatial-dock-item ${isActive ? "active" : ""}`}
             >
@@ -121,7 +181,7 @@ export function SpatialDock({ activeKey, onSelect, gu = true, lang }: SpatialDoc
               >
                 <Icon size={20} strokeWidth={1.75} />
               </motion.span>
-              <span className="spatial-dock-label">{title}</span>
+              <span className="spatial-dock-label">{shortTitle}</span>
             </button>
           );
         })}
