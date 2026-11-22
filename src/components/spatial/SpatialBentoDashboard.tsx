@@ -68,7 +68,7 @@ const copy = {
     kpiApproved: "મંજૂર પંક્તિઓનો હિસ્સો",
     kpiApprovedSub: "મંજૂરીની સ્થિતિ નોંધતી {n} યોજનાઓમાં",
     schemeTitle: "યોજનાવાર સ્થિતિ",
-    schemeNote: "દરેક પટ્ટી એક યોજનાની નમૂના પંક્તિઓની સ્થિતિ બતાવે છે.",
+    schemeNote: "દરેક યોજનામાં ૨,૮૨,૨૭૦ સમાન નમૂના પંક્તિઓ છે. નીચે દરેક યોજનાની મંજૂર / સેવા / પ્રક્રિયા / નામંજૂર વહેંચણી દર્શાવેલ છે.",
     districtTitle: "જિલ્લાવાર નમૂના પંક્તિઓ",
     districtNote: "સૌથી વધુ પંક્તિઓવાળા ૮ જિલ્લા.",
     rows: "પંક્તિઓ",
@@ -98,7 +98,7 @@ const copy = {
     kpiApproved: "स्वीकृत पंक्तियों का हिस्सा",
     kpiApprovedSub: "स्वीकृति दर्ज करने वाली {n} योजनाओं में",
     schemeTitle: "योजनावार स्थिति",
-    schemeNote: "हर पट्टी एक योजना की नमूना पंक्तियों की स्थिति दिखाती है।",
+    schemeNote: "प्रत्येक योजना में 2,82,270 समान नमूना पंक्तियाँ हैं। नीचे प्रत्येक योजना का स्वीकृत / सेवा / प्रक्रिया / अस्वीकृत विवरण दर्शाया गया है।",
     districtTitle: "जिलेवार नमूना पंक्तियाँ",
     districtNote: "सबसे अधिक पंक्तियों वाले ८ जिले।",
     rows: "पंक्तियाँ",
@@ -128,7 +128,7 @@ const copy = {
     kpiApproved: "Share of approved rows",
     kpiApprovedSub: "Across the {n} schemes that record approval",
     schemeTitle: "Status by scheme",
-    schemeNote: "Each bar shows the status of one scheme's sample rows.",
+    schemeNote: "Equal total of 2,82,270 sample rows per scheme. Below shows the specific status split (approved / in process / rejected) for each scheme.",
     districtTitle: "Sample rows by district",
     districtNote: "The 8 districts with the most rows.",
     rows: "rows",
@@ -303,12 +303,22 @@ export function SpatialBentoDashboard({ lang, talukaCount, onNavigate, onFocusMa
               <ul className="dx-rows">
                 {schemes.map((scheme) => {
                   const total = Math.max(1, usedStatuses.reduce((sum, s) => sum + (scheme.activity[s.key] ?? 0), 0));
+                  const act = scheme.activity || {};
+                  const isActivityBased = scheme.id === "S10" || (act.activityRecorded ?? 0) > 0;
+                  const statusSplit = isActivityBased
+                    ? `${text.status.activityRecorded}: ${fmt(act.activityRecorded ?? scheme.count, lang)} (${fmt(100, lang)}%)`
+                    : [
+                        (act.approved ?? 0) > 0 ? `${text.status.approved}: ${fmt(act.approved!, lang)}` : null,
+                        (act.serviceDelivered ?? 0) > 0 ? `${text.status.serviceDelivered}: ${fmt(act.serviceDelivered!, lang)}` : null,
+                        (act.pending ?? 0) > 0 ? `${text.status.pending}: ${fmt(act.pending!, lang)}` : null,
+                        (act.rejected ?? 0) > 0 ? `${text.status.rejected}: ${fmt(act.rejected!, lang)}` : null,
+                      ].filter(Boolean).slice(0, 3).join(" · ");
                   const summary = usedStatuses.filter((s) => (scheme.activity[s.key] ?? 0) > 0).map((s) => `${text.status[s.key]} ${fmt(scheme.activity[s.key] ?? 0, lang)}`).join(", ");
                   return (
                     <li className="dx-row" key={scheme.id}>
                       <div className="dx-row__top">
                         <span className="dx-row__name">{nameOf(scheme)}</span>
-                        <span className="dx-row__meta">{fmt(scheme.count, lang)} {text.rows}</span>
+                        <span className="dx-row__meta">{statusSplit}</span>
                       </div>
                       <div className="dx-bar" role="img" aria-label={`${nameOf(scheme)}: ${summary}`} title={summary}>
                         {usedStatuses.map((s, i) => {
