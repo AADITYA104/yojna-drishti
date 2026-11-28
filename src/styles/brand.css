@@ -55,55 +55,20 @@ a:hover { color: var(--holst-700, #355982); text-decoration: underline; }
   overflow-x: hidden;
 }
 
-/* Animated mesh background */
+/* Clean calm ink-tinted daylight background (no animated blobs) */
 .spatial-slate-teal-mesh {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(159, 192, 227, 0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 90% 80%, rgba(77, 121, 168, 0.12) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(208, 225, 242, 0.15) 0%, transparent 60%),
-    var(--holst-50, #F3F8FD);
+  background: #f5f7fa;
 }
 
 .spatial-mesh-orb-1,
 .spatial-mesh-orb-2,
 .spatial-mesh-orb-3 {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.35;
-  pointer-events: none;
-  animation: orb-drift 20s ease-in-out infinite alternate;
-}
-
-.spatial-mesh-orb-1 {
-  width: 520px; height: 520px;
-  top: -120px; left: -80px;
-  background: radial-gradient(circle, #9FC0E3 0%, #D0E1F2 60%, transparent 100%);
-  animation-delay: 0s;
-}
-
-.spatial-mesh-orb-2 {
-  width: 400px; height: 400px;
-  bottom: -100px; right: -60px;
-  background: radial-gradient(circle, #6E9ECC 0%, #9FC0E3 60%, transparent 100%);
-  animation-delay: -7s;
-}
-
-.spatial-mesh-orb-3 {
-  width: 300px; height: 300px;
-  top: 40%; left: 55%;
-  background: radial-gradient(circle, #D0E1F2 0%, transparent 70%);
-  animation-delay: -14s;
-}
-
-@keyframes orb-drift {
-  from { transform: translate(0, 0) scale(1); }
-  to   { transform: translate(30px, 20px) scale(1.08); }
+  display: none;
 }
 
 /* ── 2. HEADER / TOP BAR ─────────────────────────────────── */
@@ -872,15 +837,14 @@ textarea:focus {
   align-items: center;
   gap: 6px;
   padding: 4px 12px;
-  border-radius: 999px;
+  border-radius: 8px;
   font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: rgba(77, 121, 168, 0.10);
-  color: var(--holst-500, #4D79A8);
-  border: 1px solid rgba(77, 121, 168, 0.20);
-  margin-bottom: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  background: #edf2f7;
+  color: var(--holst-700, #355982);
+  border: 1px solid #dbe3ee;
+  margin-bottom: 12px;
 }
 
 .ai-insight-banner {
@@ -1246,16 +1210,21 @@ html.has-scroll-reveal .reveal-scale.in-view {
 
 /* A separate evidence page instead of a duplicate KPI dashboard. */
 .governance-page { width:min(100%, 1320px); margin:0 auto 56px; padding:8px clamp(12px,2vw,24px) 28px; color:var(--holst-900); }
-.governance-hero { margin:0; padding:clamp(26px,4vw,48px); border:1px solid rgba(110,158,204,.26); border-radius:24px; background:linear-gradient(132deg,rgba(255,255,255,.97),rgba(222,235,247,.78)); box-shadow:0 16px 40px rgba(34,58,94,.08),inset 0 1px rgba(255,255,255,.92); }
-.governance-hero h1 { max-width:780px; margin:0 0 10px; color:var(--holst-900); font-size:clamp(2rem,4vw,3.15rem); line-height:1.12; }
-.governance-hero p { max-width:760px; margin:0; color:var(--holst-700); font-size:1rem; line-height:1.65; }
+.spatial-main-container .governance-hero,
+.governance-hero {
+  display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; gap:8px;
+  margin:0; padding:clamp(24px,3.5vw,36px); border:1px solid #dbe3ee; border-radius:16px;
+  background:#ffffff; box-shadow:0 1px 2px rgba(16,38,63,.05);
+}
+.governance-hero h1 { max-width:780px; margin:0 0 4px; color:var(--holst-900); font-size:clamp(1.75rem,3.2vw,2.4rem); font-weight:600; line-height:1.25; }
+.governance-hero p { max-width:720px; margin:0; color:#4b5565; font-size:0.95rem; line-height:1.65; }
 .governance-note { margin:16px 0 !important; }
-.governance-section,.governance-roadmap { margin-top:16px; padding:clamp(18px,3vw,28px); border:1px solid rgba(110,158,204,.24); border-radius:20px; background:rgba(255,255,255,.9); box-shadow:0 10px 28px rgba(34,58,94,.055); }
-.governance-section-heading { margin:0 0 18px; }
-.governance-section-heading > span { display:block; margin-bottom:5px; color:var(--holst-500); font-size:.7rem; font-weight:800; letter-spacing:.075em; text-transform:uppercase; }
-.governance-section-heading h2 { margin:0; color:var(--holst-900); font-size:clamp(1.3rem,2vw,1.65rem); }
+.governance-section,.governance-roadmap { margin-top:16px; padding:clamp(20px,3vw,24px); border:1px solid #dbe3ee; border-radius:16px; background:#ffffff; box-shadow:0 1px 2px rgba(16,38,63,.04); }
+.governance-section-heading { margin:0 0 16px; }
+.governance-section-heading > span { display:block; margin-bottom:4px; color:#51667d; font-size:.75rem; font-weight:600; letter-spacing:0.01em; }
+.governance-section-heading h2 { margin:0; color:var(--holst-900); font-size:clamp(1.2rem,1.8vw,1.45rem); font-weight:600; }
 .governance-source-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
-.governance-source-card { display:flex; align-items:flex-start; gap:13px; min-width:0; padding:17px; border:1px solid rgba(110,158,204,.2); border-radius:15px; background:linear-gradient(135deg,rgba(248,252,255,.98),rgba(234,243,251,.66)); }
+.governance-source-card { display:flex; align-items:flex-start; gap:12px; min-width:0; padding:16px; border:1px solid #dbe3ee; border-radius:12px; background:#f8fafc; }
 .governance-source-icon { display:grid; flex:0 0 auto; width:38px; height:38px; place-items:center; border-radius:12px; color:#355982; background:#e1edf8; border:1px solid rgba(110,158,204,.25); }
 .governance-source-icon.pending { color:#8b651f; background:#fbf4e5; border-color:rgba(190,141,45,.25); }
 .governance-source-topline { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
@@ -1313,6 +1282,7 @@ html.has-scroll-reveal .reveal-scale.in-view {
   max-width: 1480px;
   min-width: 0;
   margin: 0 auto;
+  padding-bottom: 84px;
 }
 .spatial-top-vision-bar.spatial-header-bar {
   position: sticky;
@@ -2556,4 +2526,188 @@ html.has-scroll-reveal .reveal-scale.in-view {
   .vah-view-toggle-btn,
   .vah-scheme-pill,
   .vah-modal-tab-btn { min-height: 40px; }
+}
+
+/* ── UNSLOP POLISH PASSES (Civic Ledger & Cartographic Precision) ── */
+
+/* 1. Unified calm daylight hero across Map, Villages, and Financials */
+.spatial-main-container .page-hero-gov:not(.governance-hero) {
+  background: #ffffff !important;
+  color: #10263f !important;
+  border: 1px solid #dbe3ee !important;
+  border-radius: 16px !important;
+  padding: 24px 28px !important;
+  box-shadow: 0 1px 2px rgba(16, 38, 63, 0.05) !important;
+}
+.spatial-main-container .page-hero-gov:not(.governance-hero) h1 {
+  color: #16385c !important;
+  font-size: clamp(1.5rem, 1.15rem + 1.4vw, 2.1rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+}
+.spatial-main-container .page-hero-gov:not(.governance-hero) p {
+  color: #4b5565 !important;
+  line-height: 1.65 !important;
+}
+.spatial-main-container .page-hero-gov:not(.governance-hero) .hero-kicker-tag {
+  background: #f1f5f9 !important;
+  color: #355982 !important;
+  border-color: #dbe3ee !important;
+}
+.spatial-main-container .village-hero-district-card {
+  background: #f8fafc !important;
+  border: 1px solid #dbe3ee !important;
+  color: #16385c !important;
+}
+.spatial-main-container .village-hero-district-card,
+.spatial-main-container .village-hero-district-card * {
+  color: #16385c !important;
+  opacity: 1 !important;
+}
+
+/* 2. SchemesView hero right-hand summary panel (replaces missing Tailwind utilities) */
+.schemes-hero-summary {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  background: #f8fafc;
+  border-left: 1px solid #dbe3ee;
+}
+.schemes-hero-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.schemes-demo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #fdf1e0;
+  color: #b45309;
+  border: 1px solid #f3d3a6;
+}
+.schemes-demo-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d97706;
+}
+.schemes-fy-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: #4b5565;
+  background: #ffffff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #dbe3ee;
+}
+.schemes-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.schemes-hero-stat {
+  background: #ffffff;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #dbe3ee;
+}
+.schemes-hero-stat-value {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #16385c;
+  font-variant-numeric: tabular-nums;
+}
+.schemes-hero-stat-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #51667d;
+  margin-top: 4px;
+}
+.schemes-hero-filter-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #51667d;
+  margin-bottom: 8px;
+}
+.schemes-hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.schemes-hero-chip {
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid #dbe3ee;
+  background: #ffffff;
+  color: #2c4560;
+  cursor: pointer;
+  transition: background-color 150ms cubic-bezier(0.22, 1, 0.36, 1), border-color 150ms cubic-bezier(0.22, 1, 0.36, 1), color 150ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.schemes-hero-chip:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+.schemes-hero-chip.active {
+  background: #16385c;
+  color: #ffffff;
+  border-color: #16385c;
+}
+@media (max-width: 900px) {
+  .schemes-hero-summary {
+    border-left: none;
+    border-top: 1px solid #dbe3ee;
+    padding: 20px;
+  }
+}
+
+/* 3. Schemes list mobile pill alignment */
+@media (max-width: 640px) {
+  .spatial-main-container .smc-header-meta {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .spatial-main-container .smc-code-pill,
+  .spatial-main-container .smc-cat-badge {
+    white-space: nowrap;
+  }
+}
+
+/* 4. BeneficiaryAnalyticsView (#saved): balance 5th card in 2-col grid */
+@media (min-width: 900px) {
+  .analytics-group-grid > .analytics-group-panel:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+  .analytics-group-grid > .analytics-group-panel:last-child:nth-child(odd) .data-bar-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* 5. VillageIntelligenceView table toolbar & horizontal scroll hint */
+.village-records-toolbar label {
+  white-space: nowrap;
+}
+.village-table-wrap {
+  position: relative;
+}
+@media (max-width: 640px) {
+  .spatial-top-vision-bar.spatial-header-bar {
+    padding: 8px 12px !important;
+    gap: 8px !important;
+    min-height: 0 !important;
+  }
 }

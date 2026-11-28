@@ -101,8 +101,7 @@ export function BeneficiaryAnalyticsView({ lang }: BeneficiaryAnalyticsViewProps
                     style={{
                       width: `${total ? Math.max(1, (value / total) * 100) : 0}%`,
                       ...(isCommunity ? {
-                        background: "repeating-linear-gradient(45deg, #6366f1, #6366f1 6px, #4f46e5 6px, #4f46e5 12px)",
-                        border: "1px dashed #c7d2fe",
+                        background: "#64748b",
                       } : {}),
                     }}
                   />

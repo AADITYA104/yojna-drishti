@@ -130,54 +130,46 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
           </div>
         </div>
 
-        <div className="gujarat-glass-hero-summary p-6 sm:p-8 flex flex-col justify-between bg-gradient-to-br from-[#eff7fa] to-[#dceaf0] border-t md:border-t-0 md:border-l border-slate-200/80">
-          <div>
-            <div className="flex items-center justify-between gap-2 mb-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-500/30">
-                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                {gu ? "કૃત્રિમ ડેમો ડેટાસેટ" : lang === "hi" ? "कृत्रिम नमूना डेटा" : "SYNTHETIC DEMO DATA"}
+        <div className="schemes-hero-summary">
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <div className="schemes-hero-meta-row">
+              <span className="schemes-demo-pill">
+                <span className="schemes-demo-dot" aria-hidden="true" />
+                {gu ? "કૃત્રિમ ડેમો ડેટાસેટ" : lang === "hi" ? "कृत्रिम नमूना डेटा" : "Synthetic demo data"}
               </span>
-              <span className="text-xs font-semibold text-slate-600 bg-white/70 px-2.5 py-1 rounded-md border border-slate-200/60">
+              <span className="schemes-fy-pill">
                 {gu ? `નાણાકીય વર્ષ ${fy}` : lang === "hi" ? `वित्तीय वर्ष ${fy}` : `FY ${fy}`}
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 mb-5">
-              <div className="bg-white/95 p-3.5 rounded-xl border border-slate-200 shadow-xs">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#173b58]">{fmt(demoSchemes.length)}</div>
-                <div className="text-xs font-semibold text-slate-600 mt-1">{gu ? "કુલ સક્રિય યોજનાઓ" : lang === "hi" ? "कुल सक्रिय योजनाएँ" : "Total Active Schemes"}</div>
+            <div className="schemes-hero-stats">
+              <div className="schemes-hero-stat">
+                <div className="schemes-hero-stat-value">{fmt(demoSchemes.length)}</div>
+                <div className="schemes-hero-stat-label">{gu ? "કુલ સક્રિય યોજનાઓ" : lang === "hi" ? "कुल सक्रिय योजनाएँ" : "Total active schemes"}</div>
               </div>
-              <div className="bg-white/95 p-3.5 rounded-xl border border-slate-200 shadow-xs">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#1a5277]">{fmt(categories.length)}</div>
-                <div className="text-xs font-semibold text-slate-600 mt-1">{gu ? "મુખ્ય શ્રેણીઓ" : lang === "hi" ? "प्रमुख श्रेणियाँ" : "Key Categories"}</div>
+              <div className="schemes-hero-stat">
+                <div className="schemes-hero-stat-value">{fmt(categories.length)}</div>
+                <div className="schemes-hero-stat-label">{gu ? "મુખ્ય શ્રેણીઓ" : lang === "hi" ? "प्रमुख श्रेणियाँ" : "Key categories"}</div>
               </div>
             </div>
           </div>
 
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">{gu ? "શ્રેણી ફિલ્ટર" : lang === "hi" ? "श्रेणी फ़िल्टर" : "Category Filter"}</div>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="schemes-hero-filter-label">{gu ? "શ્રેણી ફિલ્ટર" : lang === "hi" ? "श्रेणी फ़िल्टर" : "Category filter"}</div>
+            <div className="schemes-hero-chips">
               <button
                 type="button"
                 onClick={() => setSelectedCategory("all")}
-                className={`px-2.5 py-1 text-xs rounded-lg font-medium transition-all ${
-                  selectedCategory === "all"
-                    ? "bg-[#173b58] text-white shadow-xs"
-                    : "bg-white/80 hover:bg-white text-slate-700 border border-slate-200"
-                }`}
+                className={`schemes-hero-chip ${selectedCategory === "all" ? "active" : ""}`}
               >
-                {gu ? "બધી યોજનાઓ" : lang === "hi" ? "सभी योजनाएँ" : "All Schemes"}
+                {gu ? "બધી યોજનાઓ" : lang === "hi" ? "सभी योजनाएँ" : "All schemes"}
               </button>
               {categories.map((cat) => (
                 <button
                   key={cat}
                   type="button"
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-2.5 py-1 text-xs rounded-lg font-medium transition-all ${
-                    selectedCategory === cat
-                      ? "bg-[#173b58] text-white shadow-xs"
-                      : "bg-white/80 hover:bg-white text-slate-700 border border-slate-200"
-                  }`}
+                  className={`schemes-hero-chip ${selectedCategory === cat ? "active" : ""}`}
                 >
                   {gu ? (categoryLabels.get(cat) || cat) : lang === "hi" ? localizeText("hi", cat) : cat}
                 </button>
@@ -299,7 +291,7 @@ export function SchemesView({ gu, lang, fy, initialSearchTerm = "", onOpenMap }:
                   </div>
 
                   <div className="smc-footer-bar">
-                    <div className="target-summary">
+                    <div className="target-summary" style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                       <span className="ts-label">{gu ? "સ્થિતિ:" : lang === "hi" ? "स्थिति:" : "Status:"}</span>
                       <span className="ts-val">{gu ? "નમૂનો · સત્તાવાર રીતે ચકાસાયેલો નથી" : lang === "hi" ? "नमूना · आधिकारिक रूप से सत्यापित नहीं" : "Sample · not officially verified"}</span>
                     </div>

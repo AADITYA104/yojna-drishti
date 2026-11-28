@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useMemo, useCallback } from "react";
 import * as echarts from "echarts";
 import { demoSchemes, STATE_TOTALS } from "@/lib/demo-data";
 import { scaleDemoValue } from "@/lib/metrics.mjs";
-import { CheckCircle2, AlertCircle } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { DRISHTI_PALETTE } from "@/lib/echarts-theme";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { localizeText, type AppLanguage } from "@/lib/i18n";
@@ -46,7 +46,7 @@ export function FinancialIntelligenceView({ gu, lang, fy }: FinancialIntelligenc
   const dbtSuccessRate = 99.2;
 
   const months = useMemo(() => {
-    if (currentLang === "gu") return ["એ", "મે", "જૂ", "જુ", "ઓ", "સ", "ઓ", "ન", "ડ", "જ", "ફ", "મા"];
+    if (currentLang === "gu") return ["એપ્રિ", "મે", "જૂન", "જુલા", "ઑગ", "સપ્ટે", "ઑક્ટો", "નવે", "ડિસે", "જાન્યુ", "ફેબ્રુ", "માર્ચ"];
     if (currentLang === "hi") return ["अप्रै", "मई", "जून", "जुला", "अग", "सित", "अक्टू", "नव", "दिस", "जन", "फ़र", "मार्च"];
     return ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar"];
   }, [currentLang]);
@@ -174,14 +174,7 @@ export function FinancialIntelligenceView({ gu, lang, fy }: FinancialIntelligenc
         data: regVals.map((v, i) => ({
           value: v,
           itemStyle: {
-            color: {
-              type: "linear",
-              x: 0, y: 0, x2: 0, y2: 1,
-              colorStops: [
-                { offset: 0, color: HOLST_PALETTE[i % HOLST_PALETTE.length] },
-                { offset: 1, color: "rgba(77, 121, 168, 0.45)" },
-              ],
-            },
+            color: i === 0 ? "#16385C" : "#6E9ECC",
             borderRadius: [6, 6, 0, 0],
           },
         })),
@@ -225,7 +218,7 @@ export function FinancialIntelligenceView({ gu, lang, fy }: FinancialIntelligenc
         splitLine: { show: false },
         axisLabel: { show: false },
         detail: {
-          valueAnimation: true,
+          valueAnimation: false,
           formatter: "{value}%",
           color: "#223A5E",
           fontSize: 26,
@@ -248,7 +241,7 @@ export function FinancialIntelligenceView({ gu, lang, fy }: FinancialIntelligenc
       <div className="page-hero-gov">
         <div>
           <span className="hero-kicker-tag">
-            {t("ડેમો પૂર્વદર્શન · DBT નાણાકીય ઉદાહરણ", "डेमो पूर्वावलोकन · डीबीटी वित्तीय उदाहरण", "DEMO PREVIEW · DBT FINANCIAL EXAMPLE")}
+            {t("ડેમો પૂર્વદર્શન · DBT નાણાકીય ઉદાહરણ", "डेमो पूर्वावलोकन · डीबीटी वित्तीय उदाहरण", "Demo preview · DBT financial example")}
           </span>
           <h1>{t(`DBT સીધી સહાય ચુકવણી · ₹ ${fmt(totalDisbursed)} Cr`, `डीबीटी प्रत्यक्ष लाभ भुगतान · ₹ ${fmt(totalDisbursed)} Cr`, `Public Spending & Direct Benefit Transfers · ₹ ${fmt(totalDisbursed)} Cr`)}</h1>
           <p>
@@ -380,7 +373,7 @@ export function FinancialIntelligenceView({ gu, lang, fy }: FinancialIntelligenc
                     </td>
                     <td>
                       <span className={dbtPct >= 99 ? "badge-pill-success" : "badge-pill"}>
-                        {dbtPct >= 99 ? <CheckCircle2 size={12} /> : <AlertCircle size={12} />}
+                        <CheckCircle2 size={12} />
                         &nbsp;{dbtPct}%
                       </span>
                     </td>

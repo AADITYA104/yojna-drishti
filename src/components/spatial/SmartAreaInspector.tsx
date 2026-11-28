@@ -802,7 +802,7 @@ export function SmartAreaInspector({ lang, onFocusMap }: SmartAreaInspectorProps
                 <UsersRound size={18} className="dx-stat-box__icon" aria-hidden="true" />
               </div>
               <div className="dx-stat-box__value">
-                {areaData ? `${areaData.urbanCount} 🏙️ / ${areaData.ruralCount} 🏡` : `${summary.femaleRate}% 👩`}
+                {areaData ? `${areaData.urbanCount} / ${areaData.ruralCount}` : `${summary.femaleRate}%`}
               </div>
               <span className="dx-stat-box__sub">
                 {areaData ? t.urbanRuralSplit : t.femaleBeneficiaryRatio}

@@ -190,11 +190,16 @@ export function PublicPortalView({ gu, lang, initialState, onStateChange }: Publ
               __html: `
                 .wizard-options-grid {
                   display: grid !important;
-                  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+                  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
                   gap: 10px;
                 }
                 .wizard-options-grid > .wizard-opt-btn:last-child:nth-child(odd) {
                   grid-column: 1 / -1 !important;
+                }
+                @media (max-width: 640px) {
+                  .wizard-options-grid {
+                    grid-template-columns: 1fr !important;
+                  }
                 }
               `,
             }}

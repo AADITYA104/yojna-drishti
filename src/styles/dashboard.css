@@ -64,8 +64,8 @@
 .dx-btn svg { transition: transform 200ms var(--dx-ease); }
 .dx-btn:hover svg { transform: translateX(3px); }
 .dx-btn:active { transform: scale(0.97); }
-.dx-btn--primary { background: var(--dx-saffron); color: #fff; box-shadow: 0 6px 16px -8px rgba(180, 83, 9, 0.7); }
-.dx-btn--primary:hover { background: #9a4607; }
+.dx-btn--primary { background: var(--dx-navy); color: #fff; box-shadow: 0 1px 2px rgba(16, 38, 63, 0.16); }
+.dx-btn--primary:hover { background: #0f2a47; }
 .dx-btn--ghost { background: var(--dx-surface); color: var(--dx-navy); border-color: var(--dx-line); }
 .dx-btn--ghost:hover { background: var(--dx-wash); border-color: #c4d1e0; }
 .dx :focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; border-radius: 6px; }
@@ -74,8 +74,8 @@
 .dx-ladder { position: relative; margin: 0; padding: 20px 24px; border: 1px solid var(--dx-line-soft); border-radius: var(--dx-R); background: var(--dx-wash); list-style: none; display: grid; gap: 0; align-content: center; }
 .dx-ladder::before {
   content: ""; position: absolute; left: 39px; top: 44px; bottom: 44px; width: 2px;
-  background: linear-gradient(var(--dx-saffron-fill), var(--dx-teal));
-  transform-origin: top; transform: scaleY(0); animation: dx-draw 900ms var(--dx-ease) 250ms forwards;
+  background: #cbd5e1;
+  transform-origin: top; transform: scaleY(0); animation: dx-draw 600ms var(--dx-ease) 150ms forwards;
 }
 .dx-step { position: relative; display: grid; grid-template-columns: 32px 1fr; gap: 16px; align-items: center; padding: 14px 0; }
 .dx-step__dot {

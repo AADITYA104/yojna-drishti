@@ -173,7 +173,7 @@ export function AdministrationView({ lang }: AdministrationViewProps) {
             </span>
             <div>
               <strong style={{ display: "block", fontSize: "0.95rem", color: "#223A5E" }}>
-                {lang === "gu" ? "ગામવાર યોજના વિશ્લેષણ (#villages)" : lang === "hi" ? "ग्रामवार योजना विश्लेषण (#villages)" : "Village Scheme Geo-Intelligence (#villages)"}
+                {lang === "gu" ? "ગામવાર યોજના વિશ્લેષણ" : lang === "hi" ? "ग्रामवार योजना विश्लेषण" : "Village Scheme Geo-Intelligence"}
               </strong>
               <small style={{ color: "#4D79A8", fontSize: "0.78rem" }}>
                 {lang === "gu" ? "દરેક ગામના LGD કોડ, DBT વિતરણ અને લાભાર્થી નોંધણી" : lang === "hi" ? "प्रत्येक गाँव का एलजीडी कोड, डीबीटी वितरण एवं लाभार्थी" : "LGD codes, DBT disbursement & beneficiary reach by village"}
@@ -200,7 +200,7 @@ export function AdministrationView({ lang }: AdministrationViewProps) {
             </span>
             <div>
               <strong style={{ display: "block", fontSize: "0.95rem", color: "#223A5E" }}>
-                {lang === "gu" ? "DBT નાણાકીય પ્રવાહ (#financials)" : lang === "hi" ? "डीबीटी वित्तीय प्रवाह (#financials)" : "Public Spending & Financials (#financials)"}
+                {lang === "gu" ? "DBT નાણાકીય પ્રવાહ" : lang === "hi" ? "डीबीटी वित्तीय प्रवाह" : "Public Spending & Financials"}
               </strong>
               <small style={{ color: "#4D79A8", fontSize: "0.78rem" }}>
                 {lang === "gu" ? "યોજનાવાર બજેટ ફાળવણી, માસિક ખર્ચ અને ઉપયોગ ગેજ" : lang === "hi" ? "योजनावार बजट आवंटन, मासिक व्यय और उपयोग गेज" : "Budget allocation, monthly outflow & utilization gauges"}

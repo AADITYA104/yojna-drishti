@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, BookOpenCheck, Building2, Home, Map as MapIcon, Percent, Rows3, Sparkles, Wallet } from "lucide-react";
+import { ArrowRight, BookOpenCheck, Building2, Home, Map as MapIcon, Percent, Rows3, Wallet } from "lucide-react";
 import { localizeText, type AppLanguage } from "@/lib/i18n";
 import { AnimatedNumber } from "@/components/motion/AnimatedNumber";
 import { KpiCard } from "@/components/ui/KpiCard";
@@ -303,18 +303,18 @@ export function SpatialBentoDashboard({ lang, talukaCount, onNavigate, onFocusMa
                 display: "flex",
                 alignItems: "center",
                 gap: "10px",
-                padding: "12px 18px",
+                padding: "12px 16px",
                 borderRadius: "12px",
-                background: "rgba(238, 108, 43, 0.08)",
-                border: "1px solid rgba(238, 108, 43, 0.22)",
+                background: "#f8fafc",
+                border: "1px solid #dbe3ee",
                 fontSize: "0.875rem",
                 color: "var(--dx-ink)",
-                margin: "12px 0 16px 0",
+                margin: "4px 0 8px 0",
               }}
             >
-              <Sparkles size={18} style={{ color: "var(--dx-saffron)", flexShrink: 0 }} aria-hidden="true" />
-              <div style={{ lineHeight: 1.5 }}>
-                <strong style={{ color: "var(--dx-saffron)", marginRight: "6px" }}>{text.keyInsightTitle}:</strong>
+              <BookOpenCheck size={17} style={{ color: "var(--dx-navy)", flexShrink: 0 }} aria-hidden="true" />
+              <div style={{ lineHeight: 1.55 }}>
+                <strong style={{ color: "var(--dx-navy)", marginRight: "6px" }}>{text.keyInsightTitle}:</strong>
                 <span>
                   {text.keyInsightTemplate
                     .replace("{rows}", fmt(districts[0].sampleRows, lang))
